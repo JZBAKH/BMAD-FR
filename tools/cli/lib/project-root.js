@@ -8,15 +8,15 @@ const fs = require('fs-extra');
 function findProjectRoot(startPath = __dirname) {
   let currentPath = path.resolve(startPath);
 
-  // Keep going up until we find package.json with bmad-method
+  // Keep going up until we find package.json with bmad-method or bmad-fr
   while (currentPath !== path.dirname(currentPath)) {
     const packagePath = path.join(currentPath, 'package.json');
 
     if (fs.existsSync(packagePath)) {
       try {
         const pkg = fs.readJsonSync(packagePath);
-        // Check if this is the BMAD project
-        if (pkg.name === 'bmad-method' || fs.existsSync(path.join(currentPath, 'src', 'core'))) {
+        // MODIFICATION FR : Ajout de la détection bmad-fr et core-fr
+        if (pkg.name === 'bmad-method' || pkg.name === 'bmad-fr' || fs.existsSync(path.join(currentPath, 'src', 'core')) || fs.existsSync(path.join(currentPath, 'src', 'core-fr'))) {
           return currentPath;
         }
       } catch {
@@ -24,8 +24,8 @@ function findProjectRoot(startPath = __dirname) {
       }
     }
 
-    // Also check for src/core as a marker
-    if (fs.existsSync(path.join(currentPath, 'src', 'core', 'agents'))) {
+    // MODIFICATION FR : Marqueur des agents FR
+    if (fs.existsSync(path.join(currentPath, 'src', 'core', 'agents')) || fs.existsSync(path.join(currentPath, 'src', 'core-fr', 'agents'))) {
       return currentPath;
     }
 
@@ -60,18 +60,23 @@ function getSourcePath(...segments) {
  * All other modules are stored remote
  */
 function getModulePath(moduleName, ...segments) {
-  if (moduleName === 'core') {
-    return getSourcePath('core', ...segments);
+  if (moduleName === 'core' || moduleName === 'bmm') {
+    // MODIFICATION FR : Redirection vers les dossiers -fr
+    const frenchModule = moduleName + '-fr';
+    return path.join(getProjectRoot(), 'src', frenchModule, ...segments);
   }
-  if (moduleName === 'bmm') {
-    return getSourcePath('bmm', ...segments);
+
+  // For other modules (assumed to be sibling directories or in node_modules)
+  const externalModulePath = path.join(getProjectRoot(), '..', moduleName, ...segments);
+  if (fs.existsSync(externalModulePath)) {
+    return externalModulePath;
   }
-  return getSourcePath('modules', moduleName, ...segments);
+
+  return path.join(getProjectRoot(), 'node_modules', moduleName, ...segments);
 }
 
 module.exports = {
   getProjectRoot,
   getSourcePath,
   getModulePath,
-  findProjectRoot,
 };

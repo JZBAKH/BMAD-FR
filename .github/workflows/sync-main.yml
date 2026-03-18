@@ -1,0 +1,29 @@
+name: Synchronisation automatique du miroir (main)
+
+on:
+  schedule:
+    # S'exécute à 06:00 et 18:00 (UTC) tous les jours
+    - cron: '0 6,18 * * *'
+  workflow_dispatch:
+  
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT_WORKFLOW_TOKEN }}
+
+      - name: Synchroniser le main
+        run: |
+          # 1. On se connecte au projet original
+          git remote add upstream https://github.com/bmad-code-org/BMAD-METHOD.git
+          git fetch upstream
+          
+          # 2. On pousse l'original sur le main
+          git push origin refs/remotes/upstream/main:refs/heads/main --force

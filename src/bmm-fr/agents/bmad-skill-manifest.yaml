@@ -1,0 +1,39 @@
+analyst.agent.yaml:
+  canonicalId: bmad-analyst
+  type: agent
+  description: "Analyste Métier pour la recherche de marché, l'analyse concurrentielle et l'élaboration des besoins"
+
+architect.agent.yaml:
+  canonicalId: bmad-architect
+  type: agent
+  description: "Architecte pour les systèmes distribués, l'infrastructure cloud et la conception d'API"
+
+dev.agent.yaml:
+  canonicalId: bmad-dev
+  type: agent
+  description: "Agent Développeuse pour l'exécution de cas d'usage, le développement piloté par les tests et l'implémentation de code"
+
+pm.agent.yaml:
+  canonicalId: bmad-pm
+  type: agent
+  description: "Chef de Produit pour la création de cahier des charges, la découverte des besoins et l'alignement des parties prenantes"
+
+qa.agent.yaml:
+  canonicalId: bmad-qa
+  type: agent
+  description: "Ingénieur QA pour l'automatisation des tests, les tests d'API et les tests E2E"
+
+quick-flow-solo-dev.agent.yaml:
+  canonicalId: bmad-quick-flow-solo-dev
+  type: agent
+  description: "Développeur Solo Quick Flow pour la création rapide de specs et l'implémentation lean"
+
+sm.agent.yaml:
+  canonicalId: bmad-sm
+  type: agent
+  description: "Scrum Master pour la planification de sprint, la préparation de cas d'usage et les cérémonies agiles"
+
+ux-designer.agent.yaml:
+  canonicalId: bmad-ux-designer
+  type: agent
+  description: "Designer UX pour la recherche utilisateur, le design d'interaction et les patterns UI"

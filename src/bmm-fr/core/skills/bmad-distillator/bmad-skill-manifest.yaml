@@ -1,0 +1,15 @@
+type: skill
+module: core
+capabilities:
+  - name: bmad-distillator
+    menu-code: DSTL
+    description: "Produit un distillat sans perte optimisé pour les LLM à partir de documents sources. À utiliser après avoir produit de gros documents présentables aux humains qui seront consommés plus tard par des LLM"
+    supports-headless: true
+    input: documents sources
+    args: output, validate
+    output: distillat unique ou dossier de distillats à côté de l'entrée source
+    config-vars-used: null
+    phase: n'importe quand
+    before: []
+    after: []
+    is-required: false

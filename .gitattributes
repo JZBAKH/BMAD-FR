@@ -1,0 +1,4 @@
+README.md merge=ours
+package.json merge=ours
+tools/cli/installers/install-messages.yaml merge=ours
+tools/cli/lib/project-root.js merge=ours

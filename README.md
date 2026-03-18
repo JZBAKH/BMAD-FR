@@ -1,109 +1,240 @@
-![BMad Method](banner-bmad-method.png)
+![B.M.A.D : Bâtir Méthodiquement une Architecture Durable](bmad-fr.png)
 
-[![Version](https://img.shields.io/npm/v/bmad-method?color=blue&label=version)](https://www.npmjs.com/package/bmad-method)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Community-7289da?logo=discord&logoColor=white)](https://discord.gg/gk8jAdXWmj)
+> **Fork de BMAD-METHOD "Build More Architect Dreams" (Création originale : Brian Madison / BMad Code, LLC)**
 
-**Build More Architect Dreams** — An AI-driven agile development module for the BMad Method Module Ecosystem, the best and most comprehensive Agile AI Driven Development framework that has true scale-adaptive intelligence that adjusts from bug fixes to enterprise systems.
-
-**100% free and open source.** No paywalls. No gated content. No gated Discord. We believe in empowering everyone, not just those who can pay for a gated community or courses.
-
-## Why the BMad Method?
-
-Traditional AI tools do the thinking for you, producing average results. BMad agents and facilitated workflows act as expert collaborators who guide you through a structured process to bring out your best thinking in partnership with the AI.
-
-- **AI Intelligent Help** — Invoke the `bmad-help` skill anytime for guidance on what's next
-- **Scale-Domain-Adaptive** — Automatically adjusts planning depth based on project complexity
-- **Structured Workflows** — Grounded in agile best practices across analysis, planning, architecture, and implementation
-- **Specialized Agents** — 12+ domain experts (PM, Architect, Developer, UX, Scrum Master, and more)
-- **Party Mode** — Bring multiple agent personas into one session to collaborate and discuss
-- **Complete Lifecycle** — From brainstorming to deployment
-
-[Learn more at **docs.bmad-method.org**](https://docs.bmad-method.org)
+[![Version NPM](https://img.shields.io/npm/v/bmad-fr.svg)](https://www.npmjs.com/package/bmad-fr)
+[![Licence MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
 
-## 🚀 What's Next for BMad?
-
-**V6 is here and we're just getting started!** The BMad Method is evolving rapidly with optimizations including Cross Platform Agent Team and Sub Agent inclusion, Skills Architecture, BMad Builder v1, Dev Loop Automation, and so much more in the works.
-
-**[📍 Check out the complete Roadmap →](https://docs.bmad-method.org/roadmap/)**
+> ⚠️ **À lire avant d'utiliser ce fork**
+> **La version originale parle déjà français !**
+> Il est tout à fait possible d'utiliser la [version anglaise originale de BMAD](https://github.com/bmad-code-org/BMAD-METHOD) dans n'importe quelle langue. Il vous suffit de vous adresser aux agents en français pour qu'ils vous répondent naturellement dans cette langue.
+> **Alors, pourquoi utiliser ce fork ?**
+> Notre feuille de route se divise en deux étapes :
+> 1. **Accessibilité (En cours) :** La traduction des prompts vise à faciliter la découverte et la compréhension des mécanismes pour les nouveaux utilisateurs francophones.
+> 2. **Évolution (À venir) :** Après une compréhension approfondie de la structure d'origine, ce fork servira de laboratoire pour tester des modifications avancées, comme l'automatisation de certaines boucles et l'intégration de la méthodologie TDD (Test-Driven Development).
+> 
+> 
+> *💡 Note : Si vous cherchez à utiliser le framework standard avec les toutes dernières mises à jour officielles, il est fortement recommandé de vous tourner vers le projet original.*
+> - [Version anglaise originale de BMAD](https://github.com/bmad-code-org/BMAD-METHOD)
+> 📍 Consultez la [Feuille de Route du projet original](https://github.com/bmad-code-org/BMAD-METHOD/blob/main/docs/roadmap.mdx) →
 
 ---
 
-## Quick Start
+**B.M.A.D : Bâtir Méthodiquement une Architecture Durable** — Un module de développement agile piloté par l'IA pour l'écosystème de modules BMad Method, le meilleur et le plus complet framework de développement agile piloté par l'IA avec une véritable intelligence adaptative à l'échelle qui s'ajuste des corrections de bugs aux systèmes enterprise.
 
-**Prerequisites**: [Node.js](https://nodejs.org) v20+
+100% gratuit et open source.
+Pas de paywalls. Pas de contenu gated. Pas de Discord gated. Nous croyons en l'autonomisation de tout le monde, pas seulement de ceux qui peuvent payer pour une communauté ou des cours privés.
+
+---
+
+## Pourquoi la Méthode BMad ?
+
+Les outils d'IA traditionnels font la réflexion à votre place, produisant des résultats moyens. Les agents BMad et les workflows facilités agissent comme des collaborateurs experts qui vous guident à travers un processus structuré pour faire émerger votre meilleure réflexion en partenariat avec l'IA.
+
+| Fonctionnalité | Description |
+| --- | --- |
+| **Aide IA Intelligente** | Demandez `/bmad-help` à tout moment pour savoir quelle est la prochaine étape |
+| **Adaptatif Échelle-Domaine** | Ajuste automatiquement la profondeur de planification en fonction de la complexité du projet |
+| **Workflows Structurés** | Ancré dans les meilleures pratiques agiles à travers l'analyse, la planification, l'architecture et l'implémentation |
+| **Agents Spécialisés** | 12+ experts métiers (Chef de Produit, Architecte, Développeur, UX, Scrum Master, et plus) |
+| **Mode Party** | Amenez plusieurs personas d'agents dans une session pour collaborer et discuter |
+| **Cycle de Vie Complet** | Du brainstorming au déploiement |
+
+
+---
+
+## Démarrage Rapide (Installation de BMAD-FR)
+
+### Prérequis
+
+* [Node.js](https://nodejs.org) v20+
+
+### Via NPX (Recommandé)
 
 ```bash
-npx bmad-method install
+# Dans votre projet
+npx bmad-fr install
 ```
 
-> Want the newest prerelease build? Use `npx bmad-method@next install`. Expect higher churn than the default install.
-
-Follow the installer prompts, then open your AI IDE (Claude Code, Cursor, etc.) in your project folder.
-
-**Non-Interactive Installation** (for CI/CD):
+### Via NPM
 
 ```bash
-npx bmad-method install --directory /path/to/project --modules bmm --tools claude-code --yes
+# Global
+npm install -g bmad-fr
+
+# Puis dans votre projet
+bmad-fr install
 ```
 
-[See all installation options](https://docs.bmad-method.org/how-to/non-interactive-installation/)
+### Vérification
 
-> **Not sure what to do?** Ask `bmad-help` — it tells you exactly what's next and what's optional. You can also ask questions like `bmad-help I just finished the architecture, what do I do next?`
-
-## Modules
-
-BMad Method extends with official modules for specialized domains. Available during installation or anytime after.
-
-| Module                                                                                                            | Purpose                                           |
-| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| **[BMad Method (BMM)](https://github.com/bmad-code-org/BMAD-METHOD)**                                             | Core framework with 34+ workflows                 |
-| **[BMad Builder (BMB)](https://github.com/bmad-code-org/bmad-builder)**                                           | Create custom BMad agents and workflows           |
-| **[Test Architect (TEA)](https://github.com/bmad-code-org/bmad-method-test-architecture-enterprise)**             | Risk-based test strategy and automation           |
-| **[Game Dev Studio (BMGD)](https://github.com/bmad-code-org/bmad-module-game-dev-studio)**                        | Game development workflows (Unity, Unreal, Godot) |
-| **[Creative Intelligence Suite (CIS)](https://github.com/bmad-code-org/bmad-module-creative-intelligence-suite)** | Innovation, brainstorming, design thinking        |
-
-## Documentation
-
-[BMad Method Docs Site](https://docs.bmad-method.org) — Tutorials, guides, concepts, and reference
-
-**Quick links:**
-- [Getting Started Tutorial](https://docs.bmad-method.org/tutorials/getting-started/)
-- [Upgrading from Previous Versions](https://docs.bmad-method.org/how-to/upgrade-to-v6/)
-- [Test Architect Documentation](https://bmad-code-org.github.io/bmad-method-test-architecture-enterprise/)
-
-
-## Community
-
-- [Discord](https://discord.gg/gk8jAdXWmj) — Get help, share ideas, collaborate
-- [Subscribe on YouTube](https://www.youtube.com/@BMadCode) — Tutorials, master class, and podcast (launching Feb 2025)
-- [GitHub Issues](https://github.com/bmad-code-org/BMAD-METHOD/issues) — Bug reports and feature requests
-- [Discussions](https://github.com/bmad-code-org/BMAD-METHOD/discussions) — Community conversations
-
-## Support BMad
-
-BMad is free for everyone — and always will be. If you'd like to support development:
-
-- ⭐ Please click the star project icon near the top right of this page
-- ☕ [Buy Me a Coffee](https://buymeacoffee.com/bmad) — Fuel the development
-- 🏢 Corporate sponsorship — DM on Discord
-- 🎤 Speaking & Media — Available for conferences, podcasts, interviews (BM on Discord)
-
-## Contributing
-
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## License
-
-MIT License — see [LICENSE](LICENSE) for details.
+```bash
+bmad-fr status
+```
 
 ---
 
-**BMad** and **BMAD-METHOD** are trademarks of BMad Code, LLC. See [TRADEMARK.md](TRADEMARK.md) for details.
+## 🚀 Comment utiliser la méthode BMAD (Le Guide Rapide)
 
-[![Contributors](https://contrib.rocks/image?repo=bmad-code-org/BMAD-METHOD)](https://github.com/bmad-code-org/BMAD-METHOD/graphs/contributors)
+La méthode BMAD transforme votre environnement de développement, vous n'êtes plus seul à coder : vous dirigez une équipe de **9 experts IA**. 
 
-See [CONTRIBUTORS.md](CONTRIBUTORS.md) for contributor information.
+Pour leur confier une tâche ou passer à l'étape suivante de votre projet, il vous suffit de taper un **Trigger** (déclencheur) dans le chat de votre assistant (ex: Claude Code, Cursor, Cline, etc.).
+
+### 💡 Exemple concret d'interaction
+
+Selon l'éditeur de code que vous utilisez (Cursor, Claude Code, Cline...), l'invocation peut se faire via une commande "Slash" ou en appelant directement l'agent :
+
+> **Vous :** `/marie BP` J'ai une idée pour une application mobile qui aide les étudiants à réviser le bac. Peux-tu lancer le brainstorming ?
+>
+> **Marie (IA) :** *(Prend son rôle d'Analyste)* *Excellente idée ! Procédons au brainstorming. Voici 5 axes de réflexion et une analyse de la concurrence...*
+
+---
+
+### Vous ne savez pas quoi faire ?
+
+Exécutez `/bmad-help` — l'agent vous dit exactement quelle est la prochaine étape et ce qui est optionnel. Vous pouvez aussi poser des questions comme `/bmad-help je viens de terminer l'architecture, que fais-je ensuite ?`
+
+---
+
+### 👥 Votre Équipe d'Experts
+
+| Agent | Nom | Rôle | Triggers |
+|-------|-----|------|---------|
+| **Marie** | Analyste | Recherche et analyse de faisabilité | BP, MR, DR, TR, CB |
+| **Jean** | Chef de Produit | Vision produit et spécifications | CP, CE |
+| **Victor** | Architecte | Architecture technique globale | CA |
+| **Sophie** | Designer UX | Expérience utilisateur et maquettes | CU |
+| **Bob** | Scrum Master | Organisation Agile et découpage | SP, CS, CC, RT |
+| **Amélie** | Développeuse | Implémentation du code et TDD | DS, CR |
+| **Quinn** | QA | Assurance qualité et tests | QA |
+| **Paul** | Rédacteur Tech. | Documentation du projet | DP, WD, MG, VD, EC |
+| **Barry** | Dev Solo | Projets rapides (Quick flow) | QS, QD, QQ |
+
+---
+
+### 🔄 Le Cycle de Développement Standard
+
+Pour un projet complet, suivez ce processus étape par étape en invoquant les agents dans cet ordre logique :
+
+#### 1. Phase d'Analyse
+Discutez avec **Marie** pour affiner votre concept avant de coder.
+* **`BP`** : Brainstorming — Générer des idées
+* **`MR`** : Recherche de marché
+* **`DR`** : Recherche de domaine
+* **`TR`** : Recherche technique
+* **`CB`** : Créer le brief produit (La synthèse de vos idées)
+
+#### 2. Phase de Planification
+Passez le relais à **Jean** et **Sophie** pour structurer le projet.
+* **`CP`** : Rédiger le cahier des charges produit (PRD)
+* **`CU`** : Créer l'UX design
+
+#### 3. Phase de Conception
+Demandez à **Victor** et **Jean** de préparer l'architecture logicielle.
+* **`CA`** : Concevoir l'architecture
+* **`CE`** : Créer les thèmes (Epics) et lister les cas d'usage
+
+#### 4. Phase d'Implémentation
+C'est ici que **Bob** organise le travail et qu'**Amélie** écrit le code.
+* **`SP`** : Planification du sprint (Choisir ce qu'on va coder)
+* **`CS`** : Définir le cas d'usage détaillé (Create Story)
+* **`DS`** : Développer le cas d'usage (Dev Story - Écriture du code)
+* **`CR`** : Revue de code
+* **`CC`** : Changement de cap (Correct Course)
+* **`RT`** : Rétrospective
+
+---
+
+### ⚡ Les Workflows Alternatifs
+
+Si vous n'avez pas le temps pour le cycle complet, utilisez ces raccourcis :
+
+#### Le "Quick Flow" (Pour les petits projets)
+Faites appel à **Barry**, l'agent tout-en-un.
+* **`QS`** : Spec rapide (Spécifications allégées)
+* **`QD`** : Développement quick flow (Code direct)
+* **`QQ`** : Quick dev nouveau (Expérimental)
+
+#### La Documentation
+Faites appel à **Paul** pour garder une trace claire de votre travail.
+* **`DP`** : Documenter le projet global
+* **`WD`** : Rédiger un document spécifique
+* **`MG`** : Générer un diagramme Mermaid
+* **`VD`** : Valider la documentation
+* **`EC`** : Expliquer un concept technique complexe
+---
+
+## Documentation Officielle (En anglais)
+
+📚 **[Site de Documentation BMad](https://docs.bmad-method.org)** — Tutoriels, guides, concepts et référence officielle du framework **en anglais**.
+
+* [Tutoriel de Démarrage](https://docs.bmad-method.org/tutorials/getting-started/)
+* [Documentation Architecte de Tests](https://bmad-code-org.github.io/bmad-method-test-architecture-enterprise/)
+
+---
+
+## Communauté et Support
+
+**Ressources du fork BMAD-FR :**
+
+* 🐛 **[GitHub Issues (BMAD-FR)](https://github.com/JZBAKH/BMAD-FR/issues)** — Signaler un problème de traduction ou demander des fonctionnalités spécifiques à ce fork francophone.
+
+**Ressources du projet original anglophone :**
+
+* 💬 **[Discord](https://discord.gg/gk8jAdXWmj)** — Obtenir de l'aide, partager des idées, collaborer avec la communauté mondiale.
+* 📺 **[S'abonner sur YouTube](https://www.youtube.com/@BMadCode)** — Tutoriels, master class et podcast.
+* 💭 **[Discussions GitHub](https://github.com/bmad-code-org/BMAD-METHOD/discussions)** — Conversations communautaires autour de l'évolution du moteur.
+
+---
+
+## Soutenir les créateurs du moteur original
+
+Ce framework est gratuit pour tout le monde — et le sera toujours. Si vous souhaitez soutenir financièrement le développement du moteur original :
+
+* ⭐ Veuillez cliquer sur l'icône étoile du projet en haut à droite de cette page
+* ☕ **[Buy Me a Coffee](https://buymeacoffee.com/bmad)** — Alimenter le développement
+* 🏢 Parrainage d'entreprise — MP sur Discord
+* 🎤 Conférences & Médias — Disponible pour conférences, podcasts, interviews (BM sur Discord)
+
+---
+
+## Contribuer
+
+Nous accueillons les contributions pour améliorer la traduction ou les fonctionnalités de ce fork ! Voir [CONTRIBUTING.md](./CONTRIBUTING.md) pour les lignes directrices.
+
+---
+
+## Licence
+
+Licence MIT — voir [LICENSE](./LICENSE) pour les détails.
+
+**BMad** et **BMAD-METHOD** sont des marques déposées de BMad Code, LLC. Voir [TRADEMARK.md](https://github.com/bmad-code-org/BMAD-METHOD/blob/main/TRADEMARK.md) pour les détails.
+
+---
+
+## Glossaire des Termes BMAD (Français)
+
+Pour garantir une expérience fluide, certains termes universels de l'ingénierie logicielle ont été conservés, tandis que d'autres ont été francisés.
+
+Voici les concepts clés à retenir pour interagir avec les agents :
+
+| Terme Original | Équivalent BMAD-FR |
+| --- | --- |
+| User Story | Cas d'usage / User Story |
+| Epic | Thème / Epic |
+| Product Requirements Doc | Cahier des charges produit (PRD) |
+| Sprint Planning | Planification de sprint |
+| Correct Course | Changement de cap |
+
+> 📚 Découvrez l'intégralité de nos règles de traduction dans notre **[Glossaire](./GLOSSAIRE.md)**.
+
+---
+
+<div align="center">
+
+**Ce fork francophone est maintenu par Jason Zbakh.**
+
+</div>
+**
