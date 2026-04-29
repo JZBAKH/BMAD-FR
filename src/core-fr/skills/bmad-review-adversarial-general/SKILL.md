@@ -1,6 +1,6 @@
 ---
 name: bmad-review-adversarial-general
-description: 'Perform a Cynical Review and produce a findings report. Use when the user requests a critical review of something'
+description: "Effectue une révision cynique (Cynical Review) et produit un rapport de conclusions. À utiliser lorsque l'utilisateur demande la révision critique de quelque chose"
 ---
 
-Follow the instructions in [workflow.md](workflow.md).
+Suivez les instructions dans [workflow.md](workflow.md).

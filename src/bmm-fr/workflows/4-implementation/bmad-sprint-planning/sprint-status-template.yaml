@@ -1,0 +1,56 @@
+# Modèle de Statut du Sprint
+# Ceci est un EXEMPLE montrant le format attendu
+# Le fichier réel sera généré avec tous les epics/stories de vos fichiers d'epics
+
+# généré : {date}
+# projet : {project_name}
+# clé_projet : {project_key}
+# système_suivi : {tracking_system}
+# emplacement_stories : {story_location}
+
+# DÉFINITIONS DES STATUTS (STATUS DEFINITIONS) :
+# ============================================
+# Statut de l'Epic :
+#   - backlog : Epic non encore commencée
+#   - in-progress : Epic en cours de traitement actif
+#   - done : Toutes les stories de l'epic sont terminées
+#
+# Statut de la Story :
+#   - backlog : La story n'existe que dans le fichier d'epic
+#   - ready-for-dev : Fichier de story créé, prêt pour le développement
+#   - in-progress : Développeur travaillant activement sur l'implémentation
+#   - review : Implémentation terminée, prête pour la revue
+#   - done : Story terminée
+#
+# Statut de la Rétrospective :
+#   - optional : Peut être effectuée mais n'est pas requise
+#   - done : La rétrospective a été terminée
+#
+# NOTES SUR LE WORKFLOW :
+# ======================
+# - Marquez l'epic comme 'in-progress' lors du démarrage du travail sur sa première story
+# - Le SM ne crée généralement la story suivante qu'APRÈS que la précédente soit 'done' pour intégrer les apprentissages
+# - Le Dév passe la story en 'review', puis le Dév lance la revue de code (nouveau contexte, idéalement avec un LLM différent)
+
+# EXEMPLE DE STRUCTURE (vos epics/stories réelles remplaceront celles-ci) :
+
+generated: 05-06-2-2025 21:30
+last_updated: 05-06-2-2025 21:30
+project: Mon Super Projet
+project_key: NOKEY
+tracking_system: file-system
+story_location: "{story_location}"
+
+development_status:
+  epic-1: backlog
+  1-1-authentification-utilisateur: done
+  1-2-gestion-de-compte: ready-for-dev
+  1-3-modele-donnees-plantes: backlog
+  1-4-ajout-plante-manuel: backlog
+  epic-1-retrospective: optional
+
+  epic-2: backlog
+  2-1-systeme-personnalite: backlog
+  2-2-interface-chat: backlog
+  2-3-integration-llm: backlog
+  epic-2-retrospective: optional

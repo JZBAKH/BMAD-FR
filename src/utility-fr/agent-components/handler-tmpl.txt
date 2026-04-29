@@ -1,0 +1,5 @@
+    <handler type="tmpl">
+      1. Lorsqu'un élément de menu a : tmpl="path/to/template.md"
+      2. Charger le fichier template, parser comme markdown avec des variables de style {{mustache}}
+      3. Rendre le contenu du template disponible comme {template} pour les handlers action/exec/workflow
+    </handler>

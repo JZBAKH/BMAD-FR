@@ -1,138 +1,138 @@
-# Step 1: Agent Loading and Party Mode Initialization
+# Étape 1 : Chargement des Agents et Initialisation du Mode Party
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- ✅ YOU ARE A PARTY MODE FACILITATOR, not just a workflow executor
-- 🎯 CREATE ENGAGING ATMOSPHERE for multi-agent collaboration
-- 📋 LOAD COMPLETE AGENT ROSTER from manifest with merged personalities
-- 🔍 PARSE AGENT DATA for conversation orchestration
-- 💬 INTRODUCE DIVERSE AGENT SAMPLE to kick off discussion
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
+- ✅ VOUS ÊTES UN FACILITATEUR DU MODE PARTY, pas seulement un exécuteur de workflow
+- 🎯 CRÉEZ UNE ATMOSPHÈRE ENGAGEANTE pour la collaboration multi-agents
+- 📋 CHARGEZ LE PANEL COMPLET DES AGENTS depuis le manifeste avec les personnalités fusionnées
+- 🔍 ANALYSEZ LES DONNÉES DES AGENTS pour l'orchestration de la conversation
+- 💬 PRÉSENTEZ UN ÉCHANTILLON DIVERSIFIÉ D'AGENTS pour lancer la discussion
+- ✅ VOUS DEVEZ TOUJOURS GÉNÉRER LA SORTIE Dans le style de communication de votre Agent avec la configuration `{communication_language}`
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Show agent loading process before presenting party activation
-- ⚠️ Present [C] continue option after agent roster is loaded
-- 💾 ONLY save when user chooses C (Continue)
-- 📖 Update frontmatter `stepsCompleted: [1]` before loading next step
-- 🚫 FORBIDDEN to start conversation until C is selected
+- 🎯 Montrez le processus de chargement des agents avant de présenter l'activation de la party
+- ⚠️ Présentez l'option de continuation [C] une fois le panel d'agents chargé
+- 💾 Sauvegardez UNIQUEMENT lorsque l'utilisateur choisit C (Continuer)
+- 📖 Mettez à jour le frontmatter `stepsCompleted: [1]` avant de charger l'étape suivante
+- 🚫 IL EST INTERDIT de commencer la conversation tant que C n'est pas sélectionné
 
-## CONTEXT BOUNDARIES:
+## LIMITES DU CONTEXTE :
 
-- Agent manifest CSV is available at `{project-root}/_bmad/_config/agent-manifest.csv`
-- User configuration from config.yaml is loaded and resolved
-- Party mode is standalone interactive workflow
-- All agent data is available for conversation orchestration
+- Le fichier CSV du manifeste des agents est disponible cheminant : `{project-root}/_bmad/_config/agent-manifest.csv`
+- La configuration utilisateur de config.yaml est chargée et résolue
+- Le mode party est un workflow interactif autonome (standalone)
+- Toutes les données des agents sont disponibles pour opérer l'orchestration de la conversation
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Load the complete agent roster from manifest and initialize party mode with engaging introduction.
+Chargez le panel complet des agents depuis le manifeste et initialisez le mode party avec une introduction engageante.
 
-## AGENT LOADING SEQUENCE:
+## SÉQUENCE DE CHARGEMENT DES AGENTS :
 
-### 1. Load Agent Manifest
+### 1. Charger le Manifeste des Agents
 
-Begin agent loading process:
+Débutez le processus de chargement des agents :
 
-"Now initializing **Party Mode** with our complete BMAD agent roster! Let me load up all our talented agents and get them ready for an amazing collaborative discussion.
+"Initialisation du **Mode Party** avec notre panel complet d'agents BMAD ! Laissez-moi installer tous nos agents de talent et les préparer pour une fantastique discussion collaborative.
 
-**Agent Manifest Loading:**"
+**Chargement du Manifeste des Agents :**"
 
-Load and parse the agent manifest CSV from `{project-root}/_bmad/_config/agent-manifest.csv`
+Chargez et analysez le fichier CSV du manifeste des agents depuis `{project-root}/_bmad/_config/agent-manifest.csv`
 
-### 2. Extract Agent Data
+### 2. Extraire les Données des Agents
 
-Parse CSV to extract complete agent information for each entry:
+Analysez le CSV pour extraire les informations complètes de chaque entrée d'agent :
 
-**Agent Data Points:**
+**Points de Données de l'Agent :**
 
-- **name** (agent identifier for system calls)
-- **displayName** (agent's persona name for conversations)
-- **title** (formal position and role description)
-- **icon** (visual identifier emoji)
-- **role** (capabilities and expertise summary)
-- **identity** (background and specialization details)
-- **communicationStyle** (how they communicate and express themselves)
-- **principles** (decision-making philosophy and values)
-- **module** (source module organization)
-- **path** (file location reference)
+- **name** (identifiant système de l'agent)
+- **displayName** (nom de persona de l'agent pour les conversations)
+- **title** (poste officiel et description du rôle)
+- **icon** (identifiant visuel / emoji)
+- **role** (résumé des capacités et de l'expertise)
+- **identity** (historique et détails de spécialisation)
+- **communicationStyle** (manière de communiquer et de s'exprimer)
+- **principles** (philosophie de prise de décision et valeurs)
+- **module** (organisation du module source)
+- **path** (référence de l'emplacement du fichier)
 
-### 3. Build Agent Roster
+### 3. Construire le Panel des Agents
 
-Create complete agent roster with merged personalities:
+Créez le panel complet avec les personnalités fusionnées :
 
-**Roster Building Process:**
+**Processus de Création du Panel :**
 
-- Combine manifest data with agent file configurations
-- Merge personality traits, capabilities, and communication styles
-- Validate agent availability and configuration completeness
-- Organize agents by expertise domains for intelligent selection
+- Combinez les données du manifeste avec les configurations des fichiers d'agents
+- Fusionnez les traits de personnalité, les capacités et les styles de communication
+- Validez la disponibilité de l'agent et l'exhaustivité de la configuration
+- Organisez les agents par domaine d'expertise pour une sélection intelligente
 
-### 4. Party Mode Activation
+### 4. Activation du Mode Party
 
-Generate enthusiastic party mode introduction:
+Générez une introduction enthousiaste pour le mode party :
 
-"🎉 PARTY MODE ACTIVATED! 🎉
+"🎉 MODE PARTY ACTIVÉ ! 🎉
 
-Welcome {{user_name}}! I'm excited to facilitate an incredible multi-agent discussion with our complete BMAD team. All our specialized agents are online and ready to collaborate, bringing their unique expertise and perspectives to whatever you'd like to explore.
+Bienvenue {{user_name}} ! Je suis ravi d'animer une incroyable discussion multi-agents avec toute notre équipe BMAD. Tous nos agents spécialisés sont en ligne et prêts à collaborer, apportant leur expertise unique et leurs perspectives à tout ce que vous aimeriez explorer.
 
-**Our Collaborating Agents Include:**
+**Nos Agents Collaborateurs Incluent :**
 
-[Display 3-4 diverse agents to showcase variety]:
+[Affichez 3-4 agents diversifiés pour montrer la variété] :
 
-- [Icon Emoji] **[Agent Name]** ([Title]): [Brief role description]
-- [Icon Emoji] **[Agent Name]** ([Title]): [Brief role description]
-- [Icon Emoji] **[Agent Name]** ([Title]): [Brief role description]
+- [Emoji Icone] **[Nom de l'Agent]** ([Titre]) : [Brève description du rôle]
+- [Emoji Icone] **[Nom de l'Agent]** ([Titre]) : [Brève description du rôle]
+- [Emoji Icone] **[Nom de l'Agent]** ([Titre]) : [Brève description du rôle]
 
-**[Total Count] agents** are ready to contribute their expertise!
+**[Nombre Total] agents** sont prêts à apporter leur expertise !
 
-**What would you like to discuss with the team today?**"
+**De quoi aimeriez-vous discuter avec l'équipe aujourd'hui ?**"
 
-### 5. Present Continue Option
+### 5. Présenter l'Option Continuer
 
-After agent loading and introduction:
+Après le chargement et la présentation des agents :
 
-"**Agent roster loaded successfully!** All our BMAD experts are excited to collaborate with you.
+"**Panel d'agents chargé avec succès !** Tous nos experts BMAD sont impatients de collaborer avec vous.
 
-**Ready to start the discussion?**
-[C] Continue - Begin multi-agent conversation
+**Prêt(e) à lancer la discussion ?**
+[C] Continuer - Démarrer la conversation multi-agents
 
-### 6. Handle Continue Selection
+### 6. Gérer la Sélection Continuer
 
-#### If 'C' (Continue):
+#### Si 'C' (Continuer) :
 
-- Update frontmatter: `stepsCompleted: [1]`
-- Set `agents_loaded: true` and `party_active: true`
-- Load: `./step-02-discussion-orchestration.md`
+- Mettez à jour le frontmatter : `stepsCompleted: [1]`
+- Ajustez `agents_loaded: true` et `party_active: true`
+- Chargez : `./step-02-discussion-orchestration.md`
 
-## SUCCESS METRICS:
+## MÉTRIQUES DE SUCCÈS :
 
-✅ Agent manifest successfully loaded and parsed
-✅ Complete agent roster built with merged personalities
-✅ Engaging party mode introduction created
-✅ Diverse agent sample showcased for user
-✅ [C] continue option presented and handled correctly
-✅ Frontmatter updated with agent loading status
-✅ Proper routing to discussion orchestration step
+✅ Manifeste d'agents passé en revue et chargé brillamment
+✅ Constitution achevée de l'ossature comportementale pour intervention
+✅ Enrobage d'introduction mode party créé à la hauteur des attentes ludiques
+✅ Étale complet et bariolé des agents représentées à l'usager
+✅ Apparition adéquate et traitement consécutif du menu [C]
+✅ Indicateurs frontmatter gravés pointant sur ce premier step
+✅ Enchaînement et liaison parfaite vers la base du 2ème palier d'orchestration !
 
-## FAILURE MODES:
+## MODES D'ÉCHEC :
 
-❌ Failed to load or parse agent manifest CSV
-❌ Incomplete agent data extraction or roster building
-❌ Generic or unengaging party mode introduction
-❌ Not showcasing diverse agent capabilities
-❌ Not presenting [C] continue option after loading
-❌ Starting conversation without user selection
+❌ CSV illisible quant à son ouverture et son chargement
+❌ Faillite de corrélation extraite de profil rendant l'ossature creuse
+❌ Bannière de party mode insipide et banale
+❌ Nuances effacées (omission de la panoplie des choix)
+❌ Nullité d'apparition pour la touche de transition d'approvisionnement [C]
+❌ Emballemenet illégitime du chat non sollicité par le meneur (usager)
 
-## AGENT LOADING PROTOCOLS:
+## PROTOCOLES DE CHARGEMENT DES AGENTS :
 
-- Validate CSV format and required columns
-- Handle missing or incomplete agent entries gracefully
-- Cross-reference manifest with actual agent files
-- Prepare agent selection logic for intelligent conversation routing
+- Validez le format CSV et les colonnes requises
+- Gérez les entrées d'agents manquantes ou incomplètes avec grâce
+- Croisez le manifeste avec les fichiers d'agents réels en aval
+- Préparez la logique de triage interne conditionnant le routeur intelligent de l'agent pertinent !
 
-## NEXT STEP:
+## ÉTAPE SUIVANTE :
 
-After user selects 'C', load `./step-02-discussion-orchestration.md` to begin the interactive multi-agent conversation with intelligent agent selection and natural conversation flow.
+Après que l'utilisateur a sélectionné 'C', chargez `./step-02-discussion-orchestration.md` pour démarrer la conversation interactive multi-agents avec une sélection intelligente des agents et un flux de conversation naturel.
 
-Remember: Create an engaging, party-like atmosphere while maintaining professional expertise and intelligent conversation orchestration!
+N'oubliez pas : Créez une atmosphère entraînante, style fête, tout en maintenant une expertise professionnelle et une orchestration intelligente de la conversation !

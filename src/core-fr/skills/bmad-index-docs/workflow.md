@@ -1,61 +1,57 @@
-# Index Docs
+# Indexation de Documents (Index Docs)
 
-**Goal:** Generate or update an index.md to reference all docs in a target folder.
+**Objectif :** Générer ou mettre à jour un fichier index.md visant à référencer l'intégralité des documents présents dans un dossier cible.
 
+## EXÉCUTION
 
-## EXECUTION
+### Étape 1 : Scanner le Répertoire (Scan Directory)
 
-### Step 1: Scan Directory
+- Dressez la liste de tous les fichiers et sous-dossiers situés à l'emplacement cible.
 
-- List all files and subdirectories in the target location
+### Étape 2 : Grouper le Contenu (Group Content)
 
-### Step 2: Group Content
+- Organisez les fichiers par type, par objectif, ou par sous-dossier de résidence.
 
-- Organize files by type, purpose, or subdirectory
+### Étape 3 : Générer les Descriptions (Generate Descriptions)
 
-### Step 3: Generate Descriptions
+- Parcourez le contenu de chaque fichier pour en saisir le but effectif et concevez de brèves descriptions (3 à 10 mots) reposant sur ce contenu, et pas seulement sur la base du nom de fichier.
 
-- Read each file to understand its actual purpose and create brief (3-10 word) descriptions based on the content, not just the filename
+### Étape 4 : Créer/Mettre à Jour l'Index (Create/Update Index)
 
-### Step 4: Create/Update Index
+- Rédigez ou mettez à la page le fichier index.md en incorporant les listes de fichiers catégorisés.
 
-- Write or update index.md with organized file listings
-
-
-## OUTPUT FORMAT
+## FORMAT DE SORTIE (OUTPUT FORMAT)
 
 ```markdown
-# Directory Index
+# Index du Répertoire
 
-## Files
+## Fichiers
 
-- **[filename.ext](./filename.ext)** - Brief description
-- **[another-file.ext](./another-file.ext)** - Brief description
+- **[nom_fichier.ext](./nom_fichier.ext)** - Brève description
+- **[autre_fichier.ext](./autre_fichier.ext)** - Brève description
 
-## Subdirectories
+## Sous-dossiers
 
-### subfolder/
+### sous-dossier/
 
-- **[file1.ext](./subfolder/file1.ext)** - Brief description
-- **[file2.ext](./subfolder/file2.ext)** - Brief description
+- **[fichier1.ext](./sous-dossier/fichier1.ext)** - Brève description
+- **[fichier2.ext](./sous-dossier/fichier2.ext)** - Brève description
 
-### another-folder/
+### autre-dossier/
 
-- **[file3.ext](./another-folder/file3.ext)** - Brief description
+- **[fichier3.ext](./autre-dossier/fichier3.ext)** - Brève description
 ```
 
+## CONDITIONS D'ARRÊT (HALT CONDITIONS)
 
-## HALT CONDITIONS
-
-- HALT if target directory does not exist or is inaccessible
-- HALT if user does not have write permissions to create index.md
-
+- HALT (Arrêt) si le dossier cible est inexistant ou non accessible.
+- HALT (Arrêt) si l'utilisateur ne possède pas de droits d'écriture permettant de générer `index.md`.
 
 ## VALIDATION
 
-- Use relative paths starting with ./
-- Group similar files together
-- Read file contents to generate accurate descriptions - don't guess from filenames
-- Keep descriptions concise but informative (3-10 words)
-- Sort alphabetically within groups
-- Skip hidden files (starting with .) unless specified
+- Employez systématiquement un accès relatif en démarrant par `./`.
+- Regroupez ensemble les fichiers manifestant d'étroites affinités.
+- Assurez-vous d'avoir lu l'essence des fichiers en vue de façonner un propos descriptif fidèle - ne spéculez pas exclusivement sur la base des appellations de fichiers.
+- Conservez des résumés raccourcis mais significatifs (fourchette globale 3-10 termes max).
+- Triez par ordre alphabétique au sein des groupements visés.
+- Omettez les fichiers à attribut caché (déclinés par le biais d'un repère `.`) à l'exception d'une revendication opposée assumée.

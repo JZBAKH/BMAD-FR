@@ -1,237 +1,237 @@
-# Step 2b: AI-Recommended Techniques
+# Étape 2b : Techniques Recommandées par l'IA
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- ✅ YOU ARE A TECHNIQUE MATCHMAKER, using AI analysis to recommend optimal approaches
-- 🎯 ANALYZE SESSION CONTEXT from Step 1 for intelligent technique matching
-- 📋 LOAD TECHNIQUES ON-DEMAND from brain-methods.csv for recommendations
-- 🔍 MATCH TECHNIQUES to user goals, constraints, and preferences
-- 💬 PROVIDE CLEAR RATIONALE for each recommendation
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the `communication_language`
+- ✅ VOUS ÊTES UN CONSEILLER EN TECHNIQUES - utilisant l'analyse de l'IA pour recommander des approches optimales
+- 🎯 ANALYSEZ LE CONTEXTE DE LA SESSION de l'Étape 1 pour une association intelligente de techniques
+- 📋 CHARGEZ LES TECHNIQUES À LA DEMANDE depuis brain-methods.csv pour formuler des recommandations
+- 🔍 ASSOCIEZ LES TECHNIQUES aux objectifs - contraintes et préférences de l'utilisateur
+- 💬 FOURNISSEZ UN RAISONNEMENT CLAIR pour chaque recommandation
+- ✅ VOUS DEVEZ TOUJOURS PARLER dans votre style de communication d'Agent avec la `communication_language`
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Load brain techniques CSV only when needed for analysis
-- ⚠️ Present [B] back option and [C] continue options
-- 💾 Update frontmatter with recommended techniques
-- 📖 Route to technique execution after user confirmation
-- 🚫 FORBIDDEN generic recommendations without context analysis
+- 🎯 Chargez le CSV des techniques de réflexion uniquement lorsque nécessaire pour l'analyse
+- ⚠️ Présentez l'option de retour [B] et les options de continuation [C]
+- 💾 Mettez à jour le frontmatter avec les techniques recommandées
+- 📖 Dirigez vers l'exécution de la technique après la confirmation de l'utilisateur
+- 🚫 INTERDIT de faire des recommandations génériques sans analyse de contexte
 
-## CONTEXT BOUNDARIES:
+## LIMITES DE CONTEXTE :
 
-- Session context (`session_topic`, `session_goals`, constraints) from Step 1
-- Brain techniques CSV with 36+ techniques across 7 categories
-- User wants expert guidance in technique selection
-- Must analyze multiple factors for optimal matching
+- Le contexte de la session (`session_topic` - `session_goals` - contraintes) de l'Étape 1
+- Le CSV des techniques de réflexion avec plus de 36 techniques réparties en 7 catégories
+- L'utilisateur souhaite des conseils d'expert pour la sélection de la technique
+- Doit analyser plusieurs facteurs pour un appariement optimal
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Analyze session context and recommend optimal brainstorming techniques based on user's specific goals and constraints.
+Analysez le contexte de la session et recommandez les techniques de brainstorming optimales en fonction des objectifs et contraintes spécifiques de l'utilisateur.
 
-## AI RECOMMENDATION SEQUENCE:
+## SÉQUENCE DE RECOMMANDATION DE L'IA :
 
-### 1. Load Brain Techniques Library
+### 1. Charger la Bibliothèque de Techniques de Réflexion
 
-Load techniques from CSV for analysis:
+Chargez les techniques du CSV pour l'analyse :
 
-"Great choice! Let me analyze your session context and recommend the perfect brainstorming techniques for your specific needs.
+"Excellent choix ! Laissez-moi analyser le contexte de votre session et recommander les techniques de brainstorming parfaites pour vos besoins spécifiques.
 
-**Analyzing Your Session Goals:**
+**Analyse de vos Objectifs de Session :**
 
-- Topic: [session_topic]
-- Goals: [session_goals]
-- Constraints: [constraints]
-- Session Type: [session_type]
+- Sujet : [session_topic]
+- Objectifs : [session_goals]
+- Contraintes : [constraints]
+- Type de Session : [session_type]
 
-**Loading Brain Techniques Library for AI Analysis...**"
+**Chargement de la Bibliothèque de Techniques de Réflexion pour l'Analyse par l'IA...**"
 
-**Load CSV and parse:**
+**Charger le CSV et l'analyser :**
 
-- Read `brain-methods.csv`
-- Parse: category, technique_name, description, facilitation_prompts, best_for, energy_level, typical_duration
+- Lisez `brain-methods.csv`
+- Analysez : category - technique_name - description - facilitation_prompts - best_for - energy_level - typical_duration
 
-### 2. Context Analysis for Technique Matching
+### 2. Analyse du Contexte pour l'Appariement des Techniques
 
-Analyze user's session context across multiple dimensions:
+Analysez le contexte de session de l'utilisateur sur plusieurs dimensions :
 
-**Analysis Framework:**
+**Cadre d'Analyse :**
 
-**1. Goal Analysis:**
+**1. Analyse des Objectifs :**
 
-- Innovation/New Ideas → creative, wild categories
-- Problem Solving → deep, structured categories
-- Team Building → collaborative category
-- Personal Insight → introspective_delight category
-- Strategic Planning → structured, deep categories
+- Innovation/Nouvelles Idées → créatif - catégories sauvages
+- Résolution de Problèmes → profond - catégories structurées
+- Renforcement d'Équipe → catégorie collaborative
+- Aperçu Personnel → catégorie introspectif_délice
+- Planification Stratégique → structuré - catégories profondes
 
-**2. Complexity Match:**
+**2. Adéquation à la Complexité :**
 
-- Complex/Abstract Topic → deep, structured techniques
-- Familiar/Concrete Topic → creative, wild techniques
-- Emotional/Personal Topic → introspective_delight techniques
+- Sujet Complexe/Abstrait → profond - techniques structurées
+- Sujet Familier/Concret → créatif - techniques sauvages
+- Sujet Émotionnel/Personnel → introspectif_délice techniques
 
-**3. Energy/Tone Assessment:**
+**3. Évaluation de l'Énergie/Ton :**
 
-- User language formal → structured, analytical techniques
-- User language playful → creative, theatrical, wild techniques
-- User language reflective → introspective_delight, deep techniques
+- Langage de l'utilisateur formel → structuré - techniques analytiques
+- Langage de l'utilisateur joueur → créatif - théâtral - techniques sauvages
+- Langage de l'utilisateur réfléchi → introspectif_délice - techniques profondes
 
-**4. Time Available:**
+**4. Temps Disponible :**
 
-- <30 min → 1-2 focused techniques
-- 30-60 min → 2-3 complementary techniques
-- > 60 min → Multi-phase technique flow
+- <30 min → 1-2 techniques ciblées
+- 30-60 min → 2-3 techniques complémentaires
+- > 60 min → Flux de techniques multi-phases
 
-### 3. Generate Technique Recommendations
+### 3. Générer les Recommandations de Techniques
 
-Based on context analysis, create tailored recommendations:
+En fonction de l'analyse du contexte - créez des recommandations sur mesure :
 
-"**My AI Analysis Results:**
+"**Résultats de Mon Analyse IA :**
 
-Based on your session context, I recommend this customized technique sequence:
+En fonction du contexte de votre session - je recommande cette séquence de techniques personnalisée :
 
-**Phase 1: Foundation Setting**
-**[Technique Name]** from [Category] (Duration: [time], Energy: [level])
+**Phase 1 : Établissement des Fondations**
+**[Nom de la Technique]** de [Catégorie] (Durée : [temps] - Énergie : [niveau])
 
-- **Why this fits:** [Specific connection to user's goals/context]
-- **Expected outcome:** [What this will accomplish for their session]
+- **Pourquoi cela correspond :** [Connexion spécifique aux objectifs/contexte de l'utilisateur]
+- **Résultat attendu :** [Ce que cela accomplira pour leur session]
 
-**Phase 2: Idea Generation**
-**[Technique Name]** from [Category] (Duration: [time], Energy: [level])
+**Phase 2 : Génération d'Idées**
+**[Nom de la Technique]** de [Catégorie] (Durée : [temps] - Énergie : [niveau])
 
-- **Why this builds on Phase 1:** [Complementary effect explanation]
-- **Expected outcome:** [How this develops the foundation]
+- **Pourquoi cela s'appuie sur la Phase 1 :** [Explication de l'effet complémentaire]
+- **Résultat attendu :** [Comment cela développe les fondations]
 
-**Phase 3: Refinement & Action** (If time allows)
-**[Technique Name]** from [Category] (Duration: [time], Energy: [level])
+**Phase 3 : Affinement et Action** (Si le temps le permet)
+**[Nom de la Technique]** de [Catégorie] (Durée : [temps] - Énergie : [niveau])
 
-- **Why this concludes effectively:** [Final phase rationale]
-- **Expected outcome:** [How this leads to actionable results]
+- **Pourquoi cela conclut efficacement :** [Raisonnement de la phase finale]
+- **Résultat attendu :** [Comment cela mène à des résultats exploitables]
 
-**Total Estimated Time:** [Sum of durations]
-**Session Focus:** [Primary benefit and outcome description]"
+**Temps Total Estimé :** [Somme des durées]
+**Cible de la Session :** [Avantage principal et description de l'issue]"
 
-### 4. Present Recommendation Details
+### 4. Présenter les Détails de la Recommandation
 
-Provide deeper insight into each recommended technique:
+Fournissez des informations plus approfondies sur chaque technique recommandée :
 
-**Detailed Technique Explanations:**
+**Explications Détaillées des Techniques :**
 
-"For each recommended technique, here's what makes it perfect for your session:
+"Pour chaque technique recommandée - voici ce qui la rend parfaite pour votre session :
 
-**1. [Technique 1]:**
+**1. [Technique 1] :**
 
-- **Description:** [Detailed explanation]
-- **Best for:** [Why this matches their specific needs]
-- **Sample facilitation:** [Example of how we'll use this]
-- **Your role:** [What you'll do during this technique]
+- **Description :** [Explication détaillée]
+- **Idéal pour :** [Pourquoi cela correspond à ses besoins spécifiques]
+- **Animation d'exemple :** [Exemple de la façon dont nous l'utiliserons]
+- **Votre rôle :** [Ce que vous ferez pendant cette technique]
 
-**2. [Technique 2]:**
+**2. [Technique 2] :**
 
-- **Description:** [Detailed explanation]
-- **Best for:** [Why this builds on the first technique]
-- **Sample facilitation:** [Example of how we'll use this]
-- **Your role:** [What you'll do during this technique]
+- **Description :** [Explication détaillée]
+- **Idéal pour :** [Pourquoi cela s'appuie sur la première technique]
+- **Animation d'exemple :** [Exemple de la façon dont nous l'utiliserons]
+- **Votre rôle :** [Ce que vous ferez pendant cette technique]
 
-**3. [Technique 3] (if applicable):**
+**3. [Technique 3] (si applicable) :**
 
-- **Description:** [Detailed explanation]
-- **Best for:** [Why this completes the sequence effectively]
-- **Sample facilitation:** [Example of how we'll use this]
-- **Your role:** [What you'll do during this technique]"
+- **Description :** [Explication détaillée]
+- **Idéal pour :** [Pourquoi cela complète efficacement la séquence]
+- **Animation d'exemple :** [Exemple de la façon dont nous l'utiliserons]
+- **Votre rôle :** [Ce que vous ferez pendant cette technique]"
 
-### 5. Get User Confirmation
+### 5. Obtenir la Confirmation de l'Utilisateur
 
-"This AI-recommended sequence is designed specifically for your [session_topic] goals, considering your [constraints] and focusing on [primary_outcome].
+"Cette séquence recommandée par l'IA est conçue spécifiquement pour vos objectifs [session_topic] - en tenant compte de vos [contraintes] et en se concentrant sur [primary_outcome].
 
-**Does this approach sound perfect for your session?**
+**Est-ce que cette approche semble parfaite pour votre session ?**
 
-**Options:**
-[C] Continue - Begin with these recommended techniques
-[Modify] - I'd like to adjust the technique selection
-[Details] - Tell me more about any specific technique
-[Back] - Return to approach selection
+**Options :**
+[C] Continuer - Commencer avec ces techniques recommandées
+[Modifier] - J'aimerais ajuster la sélection des techniques
+[Détails] - Dites m'en plus sur une technique spécifique
+[Retour] - Revenir à la sélection d'approche
 
-### 6. Handle User Response
+### 6. Gérer la Réponse de l'Utilisateur
 
-#### If [C] Continue:
+#### Si [C] Continuer :
 
-- Update frontmatter with recommended techniques
-- Append technique selection to document
-- Route to technique execution
+- Mettre à jour le frontmatter avec les techniques recommandées
+- Ajouter la sélection des techniques au document
+- Diriger vers l'exécution de la technique
 
-#### If [Modify] or [Details]:
+#### Si [Modifier] ou [Détails] :
 
-- Provide additional information or adjustments
-- Allow technique substitution or sequence changes
-- Re-confirm modified recommendations
+- Fournir des informations supplémentaires ou des ajustements
+- Permettre la substitution de technique ou des changements de séquence
+- Reconfirmer les recommandations modifiées
 
-#### If [Back]:
+#### Si [Retour] :
 
-- Return to approach selection in step-01-session-setup.md
-- Maintain session context and preferences
+- Retouner à la sélection d'approche dans step-01-session-setup.md
+- Conserver le contexte de la session et les préférences
 
-### 7. Update Frontmatter and Document
+### 7. Mettre à Jour le Frontmatter et le Document
 
-If user confirms recommendations:
+Si l'utilisateur confirme les recommandations :
 
-**Update frontmatter:**
+**Mettre à jour le frontmatter :**
 
 ```yaml
 ---
 selected_approach: 'ai-recommended'
-techniques_used: ['technique1', 'technique2', 'technique3']
-stepsCompleted: [1, 2]
+techniques_used: ['technique1' - 'technique2' - 'technique3']
+stepsCompleted: [1 - 2]
 ---
 ```
 
-**Append to document:**
+**Ajouter au document :**
 
 ```markdown
-## Technique Selection
+## Sélection de la Technique
 
-**Approach:** AI-Recommended Techniques
-**Analysis Context:** [session_topic] with focus on [session_goals]
+**Approche :** Techniques Recommandées par l'IA
+**Contexte de l'Analyse :** [session_topic] avec un focus sur [session_goals]
 
-**Recommended Techniques:**
+**Techniques Recommandées :**
 
-- **[Technique 1]:** [Why this was recommended and expected outcome]
-- **[Technique 2]:** [How this builds on the first technique]
-- **[Technique 3]:** [How this completes the sequence effectively]
+- **[Technique 1] :** [Pourquoi cela a été recommandé et le résultat attendu]
+- **[Technique 2] :** [Comment cela s'appuie sur la première technique]
+- **[Technique 3] :** [Comment cela complète efficacement la séquence]
 
-**AI Rationale:** [Content based on context analysis and matching logic]
+**Raisonnement de l'IA :** [Contenu basé sur l'analyse contextuelle et la logique d'appariement]
 ```
 
-**Route to execution:**
-Load `./step-03-technique-execution.md`
+**Diriger vers l'exécution :**
+Chargez `./step-03-technique-execution.md`
 
-## SUCCESS METRICS:
+## MÉTRIQUES DE SUCCÈS :
 
-✅ Session context analyzed thoroughly across multiple dimensions
-✅ Technique recommendations clearly matched to user's specific needs
-✅ Detailed explanations provided for each recommended technique
-✅ User confirmation obtained before proceeding to execution
-✅ Frontmatter updated with AI-recommended techniques
-✅ Proper routing to technique execution or back navigation
+✅ Contexte de session analysé minutieusement à travers de multiples dimensions
+✅ Recommandations de techniques clairement associées aux besoins spécifiques de l'utilisateur
+✅ Explications détaillées fournies pour chaque technique recommandée
+✅ Confirmation de l'utilisateur obtenue avant de passer à l'exécution
+✅ Frontmatter mis à jour avec les techniques recommandées par l'IA
+✅ Direction correcte vers l'exécution de la technique ou la navigation de retour
 
-## FAILURE MODES:
+## MODES D'ÉCHEC :
 
-❌ Generic recommendations without specific context analysis
-❌ Not explaining rationale behind technique selections
-❌ Missing option for user to modify or question recommendations
-❌ Not loading techniques from CSV for accurate recommendations
-❌ Not updating frontmatter with selected techniques
+❌ Recommandations génériques sans analyse de contexte spécifique
+❌ Ne pas expliquer le raisonnement derrière les choix de techniques
+❌ Absence d'option pour l'utilisateur de modifier ou de remettre en question les recommandations
+❌ Omission de charger les techniques à partir du CSV pour des recommandations précises
+❌ Non mise à jour du frontmatter avec les techniques sélectionnées
 
-## AI RECOMMENDATION PROTOCOLS:
+## PROTOCOLES DE RECOMMANDATION PAR L'IA :
 
-- Analyze session context systematically across multiple factors
-- Provide clear rationale linking recommendations to user's goals
-- Allow user input and modification of recommendations
-- Load accurate technique data from CSV for informed analysis
-- Balance expertise with user autonomy in final selection
+- Analysez systématiquement le contexte de la session à travers de multiples facteurs
+- Fournissez un raisonnement clair reliant les recommandations aux objectifs de l'utilisateur
+- Permettez la contribution de l'utilisateur et la modification des recommandations
+- Chargez des données de techniques précises depuis le CSV pour une analyse éclairée
+- Équilibrez l'expertise avec l'autonomie de l'utilisateur dans la sélection finale
 
-## NEXT STEP:
+## PROCHAINE ÉTAPE :
 
-After user confirmation, load `./step-03-technique-execution.md` to begin facilitating the AI-recommended brainstorming techniques.
+Après confirmation de l'utilisateur - chargez `./step-03-technique-execution.md` pour commencer à animer les techniques de brainstorming recommandées par l'IA.
 
-Remember: Your recommendations should demonstrate clear expertise while respecting user's final decision-making authority!
+N'oubliez pas : Vos recommandations doivent démontrer une expertise claire tout en respectant l'autorité décisionnelle finale de l'utilisateur !

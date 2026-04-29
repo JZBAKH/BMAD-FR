@@ -1,211 +1,211 @@
-# Step 6: Innovation Discovery
+# Étape 6 : Découverte de l'Innovation (Innovation Discovery)
 
-**Progress: Step 6 of 11** - Next: Project Type Analysis
+**Progression : Étape 6 sur 11** - Suivante : Analyse du Type de Projet (Project Type Analysis)
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- 🛑 NEVER generate content without user input
+- 🛑 NE JAMAIS générer de contenu sans l'intervention de l'utilisateur
 
-- 📖 CRITICAL: ALWAYS read the complete step file before taking any action - partial understanding leads to incomplete decisions
-- 🔄 CRITICAL: When loading next step with 'C', ensure the entire file is read and understood before proceeding
-- ✅ ALWAYS treat this as collaborative discovery between PM peers
-- 📋 YOU ARE A FACILITATOR, not a content generator
-- 💬 FOCUS on detecting and exploring innovative aspects of the product
-- 🎯 OPTIONAL STEP: Only proceed if innovation signals are detected
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
-- ✅ YOU MUST ALWAYS WRITE all artifact and document content in `{document_output_language}`
+- 📖 CRITIQUE : Lisez TOUJOURS le fichier d'étape complet avant d'entreprendre toute action - une compréhension partielle entraîne des décisions incomplètes
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que le fichier entier est lu et compris avant de continuer
+- ✅ ABORDEZ TOUJOURS cela comme une découverte collaborative entre pairs PM
+- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
+- 💬 CONCENTREZ-VOUS sur la détection et l'exploration des aspects innovants du produit
+- 🎯 ÉTAPE OPTIONNELLE : Ne continuez que si des signaux d'innovation sont détectés
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Show your analysis before taking any action
-- ⚠️ Present A/P/C menu after generating innovation content
-- 💾 ONLY save when user chooses C (Continue)
-- 📖 Update output file frontmatter, adding this step name to the end of the list of stepsCompleted
-- 🚫 FORBIDDEN to load next step until C is selected
+- 🎯 Montrez votre analyse avant d'entreprendre toute action
+- ⚠️ Présentez le menu A/P/C après avoir généré le contenu sur l'innovation
+- 💾 Sauvegardez UNIQUEMENT lorsque l'utilisateur choisit C (Continuer)
+- 📖 Mettez à jour le frontmatter du fichier de sortie, en ajoutant le nom de cette étape à la fin de la liste `stepsCompleted`
+- 🚫 INTERDICTION de charger l'étape suivante tant que C n'a pas été sélectionné
 
-## CONTEXT BOUNDARIES:
+## LIMITES DU CONTEXTE :
 
-- Current document and frontmatter from previous steps are available
-- Project type from step-02 is available for innovation signal matching
-- Project-type CSV data will be loaded in this step
-- Focus on detecting genuine innovation, not forced creativity
+- Le document actuel et le frontmatter des étapes précédentes sont disponibles
+- Le type de projet (project type) issu de `step-02` est disponible pour la correspondance des signaux d'innovation
+- Les données CSV relatives au type de projet seront chargées lors de cette étape
+- Concentrez-vous sur la détection d'une innovation authentique, et non sur une créativité forcée
 
-## OPTIONAL STEP CHECK:
+## CONTRÔLE DE L'ÉTAPE OPTIONNELLE :
 
-Before proceeding with this step, scan for innovation signals:
+Avant de poursuivre cette étape, analysez les signaux d'innovation :
 
-- Listen for language like "nothing like this exists", "rethinking how X works"
-- Check for project-type innovation signals from CSV
-- Look for novel approaches or unique combinations
-- If no innovation detected, skip this step
+- Soyez attentif à des expressions telles que "rien de tel n'existe", "nous repensons le fonctionnement de X"
+- Vérifiez les signaux d'innovation spécifiques au type de projet à partir du fichier CSV
+- Recherchez des approches novatrices ou des combinaisons uniques
+- Si aucune innovation n'est détectée, passez (skip) cette étape
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Detect and explore innovation patterns in the product, focusing on what makes it truly novel and how to validate the innovative aspects.
+Détecter et explorer les modèles (patterns) d'innovation dans le produit, en vous concentrant sur ce qui le rend véritablement novateur et sur la manière de valider ces aspects innovants.
 
-## INNOVATION DISCOVERY SEQUENCE:
+## SÉQUENCE DE DÉCOUVERTE DE L'INNOVATION :
 
-### 1. Load Project-Type Innovation Data
+### 1. Charger les Données d'Innovation par Type de Projet
 
-Load innovation signals specific to this project type:
+Chargez les signaux d'innovation spécifiques à ce type de projet :
 
-- Load `../data/project-types.csv` completely
-- Find the row where `project_type` matches detected type from step-02
-- Extract `innovation_signals` (semicolon-separated list)
-- Extract `web_search_triggers` for potential innovation research
+- Chargez complètement le fichier `../data/project-types.csv`
+- Trouvez la ligne où `project_type` correspond au type détecté lors de `step-02`
+- Extrayez `innovation_signals` (liste séparée par des points-virgules)
+- Extrayez `web_search_triggers` pour des recherches potentielles sur l'innovation
 
-### 2. Listen for Innovation Indicators
+### 2. Écouter les Indicateurs d'Innovation
 
-Monitor conversation for both general and project-type-specific innovation signals:
+Surveillez la conversation pour y déceler des signaux d'innovation, qu'ils soient généraux ou spécifiques au type de projet :
 
-#### General Innovation Language:
+#### Langage Général Révélant une Innovation :
 
-- "Nothing like this exists"
-- "We're rethinking how [X] works"
-- "Combining [A] with [B] for the first time"
-- "Novel approach to [problem]"
-- "No one has done [concept] before"
+- "Il n'existe rien de similaire"
+- "Nous repensons complètement la façon dont [X] fonctionne"
+- "Nous combinons [A] et [B] pour la toute première fois"
+- "Une approche novatrice pour [le problème]"
+- "Personne n'a jamais réalisé [ce concept] auparavant"
 
-#### Project-Type-Specific Signals (from CSV):
+#### Signaux Spécifiques au Type de Projet (issus du CSV) :
 
-Match user descriptions against innovation_signals for their project_type:
+Faites correspondre les descriptions de l'utilisateur avec les `innovation_signals` correspondant à leur `project_type` :
 
-- **api_backend**: "API composition;New protocol"
-- **mobile_app**: "Gesture innovation;AR/VR features"
-- **saas_b2b**: "Workflow automation;AI agents"
-- **developer_tool**: "New paradigm;DSL creation"
+- **api_backend** : "Composition d'API;Nouveau protocole"
+- **mobile_app** : "Innovation gestuelle;Fonctionnalités AR/VR"
+- **saas_b2b** : "Automatisation des flux de travail (Workflow);Agents IA"
+- **developer_tool** : "Nouveau paradigme;Création de DSL"
 
-### 3. Initial Innovation Screening
+### 3. Examen/Filtre Initial de l'Innovation
 
-Ask targeted innovation discovery questions:
-- Guide exploration of what makes the product innovative
-- Explore if they're challenging existing assumptions
-- Ask about novel combinations of technologies/approaches
-- Identify what hasn't been done before
-- Understand which aspects feel most innovative
+Posez des questions ciblées pour découvrir l'innovation :
+- Guidez l'exploration de ce qui rend le produit innovant
+- Cherchez à savoir s'ils remettent en question (challengent) les hypothèses existantes
+- Posez des questions sur les combinaisons novatrices de technologies/approches
+- Identifiez ce qui n'a jamais été fait auparavant
+- Comprenez quels aspects semblent les plus innovants
 
-### 4. Deep Innovation Exploration (If Detected)
+### 4. Exploration Profonde de l'Innovation (Si Détectée)
 
-If innovation signals are found, explore deeply:
+Si des signaux d'innovation sont détectés, explorez-les en profondeur :
 
-#### Innovation Discovery Questions:
-- What makes it unique compared to existing solutions?
-- What assumption are you challenging?
-- How do we validate it works?
-- What's the fallback if it doesn't?
-- Has anyone tried this before?
+#### Questions de Découverte de l'Innovation :
+- Qu'est-ce qui le rend unique par rapport aux solutions existantes ?
+- Quelle hypothèse de base remettez-vous en question ?
+- Comment allons-nous valider que cela fonctionne ?
+- Quelle est la solution de repli (fallback) si cela échoue ?
+- Quelqu'un a-t-il déjà essayé cela auparavant ?
 
-#### Market Context Research:
+#### Recherche sur le Contexte du Marché :
 
-If relevant innovation detected, consider web search for context:
-Use `web_search_triggers` from project-type CSV:
+Si une innovation pertinente est détectée, envisagez une recherche sur le web pour obtenir du contexte :
+Utilisez `web_search_triggers` à partir du CSV project-type :
 `[web_search_triggers] {concept} innovations {date}`
 
-### 5. Generate Innovation Content (If Innovation Detected)
+### 5. Générer le Contenu lié à l'Innovation (Si une Innovation est Détectée)
 
-Prepare the content to append to the document:
+Préparez le contenu synthétique pour l'ajouter au fichier (append) :
 
-#### Content Structure:
+#### Structure du Contenu :
 
-When saving to document, append these Level 2 and Level 3 sections:
+Lors de la sauvegarde locale (save), ajoutez au document ces balisages exacts des niveaux 2 (`##`) et 3 (`###`) :
 
 ```markdown
-## Innovation & Novel Patterns
+## Innovation & Modèles Novateurs (Innovation & Novel Patterns)
 
-### Detected Innovation Areas
+### Domaines d'Innovation Détectés
 
-[Innovation patterns identified based on conversation]
+[Les différents modèles (patterns) novateurs identifiés en se basant sur le fil de notre conversation]
 
-### Market Context & Competitive Landscape
+### Contexte de Marché & Paysage Concurrentiel
 
-[Market context and research based on conversation]
+[Le contexte global du marché et la recherche affiliée issus pur de cette conversation partagée]
 
-### Validation Approach
+### Approche de Validation
 
-[Validation methodology based on conversation]
+[La méthodologie claire actant concrètement la validation technico-économique de ladite nouveauté]
 
-### Risk Mitigation
+### Atténuation des Risques (Risk Mitigation)
 
-[Innovation risks and fallbacks based on conversation]
+[Les risques imminents et solutions de repli (fallbacks) face à cette audace logicielle, basés sur l'échange]
 ```
 
-### 6. Present MENU OPTIONS (Only if Innovation Detected)
+### 6. Présenter les OPTIONS DU MENU (Uniquement si une Innovation est Détectée)
 
-Present the innovation content for review, then display menu:
-- Show identified innovative aspects (using structure from section 5)
-- Highlight differentiation from existing solutions
-- Ask if they'd like to refine further, get other perspectives, or proceed
-- Present menu options naturally as part of conversation
+Présentez le contenu sur l'innovation à l'utilisateur pour révision (review), puis affichez le menu :
+- Affichez les aspects innovants identifiés (en utilisant la structure de la section 5)
+- Soulignez (Mettez en valeur) la différenciation par rapport aux solutions existantes
+- Demandez s'ils souhaitent peaufiner, élargir ses horizons par un regard neuf ou verrouiller l'étape
+- Proposez la mécanique du menu sous une prose naturelle dans le fil de la conversation
 
-Display: "**Select:** [A] Advanced Elicitation [P] Party Mode [C] Continue to Project Type Analysis (Step 7 of 11)"
+Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers l'Analyse du Type de Projet (Étape 7 sur 11)"
 
-#### Menu Handling Logic:
-- IF A: Invoke the `bmad-advanced-elicitation` skill with the current innovation content, process the enhanced innovation insights that come back, ask user "Accept these improvements to the innovation analysis? (y/n)", if yes update content with improvements then redisplay menu, if no keep original content then redisplay menu
-- IF P: Invoke the `bmad-party-mode` skill with the current innovation content, process the collaborative innovation exploration and ideation, ask user "Accept these changes to the innovation analysis? (y/n)", if yes update content with improvements then redisplay menu, if no keep original content then redisplay menu
-- IF C: Append the final content to {outputFile}, update frontmatter by adding this step name to the end of the stepsCompleted array, then read fully and follow: ./step-07-project-type.md
-- IF Any other: help user respond, then redisplay menu
+#### Logique de Gestion du Menu :
+- SI A : Invoquez la compétence `bmad-advanced-elicitation` avec le contenu actuel sur l'innovation, traitez les idées/découvertes améliorées qui en reviennent, demandez à l'utilisateur : "Accepter ces améliorations pour l'analyse de l'innovation ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
+- SI P : Invoquez la compétence `bmad-party-mode` avec le contenu actuel sur l'innovation, traitez l'exploration collaborative et les idées (ideation), demandez à l'utilisateur : "Accepter ces changements pour l'analyse de l'innovation ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
+- SI C : Ajoutez (append) le contenu final à `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-07-project-type.md`
+- SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
-#### EXECUTION RULES:
-- ALWAYS halt and wait for user input after presenting menu
-- ONLY proceed to next step when user selects 'C'
-- After other menu items execution, return to this menu
+#### RÈGLES D'EXÉCUTION :
+- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
+- NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
+- Après l'exécution d'autres options du menu, retournez à ce menu
 
-## NO INNOVATION DETECTED:
+## AUCUNE INNOVATION DÉTECTÉE :
 
-If no genuine innovation signals are found after exploration:
-- Acknowledge that no clear innovation signals were found
-- Note this is fine - many successful products are excellent executions of existing concepts
-- Ask if they'd like to try finding innovative angles or proceed
+Si aucun signal d'innovation véritable n'est trouvé après l'exploration :
+- Reconnaissez qu'aucun signal d'innovation clair n'a été trouvé
+- Notez que c'est tout à fait acceptable - de nombreux produits performants sont d'excellentes exécutions de concepts existants
+- Demandez s'ils souhaitent essayer de trouver des angles novateurs ou s'il faut continuer
 
-Display: "**Select:** [A] Advanced Elicitation - Let's try to find innovative angles [C] Continue - Skip innovation section and move to Project Type Analysis (Step 7 of 11)"
+Affichez : "**Sélectionnez :** [A] Élicitation Avancée - Essayons de trouver des angles innovants [C] Continuer - Sauter la section innovation et passer à l'Analyse du Type de Projet (Étape 7 sur 11)"
 
-### Menu Handling Logic:
-- IF A: Proceed with content generation anyway, then return to menu
-- IF C: Skip this step, then read fully and follow: ./step-07-project-type.md
+### Logique de Gestion du Menu :
+- SI A : Procédez à la génération de contenu malgré tout (pour trouver l'angle mort), puis retournez au menu
+- SI C : Sautez (Skip) cette étape, puis lisez intégralement et suivez : `./step-07-project-type.md`
 
-### EXECUTION RULES:
-- ALWAYS halt and wait for user input after presenting menu
-- ONLY proceed to next step when user selects 'C'
+### RÈGLES D'EXÉCUTION :
+- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
+- NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 
-## APPEND TO DOCUMENT:
+## AJOUTER AU DOCUMENT (APPEND) :
 
-When user selects 'C', append the content directly to the document using the structure from step 5.
+Lorsque l'utilisateur sélectionne 'C', ajoutez le contenu directement au document en respectant absolument les calques rigides et structures fixes du point #5.
 
-## SUCCESS METRICS:
+## MÉTRIQUES DE RÉUSSITE (SUCCESS METRICS) :
 
-✅ Innovation signals properly detected from user conversation
-✅ Project-type innovation signals used to guide discovery
-✅ Genuine innovation explored (not forced creativity)
-✅ Validation approach clearly defined for innovative aspects
-✅ Risk mitigation strategies identified
-✅ A/P/C menu presented and handled correctly
-✅ Content properly appended to document when C selected
+✅ Les traits ou signaux d'innovation ont bien été cueillis depuis là l'orale discussion partagée de fond !
+✅ Fierté actée de signaux de classification exploités dans ledit ficher ressource : `Project-Type` CSV
+✅ Qu'exigeamment, la dite Nouveauté/Innovation abordée l'ait été sainement sous nature vraie (nul forcement stérile théâtralisé) !
+✅ Un protocole expérimental formel ou approche ferme en validation trônant pour tester et sanctionner un acquis victorieux et un revers probable est établi !
+✅ Que les abîmes de la chute potentielle soient cartographiés et compensés adéquatement en stratagèmes de replis !
+✅ Le menu A/P/C a été présenté et géré correctement
+✅ Le contenu a été inséré à l'édifice par append au feu vert 'C' de son maître/son superviseur Humain propre
 
-## FAILURE MODES:
+## MODES D'ÉCHEC (FAILURE MODES) :
 
-❌ Forced innovation when none genuinely exists
-❌ Not using project-type innovation signals from CSV
-❌ Missing market context research for novel concepts
-❌ Not addressing validation approach for innovative features
-❌ Creating innovation theater without real innovative aspects
-❌ Not presenting A/P/C menu after content generation
-❌ Appending content without user selecting 'C'
+❌ Pousser en force l'invention de châteaux virtuels / forcer le terme "innovation" quand il ne trône qu'une simple réplique ou rustine évidente classique (Théâtre !)
+❌ Bouder froidement l'arsenal d'outils analytiques de croisement de nos `project-type` CSV
+❌ Occulter de situer la Nouveauté pure face au monde du dehors et ses rivaux potentiels conjoints (Le paysage des contextes Marché / Market Context) !
+❌ Esquiver la contrainte : « Si mon édifice technique tout beau novateur chute en production, par quel art de rechange classique doit impérativement basculer son système de secours inné ? » (Attitude suicidaire face à des voies complexes exploratoires de développement technologique)
+❌ Remplir vainement la case avec de nobles mots creux au lieu d'articuler un axe véritable pointu différenciateur de la machinerie pure
+❌ Ne pas présenter le menu A/P/C à la suite de la génération du contenu
+❌ Annuler l'exigence de la frappe matricielle : 'C' pour appondre (Append) des contenus aveuglément purement sur la force brute informatisée d'étapes sans humains.
 
-❌ **CRITICAL**: Reading only partial step file - leads to incomplete understanding and poor decisions
-❌ **CRITICAL**: Proceeding with 'C' without fully reading and understanding the next step file
-❌ **CRITICAL**: Making decisions without complete understanding of step requirements and protocols
+❌ **CRITIQUE** : Ne lire qu'une partie du fichier d'étape - cela conduit à une compréhension incomplète et à de mauvaises décisions
+❌ **CRITIQUE** : Poursuivre avec 'C' sans avoir lu intégralement et compris le fichier de l'étape suivante
+❌ **CRITIQUE** : Prendre des décisions sans une compréhension complète des exigences et des protocoles de l'étape
 
-## SKIP CONDITIONS:
+## CONDITIONS POUR SAUTER L'ÉTAPE (SKIP CONDITIONS) :
 
-Skip this step and load `./step-07-project-type.md` if:
+Sautez (skip) cette étape et chargez `./step-07-project-type.md` si :
 
-- No innovation signals detected in conversation
-- Product is incremental improvement rather than breakthrough
-- User confirms innovation exploration is not needed
-- Project-type CSV has no innovation signals for this type
+- Aucun signal d'innovation n'est détecté dans la conversation
+- Le produit est une amélioration incrémentale plutôt qu'une percée (breakthrough)
+- L'utilisateur confirme que l'exploration de l'innovation n'est pas nécessaire
+- Le CSV `project-type` ne contient aucun signal d'innovation pour ce type
 
-## NEXT STEP:
+## ÉTAPE SUIVANTE :
 
-After user selects 'C' and content is saved to document (or step is skipped), load `./step-07-project-type.md`.
+Après que l'utilisateur a sélectionné 'C' et que le contenu a été sauvegardé dans le document (ou que l'étape est sautée), chargez `./step-07-project-type.md`.
 
-Remember: Do NOT proceed to step-07 until user explicitly selects 'C' from the A/P/C menu (or confirms step skip)!
+N'oubliez pas : Ne passez PAS à l'étape `step-07` tant que l'utilisateur n'a pas explicitement sélectionné 'C' dans le menu A/P/C (ou confirmé qu'il passe l'étape) !

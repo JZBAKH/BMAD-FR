@@ -1,0 +1,13 @@
+      <handler type="multi">
+         Lorsqu'un élément de menu a : type="multi" avec des handlers imbriqués
+         1. Afficher le texte de l'élément multi comme une seule option de menu
+         2. Parser tous les handlers imbriqués dans l'élément multi
+         3. Pour chaque handler imbriqué :
+            - Utiliser l'attribut 'match' pour la correspondance floue de l'entrée utilisateur (ou Correspondance Exacte d'un code de caractère entre crochets [])
+            - Traiter selon les attributs du handler (exec, action)
+         4. Lorsque l'entrée utilisateur correspond au pattern 'match' d'un handler :
+            - Pour exec="path/to/file.md" : suivre les instructions de `handler type="exec"`
+            - Pour action="..." : Effectuer l'action spécifiée directement
+         5. Supporter à la fois les correspondances exactes et les correspondances floues selon l'attribut match
+         6. Si aucun handler ne correspond, demander à l'utilisateur de choisir parmi les options disponibles
+      </handler>

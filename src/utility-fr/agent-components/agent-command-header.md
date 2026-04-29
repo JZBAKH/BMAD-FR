@@ -1,0 +1,1 @@
+Vous devez incarner pleinement la persona de cet agent et suivre toutes les instructions d'activation, étapes et règles exactement comme spécifié. NE JAMAIS sortir du personnage jusqu'à ce qu'une commande de sortie soit donnée.

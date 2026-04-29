@@ -1,6 +1,6 @@
 ---
 name: bmad-index-docs
-description: 'Generates or updates an index.md to reference all docs in the folder. Use if user requests to create or update an index of all files in a specific folder'
+description: "Génère ou met à jour un fichier index.md pour référencer tous les documents du dossier. À utiliser si l'utilisateur demande de créer ou de mettre à jour un index de tous les fichiers dans un dossier spécifique"
 ---
 
-Follow the instructions in [workflow.md](workflow.md).
+Suivez les instructions dans [workflow.md](workflow.md).

@@ -3,60 +3,60 @@ main_config: '{project-root}/_bmad/bmm/config.yaml'
 outputFile: '{planning_artifacts}/prd.md'
 ---
 
-# PRD Create Workflow
+# Workflow Création de PRD
 
-**Goal:** Create comprehensive PRDs through structured workflow facilitation.
+**Objectif :** Créer des PRD complets via une facilitation de workflow structurée.
 
-**Your Role:** Product-focused PM facilitator collaborating with an expert peer.
+**Votre Rôle :** Facilitateur PM (Product Manager) orienté produit collaborant avec un pair expert.
 
-You will continue to operate with your given name, identity, and communication_style, merged with the details of this role description.
+Vous continuerez à opérer avec le nom, l'identité et le style de communication (communication_style) qui vous ont été attribués, fusionnés avec les détails de la description de ce rôle.
 
-## WORKFLOW ARCHITECTURE
+## ARCHITECTURE DU WORKFLOW
 
-This uses **step-file architecture** for disciplined execution:
+Ceci utilise une **architecture d'étapes par fichiers (step-file architecture)** pour une exécution disciplinée :
 
-### Core Principles
+### Principes Fondamentaux
 
-- **Micro-file Design**: Each step is a self contained instruction file that is a part of an overall workflow that must be followed exactly
-- **Just-In-Time Loading**: Only the current step file is in memory - never load future step files until told to do so
-- **Sequential Enforcement**: Sequence within the step files must be completed in order, no skipping or optimization allowed
-- **State Tracking**: Document progress in output file frontmatter using `stepsCompleted` array when a workflow produces a document
-- **Append-Only Building**: Build documents by appending content as directed to the output file
+- **Conception en Micro-fichiers :** Chaque étape est un fichier d'instructions autonome qui fait partie d'un workflow global devant être suivi à la lettre.
+- **Chargement Juste-à-Temps (Just-In-Time) :** Seul le fichier de l'étape en cours est en mémoire - ne chargez jamais les futurs fichiers d'étapes avant d'en recevoir l'ordre.
+- **Respect Séquentiel :** La séquence au sein des fichiers d'étapes doit être accomplie dans l'ordre, aucun saut ou "optimisation" n'est permis.
+- **Suivi d'État (State Tracking) :** Documentez la progression dans le frontmatter du fichier de sortie en utilisant le tableau `stepsCompleted` lorsqu'un workflow produit un document.
+- **Construction par Ajout Uniquement (Append-Only) :** Construisez les documents en ajoutant du contenu au fichier de sortie tel qu'indiqué.
 
-### Step Processing Rules
+### Règles de Traitement des Étapes
 
-1. **READ COMPLETELY**: Always read the entire step file before taking any action
-2. **FOLLOW SEQUENCE**: Execute all numbered sections in order, never deviate
-3. **WAIT FOR INPUT**: If a menu is presented, halt and wait for user selection
-4. **CHECK CONTINUATION**: If the step has a menu with Continue as an option, only proceed to next step when user selects 'C' (Continue)
-5. **SAVE STATE**: Update `stepsCompleted` in frontmatter before loading next step
-6. **LOAD NEXT**: When directed, read fully and follow the next step file
+1. **LIRE EN ENTIER :** Lisez toujours l'intégralité du fichier d'étape avant d'entreprendre la moindre action.
+2. **SUIVRE LA SÉQUENCE :** Exécutez toutes les sections numérotées dans l'ordre, ne déviez jamais.
+3. **ATTENDRE L'ENTRÉE UTILISATEUR :** Si un menu est présenté, arrêtez-vous (halt) et attendez la sélection de l'utilisateur.
+4. **VÉRIFIER LA CONTINUATION :** Si l'étape comporte un menu avec l'option Continuer (Continue), ne passez à l'étape suivante que lorsque l'utilisateur sélectionne 'C' (Continuer).
+5. **SAUVEGARDER L'ÉTAT :** Mettez à jour `stepsCompleted` dans le frontmatter avant de charger l'étape suivante.
+6. **CHARGER LA SUIVANTE :** Lorsque cela est demandé, lisez l'intégralité du fichier de l'étape suivante et suivez-le.
 
-### Critical Rules (NO EXCEPTIONS)
+### Règles Critiques (AUCUNE EXCEPTION)
 
-- 🛑 **NEVER** load multiple step files simultaneously
-- 📖 **ALWAYS** read entire step file before execution
-- 🚫 **NEVER** skip steps or optimize the sequence
-- 💾 **ALWAYS** update frontmatter of output files when writing the final output for a specific step
-- 🎯 **ALWAYS** follow the exact instructions in the step file
-- ⏸️ **ALWAYS** halt at menus and wait for user input
-- 📋 **NEVER** create mental todo lists from future steps
+- 🛑 **NE JAMAIS** charger plusieurs fichiers d'étapes simultanément
+- 📖 **TOUJOURS** lire l'intégralité du fichier d'étape avant l'exécution
+- 🚫 **NE JAMAIS** ignorer des étapes ou optimiser la séquence
+- 💾 **TOUJOURS** mettre à jour le frontmatter des fichiers de sortie lors de la rédaction du résultat final d'une étape spécifique
+- 🎯 **TOUJOURS** suivre les instructions exactes du fichier d'étape
+- ⏸️ **TOUJOURS** faire une pause aux menus et attendre l'entrée de l'utilisateur
+- 📋 **NE JAMAIS** créer de listes de tâches mentales à partir des étapes futures
 
-## INITIALIZATION SEQUENCE
+## SÉQUENCE D'INITIALISATION
 
-### 1. Configuration Loading
+### 1. Chargement de la Configuration
 
-Load and read full config from {main_config} and resolve:
+Chargez et lisez la configuration complète depuis `{main_config}` et résolvez :
 
 - `project_name`, `output_folder`, `planning_artifacts`, `user_name`
 - `communication_language`, `document_output_language`, `user_skill_level`
-- `date` as system-generated current datetime
+- `date` comme la date et l'heure actuelles générées par le système
 
-✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the configured `{communication_language}`.
-✅ YOU MUST ALWAYS WRITE all artifact and document content in `{document_output_language}`.
+✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
+✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
 
-### 2. Route to Create Workflow
+### 2. Acheminement vers le Workflow de Création
 
-"**Create Mode: Creating a new PRD from scratch.**"
+"**Mode Création : Création d'un nouveau PRD à partir de zéro.**"
 
-Read fully and follow: `./steps-c/step-01-init.md`
+Lisez intégralement et suivez : `./steps-c/step-01-init.md`

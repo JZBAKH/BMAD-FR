@@ -57,11 +57,14 @@ function getSourcePath(...segments) {
  * Get path to a module's directory
  * bmm is a built-in module directly under src/
  * core is also directly under src/
+ * utility is also directly under src/ (provides agent-components shared by every module)
  * All other modules are stored remote
  */
 function getModulePath(moduleName, ...segments) {
-  if (moduleName === 'core' || moduleName === 'bmm') {
-    // MODIFICATION FR : Redirection vers les dossiers -fr
+  // MODIFICATION FR : Redirection vers les dossiers -fr pour les modules built-in
+  // (core, bmm, utility). Tout chemin physique passe par cette fonction → garantit
+  // que le contenu chargé/copié est en français.
+  if (moduleName === 'core' || moduleName === 'bmm' || moduleName === 'utility') {
     const frenchModule = moduleName + '-fr';
     return path.join(getProjectRoot(), 'src', frenchModule, ...segments);
   }

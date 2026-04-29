@@ -1,221 +1,221 @@
-# Step 11: Document Polish
+# Étape 11 : Peaufiner le Document (Document Polish)
 
-**Progress: Step 11 of 12** - Next: Complete PRD
+**Progression : Étape 11 sur 12** - Suivante : PRD Terminé (Complete PRD)
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- 🛑 CRITICAL: Load the ENTIRE document before making changes
-- 📖 CRITICAL: Read complete step file before taking action
-- 🔄 CRITICAL: When loading next step with 'C', ensure entire file is read
-- ✅ This is a POLISH step - optimize existing content
-- 📋 IMPROVE flow, coherence, and readability
-- 💬 PRESERVE user's voice and intent
-- 🎯 MAINTAIN all essential information while improving presentation
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
-- ✅ YOU MUST ALWAYS WRITE all artifact and document content in `{document_output_language}`
+- 🛑 CRITIQUE : Chargez le document ENTIER avant toute modification
+- 📖 CRITIQUE : Lisez le fichier d'étape complet avant d'entreprendre toute action
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que le fichier entier est lu
+- ✅ Ceci est une étape de POLISSAGE - optimisez le contenu existant
+- 📋 AMÉLIOREZ la fluidité, la cohérence et la lisibilité
+- 💬 PRÉSERVEZ la voix et l'intention de l'utilisateur
+- 🎯 CONSERVEZ toutes les informations essentielles tout en améliorant la présentation
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Load complete document first
-- 📝 Review for flow and coherence issues
-- ✂️ Reduce duplication while preserving essential info
-- 📖 Ensure proper ## Level 2 headers throughout
-- 💾 Save optimized document
-- ⚠️ Present A/P/C menu after polish
-- 🚫 DO NOT skip review steps
+- 🎯 Chargez d'abord le document complet
+- 📝 Révisez pour déceler les problèmes de flux et de cohérence
+- ✂️ Réduisez les duplications tout en préservant les infos essentielles
+- 📖 Assurez-vous que les balisages de niveau 2 (##) sont bien placés
+- 💾 Sauvegardez le document optimisé
+- ⚠️ Présentez le menu A/P/C après le polissage
+- 🚫 NE SAUTEZ PAS les étapes de révision
 
-## CONTEXT BOUNDARIES:
+## LIMITES DU CONTEXTE :
 
-- Complete PRD document exists from all previous steps
-- Document may have duplication from progressive append
-- Sections may not flow smoothly together
-- Level 2 headers ensure document can be split if needed
-- Focus on readability and coherence
+- Le document PRD complet existe à partir de toutes les étapes précédentes
+- Le document peut comporter des duplications dues aux ajouts (appends) successifs
+- Les sections peuvent manquer de fluidité entre elles
+- Les balises de niveau 2 garantissent que le document peut être scindé si besoin
+- Concentrez-vous sur la lisibilité et la cohérence
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Optimize the complete PRD document for flow, coherence, and professional presentation while preserving all essential information.
+Optimiser l'intégralité du document PRD pour la fluidité, la cohérence et une présentation professionnelle, tout en préservant toutes les informations essentielles.
 
-## DOCUMENT POLISH SEQUENCE:
+## SÉQUENCE DE PEAUFINAGE DU DOCUMENT :
 
-### 1. Load Context and Document
+### 1. Charger le Contexte et le Document
 
-**CRITICAL:** Load the PRD purpose document first:
+**CRITIQUE :** Chargez d'abord le document des objectifs du PRD :
 
-- Read `../data/prd-purpose.md` to understand what makes a great BMAD PRD
-- Internalize the philosophy: information density, traceability, measurable requirements
-- Keep the dual-audience nature (humans + LLMs) in mind
+- Lisez `../data/prd-purpose.md` pour comprendre ce qui fait l'excellence d'un PRD BMAD
+- Intériorisez la philosophie : densité de l'information, traçabilité, exigences mesurables
+- Gardez à l'esprit la nature à double lecture (humains + LLM)
 
-**Then Load the PRD Document:**
+**Puis Chargez le Document PRD :**
 
-- Read `{outputFile}` completely from start to finish
-- Understand the full document structure and content
-- Identify all sections and their relationships
-- Note areas that need attention
+- Lisez `{outputFile}` entièrement du début à la fin
+- Comprenez la structure complète du document et son contenu
+- Identifiez toutes les sections et leurs relations
+- Notez les zones qui requièrent une attention particulière
 
-### 2. Document Quality Review
+### 2. Révision de la Qualité du Document
 
-Review the entire document with PRD purpose principles in mind:
+Passez en revue l'ensemble du document en gardant à l'esprit les principes fondateurs du PRD :
 
-**Information Density:**
-- Are there wordy phrases that can be condensed?
-- Is conversational padding present?
-- Can sentences be more direct and concise?
+**Densité de l'Information :**
+- Y a-t-il des phrases verbeuses pouvant être condensées ?
+- Le "remplissage" conversationnel est-il présent ?
+- Les phrases peuvent-elles être plus directes et concises ?
 
-**Flow and Coherence:**
-- Do sections transition smoothly?
-- Are there jarring topic shifts?
-- Does the document tell a cohesive story?
-- Is the progression logical for readers?
+**Fluidité et Cohérence :**
+- Les transitions entre les sections sont-elles naturelles ?
+- Y a-t-il des changements de sujet brusques ou choquants ?
+- Le document raconte-t-il une histoire cohérente ?
+- La progression est-elle logique pour les lecteurs ?
 
-**Duplication Detection:**
-- Are ideas repeated across sections?
-- Is the same information stated multiple times?
-- Can redundant content be consolidated?
-- Are there contradictory statements?
+**Détection des Duplications :**
+- Des idées sont-elles répétées à travers les sections ?
+- La même information est-elle énoncée plusieurs fois ?
+- Le contenu redondant peut-il être consolidé ?
+- Y a-t-il des déclarations contradictoires ?
 
-**Header Structure:**
-- Are all main sections using ## Level 2 headers?
-- Is the hierarchy consistent (##, ###, ####)?
-- Can sections be easily extracted or referenced?
-- Are headers descriptive and clear?
+**Structure des Niveaux de Titres :**
+- Les sections principales utilisent-elles toutes les en-têtes de niveau 2 (##) ?
+- La hiérarchie est-elle cohérente (##, ###, ####) ?
+- Les sections peuvent-elles être facilement extraites ou référencées ?
+- Les en-têtes sont-ils descriptifs et clairs ?
 
-**Readability:**
-- Are sentences clear and concise?
-- Is the language consistent throughout?
-- Are technical terms used appropriately?
-- Would stakeholders find this easy to understand?
+**Lisibilité :**
+- Les phrases sont-elles claires et concises ?
+- Le langage est-il homogène d'un bout à l'autre ?
+- Les termes techniques sont-ils employés à bon escient ?
+- Les parties prenantes (stakeholders) trouveraient-elles cela facile à assimiler ?
 
-### 2b. Brainstorming Reconciliation (if brainstorming input exists)
+### 2b. Réconciliation des Séances de Brainstorming (si applicable)
 
-**Check the PRD frontmatter `inputDocuments` for any brainstorming document** (e.g., `brainstorming-session*.md`, `brainstorming-report.md`). If a brainstorming document was used as input:
+**Vérifiez le frontmatter du PRD `inputDocuments` pour y déceler un éventuel document de réflexion** (ex: `brainstorming-session*.md`, `brainstorming-report.md`). Si un tel document fut utilisé en source :
 
-1. **Load the brainstorming document** and extract all distinct ideas, themes, and recommendations
-2. **Cross-reference against the PRD** — for each brainstorming idea, check if it landed in any PRD section (requirements, success criteria, user journeys, scope, etc.)
-3. **Identify dropped ideas** — ideas from brainstorming that do not appear anywhere in the PRD. Pay special attention to:
-   - Tone, personality, and interaction design ideas (these are most commonly lost)
-   - Design philosophy and coaching approach ideas
-   - "What should this feel like" ideas (UX feel, not just UX function)
-   - Qualitative/soft ideas that don't map cleanly to functional requirements
-4. **Present findings to user**: "These brainstorming ideas did not make it into the PRD: [list]. Should any be incorporated?"
-5. **If user wants to incorporate dropped ideas**: Add them to the most appropriate PRD section (success criteria, non-functional requirements, or a new section if needed)
+1. **Chargez le document de brainstorming** et extrayez toutes les idées distinctes, les thèmes et recommandations.
+2. **Croisez avec le PRD** — pour chaque idée, vérifiez si elle a atterri dans une section du PRD (exigences, critères de succès, parcours, périmètre, etc.).
+3. **Identifiez les idées "abandonnées"** — Celles qui n'apparaissent nulle part. Portez une attention spéciale sur :
+   - Le ton, la personnalité et les idées de design d'interaction (très souvent perdus)
+   - La philosophie de design et l'approche d'accompagnement
+   - Les impressions ressenties "What should this feel like" (Le ressenti UX, pas juste la fonction UX)
+   - Les idées plus "soft" / qualitatives qui ne se fondent pas purement dans des exigences fonctionnelles claires
+4. **Présentez vos trouvailles à l'utilisateur** : "Ces idées du brainstorming n'ont pas été intégrées au PRD : [liste]. Souhaitez-vous en incorporer certaines ?"
+5. **Si l'utilisateur souhaite les intégrer** : Ajoutez-les dans la section la plus appropriée du PRD (critères de succès, exigences non-fonctionnelles, ou créez une nouvelle section adéquate)
 
-**Why this matters**: Brainstorming documents are often long, and the PRD's structured template has an implicit bias toward concrete/structural ideas. Soft ideas (tone, philosophy, interaction feel) frequently get silently dropped because they don't map cleanly to FR/NFR format.
+**En quoi c'est important :** Les compte-rendus de brainstorming sont longs, et le modèle structuré du PRD crée un biais naturel favorisant le contenu "structurel" pur. Les concepts immatériels (ton, philosophie) sont souvent perdus dans l'entonnoir car ils peinent à entrer dans la matrice Exigences Fonctionnelles / NFR.
 
-### 3. Optimization Actions
+### 3. Actions d'Optimisation
 
-Make targeted improvements:
+Effectuez des améliorations ciblées :
 
-**Improve Flow:**
-- Add transition sentences between sections
-- Smooth out jarring topic shifts
-- Ensure logical progression
-- Connect related concepts across sections
+**Améliorer la Fluidité :**
+- Ajoutez des phrases de transition entre les sections
+- Adoucissez les changements de sujet soudains
+- Assurez une progression logique
+- Connectez les concepts liés à travers les différentes sections
 
-**Reduce Duplication:**
-- Consolidate repeated information
-- Keep content in the most appropriate section
-- Use cross-references instead of repetition
-- Remove redundant explanations
+**Réduire les Duplications :**
+- Consolidez les informations répétées
+- Conservez le contenu dans la section la plus pertinente
+- Favorisez les références croisées au lieu de la pure répétition
+- Supprimez les explications redondantes
 
-**Enhance Coherence:**
-- Ensure consistent terminology throughout
-- Align all sections with product differentiator
-- Maintain consistent voice and tone
-- Verify scope consistency across sections
+**Renforcer la Cohérence :**
+- Maintenez une terminologie constante d'un bout à l'autre
+- Alignez toutes les sections selon le facteur de différenciation du produit
+- Conservez un ton et une voix homogènes
+- Vérifiez la constance du périmètre (Scope) à travers les sections
 
-**Optimize Headers:**
-- Ensure all main sections use ## Level 2
-- Make headers descriptive and action-oriented
-- Check that headers follow consistent patterns
-- Verify headers support document navigation
+**Optimiser les Titres :**
+- Assurez-vous que toutes les sections principales utilisent ##
+- Rendez les en-têtes narratifs et orientés "action"
+- Vérifiez que les en-têtes respectent des modèles uniformes
+- Assurez-vous que les titres soutiennent la navigation via l'index
 
-### 4. Preserve Critical Information
+### 4. Préserver les Informations Critiques
 
-**While optimizing, ensure NOTHING essential is lost:**
+**Durant le polissage, assurez-vous de ne RIEN perdre d'essentiel :**
 
-**Must Preserve:**
-- All user success criteria
-- All functional requirements (capability contract)
-- All user journey narratives
-- All scope decisions (MVP, Growth, Vision)
-- All non-functional requirements
-- Product differentiator and vision
-- Domain-specific requirements
-- Innovation analysis (if present)
+**À PÉRÉSERVER IMPÉRATIVEMENT (Must Preserve) :**
+- Tous les critères de succès utilisateur
+- Toutes les exigences fonctionnelles (contrat de capacité / capability contract)
+- Tous les récits narratifs des parcours utilisateurs (Journeys)
+- Toutes les décisions sur le périmètre (MVP, Growth, Vision)
+- Toutes les exigences non-fonctionnelles (NFR)
+- La vision et le différenciateur du produit
+- Les exigences inhérentes au Domaine
+- L'analyse d'innovation (si présente)
 
-**Can Consolidate:**
-- Repeated explanations of the same concept
-- Redundant background information
-- Multiple versions of similar content
-- Overlapping examples
+**Peut-être consolidé (Can Consolidate) :**
+- Des explications multipliées d'un même concept
+- Des éléments de contexte (background) redondants
+- Des versions multiples de contenu similaire
+- Les exemples qui se chevauchent
 
-### 5. Generate Optimized Document
+### 5. Générer le Document Optimisé
 
-Create the polished version:
+Créez la version polie définitive :
 
-**Polishing Process:**
-1. Start with original document
-2. Apply all optimization actions
-3. Review to ensure nothing essential was lost
-4. Verify improvements enhance readability
-5. Prepare optimized version for review
+**Processus de Peaufinage :**
+1. Partez du document original
+2. Appliquez toutes les actions d'optimisation
+3. Révisez pour acter qu'aucune essence n'a été dilapidée
+4. Contrôlez que les améliorations servent bel et bien la lisibilité
+5. Préparez la version améliorée pour revue
 
-### 6. Present MENU OPTIONS
+### 6. Présenter les OPTIONS DU MENU
 
-Present the polished document for review, then display menu:
-- Show what changed in the polish
-- Highlight improvements made (flow, duplication, headers)
-- Ask if they'd like to refine further, get other perspectives, or proceed
-- Present menu options naturally as part of conversation
+Présentez le document poli pour révision, puis affichez le menu final interactif :
+- Montrez purement ce qui fut modifié de l'original
+- Mettez en valeur les succès d'amélioration (Fluidité, doublons, ancrage titres)
+- Requérez s'ils souhaitent fignoler de fond en comble, solliciter une contre-analyse, ou passer à la suite.
+- Présentez les options du menu naturellement dans la conversation
 
-Display: "**Select:** [A] Advanced Elicitation [P] Party Mode [C] Continue to Complete PRD (Step 12 of 12)"
+Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer pour Terminer le PRD (Étape 12 sur 12)"
 
-#### Menu Handling Logic:
-- IF A: Invoke the `bmad-advanced-elicitation` skill with the polished document, process the enhanced refinements that come back, ask user "Accept these polish improvements? (y/n)", if yes update content with improvements then redisplay menu, if no keep original polish then redisplay menu
-- IF P: Invoke the `bmad-party-mode` skill with the polished document, process the collaborative refinements to flow and coherence, ask user "Accept these polish changes? (y/n)", if yes update content with improvements then redisplay menu, if no keep original polish then redisplay menu
-- IF C: Save the polished document to {outputFile}, update frontmatter by adding this step name to the end of the stepsCompleted array, then read fully and follow: ./step-12-complete.md
-- IF Any other: help user respond, then redisplay menu
+#### Logique de Gestion du Menu :
+- SI A : Invoquez la compétence `bmad-advanced-elicitation` sur le document lissé poli, traitez les affinements qui en ressortent, interrogez l'usager "Acceptez-vous d'acter ces brillances textuelles ? (o/n)", en cas d'accord altérez formellement le résultat puis rouvrez le menu, sinon figez la forme initiale puis rouvrez le menu.
+- SI P : Invoquez la compétence `bmad-party-mode` sur le document retravaillé, assimilez la passe globale d'inspection croisée/cohérence participative, demandez "Approuvez-vous ces modifications sur le Polissage ? (o/n)", en cas de oui sauvez les retouches puis réaffichez le portail, sans quoi gardez la pure version vôtre avant retour au portail/menu.
+- SI C : Sauvegardez le document poli final pur dans `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-12-complete.md`
+- SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
-#### EXECUTION RULES:
-- ALWAYS halt and wait for user input after presenting menu
-- ONLY proceed to next step when user selects 'C'
-- After other menu items execution, return to this menu
+#### RÈGLES D'EXÉCUTION :
+- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
+- NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
+- Après l'exécution d'autres options du menu, retournez à ce menu
 
-## APPEND TO DOCUMENT:
+## AJOUTER AU DOCUMENT (APPEND) :
 
-When user selects 'C', replace the entire document content with the polished version.
+Lorsque l'utilisateur sélectionne 'C', remplacez le contenu ENTIER du document par sa version finement polie.
 
-## SUCCESS METRICS:
+## MÉTRIQUES DE RÉUSSITE (SUCCESS METRICS) :
 
-✅ Complete document loaded and reviewed
-✅ Flow and coherence improved
-✅ Duplication reduced while preserving essential information
-✅ All main sections use ## Level 2 headers
-✅ Transitions between sections are smooth
-✅ User's voice and intent preserved
-✅ Document is more readable and professional
-✅ A/P/C menu presented and handled correctly
-✅ Brainstorming reconciliation completed (if brainstorming input exists)
-✅ Polished document saved when C selected
+✅ Le document complet a été lu en charge et passé en revue
+✅ Fluidité et Cohérences rehaussées avec maestria
+✅ Doublons et pollutions extraits sous parfaite intégrité des données reines/exigences
+✅ Tous les quartiers majeurs répondent loyalement en Titres '##'
+✅ Articulations fines / ponts entre sections naturels purs
+✅ Nature, voix et intention du créateur original conservées pieusement
+✅ Document certifié grandement plus pro/lisible formellement
+✅ Le menu A/P/C a été présenté et géré correctement
+✅ La réconciliation des phases de brainstorming a été effectuée (Si données initiales en input sources)
+✅ Document poli et sauvegardé par remplacement plein suite au feu vert express 'C' !
 
-## FAILURE MODES:
+## MODES D'ÉCHEC (FAILURE MODES) :
 
-❌ Loading only partial document (leads to incomplete polish)
-❌ Removing essential information while reducing duplication
-❌ Not preserving user's voice and intent
-❌ Changing content instead of improving presentation
-❌ Not ensuring ## Level 2 headers for main sections
-❌ Making arbitrary style changes instead of coherence improvements
-❌ Not presenting A/P/C menu for user approval
-❌ Saving polished document without user selecting 'C'
+❌ Lire un simple lambeau et appliquer un polissage inachevé/stérile à l'aveugle
+❌ Couper au scalpel / éviscérer dramatiquement de la donnée formelle/des capacités en pensant retirer du doublon superflu de la page
+❌ Briser purement le ton singulier émis ou falsifier la voix pure de l'humain créateur
+❌ Forger du texte abstrait altérant drastiquement le fond au lieu du seul agencement / structure
+❌ Bafouer la loi des balisages H2 (## Niveau 2) sur les têtes de pont des thèmes principaux !
+❌ Mener une inépuisable et puérile métamorphose esthétique du texte pure au grand dam de la cohérence de flux brut formelle !
+❌ Ne pas demander la rédemption formelle via validation A/P/C du menu des choix finaux
+❌ Forcer la gravure sauvegarde brute finale à l'usager qui n'a pourtant jamais ordonné le signal 'C' ultime !
 
-❌ **CRITICAL**: Reading only partial step file - leads to incomplete understanding and poor decisions
-❌ **CRITICAL**: Proceeding with 'C' without fully reading and understanding the next step file
-❌ **CRITICAL**: Making changes without complete understanding of document requirements
+❌ **CRITIQUE** : Ne lire qu'une partie du fichier d'étape - cela conduit à une compréhension incomplète et à de mauvaises décisions
+❌ **CRITIQUE** : Poursuivre avec 'C' sans avoir lu intégralement et compris le fichier de l'étape suivante
+❌ **CRITIQUE** : Appliquer des changements ou prendre hâtivement action au fond sans comprendre le contour formel d'un plan d'assemblage PRD imposé !
 
-## NEXT STEP:
+## ÉTAPE SUIVANTE :
 
-After user selects 'C' and polished document is saved, load `./step-12-complete.md` to complete the workflow.
+Après que l'utilisateur a sélectionné 'C' et que le document poli a été dûment écrasé par-dessus son brouillon, chargez `./step-12-complete.md` pour amorcer le crépuscule/l'achèvement ultime de la séquence du workflow.
 
-Remember: Do NOT proceed to step-12 until user explicitly selects 'C' from the A/P/C menu and polished document is saved!
+N'oubliez pas : Ne passez PAS à l'étape `step-12` tant que l'utilisateur n'a pas explicitement sélectionné 'C' dans le menu A/P/C et que le document poli n'est pas sauvegardé !

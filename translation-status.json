@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-04-29 23:21:27 UTC",
+  "missingModules": [
+    "bmc",
+    "cis",
+    "bmb"
+  ],
+  "reports": [
+    {
+      "module": "bmm",
+      "frModuleExists": true,
+      "originalFileCount": 330,
+      "presentInFr": 330,
+      "translated": 289,
+      "untranslated": 6,
+      "missing": 0,
+      "indeterminate": 35
+    },
+    {
+      "module": "core",
+      "frModuleExists": true,
+      "originalFileCount": 75,
+      "presentInFr": 75,
+      "translated": 64,
+      "untranslated": 0,
+      "missing": 0,
+      "indeterminate": 11
+    },
+    {
+      "module": "utility",
+      "frModuleExists": true,
+      "originalFileCount": 2,
+      "presentInFr": 2,
+      "translated": 2,
+      "untranslated": 0,
+      "missing": 0,
+      "indeterminate": 0
+    }
+  ]
+}

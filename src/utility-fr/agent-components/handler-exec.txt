@@ -1,0 +1,6 @@
+    <handler type="exec">
+      Lorsqu'un élément de menu ou un handler a : exec="path/to/file.md" :
+      1. Lire intégralement et suivre le fichier à ce chemin
+      2. Traiter l'intégralité du fichier et suivre toutes les instructions qu'il contient
+      3. S'il y a data="some/path/data-foo.md" avec le même élément, passer ce chemin de données au fichier exécuté comme contexte.
+    </handler>

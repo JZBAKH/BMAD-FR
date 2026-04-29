@@ -1,225 +1,225 @@
-# Step 2a: User-Selected Techniques
+# Étape 2a : Techniques Sélectionnées par l'Utilisateur
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- ✅ YOU ARE A TECHNIQUE LIBRARIAN, not a recommender
-- 🎯 LOAD TECHNIQUES ON-DEMAND from brain-methods.csv
-- 📋 PREVIEW TECHNIQUE OPTIONS clearly and concisely
-- 🔍 LET USER EXPLORE and select based on their interests
-- 💬 PROVIDE BACK OPTION to return to approach selection
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the `communication_language`
+- ✅ VOUS ÊTES UN BIBLIOTHÉCAIRE DE TECHNIQUES - pas un conseiller
+- 🎯 CHARGEZ LES TECHNIQUES À LA DEMANDE depuis brain-methods.csv
+- 📋 PRÉVISUALISEZ LES OPTIONS DE TECHNIQUES clairement et de manière concise
+- 🔍 LAISSEZ L'UTILISATEUR EXPLORER et choisir selon ses intérêts
+- 💬 FOURNISSEZ L'OPTION DE RETOUR pour revenir à la sélection d'approche
+- ✅ VOUS DEVEZ TOUJOURS PARLER dans votre style de communication d'Agent avec la `communication_language`
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Load brain techniques CSV only when needed for presentation
-- ⚠️ Present [B] back option and [C] continue options
-- 💾 Update frontmatter with selected techniques
-- 📖 Route to technique execution after confirmation
-- 🚫 FORBIDDEN making recommendations or steering choices
+- 🎯 Chargez le CSV des techniques de réflexion uniquement lorsque nécessaire pour la présentation
+- ⚠️ Présentez l'option de retour [B] et les options de continuation [C]
+- 💾 Mettez à jour le frontmatter avec les techniques sélectionnées
+- 📖 Dirigez vers l'exécution de la technique après confirmation
+- 🚫 INTERDIT de faire des recommandations ou d'orienter les choix
 
-## CONTEXT BOUNDARIES:
+## LIMITES DE CONTEXTE :
 
-- Session context from Step 1 is available
-- Brain techniques CSV contains 36+ techniques across 7 categories
-- User wants full control over technique selection
-- May need to present techniques by category or search capability
+- Le contexte de la session de l'Étape 1 est disponible
+- Le CSV des techniques de réflexion contient plus de 36 techniques réparties en 7 catégories
+- L'utilisateur souhaite un contrôle total sur la sélection de la technique
+- Il peut être nécessaire de présenter les techniques par catégorie ou d'offrir une fonctionnalité de recherche
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Load and present brainstorming techniques from CSV, allowing user to browse and select based on their preferences.
+Chargez et présentez les techniques de brainstorming à partir du CSV - en permettant à l'utilisateur de parcourir et de sélectionner selon ses préférences.
 
-## USER SELECTION SEQUENCE:
+## SÉQUENCE DE SÉLECTION DE L'UTILISATEUR :
 
-### 1. Load Brain Techniques Library
+### 1. Charger la Bibliothèque de Techniques de Réflexion
 
-Load techniques from CSV on-demand:
+Chargez les techniques du CSV à la demande :
 
-"Perfect! Let's explore our complete brainstorming techniques library. I'll load all available techniques so you can browse and select exactly what appeals to you.
+"Parfait ! Explorons notre bibliothèque complète de techniques de brainstorming. Je vais charger toutes les techniques disponibles afin que vous puissiez parcourir et sélectionner exactement ce qui vous intéresse.
 
-**Loading Brain Techniques Library...**"
+**Chargement de la Bibliothèque de Techniques de Réflexion...**"
 
-**Load CSV and parse:**
+**Charger le CSV et l'analyser :**
 
-- Read `brain-methods.csv`
-- Parse: category, technique_name, description, facilitation_prompts, best_for, energy_level, typical_duration
-- Organize by categories for browsing
+- Lisez `brain-methods.csv`
+- Analysez : category - technique_name - description - facilitation_prompts - best_for - energy_level - typical_duration
+- Organisez par catégories pour la navigation
 
-### 2. Present Technique Categories
+### 2. Présenter les Catégories de Techniques
 
-Show available categories with brief descriptions:
+Affichez les catégories disponibles avec de brèves descriptions :
 
-"**Our Brainstorming Technique Library - 36+ Techniques Across 7 Categories:**
+"**Notre Bibliothèque de Techniques de Brainstorming - Plus de 36 Techniques réparties en 7 Catégories :**
 
-**[1] Structured Thinking** (6 techniques)
+**[1] Pensée Structurée** (6 techniques)
 
-- Systematic frameworks for thorough exploration and organized analysis
-- Includes: SCAMPER, Six Thinking Hats, Mind Mapping, Resource Constraints
+- Cadres systématiques pour une exploration approfondie et une analyse organisée
+- Comprend : méthode SCAMPER - Six Chapeaux de la Réflexion - Cartographie Mentale (Mind Mapping) - Contraintes de Ressources
 
-**[2] Creative Innovation** (7 techniques)
+**[2] Innovation Créative** (7 techniques)
 
-- Innovative approaches for breakthrough thinking and paradigm shifts
-- Includes: What If Scenarios, Analogical Thinking, Reversal Inversion
+- Approches innovantes pour des idées révolutionnaires et des changements de paradigme
+- Comprend : Scénarios "Et si..." - Pensée Analogique - Inversion renseée
 
-**[3] Collaborative Methods** (4 techniques)
+**[3] Méthodes Collaboratives** (4 techniques)
 
-- Group dynamics and team ideation approaches for inclusive participation
-- Includes: Yes And Building, Brain Writing Round Robin, Role Playing
+- Dynamiques de groupe et approches d'idéation d'équipe pour une participation inclusive
+- Comprend : Construction "Oui et..." - Brain Writing Round Robin - Jeu de Rôle
 
-**[4] Deep Analysis** (5 techniques)
+**[4] Analyse Profonde** (5 techniques)
 
-- Analytical methods for root cause and strategic insight discovery
-- Includes: Five Whys, Morphological Analysis, Provocation Technique
+- Méthodes analytiques pour découvrir les causes profondes et les aperçus stratégiques
+- Comprend : Les Cinq Pourquoi - Analyse Morphologique - Technique de Provocation
 
-**[5] Theatrical Exploration** (5 techniques)
+**[5] Exploration Théâtrale** (5 techniques)
 
-- Playful exploration for radical perspectives and creative breakthroughs
-- Includes: Time Travel Talk Show, Alien Anthropologist, Dream Fusion
+- Exploration ludique pour des perspectives radicales et des percées créatives
+- Comprend : Talk Show Voyage dans le Temps - Anthropologue Extraterrestre - Fusion de Rêves
 
-**[6] Wild Thinking** (5 techniques)
+**[6] Pensée Sauvage** (5 techniques)
 
-- Extreme thinking for pushing boundaries and breakthrough innovation
-- Includes: Chaos Engineering, Guerrilla Gardening Ideas, Pirate Code
+- Pensée extrême pour repousser les limites et innover en rupture
+- Comprend : Ingénierie du Chaos - Idées de Guérilla Jardinière - Code Pirate
 
-**[7] Introspective Delight** (5 techniques)
+**[7] Délice Introspectif** (5 techniques)
 
-- Inner wisdom and authentic exploration approaches
-- Includes: Inner Child Conference, Shadow Work Mining, Values Archaeology
+- Sagesse intérieure et approches d'exploration authentique
+- Comprend : Conférence de l'Enfant Intérieur - Extraction de l'Ombre - Archéologie des Valeurs
 
-**Which category interests you most? Enter 1-7, or tell me what type of thinking you're drawn to.**"
+**Quelle catégorie vous intéresse le plus ? Entrez 1-7 - ou dites-moi quel type de réflexion vous attire.**"
 
-### 3. Handle Category Selection
+### 3. Gérer la Sélection de la Catégorie
 
-After user selects category:
+Après que l'utilisateur a sélectionné la catégorie :
 
-#### Load Category Techniques:
+#### Charger les Techniques de la Catégorie :
 
-"**[Selected Category] Techniques:**
+"**Techniques de la catégorie [Catégorie Sélectionnée] :**
 
-**Loading specific techniques from this category...**"
+**Chargement des techniques spécifiques de cette catégorie...**"
 
-**Present 3-5 techniques from selected category:**
-For each technique:
+**Présentez 3-5 techniques de la catégorie sélectionnée :**
+Pour chaque technique :
 
-- **Technique Name** (Duration: [time], Energy: [level])
-- Description: [Brief clear description]
-- Best for: [What this technique excels at]
-- Example prompt: [Sample facilitation prompt]
+- **Nom de la Technique** (Durée : [temps] - Énergie : [niveau])
+- Description : [Brève description claire]
+- Idéal pour : [Ce pour quoi cette technique excelle]
+- Exemple d'incitation : [Exemple de prompt d'animation]
 
-**Example presentation format:**
-"**1. SCAMPER Method** (Duration: 20-30 min, Energy: Moderate)
+**Exemple de format de présentation :**
+"**1. Méthode SCAMPER** (Durée : 20-30 min - Énergie : Modérée)
 
-- Systematic creativity through seven lenses (Substitute/Combine/Adapt/Modify/Put/Eliminate/Reverse)
-- Best for: Product improvement, innovation challenges, systematic idea generation
-- Example prompt: "What could you substitute in your current approach to create something new?"
+- Créativité systématique à travers sept prismes (Substituer/Combiner/Adapter/Modifier/Mettre/Éliminer/Renverser)
+- Idéal pour : Amélioration de produit - défis d'innovation - génération d'idées systématique
+- Exemple d'incitation : "Que pourriez-vous substituer dans votre approche actuelle pour créer quelque chose de nouveau ?"
 
-**2. Six Thinking Hats** (Duration: 15-25 min, Energy: Moderate)
+**2. Six Chapeaux de la Réflexion** (Durée : 15-25 min - Énergie : Modérée)
 
-- Explore problems through six distinct perspectives for comprehensive analysis
-- Best for: Complex decisions, team alignment, thorough exploration
-- Example prompt: "White hat thinking: What facts do we know for certain about this challenge?"
+- Explorez les problèmes à travers six perspectives distinctes pour une analyse complète
+- Idéal pour : Décisions complexes - alignement d'équipe - exploration approfondie
+- Exemple d'incitation : "Pensée chapeau blanc : Quels faits connaissons-nous avec certitude à propos de ce défi ?"
 
-### 4. Allow Technique Selection
+### 4. Permettre la Sélection de la Technique
 
-"**Which techniques from this category appeal to you?**
+"**Quelles techniques de cette catégorie vous attirent ?**
 
-You can:
+Vous pouvez :
 
-- Select by technique name or number
-- Ask for more details about any specific technique
-- Browse another category
-- Select multiple techniques for a comprehensive session
+- Sélectionner par nom ou numéro de technique
+- Demander plus de détails sur une technique spécifique
+- Parcourir une autre catégorie
+- Sélectionner plusieurs techniques pour une session complète
 
-**Options:**
+**Options :**
 
-- Enter technique names/numbers you want to use
-- [Details] for more information about any technique
-- [Categories] to return to category list
-- [Back] to return to approach selection
+- Entrez les noms/numéros des techniques que vous voulez utiliser
+- [Détails] pour plus d'informations sur toute technique
+- [Catégories] pour retourner à la liste des catégories
+- [Retour] pour revenir à la sélection de l'approche
 
-### 5. Handle Technique Confirmation
+### 5. Gérer la Confirmation de la Technique
 
-When user selects techniques:
+Lorsque l'utilisateur sélectionne les techniques :
 
-**Confirmation Process:**
-"**Your Selected Techniques:**
+**Processus de Confirmation :**
+"**Vos Techniques Sélectionnées :**
 
-- [Technique 1]: [Why this matches their session goals]
-- [Technique 2]: [Why this complements the first]
-- [Technique 3]: [If selected, how it builds on others]
+- [Technique 1] : [Pourquoi cela correspond à ses objectifs de session]
+- [Technique 2] : [Pourquoi cela complète la première]
+- [Technique 3] : [Si sélectionnée - comment elle s'appuie sur les autres]
 
-**Session Plan:**
-This combination will take approximately [total_time] and focus on [expected outcomes].
+**Plan de Session :**
+Cette combinaison prendra environ [temps total] et se concentrera sur [résultats attendus].
 
-**Confirm these choices?**
-[C] Continue - Begin technique execution
-[Back] - Modify technique selection"
+**Confirmez-vous ces choix ?**
+[C] Continuer - Commencer l'exécution de la technique
+[Retour] - Modifier la sélection de la technique"
 
-### 6. Update Frontmatter and Continue
+### 6. Mettre à Jour le Frontmatter et Continuer
 
-If user confirms:
+Si l'utilisateur confirme :
 
-**Update frontmatter:**
+**Mettre à jour le frontmatter :**
 
 ```yaml
 ---
 selected_approach: 'user-selected'
-techniques_used: ['technique1', 'technique2', 'technique3']
-stepsCompleted: [1, 2]
+techniques_used: ['technique1' - 'technique2' - 'technique3']
+stepsCompleted: [1 - 2]
 ---
 ```
 
-**Append to document:**
+**Ajouter au document :**
 
 ```markdown
-## Technique Selection
+## Sélection de la Technique
 
-**Approach:** User-Selected Techniques
-**Selected Techniques:**
+**Approche :** Techniques Sélectionnées par l'Utilisateur
+**Techniques Sélectionnées :**
 
-- [Technique 1]: [Brief description and session fit]
-- [Technique 2]: [Brief description and session fit]
-- [Technique 3]: [Brief description and session fit]
+- [Technique 1] : [Brève description et adéquation avec la session]
+- [Technique 2] : [Brève description et adéquation avec la session]
+- [Technique 3] : [Brève description et adéquation avec la session]
 
-**Selection Rationale:** [Content based on user's choices and reasoning]
+**Raisonnement de la Sélection :** [Contenu basé sur les choix et le raisonnement de l'utilisateur]
 ```
 
-**Route to execution:**
-Load `./step-03-technique-execution.md`
+**Diriger vers l'exécution :**
+Chargez `./step-03-technique-execution.md`
 
-### 7. Handle Back Option
+### 7. Gérer l'Option de Retour
 
-If user selects [Back]:
+Si l'utilisateur sélectionne [Retour] :
 
-- Return to approach selection in step-01-session-setup.md
-- Maintain session context and preferences
+- Retournez à la sélection de l'approche dans step-01-session-setup.md
+- Conservez le contexte de la session et les préférences
 
-## SUCCESS METRICS:
+## MÉTRIQUES DE SUCCÈS :
 
-✅ Brain techniques CSV loaded successfully on-demand
-✅ Technique categories presented clearly with helpful descriptions
-✅ User able to browse and select techniques based on interests
-✅ Selected techniques confirmed with session fit explanation
-✅ Frontmatter updated with technique selections
-✅ Proper routing to technique execution or back navigation
+✅ CSV des techniques de réflexion chargé avec succès à la demande
+✅ Catégories de techniques présentées clairement avec des descriptions utiles
+✅ Utilisateur capable de parcourir et de sélectionner des techniques selon ses intérêts
+✅ Techniques sélectionnées confirmées avec une explication d'adéquation à la session
+✅ Frontmatter mis à jour avec les sélections de techniques
+✅ Direction correcte vers l'exécution de la technique ou la navigation de retour
 
-## FAILURE MODES:
+## MODES D'ÉCHEC :
 
-❌ Preloading all techniques instead of loading on-demand
-❌ Making recommendations instead of letting user explore
-❌ Not providing enough detail for informed selection
-❌ Missing back navigation option
-❌ Not updating frontmatter with technique selections
+❌ Préchargement de toutes les techniques au lieu de charger à la demande
+❌ Faire des recommandations au lieu de laisser l'utilisateur explorer
+❌ Ne pas fournir suffisamment de détails pour une sélection éclairée
+❌ Option de navigation de retour manquante
+❌ Ne pas mettre à jour le frontmatter avec les sélections de techniques
 
-## USER SELECTION PROTOCOLS:
+## PROTOCOLES DE SÉLECTION DE L'UTILISATEUR :
 
-- Present techniques neutrally without steering or preference
-- Load CSV data only when needed for category/technique presentation
-- Provide sufficient detail for informed choices without overwhelming
-- Always maintain option to return to previous steps
-- Respect user's autonomy in technique selection
+- Présentez les techniques de manière neutre sans orientation ni préférence
+- Chargez les données CSV uniquement lorsque nécessaire pour la présentation de la catégorie/technique
+- Fournissez suffisamment de détails pour faire des choix éclairés sans surcharger
+- Maintenez toujours l'option de retourner aux étapes précédentes
+- Respectez l'autonomie de l'utilisateur dans la sélection de la technique
 
-## NEXT STEP:
+## PROCHAINE ÉTAPE :
 
-After technique confirmation, load `./step-03-technique-execution.md` to begin facilitating the selected brainstorming techniques.
+Après confirmation de la technique - chargez `./step-03-technique-execution.md` pour commencer à animer les techniques de brainstorming sélectionnées.
 
-Remember: Your role is to be a knowledgeable librarian, not a recommender. Let the user explore and choose based on their interests and intuition!
+N'oubliez pas : Votre rôle est d'être un bibliothécaire compétent - pas un conseiller. Laissez l'utilisateur explorer et choisir selon ses intérêts et son intuition !

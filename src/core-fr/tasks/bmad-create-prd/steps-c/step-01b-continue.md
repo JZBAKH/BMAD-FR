@@ -1,72 +1,72 @@
-# Step 1B: Workflow Continuation
+# Étape 1B : Continuation du Workflow
 
-## STEP GOAL:
+## OBJECTIF DE L'ÉTAPE :
 
-Resume the PRD workflow from where it was left off, ensuring smooth continuation with full context restoration.
+Reprendre le workflow du PRD là où il s'est arrêté, en assurant une suite fluide avec une restauration complète du contexte.
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-### Universal Rules:
+### Règles Universelles :
 
-- 🛑 NEVER generate content without user input
-- 📖 CRITICAL: Read the complete step file before taking any action
-- 🔄 CRITICAL: When loading next step with 'C', ensure entire file is read
-- 📋 YOU ARE A FACILITATOR, not a content generator
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
+- 🛑 NE JAMAIS générer de contenu sans l'intervention de l'utilisateur
+- 📖 CRITIQUE : Lisez le fichier d'étape complet avant d'entreprendre toute action
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que le fichier entier est lu
+- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
 
-### Role Reinforcement:
+### Renforcement du Rôle :
 
-- ✅ You are a product-focused PM facilitator collaborating with an expert peer
-- ✅ We engage in collaborative dialogue, not command-response
-- ✅ Resume workflow from exact point where it was interrupted
+- ✅ Vous êtes un facilitateur PM (Product Manager) orienté produit collaborant avec un pair expert
+- ✅ Nous nous engageons dans un dialogue collaboratif, pas dans un modèle commande-réponse
+- ✅ Reprendre le workflow à l'endroit exact où il a été interrompu
 
-### Step-Specific Rules:
+### Règles Spécifiques à l'Étape :
 
-- 💬 FOCUS on understanding where we left off and continuing appropriately
-- 🚫 FORBIDDEN to modify content completed in previous steps
-- 📖 Only reload documents that were already tracked in `inputDocuments`
+- 💬 CONCENTREZ-VOUS sur la compréhension du point d'arrêt et la manière appropriée de continuer
+- 🚫 INTERDICTION de modifier le contenu réalisé lors des étapes précédentes
+- 📖 Ne rechargez que les documents qui ont déjà été suivis dans `inputDocuments`
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Show your analysis of current state before taking action
-- Update frontmatter: add this step name to the end of the steps completed array
-- 📖 Only load documents that were already tracked in `inputDocuments`
-- 🚫 FORBIDDEN to discover new input documents during continuation
+- 🎯 Montrez votre analyse de l'état actuel avant de passer à l'action
+- Mettez à jour le frontmatter : ajoutez le nom de cette étape à la fin du tableau (array) des étapes terminées
+- 📖 Ne chargez que les documents qui ont déjà été suivis dans `inputDocuments`
+- 🚫 INTERDICTION de découvrir de nouveaux documents d'entrée pendant la continuation (reprise)
 
-## CONTEXT BOUNDARIES:
+## LIMITES DU CONTEXTE :
 
-- Available context: Current document and frontmatter are already loaded
-- Focus: Workflow state analysis and continuation logic only
-- Limits: Don't assume knowledge beyond what's in the document
-- Dependencies: Existing workflow state from previous session
+- Contexte disponible : Le document actuel et le frontmatter sont déjà chargés
+- Focus : Analyse de l'état du workflow et logique de continuation uniquement
+- Limites : Ne présumez pas de connaissances au-delà de ce qui se trouve dans le document
+- Dépendances : État du workflow existant de la session précédente
 
-## Sequence of Instructions (Do not deviate, skip, or optimize)
+## Séquence d'Instructions (Ne pas dévier, ignorer ou optimiser)
 
-### 1. Analyze Current State
+### 1. Analyser l'État Actuel
 
-**State Assessment:**
-Review the frontmatter to understand:
+**Évaluation de l'État :**
+Passez en revue le frontmatter pour comprendre :
 
-- `stepsCompleted`: Array of completed step filenames
-- Last element of `stepsCompleted` array: The most recently completed step
-- `inputDocuments`: What context was already loaded
-- All other frontmatter variables
+- `stepsCompleted` : Tableau des noms de fichiers d'étapes terminées
+- Dernier élément du tableau `stepsCompleted` : L'étape la plus récemment terminée
+- `inputDocuments` : Le contexte qui était déjà chargé
+- Toutes les autres variables du frontmatter
 
-### 2. Restore Context Documents
+### 2. Restaurer les Documents de Contexte
 
-**Context Reloading:**
+**Rechargement du Contexte :**
 
-- For each document in `inputDocuments`, load the complete file
-- This ensures you have full context for continuation
-- Don't discover new documents - only reload what was previously processed
+- Pour chaque document dans `inputDocuments`, chargez le fichier complet
+- Cela garantit que vous disposez d'un contexte complet pour la continuation (reprise)
+- Ne découvrez pas de nouveaux documents - ne rechargez que ce qui a été précédemment traité
 
-### 3. Determine Next Step
+### 3. Déterminer la Prochaine Étape
 
-**Step Sequence Lookup:**
+**Recherche de la Séquence d'Étapes :**
 
-Use the following ordered sequence to determine the next step from the last completed step:
+Utilisez la séquence ordonnée suivante pour déterminer l'étape suivante à partir de la dernière étape terminée :
 
-| Last Completed | Next Step |
+| Dernière Étape Terminée | Étape Suivante |
 |---|---|
 | step-01-init.md | step-02-discovery.md |
 | step-02-discovery.md | step-02b-vision.md |
@@ -82,80 +82,80 @@ Use the following ordered sequence to determine the next step from the last comp
 | step-10-nonfunctional.md | step-11-polish.md |
 | step-11-polish.md | step-12-complete.md |
 
-1. Get the last element from the `stepsCompleted` array
-2. Look it up in the table above to find the next step
-3. That's the next step to load!
+1. Récupérez le dernier élément du tableau `stepsCompleted`
+2. Cherchez-le dans le tableau ci-dessus pour trouver l'étape suivante
+3. C'est l'étape suivante à charger !
 
-**Example:**
-- If `stepsCompleted = ["step-01-init.md", "step-02-discovery.md", "step-03-success.md"]`
-- Last element is `"step-03-success.md"`
-- Table lookup → next step is `./step-04-journeys.md`
+**Exemple :**
+- Si `stepsCompleted = ["step-01-init.md", "step-02-discovery.md", "step-03-success.md"]`
+- Le dernier élément est `"step-03-success.md"`
+- Recherche dans le tableau → la prochaine étape est `./step-04-journeys.md`
 
-### 4. Handle Workflow Completion
+### 4. Gérer l'Achèvement du Workflow
 
-**If `stepsCompleted` array contains `"step-12-complete.md"`:**
-"Great news! It looks like we've already completed the PRD workflow for {{project_name}}.
+**Si le tableau `stepsCompleted` contient `"step-12-complete.md"` :**
+"Bonne nouvelle ! Il semble que nous ayons déjà terminé le workflow du PRD pour {{project_name}}.
 
-The final document is ready at `{outputFile}` with all sections completed.
+Le document final est prêt à `{outputFile}` avec toutes les sections terminées.
 
-Would you like me to:
+Souhaiteriez-vous que je :
 
-- Review the completed PRD with you
-- Suggest next workflow steps (like architecture or epic creation)
-- Start a new PRD revision
+- Passe en revue le PRD terminé avec vous
+- Vous suggère les prochaines étapes de workflow (comme l'architecture ou la création d'epics)
+- Démarre une nouvelle révision du PRD
 
-What would be most helpful?"
+Qu'est-ce qui vous serait le plus utile ?"
 
-### 5. Present Current Progress
+### 5. Présenter la Progression Actuelle
 
-**If workflow not complete:**
-"Welcome back {{user_name}}! I'm resuming our PRD collaboration for {{project_name}}.
+**Si le workflow n'est pas terminé :**
+"Bon retour {{user_name}} ! Je reprends notre collaboration sur le PRD pour {{project_name}}.
 
-**Current Progress:**
-- Last completed: {last step filename from stepsCompleted array}
-- Next up: {next step from lookup table}
-- Context documents available: {len(inputDocuments)} files
+**Progression Actuelle :**
+- Dernière étape terminée : {dernier nom de fichier d'étape du tableau stepsCompleted}
+- Prochaine étape : {étape suivante selon le tableau de recherche}
+- Documents de contexte disponibles : {len(inputDocuments)} fichiers
 
-**Document Status:**
-- Current PRD document is ready with all completed sections
-- Ready to continue from where we left off
+**Statut du Document :**
+- Le document PRD actuel est prêt avec toutes les sections terminées
+- Prêt à continuer là où nous nous sommes arrêtés
 
-Does this look right, or do you want to make any adjustments before we proceed?"
+Est-ce que cela semble correct, ou souhaitez-vous apporter des ajustements avant de poursuivre ?"
 
-### 6. Present MENU OPTIONS
+### 6. Présenter les OPTIONS DU MENU
 
-Display: "**Select an Option:** [C] Continue to {next step name}"
+Affichez : "**Sélectionnez une Option :** [C] Continuer vers {nom de l'étape suivante}"
 
-#### Menu Handling Logic:
+#### Logique de Gestion du Menu :
 
-- IF C: Read fully and follow the next step determined from the lookup table in step 3
-- IF Any other comments or queries: respond and redisplay menu
+- SI C : Lisez intégralement et suivez la prochaine étape déterminée à partir du tableau de correspondance de l'étape 3
+- SI Autres commentaires ou requêtes : répondez et réaffichez le menu
 
-#### EXECUTION RULES:
+#### RÈGLES D'EXÉCUTION :
 
-- ALWAYS halt and wait for user input after presenting menu
-- ONLY proceed to next step when user selects 'C'
+- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
+- NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 
-## CRITICAL STEP COMPLETION NOTE
+## NOTE CRITIQUE DE FIN D'ÉTAPE
 
-ONLY WHEN [C continue option] is selected and [current state confirmed], will you then read fully and follow the next step (from the lookup table) to resume the workflow.
+UNIQUEMENT LORSQUE [l'option de continuation C] est sélectionnée et que [l'état actuel est confirmé], vous lirez alors intégralement et suivrez l'étape suivante (d'après le tableau de recherche) pour reprendre le workflow.
 
 ---
 
-## 🚨 SYSTEM SUCCESS/FAILURE METRICS
+## 🚨 MÉTRIQUES DE SUCCÈS/ÉCHEC DU SYSTÈME
 
-### ✅ SUCCESS:
+### ✅ SUCCÈS :
 
-- All previous input documents successfully reloaded
-- Current workflow state accurately analyzed and presented
-- User confirms understanding of progress before continuation
-- Correct next step identified and prepared for loading
+- Tous les documents d'entrée (input documents) précédents ont été rechargés avec succès
+- L'état actuel du workflow a été analysé et présenté avec précision
+- L'utilisateur confirme sa compréhension de la progression avant la continuation
+- La prochaine étape correcte a été identifiée et préparée pour le chargement
 
-### ❌ SYSTEM FAILURE:
+### ❌ ÉCHEC DU SYSTÈME :
 
-- Discovering new input documents instead of reloading existing ones
-- Modifying content from already completed steps
-- Failing to determine the next step from the lookup table
-- Proceeding without user confirmation of current state
+- Découverte de nouveaux documents d'entrée au lieu de recharger ceux existants
+- Modification du contenu d'étapes déjà réalisées
+- Échec dans la détermination de la prochaine étape à partir du tableau de recherche
+- Poursuivre sans la confirmation de l'état actuel par l'utilisateur
 
-**Master Rule:** Skipping steps, optimizing sequences, or not following exact instructions is FORBIDDEN and constitutes SYSTEM FAILURE.
+**Règle Principale :** Sauter des étapes, optimiser des séquences ou ne pas suivre les instructions exactes est INTERDIT et constitue un ÉCHEC DU SYSTÈME.

@@ -1,214 +1,214 @@
-# Step 3: Success Criteria Definition
+# Étape 3 : Définition des Critères de Succès
 
-**Progress: Step 3 of 11** - Next: User Journey Mapping
+**Progression : Étape 3 sur 11** - Suivante : Cartographie du Parcours Utilisateur (User Journey Mapping)
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- 🛑 NEVER generate content without user input
+- 🛑 NE JAMAIS générer de contenu sans l'intervention de l'utilisateur
 
-- 📖 CRITICAL: ALWAYS read the complete step file before taking any action - partial understanding leads to incomplete decisions
-- 🔄 CRITICAL: When loading next step with 'C', ensure the entire file is read and understood before proceeding
-- ✅ ALWAYS treat this as collaborative discovery between PM peers
-- 📋 YOU ARE A FACILITATOR, not a content generator
-- 💬 FOCUS on defining what winning looks like for this product
-- 🎯 COLLABORATIVE discovery, not assumption-based goal setting
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
-- ✅ YOU MUST ALWAYS WRITE all artifact and document content in `{document_output_language}`
+- 📖 CRITIQUE : Lisez TOUJOURS le fichier d'étape complet avant d'entreprendre toute action - une compréhension partielle entraîne des décisions incomplètes
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que le fichier entier est lu et compris avant de continuer
+- ✅ ABORDEZ TOUJOURS cela comme une découverte collaborative entre pairs PM
+- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
+- 💬 CONCENTREZ-VOUS sur la définition de ce à quoi ressemble la réussite pour ce produit
+- 🎯 Découverte COLLABORATIVE, pas d'établissement d'objectifs basé sur des suppositions
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Show your analysis before taking any action
-- ⚠️ Present A/P/C menu after generating success criteria content
-- 💾 ONLY save when user chooses C (Continue)
-- 📖 Update output file frontmatter, adding this step name to the end of the list of stepsCompleted
-- 🚫 FORBIDDEN to load next step until C is selected
+- 🎯 Montrez votre analyse avant d'entreprendre toute action
+- ⚠️ Présentez le menu A/P/C après avoir généré le contenu des critères de succès
+- 💾 Sauvegardez UNIQUEMENT lorsque l'utilisateur choisit C (Continuer)
+- 📖 Mettez à jour le frontmatter du fichier de sortie, en ajoutant le nom de cette étape à la fin de la liste `stepsCompleted`
+- 🚫 INTERDICTION de charger l'étape suivante tant que C n'a pas été sélectionné
 
-## CONTEXT BOUNDARIES:
+## LIMITES DU CONTEXTE :
 
-- Current document and frontmatter from previous steps are available
-- Executive Summary and Project Classification already exist in document
-- Input documents from step-01 are available (product briefs, research, brainstorming)
-- No additional data files needed for this step
-- Focus on measurable, specific success criteria
-- LEVERAGE existing input documents to inform success criteria
+- Le document actuel et le frontmatter des étapes précédentes sont disponibles
+- Le Résumé Exécutif et la Classification du Projet existent déjà dans le document
+- Les documents d'entrée de `step-01` sont disponibles (product briefs, recherche, brainstorming)
+- Aucun fichier de données supplémentaire n'est requis pour cette étape
+- Concentrez-vous sur des critères de succès mesurables et spécifiques
+- EXPLOITEZ les documents d'entrée existants pour éclairer (informer) les critères de succès
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Define comprehensive success criteria that cover user success, business success, and technical success, using input documents as a foundation while allowing user refinement.
+Définir des critères de succès exhaustifs qui couvrent le succès de l'utilisateur, le succès commercial (business), et le succès technique, en utilisant les documents d'entrée comme base tout en permettant l'affinement par l'utilisateur.
 
-## SUCCESS DISCOVERY SEQUENCE:
+## SÉQUENCE DE DÉCOUVERTE DU SUCCÈS :
 
-### 1. Begin Success Definition Conversation
+### 1. Commencer la Conversation sur la Définition du Succès
 
-**Check Input Documents for Success Indicators:**
-Analyze product brief, research, and brainstorming documents for success criteria already mentioned.
+**Vérifier les Documents d'Entrée pour les Indicateurs de Succès :**
+Analysez le product brief, les recherches, et les documents de brainstorming à la recherche de critères de succès déjà mentionnés.
 
-**If Input Documents Contain Success Criteria:**
-Guide user to refine existing success criteria:
-- Acknowledge what's already documented in their materials
-- Extract key success themes from brief, research, and brainstorming
-- Help user identify gaps and areas for expansion
-- Probe for specific, measurable outcomes: When do users feel delighted/relieved/empowered?
-- Ask about emotional success moments and completion scenarios
-- Explore what "worth it" means beyond what's already captured
+**Si les Documents d'Entrée Contiennent des Critères de Succès :**
+Guidez l'utilisateur pour affiner les critères existants :
+- Reconnaissez ce qui est déjà documenté dans ses matériaux
+- Extrayez les thèmes clés de réussite du brief, de la recherche et du brainstorming
+- Aidez l'utilisateur à identifier les lacunes et les zones à approfondir
+- Sonder (probe) pour obtenir des résultats spécifiques et mesurables : Quand les utilisateurs se sentent-ils ravis/soulagés/responsabilisés ?
+- Renseignez-vous sur les moments de réussite émotionnelle et les scénarios d'achèvement
+- Explorez ce que l'expression "ça en vaut la peine" (worth it) signifie, au-delà de ce qui est déjà capturé
 
-**If No Success Criteria in Input Documents:**
-Start with user-centered success exploration:
-- Guide conversation toward defining what "worth it" means for users
-- Ask about the moment users realize their problem is solved
-- Explore specific user outcomes and emotional states
-- Identify success "aha!" moments and completion scenarios
-- Focus on user experience of success first
+**Si Aucun Critère de Succès dans les Documents d'Entrée :**
+Commencez par une exploration du succès centrée sur l'utilisateur :
+- Guidez la conversation vers la définition de ce que "ça en vaut la peine" (worth it) signifie pour les utilisateurs
+- Posez des questions sur le moment où les utilisateurs réalisent que leur problème est résolu
+- Explorez les résultats spécifiques pour les utilisateurs et leurs états émotionnels
+- Identifiez les moments de succès "Eurêka !" (aha! moments) et les scénarios d'achèvement (completion scenarios)
+- Concentrez-vous d'abord sur l'expérience de réussite de l'utilisateur
 
-### 2. Explore User Success Metrics
+### 2. Explorer les Métriques de Succès Utilisateur
 
-Listen for specific user outcomes and help make them measurable:
+Écoutez attentivement pour repérer les résultats spécifiques des utilisateurs et aidez à les rendre mesurables :
 
-- Guide from vague to specific: NOT "users are happy" → "users complete [key action] within [timeframe]"
-- Ask about emotional success: "When do they feel delighted/relieved/empowered?"
-- Identify success moments: "What's the 'aha!' moment?"
-- Define completion scenarios: "What does 'done' look like for the user?"
+- Guidez du vague au spécifique : PAS "les utilisateurs sont contents" → "les utilisateurs accomplissent [action clé] dans un [délai]"
+- Posez des questions sur le succès émotionnel : "Quand ressentent-ils du ravissement/du soulagement/un fort empowerment ?"
+- Identifiez les moments de succès : "Quel est le coup de foudre ou le moment Eurêka (aha! moment) ?"
+- Définissez les scénarios d'achèvement : "À quoi ressemble la mention 'Terminé' sans ambiguïté pour l'utilisateur ?"
 
-### 3. Define Business Success
+### 3. Définir le Succès Commercial (Business Success)
 
-Transition to business metrics:
-- Guide conversation to business perspective on success
-- Explore timelines: What does 3-month success look like? 12-month success?
-- Identify key business metrics: revenue, user growth, engagement, or other measures?
-- Ask what specific metric would indicate "this is working"
-- Understand business success from their perspective
+Faites la transition vers les métriques métiers (business) :
+- Guidez la conversation vers le point de vue de l'entreprise vis-à-vis du succès
+- Sondez les échéances : À quoi ressemble le succès à 3 mois ? Le succès à 12 mois ?
+- Identifiez des métriques commerciales clés : revenus, croissance des utilisateurs, engagement, ou d'autres mesures ?
+- Demandez quelle métrique spécifique indiquerait "cela fonctionne"
+- Comprenez le succès commercial depuis leur perspective
 
-### 4. Challenge Vague Metrics
+### 4. Remettre en Cause les Métriques Vagues
 
-Push for specificity on business metrics:
+Forcez la spécificité pour les métriques commerciales :
 
-- "10,000 users" → "What kind of users? Doing what?"
-- "99.9% uptime" → "What's the real concern - data loss? Failed payments?"
-- "Fast" → "How fast, and what specifically needs to be fast?"
-- "Good adoption" → "What percentage adoption by when?"
+- "10 000 utilisateurs" → "Quelle sorte d'utilisateurs ? Faisant quoi ?"
+- "Disponibilité continue à 99.9%" → "Quel est véritablement le couperet redouté - perte de données ? Paiements échoués ?"
+- "Rapide" → "Rapide comment, et qu'est-ce qui doit spécifiquement être rapide ?"
+- "Bonne adoption" → "Quel pourcentage d'adoption d'ici quand ?"
 
-### 5. Connect to Product Differentiator
+### 5. Connexion avec l'Élément Différenciateur du Produit
 
-Tie success metrics back to what makes the product special:
-- Connect success criteria to the product's unique differentiator
-- Ensure metrics reflect the specific value proposition
-- Adapt success criteria to domain context:
-  - Consumer: User love, engagement, retention
-  - B2B: ROI, efficiency, adoption
-  - Developer tools: Developer experience, community
-  - Regulated: Compliance, safety, validation
-  - GovTech: Government compliance, accessibility, procurement
+Reliez impérativement ces métriques de succès à ce qui rend le produit spécial :
+- Connectez les critères d'excellence au facteur de différenciation unique du produit
+- Assurez-vous que les métriques reflètent la proposition de valeur spécifique
+- Adaptez les paramètres d'appréciations aux contextes des domaines :
+  - Consommateur (Consumer) : Amour de l'utilisateur, engagement, rétention
+  - Entreprises (B2B) : Rentabilité (ROI), efficacité, adoption
+  - Outillage Ingénieur/Développeur (Dev) : Expérience développeur (DX), communauté
+  - Réglementé : Conformité, sûreté, validation
+  - GovTech : Conformité gouvernementale, accessibilité, marchés publics (procurement)
 
-### 6. Smart Scope Negotiation
+### 6. Négociation Intelligente du Périmètre (Scope Negotiation)
 
-Guide scope definition through success lens:
-- Help user distinguish MVP (must work to be useful) from growth (competitive) and vision (dream)
-- Guide conversation through three scope levels:
-  1. MVP: What's essential for proving the concept?
-  2. Growth: What makes it competitive?
-  3. Vision: What's the dream version?
-- Challenge scope creep conversationally: Could this wait until after launch? Is this essential for MVP?
-- For complex domains: Ensure compliance minimums are included in MVP
+Guidez la définition du périmètre (scope) à travers le prisme de la réussite (success lens) :
+- Aidez l'utilisateur à distinguer le MVP (doit fonctionner pour être utile) des phases de Croissance (pour être compétitif) et de la Vision (le grand rêve)
+- Orientez la conversation sur trois niveaux de périmètre (scopes) :
+  1. Le MVP : Qu'est-ce qui est essentiel pour prouver le concept ?
+  2. Croissance (Growth) : Qu'est-ce qui le rend compétitif ?
+  3. Vision : Quelle est la version de rêve ?
+- Remettez en cause les débordements du périmètre (scope creep) structurellement : "Ceci pourrait-il attendre après le lancement ? Ce rôle est-il essentiel pour un MVP ?"
+- Pour les domaines complexes : Soyez garant que les minimas de conformité sont inclus au cœur du MVP
 
-### 7. Generate Success Criteria Content
+### 7. Générer le Contenu des Critères de Succès
 
-Prepare the content to append to the document:
+Préparez le contenu synthétique pour l'ajouter au fichier (append).
 
-#### Content Structure:
+#### Structure du Contenu :
 
-When saving to document, append these Level 2 and Level 3 sections:
+Lors de la sauvegarde au document, ajoutez (append) ces balisages exacts des niveaux 2 (`##`) et 3 (`###`) :
 
 ```markdown
-## Success Criteria
+## Critères de Succès
 
-### User Success
+### Succès Utilisateur
 
-[Content about user success criteria based on conversation]
+[Contenu sur les critères de succès utilisateur issus de de la conversation partagée]
 
-### Business Success
+### Succès Commercial
 
-[Content about business success metrics based on conversation]
+[Contenu sur les métriques commerciales et le point de vue stratégique selon ces chiffres conjoints]
 
-### Technical Success
+### Succès Technique
 
-[Content about technical success requirements based on conversation]
+[Contenu stipulant distinctement les exigences de succès algorithmiques ou structurelles du produit projeté]
 
-### Measurable Outcomes
+### Résultats Mesurables
 
-[Content about specific measurable outcomes based on conversation]
+[Relevé pur chiffré concernant la matrice de validation finale via divers facteurs sans équivoque]
 
-## Product Scope
+## Périmètre du Produit (Product Scope)
 
-### MVP - Minimum Viable Product
+### MVP - Produit Minimum Viable
 
-[Content about MVP scope based on conversation]
+[Définition stricte extraite aux essentiels cardinaux de l'émergence initiale de vie dudit produit.]
 
-### Growth Features (Post-MVP)
+### Fonctionnalités de Croissance (Post-MVP)
 
-[Content about growth features based on conversation]
+[Définition de la continuité d'ajout via des structures de second embranchement chronologique du cycle total]
 
-### Vision (Future)
+### Vision Globale (Futur)
 
-[Content about future vision based on conversation]
+[Projection sublime du produit achevé dans un scénario de gloire lointaine planifié selon les fantasmes évoqués.]
 ```
 
-### 8. Present MENU OPTIONS
+### 8. Présenter les OPTIONS DU MENU
 
-Present the success criteria content for user review, then display menu:
+Présentez le contenu des critères de succès à l'utilisateur pour révision (review), puis affichez le menu :
 
-- Show the drafted success criteria and scope definition (using structure from section 7)
-- Ask if they'd like to refine further, get other perspectives, or proceed
-- Present menu options naturally as part of the conversation
+- Montrez l'ébauche des critères de succès et de la définition du périmètre (en utilisant la structure de la section 7)
+- Demandez-lui s'il souhaite affiner davantage ce plan, obtenir un point de vue distinct, ou sceller la validation de l'étape.
+- Proposez la mécanique du menu sous une prose naturelle au nom de votre propre conversation
 
-Display: "**Select:** [A] Advanced Elicitation [P] Party Mode [C] Continue to User Journey Mapping (Step 4 of 11)"
+Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers la Cartographie du Parcours Utilisateur (Étape 4 sur 11)"
 
-#### Menu Handling Logic:
-- IF A: Invoke the `bmad-advanced-elicitation` skill with the current success criteria content, process the enhanced success metrics that come back, ask user "Accept these improvements to the success criteria? (y/n)", if yes update content with improvements then redisplay menu, if no keep original content then redisplay menu
-- IF P: Invoke the `bmad-party-mode` skill with the current success criteria, process the collaborative improvements to metrics and scope, ask user "Accept these changes to the success criteria? (y/n)", if yes update content with improvements then redisplay menu, if no keep original content then redisplay menu
-- IF C: Append the final content to {outputFile}, update frontmatter by adding this step name to the end of the stepsCompleted array, then read fully and follow: ./step-04-journeys.md
-- IF Any other: help user respond, then redisplay menu
+#### Logique de Gestion du Menu :
+- SI A : Invoquez la compétence `bmad-advanced-elicitation` avec le contenu actuel des critères de succès, traitez les métriques de succès améliorées qui en reviennent, demandez à l'utilisateur : "Accepter ces améliorations aux critères de succès ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
+- SI P : Invoquez la compétence `bmad-party-mode` avec les critères de succès actuels, traitez les améliorations collaboratives des métriques et du périmètre (scope), demandez à l'utilisateur : "Accepter ces changements aux critères de succès ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
+- SI C : Ajoutez (append) le contenu final à `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-04-journeys.md`
+- SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
-#### EXECUTION RULES:
-- ALWAYS halt and wait for user input after presenting menu
-- ONLY proceed to next step when user selects 'C'
-- After other menu items execution, return to this menu
+#### RÈGLES D'EXÉCUTION :
+- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
+- NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
+- Après l'exécution d'autres options du menu, retournez à ce menu
 
-## APPEND TO DOCUMENT:
+## AJOUTER AU DOCUMENT (APPEND) :
 
-When user selects 'C', append the content directly to the document using the structure from step 7.
+Lorsque l'utilisateur sélectionne 'C', ajoutez le contenu directement au document en respectant absolument les calques rigides et structures fixes du point #7.
 
-## SUCCESS METRICS:
+## MÉTRIQUES DE RÉUSSITE (SUCCESS METRICS) :
 
-✅ User success criteria clearly identified and made measurable
-✅ Business success metrics defined with specific targets
-✅ Success criteria connected to product differentiator
-✅ Scope properly negotiated (MVP, Growth, Vision)
-✅ A/P/C menu presented and handled correctly
-✅ Content properly appended to document when C selected
+✅ Les critères de réussite de l'utilisateur sont clairement identifiés et rendus mesurables
+✅ Les métriques de succès commercial sont définies avec des objectifs spécifiques
+✅ Les critères de succès sont connectés au facteur différenciateur du produit
+✅ Le périmètre (Scope) a été correctement négocié et délimité (MVP, Growth/Croissance, Vision)
+✅ Le menu A/P/C a été présenté et géré correctement
+✅ Le contenu a été correctement ajouté (appended) au document lorsque 'C' a été sélectionné
 
-## FAILURE MODES:
+## MODES D'ÉCHEC (FAILURE MODES) :
 
-❌ Accepting vague success metrics without pushing for specificity
-❌ Not connecting success criteria back to product differentiator
-❌ Missing scope negotiation and leaving it undefined
-❌ Generating content without real user input on what success looks like
-❌ Not presenting A/P/C menu after content generation
-❌ Appending content without user selecting 'C'
+❌ Accepter des métriques de succès vagues sans insister (push) pour obtenir de la spécificité
+❌ Ne pas rattacher les critères de succès au facteur différenciateur de base
+❌ Faire l'impasse sur la négociation des strates d'étendue/de contenu (scope)
+❌ Fabriquer (Générer) du contenu sur le succès sans une véritable participation (inputs) utilisateur
+❌ Ne pas présenter le menu A/P/C à la suite de la génération du contenu
+❌ Rajouter (Append) du texte sans la validation concrète (L'Usager doit formellement valider avec 'C' !)
 
-❌ **CRITICAL**: Reading only partial step file - leads to incomplete understanding and poor decisions
-❌ **CRITICAL**: Proceeding with 'C' without fully reading and understanding the next step file
-❌ **CRITICAL**: Making decisions without complete understanding of step requirements and protocols
+❌ **CRITIQUE** : Ne lire qu'une partie du fichier d'étape - cela conduit à une compréhension incomplète et à de mauvaises décisions
+❌ **CRITIQUE** : Poursuivre avec 'C' sans avoir lu intégralement et compris le fichier de l'étape suivante
+❌ **CRITIQUE** : Prendre des décisions sans une compréhension complète des exigences et des protocoles de l'étape
 
-## DOMAIN CONSIDERATIONS:
+## CONSIDÉRATIONS DE DOMAINE :
 
-If working in regulated domains (healthcare, fintech, govtech):
+Si vous travaillez dans des domaines hautement réglementés (santé/healthcare, fintech, govtech) :
 
-- Include compliance milestones in success criteria
-- Add regulatory approval timelines to MVP scope
-- Consider audit requirements as technical success metrics
+- Intégrez des jalons de conformité aux critères de succès
+- Insérez des échéanciers d'approbations réglementaires et ministérielles au MVP (Scope/Étendue d'Action)
+- Considérez les actes d'audits stricts telles des métriques de succès technique indiscutables
 
-## NEXT STEP:
+## ÉTAPE SUIVANTE :
 
-After user selects 'C' and content is saved to document, load `./step-04-journeys.md` to map user journeys.
+Après que l'utilisateur a sélectionné 'C' et que le contenu a été sauvegardé dans le document, chargez `./step-04-journeys.md` pour cartographier les parcours utilisateurs.
 
-Remember: Do NOT proceed to step-04 until user explicitly selects 'C' from the A/P/C menu and content is saved!
+N'oubliez pas : Ne passez PAS à l'étape `step-04` tant que l'utilisateur n'a pas explicitement sélectionné 'C' dans le menu A/P/C et que le contenu n'est pas sauvegardé !

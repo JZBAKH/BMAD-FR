@@ -1,230 +1,228 @@
-# Step 10: Non-Functional Requirements
+# Étape 10 : Exigences Non-Fonctionnelles (Non-Functional Requirements)
 
-**Progress: Step 10 of 12** - Next: Polish Document
+**Progression : Étape 10 sur 12** - Suivante : Peaufiner le Document (Polish Document)
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- 🛑 NEVER generate content without user input
+- 🛑 NE JAMAIS générer de contenu sans l'intervention de l'utilisateur
 
-- 📖 CRITICAL: ALWAYS read the complete step file before taking any action - partial understanding leads to incomplete decisions
-- 🔄 CRITICAL: When loading next step with 'C', ensure the entire file is read and understood before proceeding
-- ✅ ALWAYS treat this as collaborative discovery between PM peers
-- 📋 YOU ARE A FACILITATOR, not a content generator
-- 💬 FOCUS on quality attributes that matter for THIS specific product
-- 🎯 SELECTIVE: Only document NFRs that actually apply to the product
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
-- ✅ YOU MUST ALWAYS WRITE all artifact and document content in `{document_output_language}`
+- 📖 CRITIQUE : Lisez TOUJOURS le fichier d'étape complet avant d'entreprendre toute action - une compréhension partielle entraîne des décisions incomplètes
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que le fichier entier est lu et compris avant de continuer
+- ✅ ABORDEZ TOUJOURS cela comme une découverte collaborative entre pairs PM
+- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
+- 💬 CONCENTREZ-VOUS sur les attributs de qualité qui importent véritablement pour CE produit spécifique
+- 🎯 SÉLECTIF : Ne documentez que les NFR (Non-Functional Requirements) qui s'appliquent réellement au produit
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Show your analysis before taking any action
-- ⚠️ Present A/P/C menu after generating NFR content
-- 💾 ONLY save when user chooses C (Continue)
-- 📖 Update output file frontmatter, adding this step name to the end of the list of stepsCompleted
-- 🚫 FORBIDDEN to load next step until C is selected
+- 🎯 Montrez votre analyse avant d'entreprendre toute action
+- ⚠️ Présentez le menu A/P/C après avoir généré le contenu NFR
+- 💾 Sauvegardez UNIQUEMENT lorsque l'utilisateur choisit C (Continuer)
+- 📖 Mettez à jour le frontmatter du fichier de sortie, en ajoutant le nom de cette étape à la fin de la liste `stepsCompleted`
+- 🚫 INTERDICTION de charger l'étape suivante tant que C n'a pas été sélectionné
 
+## LIMITES DU CONTEXTE :
 
-## CONTEXT BOUNDARIES:
+- Le document actuel et le frontmatter des étapes précédentes sont disponibles
+- Les exigences fonctionnelles sont déjà définies et guideront la formulation des NFR
+- Le domaine et le type de projet (project-type) orienteront les NFR pertinentes et celles qui importent le plus
+- Concentrez-vous strictement sur des critères de qualité précis et mesurables
 
-- Current document and frontmatter from previous steps are available
-- Functional requirements already defined and will inform NFRs
-- Domain and project-type context will guide which NFRs matter
-- Focus on specific, measurable quality criteria
+## VOTRE TÂCHE :
 
-## YOUR TASK:
+Définir les exigences non-fonctionnelles qui stipulent les attributs de qualité cruciaux du produit logiciel, en vous concentrant de façon sélective et rigoureuse uniquement sur ce qui importe réellement à SA nature propre.
 
-Define non-functional requirements that specify quality attributes for the product, focusing only on what matters for THIS specific product.
+## SÉQUENCE DES EXIGENCES NON-FONCTIONNELLES :
 
-## NON-FUNCTIONAL REQUIREMENTS SEQUENCE:
+### 1. Expliquer la Vocation et la Portée des NFR
 
-### 1. Explain NFR Purpose and Scope
+Commencez par clarifier ce que signifient réellement les NFR et pourquoi notre méthode dicte une sélection minutieuse :
 
-Start by clarifying what NFRs are and why we're selective:
+**Objectif des NFR (NFR Purpose) :**
+Les NFR définissent purement avec QUELLE EXCELLENCE (HOW WELL) le système ou réseau se doit de fonctionner, face aux attributs qualitatifs tels que la performance brute, la sécurité, l'extensibilité/la capacité de monter en charge (scalability), etc.
 
-**NFR Purpose:**
-NFRs define HOW WELL the system must perform, not WHAT it must do. They specify quality attributes like performance, security, scalability, etc.
+**Approche Sélective (Selective Approach) :**
+Seuls les aspects capitaux inhérents à la nature propre du présent produit seront documentés et conservés. Qu'une catégorie floue/hors-sujet paraisse, nous devrons sciemment balayer la notion (Skip it entirely) ! Zéro encombrement textuel purement pour faire du remplissage d'exigences factices (requirement bloat).
 
-**Selective Approach:**
-We only document NFRs that matter for THIS product. If a category doesn't apply, we skip it entirely. This prevents requirement bloat and focuses on what's actually important.
+### 2. Évaluation Rapide du Contexte du Produit pour les NFR
 
-### 2. Assess Product Context for NFR Relevance
+Passez en revue et jauger drastiquement les catégories pour retenir uniquement les NFR vitales :
 
-Evaluate which NFR categories matter based on product context:
+**Questions Diagnostiques Expéditives d'Évaluation (Quick Assessment Questions) :**
 
-**Quick Assessment Questions:**
+- **Performance** : La vitesse est-elle cruciale à l'Usager final (impact ressenti direct) ?
+- **Sécurité (Security)** : Le coffre abrite-t-il des joyaux (données ultra-sensibles, numéraires, paiements) ?
+- **Fiabilité à l'Échelle (Scalability)** : Face aux vents/courants, une déferlante majeure usagers est-elle actée/probable à l'horizon ?
+- **Accessibilité (Accessibility)** : Notre cible fédère-t-elle les masses ou des minorités avec infirmités pures (Broad public audiences) ?
+- **Intégration** : Sur quelles routes marchandes/croisements applicatifs ce produit va-t-il puiser sa chair extérieure ?
+- **Tolérance/Fiabilité (Reliability)** : Si la tour/l'app s'éteint un instant, déclenchons-nous une catastrophe ou un léger grognement temporaire ?
 
-- **Performance**: Is there user-facing impact of speed?
-- **Security**: Are we handling sensitive data or payments?
-- **Scalability**: Do we expect rapid user growth?
-- **Accessibility**: Are we serving broad public audiences?
-- **Integration**: Do we need to connect with other systems?
-- **Reliability**: Would downtime cause significant problems?
+### 3. Explorer les Catégories NFR Applicables (Relevant NFR Categories)
 
-### 3. Explore Relevant NFR Categories
+Pour chaque embranchement (catégorie) s'avérant légitime et validé, entamez une exploration chirurgicale :
 
-For each relevant category, conduct targeted discovery:
+#### NFR de Performance (Si applicable) :
 
-#### Performance NFRs (If relevant):
+Déterrez la véritable doctrine de performance :
+- Dans quel espace-temps ultra limité telle fonctionnalité exige son acte sous peine d'échec pour l'utilisateur ?
+- La foudre (Response time expectations) dispose-t-elle d'un temps réglementaire précis d'apparition (En dixièmes de seconde) ?
+- Quels plans obscurs engager en cas d'agonie serveur ou de réponses engorgées face à de la lenteur ?
+- Doit-on sceller d'avance des seuils/plafonds garantis d'usagers simultanés absolus (Concurrent users) ?
 
-Explore performance requirements:
-- What parts of the system need to be fast for users to be successful?
-- Are there specific response time expectations?
-- What happens if performance is slower than expected?
-- Are there concurrent user scenarios we need to support?
+#### NFR de Sécurité (Si applicable) :
 
-#### Security NFRs (If relevant):
+Exhumez la stratégie martiale numérique de défense :
+- Sur quels flux vitaux, les données implorent notre absolu bouclier/coffre d'invincibilité encryptée ?
+- Gouvernance pure : qui commande (ou scrute les permissions) qui et où ?
+- Menaces inhérentes/Fatales à abattre et à museler impitoyablement au point zero sans sommations.
+- Le glaive législatif de conformité (GDPR, RGPD, HIPAA, DSP2) menace-t-il purement sous peine de sanctions lourdes nos flux/actes et conceptions au fondement du programme ?
 
-Explore security requirements:
-- What data needs to be protected?
-- Who should have access to what?
-- What are the security risks we need to mitigate?
-- Are there compliance requirements (GDPR, HIPAA, PCI-DSS)?
+#### NFR de Souplesse de Montée en Charge/Scalability (Si applicable) :
 
-#### Scalability NFRs (If relevant):
+Découpez la nature temporelle des augmentations structurelles :
+- Volumes instantanés au départ pur ? Volume massif de masse sous 3 ans estimé absolu ?
+- Des dates butoirs avec une frénésie d'achats violente temporelle à dompter impérativement (Traffic Spikes) ?
+- En cas de fissure totale des murs de trafic alloués, quelle coupure de confort lâche prise pour maintenir le navire au lieu du sombre trépas final du système ?
+- Sur quels axes les scénarios fous ou extrêmes justifient ce besoin d'extensions/growth anticipés ?
 
-Explore scalability requirements:
-- How many users do we expect initially? Long-term?
-- Are there seasonal or event-based traffic spikes?
-- What happens if we exceed our capacity?
-- What growth scenarios should we plan for?
+#### NFR d'Accessibilité (Si applicable) :
 
-#### Accessibility NFRs (If relevant):
+Traquez les inhérences civiques pures :
+- Quelle infirmité physique majeure nos utilisateurs portent-ils de front, auxquels la ligne codée doit offrir compensation instantanée claire ?
+- Faut-il justifier notre conformité formelle devant la loi étatique vis-à-vis des normes lourdes Web de type WCAG ou Section 508 sous peine de blocages judiciaires / refus de lancements d'appels d'offres ?
+- Sur quels dogmes spécifiques nos usagers comptent-ils majoritairement lors de leurs venues ?
 
-Explore accessibility requirements:
-- Are we serving users with visual, hearing, or motor impairments?
-- Are there legal accessibility requirements (WCAG, Section 508)?
-- What accessibility features are most important for our users?
+#### NFR d'Intégration / Connectivité (Si applicable) :
 
-#### Integration NFRs (If relevant):
+Explorez les chaînes matérielles :
+- Identifiez formellement quel dieu externe technologique/système tiers vient purement alimenter/être alimenté par la créature !
+- Des flux/formats froids archaïques absolus (SOAP, XML dédiés) à imposer obligatoirement ?
+- La solidité absolue des liens/câbles immatériels entre eux ? L'API tierce coupe-t-elle net ou survitons-nous formellement sans ces ponts s'ils cèdent ?
 
-Explore integration requirements:
-- What external systems do we need to connect with?
-- Are there APIs or data formats we must support?
-- How reliable do these integrations need to be?
+### 4. Rendre les NFR Précises et Mesurables
 
-### 4. Make NFRs Specific and Measurable
+Figez formellement la moindre expression abstraite NFR par une épreuve quantifiable stricte pure en laboratoire :
 
-For each relevant NFR category, ensure criteria are testable:
+**Du flou vers un seuil indiscutable (From Vague to Specific) :**
 
-**From Vague to Specific:**
+- NON : "Le système doit répondre super vite" → "Les actions des usagers pures se soldent intégralement en 2 secondes grand maximum"
+- NON : "Le système ne doit pas craindre les hordes d'utilisateurs" → "Sous une flambée de croissance x10 instantanée des appels globaux simultanés, la chute de rendement moteur ne fléchit pas outre 10%"
+- NON : "L'App de sécurité doit être impénétrable" → "Chaque segment data pure est formaté AES-256 sans latence native visuelle au repos total (At rest) comme en action pure réseau HTTP."
 
-- NOT: "The system should be fast" → "User actions complete within 2 seconds"
-- NOT: "The system should be secure" → "All data is encrypted at rest and in transit"
-- NOT: "The system should scale" → "System supports 10x user growth with <10% performance degradation"
+### 5. Générer le Contenu NFR (Catégories Pertinentes Uniquement)
 
-### 5. Generate NFR Content (Only Relevant Categories)
+Préparez la section NFR au greffage final par append :
 
-Prepare the content to append to the document:
+#### Structure du Contenu (Dynamique selon leur pertinence véritable) :
 
-#### Content Structure (Dynamic based on relevance):
-
-When saving to document, append these Level 2 and Level 3 sections (only include sections that are relevant):
+Au moment solennel de l'exécution, intégrez seulement les titres des catégories qui furent défendues de plein droit selon la consultation pure au feu de notre conversation :
 
 ```markdown
-## Non-Functional Requirements
+## Exigences Non-Fonctionnelles (Non-Functional Requirements)
 
 ### Performance
 
-[Performance requirements based on conversation - only include if relevant]
+[Le strict panel acté inhérent ciblant les exigences performances sous testabilités formelles (Testables Criteria) : Conserver cette trame uniquement si validée formellement par contexte]
 
-### Security
+### Sécurité (Security)
 
-[Security requirements based on conversation - only include if relevant]
+[Les diktats pures imposant les frontières ultra sécurisées : Conserver cette trame uniquement si validée par environnement inhérent et formellement retenue !]
 
-### Scalability
+### Montée en charge (Scalability)
 
-[Scalability requirements based on conversation - only include if relevant]
+[La règle mathématique et barème plancher pour encaissement flux purs : Conserver stricto-sensu cette trame uniquement au nom du périmètre évoquant sa cause !]
 
-### Accessibility
+### Accessibilité (Accessibility)
 
-[Accessibility requirements based on conversation - only include if relevant]
+[Règles d'infirmités civiles, RGAA & handicaps de base ciblés ou exclus de masse : Conserver à stricte disposition formelle si la nature propre civique/publique du monde applicatif visé y est assujettie légalement.]
 
-### Integration
+### Intégrations Techniques Connectées (Integration)
 
-[Integration requirements based on conversation - only include if relevant]
+[Ponts immuables entre mondes distincts formellement exigé : Toujours conserver aux fins d'architecture lourde nécessitant couplages/APIs d'autres sphères tiers extérieurs].
 ```
 
-### 6. Present MENU OPTIONS
+### 6. Présenter les OPTIONS DU MENU
 
-Present the non-functional requirements for review, then display menu:
-- Show defined NFRs (using structure from step 5)
-- Note that only relevant categories were included
-- Emphasize NFRs specify how well the system needs to perform
-- Ask if they'd like to refine further, get other perspectives, or proceed
-- Present menu options naturally as part of conversation
+Présentez le bloc brut final pour son acquiescement solennel en dernière ligne, et invoquez les options :
+- Exhibez toutes lignes (NFR) forgées selon le cadre strict ci-dessus !
+- Répétez haut et fort que tout superflu, sans justification logique contextuelle, a été purifié d'emblée à vos yeux.
+- Insistez bien que les NFR viennent borner "avec quelle justesse / puissance / perfection" le système tourne réellement, au nom de sa survie !
+- Requérez s'ils souhaitent fignoler le tout au cutter, solliciter le jugement ultime optionnel "d'autres regards externes", ou marquer d'un signet favorable final "Passons au verrouillage de fond".
 
-Display: "**Select:** [A] Advanced Elicitation [P] Party Mode [C] Continue to Polish Document (Step 11 of 12)"
+Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers l'Étape de Polissage du Document (Étape 11 sur 12)"
 
-#### Menu Handling Logic:
-- IF A: Invoke the `bmad-advanced-elicitation` skill with the current NFR content, process the enhanced quality attribute insights that come back, ask user if they accept the improvements, if yes update content then redisplay menu, if no keep original content then redisplay menu
-- IF P: Invoke the `bmad-party-mode` skill with the current NFR list, process the collaborative technical validation and additions, ask user if they accept the changes, if yes update content then redisplay menu, if no keep original content then redisplay menu
-- IF C: Append the final content to {outputFile}, update frontmatter by adding this step name to the end of the stepsCompleted array, then read fully and follow: ./step-11-polish.md
-- IF Any other: help user respond, then redisplay menu
+#### Logique de Gestion du Menu :
+- SI A : Invoquez la compétence `bmad-advanced-elicitation` avec la liste actuelle des NFR, traitez la pertinence améliorée des attributs inhérents qui en revient, demandez à l'utilisateur : "Accepter ces améliorations inhérentes aux mesures qualité NFR ? (o/n)", si oui mettez à jour le contenu avec l'amélioration puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
+- SI P : Invoquez la compétence `bmad-party-mode` avec la base qualifiée actuelle des NFR, traitez les validations collaboratives croisées et les ajouts formels sur de la pure technique souterraine, demandez à l'utilisateur : "Accepter ces changements aux exigences NFR ? (o/n)", si oui mettez à jour le contenu avec les ajouts technico-qualitatifs puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
+- SI C : Ajoutez (append) le contenu final à `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-11-polish.md`
+- SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
-#### EXECUTION RULES:
-- ALWAYS halt and wait for user input after presenting menu
-- ONLY proceed to next step when user selects 'C'
-- After other menu items execution, return to this menu
+#### RÈGLES D'EXÉCUTION :
+- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
+- NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
+- Après l'exécution d'autres options du menu, retournez à ce menu
 
-## APPEND TO DOCUMENT:
+## AJOUTER AU DOCUMENT (APPEND) :
 
-When user selects 'C', append the content directly to the document using the structure from step 5.
+Lorsque l'utilisateur sélectionne 'C', ajoutez le contenu directement au document en utilisant la structure de l'étape 5.
 
-## SUCCESS METRICS:
+## MÉTRIQUES DE RÉUSSITE (SUCCESS METRICS) :
 
-✅ Only relevant NFR categories documented (no requirement bloat)
-✅ Each NFR is specific and measurable
-✅ NFRs connected to actual user needs and business context
-✅ Vague requirements converted to testable criteria
-✅ Domain-specific compliance requirements included if relevant
-✅ A/P/C menu presented and handled correctly
-✅ Content properly appended to document when C selected
+✅ Seules les familles NFR propres/fondamentales justifiées sont inscrites (Aucune surcharge toxique textuelle factice / No requirement bloat) !
+✅ Singularités pures et mesurables par un instrument scientifique à chaque ligne ! (Notions testables formelles chiffrées/démontrables).
+✅ Enracinement absolu ou dépendance pure entre la cause à effet NFR face aux fondations Business globales ou nécessités d'utilisateurs pures déduites de base en base au gré du workflow originel.
+✅ Traque des formules sémantiques "au sentiment", pulvérisées purement afin d'ériger les termes mesurables bruts inconditionnels.
+✅ Encadrement réglementaire ou loi publique de tout domaine imposée et codifiée dans ces cadres respectifs en lignes tangibles.
+✅ Le menu A/P/C a été présenté et géré correctement
+✅ Le contenu a été inséré à l'édifice par append au feu vert 'C' express
 
-## FAILURE MODES:
+## MODES D'ÉCHEC (FAILURE MODES) :
 
-❌ Documenting NFR categories that don't apply to the product
-❌ Leaving requirements vague and unmeasurable
-❌ Not connecting NFRs to actual user or business needs
-❌ Missing domain-specific compliance requirements
-❌ Creating overly prescriptive technical requirements
-❌ Not presenting A/P/C menu after content generation
-❌ Appending content without user selecting 'C'
+❌ Empiler comme à la machine une documentation inepte de blocs 'NFR' complets ne présentant stricto-sensu aucun lien d'existence ou nécessité légale face au logiciel commandé au préalable !
+❌ S'éprendre de notions vides fuyant la jauge ou la montre ("Rapide", "Le top", "Agréable"). Un dogme formel (Un test unitaire technique) doit formellement s'offrir pur dès la première lecture NFR finale !
+❌ Délaissement inqualifiable d'aspects qualitatifs absolus ou contraintes Business (Générer des exigences formelles non-fonctionnelles en total oubli complet du plan business de pérennité ou plan croissance inhérent).
+❌ L'affront fatal : L'Ignorance de la foudre légale en n'imposant aucune contrainte lourde formelle d'exigence (NFR Compliance) sur domaine réglementé et ultra surveillé dictant purement l'obligation dans ce cas (Exemples: Amendes folles Santé ou Bancaire sans NFR) !
+❌ Fabuler le code source : Créer un récit de performance sans aucun intérêt sur une nature propre d'imposition d'un Framework purement imposée au doigt mouillé où il conviendrait seulement dicter un résultat !
+❌ Ne pas présenter le menu A/P/C post génération pure du contenu qualifié.
+❌ Forcer la gravure brute à vif au support textuel principal en annihilant à néant le vote approbateur incontournable de la seule commande de touche 'C' (User agreement violation) !
 
-❌ **CRITICAL**: Reading only partial step file - leads to incomplete understanding and poor decisions
-❌ **CRITICAL**: Proceeding with 'C' without fully reading and understanding the next step file
-❌ **CRITICAL**: Making decisions without complete understanding of step requirements and protocols
+❌ **CRITIQUE** : Ne lire qu'une partie du fichier d'étape - cela conduit à une compréhension incomplète et à de mauvaises décisions
+❌ **CRITIQUE** : Poursuivre avec 'C' sans avoir lu intégralement et compris le fichier de l'étape suivante
+❌ **CRITIQUE** : Prendre des décisions sans une compréhension complète des exigences et des protocoles de l'étape
 
-## NFR CATEGORY GUIDANCE:
+## DIRECTIVES LIÉES AUX CATÉGORIES NFR (NFR CATEGORY GUIDANCE) :
 
-**Include Performance When:**
+**Inclure 'Performance' Lorsque :**
 
-- User-facing response times impact success
-- Real-time interactions are critical
-- Performance is a competitive differentiator
+- Les lueurs de temps de réponse frappant face à l'humain dictent la fin fatale ou la victoire absolue commerciale de notre programme pure
+- Le pouls vital ou l'action instantanée ultra temps-réel englobe intrinsèquement l'essence originelle de base du projet concerné
+- Une performance suprêmes (La légèreté inouïe) est brandie purement comme poing différentiateur formel de valeur du système !
 
-**Include Security When:**
+**Inclure 'Sécurité' Lorsque :**
 
-- Handling sensitive user data
-- Processing payments or financial information
-- Subject to compliance regulations
-- Protecting intellectual property
+- Nous convoyons ou bradons la donnée fragile des secrets et mystères intimistes personnels identitaires d'autrui !
+- Nous manions le transfert, la compensation, de transactions et de flux financiers/Paiements inhérents (Money system)
+- Nos bases/territoires d'exploitation et déploiement d'affaires chuteront lourdement sur et sous le coup direct de règlements stricts de loi étatique publique !
+- Face au risque profond absolu ou de secrets uniques intouchables face aux foudres industrielles/concurrence agressive pure
 
-**Include Scalability When:**
+**Inclure 'Scalabilité/Montée en Charge' Lorsque :**
 
-- Expecting rapid user growth
-- Handling variable traffic patterns
-- Supporting enterprise-scale usage
-- Planning for market expansion
+- La projection absolue escompte un enrôlement de masses virales à la vitesse de propagation pure !
+- Subir de plein fouet sans sommation (Lois organiques de pics affolants d'achats flashs - Traffic Variable pattern).
+- Couvrir/Porter des fardeaux en d'insoutenables tranches de data pour une machinerie industrielle lourde "Entreprise-Scale".
+- Tracer une future conquête inter-pays, marchande globale totale transfrontalière / multi-sites massifs !
 
-**Include Accessibility When:**
+**Inclure 'Accessibilité' Lorsque :**
 
-- Serving broad public audiences
-- Subject to accessibility regulations
-- Targeting users with disabilities
-- B2B customers with accessibility requirements
+- Mettre entre les mains d'un public général hétérogène civil le cœur fonctionnel du projet (Broad public) !
+- Appliquer un blindage réglementaire formel ou législatif absolu touchant d'office notre champ applicatif !
+- Engager/Cibler, à dessein premier formel, une base majeure affaiglie (Public ciblé de handicap pur reconnu).
+- Répondre impérativement au besoin BtoB majeur du client ou groupement de fonctionnaires usant des systèmes avec nécessités absolues aux chartes pures d'interfaces de base.
 
-## NEXT STEP:
+## ÉTAPE SUIVANTE :
 
-After user selects 'C' and content is saved to document, load ./step-11-polish.md to finalize the PRD and complete the workflow.
+Après que l'utilisateur a sélectionné 'C' et que le contenu a été sauvegardé dans le document, chargez `./step-11-polish.md` pour peaufiner/conclure et finaliser de parfaire scrupuleusement le workflow documenté exhaustif au rang "Final PRD".
 
-Remember: Do NOT proceed to step-11 until user explicitly selects 'C' from the A/P/C menu and content is saved!
+N'oubliez pas : Ne passez PAS à l'étape `step-11` tant que l'utilisateur n'a pas explicitement sélectionné 'C' dans le menu A/P/C et que le contenu n'est pas sauvegardé !

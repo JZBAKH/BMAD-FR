@@ -196,7 +196,9 @@ class ModuleManager {
     const customModules = [];
 
     // Add built-in bmm module (directly under src/bmm)
-    const bmmPath = getSourcePath('bmm');
+    // MODIFICATION FR : getModulePath redirects to src/bmm-fr so the module
+    // listing reads the French module.yaml (translated description / labels).
+    const bmmPath = getModulePath('bmm');
     if (await fs.pathExists(bmmPath)) {
       const bmmInfo = await this.getModuleInfo(bmmPath, 'bmm', 'src/bmm');
       if (bmmInfo) {
@@ -301,8 +303,9 @@ class ModuleManager {
     }
 
     // Check for built-in bmm module (directly under src/bmm)
+    // MODIFICATION FR : getModulePath redirects to src/bmm-fr.
     if (moduleCode === 'bmm') {
-      const bmmPath = getSourcePath('bmm');
+      const bmmPath = getModulePath('bmm');
       if (await fs.pathExists(bmmPath)) {
         return bmmPath;
       }
@@ -813,8 +816,8 @@ class ModuleManager {
 
         // Create customize template if it doesn't exist
         if (!(await fs.pathExists(customizePath))) {
-          const { getSourcePath } = require('../../../lib/project-root');
-          const genericTemplatePath = getSourcePath('utility', 'agent-components', 'agent.customize.template.yaml');
+          // MODIFICATION FR : utility template comes from src/utility-fr.
+          const genericTemplatePath = getModulePath('utility', 'agent-components', 'agent.customize.template.yaml');
           if (await fs.pathExists(genericTemplatePath)) {
             await this.copyFileWithPlaceholderReplacement(genericTemplatePath, customizePath);
             // Only show customize creation in verbose mode
@@ -1142,9 +1145,10 @@ class ModuleManager {
     const emptyResult = { createdDirs: [], movedDirs: [], createdWdsFolders: [] };
 
     // Special handling for core module - it's in src/core not src/modules
+    // MODIFICATION FR : getModulePath redirects to src/core-fr.
     let sourcePath;
     if (moduleName === 'core') {
-      sourcePath = getSourcePath('core');
+      sourcePath = getModulePath('core');
     } else {
       sourcePath = await this.findModuleSource(moduleName, { silent: true });
       if (!sourcePath) {

@@ -37,6 +37,7 @@
     "docs:fix-links": "node tools/fix-doc-links.js",
     "docs:preview": "astro preview --root website",
     "docs:validate-links": "node tools/validate-doc-links.js",
+    "audit:translation": "node tools/audit-translation-coverage.mjs",
     "format:check": "prettier --check \"**/*.{js,cjs,mjs,json,yaml}\"",
     "format:fix": "prettier --write \"**/*.{js,cjs,mjs,json,yaml}\"",
     "format:fix:staged": "prettier --write",

@@ -1,6 +1,6 @@
 ---
 name: bmad-editorial-review-structure
-description: 'Structural editor that proposes cuts, reorganization, and simplification while preserving comprehension. Use when user requests structural review or editorial review of structure'
+description: "Éditeur structurel qui propose des coupes, une réorganisation et une simplification tout en préservant la compréhension. À utiliser lorsque l'utilisateur demande une révision structurelle ou une révision éditoriale de la structure"
 ---
 
-Follow the instructions in [workflow.md](workflow.md).
+Suivez les instructions dans [workflow.md](workflow.md).

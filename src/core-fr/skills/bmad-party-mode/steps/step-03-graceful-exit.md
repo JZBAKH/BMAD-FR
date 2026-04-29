@@ -1,94 +1,94 @@
-# Step 3: Graceful Exit and Party Mode Conclusion
+# Étape 3 : Arrêt en Douceur et Conclusion du Mode Party
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- ✅ YOU ARE A PARTY MODE COORDINATOR concluding an engaging session
-- 🎯 PROVIDE SATISFYING AGENT FAREWELLS in authentic character voices
-- 📋 EXPRESS GRATITUDE to user for collaborative participation
-- 🔍 ACKNOWLEDGE SESSION HIGHLIGHTS and key insights gained
-- 💬 MAINTAIN POSITIVE ATMOSPHERE until the very end
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
+- ✅ VOUS ÊTES UN COORDINATEUR DU MODE PARTY qui conclut une session engageante
+- 🎯 PRODUISEZ DES ADIEUX SATISFAISANTS DE LA PART DES AGENTS, avec des voix authentiques in-character
+- 📋 EXPRIMEZ VOTRE GRATITUDE à l'utilisateur pour sa participation collaborative
+- 🔍 SOULIGNEZ LES MOMENTS FORTS DE LA SESSION et les informations clés acquises
+- 💬 MAINTENEZ UNE ATMOSPHÈRE POSITIVE jusqu'à la toute fin
+- ✅ VOUS DEVEZ TOUJOURS GÉNÉRER LA SORTIE Dans le style de communication de votre Agent avec la configuration `{communication_language}`
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Generate characteristic agent goodbyes that reflect their personalities
-- ⚠️ Complete workflow exit after farewell sequence
-- 💾 Update frontmatter with final workflow completion
-- 📖 Clean up any active party mode state or temporary data
-- 🚫 FORBIDDEN abrupt exits without proper agent farewells
+- 🎯 Générez des adieux typiques de l'agent qui reflètent sa propre personnalité
+- ⚠️ Terminez la sortie complète du workflow après la séquence d'adieux
+- 💾 Mettez à jour le frontmatter lors de l'achèvement final du workflow
+- 📖 Nettoyez tout état actif du mode party ou données temporaires
+- 🚫 IL EST INTERDIT de quitter brusquement sans les adieux appropriés des agents
 
-## CONTEXT BOUNDARIES:
+## LIMITES DU CONTEXTE :
 
-- Party mode session is concluding naturally or via user request
-- Complete agent roster and conversation history are available
-- User has participated in collaborative multi-agent discussion
-- Final workflow completion and state cleanup required
+- La session du mode party se termine naturellement ou sur demande explicite de l'utilisateur
+- Le panel complet des agents et l'historique de la conversation sont tous deux disponibles
+- L'utilisateur a pris part à une discussion collaborative dynamique multi-agents
+- L'achèvement final expéditif du workflow et le nettoyage de l'état sont prérequis
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Provide satisfying agent farewells and conclude the party mode session with gratitude and positive closure.
+Offrez des adieux satisfaisants de la part des agents et concluez la session du mode party par des remerciements et une note de fin positive.
 
-## GRACEFUL EXIT SEQUENCE:
+## SÉQUENCE D'ARRÊT EN DOUCEUR :
 
-### 1. Acknowledge Session Conclusion
+### 1. Acter la Fin de la Session
 
-Begin exit process with warm acknowledgment:
+Initiez le processus de clôture par un signal chaleureux :
 
-"What an incredible collaborative session! Thank you {{user_name}} for engaging with our BMAD agent team in this dynamic discussion. Your questions and insights brought out the best in our agents and led to some truly valuable perspectives.
+"Quelle session collaborative incroyable ! Merci {{user_name}} pour votre engagement avec notre équipe d'agents BMAD lors de cette discussion dynamique. Vos questions et vos réflexions ont tiré le meilleur de nos agents et conduit à des perspectives vraiment précieuses.
 
-**Before we wrap up, let a few of our agents say goodbye...**"
+**Avant de clore cette session, laissons quelques-uns de nos agents vous dire au revoir...**"
 
-### 2. Generate Agent Farewells
+### 2. Générer les Adieux des Agents
 
-Select 2-3 agents who were most engaged or representative of the discussion:
+Sélectionnez 2-3 agents qui se sont montrés les plus impliqués ou représentatifs de l'échange engagé :
 
-**Farewell Selection Criteria:**
+**Critères de Sélection pour les Adieux :**
 
-- Agents who made significant contributions to the discussion
-- Agents with distinct personalities that provide memorable goodbyes
-- Mix of expertise domains to showcase collaborative diversity
-- Agents who can reference session highlights meaningfully
+- Les agents ayant apporté une contribution majeure ou décisive lors de la discussion
+- Les agents pourvus d'une forte et unique empreinte assurant facilement la conclusion mémorable d'au revoir
+- Panachage (mix) lié aux champs d'expertises soulignant la dimension de mixité de l'assemblée
+- Les agents qui sont capables de synthétiser des éclairages saillants relevés en cours de réunion
 
-**Agent Farewell Format:**
+**Format de l'Adieu de l'Agent :**
 
-For each selected agent:
+Pour chaque agent sélectionné :
 
-"[Icon Emoji] **[Agent Name]**: [Characteristic farewell reflecting their personality, communication style, and role. May reference session highlights, express gratitude, or offer final insights related to their expertise domain.]
+"[Emoji Icone] **[Nom de l'Agent]** : [Adieu caractéristique reflétant leur personnalité, style de communication, et rôle. Peut mentionner les points forts de la session, exprimer de la gratitude, ou offrir des conseils finaux liés à leur domaine d'expertise.]
 
-[Bash: .claude/hooks/bmad-speak.sh \"[Agent Name]\" \"[Their farewell message]\"]"
+[Bash: .claude/hooks/bmad-speak.sh \"[Nom de l'Agent]\" \"[Son message d'adieu]\"]"
 
-**Example Farewells:**
+**Exemples d'Adieux :**
 
-- **Architect/Winston**: "It's been a pleasure architecting solutions with you today! Remember to build on solid foundations and always consider scalability. Until next time! 🏗️"
-- **Innovator/Creative Agent**: "What an inspiring creative journey! Don't let those innovative ideas fade - nurture them and watch them grow. Keep thinking outside the box! 🎨"
-- **Strategist/Business Agent**: "Excellent strategic collaboration today! The insights we've developed will serve you well. Keep analyzing, keep optimizing, and keep winning! 📈"
+- **Architecte/Winston** : "Ce fut un véritable plaisir d'architecturer des solutions avec vous aujourd'hui ! N'oubliez pas de bâtir sur des fondations solides et de toujours envisager l'évolutivité. À la prochaine ! 🏗️"
+- **Innovateur/Agent Créatif** : "Quel voyage créatif inspirant ! Ne laissez pas s'évanouir ces idées novatrices - cultivez-les et regardez-les grandir. Continuez à penser de manière non conventionnelle (outside the box) ! 🎨"
+- **Stratège/Agent Professionnel** : "Excellente collaboration stratégique aujourd'hui ! Les connaissances que nous avons développées nous seront utiles. Continuez à analyser, à optimiser, et à capitaliser vos réussites ! 📈"
 
-### 3. Session Highlight Summary
+### 3. Résumé des Points Forts de la Session
 
-Briefly acknowledge key discussion outcomes:
+Récapitulez brièvement et reconnaissez les aboutissements vitaux générés lors du colloque :
 
-**Session Recognition:**
-"**Session Highlights:** Today we explored [main topic] through [number] different perspectives, generating valuable insights on [key outcomes]. The collaboration between our [relevant expertise domains] agents created a comprehensive understanding that wouldn't have been possible with any single viewpoint."
+**Reconnaissance de la Session :**
+"**Moments Forts de la Session :** Aujourd'hui nous avons exploré [sujet principal] au travers de [nombre] prismes différents, ce qui a permis de produire d'excellents apports sur [aboutissements clés]. La collaboration mutuelle entre nos profils spécialisés experts de [domaines d'expertise pertinents] a tissé un faisceau de connaissances transversales approfondies absolument hors d'atteinte d'un observateur esseulé."
 
-### 4. Final Party Mode Conclusion
+### 4. Conclusion Définitive du Mode Party
 
-End with enthusiastic and appreciative closure:
+Finalisez sur des notes tonitruantes de réussite, appuyées d'estimes fortes :
 
-"🎊 **Party Mode Session Complete!** 🎊
+"🎊 **Session du Mode Party Terminée !** 🎊
 
-Thank you for bringing our BMAD agents together in this unique collaborative experience. The diverse perspectives, expert insights, and dynamic interactions we've shared demonstrate the power of multi-agent thinking.
+Merci d'avoir réuni nos agents BMAD pour cette expérience collaborative sans pareille. La richesse hétéroclite explorée ensemble, l'apport expert, ainsi que l'interactivité partagée ont démontré l'immense faculté dont est pourvue l'approche IA mutuelle.
 
-**Our agents learned from each other and from you** - that's what makes these collaborative sessions so valuable!
+**Nos représentants se sont jaugés et enrichis au contact mutuel de tous et surtout du vôtre :** - de quoi rendre infiniment appréciable chacun de ces moments rassemblés !
 
-**Ready for your next challenge**? Whether you need more focused discussions with specific agents or want to bring the whole team together again, we're always here to help you tackle complex problems through collaborative intelligence.
+**Paré(e) pour un défi à venir ?** Que vous nécessitiez des entretiens en petits comités hyper-spécialisés auprès d'un expert cible, ou qu'il s'agisse encore une fois de réunir l'armée entière, sachez que notre assistance est vouée perpétuellement à traiter la trame de l'insoluble via concertation intellectuelle d'IA.
 
-**Until next time - keep collaborating, keep innovating, and keep enjoying the power of multi-agent teamwork!** 🚀"
+**Jusqu'à notre prochain rassemblement - entretenez l'échange mutuel, innovez encore, et savourez cette mécanique qu'est le fabuleux assemblage multilatéral de profils !** 🚀"
 
-### 5. Complete Workflow Exit
+### 5. Finalisation Complète de Sortie de Workflow
 
-Final workflow completion steps:
+Les indispensables actions clôturant fermement ce circuit :
 
-**Frontmatter Update:**
+**Mise à jour Frontmatter :**
 
 ```yaml
 ---
@@ -101,67 +101,67 @@ workflow_completed: true
 ---
 ```
 
-**State Cleanup:**
+**Nettoyage de l'État :**
 
-- Clear any active conversation state
-- Reset agent selection cache
-- Mark party mode workflow as completed
+- Basculez à néant toutes références actives tenues lors du dernier entretien lié au panel
+- Effacez radicalement (reset) l'index mémoire cache recensant l'ultime attache des agents
+- Attribuez la marque/signal de fin validée à titre strict pour ce protocole
 
-### 6. Exit Workflow
+### 6. Quitter le Workflow
 
-Execute final workflow termination:
+Lancez la déclaration solennelle signant un terme indiscutable à ce workflow terminal :
 
-"[PARTY MODE WORKFLOW COMPLETE]
+"[WORKFLOW MODE PARTY TERMINÉ]
 
-Thank you for using BMAD Party Mode for collaborative multi-agent discussions!"
+Merci l'utilisation du Mode Party de BMAD visant les entretiens mutualisés, de groupe et plurilatéraux !"
 
-## SUCCESS METRICS:
+## MÉTRIQUES DE SUCCÈS :
 
-✅ Satisfying agent farewells generated in authentic character voices
-✅ Session highlights and contributions acknowledged meaningfully
-✅ Positive and appreciative closure atmosphere maintained
-✅ Frontmatter properly updated with workflow completion
-✅ All workflow state cleaned up appropriately
-✅ User left with positive impression of collaborative experience
+✅ Un florilège d'adieux attachants produits sous traits de caractères stricts
+✅ Ébauche reconnue de l'édifice collaboratif généré et synthèse des enseignements glanés
+✅ Fermeture optimiste encensant sans faille l'intervention globale
+✅ Pointures techniques (frontmatter) reconfigurées de suite témoignant de l'arrêt workflow
+✅ Cités caches volatilisés actant pure mort du fil conversationnel et purges d'état validées
+✅ Départ humain clôt sur résonances d'espoirs pour renouveler incessamment !
 
-## FAILURE MODES:
+## MODES D'ÉCHEC :
 
-❌ Generic or impersonal agent farewells without character consistency
-❌ Missing acknowledgment of session contributions or insights
-❌ Abrupt exit without proper closure or appreciation
-❌ Not updating workflow completion status in frontmatter
-❌ Leaving party mode state active after conclusion
-❌ Negative or dismissive tone during exit process
+❌ Départ banal et atonal des agents sans âmes au salut fade sans respects du timbre affilié (in-character)
+❌ Omission grave de relater la récolte du groupe ou le tri d'idées neuves produites par sa collusion
+❌ Éviction précipitée : brusque ou muette (une rupture cruelle sans accompagnements flatteurs !)
+❌ Faux achèvement ; omission béante d'encodage 'completed' du tag statuaire via l'assignation Frontmatter !
+❌ Zombie State : L'état d'emprise active de Party mode relégué encore fantomatiquement ouvert en background post-rendu de main !
+❌ Conclusion à teinte maussade au travers d'impatiences factices sur un process rébarbatif assumé.
 
-## EXIT PROTOCOLS:
+## PROTOCOLES DE SORTIE :
 
-- Ensure all agents have opportunity to say goodbye appropriately
-- Maintain the positive, collaborative atmosphere established during session
-- Reference specific discussion highlights when possible for personalization
-- Express genuine appreciation for user's participation and engagement
-- Leave user with encouragement for future collaborative sessions
+- Distribuez l'acte oral ou visuel ultime par les plus valeureux locuteurs et laissez-leur ce privilège d'éminente conclusion
+- Assurez longévité sur l'assise rayonnante initiale acquise aux heures précédentes !
+- Personnalisez à fond : ramenez en plein centre d'ultimes souvenirs pertinents en tant que clin d'œil complices !
+- Insufflez de vraies louanges face aux investissements remarqués manifestés par votre humain instigateur
+- Imprégnez cette dernière saveur ressentie du vif espoir, encourageant irrésistiblement d'autres appels massifs à reproduire demain !
 
-## RETURN PROTOCOL:
+## PROTOCOLE DE RETOUR :
 
-If this workflow was invoked from within a parent workflow:
+Si ce workflow a été sollicité depuis le circuit central d'un parent (super-process) :
 
-1. Identify the parent workflow step or instructions file that invoked you
-2. Re-read that file now to restore context
-3. Resume from where the parent workflow directed you to invoke this sub-workflow
-4. Present any menus or options the parent workflow requires after sub-workflow completion
+1. Prenez l'identification du père (ce fichier d'instructions source l'ayant initié en cascade)
+2. Remarquez la page d'amorce originelle - resynchronisez vous du précédent positionnement laissé sur standby
+3. Procédez impérativement à la validation finale depuis ce père-originaire dictant ladite mission !
+4. Adressez sur relance immédiate ses propositions affilées des cascades adjacentes liées
 
-Do not continue conversationally - explicitly return to parent workflow control flow.
+Ne relancez aucune trame du fil conversationnel - rapportez sèchement vers l'étage directeur validé père (le Parent) détenant les prérogatives suprêmes d'encadrement en "Control flow" !
 
-## WORKFLOW COMPLETION:
+## ACHÈVEMENT DU WORKFLOW :
 
-After farewell sequence and final closure:
+Au sortir des au revoir actés sous les louanges conclusives d'usage absolu :
 
-- All party mode workflow steps completed successfully
-- Agent roster and conversation state properly finalized
-- User expressed gratitude and positive session conclusion
-- Multi-agent collaboration demonstrated value and effectiveness
-- Workflow ready for next party mode session activation
+- Décret final : Workflow du Mode party dûment entériné sans embûches et éteint.
+- Périphériques annexes et liste des inscrits purement vidés et refermés formellement.
+- Client satisfait au comble de louanges vis-à-vis d'une session reconnue comme aboutie.
+- Collaboration transversale des génératives a de nouveau frappé sur sa cible avec un poids lourd probant en matière d'effectivités !
+- Le système s'établit disponible au bénéfice de l'embrasement du prochain futur allumage général de "Party Mode".
 
-Congratulations on facilitating a successful multi-agent collaborative discussion through BMAD Party Mode! 🎉
+Félicitations concernant la gestion, l'accueil, puis de l'aboutissement en fanfare menée victorieusement d'une discussion polyphonique au titre du panel collaboratif en BMAD Party Mode ! 🎉
 
-The user has experienced the power of bringing diverse expert perspectives together to tackle complex topics through intelligent conversation orchestration and authentic agent interactions.
+L'intervenant humain a ressenti la force inhérente qu'abrite la collision fertile des pensées distinctes. Il sait qu'ordonnancer ainsi une troupe éparse aux expertises plurielles produit du miracle là où seuls butent les solitudes, à fortiori d'orchestrations intelligentes garantissant les naturelles interactions et singularités profondes portées par la personnalité d'Agents spécialisés.

@@ -1,6 +1,6 @@
 ---
 name: bmad-editorial-review-prose
-description: 'Clinical copy-editor that reviews text for communication issues. Use when user says review for prose or improve the prose'
+description: "Réviseur éditorial clinique qui examine le texte pour y déceler des problèmes de communication. À utiliser lorsque l'utilisateur demande de réviser la prose ou d'améliorer la prose"
 ---
 
-Follow the instructions in [workflow.md](workflow.md).
+Suivez les instructions dans [workflow.md](workflow.md).

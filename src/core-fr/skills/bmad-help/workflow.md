@@ -1,88 +1,87 @@
+# Tâche : BMAD Help
 
-# Task: BMAD Help
+## RÈGLES DE ROUTAGE (ROUTING RULES)
 
-## ROUTING RULES
+- **Un `phase` vide = à tout moment** — Les outils universels fonctionnent quel que soit l'état du workflow
+- **Les phases numérotées indiquent une séquence** — Les phases comme `1-discover` → `2-define` → `3-build` → `4-ship` s'enchaînent dans l'ordre (la nomenclature varie selon le module)
+- **Phase sans étapes requises** - Si une phase entière ne comporte aucun élément requis ('required: true'), la phase entière est optionnelle. Si elle précède séquentiellement une autre phase, elle peut être recommandée, mais soyez toujours clair avec l'utilisateur sur le véritable prochain élément requis.
+- **Rester dans le module** — Guidez à travers le workflow du module actif en fonction de l'ordonnancement des phases et des séquences
+- **Les descriptions contiennent du routage** — Lisez pour trouver des chemins alternatifs (ex. "retour à l'étape précédente si des corrections sont nécessaires")
+- **`required=true` bloque la progression** — Les workflows requis doivent être terminés avant de passer aux phases ultérieures
+- **Les artefacts révèlent l'achèvement** — Cherchez dans les chemins de sortie résolus des motifs (patterns) `outputs`, et faites correspondre de manière floue (fuzzy-match) les fichiers trouvés aux lignes de workflow
 
-- **Empty `phase` = anytime** — Universal tools work regardless of workflow state
-- **Numbered phases indicate sequence** — Phases like `1-discover` → `2-define` → `3-build` → `4-ship` flow in order (naming varies by module)
-- **Phase with no Required Steps** - If an entire phase has no required, true items, the entire phase is optional. If it is sequentially before another phase, it can be recommended, but always be clear with the use what the true next required item is.
-- **Stay in module** — Guide through the active module's workflow based on phase+sequence ordering
-- **Descriptions contain routing** — Read for alternate paths (e.g., "back to previous if fixes needed")
-- **`required=true` blocks progress** — Required workflows must complete before proceeding to later phases
-- **Artifacts reveal completion** — Search resolved output paths for `outputs` patterns, fuzzy-match found files to workflow rows
+## RÈGLES D'AFFICHAGE (DISPLAY RULES)
 
-## DISPLAY RULES
+### Workflows Basés sur des Commandes
+Lorsque le champ `command` a une valeur :
+- Affichez la commande comme un nom de compétence entre backticks (ex. `bmad-bmm-create-prd`)
 
-### Command-Based Workflows
-When `command` field has a value:
-- Show the command as a skill name in backticks (e.g., `bmad-bmm-create-prd`)
+### Workflows Renvoyant à des Compétences
+Lorsque `workflow-file` commence par `skill:` :
+- La valeur est une référence de compétence (ex. `skill:bmad-quick-dev-new-preview`), et NON un chemin de fichier
+- N'essayez PAS de le résoudre ou de le charger comme un chemin de fichier
+- Affichez-le en utilisant la valeur de la colonne `command` comme nom de compétence entre backticks (identique aux workflows basés sur des commandes)
 
-### Skill-Referenced Workflows
-When `workflow-file` starts with `skill:`:
-- The value is a skill reference (e.g., `skill:bmad-quick-dev-new-preview`), NOT a file path
-- Do NOT attempt to resolve or load it as a file path
-- Display using the `command` column value as a skill name in backticks (same as command-based workflows)
+### Workflows Basés sur des Agents
+Lorsque le champ `command` est vide :
+- L'utilisateur charge d'abord l'Agent en invoquant la compétence de l'Agent (ex. `bmad-pm`)
+- Puis l'invoque en référençant le champ `code` ou en décrivant le champ `name`
+- NE montrez PAS de commande (slash command) — affichez plutôt la valeur du code et l'instruction de chargement de l'Agent
 
-### Agent-Based Workflows
-When `command` field is empty:
-- User loads agent first by invoking the agent skill (e.g., `bmad-pm`)
-- Then invokes by referencing the `code` field or describing the `name` field
-- Do NOT show a slash command — show the code value and agent load instruction instead
-
-Example presentation for empty command:
+Exemple de présentation pour une commande vide :
 ```
-Explain Concept (EC)
-Load: tech-writer agent skill, then ask to "EC about [topic]"
-Agent: Tech Writer
-Description: Create clear technical explanations with examples...
+Expliquer le Concept (EC)
+Charger : la compétence Agent tech-writer, puis demander d'"EC sur [sujet]"
+Agent : Tech Writer
+Description : Crée des explications techniques claires avec des exemples...
 ```
 
-## MODULE DETECTION
+## DÉTECTION DE MODULE (MODULE DETECTION)
 
-- **Empty `module` column** → universal tools (work across all modules)
-- **Named `module`** → module-specific workflows
+- **Colonne `module` vide** → outils universels (fonctionnent dans tous les modules)
+- **`module` nommé** → workflows spécifiques au module
 
-Detect the active module from conversation context, recent workflows, or user query keywords. If ambiguous, ask the user.
+Détectez le module actif à partir du contexte de la conversation, des workflows récents ou des mots-clés de la requête de l'utilisateur. En cas d'ambiguïté, demandez à l'utilisateur.
 
-## INPUT ANALYSIS
+## ANALYSE DE L'ENTRÉE (INPUT ANALYSIS)
 
-Determine what was just completed:
-- Explicit completion stated by user
-- Workflow completed in current conversation
-- Artifacts found matching `outputs` patterns
-- If `index.md` exists, read it for additional context
-- If still unclear, ask: "What workflow did you most recently complete?"
+Déterminez ce qui vient d'être achevé :
+- Achèvement explicite déclaré par l'utilisateur
+- Workflow achevé dans la conversation en cours
+- Artefacts trouvés correspondant aux motifs (patterns) `outputs`
+- Si un fichier `index.md` existe, lisez-le pour obtenir un contexte supplémentaire
+- Si cela reste flou, demandez : "Quel workflow avez-vous terminé le plus récemment ?"
 
-## EXECUTION
+## EXÉCUTION
 
-1. **Load catalog** — Load `{project-root}/_bmad/_config/bmad-help.csv`
+1. **Charger le catalogue** — Chargez `{project-root}/_bmad/_config/bmad-help.csv`
 
-2. **Resolve output locations and config** — Scan each folder under `{project-root}/_bmad/` (except `_config`) for `config.yaml`. For each workflow row, resolve its `output-location` variables against that module's config so artifact paths can be searched. Also extract `communication_language` and `project_knowledge` from each scanned module's config.
+2. **Résoudre les emplacements de sortie et la configuration** — Analysez chaque dossier sous `{project-root}/_bmad/` (sauf `_config`) pour trouver un `config.yaml`. Pour chaque ligne de workflow, résolvez ses variables `output-location` en fonction de la configuration de ce module afin que les chemins d'artefacts puissent être recherchés. Extrayez également `communication_language` et `project_knowledge` de la configuration de chaque module analysé.
 
-3. **Ground in project knowledge** — If `project_knowledge` resolves to an existing path, read available documentation files (architecture docs, project overview, tech stack references) for grounding context. Use discovered project facts when composing any project-specific output. Never fabricate project-specific details — if documentation is unavailable, state so.
+3. **S'ancrer dans la connaissance du projet** — Si `project_knowledge` aboutit à un chemin existant, lisez les fichiers de documentation disponibles (documents d'architecture, aperçu du projet, références de la pile technologique) pour établir le contexte de base. Utilisez les faits découverts sur le projet pour rédiger toute sortie spécifique au projet. Ne fabriquez jamais de détails spécifiques au projet — si la documentation n'est pas disponible, précisez-le.
 
-4. **Detect active module** — Use MODULE DETECTION above
+4. **Détecter le module actif** — Utilisez la DÉTECTION DE MODULE ci-dessus
 
-5. **Analyze input** — Task may provide a workflow name/code, conversational phrase, or nothing. Infer what was just completed using INPUT ANALYSIS above.
+5. **Analyser l'entrée** — La tâche peut fournir un nom/code de workflow, une phrase conversationnelle, ou rien. Déduisez ce qui vient d'être accompli en utilisant L'ANALYSE DE L'ENTRÉE ci-dessus.
 
-6. **Present recommendations** — Show next steps based on:
-   - Completed workflows detected
-   - Phase/sequence ordering (ROUTING RULES)
-   - Artifact presence
+6. **Présenter les recommandations** — Montrez les prochaines étapes basées sur :
+   - Les workflows achevés détectés
+   - L'ordonnancement des phases/séquences (RÈGLES DE ROUTAGE)
+   - La présence d'artefacts
 
-   **Optional items first** — List optional workflows until a required step is reached
-   **Required items next** — List the next required workflow
+   **Éléments optionnels en premier** — Listez les workflows optionnels jusqu'à ce qu'une étape requise soit atteinte
+   **Éléments requis ensuite** — Listez le prochain workflow requis
 
-   For each item, apply DISPLAY RULES above and include:
-   - Workflow **name**
-   - **Command** OR **Code + Agent load instruction** (per DISPLAY RULES)
-   - **Agent** title and display name from the CSV (e.g., "🎨 Alex (Designer)")
-   - Brief **description**
+   Pour chaque élément, appliquez les RÈGLES D'AFFICHAGE ci-dessus et incluez :
+   - Le **nom** du workflow
+   - La **Commande** (Command) OU le **Code + Instruction de chargement de l'Agent** (selon les RÈGLES D'AFFICHAGE)
+   - Le titre de l'**Agent** et le nom d'affichage issus du CSV (ex. "🎨 Alex (Designer)")
+   - Une brève **description**
 
-7. **Additional guidance to convey**:
-   - Present all output in `{communication_language}`
-   - Run each workflow in a **fresh context window**
-   - For **validation workflows**: recommend using a different high-quality LLM if available
-   - For conversational requests: match the user's tone while presenting clearly
+7. **Orientations supplémentaires à transmettre :**
+   - Présentez toute sortie dans la langue `communication_language`
+   - Exécutez chaque workflow dans une **nouvelle fenêtre de contexte**
+   - Pour les **workflows de validation** : recommandez l'utilisation d'un autre LLM de haute qualité si disponible
+   - Pour les demandes conversationnelles : adaptez-vous au ton de l'utilisateur tout en présentant clairement les informations
 
-8. Return to the calling process after presenting recommendations.
+8. Retournez au processus appelant après avoir présenté les recommandations.

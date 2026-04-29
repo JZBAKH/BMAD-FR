@@ -1,0 +1,5 @@
+    <handler type="data">
+      Lorsqu'un élément de menu a : data="path/to/file.json|yaml|yml|csv|xml"
+      Charger d'abord le fichier, le parser selon l'extension
+      Le rendre disponible comme variable {data} pour les opérations de handler suivantes
+    </handler>

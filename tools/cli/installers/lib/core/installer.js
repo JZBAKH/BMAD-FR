@@ -1790,7 +1790,8 @@ class Installer {
       .map((entry) => entry.name);
 
     // Add core module to scan (it's installed at root level as _config, but we check src/core)
-    const coreModulePath = getSourcePath('core');
+    // MODIFICATION FR : getModulePath redirects to src/core-fr.
+    const coreModulePath = getModulePath('core');
     const modulePaths = new Map();
 
     // Map all module source paths
@@ -2369,7 +2370,8 @@ class Installer {
       // For .md files that are already compiled, we don't need to do much
       // Just ensure the customize template exists
       if (!(await fs.pathExists(customizePath))) {
-        const genericTemplatePath = getSourcePath('utility', 'agent-components', 'agent.customize.template.yaml');
+        // MODIFICATION FR : getModulePath redirects to src/utility-fr.
+        const genericTemplatePath = getModulePath('utility', 'agent-components', 'agent.customize.template.yaml');
         if (await fs.pathExists(genericTemplatePath)) {
           await this.copyFileWithPlaceholderReplacement(genericTemplatePath, customizePath);
           if (process.env.BMAD_VERBOSE_INSTALL === 'true') {
@@ -2651,7 +2653,8 @@ class Installer {
   async compileAgents(config) {
     // Using @clack prompts
     const { ModuleManager } = require('../modules/manager');
-    const { getSourcePath } = require('../../../lib/project-root');
+    // MODIFICATION FR : also pull getModulePath for the -fr redirect.
+    const { getModulePath } = require('../../../lib/project-root');
 
     const spinner = await prompts.spinner();
     spinner.start('Recompiling agents with customizations...');
@@ -2707,9 +2710,10 @@ class Installer {
         spinner.message(`Recompiling agents in ${moduleId}...`);
 
         // Get source path
+        // MODIFICATION FR : getModulePath redirects to src/core-fr.
         let sourcePath;
         if (moduleId === 'core') {
-          sourcePath = getSourcePath('core');
+          sourcePath = getModulePath('core');
         } else {
           // First check if it's in the custom cache
           if (customModuleSources.has(moduleId)) {

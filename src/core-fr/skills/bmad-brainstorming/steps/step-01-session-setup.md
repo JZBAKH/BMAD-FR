@@ -1,113 +1,113 @@
-# Step 1: Session Setup and Continuation Detection
+# Étape 1 : Configuration de la Session et Détection de Continuation
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- 🛑 NEVER generate content without user input
-- ✅ ALWAYS treat this as collaborative facilitation
-- 📋 YOU ARE A FACILITATOR, not a content generator
-- 💬 FOCUS on session setup and continuation detection only
-- 🚪 DETECT existing workflow state and handle continuation properly
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the `communication_language`
+- 🛑 NE JAMAIS générer de contenu sans l'intervention de l'utilisateur
+- ✅ TOUJOURS considérer cela comme une animation collaborative
+- 📋 VOUS ÊTES UN ANIMATEUR - pas un générateur de contenu
+- 💬 CONCENTREZ-VOUS uniquement sur la configuration de la session et la détection de continuation
+- 🚪 DÉTECTEZ l'état du flux de travail existant et gérez correctement la continuation
+- ✅ VOUS DEVEZ TOUJOURS PARLER dans votre style de communication d'Agent avec la `communication_language`
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Show your analysis before taking any action
-- 💾 Initialize document and update frontmatter
-- 📖 Set up frontmatter `stepsCompleted: [1]` before loading next step
-- 🚫 FORBIDDEN to load next step until setup is complete
+- 🎯 Affichez votre analyse avant de prendre la moindre action
+- 💾 Initialisez le document et mettez à jour le frontmatter
+- 📖 Configurez le frontmatter `stepsCompleted: [1]` avant de charger l'étape suivante
+- 🚫 INTERDIT de charger l'étape suivante tant que la configuration n'est pas terminée
 
-## CONTEXT BOUNDARIES:
+## LIMITES DE CONTEXTE :
 
-- Variables from workflow.md are available in memory
-- Previous context = what's in output document + frontmatter
-- Don't assume knowledge from other steps
-- Brain techniques loaded on-demand from CSV when needed
+- Les variables de workflow.md sont disponibles en mémoire
+- Contexte précédent = ce qui est dans le document de sortie + le frontmatter
+- Ne supposez aucune connaissance des autres étapes
+- Les techniques de réflexion sont chargées à la demande à partir du CSV lorsque nécessaire
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Initialize the brainstorming workflow by detecting continuation state and setting up session context.
+Initialisez le flux de travail de brainstorming en détectant l'état de continuation et en configurant le contexte de la session.
 
-## INITIALIZATION SEQUENCE:
+## SÉQUENCE D'INITIALISATION :
 
-### 1. Check for Existing Sessions
+### 1. Vérifier les Sessions Existantes
 
-First, check the brainstorming sessions folder for existing sessions:
+Tout d'abord - vérifiez le dossier des sessions de brainstorming pour trouver les sessions existantes :
 
-- List all files in `{output_folder}/brainstorming/`
-- **DO NOT read any file contents** - only list filenames
-- If files exist, identify the most recent by date/time in the filename
-- If no files exist, this is a fresh workflow
+- Listez tous les fichiers dans `{output_folder}/brainstorming/`
+- **NE LISEZ PAS le contenu des fichiers** - listez uniquement les noms de fichiers
+- Si des fichiers existent - identifiez le plus récent en fonction de la date/heure dans le nom du fichier
+- Si aucun fichier n'existe - c'est un nouveau flux de travail
 
-### 2. Handle Existing Sessions (If Files Found)
+### 2. Gérer les Sessions Existantes (Si des Fichiers Sont Trouvés)
 
-If existing session files are found:
+Si des fichiers de session existante sont trouvés :
 
-- Display the most recent session filename (do NOT read its content)
-- Ask the user: "Found existing session: `[filename]`. Would you like to:
-  **[1]** Continue this session
-  **[2]** Start a new session
-  **[3]** See all existing sessions"
+- Affichez le nom du fichier de session le plus récent (NE LISEZ PAS son contenu)
+- Demandez à l'utilisateur : "J'ai trouvé une session existante : `[filename]`. Souhaitez-vous :
+  **[1]** Continuer cette session
+  **[2]** Démarrer une nouvelle session
+  **[3]** Voir toutes les sessions existantes"
 
-- If user selects **[1]** (continue): Set `{brainstorming_session_output_file}` to that file path and load `./step-01b-continue.md`
-- If user selects **[2]** (new): Generate new filename with current date/time and proceed to step 3
-- If user selects **[3]** (see all): List all session filenames and ask which to continue or if new
+- Si l'utilisateur sélectionne **[1]** (continuer) : Configurez `{brainstorming_session_output_file}` à ce chemin de fichier et chargez `./step-01b-continue.md`
+- Si l'utilisateur sélectionne **[2]** (nouveau) : Générez un nouveau nom de fichier avec la date/heure actuelle et passez à l'étape 3
+- Si l'utilisateur sélectionne **[3]** (voir tout) : Listez tous les noms de fichiers de session et demandez laquelle continuer ou si c'est nouveau
 
-### 3. Fresh Workflow Setup (If No Files or User Chooses New)
+### 3. Configuration de Nouveau Flux de Travail (Si Aucun Fichier ou Choix Nouveau par l'Utilisateur)
 
-If no document exists or no `stepsCompleted` in frontmatter:
+Si aucun document n'existe ou pas de `stepsCompleted` dans le frontmatter :
 
-#### A. Initialize Document
+#### A. Initialiser le Document
 
-Create the brainstorming session document:
+Créez le document de session de brainstorming :
 
 ```bash
-# Create directory if needed
+# Créer le répertoire si nécessaire
 mkdir -p "$(dirname "{brainstorming_session_output_file}")"
 
-# Initialize from template
+# Initialiser à partir du modèle
 cp "../template.md" "{brainstorming_session_output_file}"
 ```
 
-#### B. Context File Check and Loading
+#### B. Vérification et Chargement du Fichier de Contexte
 
-**Check for Context File:**
+**Vérifier le Fichier de Contexte :**
 
-- Check if `context_file` is provided in workflow invocation
-- If context file exists and is readable, load it
-- Parse context content for project-specific guidance
-- Use context to inform session setup and approach recommendations
+- Vérifiez si `context_file` est fourni dans l'invocation du flux de travail
+- Si le fichier de contexte existe et est lisible - chargez-le
+- Analysez le contenu du contexte pour les directives spécifiques au projet
+- Utilisez le contexte pour informer la configuration de la session et les recommandations d'approche
 
-#### C. Session Context Gathering
+#### C. Collecte du Contexte de la Session
 
-"Welcome {{user_name}}! I'm excited to facilitate your brainstorming session. I'll guide you through proven creativity techniques to generate innovative ideas and breakthrough solutions.
+"Bienvenue {{user_name}} ! Je suis ravi d'animer votre session de brainstorming. Je vais vous guider à travers des techniques de créativité éprouvées pour générer des idées innovantes et des solutions révolutionnaires.
 
-**Context Loading:** [If context_file provided, indicate context is loaded]
-**Context-Based Guidance:** [If context available, briefly mention focus areas]
+**Chargement du Contexte :** [Si context_file est fourni - indiquez que le contexte est chargé]
+**Directives Basées sur le Contexte :** [Si le contexte est disponible - mentionnez brièvement les domaines prioritaires]
 
-**Let's set up your session for maximum creativity and productivity:**
+**Configurons votre session pour un maximum de créativité et de productivité :**
 
-**Session Discovery Questions:**
+**Questions de Découverte de la Session :**
 
-1. **What are we brainstorming about?** (The central topic or challenge)
-2. **What specific outcomes are you hoping for?** (Types of ideas, solutions, or insights)"
+1. **Sur quoi brainstormons-nous ?** (Le sujet central ou le défi)
+2. **Quels résultats spécifiques espérez-vous ?** (Types d'idées - solutions ou aperçus)"
 
-#### D. Process User Responses
+#### D. Traiter les Réponses de l'Utilisateur
 
-Wait for user responses, then:
+Attendez les réponses de l'utilisateur - puis :
 
-**Session Analysis:**
-"Based on your responses, I understand we're focusing on **[summarized topic]** with goals around **[summarized objectives]**.
+**Analyse de la Session :**
+"D'après vos réponses - je comprends que nous nous concentrons sur **[sujet résumé]** avec des objectifs autour de **[objectifs résumés]**.
 
-**Session Parameters:**
+**Paramètres de la Session :**
 
-- **Topic Focus:** [Clear topic articulation]
-- **Primary Goals:** [Specific outcome objectives]
+- **Cible du Sujet :** [Articulation claire du sujet]
+- **Objectifs Principaux :** [Objectifs de résultats spécifiques]
 
-**Does this accurately capture what you want to achieve?**"
+**Est-ce que cela reflète précisément ce que vous souhaitez accomplir ?**"
 
-#### E. Update Frontmatter and Document
+#### E. Mettre à Jour le Frontmatter et le Document
 
-Update the document frontmatter:
+Mettez à jour le frontmatter du document :
 
 ```yaml
 ---
@@ -118,93 +118,93 @@ session_goals: '[session_goals]'
 selected_approach: ''
 techniques_used: []
 ideas_generated: []
-context_file: '[context_file if provided]'
+context_file: '[context_file si fourni]'
 ---
 ```
 
-Append to document:
+Ajoutez au document :
 
 ```markdown
-## Session Overview
+## Aperçu de la Session
 
-**Topic:** [session_topic]
-**Goals:** [session_goals]
+**Sujet :** [session_topic]
+**Objectifs :** [session_goals]
 
-### Context Guidance
+### Directives du Contexte
 
-_[If context file provided, summarize key context and focus areas]_
+_[Si un fichier de contexte est fourni - résumez le contexte clé et les domaines d'intervention]_
 
-### Session Setup
+### Configuration de la Session
 
-_[Content based on conversation about session parameters and facilitator approach]_
+_[Contenu basé sur la conversation concernant les paramètres de session et l'approche de l'animateur]_
 ```
 
-## APPEND TO DOCUMENT:
+## AJOUTER AU DOCUMENT :
 
-When user selects approach, append the session overview content directly to `{brainstorming_session_output_file}` using the structure from above.
+Lorsque l'utilisateur sélectionne une approche - ajoutez le contenu de l'aperçu de la session directement à `{brainstorming_session_output_file}` en utilisant la structure ci-dessus.
 
-### E. Continue to Technique Selection
+### E. Continuer vers la Sélection de la Technique
 
-"**Session setup complete!** I have a clear understanding of your goals and can select the perfect techniques for your brainstorming needs.
+"**Configuration de la session terminée !** J'ai une compréhension claire de vos objectifs et peux sélectionner les techniques parfaites pour vos besoins de brainstorming.
 
-**Ready to explore technique approaches?**
-[1] User-Selected Techniques - Browse our complete technique library
-[2] AI-Recommended Techniques - Get customized suggestions based on your goals
-[3] Random Technique Selection - Discover unexpected creative methods
-[4] Progressive Technique Flow - Start broad, then systematically narrow focus
+**Prêt à explorer les approches techniques ?**
+[1] Techniques Sélectionnées par l'Utilisateur - Parcourez notre bibliothèque complète de techniques
+[2] Techniques Recommandées par l'IA - Obtenez des suggestions personnalisées en fonction de vos objectifs
+[3] Sélection Aléatoire de Techniques - Découvrez des méthodes créatives inattendues
+[4] Flux de Techniques Progressif - Commencez large - puis affinez systématiquement
 
-Which approach appeals to you most? (Enter 1-4)"
+Quelle approche vous intéresse le plus ? (Entrez 1-4)"
 
-### 4. Handle User Selection and Initial Document Append
+### 4. Gérer la Sélection de l'Utilisateur et l'Ajout Initial au Document
 
-#### When user selects approach number:
+#### Lorsque l'utilisateur sélectionne le numéro d'approche :
 
-- **Append initial session overview to `{brainstorming_session_output_file}`**
-- **Update frontmatter:** `stepsCompleted: [1]`, `selected_approach: '[selected approach]'`
-- **Load the appropriate step-02 file** based on selection
+- **Ajoutez l'aperçu initial de la session à `{brainstorming_session_output_file}`**
+- **Mettez à jour le frontmatter :** `stepsCompleted: [1]` - `selected_approach: '[approche sélectionnée]'`
+- **Chargez le fichier step-02 approprié** en fonction de la sélection
 
-### 5. Handle User Selection
+### 5. Gérer la Sélection de l'Utilisateur
 
-After user selects approach number:
+Après que l'utilisateur a sélectionné le numéro de l'approche :
 
-- **If 1:** Load `./step-02a-user-selected.md`
-- **If 2:** Load `./step-02b-ai-recommended.md`
-- **If 3:** Load `./step-02c-random-selection.md`
-- **If 4:** Load `./step-02d-progressive-flow.md`
+- **Si 1 :** Chargez `./step-02a-user-selected.md`
+- **Si 2 :** Chargez `./step-02b-ai-recommended.md`
+- **Si 3 :** Chargez `./step-02c-random-selection.md`
+- **Si 4 :** Chargez `./step-02d-progressive-flow.md`
 
-## SUCCESS METRICS:
+## MÉTRIQUES DE SUCCÈS :
 
-✅ Existing sessions detected without reading file contents
-✅ User prompted to continue existing session or start new
-✅ Correct session file selected for continuation
-✅ Fresh workflow initialized with correct document structure
-✅ Session context gathered and understood clearly
-✅ User's approach selection captured and routed correctly
-✅ Frontmatter properly updated with session state
-✅ Document initialized with session overview section
+✅ Sessions existantes détectées sans lire le contenu des fichiers
+✅ Utilisateur invité à continuer une session existante ou à en commencer une nouvelle
+✅ Fichier de session correct sélectionné pour la continuation
+✅ Nouveau flux de travail initialisé avec la structure de document correcte
+✅ Contexte de session rassemblé et compris clairement
+✅ Sélection de l'approche de l'utilisateur capturée et dirigée correctement
+✅ Frontmatter correctement mis à jour avec l'état de la session
+✅ Document initialisé avec la section d'aperçu de la session
 
-## FAILURE MODES:
+## MODES D'ÉCHEC :
 
-❌ Reading file contents during session detection (wastes context)
-❌ Not asking user before continuing existing session
-❌ Not properly routing user's continue/new session selection
-❌ Missing continuation detection leading to duplicate work
-❌ Insufficient session context gathering
-❌ Not properly routing user's approach selection
-❌ Frontmatter not updated with session parameters
+❌ Lecture du contenu des fichiers lors de la détection de session (gaspille du contexte)
+❌ Ne pas demander à l'utilisateur avant de continuer une session existante
+❌ Ne pas diriger correctement la sélection continuer/nouvelle session de l'utilisateur
+❌ Détection de continuation manquante entraînant un travail en double
+❌ Rassemblement insuffisant du contexte de la session
+❌ Ne pas diriger correctement la sélection d'approche de l'utilisateur
+❌ Frontmatter non mis à jour avec les paramètres de la session
 
-## SESSION SETUP PROTOCOLS:
+## PROTOCOLES DE CONFIGURATION DE SESSION :
 
-- Always list sessions folder WITHOUT reading file contents
-- Ask user before continuing any existing session
-- Only load continue step after user confirms
-- Load brain techniques CSV only when needed for technique presentation
-- Use collaborative facilitation language throughout
-- Maintain psychological safety for creative exploration
-- Clear next-step routing based on user preferences
+- Listez toujours le dossier des sessions SANS lire le contenu des fichiers
+- Demandez à l'utilisateur avant de continuer toute session existante
+- Chargez l'étape de continuation uniquement après confirmation de l'utilisateur
+- Chargez le CSV des techniques de réflexion uniquement lorsque nécessaire pour la présentation de la technique
+- Utilisez un langage d'animation collaborative tout au long
+- Maintenez la sécurité psychologique pour l'exploration créative
+- Acheminement clair de l'étape suivante en fonction des préférences de l'utilisateur
 
-## NEXT STEPS:
+## PROCHAINES ÉTAPES :
 
-Based on user's approach selection, load the appropriate step-02 file for technique selection and facilitation.
+Selon la sélection de l'approche par l'utilisateur - chargez le fichier step-02 approprié pour la sélection de la technique et l'animation.
 
-Remember: Focus only on setup and routing - don't preload technique information or look ahead to execution steps!
+N'oubliez pas : Concentrez-vous uniquement sur la configuration et l'acheminement - ne préchargez pas les informations sur la technique et ne regardez pas à l'avance vers les étapes d'exécution !

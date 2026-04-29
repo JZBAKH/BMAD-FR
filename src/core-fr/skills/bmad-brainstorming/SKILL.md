@@ -1,6 +1,6 @@
 ---
 name: bmad-brainstorming
-description: 'Facilitate interactive brainstorming sessions using diverse creative techniques and ideation methods. Use when the user says help me brainstorm or help me ideate.'
+description: 'Facilite les sessions de brainstorming interactives en utilisant diverses techniques créatives et méthodes d''idéation. À utiliser lorsque l''utilisateur demande de l''aide pour un brainstorming ou une idéation.'
 ---
 
-Follow the instructions in [workflow.md](workflow.md).
+Suivez les instructions dans [workflow.md](workflow.md).

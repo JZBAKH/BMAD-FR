@@ -4,7 +4,7 @@ inputDocuments: []
 workflowType: 'prd'
 ---
 
-# Product Requirements Document - {{project_name}}
+# Document de Spécifications Produit (PRD) - {{project_name}}
 
-**Author:** {{user_name}}
-**Date:** {{date}}
+**Auteur :** {{user_name}}
+**Date :** {{date}}

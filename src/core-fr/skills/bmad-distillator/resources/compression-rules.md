@@ -1,51 +1,51 @@
-# Compression Rules
+# Règles de Compression
 
-These rules govern how source text is compressed into distillate format. Apply as a final pass over all output.
+Ces règles régissent la manière dont le texte source est compressé au format distillat. À appliquer comme passage final sur toute la production.
 
-## Strip — Remove entirely
+## Éliminer — Supprimer entièrement
 
-- Prose transitions: "As mentioned earlier", "It's worth noting", "In addition to this"
-- Rhetoric and persuasion: "This is a game-changer", "The exciting thing is"
-- Hedging: "We believe", "It's likely that", "Perhaps", "It seems"
-- Self-reference: "This document describes", "As outlined above"
-- Common knowledge explanations: "Vercel is a cloud platform company", "MIT is an open-source license", "JSON is a data interchange format"
-- Repeated introductions of the same concept
-- Section transition paragraphs
-- Formatting-only elements (decorative bold/italic for emphasis, horizontal rules for visual breaks)
-- Filler phrases: "In order to", "It should be noted that", "The fact that"
+- Transitions en prose : "Comme mentionné précédemment", "Il est intéressant de noter que", "En plus de cela"
+- Rhétorique et persuasion : "Ceci change la donne", "Ce qui est excitant c'est"
+- Hésitations et formulations évasives : "Nous croyons", "Il est probable que", "Peut-être", "Il semble"
+- Auto-référence : "Ce document décrit", "Comme souligné ci-dessus"
+- Explications de connaissances communes : "Vercel est une entreprise de plateforme cloud", "MIT est une licence open-source", "JSON est un format d'échange de données"
+- Introductions répétées d'un même concept
+- Paragraphes de transition entre les sections
+- Éléments purement liés à la mise en forme (gras/italique décoratif pour accentuer, lignes horizontales pour les sauts visuels)
+- Phrases de remplissage : "Afin de", "Il convient de noter que", "Le fait que"
 
-## Preserve — Keep always
+## Préserver — Conserver toujours
 
-- Specific numbers, dates, versions, percentages
-- Named entities (products, companies, people, technologies)
-- Decisions made and their rationale (compressed: "Decision: X. Reason: Y")
-- Rejected alternatives and why (compressed: "Rejected: X. Reason: Y")
-- Explicit constraints and non-negotiables
-- Dependencies and ordering relationships
-- Open questions and unresolved items
-- Scope boundaries (in/out/deferred)
-- Success criteria and how they're validated
-- User segments and what success means for each
-- Risks with their severity signals
-- Conflicts between source documents
+- Nombres spécifiques, dates, versions, pourcentages
+- Entités nommées (produits, entreprises, personnes, technologies)
+- Décisions prises et leur justification (compressé : "Décision : X. Raison : Y")
+- Alternatives rejetées et leur justification (compressé : "Rejeté : X. Raison : Y")
+- Contraintes explicites et éléments non négociables
+- Dépendances et relations d'ordre
+- Questions ouvertes et éléments non résolus
+- Limites de périmètre (inclus/exclu/différé)
+- Critères de succès et leur mode de validation
+- Segments d'utilisateurs et ce que le succès signifie pour chacun
+- Risques avec leurs signaux de gravité
+- Conflits entre différents documents sources
 
-## Transform — Change form for efficiency
+## Transformer — Changer la forme pour plus d'efficacité
 
-- Long prose paragraphs → single dense bullet capturing the same information
-- "We decided to use X because Y and Z" → "X (rationale: Y, Z)"
-- Repeated category labels → group under a single heading, no per-item labels
-- "Risk: ... Severity: high" → "HIGH RISK: ..."
-- Conditional statements → "If X → Y" form
-- Multi-sentence explanations → semicolon-separated compressed form
-- Lists of related short items → single bullet with semicolons
-- "X is used for Y" → "X: Y" when context is clear
-- Verbose enumerations → parenthetical lists: "platforms (Cursor, Claude Code, Windsurf, Copilot)"
+- Longs paragraphes en prose → une seule puce dense capturant la même information
+- "Nous avons décidé d'utiliser X parce que Y et Z" → "X (justification : Y, Z)"
+- Étiquettes de catégorie répétées → les regrouper sous un seul en-tête, sans étiquette par élément
+- "Risque : ... Gravité : élevée" → "RISQUE ÉLEVÉ : ..."
+- Déclarations conditionnelles → forme "Si X → Y"
+- Explications sur plusieurs phrases → forme compressée séparée par des points-virgules
+- Listes de petits éléments liés → une seule puce avec points-virgules
+- "X est utilisé pour Y" → "X: Y" lorsque le contexte est clair
+- Énumérations verbeuses → listes entre parenthèses : "plateformes (Cursor, Claude Code, Windsurf, Copilot)"
 
-## Deduplication Rules
+## Règles de Déduplication
 
-- Same fact in multiple documents → keep the version with most context
-- Same concept at different detail levels → keep the detailed version
-- Overlapping lists → merge into single list, no duplicates
-- When source documents disagree → note the conflict explicitly: "Brief says X; discovery notes say Y — unresolved"
-- Executive summary points that are expanded elsewhere → keep only the expanded version
-- Introductory framing repeated across sections → capture once under the most relevant theme
+- Même fait dans plusieurs documents → conserver la version ayant le plus de contexte
+- Même concept à des niveaux de détail différents → conserver la version détaillée
+- Listes qui se chevauchent → fusionner en une seule liste, sans doublon
+- Lorsque les documents sources sont en désaccord → noter le conflit explicitement : "Le brief dit X; les notes de découverte disent Y — non résolu"
+- Points du résumé exécutif qui sont développés ailleurs → ne conserver que la version développée
+- Cadrage introductif répété à travers les sections → capturer une seule fois sous le thème le plus pertinent

@@ -1,63 +1,63 @@
-# Semantic Splitting Strategy
+# Stratégie de Découpage Sémantique
 
-When the source content is large (exceeds ~15,000 tokens) or a token_budget requires it, split the distillate into semantically coherent sections rather than arbitrary size breaks.
+Lorsque le contenu source est volumineux (dépasse ~15 000 tokens) ou qu'un paramètre `token_budget` l'exige, fractionnez le distillat en sections sémantiquement cohérentes plutôt qu'en coupures de taille arbitraires.
 
-## Why Semantic Over Size-Based
+## Pourquoi Privilégier la Sémantique à la Taille
 
-Arbitrary splits (every N tokens) break coherence. A downstream workflow loading "part 2 of 4" gets context fragments. Semantic splits produce self-contained topic clusters that a workflow can load selectively — "give me just the technical decisions section" — which is more useful and more token-efficient for the consumer.
+Les coupures arbitraires (tous les N tokens) brisent la cohérence. Un workflow en aval qui charge "partie 2 sur 4" reçoit des fragments de contexte. Les découpages sémantiques produisent des regroupements de sujets autonomes qu'un workflow peut charger sélectivement — "donne-moi simplement la section des décisions techniques" — ce qui est plus utile et plus efficace en termes de tokens pour le consommateur.
 
-## Splitting Process
+## Processus de Découpage
 
-### 1. Identify Natural Boundaries
+### 1. Identifier les Frontières Naturelles
 
-After the initial extraction and deduplication (Steps 1-2 of the compression process), look for natural semantic boundaries:
-- Distinct problem domains or functional areas
-- Different stakeholder perspectives (users, technical, business)
-- Temporal boundaries (current state vs future vision)
-- Scope boundaries (in-scope vs out-of-scope vs deferred)
-- Phase boundaries (analysis, design, implementation)
+Après l'extraction initiale et la déduplication (Étapes 1-2 du processus de compression), recherchez des frontières sémantiques naturelles :
+- Domaines de problèmes distincts ou domaines fonctionnels
+- Différentes perspectives des parties prenantes (utilisateurs, technique, métier)
+- Frontières temporelles (état actuel contre vision future)
+- Limites de périmètre (in-scope, out-of-scope, différé)
+- Limites de phases (analyse, conception, implémentation)
 
-Choose boundaries that produce sections a downstream workflow might load independently.
+Choisissez des frontières qui génèrent des sections qu'un workflow en aval pourrait charger de façon autonome.
 
-### 2. Assign Items to Sections
+### 2. Assigner les Éléments aux Sections
 
-For each extracted item, assign it to the most relevant section. Items that span multiple sections go in the root distillate.
+Pour chaque élément extrait, assignez-le à la section la plus pertinente. Les éléments qui s'étendent sur plusieurs sections vont dans le distillat racine.
 
-Cross-cutting items (items relevant to multiple sections):
-- Constraints that affect all areas → root distillate
-- Decisions with broad impact → root distillate
-- Section-specific decisions → section distillate
+Éléments transversaux (éléments pertinents pour plusieurs sections) :
+- Les contraintes qui affectent tous les domaines → distillat racine
+- Les décisions ayant un impact large → distillat racine
+- Les décisions spécifiques à une section → distillat de section
 
-### 3. Produce Root Distillate
+### 3. Produire le Distillat Racine
 
-The root distillate contains:
-- **Orientation** (3-5 bullets): what was distilled, from what sources, for what consumer, how many sections
-- **Cross-references**: list of section distillates with 1-line descriptions
-- **Cross-cutting items**: facts, decisions, and constraints that span multiple sections
-- **Scope summary**: high-level in/out/deferred if applicable
+Le distillat racine (root distillate) contient :
+- **Orientation** (3-5 puces) : ce qui a été distillé, à partir de quelles sources, pour quel consommateur, combien de sections
+- **Références croisées** : liste des distillats de section avec des descriptions d'une ligne
+- **Éléments transversaux** : faits, décisions et contraintes qui s'étendent sur plusieurs sections
+- **Résumé du périmètre** : in/out/différé de haut niveau, le cas échéant
 
-### 4. Produce Section Distillates
+### 4. Produire les Distillats de Section
 
-Each section distillate must be self-sufficient — a reader loading only one section should understand it without the others.
+Chaque distillat de section doit être autosuffisant — un lecteur chargeant une seule section devrait la comprendre sans avoir besoin des autres.
 
-Each section includes:
-- **Context header** (1 line): "This section covers [topic]. Part N of M from [source document names]."
-- **Section content**: thematically-grouped bullets following the same compression rules as a single distillate
-- **Cross-references** (if needed): pointers to other sections for related content
+Chaque section inclut :
+- **En-tête de contexte** (1 ligne) : "Cette section couvre [sujet]. Partie N sur M à partir des [noms des documents sources]."
+- **Contenu de la section** : des puces regroupées de manière thématique qui suivent les mêmes règles de compression qu'un distillat unique
+- **Références croisées** (si nécessaire) : pointeurs vers d'autres sections pour le contenu lié
 
-### 5. Output Structure
+### 5. Structure de Sortie
 
-Create a folder `{base-name}-distillate/` containing:
+Créez un dossier `{base-name}-distillate/` contenant :
 
 ```
 {base-name}-distillate/
-├── _index.md           # Root distillate: orientation, cross-cutting items, section manifest
-├── 01-{topic-slug}.md  # Self-contained section
+├── _index.md           # Distillat racine : orientation, éléments transversaux, manifeste de la section
+├── 01-{topic-slug}.md  # Section autosuffisante
 ├── 02-{topic-slug}.md
 └── 03-{topic-slug}.md
 ```
 
-Example:
+Exemple :
 ```
 product-brief-distillate/
 ├── _index.md
@@ -66,13 +66,13 @@ product-brief-distillate/
 └── 03-users-market.md
 ```
 
-## Size Targets
+## Cibles de Taille
 
-When a token_budget is specified:
-- Root distillate: ~20% of budget (orientation + cross-cutting items)
-- Remaining budget split proportionally across sections based on content density
-- If a section exceeds its proportional share, compress more aggressively or sub-split
+Lorsqu'un `token_budget` est spécifié :
+- Distillat racine : ~20% du budget (orientation + éléments transversaux)
+- Le budget restant est réparti proportionnellement entre les sections, au regard de la densité de contenu
+- Si une section excède sa part allouée (soit proportionnellement supérieure), effectuez des compressions plus incisives ou alors décomposez-la en multiples sous-blocs
 
-When no token_budget but splitting is needed:
-- Aim for sections of 3,000-5,000 tokens each
-- Root distillate as small as possible while remaining useful standalone
+En l'absence de `token_budget` déclaré s'il faut quand même procéder au saucissonnage d'informations :
+- Visez un équilibre à hauteur de 3 000 à 5 000 tokens pour chaque ramification identifiée.
+- Ramenez le fichier du distillat racine à son niveau le plus modeste tout en maintenant sa pertinence afin de le lire efficacement de manière désolidarisée des sections dédiées.

@@ -2,7 +2,7 @@ const path = require('node:path');
 const fs = require('fs-extra');
 const { XmlHandler } = require('../../../lib/xml-handler');
 const prompts = require('../../../lib/prompts');
-const { getSourcePath } = require('../../../lib/project-root');
+const { getSourcePath, getModulePath } = require('../../../lib/project-root');
 const { BMAD_FOLDER_NAME } = require('./shared/path-utils');
 
 /**
@@ -35,7 +35,8 @@ class BaseIdeSetup {
    * @returns {string} The activation header text
    */
   async getAgentCommandHeader() {
-    const headerPath = getSourcePath('utility', 'agent-components', 'agent-command-header.md');
+    // MODIFICATION FR : getModulePath redirects to src/utility-fr.
+    const headerPath = getModulePath('utility', 'agent-components', 'agent-command-header.md');
     return await fs.readFile(headerPath, 'utf8');
   }
 

@@ -1,209 +1,209 @@
-# Step 2c: Random Technique Selection
+# Étape 2c : Sélection Aléatoire de Technique
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- ✅ YOU ARE A SERENDIPITY FACILITATOR, embracing unexpected creative discoveries
-- 🎯 USE RANDOM SELECTION for surprising technique combinations
-- 📋 LOAD TECHNIQUES ON-DEMAND from brain-methods.csv
-- 🔍 CREATE EXCITEMENT around unexpected creative methods
-- 💬 EMPHASIZE DISCOVERY over predictable outcomes
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the `communication_language`
+- ✅ VOUS ÊTES UN FACILITATEUR DE DÉCOUVERTES - accueillant les découvertes créatives inattendues
+- 🎯 UTILISEZ LA SÉLECTION ALÉATOIRE pour des combinaisons de techniques surprenantes
+- 📋 CHARGEZ LES TECHNIQUES À LA DEMANDE depuis brain-methods.csv
+- 🔍 CRÉEZ L'ENTHOUSIASME autour des méthodes créatives inattendues
+- 💬 METTEZ L'ACCENT SUR LA DÉCOUVERTE plutôt que sur des résultats prévisibles
+- ✅ VOUS DEVEZ TOUJOURS PARLER dans votre style de communication d'Agent avec la `communication_language`
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Load brain techniques CSV only when needed for random selection
-- ⚠️ Present [B] back option and [C] continue options
-- 💾 Update frontmatter with randomly selected techniques
-- 📖 Route to technique execution after user confirmation
-- 🚫 FORBIDDEN steering random selections or second-guessing outcomes
+- 🎯 Chargez le CSV des techniques de réflexion uniquement lorsque nécessaire pour la sélection aléatoire
+- ⚠️ Présentez l'option de retour [B] et les options de continuation [C]
+- 💾 Mettez à jour le frontmatter avec les techniques sélectionnées aléatoirement
+- 📖 Dirigez vers l'exécution de la technique après la confirmation de l'utilisateur
+- 🚫 INTERDIT d'orienter les sélections aléatoires ou de remettre en question les résultats
 
-## CONTEXT BOUNDARIES:
+## LIMITES DE CONTEXTE :
 
-- Session context from Step 1 available for basic filtering
-- Brain techniques CSV with 36+ techniques across 7 categories
-- User wants surprise and unexpected creative methods
-- Randomness should create complementary, not contradictory, combinations
+- Le contexte de la session de l'Étape 1 est disponible pour un filtrage de base
+- Le CSV des techniques de réflexion avec plus de 36 techniques réparties en 7 catégories
+- L'utilisateur souhaite de la surprise et des méthodes créatives inattendues
+- Le hasard doit créer des combinaisons complémentaires - et non contradictoires
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Use random selection to discover unexpected brainstorming techniques that will break user out of usual thinking patterns.
+Utilisez la sélection aléatoire pour découvrir des techniques de brainstorming inattendues qui feront sortir l'utilisateur de ses schémas de pensée habituels.
 
-## RANDOM SELECTION SEQUENCE:
+## SÉQUENCE DE SÉLECTION ALÉATOIRE :
 
-### 1. Build Excitement for Random Discovery
+### 1. Créer de l'Enthousiasme pour la Découverte Hasardeuse
 
-Create anticipation for serendipitous technique discovery:
+Créez de l'anticipation pour la découverte de techniques par hasard :
 
-"Exciting choice! You've chosen the path of creative serendipity. Random technique selection often leads to the most surprising breakthroughs because it forces us out of our usual thinking patterns.
+"Choix passionnant ! Vous avez choisi la voie de la découverte créative. La sélection aléatoire de techniques mène souvent aux percées les plus surprenantes car elle nous force à sortir de nos schémas de pensée habituels.
 
-**The Magic of Random Selection:**
+**La Magie de la Sélection Aléatoire :**
 
-- Discover techniques you might never choose yourself
-- Break free from creative ruts and predictable approaches
-- Find unexpected connections between different creativity methods
-- Experience the joy of genuine creative surprise
+- Découvrez des techniques que vous n'auriez peut-être jamais choisies vous-même
+- Libérez-vous des routines créatives et des approches prévisibles
+- Trouvez des connexions inattendues entre différentes méthodes de créativité
+- Vivez la joie d'une véritable surprise créative
 
-**Loading our complete Brain Techniques Library for Random Discovery...**"
+**Chargement de notre Bibliothèque complète de Techniques de Réflexion pour la Découverte Aléatoire...**"
 
-**Load CSV and parse:**
+**Charger le CSV et l'analyser :**
 
-- Read `brain-methods.csv`
-- Parse: category, technique_name, description, facilitation_prompts, best_for, energy_level, typical_duration
-- Prepare for intelligent random selection
+- Lisez `brain-methods.csv`
+- Analysez : category - technique_name - description - facilitation_prompts - best_for - energy_level - typical_duration
+- Préparez-vous à une sélection aléatoire intelligente
 
-### 2. Intelligent Random Selection
+### 2. Sélection Aléatoire Intelligente
 
-Perform random selection with basic intelligence for good combinations:
+Effectuez une sélection aléatoire avec une intelligence de base pour obtenir de bonnes combinaisons :
 
-**Selection Process:**
-"I'm now randomly selecting 3 complementary techniques from our library of 36+ methods. The beauty of this approach is discovering unexpected combinations that create unique creative effects.
+**Processus de Sélection :**
+"Je sélectionne maintenant de manière aléatoire 3 techniques complémentaires parmi notre bibliothèque de plus de 36 méthodes. La beauté de cette approche est de découvrir des combinaisons inattendues qui créent des effets créatifs uniques.
 
-**Randomizing Technique Selection...**"
+**Génération Aléatoire de la Sélection des Techniques...**"
 
-**Selection Logic:**
+**Logique de Sélection :**
 
-- Random selection from different categories for variety
-- Ensure techniques don't conflict in approach
-- Consider basic time/energy compatibility
-- Allow for surprising but workable combinations
+- Sélection aléatoire dans différentes catégories pour plus de variété
+- Assurer que les techniques ne sont pas en conflit dans leur approche
+- Prendre en compte la compatibilité de base temps/énergie
+- Permettre des combinaisons surprenantes mais réalisables
 
-### 3. Present Random Techniques
+### 3. Présenter les Techniques Aléatoires
 
-Reveal the randomly selected techniques with enthusiasm:
+Révélez les techniques sélectionnées aléatoirement avec enthousiasme :
 
-"**🎲 Your Randomly Selected Creative Techniques! 🎲**
+"**🎲 Vos Techniques Créatives Sélectionnées Aléatoirement ! 🎲**
 
-**Phase 1: Exploration**
-**[Random Technique 1]** from [Category] (Duration: [time], Energy: [level])
+**Phase 1 : Exploration**
+**[Nom de la Technique Aléatoire 1]** de [Catégorie] (Durée : [temps] - Énergie : [niveau])
 
-- **Description:** [Technique description]
-- **Why this is exciting:** [What makes this technique surprising or powerful]
-- **Random discovery bonus:** [Unexpected insight about this technique]
+- **Description :** [Description de la technique]
+- **Pourquoi c'est excitant :** [Ce qui rend cette technique surprenante ou puissante]
+- **Bonus de découverte aléatoire :** [Aperçu inattendu sur cette technique]
 
-**Phase 2: Connection**
-**[Random Technique 2]** from [Category] (Duration: [time], Energy: [level])
+**Phase 2 : Connexion**
+**[Nom de la Technique Aléatoire 2]** de [Catégorie] (Durée : [temps] - Énergie : [niveau])
 
-- **Description:** [Technique description]
-- **Why this complements the first:** [How these techniques might work together]
-- **Random discovery bonus:** [Unexpected insight about this combination]
+- **Description :** [Description de la technique]
+- **Pourquoi cela complète la première :** [Comment ces techniques pourraient fonctionner ensemble]
+- **Bonus de découverte aléatoire :** [Aperçu inattendu sur cette combinaison]
 
-**Phase 3: Synthesis**
-**[Random Technique 3]** from [Category] (Duration: [time], Energy: [level])
+**Phase 3 : Synthèse**
+**[Nom de la Technique Aléatoire 3]** de [Catégorie] (Durée : [temps] - Énergie : [niveau])
 
-- **Description:** [Technique description]
-- **Why this completes the journey:** [How this ties the sequence together]
-- **Random discovery bonus:** [Unexpected insight about the overall flow]
+- **Description :** [Description de la technique]
+- **Pourquoi cela termine le voyage :** [Comment cela lie la séquence ensemble]
+- **Bonus de découverte aléatoire :** [Aperçu inattendu sur le flux global]
 
-**Total Random Session Time:** [Combined duration]
-**Serendipity Factor:** [Enthusiastic description of creative potential]"
+**Temps Total de la Session Aléatoire :** [Durée combinée]
+**Facteur de Découverte :** [Description enthousiaste du potentiel créatif]"
 
-### 4. Highlight the Creative Potential
+### 4. Souligner le Potentiel Créatif
 
-Emphasize the unique value of this random combination:
+Mettez l'accent sur la valeur unique de cette combinaison aléatoire :
 
-"**Why This Random Combination is Perfect:**
+"**Pourquoi Cette Combinaison Aléatoire est Parfaite :**
 
-**Unexpected Synergy:**
-These three techniques might seem unrelated, but that's exactly where the magic happens! [Random Technique 1] will [effect], while [Random Technique 2] brings [complementary effect], and [Random Technique 3] will [unique synthesis effect].
+**Synergie Inattendue :**
+Ces trois techniques peuvent sembler sans rapport - mais c'est exactement là que la magie opère ! [Technique Aléatoire 1] fera [effet] - tandis que [Technique Aléatoire 2] apporte [effet complémentaire] - et [Technique Aléatoire 3] permettra une [synthèse unique].
 
-**Breakthrough Potential:**
-This combination is designed to break through conventional thinking by:
+**Potentiel de Percée :**
+Cette combinaison est conçue pour briser la pensée conventionnelle en :
 
-- Challenging your usual creative patterns
-- Introducing perspectives you might not consider
-- Creating connections between unrelated creative approaches
+- Remettant en question vos schémas créatifs habituels
+- Introduisant des perspectives que vous n'auriez peut-être pas considérées
+- Créant des connexions entre des approches créatives non liées
 
-**Creative Adventure:**
-You're about to experience brainstorming in a completely new way. These unexpected techniques often lead to the most innovative and memorable ideas because they force fresh thinking.
+**Aventure Créative :**
+Vous êtes sur le point d'expérimenter le brainstorming d'une manière complètement nouvelle. Ces techniques inattendues mènent souvent aux idées les plus innovantes et mémorables car elles forcent une réflexion nouvelle.
 
-**Ready for this creative adventure?**
+**Prêt pour cette aventure créative ?**
 
-**Options:**
-[C] Continue - Begin with these serendipitous techniques
-[Shuffle] - Randomize another combination for different adventure
-[Details] - Tell me more about any specific technique
-[Back] - Return to approach selection
+**Options :**
+[C] Continuer - Commencer avec ces techniques issues du hasard
+[Mélanger] - Randomiser une autre combinaison pour une aventure différente
+[Détails] - Dites m'en plus sur une technique spécifique
+[Retour] - Revenir à la sélection d'approche
 
-### 5. Handle User Response
+### 5. Gérer la Réponse de l'Utilisateur
 
-#### If [C] Continue:
+#### Si [C] Continuer :
 
-- Update frontmatter with randomly selected techniques
-- Append random selection story to document
-- Route to technique execution
+- Mettre à jour le frontmatter avec les techniques sélectionnées aléatoirement
+- Ajouter l'histoire de la sélection aléatoire au document
+- Diriger vers l'exécution de la technique
 
-#### If [Shuffle]:
+#### Si [Mélanger] :
 
-- Generate new random selection
-- Present as a "different creative adventure"
-- Compare to previous selection if user wants
+- Générer une nouvelle sélection aléatoire
+- La présenter comme une "aventure créative différente"
+- La comparer à la sélection précédente si l'utilisateur le souhaite
 
-#### If [Details] or [Back]:
+#### Si [Détails] ou [Retour] :
 
-- Provide additional information or return to approach selection
-- Maintain excitement about random discovery process
+- Fournir des informations supplémentaires ou revenir à la sélection d'approche
+- Maintenir l'enthousiasme autour du processus de découverte aléatoire
 
-### 6. Update Frontmatter and Document
+### 6. Mettre à Jour le Frontmatter et le Document
 
-If user confirms random selection:
+Si l'utilisateur confirme la sélection aléatoire :
 
-**Update frontmatter:**
+**Mettre à jour le frontmatter :**
 
 ```yaml
 ---
 selected_approach: 'random-selection'
-techniques_used: ['technique1', 'technique2', 'technique3']
-stepsCompleted: [1, 2]
+techniques_used: ['technique1' - 'technique2' - 'technique3']
+stepsCompleted: [1 - 2]
 ---
 ```
 
-**Append to document:**
+**Ajouter au document :**
 
 ```markdown
-## Technique Selection
+## Sélection de la Technique
 
-**Approach:** Random Technique Selection
-**Selection Method:** Serendipitous discovery from 36+ techniques
+**Approche :** Sélection Aléatoire de Technique
+**Méthode de Sélection :** Découverte inattendue parmi plus de 36 techniques
 
-**Randomly Selected Techniques:**
+**Techniques Sélectionnées Aléatoirement :**
 
-- **[Technique 1]:** [Why this random selection is exciting]
-- **[Technique 2]:** [How this creates unexpected creative synergy]
-- **[Technique 3]:** [How this completes the serendipitous journey]
+- **[Technique 1] :** [Pourquoi cette sélection aléatoire est excitante]
+- **[Technique 2] :** [Comment cela crée une synergie créative inattendue]
+- **[Technique 3] :** [Comment cela complète ce voyage inattendu]
 
-**Random Discovery Story:** [Content about the selection process and creative potential]
+**Histoire de la Découverte Aléatoire :** [Contenu sur le processus de sélection et le potentiel créatif]
 ```
 
-**Route to execution:**
-Load `./step-03-technique-execution.md`
+**Diriger vers l'exécution :**
+Chargez `./step-03-technique-execution.md`
 
-## SUCCESS METRICS:
+## MÉTRIQUES DE SUCCÈS :
 
-✅ Random techniques selected with basic intelligence for good combinations
-✅ Excitement and anticipation built around serendipitous discovery
-✅ Creative potential of random combination highlighted effectively
-✅ User enthusiasm maintained throughout selection process
-✅ Frontmatter updated with randomly selected techniques
-✅ Option to reshuffle provided for user control
+✅ Techniques aléatoires sélectionnées avec une intelligence de base pour de bonnes combinaisons
+✅ Enthousiasme et anticipation créés autour de la découverte par hasard
+✅ Potentiel créatif de la combinaison aléatoire mis en évidence efficacement
+✅ Enthousiasme de l'utilisateur maintenu tout au long du processus de sélection
+✅ Frontmatter mis à jour avec les techniques sélectionnées aléatoirement
+✅ Option de remélanger fournie pour le contrôle de l'utilisateur
 
-## FAILURE MODES:
+## MODES D'ÉCHEC :
 
-❌ Random selection creates conflicting or incompatible techniques
-❌ Not building sufficient excitement around random discovery
-❌ Missing option for user to reshuffle or get different combination
-❌ Not explaining the creative value of random combinations
-❌ Loading techniques from memory instead of CSV
+❌ La sélection aléatoire crée des techniques en conflit ou incompatibles
+❌ Ne pas créer suffisamment d'enthousiasme autour de la découverte aléatoire
+❌ Option manquante pour l'utilisateur de remélanger ou d'obtenir une combinaison différente
+❌ Ne pas expliquer la valeur créative des combinaisons aléatoires
+❌ Chargement des techniques depuis la mémoire au lieu du CSV
 
-## RANDOM SELECTION PROTOCOLS:
+## PROTOCOLES DE SÉLECTION ALÉATOIRE :
 
-- Use true randomness while ensuring basic compatibility
-- Build enthusiasm for unexpected discoveries and surprises
-- Emphasize the value of breaking out of usual patterns
-- Allow user control through reshuffle option
-- Present random selections as exciting creative adventures
+- Utilisez un véritable hasard tout en assurant une compatibilité de base
+- Suscitez l'enthousiasme pour les découvertes et surprises inattendues
+- Soulignez la valeur de sortir des schémas habituels
+- Permettez le contrôle de l'utilisateur via l'option de remélange
+- Présentez les sélections aléatoires comme des aventures créatives passionnantes
 
-## NEXT STEP:
+## PROCHAINE ÉTAPE :
 
-After user confirms, load `./step-03-technique-execution.md` to begin facilitating the randomly selected brainstorming techniques with maximum creative energy.
+Après la confirmation de l'utilisateur - chargez `./step-03-technique-execution.md` pour commencer à animer les techniques de brainstorming sélectionnées aléatoirement avec une énergie créative maximale.
 
-Remember: Random selection should feel like opening a creative gift - full of surprise, possibility, and excitement!
+N'oubliez pas : La sélection aléatoire doit donner l'impression d'ouvrir un cadeau créatif - plein de surprises - de possibilités et d'excitation !

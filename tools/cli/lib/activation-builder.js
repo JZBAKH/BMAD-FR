@@ -1,13 +1,15 @@
 const fs = require('fs-extra');
 const path = require('node:path');
-const { getSourcePath } = require('./project-root');
+const { getModulePath } = require('./project-root');
 
 /**
  * Builds activation blocks from fragments based on agent profile
  */
 class ActivationBuilder {
   constructor() {
-    this.agentComponents = getSourcePath('utility', 'agent-components');
+    // MODIFICATION FR : getModulePath redirects to src/utility-fr so the
+    // activation fragments injected into every compiled agent are in French.
+    this.agentComponents = getModulePath('utility', 'agent-components');
     this.fragmentCache = new Map();
   }
 

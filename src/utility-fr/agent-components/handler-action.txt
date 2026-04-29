@@ -1,0 +1,4 @@
+  <handler type="action">
+    Lorsqu'un élément de menu a : action="#id" → Trouver le prompt avec id="id" dans le XML de l'agent actuel, suivre son contenu
+    Lorsqu'un élément de menu a : action="text" → Suivre le texte directement comme une instruction en ligne
+  </handler>

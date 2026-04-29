@@ -1,100 +1,100 @@
-# Shard Document
+# Découpage de Document (Shard Document)
 
-**Goal:** Split large markdown documents into smaller, organized files based on level 2 sections using `npx @kayvan/markdown-tree-parser`.
+**Objectif :** Découper (shard) les documents markdown volumineux en fichiers plus petits et organisés, sur la base des sections de niveau 2, en utilisant `npx @kayvan/markdown-tree-parser`.
 
-## CRITICAL RULES
+## RÈGLES CRITIQUES (CRITICAL RULES)
 
-- MANDATORY: Execute ALL steps in the EXECUTION section IN EXACT ORDER
-- DO NOT skip steps or change the sequence
-- HALT immediately when halt-conditions are met
-- Each action within a step is a REQUIRED action to complete that step
+- OBLIGATOIRE : Exécutez TOUTES les étapes de la section EXÉCUTION dans L'ORDRE EXACT
+- NE SAUTEZ AUCUNE étape et NE MODIFIEZ PAS la séquence
+- ARRÊTEZ-VOUS (HALT) immédiatement lorsque les conditions d'arrêt sont réunies
+- Chaque action au sein d'une étape est une action REQUISE pour accomplir cette étape
 
-## EXECUTION
+## EXÉCUTION
 
-### Step 1: Get Source Document
+### Étape 1 : Obtenir le Document Source
 
-- Ask user for the source document path if not provided already
-- Verify file exists and is accessible
-- Verify file is markdown format (.md extension)
-- If file not found or not markdown: HALT with error message
+- Demandez à l'utilisateur le chemin du document source si ce dernier n'a pas déjà été fourni
+- Vérifiez que le fichier existe et qu'il est accessible
+- Vérifiez que le fichier est au format markdown (extension .md)
+- Si le fichier n'est pas trouvé ou s'il n'est pas au format markdown : ARRÊTEZ-VOUS (HALT) avec un message d'erreur
 
-### Step 2: Get Destination Folder
+### Étape 2 : Obtenir le Dossier de Destination
 
-- Determine default destination: same location as source file, folder named after source file without .md extension
-  - Example: `/path/to/architecture.md` --> `/path/to/architecture/`
-- Ask user for the destination folder path (`[y]` to confirm use of default: `[suggested-path]`, else enter a new path)
-- If user accepts default: use the suggested destination path
-- If user provides custom path: use the custom destination path
-- Verify destination folder exists or can be created
-- Check write permissions for destination
-- If permission denied: HALT with error message
+- Déterminez la destination par défaut : le même emplacement que le fichier source, dans un dossier portant le nom du fichier source sans l'extension .md
+  - Exemple : `/chemin/vers/architecture.md` --> `/chemin/vers/architecture/`
+- Demandez à l'utilisateur le chemin du dossier de destination (`[y]` pour confirmer l'utilisation de la valeur par défaut : `[chemin-suggéré]`, sinon saisir un nouveau chemin)
+- Si l'utilisateur accepte la valeur par défaut : utilisez le chemin de destination suggéré
+- Si l'utilisateur fournit un chemin personnalisé : utilisez le chemin de destination personnalisé
+- Vérifiez que le dossier de destination existe ou peut être créé
+- Vérifiez les permissions d'écriture pour la destination
+- En cas de refus de permission : ARRÊTEZ-VOUS (HALT) avec un message d'erreur
 
-### Step 3: Execute Sharding
+### Étape 3 : Exécuter le Découpage (Sharding)
 
-- Inform user that sharding is beginning
-- Execute command: `npx @kayvan/markdown-tree-parser explode [source-document] [destination-folder]`
-- Capture command output and any errors
-- If command fails: HALT and display error to user
+- Informez l'utilisateur que le découpage commence
+- Exécutez la commande : `npx @kayvan/markdown-tree-parser explode [document-source] [dossier-destination]`
+- Capturez la sortie de la commande et toute erreur éventuelle
+- Si la commande échoue : ARRÊTEZ-VOUS (HALT) et affichez l'erreur à l'utilisateur
 
-### Step 4: Verify Output
+### Étape 4 : Vérifier la Sortie
 
-- Check that destination folder contains sharded files
-- Verify index.md was created in destination folder
-- Count the number of files created
-- If no files created: HALT with error message
+- Vérifiez que le dossier de destination contient bien les fichiers découpés (sharded files)
+- Vérifiez que le fichier index.md a été créé dans le dossier de destination
+- Comptez le nombre de fichiers créés
+- Si aucun fichier n'a été créé : ARRÊTEZ-VOUS (HALT) avec un message d'erreur
 
-### Step 5: Report Completion
+### Étape 5 : Rapporter l'Achèvement
 
-- Display completion report to user including:
-  - Source document path and name
-  - Destination folder path
-  - Number of section files created
-  - Confirmation that index.md was created
-  - Any tool output or warnings
-- Inform user that sharding completed successfully
+- Affichez un rapport d'achèvement à l'utilisateur comprenant :
+  - Le chemin et le nom du document source
+  - Le chemin du dossier de destination
+  - Le nombre de fichiers de section créés
+  - La confirmation que le fichier index.md a été créé
+  - Toute sortie de l'outil ou avertissement
+- Informez l'utilisateur que le découpage s'est terminé avec succès
 
-### Step 6: Handle Original Document
+### Étape 6 : Gérer le Document Original
 
-> **Critical:** Keeping both the original and sharded versions defeats the purpose of sharding and can cause confusion.
+> **Critique :** Conserver à la fois la version originale et la version découpée va à l'encontre du but du découpage et peut causer de la confusion.
 
-Present user with options for the original document:
+Présentez à l'utilisateur des options pour le document original :
 
-> What would you like to do with the original document `[source-document-name]`?
+> Que souhaitez-vous faire avec le document original `[nom-du-document-source]` ?
 >
-> Options:
-> - `[d]` Delete - Remove the original (recommended - shards can always be recombined)
-> - `[m]` Move to archive - Move original to a backup/archive location
-> - `[k]` Keep - Leave original in place (NOT recommended - defeats sharding purpose)
+> Options :
+> - `[d]` Supprimer - Retirer l'original (recommandé - les fragments (shards) peuvent toujours être recombinés)
+> - `[m]` Déplacer vers une archive - Transférer l'original vers un emplacement de sauvegarde/archivage
+> - `[k]` Conserver - Laisser l'original en place (NON recommandé - va à l'encontre du but du découpage)
 >
-> Your choice (d/m/k):
+> Votre choix (d/m/k) :
 
-#### If user selects `d` (delete)
+#### Si l'utilisateur sélectionne `d` (supprimer)
 
-- Delete the original source document file
-- Confirm deletion to user: "Original document deleted: [source-document-path]"
-- Note: The document can be reconstructed from shards by concatenating all section files in order
+- Supprimez le fichier du document source original
+- Confirmez la suppression à l'utilisateur : "Document original supprimé : [chemin-du-document-source]"
+- Note : Le document peut être reconstruit à partir de fragments par concaténation de tous les fichiers de section, dans l'ordre
 
-#### If user selects `m` (move)
+#### Si l'utilisateur sélectionne `m` (déplacer)
 
-- Determine default archive location: same directory as source, in an `archive` subfolder
-  - Example: `/path/to/architecture.md` --> `/path/to/archive/architecture.md`
-- Ask: Archive location (`[y]` to use default: `[default-archive-path]`, or provide custom path)
-- If user accepts default: use default archive path
-- If user provides custom path: use custom archive path
-- Create archive directory if it does not exist
-- Move original document to archive location
-- Confirm move to user: "Original document moved to: [archive-path]"
+- Déterminez un emplacement d'archivage par défaut : le même répertoire que la source, dans un sous-dossier `archive`
+  - Exemple : `/chemin/vers/architecture.md` --> `/chemin/vers/archive/architecture.md`
+- Demandez : Emplacement d'archivage (`[y]` pour utiliser la valeur par défaut : `[chemin-archive-par-défaut]`, ou fournir un chemin personnalisé)
+- Si l'utilisateur accepte la valeur par défaut : utilisez le chemin d'archive par défaut
+- Si l'utilisateur fournit un chemin personnalisé : utilisez le chemin d'archive personnalisé
+- Créez le répertoire d'archivage s'il n'existe pas
+- Déplacez le document original vers l'emplacement d'archivage
+- Confirmez le déplacement à l'utilisateur : "Document original déplacé vers : [chemin-archive]"
 
-#### If user selects `k` (keep)
+#### Si l'utilisateur sélectionne `k` (conserver)
 
-- Display warning to user:
-  - Keeping both original and sharded versions is NOT recommended
-  - The discover_inputs protocol may load the wrong version
-  - Updates to one will not reflect in the other
-  - Duplicate content taking up space
-  - Consider deleting or archiving the original document
-- Confirm user choice: "Original document kept at: [source-document-path]"
+- Affichez un avertissement à l'utilisateur :
+  - Conserver simultanément la version originale et les versions découpées n'est PAS recommandé
+  - Le protocole discover_inputs pourrait charger la mauvaise version
+  - Les mises à jour de l'une ne se refléteront nullement sur l'autre
+  - Contenu dupliqué encombrant l'espace
+  - Songez à rayer ou archiver le support initial
+- Exigez la confirmation du choix émis à l'utilisateur : "Source d'emblée préservée localement sous : [chemin-du-document-source]"
 
-## HALT CONDITIONS
+## CONDITIONS D'ARRÊT (HALT CONDITIONS)
 
-- HALT if npx command fails or produces no output files
+- HALT (Arrêt) en cas de fichiers manquants ou d'échec de la commande système npx.

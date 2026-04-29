@@ -1,6 +1,6 @@
 ---
 name: bmad-review-edge-case-hunter
-description: 'Walk every branching path and boundary condition in content, report only unhandled edge cases. Orthogonal to adversarial review - method-driven not attitude-driven.'
+description: "Parcourt chaque chemin de branchement et condition aux limites dans le contenu, signale uniquement les cas extrêmes (edge cases) non gérés. Orthogonal à la révision adversariale - axé sur la méthode et non sur l'attitude."
 ---
 
-Follow the instructions in [workflow.md](workflow.md).
+Suivez les instructions dans [workflow.md](workflow.md).

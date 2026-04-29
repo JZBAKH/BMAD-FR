@@ -1,142 +1,142 @@
-# Step 2b: Product Vision Discovery
+# Étape 2b : Découverte de la Vision du Produit (Product Vision)
 
-**Progress: Step 2b of 13** - Next: Executive Summary
+**Progression : Étape 2b sur 13** - Suivante : Résumé Exécutif (Executive Summary)
 
-## STEP GOAL:
+## OBJECTIF DE L'ÉTAPE :
 
-Discover what makes this product special and understand the product vision through collaborative conversation. No content generation — facilitation only.
+Découvrir ce qui rend ce produit spécial et comprendre la vision du produit par le biais d'une conversation collaborative. Aucune génération de contenu — facilitation uniquement.
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-### Universal Rules:
+### Règles Universelles :
 
-- 🛑 NEVER generate content without user input
-- 📖 CRITICAL: Read the complete step file before taking any action
-- 🔄 CRITICAL: When loading next step with 'C', ensure the entire file is read
-- ✅ ALWAYS treat this as collaborative discovery between PM peers
-- 📋 YOU ARE A FACILITATOR, not a content generator
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
-- ✅ YOU MUST ALWAYS WRITE all artifact and document content in `{document_output_language}`
+- 🛑 NE JAMAIS générer de contenu sans l'intervention de l'utilisateur
+- 📖 CRITIQUE : Lisez le fichier d'étape complet avant d'entreprendre toute action
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que le fichier entier est lu
+- ✅ ABORDEZ TOUJOURS cela comme une découverte collaborative entre pairs PM
+- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
 
-### Role Reinforcement:
+### Renforcement du Rôle :
 
-- ✅ You are a product-focused PM facilitator collaborating with an expert peer
-- ✅ We engage in collaborative dialogue, not command-response
-- ✅ You bring structured thinking and facilitation skills, while the user brings domain expertise and product vision
+- ✅ Vous êtes un facilitateur PM (Product Manager) orienté produit collaborant avec un pair expert
+- ✅ Nous nous engageons dans un dialogue collaboratif, pas dans un modèle commande-réponse
+- ✅ Vous apportez une réflexion structurée et des compétences en facilitation, tandis que l'utilisateur apporte une expertise du domaine et une vision du produit
 
-### Step-Specific Rules:
+### Règles Spécifiques à l'Étape :
 
-- 🎯 Focus on discovering vision and differentiator — no content generation yet
-- 🚫 FORBIDDEN to generate executive summary content (that's the next step)
-- 🚫 FORBIDDEN to append anything to the document in this step
-- 💬 APPROACH: Natural conversation to understand what makes this product special
-- 🎯 BUILD ON classification insights from step 2
+- 🎯 Concentrez-vous sur la découverte de la vision et de l'élément différenciateur — aucune génération de contenu pour le moment
+- 🚫 INTERDICTION de générer le contenu du résumé exécutif (executive summary) (c'est l'étape suivante)
+- 🚫 INTERDICTION d'ajouter quoi que ce soit au document au cours de cette étape
+- 💬 APPROCHE : Conversation naturelle pour comprendre ce qui rend ce produit spécial
+- 🎯 S'APPUYER sur les connaissances de classification de l'étape 2
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Show your analysis before taking any action
-- ⚠️ Present A/P/C menu after vision discovery is complete
-- 📖 Update frontmatter, adding this step to the end of the list of stepsCompleted
-- 🚫 FORBIDDEN to load next step until C is selected
+- 🎯 Montrez votre analyse avant d'entreprendre toute action
+- ⚠️ Présentez le menu A/P/C une fois la découverte de la vision terminée
+- 📖 Mettez à jour le frontmatter, en ajoutant cette étape à la fin de la liste des `stepsCompleted`
+- 🚫 INTERDICTION de charger l'étape suivante tant que C n'a pas été sélectionné
 
-## CONTEXT BOUNDARIES:
+## LIMITES DU CONTEXTE :
 
-- Current document and frontmatter from steps 1 and 2 are available
-- Project classification exists from step 2 (project type, domain, complexity, context)
-- Input documents already loaded are in memory (product briefs, research, brainstorming, project docs)
-- No executive summary content yet (that's step 2c)
-- This step ONLY discovers — it does NOT write to the document
+- Le document actuel et le frontmatter des étapes 1 et 2 sont disponibles
+- La classification du projet établie à l'étape 2 existe (type de projet, domaine, complexité, contexte)
+- Les documents d'entrée déjà chargés sont en mémoire (product briefs, recherche, brainstorming, docs du projet)
+- Pas encore de contenu de résumé exécutif (c'est à l'étape 2c)
+- Cette étape sert UNIQUEMENT à découvrir — elle NE permet PAS d'écrire dans le document
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Discover the product vision and differentiator through natural conversation. Understand what makes this product unique and valuable before any content is written.
+Découvrir la vision globale du produit et son trait différenciateur grâce à une conversation pertinente et naturelle. Comprendre ce qui rend le dit produit unique et de grande valeur afin de n'écrire aucun contenu hasardeux.
 
-## VISION DISCOVERY SEQUENCE:
+## SÉQUENCE DE DÉCOUVERTE DE LA VISION :
 
-### 1. Acknowledge Classification Context
+### 1. Prendre en compte le contexte de la classification
 
-Reference the classification from step 2 and use it to frame the vision conversation:
+Faites référence à la classification de l'étape 2 et utilisez-la pour structurer la conversation sur la vision :
 
-"We've established this is a {{projectType}} in the {{domain}} domain with {{complexityLevel}} complexity. Now let's explore what makes this product special."
+"Nous avons établi qu'il s'agit d'un {{projectType}} dans le domaine {{domain}} avec une complexité {{complexityLevel}}. Exploitons maintenant ce qui rend ce produit singulièrement attrayant."
 
-### 2. Explore What Makes It Special
+### 2. Explorer ce qui le rend spécial
 
-Guide the conversation to uncover the product's unique value:
+Guidez la conversation pour mettre au jour la valeur unique du produit :
 
-- **User delight:** "What would make users say 'this is exactly what I needed'?"
-- **Differentiation moment:** "What's the moment where users realize this is different or better than alternatives?"
-- **Core insight:** "What insight or approach makes this product possible or unique?"
-- **Value proposition:** "If you had one sentence to explain why someone should use this over anything else, what would it be?"
+- **Ravi d'user :** "Qu'est-ce qui ferait dire aux utilisateurs : 'c'est exactement ce dont j'avais besoin' ?"
+- **Moment différenciateur :** "Quel est le stade précis où les usagers réalisent que c'est très différent ou incomparablement meilleur que les solutions existantes ?"
+- **Déclic central :** "Quelle perspicacité ou quelle méthodologie rend ce produit potentiellement jouable en l'état ou innovatif (unique) ?"
+- **Proposition de valeur :** "Si vous n'aviez d'une simple ligne unique pour faire briller votre argument quant à prôner l'utilisation de cela en rejetant la concurrence du bloc ; ce serait ?"
 
-### 3. Understand the Vision
+### 3. Comprendre la Vision
 
-Dig deeper into the product vision:
+Creusez davantage dans les abysses de l'image de la ligne du produit :
 
-- **Problem framing:** "What's the real problem you're solving — not the surface symptom, but the deeper need?"
-- **Future state:** "When this product is successful, what does the world look like for your users?"
-- **Why now:** "Why is this the right time to build this?"
+- **Encadrement du Problème :** "Quelle vraie grande affliction majeure traitez-vous sans chercher qu'à gommer grossièrement de frêles symptômes, ce afin de cibler ce gigantesque et puissant besoin intrinsèque qui bouillonne sous les peaux ?"
+- **Futur visé :** "Lorsque ce produit aura atteint un indéniable et resplendissant sommet, que figurera dorénavant le monde aux yeux du public ?"
+- **Pourquoi ici et aujourd'hui :** "Quelles logiques actuelles forcent judicieusement à la constitution immédiate d'une telle machine ?"
 
-### 4. Validate Understanding
+### 4. Valider l'Assimilation
 
-Reflect back what you've heard and confirm:
+Reflétez l'essence de ce que vous avez sondé et procédez à sa confirmation :
 
-"Here's what I'm hearing about your vision and differentiator:
+"Consigne de compte-rendu que j'ai absorbé quant à votre conception générale assortie de cet angle de vue marquant visé :
 
-**Vision:** {{summarized_vision}}
-**What Makes It Special:** {{summarized_differentiator}}
-**Core Insight:** {{summarized_insight}}
+**Vision Radicale :** {{summarized_vision}}
+**L'Attrait Singulier Différenciateur :** {{summarized_differentiator}}
+**Déclic Fondamental :** {{summarized_insight}}
 
-Does this capture it? Anything I'm missing?"
+Ceci reflète-t-il cette magie en perspective ? Me soustrait-on involontairement de précieux angles de vue additionnels ?"
 
-Let the user confirm or refine your understanding.
+Invitez l’utilisateur à conférer approbation pure et simple ou d’affiner en repoussant l'empreinte.
 
-### N. Present MENU OPTIONS
+### N. Présenter les OPTIONS DU MENU
 
-Present your understanding of the product vision for review, then display menu:
+Présentez votre compréhension de la vision du produit pour examen, puis affichez le menu :
 
-"Based on our conversation, I have a clear picture of your product vision and what makes it special. I'll use these insights to draft the Executive Summary in the next step.
+"Sur la base de notre conversation, j'ai une idée claire de la vision de votre produit et de ce qui le rend spécial. Je me servirai de ces éléments pour rédiger le résumé exécutif (Executive Summary) lors de la prochaine étape.
 
-**What would you like to do?**"
+**Que souhaitez-vous faire ?**"
 
-Display: "**Select:** [A] Advanced Elicitation [P] Party Mode [C] Continue to Executive Summary (Step 2c of 13)"
+Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers le Résumé Exécutif (Étape 2c sur 13)"
 
-#### Menu Handling Logic:
-- IF A: Invoke the `bmad-advanced-elicitation` skill with the current vision insights, process the enhanced insights that come back, ask user if they accept the improvements, if yes update understanding then redisplay menu, if no keep original understanding then redisplay menu
-- IF P: Invoke the `bmad-party-mode` skill with the current vision insights, process the collaborative insights, ask user if they accept the changes, if yes update understanding then redisplay menu, if no keep original understanding then redisplay menu
-- IF C: Update {outputFile} frontmatter by adding this step name to the end of stepsCompleted array, then read fully and follow: ./step-02c-executive-summary.md
-- IF Any other: help user respond, then redisplay menu
+#### Logique de Gestion du Menu :
+- SI A : Invoquez la compétence `bmad-advanced-elicitation` avec la vision actuelle, traitez les informations enrichies qui en reviennent, demandez à l'utilisateur s'il accepte les améliorations ; si oui, mettez à jour votre compréhension puis réaffichez le menu, si non, conservez votre compréhension d'origine puis réaffichez le menu.
+- SI P : Invoquez la compétence `bmad-party-mode` avec la vision actuelle, traitez les informations collaboratives, demandez à l'utilisateur s'il accepte les changements ; si oui, mettez à jour votre compréhension puis réaffichez le menu, si non, conservez votre compréhension d'origine puis réaffichez le menu.
+- SI C : Mettez à jour le frontmatter de `{outputFile}` en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-02c-executive-summary.md`
+- SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
-#### EXECUTION RULES:
-- ALWAYS halt and wait for user input after presenting menu
-- ONLY proceed to next step when user selects 'C'
-- After other menu items execution, return to this menu
+#### RÈGLES D'EXÉCUTION :
+- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
+- NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
+- Après l'exécution d'autres options du menu, retournez à ce menu
 
-## CRITICAL STEP COMPLETION NOTE
+## NOTE CRITIQUE DE FIN D'ÉTAPE
 
-ONLY WHEN [C continue option] is selected and [stepsCompleted updated], will you then read fully and follow: `./step-02c-executive-summary.md` to generate the Executive Summary.
+UNIQUEMENT LORSQUE [l'option de continuation C] est sélectionnée et que [stepsCompleted est mis à jour], vous lirez alors intégralement et suivrez : `./step-02c-executive-summary.md` pour générer le Résumé Exécutif (Executive Summary).
 
 ---
 
-## 🚨 SYSTEM SUCCESS/FAILURE METRICS
+## 🚨 MÉTRIQUES DE SUCCÈS/ÉCHEC DU SYSTÈME
 
-### ✅ SUCCESS:
+### ✅ SUCCÈS :
 
-- Classification context from step 2 acknowledged and built upon
-- Natural conversation to understand product vision and differentiator
-- User's existing documents (briefs, research, brainstorming) leveraged for vision insights
-- Vision and differentiator validated with user before proceeding
-- Clear understanding established that will inform Executive Summary generation
-- Frontmatter updated with stepsCompleted when C selected
+- Le contexte de la classification de l'étape 2 a été reconnu et exploité
+- Conversation naturelle pour comprendre la vision du produit et le trait différenciateur
+- Les documents existants de l'utilisateur (briefs, recherche, brainstorming) ont été exploités pour dégager des informations sur la vision
+- La vision et le trait différenciateur ont été validés avec l'utilisateur avant de poursuivre
+- Une compréhension claire a été établie, ce qui facilitera la génération du Résumé Exécutif
+- Le frontmatter a été mis à jour avec `stepsCompleted` au moment où 'C' est sélectionné
 
-### ❌ SYSTEM FAILURE:
+### ❌ ÉCHEC DU SYSTÈME :
 
-- Generating executive summary or any document content (that's step 2c!)
-- Appending anything to the PRD document
-- Not building on classification from step 2
-- Being prescriptive instead of having natural conversation
-- Proceeding without user selecting 'C'
+- Générer le résumé exécutif ou tout contenu documentaire (c'est l'étape 2c !)
+- Ajouter quoi que ce soit au document PRD
+- Ne pas construire sur la base de la classification de l'étape 2
+- Être prescriptif au lieu d'avoir une conversation naturelle
+- Poursuivre sans que l'utilisateur sélectionne 'C'
 
-❌ **CRITICAL**: Reading only partial step file - leads to incomplete understanding and poor decisions
-❌ **CRITICAL**: Proceeding with 'C' without fully reading and understanding the next step file
+❌ **CRITIQUE** : Ne lire qu'une partie du fichier d'étape - cela conduit à une compréhension incomplète et à de mauvaises décisions
+❌ **CRITIQUE** : Poursuivre avec 'C' sans avoir lu intégralement et compris le fichier de l'étape suivante
 
-**Master Rule:** This step is vision discovery only. No content generation, no document writing. Have natural conversations, build on what you know from classification, and establish the vision that will feed into the Executive Summary.
+**Règle Principale :** Cette étape est exclusivement consacrée à la découverte de la vision. Aucune génération de contenu, ni rédaction de document. Ayez des conversations naturelles, fondez-vous sur ce que vous savez de la classification, et établissez la vision qui alimentera le résumé exécutif.

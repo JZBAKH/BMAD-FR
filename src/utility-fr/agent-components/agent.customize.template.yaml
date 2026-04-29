@@ -1,0 +1,41 @@
+# Personnalisation de l'Agent
+# Personnalisez n'importe quelle section ci-dessous - toutes sont optionnelles
+
+# Remplacer le nom de l'agent
+agent:
+  metadata:
+    name: ""
+
+# Remplacer la persona complète (non fusionnée)
+persona:
+  role: ""
+  identity: ""
+  communication_style: ""
+  principles: []
+
+# Ajouter des actions critiques personnalisées (ajoutées après le chargement standard de la configuration)
+critical_actions: []
+
+# Ajouter des mémoires persistantes pour l'agent
+memories: []
+# Exemple :
+# memories:
+#   - "L'utilisateur préfère des explications techniques détaillées"
+#   - "Le projet actuel utilise React et TypeScript"
+
+# Ajouter des éléments de menu personnalisés (ajoutés au menu de base)
+# Ne pas inclure le préfixe * ni help/exit - auto-injectés
+menu: []
+# Exemple :
+# menu:
+#   - trigger: mon-workflow
+#     workflow: "{project-root}/custom/mon.yaml"
+#     description: Mon workflow personnalisé
+
+# Ajouter des prompts personnalisés (pour les handlers action="#id")
+prompts: []
+# Exemple :
+# prompts:
+# - id: mon-prompt
+#   content: |
+#     Instructions du prompt ici

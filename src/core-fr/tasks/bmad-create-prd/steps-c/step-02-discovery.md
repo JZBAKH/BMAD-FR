@@ -1,148 +1,148 @@
-# Step 2: Project Discovery
+# Étape 2 : Découverte du Projet (Project Discovery)
 
-**Progress: Step 2 of 13** - Next: Product Vision
+**Progression : Étape 2 sur 13** - Suivante : Vision du Produit (Product Vision)
 
-## STEP GOAL:
+## OBJECTIF DE L'ÉTAPE :
 
-Discover and classify the project - understand what type of product this is, what domain it operates in, and the project context (greenfield vs brownfield).
+Découvrir et classifier le projet - comprendre de quel type de produit il s'agit, dans quel domaine il opère, et le contexte du projet (greenfield/nouveau projet vs brownfield/système existant).
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-### Universal Rules:
+### Règles Universelles :
 
-- 🛑 NEVER generate content without user input
-- 📖 CRITICAL: Read the complete step file before taking any action
-- 🔄 CRITICAL: When loading next step with 'C', ensure the entire file is read
-- ✅ ALWAYS treat this as collaborative discovery between PM peers
-- 📋 YOU ARE A FACILITATOR, not a content generator
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
-- ✅ YOU MUST ALWAYS WRITE all artifact and document content in `{document_output_language}`
+- 🛑 NE JAMAIS générer de contenu sans l'intervention de l'utilisateur
+- 📖 CRITIQUE : Lisez le fichier d'étape complet avant d'entreprendre toute action
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que le fichier entier est lu
+- ✅ ABORDEZ TOUJOURS cela comme une découverte collaborative entre pairs PM
+- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
 
-### Role Reinforcement:
+### Renforcement du Rôle :
 
-- ✅ You are a product-focused PM facilitator collaborating with an expert peer
-- ✅ We engage in collaborative dialogue, not command-response
-- ✅ You bring structured thinking and facilitation skills, while the user brings domain expertise and product vision
+- ✅ Vous êtes un facilitateur PM (Product Manager) orienté produit collaborant avec un pair expert
+- ✅ Nous nous engageons dans un dialogue collaboratif, pas dans un modèle commande-réponse
+- ✅ Vous apportez une réflexion structurée et des compétences en facilitation, tandis que l'utilisateur apporte une expertise du domaine et une vision du produit
 
-### Step-Specific Rules:
+### Règles Spécifiques à l'Étape :
 
-- 🎯 Focus on classification and understanding - no content generation yet
-- 🚫 FORBIDDEN to generate executive summary or vision statements (that's next steps)
-- 💬 APPROACH: Natural conversation to understand the project
-- 🎯 LOAD classification data BEFORE starting discovery conversation
+- 🎯 Concentrez-vous sur la classification et la compréhension - aucune génération de contenu pour le moment
+- 🚫 INTERDICTION de générer les déclarations de résumé exécutif (executive summary) ou de vision (ce sont les étapes suivantes)
+- 💬 APPROCHE : Conversation naturelle pour comprendre le projet
+- 🎯 CHARGEZ les données de classification AVANT d'entamer la conversation de découverte
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Show your analysis before taking any action
-- ⚠️ Present A/P/C menu after classification complete
-- 💾 ONLY save classification to frontmatter when user chooses C (Continue)
-- 📖 Update frontmatter, adding this step to the end of the list of stepsCompleted
-- 🚫 FORBIDDEN to load next step until C is selected
+- 🎯 Montrez votre analyse avant d'entreprendre toute action
+- ⚠️ Présentez le menu A/P/C une fois la classification terminée
+- 💾 Sauvegardez la classification dans le frontmatter UNIQUEMENT lorsque l'utilisateur choisit C (Continuer)
+- 📖 Mettez à jour le frontmatter, en ajoutant cette étape à la fin de la liste des `stepsCompleted`
+- 🚫 INTERDICTION de charger l'étape suivante tant que C n'a pas été sélectionné
 
-## CONTEXT BOUNDARIES:
+## LIMITES DU CONTEXTE :
 
-- Current document and frontmatter from step 1 are available
-- Input documents already loaded are in memory (product briefs, research, brainstorming, project docs)
-- **Document counts available in frontmatter `documentCounts`**
-- Classification CSV data will be loaded in this step only
-- No executive summary or vision content yet (that's steps 2b and 2c)
+- Le document actuel et le frontmatter de l'étape 1 sont disponibles
+- Les documents d'entrée déjà chargés sont en mémoire (product briefs, recherche, brainstorming, docs du projet)
+- **Le nombre de documents est disponible dans le frontmatter `documentCounts`**
+- Les données CSV de classification ne seront chargées que dans cette étape
+- Pas encore de contenu de résumé exécutif ou de vision (il s'agit des étapes 2b et 2c)
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Discover and classify the project through natural conversation:
-- What type of product is this? (web app, API, mobile, etc.)
-- What domain does it operate in? (healthcare, fintech, e-commerce, etc.)
-- What's the project context? (greenfield new product vs brownfield existing system)
-- How complex is this domain? (low, medium, high)
+Découvrir et classifier le projet par une conversation naturelle :
+- Quel type de produit est-ce ? (application web, API, mobile, etc.)
+- Dans quel domaine opère-t-il ? (santé, fintech, e-commerce, etc.)
+- Quel est le contexte du projet ? (nouveau produit/greenfield vs système existant/brownfield)
+- Quelle est la complexité de ce domaine ? (faible, moyenne, élevée)
 
-## DISCOVERY SEQUENCE:
+## SÉQUENCE DE DÉCOUVERTE :
 
-### 1. Check Document State
+### 1. Vérifier l'État du Document
 
-Read the frontmatter from `{outputFile}` to get document counts:
-- `briefCount` - Product briefs available
-- `researchCount` - Research documents available
-- `brainstormingCount` - Brainstorming docs available
-- `projectDocsCount` - Existing project documentation
+Lisez le frontmatter de `{outputFile}` pour obtenir le nombre de documents :
+- `briefCount` - Product briefs disponibles
+- `researchCount` - Documents de recherche disponibles
+- `brainstormingCount` - Docs de brainstorming disponibles
+- `projectDocsCount` - Documentation de projet existante
 
-**Announce your understanding:**
+**Annoncez votre compréhension :**
 
-"From step 1, I have loaded:
-- Product briefs: {{briefCount}}
-- Research: {{researchCount}}
-- Brainstorming: {{brainstormingCount}}
-- Project docs: {{projectDocsCount}}
+"D'après l'étape 1, j'ai chargé :
+- Product briefs : {{briefCount}}
+- Recherche : {{researchCount}}
+- Brainstorming : {{brainstormingCount}}
+- Docs de projet : {{projectDocsCount}}
 
-{{if projectDocsCount > 0}}This is a brownfield project - I'll focus on understanding what you want to add or change.{{else}}This is a greenfield project - I'll help you define the full product vision.{{/if}}"
+{{if projectDocsCount > 0}}Il s'agit d'un projet existant (brownfield) - je vais me concentrer sur la compréhension de ce que vous souhaitez ajouter ou modifier.{{else}}Il s'agit d'un nouveau projet (greenfield) - je vais vous aider à définir la vision globale du produit.{{/if}}"
 
-### 2. Load Classification Data
+### 2. Charger les Données de Classification
 
-**Attempt subprocess data lookup:**
+**Tentez une recherche de données sous la forme d'un sous-processus (subprocess) :**
 
-**Project Type Lookup:**
-"Your task: Lookup data in ../data/project-types.csv
+**Recherche du Type de Projet (Project Type Lookup) :**
+"Votre tâche : Rechercher les données dans ../data/project-types.csv
 
-**Search criteria:**
-- Find row where project_type matches {{detectedProjectType}}
+**Critères de recherche :**
+- Trouver la ligne où `project_type` correspond à {{detectedProjectType}}
 
-**Return format:**
-Return ONLY the matching row as a YAML-formatted object with these fields:
+**Format de retour :**
+Retournez UNIQUEMENT la ligne correspondante sous forme d'objet formaté en YAML avec ces champs :
 project_type, detection_signals
 
-**Do NOT return the entire CSV - only the matching row.**"
+**NE RETOURNEZ PAS l'ensemble du CSV - seulement la ligne correspondante.**"
 
-**Domain Complexity Lookup:**
-"Your task: Lookup data in ../data/domain-complexity.csv
+**Recherche de la Complexité du Domaine (Domain Complexity Lookup) :**
+"Votre tâche : Rechercher les données dans ../data/domain-complexity.csv
 
-**Search criteria:**
-- Find row where domain matches {{detectedDomain}}
+**Critères de recherche :**
+- Trouver la ligne où `domain` correspond à {{detectedDomain}}
 
-**Return format:**
-Return ONLY the matching row as a YAML-formatted object with these fields:
+**Format de retour :**
+Retournez UNIQUEMENT la ligne correspondante sous forme d'objet formaté en YAML avec ces champs :
 domain, complexity, typical_concerns, compliance_requirements
 
-**Do NOT return the entire CSV - only the matching row.**"
+**NE RETOURNEZ PAS l'ensemble du CSV - seulement la ligne correspondante.**"
 
-**Graceful degradation (if Task tool unavailable):**
-- Load the CSV files directly
-- Find the matching rows manually
-- Extract required fields
-- Keep in memory for intelligent classification
+**Dégradation gracieuse (Graceful degradation - si l'outil de Tâche est indisponible) :**
+- Chargez les fichiers CSV directement
+- Trouvez manuellement les lignes correspondantes
+- Extrayez les champs requis
+- Conservez en mémoire pour une classification intelligente
 
-### 3. Begin Discovery Conversation
+### 3. Commencer la Conversation de Découverte
 
-**Start with what you know:**
+**Commencez avec ce que vous savez :**
 
-If the user has a product brief or project docs, acknowledge them and share your understanding. Then ask clarifying questions to deepen your understanding.
+Si l'utilisateur a un product brief ou des docs de projet, reconnaissez-les et partagez votre compréhension. Posez ensuite des questions de clarification pour approfondir votre compréhension.
 
-If this is a greenfield project with no docs, start with open-ended discovery:
-- What problem does this solve?
-- Who's it for?
-- What excites you about building this?
+S'il s'agit d'un projet greenfield (nouveau) sans aucune documentation, commencez par une découverte ouverte :
+- Quel problème cela résout-il ?
+- A qui cela s'adresse-t-il ?
+- Qu'est-ce qui vous passionne dans la construction de ceci ?
 
-**Listen for classification signals:**
+**Soyez à l'écoute des signaux de classification :**
 
-As the user describes their product, match against:
-- **Project type signals** (API, mobile, SaaS, etc.)
-- **Domain signals** (healthcare, fintech, education, etc.)
-- **Complexity indicators** (regulated industries, novel technology, etc.)
+Pendant que l'utilisateur décrit son produit, établissez des correspondances avec :
+- **Les signaux de type de projet** (API, mobile, SaaS, etc.)
+- **Les signaux de domaine** (santé, fintech, éducation, etc.)
+- **Les indicateurs de complexité** (secteurs réglementés, technologie novatrice, etc.)
 
-### 4. Confirm Classification
+### 4. Confirmer la Classification
 
-Once you have enough understanding, share your classification:
+Une fois que vous avez une compréhension suffisante, partagez votre classification :
 
-"I'm hearing this as:
-- **Project Type:** {{detectedType}}
-- **Domain:** {{detectedDomain}}
-- **Complexity:** {{complexityLevel}}
+"Voici ce que je comprends :
+- **Type de Projet :** {{detectedType}}
+- **Domaine :** {{detectedDomain}}
+- **Complexité :** {{complexityLevel}}
 
-Does this sound right to you?"
+Cela vous semble-t-il correct ?"
 
-Let the user confirm or refine your classification.
+Laissez l'utilisateur confirmer ou affiner votre classification.
 
-### 5. Save Classification to Frontmatter
+### 5. Sauvegarder la Classification dans le Frontmatter
 
-When user selects 'C', update frontmatter with classification:
+Lorsque l'utilisateur sélectionne 'C', mettez à jour le frontmatter avec la classification :
 ```yaml
 classification:
   projectType: {{projectType}}
@@ -151,58 +151,58 @@ classification:
   projectContext: {{greenfield|brownfield}}
 ```
 
-### N. Present MENU OPTIONS
+### N. Présenter les OPTIONS DU MENU
 
-Present the project classification for review, then display menu:
+Présentez la classification du projet pour une revue, puis affichez le menu :
 
-"Based on our conversation, I've discovered and classified your project.
+"Sur la base de notre conversation, j'ai découvert et classifié votre projet.
 
-**Here's the classification:**
+**Voici la classification :**
 
-**Project Type:** {{detectedType}}
-**Domain:** {{detectedDomain}}
-**Complexity:** {{complexityLevel}}
-**Project Context:** {{greenfield|brownfield}}
+**Type de Projet :** {{detectedType}}
+**Domaine :** {{detectedDomain}}
+**Complexité :** {{complexityLevel}}
+**Contexte du Projet :** {{greenfield|brownfield}}
 
-**What would you like to do?**"
+**Que souhaitez-vous faire ?**"
 
-Display: "**Select:** [A] Advanced Elicitation [P] Party Mode [C] Continue to Product Vision (Step 2b of 13)"
+Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers la Vision du Produit (Étape 2b sur 13)"
 
-#### Menu Handling Logic:
-- IF A: Invoke the `bmad-advanced-elicitation` skill with the current classification, process the enhanced insights that come back, ask user if they accept the improvements, if yes update classification then redisplay menu, if no keep original classification then redisplay menu
-- IF P: Invoke the `bmad-party-mode` skill with the current classification, process the collaborative insights, ask user if they accept the changes, if yes update classification then redisplay menu, if no keep original classification then redisplay menu
-- IF C: Save classification to {outputFile} frontmatter, add this step name to the end of stepsCompleted array, then read fully and follow: ./step-02b-vision.md
-- IF Any other: help user respond, then redisplay menu
+#### Logique de Gestion du Menu :
+- SI A : Invoquez la compétence `bmad-advanced-elicitation` avec la classification actuelle, traitez les informations enrichies qui en reviennent, demandez à l'utilisateur s'il accepte les améliorations ; si oui, mettez à jour la classification puis réaffichez le menu, si non, conservez la classification d'origine puis réaffichez le menu.
+- SI P : Invoquez la compétence `bmad-party-mode` avec la classification actuelle, traitez les informations collaboratives, demandez à l'utilisateur s'il accepte les changements ; si oui, mettez à jour la classification puis réaffichez le menu, si non, conservez la classification d'origine puis réaffichez le menu.
+- SI C : Sauvegardez la classification dans le frontmatter de `{outputFile}`, ajoutez le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-02b-vision.md`
+- SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
-#### EXECUTION RULES:
-- ALWAYS halt and wait for user input after presenting menu
-- ONLY proceed to next step when user selects 'C'
-- After other menu items execution, return to this menu
+#### RÈGLES D'EXÉCUTION :
+- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
+- NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
+- Après l'exécution d'autres options du menu, retournez à ce menu
 
-## CRITICAL STEP COMPLETION NOTE
+## NOTE CRITIQUE DE FIN D'ÉTAPE
 
-ONLY WHEN [C continue option] is selected and [classification saved to frontmatter], will you then read fully and follow: `./step-02b-vision.md` to explore product vision.
+UNIQUEMENT LORSQUE [l'option de continuation C] est sélectionnée et que [la classification est sauvée dans le frontmatter], vous lirez alors intégralement et suivrez : `./step-02b-vision.md` pour explorer la vision du produit.
 
 ---
 
-## 🚨 SYSTEM SUCCESS/FAILURE METRICS
+## 🚨 MÉTRIQUES DE SUCCÈS/ÉCHEC DU SYSTÈME
 
-### ✅ SUCCESS:
+### ✅ SUCCÈS :
 
-- Document state checked and announced to user
-- Classification data loaded and used intelligently
-- Natural conversation to understand project type, domain, complexity
-- Classification validated with user before saving
-- Frontmatter updated with classification when C selected
-- User's existing documents acknowledged and built upon
+- L'état du document a été vérifié et annoncé à l'utilisateur
+- Les données de classification ont été chargées et utilisées intelligemment
+- Conversation naturelle pour comprendre le type, le domaine et la complexité du projet
+- Classification validée avec l'utilisateur avant la sauvegarde
+- Le frontmatter a été mis à jour avec la classification lorsque 'C' est sélectionné
+- Les documents existants de l'utilisateur ont été reconnus et utilisés comme base
 
-### ❌ SYSTEM FAILURE:
+### ❌ ÉCHEC DU SYSTÈME :
 
-- Not reading documentCounts from frontmatter first
-- Skipping classification data loading
-- Generating executive summary or vision content (that's later steps!)
-- Not validating classification with user
-- Being prescriptive instead of having natural conversation
-- Proceeding without user selecting 'C'
+- Ne pas lire `documentCounts` dans le frontmatter en premier lieu
+- Sauter le chargement des données de classification
+- Générer du contenu de résumé exécutif (executive summary) ou de vision (il s'agit d'étapes ultérieures !)
+- Ne pas valider la classification avec l'utilisateur
+- Être prescriptif au lieu d'avoir une conversation naturelle
+- Poursuivre sans que l'utilisateur sélectionne 'C'
 
-**Master Rule:** This is classification and understanding only. No content generation yet. Build on what the user already has. Have natural conversations, don't follow scripts.
+**Règle Principale :** Il ne s'agit là que de classification et de compréhension. Aucune génération de contenu pour le moment. Fondez-vous sur ce que l'utilisateur possède déjà. Ayez des conversations naturelles, ne suivez pas de scripts rigides.

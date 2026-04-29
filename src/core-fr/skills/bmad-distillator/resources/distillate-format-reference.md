@@ -1,10 +1,10 @@
-# Distillate Format Reference
+# Référence du Format de Distillat
 
-Examples showing the transformation from human-readable source content to distillate format.
+Exemples illustrant la transformation d'un contenu source lisible par l'homme vers un format de distillat.
 
 ## Frontmatter
 
-Every distillate includes YAML frontmatter. Source paths are relative to the distillate's location so the distillate remains portable:
+Chaque distillat inclut un frontmatter YAML. Les chemins sources sont relatifs à l'emplacement du distillat afin qu'il reste portable :
 
 ```yaml
 ---
@@ -12,107 +12,107 @@ type: bmad-distillate
 sources:
   - "product-brief-example.md"
   - "product-brief-example-discovery-notes.md"
-downstream_consumer: "PRD creation"
-created: "2026-03-13"
+downstream_consumer: "création de PRD"
+created: "{{date}}"
 token_estimate: 1200
 parts: 1
 ---
 ```
 
-## Before/After Examples
+## Exemples Avant/Après
 
-### Prose Paragraph to Dense Bullet
+### Du Paragraphe en Prose à la Puce Dense
 
-**Before** (human-readable brief excerpt):
+**Avant** (extrait de brief lisible par l'homme) :
 ```
-## What Makes This Different
+## Ce Qui Rend Cela Différent
 
-**The anti-fragmentation layer.** The AI tooling space is fracturing across 40+
-platforms with no shared methodology layer. BMAD is uniquely positioned to be the
-cross-platform constant — the structured approach that works the same in Cursor,
-Claude Code, Windsurf, Copilot, and whatever launches next month. Every other
-methodology or skill framework maintains its own platform support matrix. By
-building on the open-source skills CLI ecosystem, BMAD offloads the highest-churn
-maintenance burden and focuses on what actually differentiates it: the methodology
-itself.
-```
-
-**After** (distillate):
-```
-## Differentiation
-- Anti-fragmentation positioning: BMAD = cross-platform constant across 40+ fragmenting AI tools; no competitor provides shared methodology layer
-- Platform complexity delegated to Vercel skills CLI ecosystem (MIT); BMAD maintains methodology, not platform configs
+**La couche anti-fragmentation.** L'espace des outils d'IA se fracture à travers plus de 40
+plateformes sans couche méthodologique partagée. BMAD est positionné de manière unique pour être la
+constante inter-plateformes — l'approche structurée qui fonctionne de la même manière dans Cursor,
+Claude Code, Windsurf, Copilot, et tout ce qui sera lancé le mois prochain. Toute autre
+méthodologie ou infrastructure de compétences maintient sa propre matrice de support de plateforme. En
+s'appuyant sur l'écosystème open-source des compétences CLI, BMAD se déleste de la charge de
+maintenance la plus lourde et se concentre sur ce qui le différencie réellement : la méthodologie
+elle-même.
 ```
 
-### Technical Details to Compressed Facts
-
-**Before** (discovery notes excerpt):
+**Après** (distillat) :
 ```
-## Competitive Landscape
-
-- **Vercel Skills.sh**: 83K+ skills, 18 agents, largest curated leaderboard —
-  but dev-only, skills trigger unreliably (20% without explicit prompting)
-- **SkillsMP**: 400K+ skills directory, pure aggregator with no curation or CLI
-- **ClawHub/OpenClaw**: ~3.2K curated skills with versioning/rollback, small ecosystem
-- **Lindy**: No-code AI agent builder for business automation — closed platform,
-  no skill sharing
-- **Microsoft Copilot Studio**: Enterprise no-code agent builder — vendor-locked
-  to Microsoft
-- **MindStudio**: No-code AI agent platform — siloed, no interoperability
-- **Make/Zapier AI**: Workflow automation adding AI agents — workflow-centric,
-  not methodology-centric
-- **Key gap**: NO competitor combines structured methodology with plugin
-  marketplace — this is BMAD's whitespace
+## Différenciation
+- Positionnement anti-fragmentation : BMAD = constante inter-plateformes à travers 40+ outils d'IA fragmentés; aucun concurrent ne fournit de couche méthodologique partagée
+- Complexité des plateformes déléguée à l'écosystème Vercel skills CLI (MIT); BMAD maintient la méthodologie, pas les configurations de plateformes
 ```
 
-**After** (distillate):
+### Des Détails Techniques aux Faits Compressés
+
+**Avant** (extrait des notes de découverte) :
 ```
-## Competitive Landscape
-- No competitor combines structured methodology + plugin marketplace (whitespace)
-- Skills.sh (Vercel): 83K skills, 18 agents, dev-only, 20% trigger reliability
-- SkillsMP: 400K skills, aggregator only, no curation/CLI
-- ClawHub: 3.2K curated, versioning, small ecosystem
-- No-code platforms (Lindy, Copilot Studio, MindStudio, Make/Zapier): closed/siloed, no skill portability, business-only
+## Paysage Concurrentiel
+
+- **Vercel Skills.sh** : Plus de 83K compétences, 18 agents, le plus grand classement mis en avant —
+  mais uniquement pour les développeurs, le déclenchement des compétences est peu fiable (20% sans consigne explicite)
+- **SkillsMP** : Annuaire de plus de 400K compétences, pur agrégateur sans curation ni CLI
+- **ClawHub/OpenClaw** : ~3,2K compétences approuvées avec gestion de versions/rollback, petit écosystème
+- **Lindy** : Constructeur d'agents IA no-code pour l'automatisation des entreprises — plateforme fermée,
+  pas de partage de compétences
+- **Microsoft Copilot Studio** : Constructeur d'agents no-code pour les entreprises — plateforme fermée et liée
+  à Microsoft
+- **MindStudio** : Plateforme d'agents IA no-code — cloisonnée, aucune interopérabilité
+- **Make/Zapier AI** : Automatisation de flux de travail ajoutant des agents IA — centré sur le flux de travail,
+  pas sur la méthodologie
+- **Écart clé** : AUCUN concurrent ne combine une méthodologie structurée avec un marché (marketplace)
+  de plugins — c'est l'espace libre de BMAD
 ```
 
-### Deduplication Across Documents
-
-When the same fact appears in both a brief and discovery notes:
-
-**Brief says:**
+**Après** (distillat) :
 ```
-bmad-init must always be included as a base skill in every bundle
-```
-
-**Discovery notes say:**
-```
-bmad-init must always be included as a base skill in every bundle/install
-(solves bootstrapping problem)
+## Paysage Concurrentiel
+- Aucun concurrent ne combine méthodologie structurée + marketplace de plugins (innovation / espace libre)
+- Skills.sh (Vercel) : 83K compétences, 18 agents, développeurs uniquement, grande instabilité sur le déclenchement (20%)
+- SkillsMP : 400K compétences, agrégateur uniquement, pas de curation/CLI
+- ClawHub : 3,2K approuvées, versionning, petit écosystème
+- Plateformes no-code (Lindy, Copilot Studio, MindStudio, Make/Zapier) : fermées/cloisonnées, aucune portabilité des compétences, uniquement orientées entreprises
 ```
 
-**Distillate keeps the more contextual version:**
+### Déduplication à Travers les Documents
+
+Lorsque le même fait apparaît à la fois dans un brief et dans des notes de découverte :
+
+**Le brief stipule :**
 ```
-- bmad-init: always included as base skill in every bundle (solves bootstrapping)
+bmad-init doit toujours être inclus comme compétence de base dans chaque bundle
 ```
 
-### Decision/Rationale Compression
-
-**Before:**
+**Les notes de découverte stipulent :**
 ```
-We decided not to build our own platform support matrix going forward, instead
-delegating to the Vercel skills CLI ecosystem. The rationale is that maintaining
-20+ platform configs is the biggest maintenance burden and it's unsustainable
-at 40+ platforms.
+bmad-init doit toujours être inclus comme compétence de base dans chaque bundle/installation
+(résout le problème d'amorçage)
 ```
 
-**After:**
+**Le distillat conserve la version la plus riche en contexte :**
 ```
-- Rejected: own platform support matrix. Reason: unsustainable at 40+ platforms; delegate to Vercel CLI ecosystem
+- bmad-init : toujours inclus comme compétence de base dans chaque bundle (résout le problème d'amorçage)
 ```
 
-## Full Example
+### Compression des Décisions/Justifications
 
-A complete distillate produced from a product brief and its discovery notes, targeted at PRD creation:
+**Avant :**
+```
+Nous avons décidé de ne pas construire notre propre matrice de support de plateforme à l'avenir, choisissant
+plutôt de déléguer à l'écosystème Vercel skills CLI. La justification est que le maintien
+de plus de 20 configurations de plateforme représente le plus grand fardeau de maintenance et c'est insoutenable
+à partir de 40+ plateformes.
+```
+
+**Après :**
+```
+- Rejeté : propre matrice de support de plateforme. Raison : insoutenable avec 40+ plateformes; déléguer à l'écosystème Vercel CLI
+```
+
+## Exemple Complet
+
+Un distillat complet produit à partir d'un brief de produit et de ses notes de découverte, ciblé sur la création d'un document PRD :
 
 ```markdown
 ---
@@ -120,108 +120,108 @@ type: bmad-distillate
 sources:
   - "product-brief-bmad-next-gen-installer.md"
   - "product-brief-bmad-next-gen-installer-discovery-notes.md"
-downstream_consumer: "PRD creation"
-created: "2026-03-13"
+downstream_consumer: "création de PRD"
+created: "{{date}}"
 token_estimate: 1450
 parts: 1
 ---
 
-## Core Concept
-- BMAD Next-Gen Installer: replaces monolithic Node.js CLI with skill-based plugin architecture for distributing BMAD methodology across 40+ AI platforms
-- Three layers: self-describing plugins (bmad-manifest.json), cross-platform install via Vercel skills CLI (MIT), runtime registration via bmad-init skill
-- Transforms BMAD from dev-only methodology into open platform for any domain (creative, therapeutic, educational, personal)
+## Concept Cœur
+- BMAD Next-Gen Installer : remplace l'interface CLI monolithique Node.js par une architecture de plugins axée sur les compétences pour distribuer la méthodologie BMAD sur plus de 40 plateformes d'IA
+- Trois couches : plugins autodescriptifs (bmad-manifest.json), installation inter-plateformes via Vercel skills CLI (MIT), enregistrement à l'exécution via la compétence bmad-init
+- Transforme BMAD d'une méthodologie réservée aux développeurs en une plateforme ouverte pour tout domaine (créatif, thérapeutique, éducatif, personnel)
 
-## Problem
-- Current installer maintains ~20 platform configs manually; each platform convention change requires installer update, test, release — largest maintenance burden on team
-- Node.js/npm required — blocks non-technical users on UI-based platforms (Claude Co-Work, etc.)
-- CSV manifests are static, generated once at install; no runtime scanning/registration
-- Unsustainable at 40+ platforms; new tools launching weekly
+## Problème
+- L'installateur actuel gère manuellement environ 20 configurations de plateforme; chaque modification de convention de plateforme nécessite une mise à jour, un test et une sortie de l'installateur — la plus lourde charge de maintenance pour l'équipe
+- Nécessite Node.js/npm — bloque les utilisateurs non techniques sur les plateformes basées sur l'interface utilisateur (Claude Co-Work, etc.)
+- Les manifestes CSV sont statiques, générés une seule fois lors de l'installation; pas d'analyse/enregistrement au moment de l'exécution
+- Insoutenable à 40+ plateformes; de nouveaux outils apparaissent chaque semaine
 
-## Solution Architecture
-- Plugins: skill bundles with Anthropic plugin standard as base format + bmad-manifest.json extending for BMAD-specific metadata (installer options, capabilities, help integration, phase ordering, dependencies)
-- Existing manifest example: `{"module-code":"bmm","replaces-skill":"bmad-create-product-brief","capabilities":[{"name":"create-brief","menu-code":"CB","supports-headless":true,"phase-name":"1-analysis","after":["brainstorming"],"before":["create-prd"],"is-required":true}]}`
-- Vercel skills CLI handles platform translation; integration pattern (wrap/fork/call) is PRD decision
-- bmad-init: global skill scanning installed bmad-manifest.json files, registering capabilities, configuring project settings; always included as base skill in every bundle (solves bootstrapping)
-- bmad-update: plugin update path without full reinstall; technical approach (diff/replace/preserve customizations) is PRD decision
-- Distribution tiers: (1) NPX installer wrapping skills CLI for technical users, (2) zip bundle + platform-specific README for non-technical users, (3) future marketplace
-- Non-technical path has honest friction: "copy to right folder" requires knowing where; per-platform README instructions; improves over time as low-code space matures
+## Architecture de la Solution
+- Plugins : bundles de compétences avec le standard de plugin Anthropic comme format de base + bmad-manifest.json l'étendant pour les métadonnées spécifiques à BMAD (options d'installateur, capacités, intégration d'aide, ordonnancement des phases, dépendances)
+- Exemple de manifeste actuel : `{"module-code":"bmm","replaces-skill":"bmad-create-product-brief","capabilities":[{"name":"create-brief","menu-code":"CB","supports-headless":true,"phase-name":"1-analysis","after":["brainstorming"],"before":["create-prd"],"is-required":true}]}`
+- Vercel skills CLI gère la traduction de la plateforme; le schéma d'intégration (envelopper/dupliquer/appeler) relève d'une décision PRD
+- bmad-init : recherche globale des fichiers bmad-manifest.json installés, enregistrement des capacités, configuration des paramètres du projet; toujours inclus comme compétence de base dans chaque bundle (résout l'amorçage)
+- bmad-update : parcours de mise à jour du plugin sans réinstallation complète; l'approche technique (différence/remplacer/conserver les personnalisations) relève d'une décision PRD
+- Niveaux de distribution : (1) Installateur NPX enrobant le skills CLI pour les utilisateurs techniques, (2) bundle zip + README spécifique à la plateforme pour les utilisateurs non techniques, (3) future marketplace
+- Le parcours non technique a une réelle friction : "copier dans le bon dossier" requiert de savoir où; instructions README par plateforme; la situation s'améliorera au fur et à mesure de l'évolution de l'écosystème low-code
 
-## Differentiation
-- Anti-fragmentation: BMAD = cross-platform constant; no competitor provides shared methodology layer across AI tools
-- Curated quality: all submissions gated, human-reviewed by BMad + core team; 13.4% of community skills have critical vulnerabilities (Snyk 2026); quality gate value increases as ecosystem gets noisier
-- Domain-agnostic: no competitor builds beyond software dev workflows; same plugin system powers any domain via BMAD Builder (separate initiative)
+## Différenciation
+- Anti-fragmentation : BMAD = constante inter-plateformes; aucun concurrent n'offre une couche méthodologique commune aux autres outils d'IA
+- Qualité via la curation : toutes les soumissions sont validées et contrôlées par des humains (BMad et l'équipe); 13,4% des compétences communautaires ont des vulnérabilités (Snyk 2026); la valeur du filtre qualité s'accroît quand l'écosystème fait plus de bruit
+- Agnosticité : aucun autre projet ne s'étire au-delà des flux de développeurs; le même système de plugin fait rouler chaque domaine via BMAD Builder (projet à part)
 
-## Users (ordered by v1 priority)
-- Module authors (primary v1): package/test/distribute plugins independently without installer changes
-- Developers: single-command install on any of 40+ platforms via NPX
-- Non-technical users: install without Node/Git/terminal; emerging segment including PMs, designers, educators
-- Future plugin creators: non-dev authors using BMAD Builder; need distribution without building own installer
+## Utilisateurs (classés par priorité v1)
+- Auteurs de modules (priorité majeure v1) : paqueter/tester/distribuer les plugins en indépendant sans changer l'installateur
+- Développeurs : installation en une commande sur l'une des 40+ plateformes par NPX
+- Utilisateurs non techniques : installation sans Node/Git/terminal; segment naissant incluant chefs de projet, designers, formateurs
+- Futurs créateurs de plugins : auteurs non dev sur BMAD Builder; désirant la distribution sans faire un installeur spécifique
 
-## Success Criteria
-- Zero (or near-zero) custom platform directory code; delegated to skills CLI ecosystem
-- Installation verified on top platforms by volume; skills CLI handles long tail
-- Non-technical install path validated with non-developer users
-- bmad-init discovers/registers all plugins from manifests; clear errors for malformed manifests
-- At least one external module author successfully publishes plugin using manifest system
-- bmad-update works without full reinstall
-- Existing CLI users have documented migration path
+## Critères de Succès
+- Zéro (ou quasiment zéro) code de répertoire de plateforme personnalisé; délégué à l'écosystème skills CLI
+- L'installation est confirmée sur toutes les top plateformes en volume; skills CLI gère la suite
+- Mode d'installation pour usagers non techniques est qualifié auprès desdits profils
+- bmad-init trouve/inscrit bien tous les plugins à partir des manifestes; erreurs explicites pour les manifestes altérés
+- Au minimum un auteur venant de l'extérieur est parvenu à poster un module sous forme manifeste
+- bmad-update marche sans faire une réinstallation complète
+- Les utilisateurs actuels sur CLI profitent d'un manuel de route/transfert qualifié
 
-## Scope
-- In: manifest spec, bmad-init, bmad-update, Vercel CLI integration, NPX installer, zip bundles, migration path
-- Out: BMAD Builder, marketplace web platform, skill conversion (prerequisite, separate), one-click install for all platforms, monetization, quality certification process (gated-submission principle is architectural requirement; process defined separately)
-- Deferred: CI/CD integration, telemetry for module authors, air-gapped enterprise install, zip bundle integrity verification (checksums/signing), deeper non-technical platform integrations
+## Périmètre
+- In : règles manifest, bmad-init, bmad-update, intégration Vercel CLI, installateur NPX, bundles zip, manuel de migration
+- Out : BMAD Builder, interface web de la marketplace, process de conversion des compétences (un requis à côté), installation one-click générique pour toute plateforme, la création de revenus (monétisation), le processus de contrôle et certification (la base du contrôle est requise technologiquement, le processus métier est autre)
+- Différé : association CI/CD, data télémétriques pour les auteurs, configuration entreprise non reliée au net, système de sûreté et signature sur zip bundles, imbrication complexe chez plateformes no-code
 
-## Current Installer (migration context)
-- Entry: `tools/cli/bmad-cli.js` (Commander.js) → `tools/cli/installers/lib/core/installer.js`
-- Platforms: `platform-codes.yaml` (~20 platforms with target dirs, legacy dirs, template types, special flags)
-- Manifests: CSV files (skill/workflow/agent-manifest.csv) are current source of truth, not JSON
-- External modules: `external-official-modules.yaml` (CIS, GDS, TEA, WDS) from npm with semver
-- Dependencies: 4-pass resolver (collect → parse → resolve → transitive); YAML-declared only
-- Config: prompts for name, communication language, document output language, output folder
-- Skills already use directory-per-skill layout; bmad-manifest.json sidecars exist but are not source of truth
-- Key shift: CSV-based static manifests → JSON-based runtime scanning
+## Installateur Actuel (contexte de migration)
+- Point d'accès : `tools/cli/bmad-cli.js` (Commander.js) → `tools/cli/installers/lib/core/installer.js`
+- Plateformes : `platform-codes.yaml` (~20 plateformes avec leurs chemins désignés, archives, types de templates, flags requis)
+- Manifestes : Fichiers CSV (skill/workflow/agent-manifest.csv) agissent comme source du vrai (pas en JSON)
+- Modules additionnels : `external-official-modules.yaml` (CIS, GDS, TEA, WDS) piochés en npm avec semver
+- Dépendances : Un contrôleur en 4 runs (cueillir → lire → statuer → imbriquer) ; déclaré via YAML exclusivement
+- Paramètres : demande nom, dialecte communication, dialecte du log document, chemin du rep
+- Les compétences recourent à 1 dossier / système d'expertise; des bmad-manifest.json satellites existent à l'état végétatif
+- Cassure de modèle : les manifestes textuels stables CSV → sont mutés vers de l'interrogation continue via des structures JSON
 
 ## Vercel Skills CLI
-- `npx skills add <source>` — GitHub, GitLab, local paths, git URLs
-- 40+ agents; per-agent path mappings; symlinks (recommended) or copies
-- Scopes: project-level or global
-- Discovery: `skills/`, `.agents/skills/`, agent-specific paths, `.claude-plugin/marketplace.json`
-- Commands: add, list, find, remove, check, update, init
-- Non-interactive: `-y`, `--all` flags for CI/CD
+- `npx skills add <source>` — GitHub, GitLab, chemins en dur, git URL
+- 40+ agents; traçabilités par agents; des symlinks virtuels (fort suggéré) ou copies pures
+- Niveaux du réseau : localité/répertoire projet ou racine système généralisée
+- Trouvabilité/Repérage : `skills/`, `.agents/skills/`, chemins typés par l'agent, `.claude-plugin/marketplace.json`
+- Instructions reconnues : add, list, find, remove, check, update, init
+- Auto-décisionnaire (silencieux) : flags `-y`, `--all` utiles en process CI/CD
 
-## Competitive Landscape
-- No competitor combines structured methodology + plugin marketplace (whitespace)
-- Skills.sh (Vercel): 83K skills, dev-only, 20% trigger reliability without explicit prompting
-- SkillsMP: 400K skills, aggregator only, no curation
-- ClawHub: 3.2K curated, versioning, small
-- No-code platforms (Lindy, Copilot Studio, MindStudio, Make/Zapier): closed/siloed, no skill portability, business-only
-- Market: $7.84B (2025) → $52.62B (2030); Agent Skills spec ~4 months old, 351K+ skills; standards converging under Linux Foundation AAIF (MCP, AGENTS.md, A2A)
+## Paysage Concurrentiel
+- Aucun concurrent ne cumule la dimension de démarche structurée au marché de modules (Espace vide de concurrence)
+- Skills.sh (Vercel) : 83K traits, 18 robots, public technicien, un niveau d'activation flottant de 20%
+- SkillsMP : 400K compétences brutes pour simple recensement, 0 curation ou application
+- ClawHub : 3.2K approuvées/triées, support de versionning et cadre resserré
+- Groupes du No-code (ex Lindy, Microsoft, MindStudio, Zapier) : systèmes captifs impossibles à translater, limités B2B pur
+- Financiarisation du contexte global : valorisation $7.84B (2025) vers $52.62B évaluée horizon 2030. Un standard édicté d'agent skills existant de moins d'un semestre gérant déjà +351K outils ; Les formats d'échanges (MCP, AAIF ou format A2A de la fondation d'entreprise Linux) vont devenir de réels ponts normalisateurs
 
-## Rejected Alternatives
-- Building own platform support matrix: unsustainable at 40+; delegate to Vercel ecosystem
-- One-click install for non-technical v1: emerging space; guidance-based, improve over time
-- Prior roadmap/brainstorming: clean start, unconstrained by previous planning
+## Alternatives Rejetées
+- Bâtir de toutes pièces et supporter tous les gabarits sur-mesure d'éditeurs (plus de 40 à ce jour et grandissant). Raison : charge ingérable de support pour les dev. Alternative actée vers Vercel CLI.
+- Le miracle "1-lic-Install" espéré des novices : trop frais coté marché; Prise en main étape par étape avec manuels pallient ça pour le moment.
+- Chronologie passée des sprints imaginés : une grande "remise à plat", sans s'enliser par l'historique de planification.
 
-## Open Questions
-- Vercel CLI integration pattern: wrap/fork/call/peer dependency?
-- bmad-update mechanics: diff/replace? Preserve user customizations?
-- Migration story: command/manual reinstall/compatibility shim?
-- Cross-platform testing: CI matrix for top N? Community testing for rest?
-- bmad-manifest.json as open standard submission to Agent Skills governance?
-- Platforms NOT supported by Vercel skills CLI?
-- Manifest versioning strategy for backward compatibility?
-- Plugin author getting-started experience and tooling?
+## Questions Ouvertes
+- Type d'accouplement via l'architecture Vercel : faut-il draper/l'imiter/le requérir ou s'imposer d'office en voisin ?
+- Principes mécaniques sur le bmad-update : calcul vectoriel du "diff" versus suppression franche ? Maintenir des altérations manuelles d'usager possible ?
+- Ponts des usagers natifs : ligne de code, action manuelle par une nouvelle installation ou interface passerelle temporaire ?
+- Assurances du Multi-Environnements : Les workflows CI automatisés sur le podium d'éditeurs ? Soutsourcing vers tests de masse public pour l'écume restante ?
+- Soumission pure et formelle de l'ossature d'encadrement bmad-manifest.json chez la fondation de contrôle et gérance ?
+- Décelée : une marque du marché non absorbée par l'encadrement natif de Vercel (laquelle) ?
+- Logique globale des suites "rétro-compatibles" liées à la marche forcée de versions logicielles de manifest ?
+- Outils offerts aux novices quantitifs écrivant un plugin ?
 
-## Opportunities
-- Module authors as acquisition channel: each published plugin distributes BMAD to creator's audience
-- CI/CD integration: bmad-init as pipeline one-liner increases stickiness
-- Educational institutions: structured methodology + non-technical install → university AI curriculum
-- Skill composability: mixing BMAD modules with third-party skills for custom methodology stacks
+## Opportunités
+- Réseaux tiers de partage pour attester : chaque outil publié ramène BMAD au public suivant ce créateur.
+- Couplage CI/CD : exécutif bmad-init comme code one-liner de validation amène dépendance et confort absolu de la pipeline
+- Milieu associatif/scolaire : combo méthode hyper fixée + exécution souple non-technique cible le format d'amphis scolaires et pédagogie.
+- Croisement sans limites : mixer ce framework solide BMAD couplé aux expertises lointaines extérieures produit l'attirail "parfait" en situation unique.
 
-## Risks
-- Manifest format evolution creates versioning/compatibility burden once third-party authors publish
-- Quality gate needs defined process, not just claim — gated review model addresses
-- 40+ platform testing environments even with Vercel handling translation
-- Scope creep pressure from marketplace vision (explicitly excluded but primary long-term value)
-- Vercel dependency: minor supply-chain risk; MIT license allows fork if deprioritized
+## Risques
+- Muer les architectures liées à l'en-tête (manifest) pénalise des dev de modules post-publication qui décrocheront si de la rétrocompatibilité est entaillée
+- Mur de filtrage qui requerra sa procédure normée, et pas que de façade
+- Matrice de contrôle vertigineuse (+40 espaces) si toutefois Vercel ne tamponne pas tout par de subtiles faiblesses
+- Glissement possible (scope creep) motivé par un espoir faramineux de vitrine grand public - laissé volontairement vacant à la base (car axe de futur rentabilité fort long cours)
+- Chaîne logistique accrochée fondamentalement à Vercel: mini péril lié à cela, toutefois sa source reste open (MIT) garantissant réplicabilité locale au pire momentané.
 ```

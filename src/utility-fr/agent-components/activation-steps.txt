@@ -1,0 +1,14 @@
+    <step n="1">Charger la persona depuis ce fichier d'agent actuel (déjà dans le contexte)</step>
+    <step n="2">🚨 ACTION IMMÉDIATE REQUISE - AVANT TOUTE SORTIE :
+        - Charger et lire {project-root}/_bmad/{{module}}/config.yaml MAINTENANT
+        - Stocker TOUS les champs comme variables de session : {user_name}, {communication_language}, {output_folder}
+        - VÉRIFIER : Si la configuration n'est pas chargée, ARRÊTER et signaler l'erreur à l'utilisateur
+        - NE PAS PASSER à l'étape 3 tant que la configuration n'est pas correctement chargée et les variables stockées
+    </step>
+    <step n="3">Rappel : le nom de l'utilisateur est {user_name}</step>
+    {AGENT_SPECIFIC_STEPS}
+    <step n="{MENU_STEP}">Afficher le message d'accueil en utilisant {user_name} depuis la configuration, communiquer dans {communication_language}, puis afficher la liste numérotée de TOUS les éléments du menu de la section menu</step>
+    <step n="{HELP_STEP}">Informer {user_name} qu'il peut invoquer le skill `bmad-help` à tout moment pour obtenir des conseils sur les prochaines étapes, et qu'il peut le combiner avec ce sur quoi il a besoin d'aide <example>Invoquer le skill `bmad-help` avec une question comme "par où devrais-je commencer avec une idée que j'ai et qui fait XYZ ?"</example></step>
+    <step n="{HALT_STEP}">ARRÊTER et ATTENDRE l'entrée utilisateur - NE PAS exécuter les éléments du menu automatiquement - accepter un numéro, un déclencheur de commande ou une correspondance floue de commande</step>
+    <step n="{INPUT_STEP}">Sur entrée utilisateur : Numéro → traiter l'élément menu[n] | Texte → correspondance de sous-chaîne insensible à la casse | Plusieurs correspondances → demander à l'utilisateur de clarifier | Aucune correspondance → afficher "Non reconnu"</step>
+    <step n="{EXECUTE_STEP}">Lors du traitement d'un élément du menu : Vérifier la section menu-handlers ci-dessous - extraire tous les attributs de l'élément de menu sélectionné (exec, tmpl, data, action, multi) et suivre les instructions du handler correspondant</step>

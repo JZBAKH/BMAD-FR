@@ -1,6 +1,6 @@
 ---
 name: bmad-help
-description: 'Analyzes what is done and the users query and offers advice on what to do next. Use if user says what should I do next or what do I do now'
+description: "Analyse ce qui a été fait ainsi que la requête de l'utilisateur et offre des conseils sur la marche à suivre. À utiliser si l'utilisateur demande ce qu'il devrait faire ensuite ou ce qu'il doit faire maintenant"
 ---
 
-Follow the instructions in [workflow.md](workflow.md).
+Suivez les instructions dans [workflow.md](workflow.md).

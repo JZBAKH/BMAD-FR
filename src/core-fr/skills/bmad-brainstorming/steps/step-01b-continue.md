@@ -1,122 +1,122 @@
-# Step 1b: Workflow Continuation
+# Étape 1b : Continuation du Flux de Travail
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- ✅ YOU ARE A CONTINUATION FACILITATOR, not a fresh starter
-- 🎯 RESPECT EXISTING WORKFLOW state and progress
-- 📋 UNDERSTAND PREVIOUS SESSION context and outcomes
-- 🔍 SEAMLESSLY RESUME from where user left off
-- 💬 MAINTAIN CONTINUITY in session flow and rapport
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the `communication_language`
+- ✅ VOUS ÊTES UN ANIMATEUR DE CONTINUATION - pas un initiateur
+- 🎯 RESPECTEZ l'état et les progrès existants du FLUX DE TRAVAIL
+- 📋 COMPRENEZ le contexte et les résultats de la SESSION PRÉCÉDENTE
+- 🔍 REPRENEZ NATURELLEMENT là où l'utilisateur s'est arrêté
+- 💬 MAINTENEZ LA CONTINUITÉ dans le flux de la session et le rapport global
+- ✅ VOUS DEVEZ TOUJOURS PARLER dans votre style de communication d'Agent avec la `communication_language`
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Load and analyze existing document thoroughly
-- 💾 Update frontmatter with continuation state
-- 📖 Present current status and next options clearly
-- 🚫 FORBIDDEN repeating completed work or asking same questions
+- 🎯 Chargez et analysez minutieusement le document existant
+- 💾 Mettez à jour le frontmatter avec l'état de continuation
+- 📖 Présentez l'état actuel et les options suivantes de manière claire
+- 🚫 INTERDIT de répéter le travail terminé ou de poser les mêmes questions
 
-## CONTEXT BOUNDARIES:
+## LIMITES DE CONTEXTE :
 
-- Existing document with frontmatter is available
-- Previous steps completed indicate session progress
-- Brain techniques CSV loaded when needed for remaining steps
-- User may want to continue, modify, or restart
+- Le document existant avec le frontmatter est disponible
+- Les étapes précédentes terminées indiquent les progrès de la session
+- Le CSV des techniques de réflexion est chargé lorsque nécessaire pour les étapes restantes
+- L'utilisateur peut vouloir continuer - modifier ou recommencer
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Analyze existing brainstorming session state and provide seamless continuation options.
+Analysez l'état existant de la session de brainstorming et proposez des options de continuation transparentes.
 
-## CONTINUATION SEQUENCE:
+## SÉQUENCE DE CONTINUATION :
 
-### 1. Analyze Existing Session
+### 1. Analyser la Session Existante
 
-Load existing document and analyze current state:
+Chargez le document existant et analysez l'état actuel :
 
-**Document Analysis:**
+**Analyse du Document :**
 
-- Read existing `{brainstorming_session_output_file}`
-- Examine frontmatter for `stepsCompleted`, `session_topic`, `session_goals`
-- Review content to understand session progress and outcomes
-- Identify current stage and next logical steps
+- Lisez `{brainstorming_session_output_file}` existant
+- Examinez le frontmatter pour `stepsCompleted` - `session_topic` - `session_goals`
+- Examinez le contenu pour comprendre les progrès et résultats de la session
+- Identifiez l'étape actuelle et les prochaines étapes logiques
 
-**Session Status Assessment:**
-"Welcome back {{user_name}}! I can see your brainstorming session on **[session_topic]** from **[date]**.
+**Évaluation du Statut de la Session :**
+"Bon retour {{user_name}} ! Je vois votre session de brainstorming sur **[session_topic]** du **[date]**.
 
-**Current Session Status:**
+**Statut Actuel de la Session :**
 
-- **Steps Completed:** [List completed steps]
-- **Techniques Used:** [List techniques from frontmatter]
-- **Ideas Generated:** [Number from frontmatter]
-- **Current Stage:** [Assess where they left off]
+- **Étapes Terminées :** [Liste des étapes terminées]
+- **Techniques Utilisées :** [Liste des techniques à partir du frontmatter]
+- **Idées Générées :** [Nombre à partir du frontmatter]
+- **Étape Actuelle :** [Évaluer où ils se sont arrêtés]
 
-**Session Progress:**
-[Brief summary of what was accomplished and what remains]"
+**Progrès de la Session :**
+[Bref résumé de ce qui a été accompli et ce qui reste à faire]"
 
-### 2. Present Continuation Options
+### 2. Présenter Options de Continuation
 
-Based on session analysis, provide appropriate options:
+Sur la base de l'analyse de la session - proposez les options appropriées :
 
-**If Session Completed:**
-"Your brainstorming session appears to be complete!
+**Si la Session est Terminée :**
+"Votre session de brainstorming semble être terminée !
 
-**Options:**
-[1] Review Results - Go through your documented ideas and insights
-[2] Start New Session - Begin brainstorming on a new topic
-[3) Extend Session - Add more techniques or explore new angles"
+**Options :**
+[1] Passer en revue les résultats - Parcourez vos idées documentées et vos points de vue
+[2] Démarrer une Nouvelle Session - Commencez un brainstorming sur un nouveau sujet
+[3] Prolonger la Session - Ajoutez plus de techniques ou explorez de nouveaux angles"
 
-**If Session In Progress:**
-"Let's continue where we left off!
+**Si la Session est en Cours :**
+"Reprenons là où nous nous sommes arrêtés !
 
-**Current Progress:**
-[Description of current stage and accomplishments]
+**Progrès Actuel :**
+[Description de l'étape actuelle et des réalisations]
 
-**Next Steps:**
-[Continue with appropriate next step based on workflow state]"
+**Prochaines Étapes :**
+[Continuez avec l'étape suivante appropriée selon l'état du flux de travail]"
 
-### 3. Handle User Choice
+### 3. Gérer le Choix de l'Utilisateur
 
-Route to appropriate next step based on selection:
+Dirigez vers la prochaine étape appropriée selon la sélection :
 
-**Review Results:** Load appropriate review/navigation step
-**New Session:** Start fresh workflow initialization
-**Extend Session:** Continue with next technique or phase
-**Continue Progress:** Resume from current workflow step
+**Passer en revue les résultats :** Chargez l'étape de revue/navigation correspondante
+**Nouvelle Session :** Démarrez l'initialisation du nouveau flux de travail
+**Prolonger la Session :** Continuez avec la prochaine technique ou phase
+**Poursuivre la Progression :** Reprenez depuis l'étape actuelle du flux de travail
 
-### 4. Update Session State
+### 4. Mettre à Jour l'État de la Session
 
-Update frontmatter to reflect continuation:
+Mettez à jour le frontmatter pour refléter la continuation :
 
 ```yaml
 ---
 stepsCompleted: [existing_steps]
 session_continued: true
-continuation_date: { { current_date } }
+continuation_date: {{current_date}}
 ---
 ```
 
-## SUCCESS METRICS:
+## MÉTRIQUES DE SUCCÈS :
 
-✅ Existing session state accurately analyzed and understood
-✅ Seamless continuation without loss of context or rapport
-✅ Appropriate continuation options presented based on progress
-✅ User choice properly routed to next workflow step
-✅ Session continuity maintained throughout interaction
+✅ État de la session existante analysé et compris avec précision
+✅ Continuation transparente sans perte de contexte ni de rapport
+✅ Options de continuation appropriées présentées en fonction des progrès
+✅ Choix de l'utilisateur correctement dirigé vers la prochaine étape du flux de travail
+✅ Continuité de la session maintenue tout au long de l'interaction
 
-## FAILURE MODES:
+## MODES D'ÉCHEC :
 
-❌ Not properly analyzing existing document state
-❌ Asking user to repeat information already provided
-❌ Losing continuity in session flow or context
-❌ Not providing appropriate continuation options
+❌ Ne pas analyser correctement l'état du document existant
+❌ Demander à l'utilisateur de répéter les informations déjà fournies
+❌ Perte de continuité dans le flux ou le contexte de la session
+❌ Absence de proposition d'options de continuation appropriées
 
-## CONTINUATION PROTOCOLS:
+## PROTOCOLES DE CONTINUATION :
 
-- Always acknowledge previous work and progress
-- Maintain established rapport and session dynamics
-- Build upon existing ideas and insights rather than starting over
-- Respect user's time by avoiding repetitive questions
+- Reconnaissez toujours le travail antérieur et les avancées
+- Maintenez le rapport et la dynamique de session établis
+- Appuyez-vous sur les idées et points de vue existants plutôt que de recommencer
+- Respectez le temps de l'utilisateur en évitant les questions répétitives
 
-## NEXT STEP:
+## PROCHAINE ÉTAPE :
 
-Route to appropriate workflow step based on user's continuation choice and current session state.
+Dirigez vers l'étape de flux de travail appropriée basée sur le choix de continuation de l'utilisateur et l'état actuel de la session.

@@ -314,8 +314,9 @@ class CustomHandler {
 
         // Create customize template if it doesn't exist
         if (!(await fs.pathExists(customizePath))) {
-          const { getSourcePath } = require('../../../lib/project-root');
-          const genericTemplatePath = getSourcePath('utility', 'agent-components', 'agent.customize.template.yaml');
+          // MODIFICATION FR : getModulePath redirects to src/utility-fr.
+          const { getModulePath } = require('../../../lib/project-root');
+          const genericTemplatePath = getModulePath('utility', 'agent-components', 'agent.customize.template.yaml');
           if (await fs.pathExists(genericTemplatePath)) {
             let templateContent = await fs.readFile(genericTemplatePath, 'utf8');
             await fs.writeFile(customizePath, templateContent, 'utf8');

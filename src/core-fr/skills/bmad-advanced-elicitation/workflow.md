@@ -2,134 +2,137 @@
 agent_party: '{project-root}/_bmad/_config/agent-manifest.csv'
 ---
 
-# Advanced Elicitation Workflow
+# Workflow d'Élicitation Avancée
 
-**Goal:** Push the LLM to reconsider, refine, and improve its recent output.
-
----
-
-## CRITICAL LLM INSTRUCTIONS
-
-- **MANDATORY:** Execute ALL steps in the flow section IN EXACT ORDER
-- DO NOT skip steps or change the sequence
-- HALT immediately when halt-conditions are met
-- Each action within a step is a REQUIRED action to complete that step
-- Sections outside flow (validation, output, critical-context) provide essential context - review and apply throughout execution
-- **YOU MUST ALWAYS SPEAK OUTPUT in your Agent communication style with the `communication_language`**
+**Objectif :** Pousser le LLM à reconsidérer, affiner et améliorer sa production récente.
 
 ---
 
-## INTEGRATION (When Invoked Indirectly)
+## INSTRUCTIONS CRITIQUES POUR LE LLM
 
-When invoked from another prompt or process:
-
-1. Receive or review the current section content that was just generated
-2. Apply elicitation methods iteratively to enhance that specific content
-3. Return the enhanced version back when user selects 'x' to proceed and return back
-4. The enhanced content replaces the original section content in the output document
-
----
-
-## FLOW
-
-### Step 1: Method Registry Loading
-
-**Action:** Load and read `./methods.csv` and `{agent_party}`
-
-#### CSV Structure
-
-- **category:** Method grouping (core, structural, risk, etc.)
-- **method_name:** Display name for the method
-- **description:** Rich explanation of what the method does, when to use it, and why it's valuable
-- **output_pattern:** Flexible flow guide using arrows (e.g., "analysis -> insights -> action")
-
-#### Context Analysis
-
-- Use conversation history
-- Analyze: content type, complexity, stakeholder needs, risk level, and creative potential
-
-#### Smart Selection
-
-1. Analyze context: Content type, complexity, stakeholder needs, risk level, creative potential
-2. Parse descriptions: Understand each method's purpose from the rich descriptions in CSV
-3. Select 5 methods: Choose methods that best match the context based on their descriptions
-4. Balance approach: Include mix of foundational and specialized techniques as appropriate
+- **OBLIGATOIRE :** Exécuter TOUTES les étapes de la section FLOW dans l'ORDRE EXACT
+- NE PAS sauter d'étapes ni modifier la séquence
+- S'ARRÊTER immédiatement lorsque les conditions d'arrêt sont remplies
+- Chaque action dans une étape est une action REQUISE pour compléter cette étape
+- Les sections en dehors du flux (validation, output, critical-context) fournissent un contexte essentiel - les revoir et les appliquer tout au long de l'exécution
+- **VOUS DEVEZ TOUJOURS PARLER DANS LA SORTIE selon le style de communication de votre Agent avec la `communication_language`**
 
 ---
 
-### Step 2: Present Options and Handle Responses
+## INTÉGRATION (Lors d'une invocation indirecte)
 
-#### Display Format
+Lorsqu'invoqué depuis un autre prompt ou processus :
+
+1. Recevoir ou revoir le contenu de la section actuelle qui vient d'être généré
+2. Appliquer les méthodes d'élicitation de manière itérative pour améliorer ce contenu spécifique
+3. Retourner la version améliorée lorsque l'utilisateur sélectionne 'x' pour poursuivre et revenir
+4. Le contenu amélioré remplace le contenu de la section originale dans le document de sortie
+
+---
+
+## FLUX (FLOW)
+
+### Étape 1 : Chargement du Registre des Méthodes
+
+**Action :** Charger et lire `./methods.csv` et `{agent_party}`
+
+#### Structure du CSV
+
+- **category :** Regroupement de méthodes (core, structural, risk, etc.)
+- **method_name :** Nom d'affichage de la méthode
+- **description :** Explication riche de ce que fait la méthode, quand l'utiliser et pourquoi elle est utile
+- **output_pattern :** Guide de flux flexible utilisant des flèches (ex : "analyse -> insights -> action")
+
+#### Analyse du Contexte
+
+- Utiliser l'historique de la conversation
+- Analyser : type de contenu, complexité, besoins des parties prenantes, niveau de risque et potentiel créatif
+
+#### Sélection Intelligente
+
+1. Analyser le contexte : Type de contenu, complexité, besoins des parties prenantes, niveau de risque, potentiel créatif
+2. Analyser les descriptions : Comprendre l'objectif de chaque méthode à partir des descriptions riches du CSV
+3. Sélectionner 5 méthodes : Choisir les méthodes qui correspondent le mieux au contexte en fonction de leurs descriptions
+4. Équilibrer l'approche : Inclure un mélange de techniques fondamentales et spécialisées selon les besoins
+
+---
+
+### Étape 2 : Présenter les Options et Gérer les Réponses
+
+#### Format d'Affichage
+
 
 ```
-**Advanced Elicitation Options**
-_If party mode is active, agents will join in._
-Choose a number (1-5), [r] to Reshuffle, [a] List All, or [x] to Proceed:
 
-1. [Method Name]
-2. [Method Name]
-3. [Method Name]
-4. [Method Name]
-5. [Method Name]
-r. Reshuffle the list with 5 new options
-a. List all methods with descriptions
-x. Proceed / No Further Actions
+**Options d'Élicitation Avancée**
+*Si le Party Mode est actif, les agents se joindront à la discussion.*
+Choisissez un numéro (1-5), [r] pour Relancer, [a] pour Tout lister, ou [x] pour Poursuivre :
+
+1. [Nom de la méthode]
+2. [Nom de la méthode]
+3. [Nom de la méthode]
+4. [Nom de la méthode]
+5. [Nom de la méthode]
+r. Relancer la liste avec 5 nouvelles options
+a. Lister toutes les méthodes avec leurs descriptions
+x. Poursuivre / Aucune action supplémentaire
+
 ```
 
-#### Response Handling
+#### Gestion des Réponses
 
-**Case 1-5 (User selects a numbered method):**
+**Cas 1-5 (L'utilisateur sélectionne une méthode numérotée) :**
 
-- Execute the selected method using its description from the CSV
-- Adapt the method's complexity and output format based on the current context
-- Apply the method creatively to the current section content being enhanced
-- Display the enhanced version showing what the method revealed or improved
-- **CRITICAL:** Ask the user if they would like to apply the changes to the doc (y/n/other) and HALT to await response.
-- **CRITICAL:** ONLY if Yes, apply the changes. IF No, discard your memory of the proposed changes. If any other reply, try best to follow the instructions given by the user.
-- **CRITICAL:** Re-present the same 1-5,r,x prompt to allow additional elicitations
+- Exécuter la méthode sélectionnée en utilisant sa description issue du CSV
+- Adapter la complexité de la méthode et le format de sortie en fonction du contexte actuel
+- Appliquer la méthode de manière créative au contenu de la section actuelle à améliorer
+- Afficher la version améliorée montrant ce que la méthode a révélé ou amélioré
+- **CRITIQUE :** Demander à l'utilisateur s'il souhaite appliquer les modifications au document (o/n/autre) et S'ARRÊTER pour attendre la réponse.
+- **CRITIQUE :** UNIQUEMENT si Oui, appliquer les modifications. SI Non, annuler votre mémoire des modifications proposées. Si toute autre réponse, faire de votre mieux pour suivre les instructions données par l'utilisateur.
+- **CRITIQUE :** Représenter la même invite 1-5,r,x pour permettre des élicitations supplémentaires
 
-**Case r (Reshuffle):**
+**Cas r (Relancer/Reshuffle) :**
 
-- Select 5 random methods from methods.csv, present new list with same prompt format
-- When selecting, try to think and pick a diverse set of methods covering different categories and approaches, with 1 and 2 being potentially the most useful for the document or section being discovered
+- Sélectionner 5 méthodes aléatoires depuis methods.csv, présenter une nouvelle liste avec le même format d'invite
+- Lors de la sélection, essayer de réfléchir et de choisir un ensemble diversifié de méthodes couvrant différentes catégories et approches, 1 et 2 étant potentiellement les plus utiles pour le document ou la section en cours de découverte
 
-**Case x (Proceed):**
+**Cas x (Poursuivre/Proceed) :**
 
-- Complete elicitation and proceed
-- Return the fully enhanced content back to create-doc.md
-- The enhanced content becomes the final version for that section
-- Signal completion back to create-doc.md to continue with next section
+- Terminer l'élicitation et poursuivre
+- Retourner le contenu entièrement amélioré à create-doc.md
+- Le contenu amélioré devient la version finale pour cette section
+- Signaler la fin à create-doc.md pour continuer avec la section suivante
 
-**Case a (List All):**
+**Cas a (Tout lister/List All) :**
 
-- List all methods with their descriptions from the CSV in a compact table
-- Allow user to select any method by name or number from the full list
-- After selection, execute the method as described in the Case 1-5 above
+- Lister toutes les méthodes avec leurs descriptions issues du CSV dans un tableau compact
+- Permettre à l'utilisateur de sélectionner n'importe quelle méthode par nom ou numéro depuis la liste complète
+- Après sélection, exécuter la méthode comme décrit dans le Cas 1-5 ci-dessus
 
-**Case: Direct Feedback:**
+**Cas : Retours directs (Direct Feedback) :**
 
-- Apply changes to current section content and re-present choices
+- Appliquer les modifications au contenu de la section actuelle et représenter les choix
 
-**Case: Multiple Numbers:**
+**Cas : Numéros multiples (Multiple Numbers) :**
 
-- Execute methods in sequence on the content, then re-offer choices
+- Exécuter les méthodes en séquence sur le contenu, puis proposer à nouveau les choix
 
 ---
 
-### Step 3: Execution Guidelines
+### Étape 3 : Lignes Directrices d'Exécution
 
-- **Method execution:** Use the description from CSV to understand and apply each method
-- **Output pattern:** Use the pattern as a flexible guide (e.g., "paths -> evaluation -> selection")
-- **Dynamic adaptation:** Adjust complexity based on content needs (simple to sophisticated)
-- **Creative application:** Interpret methods flexibly based on context while maintaining pattern consistency
-- Focus on actionable insights
-- **Stay relevant:** Tie elicitation to specific content being analyzed (the current section from the document being created unless user indicates otherwise)
-- **Identify personas:** For single or multi-persona methods, clearly identify viewpoints, and use party members if available in memory already
-- **Critical loop behavior:** Always re-offer the 1-5,r,a,x choices after each method execution
-- Continue until user selects 'x' to proceed with enhanced content, confirm or ask the user what should be accepted from the session
-- Each method application builds upon previous enhancements
-- **Content preservation:** Track all enhancements made during elicitation
-- **Iterative enhancement:** Each selected method (1-5) should:
-  1. Apply to the current enhanced version of the content
-  2. Show the improvements made
-  3. Return to the prompt for additional elicitations or completion
+- **Exécution de la méthode :** Utiliser la description du CSV pour comprendre et appliquer chaque méthode
+- **Modèle de sortie (output pattern) :** Utiliser le modèle comme guide flexible (ex : "chemins -> évaluation -> sélection")
+- **Adaptation dynamique :** Ajuster la complexité en fonction des besoins du contenu (de simple à sophistiqué)
+- **Application créative :** Interpréter les méthodes de manière flexible en fonction du contexte tout en maintenant la cohérence du modèle
+- Se concentrer sur des insights actionnables
+- **Rester pertinent :** Lier l'élicitation au contenu spécifique analysé (la section actuelle du document en cours de création à moins que l'utilisateur n'indique le contraire)
+- **Identifier les personas :** Pour les méthodes à un ou plusieurs personas, identifier clairement les points de vue, et utiliser les membres de l'équipe (Party Mode) s'ils sont déjà disponibles en mémoire
+- **Comportement de boucle critique :** Toujours proposer à nouveau les choix 1-5,r,a,x après chaque exécution de méthode
+- Continuer jusqu'à ce que l'utilisateur sélectionne 'x' pour poursuivre avec le contenu amélioré, confirmer ou demander à l'utilisateur ce qui doit être accepté de la session
+- Chaque application de méthode s'appuie sur les améliorations précédentes
+- **Préservation du contenu :** Suivre toutes les améliorations apportées pendant l'élicitation
+- **Amélioration itérative :** Chaque méthode sélectionnée (1-5) doit :
+  1. S'appliquer à la version actuelle améliorée du contenu
+  2. Montrer les améliorations apportées
+  3. Retourner à l'invite pour des élicitations supplémentaires ou la conclusion

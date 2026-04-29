@@ -1,158 +1,158 @@
-# Step 2c: Executive Summary Generation
+# Étape 2c : Génération du Résumé Exécutif (Executive Summary)
 
-**Progress: Step 2c of 13** - Next: Success Criteria
+**Progression : Étape 2c sur 13** - Suivante : Critères de Succès (Success Criteria)
 
-## STEP GOAL:
+## OBJECTIF DE L'ÉTAPE :
 
-Generate the Executive Summary content using insights from classification (step 2) and vision discovery (step 2b), then append it to the PRD document.
+Générer le contenu du Résumé Exécutif en utilisant les idées tirées de la classification (étape 2) et de la découverte de la vision (étape 2b), puis l'ajouter au document PRD.
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-### Universal Rules:
+### Règles Universelles :
 
-- 🛑 NEVER generate content without user input
-- 📖 CRITICAL: Read the complete step file before taking any action
-- 🔄 CRITICAL: When loading next step with 'C', ensure the entire file is read
-- ✅ ALWAYS treat this as collaborative discovery between PM peers
-- 📋 YOU ARE A FACILITATOR, not a content generator
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
-- ✅ YOU MUST ALWAYS WRITE all artifact and document content in `{document_output_language}`
+- 🛑 NE JAMAIS générer de contenu sans l'intervention de l'utilisateur
+- 📖 CRITIQUE : Lisez le fichier d'étape complet avant d'entreprendre toute action
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que le fichier entier est lu
+- ✅ ABORDEZ TOUJOURS cela comme une découverte collaborative entre pairs PM
+- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
 
-### Role Reinforcement:
+### Renforcement du Rôle :
 
-- ✅ You are a product-focused PM facilitator collaborating with an expert peer
-- ✅ We engage in collaborative dialogue, not command-response
-- ✅ Content is drafted collaboratively — present for review before saving
+- ✅ Vous êtes un facilitateur PM (Product Manager) orienté produit collaborant avec un pair expert
+- ✅ Nous nous engageons dans un dialogue collaboratif, pas dans un modèle commande-réponse
+- ✅ Le contenu est rédigé de manière collaborative — présentez-le pour révision avant de le sauvegarder
 
-### Step-Specific Rules:
+### Règles Spécifiques à l'Étape :
 
-- 🎯 Generate Executive Summary content based on discovered insights
-- 💬 Present draft content for user review and refinement before appending
-- 🚫 FORBIDDEN to append content without user approval via 'C'
-- 🎯 Content must be dense, precise, and zero-fluff (PRD quality standards)
+- 🎯 Générez le contenu du Résumé Exécutif sur la base des riches connaissances découvertes
+- 💬 Présentez le brouillon de contenu à l'utilisateur pour révision et affinement avant de l'ajouter
+- 🚫 INTERDICTION absolue d'ajouter du contenu sans l'approbation de l'utilisateur via 'C'
+- 🎯 Le contenu doit être dense, précis et sans aucun remplissage superflu (normes de qualité d'un PRD)
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Show your analysis before taking any action
-- ⚠️ Present A/P/C menu after generating executive summary content
-- 💾 ONLY save when user chooses C (Continue)
-- 📖 Update output file frontmatter, adding this step name to the end of the list of stepsCompleted
-- 🚫 FORBIDDEN to load next step until C is selected
+- 🎯 Montrez votre analyse avant d'entreprendre toute action
+- ⚠️ Présentez le menu A/P/C après avoir généré le contenu du résumé exécutif
+- 💾 Sauvegardez UNIQUEMENT lorsque l'utilisateur choisit C (Continuer)
+- 📖 Mettez à jour le frontmatter du fichier de sortie, en ajoutant le nom de cette étape à la fin de la liste `stepsCompleted`
+- 🚫 INTERDICTION de charger l'étape suivante tant que C n'a pas été sélectionné
 
-## CONTEXT BOUNDARIES:
+## LIMITES DU CONTEXTE :
 
-- Current document and frontmatter from steps 1, 2, and 2b are available
-- Project classification exists from step 2 (project type, domain, complexity, context)
-- Vision and differentiator insights exist from step 2b
-- Input documents from step 1 are available (product briefs, research, brainstorming, project docs)
-- This step generates and appends the first substantive content to the PRD
+- Le document actuel et le frontmatter des étapes 1, 2 et 2b sont disponibles
+- La classification du projet établie à l'étape 2 existe (type de projet, domaine, complexité, contexte)
+- La vision et le trait différenciateur établis à l'étape 2b existent
+- Les documents d'entrée de l'étape 1 sont disponibles (product briefs, recherche, brainstorming, docs du projet)
+- Cette étape génère et ajoute le premier contenu substantiel au sein du PRD
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Draft the Executive Summary section using all discovered insights, present it for user review, and append it to the PRD document when approved.
+Rédiger la section Résumé Exécutif (Executive Summary) en regroupant toutes les informations partagées, la présenter à l'utilisateur pour examen (review), puis - après approbation de sa part - l'ajouter scrupuleusement au document PRD.
 
-## EXECUTIVE SUMMARY GENERATION SEQUENCE:
+## SÉQUENCE DE GÉNÉRATION DU RÉSUMÉ EXÉCUTIF :
 
-### 1. Synthesize Available Context
+### 1. Synthétiser le Contexte Disponible
 
-Review all available context before drafting:
-- Classification from step 2: project type, domain, complexity, project context
-- Vision and differentiator from step 2b: what makes this special, core insight
-- Input documents: product briefs, research, brainstorming, project docs
+Examinez tout le contexte disponible avant la rédaction :
+- La Classification (étape 2) : type de projet, domaine, complexité, contexte (greenfield/brownfield)
+- La vision conceptuelle et le différenciateur clé (étape 2b) : ce qui fait la différence, l'insight fondamental
+- Les documents de référence initiaux (product briefs, recherche, brainstorming, docs de l'architecture/du projet)
 
-### 2. Draft Executive Summary Content
+### 2. Rédiger le Contenu du Résumé Exécutif
 
-Generate the Executive Summary section using the content structure below. Apply PRD quality standards:
-- High information density — every sentence carries weight
-- Zero fluff — no filler phrases or vague language
-- Precise and actionable — clear, specific statements
-- Dual-audience optimized — readable by humans, consumable by LLMs
+Préparez la rubrique du Résumé Exécutif en la calquant strictement sur l'architecture ci-dessous. Appliquez les normes de qualité d'un PRD :
+- Densité d'informations élevée — chaque phrase pèse son poids
+- Zéro remplissage (fluff) — ni circonlocutions, ni verbiage sans fond
+- Précision et aspect exploitable (actionable) — des déclarations brutes et non équivoques
+- Optimisation double horizon (Humain + IA) — assimilable visuellement et formaté mécaniquement pour d'autres LLMs
 
-### 3. Present Draft for Review
+### 3. Présenter le Brouillon pour Examen (Review)
 
-Present the drafted content to the user for review:
+Restituez l'esquisse de cette rédaction à l'entité humaine :
 
-"Here's the Executive Summary I've drafted based on our discovery work. Please review and let me know if you'd like any changes:"
+"Voici l'ébauche de Résumé Exécutif dressée conjointement d'après de nos phases de découverte. Pouvez-vous avaliser cela et/ou me signifier les modifications incontournables ?"
 
-Show the full drafted content using the structure from the Content Structure section below.
+Exposez la totalité de cette tranche en observant rigoureusement l'arborescence requise dans le modèle "Structure du Contenu" (Content Structure) positionné un peu plus bas.
 
-Allow the user to:
-- Request specific changes to any section
-- Add missing information
-- Refine the language or emphasis
-- Approve as-is
+Autorisez formellement l'utilisateur à :
+- Réclamer des amendements dans toute sous-section
+- Rajouter des données oubliées
+- Lisser ou durcir le registre sémantique / les points de focalisation
+- Donner son approbation pure et simple
 
-### N. Present MENU OPTIONS
+### N. Présenter les OPTIONS DU MENU
 
-Present the executive summary content for user review, then display menu:
+Dévoilez le contenu du résumé exécutif pour sa propre relecture, puis affichez le menu de pied de page :
 
-"Here's the Executive Summary for your PRD. Review the content above and let me know what you'd like to do."
+"Voilà votre Résumé Exécutif couché sur le papier en pré-version PRD. Inspectez-le méticuleusement et décidez de la suite."
 
-Display: "**Select:** [A] Advanced Elicitation [P] Party Mode [C] Continue to Success Criteria (Step 3 of 13)"
+Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers les Critères de Succès (Étape 3 sur 13)"
 
-#### Menu Handling Logic:
-- IF A: Invoke the `bmad-advanced-elicitation` skill with the current executive summary content, process the enhanced content that comes back, ask user if they accept the improvements, if yes update content then redisplay menu, if no keep original content then redisplay menu
-- IF P: Invoke the `bmad-party-mode` skill with the current executive summary content, process the collaborative improvements, ask user if they accept the changes, if yes update content then redisplay menu, if no keep original content then redisplay menu
-- IF C: Append the final content to {outputFile}, update frontmatter by adding this step name to the end of the stepsCompleted array, then read fully and follow: ./step-03-success.md
-- IF Any other: help user respond, then redisplay menu
+#### Logique de Gestion du Menu :
+- SI A : Invoquez la compétence `bmad-advanced-elicitation` avec le contenu actuel du résumé exécutif, traitez le contenu enrichi qui en revient, demandez à l'utilisateur s'il accepte les améliorations ; si oui, mettez à jour le contenu puis réaffichez le menu, si non, conservez le contenu d'origine puis réaffichez le menu.
+- SI P : Invoquez la compétence `bmad-party-mode` avec le contenu actuel du résumé exécutif, traitez les améliorations collaboratives, demandez à l'utilisateur s'il accepte les changements ; si oui, mettez à jour le contenu puis réaffichez le menu, si non, conservez le contenu d'origine puis réaffichez le menu.
+- SI C : Ajoutez (append) le contenu final à `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-03-success.md`
+- SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
-#### EXECUTION RULES:
-- ALWAYS halt and wait for user input after presenting menu
-- ONLY proceed to next step when user selects 'C'
-- After other menu items execution, return to this menu
+#### RÈGLES D'EXÉCUTION :
+- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
+- NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
+- Après l'exécution d'autres options du menu, retournez à ce menu
 
-## APPEND TO DOCUMENT:
+## AJOUTER AU DOCUMENT (APPEND) :
 
-When user selects 'C', append the following content structure directly to the document:
+Lorsque l'utilisateur sélectionne 'C', ajoutez (append) la structure de contenu suivante rattachée directement à la suite du document :
 
 ```markdown
-## Executive Summary
+## Résumé Exécutif (Executive Summary)
 
 {vision_alignment_content}
 
-### What Makes This Special
+### Ce Qui Rend Ce Produit Spécial
 
 {product_differentiator_content}
 
-## Project Classification
+## Classification du Projet
 
 {project_classification_content}
 ```
 
-Where:
-- `{vision_alignment_content}` — Product vision, target users, and the problem being solved. Dense, precise summary drawn from step 2b vision discovery.
-- `{product_differentiator_content}` — What makes this product unique, the core insight, and why users will choose it over alternatives. Drawn from step 2b differentiator discovery.
-- `{project_classification_content}` — Project type, domain, complexity level, and project context (greenfield/brownfield). Drawn from step 2 classification.
+Où :
+- `{vision_alignment_content}` — La vision d'ensemble, le public ciblé et la problématique à résoudre. Résumé dense et sans appel extrait de la découverte visionnaire de la phase 2b.
+- `{product_differentiator_content}` — Les atouts irrésistibles, cette perspicacité (core insight) unique qui repousse la concurrence (hérité de la phase 2b).
+- `{project_classification_content}` — Catégorie de la base du projet, son secteur métier/domaine, la matrice de complexité et de contextualisation (greenfield/brownfield). Recueilli à l'étape 2.
 
-## CRITICAL STEP COMPLETION NOTE
+## NOTE CRITIQUE DE FIN D'ÉTAPE
 
-ONLY WHEN [C continue option] is selected and [content appended to document], will you then read fully and follow: `./step-03-success.md` to define success criteria.
+UNIQUEMENT LORSQUE [l'option de continuation C] est sélectionnée et que [le contenu a été ajouté au document], vous lirez alors intégralement et suivrez : `./step-03-success.md` pour définir les critères de réussite.
 
 ---
 
-## 🚨 SYSTEM SUCCESS/FAILURE METRICS
+## 🚨 MÉTRIQUES DE SUCCÈS/ÉCHEC DU SYSTÈME
 
-### ✅ SUCCESS:
+### ✅ SUCCÈS :
 
-- Executive Summary drafted using insights from steps 2 and 2b
-- Content meets PRD quality standards (dense, precise, zero-fluff)
-- Draft presented to user for review before saving
-- User given opportunity to refine content
-- Content properly appended to document when C selected
-- A/P/C menu presented and handled correctly
-- Frontmatter updated with stepsCompleted when C selected
+- Résumé Exécutif ébauché à l'aide des connaissances des étapes 2 et 2b
+- Ce dit contenu fait honneur aux standards d'un authentique PRD (dense, précis, zero-fluff)
+- Le brouillon est soumis à la révision humaine de validation avant sauvegarde
+- L’utilisateur a l'opportunité de parfaire le contenu
+- Le contenu est ajouté au document uniquement sous l'ordre express 'C' !
+- L'encart-menu A/P/C a été généré et suivi fidèlement
+- Le frontmatter `stepsCompleted` est mis à jour suite au choix 'C'
 
-### ❌ SYSTEM FAILURE:
+### ❌ ÉCHEC DU SYSTÈME :
 
-- Generating content without incorporating discovered vision and classification
-- Appending content without user selecting 'C'
-- Producing vague, fluffy, or low-density content
-- Not presenting draft for user review
-- Not presenting A/P/C menu after content generation
-- Skipping directly to next step without appending content
+- Générer tout contenu sans absorber initialement les découvertes classifiées et visionnaires
+- Ajouter illégalement le texte dans le document sans le sésame 'C' humain expressément cliqué !
+- Produire un texte vague, du remplissage ou à faible densité d'informations
+- Court-circuiter l'étape de relecture du brouillon
+- Ne pas présenter le menu A/P/C
+- Passer directement à l'étape suivante sans ajouter le contenu au document
 
-❌ **CRITICAL**: Reading only partial step file - leads to incomplete understanding and poor decisions
-❌ **CRITICAL**: Proceeding with 'C' without fully reading and understanding the next step file
-❌ **CRITICAL**: Making decisions without complete understanding of step requirements and protocols
+❌ **CRITIQUE** : Ne lire qu'une partie du fichier d'étape - cela conduit à une compréhension incomplète et à de mauvaises décisions
+❌ **CRITIQUE** : Poursuivre avec 'C' sans avoir lu intégralement et compris le fichier de l'étape suivante
+❌ **CRITIQUE** : Prendre des décisions sans une compréhension complète des exigences et des protocoles de l'étape
 
-**Master Rule:** Generate high-quality Executive Summary content from discovered insights. Present for review, refine collaboratively, and only save when the user approves. This is the first substantive content in the PRD — it sets the quality bar for everything that follows.
+**Règle Principale :** Générez le Résumé Exécutif de haute qualité depuis le substrat de connaissances pures glanées précédemment. Exposez à la révision d'ensemble, et ne sauvegardez l'ultime relique qu'une fois cet avis de validation solennel humain acquitté. Il concrétise le premier contenu substantiel du PRD ; il fixe la barre de qualité pour tout ce qui suit.

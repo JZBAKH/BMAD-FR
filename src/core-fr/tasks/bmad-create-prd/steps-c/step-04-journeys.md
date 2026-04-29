@@ -1,201 +1,201 @@
-# Step 4: User Journey Mapping
+# Étape 4 : Cartographie du Parcours Utilisateur (User Journey Mapping)
 
-**Progress: Step 4 of 11** - Next: Domain Requirements
+**Progression : Étape 4 sur 11** - Suivante : Exigences du Domaine (Domain Requirements)
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- 🛑 NEVER generate content without user input
+- 🛑 NE JAMAIS générer de contenu sans l'intervention de l'utilisateur
 
-- 📖 CRITICAL: ALWAYS read the complete step file before taking any action - partial understanding leads to incomplete decisions
-- 🔄 CRITICAL: When loading next step with 'C', ensure the entire file is read and understood before proceeding
-- ✅ ALWAYS treat this as collaborative discovery between PM peers
-- 📋 YOU ARE A FACILITATOR, not a content generator
-- 💬 FOCUS on mapping ALL user types that interact with the system
-- 🎯 CRITICAL: No journey = no functional requirements = product doesn't exist
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
-- ✅ YOU MUST ALWAYS WRITE all artifact and document content in `{document_output_language}`
+- 📖 CRITIQUE : Lisez TOUJOURS le fichier d'étape complet avant d'entreprendre toute action - une compréhension partielle entraîne des décisions incomplètes
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que le fichier entier est lu et compris avant de continuer
+- ✅ ABORDEZ TOUJOURS cela comme une découverte collaborative entre pairs PM
+- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
+- 💬 CONCENTREZ-VOUS sur la cartographie de TOUS les types d'utilisateurs qui interagissent avec le système
+- 🎯 CRITIQUE : Pas de parcours = pas d'exigences fonctionnelles = le produit n'existe pas
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Show your analysis before taking any action
-- ⚠️ Present A/P/C menu after generating journey content
-- 💾 ONLY save when user chooses C (Continue)
-- 📖 Update output file frontmatter, adding this step name to the end of the list of stepsCompleted
-- 🚫 FORBIDDEN to load next step until C is selected
+- 🎯 Montrez votre analyse avant d'entreprendre toute action
+- ⚠️ Présentez le menu A/P/C après avoir généré le contenu du parcours
+- 💾 Sauvegardez UNIQUEMENT lorsque l'utilisateur choisit C (Continuer)
+- 📖 Mettez à jour le frontmatter du fichier de sortie, en ajoutant le nom de cette étape à la fin de la liste `stepsCompleted`
+- 🚫 INTERDICTION de charger l'étape suivante tant que C n'a pas été sélectionné
 
-## CONTEXT BOUNDARIES:
+## LIMITES DU CONTEXTE :
 
-- Current document and frontmatter from previous steps are available
-- Success criteria and scope already defined
-- Input documents from step-01 are available (product briefs with user personas)
-- Every human interaction with the system needs a journey
+- Le document actuel et le frontmatter des étapes précédentes sont disponibles
+- Les critères de succès et le périmètre (scope) ont déjà été définis
+- Les documents d'entrée (input documents) de `step-01` sont disponibles (product briefs contenant des personas d'utilisateurs)
+- Chaque interaction humaine avec le système nécessite un parcours (journey)
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Create compelling narrative user journeys that leverage existing personas from product briefs and identify additional user types needed for comprehensive coverage.
+Créer des parcours utilisateurs (user journeys) narratifs captivants qui tirent parti des personas existants issus des product briefs, et identifier les types d'utilisateurs supplémentaires nécessaires pour une couverture exhaustive.
 
-## JOURNEY MAPPING SEQUENCE:
+## SÉQUENCE DE CARTOGRAPHIE DES PARCOURS :
 
-### 1. Leverage Existing Users & Identify Additional Types
+### 1. Tirer Parti des Utilisateurs Existants & Identifier des Types Supplémentaires
 
-**Check Input Documents for Existing Personas:**
-Analyze product brief, research, and brainstorming documents for user personas already defined.
+**Vérifier les Documents d'Entrée pour les Personas Existants :**
+Analysez le product brief, les recherches, et les documents de brainstorming à la recherche de personas utilisateurs déjà définis.
 
-**If User Personas Exist in Input Documents:**
-Guide user to build on existing personas:
-- Acknowledge personas found in their product brief
-- Extract key persona details and backstories
-- Leverage existing insights about their needs
-- Prompt to identify additional user types beyond those documented
-- Suggest additional user types based on product context (admins, moderators, support, API consumers, internal ops)
-- Ask what additional user types should be considered
+**Si des Personas Utilisateurs Existent dans les Documents d'Entrée :**
+Guidez l'utilisateur pour construire sur la base des personas existants :
+- Reconnaissez les personas trouvés dans son product brief
+- Extrayez les détails clés du persona et son histoire personnelle (backstory)
+- Tirez parti des informations (insights) existantes concernant ses besoins
+- Incitez à identifier d'autres types d'utilisateurs (user types) au-delà de ceux documentés
+- Suggérez des types d'utilisateurs additionnels en fonction du contexte du produit (administrateurs, modérateurs, support, consommateurs d'API, opérations internes)
+- Demandez quels types d'utilisateurs supplémentaires devraient être pris en compte
 
-**If No Personas in Input Documents:**
-Start with comprehensive user type discovery:
-- Guide exploration of ALL people who interact with the system
-- Consider beyond primary users: admins, moderators, support staff, API consumers, internal ops
-- Ask what user types should be mapped for this specific product
-- Ensure comprehensive coverage of all system interactions
+**Si Aucun Persona dans les Documents d'Entrée :**
+Commencez par une découverte exhaustive des types d'utilisateurs :
+- Guidez l'exploration de TOUTES les personnes qui interagissent avec le système
+- Considérez au-delà des utilisateurs primaires : administrateurs, modérateurs, personnel de support, consommateurs d'API, opérations internes
+- Demandez quels types d'utilisateurs devraient être cartographiés pour ce produit spécifique
+- Assurez une couverture exhaustive de toutes les interactions avec le système
 
-### 2. Create Narrative Story-Based Journeys
+### 2. Créer des Parcours Narratifs Basés sur des Histoires
 
-For each user type, create compelling narrative journeys that tell their story:
+Pour chaque type d'utilisateur, créez des parcours narratifs captivants qui racontent leur histoire :
 
-#### Narrative Journey Creation Process:
+#### Processus de Création de Parcours Narratif :
 
-**If Using Existing Persona from Input Documents:**
-Guide narrative journey creation:
-- Use persona's existing backstory from brief
-- Explore how the product changes their life/situation
-- Craft journey narrative: where do we meet them, how does product help them write their next chapter?
+**Si vous utilisez un Persona Existant issu des Documents d'Entrée :**
+Guidez la création du parcours narratif :
+- Utilisez l'histoire personnelle (backstory) existante du persona issue du brief
+- Explorez comment le produit change sa vie/sa situation
+- Élaborez un récit (narrative) de parcours : où les rencontrons-nous, comment le produit les aide-t-il à écrire leur prochain chapitre ?
 
-**If Creating New Persona:**
-Guide persona creation with story framework:
-- Name: realistic name and personality
-- Situation: What's happening in their life/work that creates need?
-- Goal: What do they desperately want to achieve?
-- Obstacle: What's standing in their way?
-- Solution: How does the product solve their story?
+**Si vous créez un Nouveau Persona :**
+Guidez la création du persona avec un cadre narratif (story framework) :
+- Nom : nom réaliste et personnalité
+- Situation : Que se passe-t-il dans leur vie/travail qui crée ou engendre le besoin ?
+- Objectif : Que veulent-ils désespérément accomplir (ou obtenir) ?
+- Obstacle : Qu'est-ce qui se dresse sur leur chemin ?
+- Solution : De quelle façon pure (pure) l'orchestration mécanique globale de cette machinerie résout-elle leur histoire ?
 
-**Story-Based Journey Mapping:**
+**Cartographie de Parcours Basée sur une Histoire (Story-Based Journey Mapping) :**
 
-Guide narrative journey creation using story structure:
-- **Opening Scene**: Where/how do we meet them? What's their current pain?
-- **Rising Action**: What steps do they take? What do they discover?
-- **Climax**: Critical moment where product delivers real value
-- **Resolution**: How does their situation improve? What's their new reality?
+Guidez la création du parcours narratif en utilisant la structure classique d'une histoire :
+- **Scène d'Ouverture (Opening Scene)** : Où/comment les rencontrons-nous ? Quelle est leur douleur actuelle ?
+- **Action Ascendante (Rising Action)** : Quelles étapes franchissent-ils ? Que découvrent-ils ?
+- **Climax** : L'instant critique où le produit délivre (ou crée) la véritable valeur
+- **Résolution (Resolution)** : Comment leur situation s'améliore-t-elle ? Quelle est leur nouvelle réalité ?
 
-Encourage narrative format with specific user details, emotional journey, and clear before/after contrast
+Encouragez le format narratif renfermant des reliefs tangibles, l'arc émotionnel complet de l'utilisateur, un contraste (avant/après) totalement cristallin.
 
-### 3. Guide Journey Exploration
+### 3. Guider l'Exploration du Parcours
 
-For each journey, facilitate detailed exploration:
-- What happens at each step specifically?
-- What could go wrong? What's the recovery path?
-- What information do they need to see/hear?
-- What's their emotional state at each point?
-- Where does this journey succeed or fail?
+Pour chaque parcours scindé, facilitez l'exploration détaillée :
+- Que se passe-t-il de façon ponctuelle (étape par étape) à chaque embranchement micro ?
+- Que se passera-t-il si tout tourne mal/de travers ? Quel est le chemin de rattrapage/récupération face aux échecs (error recovery path) ?
+- Quelles informations nécessitent-ils de devoir scruter visuellement (ou entendre) ?
+- Quel est l'état émotionnel prédominant dont il témoignera durant toutes les sections de ce cap ?
+- Où spécifiquement chaque route réussit son enrôlement et où celle-ci chute/échoue le test fatidique ?
 
-### 4. Connect Journeys to Requirements
+### 4. Connecter les Parcours aux Exigences (Requirements)
 
-After each journey, explicitly state:
-- This journey reveals requirements for specific capability areas
-- Help user see how different journeys create different feature sets
-- Connect journey needs to concrete capabilities (onboarding, dashboards, notifications, etc.)
+Dans le sillage/traînée de chaque route narrative majeure établie ; annoncez expressément :
+- Que les chemins narratifs dégagent et révèlent d'emblée des nécessités vitales pures appelées ou catégorisées 'capacité' (fonctions informatiques, capacités réelles sous le moteur)
+- Aidez le concepteur à anticiper comment deux aventures ou voies diverses engendreraient en coulisses des configurations et boîtes fonctionnelles (feature sets) disparates
+- Fusionnez d'un raccord fort un besoin abstrait purement scénarisé par ceux-ci aux éléments concrets obligés d'exister en arrière plan (Onboarding en temps réel, matrices de tableaux de bord ou dashboards en direct, les envois massifs de notifications croisées...)
 
-### 5. Aim for Comprehensive Coverage
+### 5. Viser une Couverture Exhaustive
 
-Guide toward complete journey set:
+Guidez vers un répertoire formel de parcours à grand horizon de complétion absolue :
 
-- **Primary user** - happy path (core experience)
-- **Primary user** - edge case (different goal, error recovery)
-- **Secondary user** (admin, moderator, support, etc.)
-- **API consumer** (if applicable)
+- **Utilisateur Principal (Primary User)** - Poussée victorieuse en trame rectiligne dorée (Chemin Critique idéal / happy path complet)
+- **Utilisateur Principal (Primary User)** - Poussée avec embardée technique inattendue (Cas Exceptionnel ou limite / edge case impliquant de purs rattrapages vitaux de récupération : Error recovery)
+- **Acteur Secondaire (Secondary user)** (Administration suprême, juges/modérateurs, employés supports chargés des rétablissements)
+- **Consommateur d'API (API Consumer)** (S'il est inhérent que de puissants protocoles de transfert sans interface physique régiront tout en aval/amont du public développeur - si applicable)
 
-Ask if additional journeys are needed to cover uncovered user types
+Questionnez sur la nécessité optionnelle mais fréquente d'adjoindre certains usagers obscurs dont les actes échappent aux filtres mais requièrent impérieusement un balisage.
 
-### 6. Generate User Journey Content
+### 6. Générer le Contenu du Parcours Utilisateur
 
-Prepare the content to append to the document:
+Préparez le contenu synthétique pour l'ajouter au fichier (append).
 
-#### Content Structure:
+#### Structure du Contenu :
 
-When saving to document, append these Level 2 and Level 3 sections:
+Lors de la sauvegarde finale (save), incrustez en suite du document ces balisages exacts des niveaux 2 (`##`) et 3 (`###`) :
 
 ```markdown
-## User Journeys
+## Parcours Utilisateurs (User Journeys)
 
-[All journey narratives based on conversation]
+[L'énumération narrative exhaustive des cycles épiques complets générés à partir de notre exploration orale partagée]
 
-### Journey Requirements Summary
+### Résumé des Exigences des Parcours (Journey Requirements Summary)
 
-[Summary of capabilities revealed by journeys based on conversation]
+[Récapitulatif structuré des grandes capacités et fonctionnalités techniques induites et déduites par la trame des parcours scénarisés !]
 ```
 
-### 7. Present MENU OPTIONS
+### 7. Présenter les OPTIONS DU MENU
 
-Present the user journey content for review, then display menu:
-- Show the mapped user journeys (using structure from section 6)
-- Highlight how each journey reveals different capabilities
-- Ask if they'd like to refine further, get other perspectives, or proceed
-- Present menu options naturally as part of conversation
+Présentez le contenu du parcours utilisateur pour revue, puis affichez le menu :
+- Affichez les parcours utilisateurs cartographiés (en utilisant la structure de la section 6)
+- Soulignez (Mettez en valeur) la manière dont chaque parcours révèle de nouvelles capacités
+- Demandez s'il souhaite peaufiner le tout, s'adjuger des yeux ou avis tiers, ou poursuivre
+- Proposez la mécanique du menu sous une prose naturelle au sein d'une conversation standard
 
-Display: "**Select:** [A] Advanced Elicitation [P] Party Mode [C] Continue to Domain Requirements (Step 5 of 11)"
+Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers les Exigences du Domaine (Étape 5 sur 11)"
 
-#### Menu Handling Logic:
-- IF A: Invoke the `bmad-advanced-elicitation` skill with the current journey content, process the enhanced journey insights that come back, ask user "Accept these improvements to the user journeys? (y/n)", if yes update content with improvements then redisplay menu, if no keep original content then redisplay menu
-- IF P: Invoke the `bmad-party-mode` skill with the current journeys, process the collaborative journey improvements and additions, ask user "Accept these changes to the user journeys? (y/n)", if yes update content with improvements then redisplay menu, if no keep original content then redisplay menu
-- IF C: Append the final content to {outputFile}, update frontmatter by adding this step name to the end of the stepsCompleted array, then read fully and follow: ./step-05-domain.md
-- IF Any other: help user respond, then redisplay menu
+#### Logique de Gestion du Menu :
+- SI A : Invoquez la compétence `bmad-advanced-elicitation` avec le contenu du parcours actuel, traitez les idées/découvertes améliorées qui en reviennent, demandez à l'utilisateur : "Accepter ces améliorations pour les parcours utilisateurs ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
+- SI P : Invoquez la compétence `bmad-party-mode` avec les parcours actuels, traitez les ajouts et les améliorations collaboratifs sur les parcours, demandez à l'utilisateur : "Accepter ces changements dans les parcours utilisateurs ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
+- SI C : Ajoutez (append) le contenu final à `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-05-domain.md`
+- SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
-#### EXECUTION RULES:
-- ALWAYS halt and wait for user input after presenting menu
-- ONLY proceed to next step when user selects 'C'
-- After other menu items execution, return to this menu
+#### RÈGLES D'EXÉCUTION :
+- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
+- NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
+- Après l'exécution d'autres options du menu, retournez à ce menu
 
-## APPEND TO DOCUMENT:
+## AJOUTER AU DOCUMENT (APPEND) :
 
-When user selects 'C', append the content directly to the document using the structure from step 6.
+Lorsque l'utilisateur sélectionne 'C', ajoutez le contenu directement au document en respectant absolument les calques rigides et structures fixes du point #6.
 
-## SUCCESS METRICS:
+## MÉTRIQUES DE RÉUSSITE (SUCCESS METRICS) :
 
-✅ Existing personas from product briefs leveraged when available
-✅ All user types identified (not just primary users)
-✅ Rich narrative storytelling for each persona and journey
-✅ Complete story-based journey mapping with emotional arc
-✅ Journey requirements clearly connected to capabilities needed
-✅ Minimum 3-4 compelling narrative journeys covering different user types
-✅ A/P/C menu presented and handled correctly
-✅ Content properly appended to document when C selected
+✅ Les personas utilisateurs extraits en partie via nos analyses profondes initialisées sous formes de briefs ont bien servi lors de ladite consultation commune en qualité de rampe d'appui
+✅ Tous les utilisateurs impliqués/visés de loin ne s'égarèrent point aux limbes (pas uniquement l'usager cible standard prioritaire)
+✅ Story-telling pur à valeur cinématographique narré brillamment : Persona affûtés ou calibrés, doutes transcrits au grand livre des parcours !
+✅ Cartographie totale et étanche d'un périple incluant obligatoirement un schéma des émotions du personnage (Tensions, Extases, Plénitudes)
+✅ Rattachement direct ou mapping complet/connexions entières des récits contés et du besoin en code / capacités derrière soi en réplique
+✅ Pas moins de 3 à 4 scénarios d'excellence pur et brut englobant et brossant sans appel les visages/variantes phares d'un éventail complet de public divers d'utilisateurs distincts.
+✅ Le menu A/P/C présenté et géré correctement
+✅ Le contenu a été inséré à l'édifice par append au feu vert 'C' de son maître/son superviseur Humain propre
 
-## FAILURE MODES:
+## MODES D'ÉCHEC (FAILURE MODES) :
 
-❌ Ignoring existing personas from product briefs
-❌ Only mapping primary user journeys and missing secondary users
-❌ Creating generic journeys without rich persona details and narrative
-❌ Missing emotional storytelling elements that make journeys compelling
-❌ Missing critical decision points and failure scenarios
-❌ Not connecting journeys to required capabilities
-❌ Not having enough journey diversity (admin, support, API, etc.)
-❌ Not presenting A/P/C menu after content generation
-❌ Appending content without user selecting 'C'
+❌ Ignorer les personas/acteurs de base déja émaillés et présents sur le product brief (Omission coupable)
+❌ Traiter l'utilisateur prédominant avec tant de superbe que toutes traces ou parcours des rouages silencieux (acteurs secondaires) tombent à l'eau définitivement
+❌ Coucher froidement sur le clavier des scenarii d'un terne fade au point d'en faire évader n'importe quel être humain (Manque absolu de la consistance/background enrichi sur les personnages formels).
+❌ Esquinter toute présence émotive d'usager et des repérages du cœur même dudit acheminement et évasion via le produit conçu
+❌ Supprimer les barrières de décisions et ignorer totalement qu'il exista une route désignée : "L'échec cuisant ou un contournement à prévoir."
+❌ Briser la corrélation obligatoire/passerelle indéfectible unissant ladite légende contée ci-haut directement à ses besoins imminents d'appuis technologiques derrière (connexion aux capacités).
+❌ Limite affligeante : Aucun horizon ni diversification/foisonnement d'usagers en vue (Aucun admins, aucun usager désœuvré voulant rejoindre l'assistance, ni un ingénieur sur un bout d'API !).
+❌ Omis de faire germer impalpablement ce saint menu de commandement A/P/C final à chaque seuil de génération/parution.
+❌ Annexer au grand manuscrit la totalité des parcours générés sans aval formel validateur d'option 'C'.
 
-❌ **CRITICAL**: Reading only partial step file - leads to incomplete understanding and poor decisions
-❌ **CRITICAL**: Proceeding with 'C' without fully reading and understanding the next step file
-❌ **CRITICAL**: Making decisions without complete understanding of step requirements and protocols
+❌ **CRITIQUE** : Ne lire qu'une partie du fichier d'étape - cela conduit à une compréhension incomplète et à de mauvaises décisions
+❌ **CRITIQUE** : Poursuivre avec 'C' sans avoir lu intégralement et compris le fichier de l'étape suivante
+❌ **CRITIQUE** : Prendre des décisions sans une compréhension complète des exigences et des protocoles de l'étape
 
-## JOURNEY TYPES TO ENSURE:
+## TYPES DE PARCOURS À GARANTIR :
 
-**Minimum Coverage:**
+**Couverture Minimale :**
 
-1. **Primary User - Success Path**: Core experience journey
-2. **Primary User - Edge Case**: Error recovery, alternative goals
-3. **Admin/Operations User**: Management, configuration, monitoring
-4. **Support/Troubleshooting**: Help, investigation, issue resolution
-5. **API/Integration** (if applicable): Developer/technical user journey
+1. **Utilisateur Principal - Voie du Succès (Primary User - Success Path)** : Expérience centrale (Core experience journey)
+2. **Utilisateur Principal - Cas Exceptionnel (Primary User - Edge Case)** : Récupération d'erreur (Error recovery), objectifs alternatifs
+3. **Pôle Dirigeant (Admin/Operations User)** : Gestion, configuration, surveillance (monitoring)
+4. **Support/Dépannage (Support/Troubleshooting)** : Assistance, investigation, résolution des problèmes
+5. **Intégration/API (API/Integration)** (si applicable) : Parcours de l'utilisateur technique/développeur
 
-## NEXT STEP:
+## ÉTAPE SUIVANTE :
 
-After user selects 'C' and content is saved to document, load `./step-05-domain.md`.
+Après que l'utilisateur a sélectionné 'C' et que le contenu a été sauvegardé dans le document, chargez `./step-05-domain.md`.
 
-Remember: Do NOT proceed to step-05 until user explicitly selects 'C' from the A/P/C menu and content is saved!
+N'oubliez pas : Ne passez PAS à l'étape `step-05` tant que l'utilisateur n'a pas explicitement sélectionné 'C' dans le menu A/P/C et que le contenu n'est pas sauvegardé !

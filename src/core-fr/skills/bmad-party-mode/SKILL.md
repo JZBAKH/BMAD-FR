@@ -1,6 +1,6 @@
 ---
 name: bmad-party-mode
-description: 'Orchestrates group discussions between all installed BMAD agents, enabling natural multi-agent conversations. Use when user requests party mode.'
+description: "Orchestre des discussions de groupe entre tous les agents BMAD installés, permettant des conversations naturelles multi-agents. À utiliser lorsque l''utilisateur demande le mode party (party mode)."
 ---
 
-Follow the instructions in [workflow.md](workflow.md).
+Suivez les instructions dans [workflow.md](workflow.md).

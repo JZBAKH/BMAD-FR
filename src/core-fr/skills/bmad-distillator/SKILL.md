@@ -1,178 +1,178 @@
 ---
 name: bmad-distillator
-description: Lossless LLM-optimized compression of source documents. Use when the user requests to 'distill documents' or 'create a distillate'.
-argument-hint: "[to create provide input paths] [--validate distillate-path to confirm distillate is lossless and optimized]"
+description: Compression sans perte de documents sources optimisée pour les LLM. À utiliser lorsque l'utilisateur demande de 'distiller des documents' ou 'confectionner un distillat'.
+argument-hint: "[pour créer, fournir des chemins d'entrée] [--validate distillate-path pour confirmer que le distillat est sans perte et optimisé]"
 ---
 
-# Distillator: A Document Distillation Engine
+# Distillator : Un Moteur de Distillation de Documents
 
-## Overview
+## Vue d'Ensemble
 
-This skill produces hyper-compressed, token-efficient documents (distillates) from any set of source documents. A distillate preserves every fact, decision, constraint, and relationship from the sources while stripping all overhead that humans need and LLMs don't. Act as an information extraction and compression specialist. The output is a single dense document (or semantically-split set) that a downstream LLM workflow can consume as sole context input without information loss.
+Cette compétence produit des documents hyper-compressés, efficaces en termes de tokens (distillats), à partir de n'importe quel ensemble de documents sources. Un distillat préserve chaque fait, décision, contrainte et relation des sources tout en éliminant toutes les surcharges dont les humains ont besoin et que les LLMs n'utilisent pas. Agissez comme un spécialiste de l'extraction et de la compression de l'information. La sortie est un seul document dense (ou un ensemble fragmenté sémantiquement) qu'un workflow ou un Agent LLM en aval peut consommer comme unique entrée de contexte sans déperdition d'information.
 
-This is a compression task, not a summarization task. Summaries are lossy. Distillates are lossless compression optimized for LLM consumption.
+Il s'agit d'une tâche de compression, non pas de résumé. Les résumés sont destructifs (lossy). Les distillats constituent une compression sans perte (lossless) finement réglée pour la consommation des LLM.
 
-## On Activation
+## À l'Activation
 
-1. **Validate inputs.** The caller must provide:
-   - **source_documents** (required) — One or more file paths, folder paths, or glob patterns to distill
-   - **downstream_consumer** (optional) — What workflow/agent consumes this distillate (e.g., "PRD creation", "architecture design"). When provided, use it to judge signal vs noise. When omitted, preserve everything.
-   - **token_budget** (optional) — Approximate target size. When provided and the distillate would exceed it, trigger semantic splitting.
-   - **output_path** (optional) — Where to save. When omitted, save adjacent to the primary source document with `-distillate.md` suffix.
-   - **--validate** (flag) — Run round-trip reconstruction test after producing the distillate.
+1. **Valider les entrées.** L'appelant doit fournir :
+   - **source_documents** (requis) — Un ou plusieurs chemins de fichiers, chemins de dossiers ou motifs glob à distiller
+   - **downstream_consumer** (optionnel) — Quel workflow/Agent consomme ce distillat (ex. "création de PRD", "design d'architecture"). Lorsqu'il est fourni, utilisez-le pour juger le signal par rapport au bruit. S'il est omis, préservez tout.
+   - **token_budget** (optionnel) — Taille cible approximative. S'il est fourni et que le distillat le dépasse, déclenchez le fractionnement sémantique.
+   - **output_path** (optionnel) — Où enregistrer. S'il est omis, enregistrez à côté du document source principal avec le suffixe `-distillate.md`.
+   - **--validate** (flag) — Exécutez un test de reconstruction en cycle complet après avoir produit le distillat.
 
-2. **Route** — proceed to Stage 1.
+2. **Routage** — passez au Stade 1.
 
-## Stages
+## Stades
 
-| # | Stage | Purpose |
+| # | Stade | Objectif |
 |---|-------|---------|
-| 1 | Analyze | Run analysis script, determine routing and splitting |
-| 2 | Compress | Spawn compressor agent(s) to produce the distillate |
-| 3 | Verify & Output | Completeness check, format check, save output |
-| 4 | Round-Trip Validate | (--validate only) Reconstruct and diff against originals |
+| 1 | Analyser | Exécuter le script d'analyse, déterminer le routage et le découpage |
+| 2 | Compresser | Lancer le(s) sous-Agent(s) compresseur(s) pour produire le distillat |
+| 3 | Vérifier & Exporter | Contrôle d'exhaustivité, contrôle de format, enregistrement de la sortie |
+| 4 | Valider le Cycle Complet | (uniquement --validate) Reconstruire et comparer avec les originaux |
 
-### Stage 1: Analyze
+### Stade 1 : Analyser
 
-Run `scripts/analyze_sources.py --help` then run it with the source paths. Use its routing recommendation and grouping output to drive Stage 2. Do NOT read the source documents yourself.
+Exécutez `scripts/analyze_sources.py --help` puis exécutez-le avec les chemins sources. Utilisez ses recommandations de routage et ses sorties de regroupement pour piloter le Stade 2. NE LISEZ PAS les documents sources vous-même.
 
-### Stage 2: Compress
+### Stade 2 : Compresser
 
-**Single mode** (routing = `"single"`, ≤3 files, ≤15K estimated tokens):
+**Mode unique (single)** (routage = `"single"`, ≤3 fichiers, ≤15 000 tokens estimés) :
 
-Spawn one subagent using `agents/distillate-compressor.md` with all source file paths.
+Générez un sous-Agent en utilisant `agents/distillate-compressor.md` avec l'ensemble des chemins des fichiers sources.
 
-**Fan-out mode** (routing = `"fan-out"`):
+**Mode dispersion (fan-out)** (routage = `"fan-out"`) :
 
-1. Spawn one compressor subagent per group from the analysis output. Each compressor receives only its group's file paths and produces an intermediate distillate.
+1. Générez un sous-Agent compresseur par groupe issu de la sortie d'analyse. Chaque compresseur ne reçoit que les chemins de fichiers de son groupe et crée un distillat intermédiaire.
 
-2. After all compressors return, spawn one final **merge compressor** subagent using `agents/distillate-compressor.md`. Pass it the intermediate distillate contents as its input (not the original files). Its job is cross-group deduplication, thematic regrouping, and final compression.
+2. Une fois tous les compresseurs revenus, générez un sous-Agent ultime **merge compressor** utilisant `agents/distillate-compressor.md`. Passez-lui le contenu des distillats intermédiaires comme entrée (et non les fichiers originaux). Son travail est la déduplication inter-groupes, le regroupement thématique et la compression finale.
 
-3. Clean up intermediate distillate content (it exists only in memory, not saved to disk).
+3. Nettoyez le contenu du distillat intermédiaire (il n'existe qu'en mémoire, sans sauvegarde sur disque).
 
-**Graceful degradation:** If subagent spawning is unavailable, read the source documents and perform the compression work directly using the same instructions from `agents/distillate-compressor.md`. For fan-out, process groups sequentially then merge.
+**Dégradation gracieuse :** Si le lancement d'un sous-Agent est indisponible, lisez les documents sources et effectuez le travail de compression directement en suivant les mêmes instructions venant de `agents/distillate-compressor.md`. Pour le fan-out, traitez les groupes séquentiellement puis fusionnez.
 
-The compressor returns a structured JSON result containing the distillate content, source headings, named entities, and token estimate.
+Le compresseur renvoie un résultat structuré en JSON incluant le contenu du distillat, les titres sources, les entités nommées et une estimation de tokens.
 
-### Stage 3: Verify & Output
+### Stade 3 : Vérifier & Exporter
 
-After the compressor (or merge compressor) returns:
+Après le retour du compresseur (ou compresseur fusionneur) :
 
-1. **Completeness check.** Using the headings and named entities list returned by the compressor, verify each appears in the distillate content. If gaps are found, send them back to the compressor for a targeted fix pass — not a full recompression. Limit to 2 fix passes maximum.
+1. **Vérification d'exhaustivité.** En vous basant sur la liste des titres et entités nommées rendue par le compresseur, actez que chaque élément apparaît dans le contenu du distillat. En cas de manque constaté, rétroagissez auprès du compresseur pour un passage correctif ciblé — pas une re-compression entière. Limité à un maximum de 2 passes correctives.
 
-2. **Format check.** Verify the output follows distillate format rules:
-   - No prose paragraphs (only bullets)
-   - No decorative formatting
-   - No repeated information
-   - Each bullet is self-contained
-   - Themes are clearly delineated with `##` headings
+2. **Vérification de format.** Assurez-vous que le rendu final observe bien le règlement de conception du distillat :
+   - Pas de paragraphes en prose (uniquement des puces)
+   - Aucune mise en forme décorative
+   - Pas d'éléments redondants
+   - Chaque ligne/point est autosuffisant
+   - Les domaines thématiques s'adossent scrupuleusement aux titres (headings) en `##`
 
-3. **Determine output format.** Using the split prediction from Stage 1 and actual distillate size:
+3. **Détermination du format d'exportation.** En associant les anticipations de division (Stade 1) à l'envergure confirmée du rendu :
 
-   **Single distillate** (≤~5,000 tokens or token_budget not exceeded):
+   **Distillat unique** (≤~5 000 tokens ou un paramètre token_budget maintenu intact) :
 
-   Save as a single file with frontmatter:
+   Enregistrez sous la forme d'un simple fichier en y greffant le frontmatter :
 
    ```yaml
    ---
    type: bmad-distillate
    sources:
-     - "{relative path to source file 1}"
-     - "{relative path to source file 2}"
-   downstream_consumer: "{consumer or 'general'}"
-   created: "{date}"
-   token_estimate: {approximate token count}
+     - "{chemin relatif vers fichier source 1}"
+     - "{chemin relatif vers fichier source 2}"
+   downstream_consumer: "{consommateur ou 'general'}"
+   created: "{{date}}"
+   token_estimate: {estimation indicative en tokens}
    parts: 1
    ---
    ```
 
-   **Split distillate** (>~5,000 tokens, or token_budget requires it):
+   **Distillat fragmenté** (>~5 000 tokens, ou imposé par le token_budget) :
 
-   Create a folder `{base-name}-distillate/` containing:
+   Aménagez un sous-dossier `{base-name}-distillate/` embarquant :
 
    ```
    {base-name}-distillate/
-   ├── _index.md           # Orientation, cross-cutting items, section manifest
-   ├── 01-{topic-slug}.md  # Self-contained section
+   ├── _index.md           # Clés, axes transversaux, descriptif des sections (manifest)
+   ├── 01-{topic-slug}.md  # Tronçon monolithique
    ├── 02-{topic-slug}.md
    └── 03-{topic-slug}.md
    ```
 
-   The `_index.md` contains:
-   - Frontmatter with sources (relative paths from the distillate folder to the originals)
-   - 3-5 bullet orientation (what was distilled, from what)
-   - Section manifest: each section's filename + 1-line description
-   - Cross-cutting items that span multiple sections
+   Le fichier `_index.md` détient :
+   - Frontmatter agrégeant sources (accès relatifs reliant au dossier du distillat jusqu'aux bases d'origine)
+   - Accompagnement en 3-5 traits pour l'orientation (ce qui a été épuré/et sa provenance)
+   - Manifest des volets de découpe : intitulé de fichier par tronçon + bref résumé (1 ligne)
+   - Considérations transversales englobant ou débordant plusieurs unités segmentées
 
-   Each section file is self-contained — loadable independently. Include a 1-line context header: "This section covers [topic]. Part N of M."
+   Chaque sous-section fait office de format clos — sollicitable unitairement. Munissez les extraits d'une brève estampille liminaire formatée : "This section covers [topic]. Part N of M."
 
-   Source paths in frontmatter must be relative to the distillate's location.
+   Les liens sources logés via frontmatter répondront impérativement à des trajectoires localisées au regard du socle du distillat.
 
-4. **Measure distillate.** Run `scripts/analyze_sources.py` on the final distillate file(s) to get accurate token counts for the output. Use the `total_estimated_tokens` from this analysis as `distillate_total_tokens`.
+4. **Mesurer le distillat.** Assurez le passage de l'exécutif `scripts/analyze_sources.py` sur ce/ces fichier(s) du rendu propre final de sorte d'obtenir la bonne métrique "token" visée à l'export. Retenez la mention de la sortie `total_estimated_tokens` livrée comme valeur globale indexée pour `distillate_total_tokens`.
 
-5. **Report results.** Always return structured JSON output:
+5. **Remettre vos conclusions.** Retournez immanquablement un constat sous encodage JSON organisé :
 
    ```json
    {
      "status": "complete",
-     "distillate": "{path or folder path}",
-     "section_distillates": ["{path1}", "{path2}"] or null,
+     "distillate": "{chemin fichier ou chemin répertoire}",
+     "section_distillates": ["{chemin1}", "{chemin2}"] ou null,
      "source_total_tokens": N,
      "distillate_total_tokens": N,
      "compression_ratio": "X:1",
-     "source_documents": ["{path1}", "{path2}"],
-     "completeness_check": "pass" or "pass_with_additions"
+     "source_documents": ["{chemin1}", "{chemin2}"],
+     "completeness_check": "pass" ou "pass_with_additions"
    }
    ```
 
-   Where `source_total_tokens` is from the Stage 1 analysis and `distillate_total_tokens` is from step 4. The `compression_ratio` is `source_total_tokens / distillate_total_tokens` formatted as "X:1" (e.g., "3.2:1").
+   Où `source_total_tokens` traduit le verdict initial à l'analyse (Stade 1) et `distillate_total_tokens` la captation du pas numéro 4. Cet indicateur de ratio `compression_ratio` s'observe par : `source_total_tokens / distillate_total_tokens` mis en page par la déclinaison formelle "X:1" (ex: "3.2:1").
 
-6. If `--validate` flag was set, proceed to Stage 4. Otherwise, done.
+6. Si la clé de lancement signalait `--validate`, passez sans délai au Stade 4. Sinon, l'activité s'achève ici.
 
-### Stage 4: Round-Trip Validation (--validate only)
+### Stade 4 : Validation en Cycle Complet (--validate uniquement)
 
-This stage proves the distillate is lossless by reconstructing source documents from the distillate alone. Use for critical documents where information loss is unacceptable, or as a quality gate for high-stakes downstream workflows. Not for routine use — it adds significant token cost.
+Ce process valide par un tour probatoire le maintien du distillat comme porteur sans perte puisque l'idée consiste à recomposer une abstraction du fond depuis cet unique extrait allégé. Sollicité particulièrement sur de la donnée dont le degré de préjudice (pour lacune info) excède des normes, ou faisant figure de filtre de très haute instance lié aux travaux d'un workflow critique aval. Non prescrit sur de l'usage classique du quotidien — ajout non anodin lié à la facturation des tokens par sollicitation du sous-Agent dédié.
 
-1. **Spawn the reconstructor agent** using `agents/round-trip-reconstructor.md`. Pass it ONLY the distillate file path (or `_index.md` path for split distillates) — it must NOT have access to the original source documents.
+1. **Lancez un Agent reconstructeur** en chargeant `agents/round-trip-reconstructor.md`. Veillez formellement à relayer de manière stricte et EXCLUSIVE l'unique pont au fichier épuré/distillat (ou chemin sur le socle `_index.md` en format splitté) — ledit agent est absolument tenu sous secret au demeurant par rapport au document originel dont les traces et données ont été édictées puis purgées !
 
-   For split distillates, spawn one reconstructor per section in parallel. Each receives its section file plus the `_index.md` for cross-cutting context.
+   Contexte à divisions multiples, lancez l'ingérence en parallèle de sous-Agents (un par bloc de coupe). Chacun d'eux recueillant sa division assortie du contexte mère de la souche structurelle issue de `_index.md`.
 
-   **Graceful degradation:** If subagent spawning is unavailable, this stage cannot be performed by the main agent (it has already seen the originals). Report that round-trip validation requires subagent support and skip.
+   **Dégradation gracieuse :** À défaut d'accessibilité avérée aux méthodes d'invocation des instances filles propres, il sera interdit à ce sous-groupe (disposant de la réalité primitive ancrée par mémorisation liée en phase 1-2 d'opérer ces requêtes par ses capacités "propres"). Transmettez que cette phase doit opérer "uniquement à travers un pool fonctionnellement ouvert rattaché aux capacités en de sous-Agents distanciés de contexte global", et éludez ce Stade.
 
-2. **Receive reconstructions.** The reconstructor returns reconstruction file paths saved adjacent to the distillate.
+2. **Rapatrier ces essais recréés.** Le compilateur d'analyse retourne alors l'adresse des livrables recréés pour stationner à proximité du socle d'origine allégé (le distillat final de l'(Agent d'Étape 2).
 
-3. **Perform semantic diff.** Read both the original source documents and the reconstructions. For each section of the original, assess:
-   - Is the core information present in the reconstruction?
-   - Are specific details preserved (numbers, names, decisions)?
-   - Are relationships and rationale intact?
-   - Did the reconstruction add anything not in the original? (indicates hallucination filling gaps)
+3. **Opérer la réconciliation via Diff Sémantique.** Incorporez conjointement données des parquets primaires avec ce rendu récent de recomposition. Section après section comparez :
+   - La nature intrinsèque des informations mères est-elle reflétée à travers le jumeau recréé ?
+   - Les particularismes affilés sont-ils là avec acuité et discernement ? (chiffres, nomenclatures des actes ou noms de validation et seuils) ?
+   - Intégrité liée aux raisons d'êtres fondatrices de chaque règle est-elle constante et fluide ?
+   - Le pendant reconstitué présente-il des données inattendues non certifiées sur le terreau source ? (indicateur pointant une imagination comblant d'hypothétiques vides ou hallucinations du modèle générant).
 
-4. **Produce validation report** saved adjacent to the distillate as `-validation-report.md`:
+4. **Produire l'Audit Diagnostique** que vous fixerez contre votre composante "distillat" sous affichage standard `-validation-report.md` :
 
    ```markdown
    ---
    type: distillate-validation
-   distillate: "{distillate path}"
-   sources: ["{source paths}"]
-   created: "{date}"
+   distillate: "{chemin distillat}"
+   sources: ["{chemins sources}"]
+   created: "{{date}}"
    ---
 
-   ## Validation Summary
-   - Status: PASS | PASS_WITH_WARNINGS | FAIL
-   - Information preserved: {percentage estimate}
-   - Gaps found: {count}
-   - Hallucinations detected: {count}
+   ## Bilan Sommaire
+   - Statut: PASS | PASS_WITH_WARNINGS | FAIL
+   - Conservation Informative: {estimation taux pourcentage}
+   - Filles et Ruptures de fil info localisées: {compte}
+   - Hallucinations reconnues: {compte}
 
-   ## Gaps (information in originals but missing from reconstruction)
-   - {gap description} — Source: {which original}, Section: {where}
+   ## Ruptures Mémorielles (Manque du jet reconstruisant d'une info existante)
+   - {intitulé du point manqué} — Donnée Primaire d'Origine: {fichier/feuillet de la source}, Tronçon source: {la section incréminée originairement}
 
-   ## Hallucinations (information in reconstruction not traceable to originals)
-   - {hallucination description} — appears to fill gap in: {section}
+   ## Faux Positifs Assumés ou Contenu Distrait/Inventé
+   - {aperçu du leurre} — Tente à priori de combler un axe défaillant positionné vers : {la section défaillante en corolaire de sa présence fictive}
 
-   ## Possible Gap Markers (flagged by reconstructor)
-   - {marker description}
+   ## Traceurs de Vices Possibles (Reconnu au travers du reconstructeur ciblé)
+   - {marqueur local décrié descriptif}
    ```
 
-5. **If gaps are found**, offer to run a targeted fix pass on the distillate — adding the missing information without full recompression. Limit to 2 fix passes maximum.
+5. **Preuve constatant un dommage ou disparition notable**, proposez alors une courte navette opératoire de retouche visant votre allégement certifié — corrigeant en complétant l'attendu amputé n'entrainant point là de processus réitératif à charge globale. Limitation figée actant de l'arbitrage maximal de vos interventions : 2 exécutions au demeurant.
 
-6. **Clean up** — delete the temporary reconstruction files after the report is generated.
+6. **Purgation achevée** — broyez et oblitérez de concert tous documents à portée reconstructionnelle mis sur pied momentanément juste après que l'acte finalisant le script du diagnostic de rapport se soit vu gravé et enregistré.

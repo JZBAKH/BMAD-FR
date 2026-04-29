@@ -1,6 +1,6 @@
 ---
 name: bmad-advanced-elicitation
-description: 'Push the LLM to reconsider refine and improve its recent output.'
+description: 'Pousser le LLM à reconsidérer, affiner et améliorer sa production récente.'
 ---
 
-Follow the instructions in [workflow.md](workflow.md).
+Suivez les instructions dans [workflow.md](workflow.md).
