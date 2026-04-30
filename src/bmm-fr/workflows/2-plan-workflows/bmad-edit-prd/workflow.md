@@ -49,7 +49,7 @@ Ce workflow utilise une **architecture de fichiers d'étapes** pour une exécuti
 Chargez et lisez la configuration complète à partir de {main_config} et résolvez :
 
 - `project_name`, `output_folder`, `planning_artifacts`, `user_name`
-- `communication_language`, `document_output_language`, `user_skill_level`
+- `{communication_language}`, `{document_output_language}`, `user_skill_level`
 - `date` comme date/heure actuelle générée par le système.
 
 ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'Agent avec la configuration `{communication_language}`.

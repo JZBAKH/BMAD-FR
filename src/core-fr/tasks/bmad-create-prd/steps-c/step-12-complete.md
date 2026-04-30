@@ -10,7 +10,7 @@
 - 📋 FINALISEZ le document et mettez à jour le statut du workflow
 - 💬 CONCENTREZ-VOUS sur la complétion, les options de validation et les prochaines étapes
 - 🎯 METTEZ À JOUR les fichiers de statut du workflow avec les informations de clôture
-- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `{communication_language}` configurée.
 
 ## PROTOCOLES D'EXÉCUTION :
 

@@ -47,7 +47,7 @@ Ce document fournit la décomposition complète en epics et stories pour {{proje
 
 En tant que {{user_type}},
 Je veux {{capability}},
-Afin de {{valeur_benefice}}.
+Afin de {{value_benefit}}.
 
 **Critères d'Acceptation :**
 

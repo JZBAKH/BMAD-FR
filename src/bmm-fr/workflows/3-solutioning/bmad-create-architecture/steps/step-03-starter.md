@@ -220,12 +220,12 @@ Préparez le contenu à ajouter au document :
 
 ### Options de Départ Étudiées
 
-{{analyse_des_starters_evalues}}
+{{analysis_of_evaluated_starters}}
 
 ### Modèle de Départ Sélectionné : {{starter_name}}
 
 **Raison du choix :**
-{{pourquoi_ce_starter_a_ete_choisi}}
+{{why_this_starter_was_chosen}}
 
 **Commande d'initialisation :**
 
@@ -242,16 +242,16 @@ Préparez le contenu à ajouter au document :
 {{styling_solution_configuration}}
 
 **Outillage de Build :**
-{{outils_de_build_et_optimisation}}
+{{build_tools_and_optimization}}
 
 **Framework de Test :**
-{{configuration_des_tests}}
+{{testing_setup_and_configuration}}
 
 **Organisation du Code :**
-{{structure_et_modeles_du_projet}}
+{{project_structure_and_patterns}}
 
 **Expérience de Développement :**
-{{outils_de_developpement_et_workflow}}
+{{development_tools_and_workflow}}
 
 **Note :** L'initialisation du projet à l'aide de cette commande devrait être la première story d'implémentation.
 

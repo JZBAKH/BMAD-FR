@@ -12,7 +12,7 @@ Reprendre le workflow du PRD là où il s'est arrêté, en assurant une suite fl
 - 📖 CRITIQUE : Lisez le fichier d'étape complet avant d'entreprendre toute action
 - 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que le fichier entier est lu
 - 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
-- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `{communication_language}` configurée.
 
 ### Renforcement du Rôle :
 

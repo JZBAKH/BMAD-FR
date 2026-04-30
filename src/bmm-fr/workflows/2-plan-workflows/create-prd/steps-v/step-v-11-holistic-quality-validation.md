@@ -197,7 +197,7 @@ Ajoutez au rapport de validation :
 
 ### Note de Qualité Globale
 
-**Note :** {note}/5 - {libellé}
+**Note :** {rating}/5 - {libellé}
 
 **Échelle :**
 - 5/5 - Excellent : Exemplaire, prêt pour une utilisation en production.
@@ -228,7 +228,7 @@ Ajoutez au rapport de validation :
 
 Affichez : "**Évaluation de la qualité holistique terminée**
 
-Note globale : {note}/5 - {libellé}
+Note globale : {rating}/5 - {libellé}
 
 **Passage aux derniers contrôles de validation...**"
 

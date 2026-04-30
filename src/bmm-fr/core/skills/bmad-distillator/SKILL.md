@@ -80,7 +80,7 @@ Après le retour du compresseur (ou compresseur fusionneur) :
      - "{chemin relatif vers fichier source 1}"
      - "{chemin relatif vers fichier source 2}"
    downstream_consumer: "{consommateur ou 'general'}"
-   created: "{{date}}"
+   created: "{date}"
    token_estimate: {estimation indicative en tokens}
    parts: 1
    ---
@@ -116,11 +116,11 @@ Après le retour du compresseur (ou compresseur fusionneur) :
    {
      "status": "complete",
      "distillate": "{chemin fichier ou chemin répertoire}",
-     "section_distillates": ["{chemin1}", "{chemin2}"] ou null,
+     "section_distillates": ["{path1}", "{path2}"] ou null,
      "source_total_tokens": N,
      "distillate_total_tokens": N,
      "compression_ratio": "X:1",
-     "source_documents": ["{chemin1}", "{chemin2}"],
+     "source_documents": ["{path1}", "{path2}"],
      "completeness_check": "pass" ou "pass_with_additions"
    }
    ```
@@ -154,20 +154,20 @@ Ce process valide par un tour probatoire le maintien du distillat comme porteur 
    type: distillate-validation
    distillate: "{chemin distillat}"
    sources: ["{chemins sources}"]
-   created: "{{date}}"
+   created: "{date}"
    ---
 
    ## Bilan Sommaire
    - Statut: PASS | PASS_WITH_WARNINGS | FAIL
    - Conservation Informative: {estimation taux pourcentage}
-   - Filles et Ruptures de fil info localisées: {compte}
-   - Hallucinations reconnues: {compte}
+   - Filles et Ruptures de fil info localisées: {count}
+   - Hallucinations reconnues: {count}
 
    ## Ruptures Mémorielles (Manque du jet reconstruisant d'une info existante)
-   - {intitulé du point manqué} — Donnée Primaire d'Origine: {fichier/feuillet de la source}, Tronçon source: {la section incréminée originairement}
+   - {description du manque} — Source : {fichier original concerné}, Section : {where}
 
    ## Faux Positifs Assumés ou Contenu Distrait/Inventé
-   - {aperçu du leurre} — Tente à priori de combler un axe défaillant positionné vers : {la section défaillante en corolaire de sa présence fictive}
+   - {description de l'hallucination} — semble combler un manque dans : {section}
 
    ## Traceurs de Vices Possibles (Reconnu au travers du reconstructeur ciblé)
    - {marqueur local décrié descriptif}

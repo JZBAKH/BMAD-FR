@@ -56,7 +56,7 @@ Déterminez ce qui vient d'être achevé :
 
 1. **Charger le catalogue** — Chargez `{project-root}/_bmad/_config/bmad-help.csv`
 
-2. **Résoudre les emplacements de sortie et la configuration** — Analysez chaque dossier sous `{project-root}/_bmad/` (sauf `_config`) pour trouver un `config.yaml`. Pour chaque ligne de workflow, résolvez ses variables `output-location` en fonction de la configuration de ce module afin que les chemins d'artefacts puissent être recherchés. Extrayez également `communication_language` et `project_knowledge` de la configuration de chaque module analysé.
+2. **Résoudre les emplacements de sortie et la configuration** — Analysez chaque dossier sous `{project-root}/_bmad/` (sauf `_config`) pour trouver un `config.yaml`. Pour chaque ligne de workflow, résolvez ses variables `output-location` en fonction de la configuration de ce module afin que les chemins d'artefacts puissent être recherchés. Extrayez également `{communication_language}` et `project_knowledge` de la configuration de chaque module analysé.
 
 3. **S'ancrer dans la connaissance du projet** — Si `project_knowledge` aboutit à un chemin existant, lisez les fichiers de documentation disponibles (documents d'architecture, aperçu du projet, références de la pile technologique) pour établir le contexte de base. Utilisez les faits découverts sur le projet pour rédiger toute sortie spécifique au projet. Ne fabriquez jamais de détails spécifiques au projet — si la documentation n'est pas disponible, précisez-le.
 
@@ -79,7 +79,7 @@ Déterminez ce qui vient d'être achevé :
    - Une brève **description**
 
 7. **Orientations supplémentaires à transmettre :**
-   - Présentez toute sortie dans la langue `communication_language`
+   - Présentez toute sortie dans la langue `{communication_language}`
    - Exécutez chaque workflow dans une **nouvelle fenêtre de contexte**
    - Pour les **workflows de validation** : recommandez l'utilisation d'un autre LLM de haute qualité si disponible
    - Pour les demandes conversationnelles : adaptez-vous au ton de l'utilisateur tout en présentant clairement les informations

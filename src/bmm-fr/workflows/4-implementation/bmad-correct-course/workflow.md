@@ -13,7 +13,7 @@
 Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résolvez :
 
 - `project_name`, `user_name`
-- `communication_language`, `document_output_language`
+- `{communication_language}`, `{document_output_language}`
 - `user_skill_level`
 - `implementation_artifacts`
 - `planning_artifacts`

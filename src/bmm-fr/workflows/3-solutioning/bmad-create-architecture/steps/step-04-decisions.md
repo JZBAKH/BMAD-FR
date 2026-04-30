@@ -184,8 +184,8 @@ Search the web: "{{technology}} production readiness"
 - Décision : {{user_choice}}
 - Version : {{verified_version_if_applicable}}
 - Rationale : {{user_reasoning_or_default}}
-- Affecte : {{composants_ou_epics}}
-- Fournie par le Starter : {{oui_si_vient_du_starter}}
+- Affecte : {{components_or_epics}}
+- Fournie par le Starter : {{yes_if_from_starter}}
 
 ### 4. Vérifier les Implications en Cascade
 

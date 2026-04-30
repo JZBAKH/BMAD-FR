@@ -1,0 +1,76 @@
+name: Tests BMAD-FR
+
+on:
+  push:
+    branches: [bmad-fr]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  functional:
+    name: Lot 1 — Tests fonctionnels
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Tests fonctionnels
+        run: npm run test:fr:functional
+
+  language:
+    name: Lot 2 — Tests linguistiques
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Tests linguistiques
+        run: npm run test:fr:language
+
+  audit:
+    name: Audit de couverture (informatif)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Audit de traduction
+        run: node tools/audit-translation-coverage.mjs
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: translation-status
+          path: |
+            TRANSLATION-STATUS.md
+            translation-status.json
+          retention-days: 30

@@ -25,7 +25,7 @@ Ce workflow utilise une **architecture en micro-fichiers** pour une exécution r
 Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résolvez :
 
 - `project_name`, `output_folder`, `user_name`
-- `communication_language`, `document_output_language`, `user_skill_level`
+- `{communication_language}`, `{document_output_language}`, `user_skill_level`
 - `date` comme date et heure actuelles générées par le système
 - ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'Agent avec la configuration `{communication_language}`.
 - ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout le contenu des artefacts et des documents dans la langue `{document_output_language}`.

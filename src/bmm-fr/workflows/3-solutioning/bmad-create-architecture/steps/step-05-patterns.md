@@ -218,7 +218,7 @@ Préparez le contenu à ajouter au document :
 ### Catégories de Modèles Définies
 
 **Points de Conflit Critiques Identifiés :**
-{{nombre_de_conflits_potentiels}} zones où les agents IA pourraient faire des choix différents
+{{number_of_potential_conflicts}} zones où les agents IA pourraient faire des choix différents
 
 ### Modèles de Nommage
 

@@ -12,8 +12,8 @@
 - 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
 - 💬 CONCENTREZ-VOUS sur la détection et l'exploration des aspects innovants du produit
 - 🎯 ÉTAPE OPTIONNELLE : Ne continuez que si des signaux d'innovation sont détectés
-- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
-- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `{communication_language}` configurée.
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `{document_output_language}`.
 
 ## PROTOCOLES D'EXÉCUTION :
 

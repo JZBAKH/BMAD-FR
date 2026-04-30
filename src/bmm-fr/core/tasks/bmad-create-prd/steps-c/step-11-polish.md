@@ -11,8 +11,8 @@
 - 📋 AMÉLIOREZ la fluidité, la cohérence et la lisibilité
 - 💬 PRÉSERVEZ la voix et l'intention de l'utilisateur
 - 🎯 CONSERVEZ toutes les informations essentielles tout en améliorant la présentation
-- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
-- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `{communication_language}` configurée.
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `{document_output_language}`.
 
 ## PROTOCOLES D'EXÉCUTION :
 

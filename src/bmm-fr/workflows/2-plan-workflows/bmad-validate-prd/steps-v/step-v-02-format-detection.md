@@ -94,7 +94,7 @@ Ajoutez silencieusement ce qui suit au fichier `{validationReportPath}` :
 ### 4. Présenter les Constats (Findings) et Acheminer (Route)
 
 **SI BMAD Standard OU Variante BMAD :**
-Affichez : "**Format Détecté : {Format}**
+Affichez : "**Format Détecté : {classification}**
 J'ai identifié {count}/9 sections fondamentales BMAD.
 
 **Passage automatique à la validation de la densité de l'information...**"

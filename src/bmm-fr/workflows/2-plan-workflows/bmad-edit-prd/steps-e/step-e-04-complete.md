@@ -63,7 +63,7 @@ Présenter le résumé des modifications effectuées et proposer les étapes sui
 **Modifications effectuées :**
 - Sections ajoutées : {liste des noms}
 - Sections mises à jour : {liste des noms}
-- Contenu supprimé : {liste}
+- Contenu supprimé : {list}
 - Changements de structure : {description}
 
 **Détails de l'édition :**
@@ -73,7 +73,7 @@ Présenter le résumé des modifications effectuées et proposer les étapes sui
 
 **État du PRD :**
 - Format : {Standard BMAD / Variante BMAD / Legacy (converti)}
-- Exhaustivité : {évaluation}
+- Exhaustivité : {assessment}
 - Prêt pour : {cas d'utilisation en aval}
 
 ### 2. Présenter le résumé de fin de workflow

@@ -142,7 +142,7 @@ Affichez :
 **Points Forts :**
 {Listez les points forts clés}
 
-**Qualité Holistique :** {note}/5 - {libellé}
+**Qualité Holistique :** {rating}/5 - {libellé}
 
 **Top 3 des Améliorations :**
 1. {Amélioration 1}
@@ -197,7 +197,7 @@ Affichez :
 
 - **SI X (Quitter) :**
   - Affichez : "**Rapport de Validation Enregistré :** {validationReportPath}"
-  - Affichez : "**Résumé :** {état global} - {recommandation}"
+  - Affichez : "**Résumé :** {état global} - {recommendation}"
   - Validation du PRD terminée. Invoquez la compétence `bmad-help`.
 
 - **SI Autre :** Aidez l'utilisateur, puis réaffichez le menu.

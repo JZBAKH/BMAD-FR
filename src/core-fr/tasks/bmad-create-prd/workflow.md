@@ -49,11 +49,11 @@ Ceci utilise une **architecture d'étapes par fichiers (step-file architecture)*
 Chargez et lisez la configuration complète depuis `{main_config}` et résolvez :
 
 - `project_name`, `output_folder`, `planning_artifacts`, `user_name`
-- `communication_language`, `document_output_language`, `user_skill_level`
+- `{communication_language}`, `{document_output_language}`, `user_skill_level`
 - `date` comme la date et l'heure actuelles générées par le système
 
-✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
-✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
+✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `{communication_language}` configurée.
+✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `{document_output_language}`.
 
 ### 2. Acheminement vers le Workflow de Création
 

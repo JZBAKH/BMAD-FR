@@ -1,0 +1,61 @@
+{
+  "_comment": "Liste blanche partagée par les tests test/functional-fr/ et test/language-fr/. Chaque entrée est versionnée avec la raison documentée. Quand vous ajoutez une exception, expliquez POURQUOI le fichier est légitimement non traduit, sinon le test catch les régressions futures.",
+  "_format": {
+    "<test-id>": "tableau d'objets { path, reason }",
+    "path": "chemin repo-relatif (slashes /). Supporte * et ** comme glob.",
+    "reason": "explication courte mais claire — sera lue par les futurs reviewers"
+  },
+
+  "11-french-coverage-floor": [
+    {
+      "path": "src/bmm-fr/workflows/1-analysis/research/market-steps/step-01-init.md",
+      "reason": "Mort code upstream — la version active traduite est dans bmad-market-research/steps/. Voir AUDIT-FINAL.md §2.3."
+    },
+    {
+      "path": "src/bmm-fr/workflows/1-analysis/research/market-steps/step-02-customer-behavior.md",
+      "reason": "Mort code upstream — idem step-01."
+    },
+    {
+      "path": "src/bmm-fr/workflows/1-analysis/research/market-steps/step-03-customer-pain-points.md",
+      "reason": "Mort code upstream — idem step-01."
+    },
+    {
+      "path": "src/bmm-fr/workflows/1-analysis/research/market-steps/step-04-customer-decisions.md",
+      "reason": "Mort code upstream — idem step-01."
+    },
+    {
+      "path": "src/bmm-fr/workflows/1-analysis/research/market-steps/step-05-competitive-analysis.md",
+      "reason": "Mort code upstream — idem step-01."
+    },
+    {
+      "path": "src/bmm-fr/workflows/1-analysis/research/market-steps/step-06-research-completion.md",
+      "reason": "Mort code upstream — idem step-01."
+    },
+    {
+      "path": "src/bmm-fr/workflows/bmad-document-project/documentation-requirements.csv",
+      "reason": "CSV de patterns techniques (extensions de fichiers, chemins ex: *.config.js, package.json) — légitimement en anglais selon GLOSSAIRE §1 (Sanctuaire Absolu) et §2 (clés systèmes ne se traduisent pas)."
+    },
+    {
+      "path": "src/bmm-fr/workflows/3-solutioning/bmad-create-architecture/data/domain-complexity.csv",
+      "reason": "CSV de données techniques (project_type_id, capability flags) — clés systèmes non traduites par GLOSSAIRE §2."
+    },
+    {
+      "path": "src/bmm-fr/workflows/3-solutioning/bmad-create-architecture/data/project-types.csv",
+      "reason": "CSV de project_type_id et data techniques — clés systèmes non traduites."
+    },
+    {
+      "path": "src/utility-fr/agent-components/menu-handlers.txt",
+      "reason": "Squelette XML pur (<menu-handlers>, <extract>, <handlers>) avec uniquement des placeholders {DYNAMIC_EXTRACT_LIST} et {DYNAMIC_HANDLERS}. Aucune prose à scorer — l'absence de français est attendue par construction."
+    }
+  ],
+
+  "10-skill-descriptions-fr": [],
+
+  "08-line-counters": [],
+
+  "_special_notes": {
+    "11-french-coverage-floor": "menu-handlers.txt n'a pas de prose à scorer (juste des balises XML et placeholders). Voir entrée ci-dessous."
+  },
+
+  "_examples_for_other_tests": "Si un test futur signale un faux positif, ajouter une entrée ici avec sa raison plutôt que d'affaiblir le test."
+}

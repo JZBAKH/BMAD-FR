@@ -13,7 +13,7 @@
 Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résolvez :
 
 - `project_name`, `user_name`
-- `communication_language`, `document_output_language`
+- `{communication_language}`, `document_output_language`
 - `implementation_artifacts`
 - `planning_artifacts`
 - `date` comme date/heure actuelle générée par le système
@@ -88,7 +88,7 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
 <action>Pour chaque epic trouvée, créer les entrées dans cet ordre :</action>
 
 1. **Entrée d'Epic** - Clé : `epic-{num}`, Statut par défaut : `backlog`
-2. **Entrées de Story** - Clé : `{epic}-{story}-{titre}`, Statut par défaut : `backlog`
+2. **Entrées de Story** - Clé : `{epic}-{story}-{title}`, Statut par défaut : `backlog`
 3. **Entrée de Rétrospective** - Clé : `epic-{num}-retrospective`, Statut par défaut : `optional`
 
 **Exemple de structure :**

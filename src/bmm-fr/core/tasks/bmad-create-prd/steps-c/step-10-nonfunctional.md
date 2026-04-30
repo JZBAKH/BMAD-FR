@@ -12,8 +12,8 @@
 - 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
 - 💬 CONCENTREZ-VOUS sur les attributs de qualité qui importent véritablement pour CE produit spécifique
 - 🎯 SÉLECTIF : Ne documentez que les NFR (Non-Functional Requirements) qui s'appliquent réellement au produit
-- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
-- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `{communication_language}` configurée.
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `{document_output_language}`.
 
 ## PROTOCOLES D'EXÉCUTION :
 

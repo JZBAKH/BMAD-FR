@@ -49,7 +49,7 @@ Ceci utilise l'**architecture en fichiers d'étapes (step-files)** pour une exé
 Charger et lire la configuration complète depuis {main_config} et résoudre :
 
 - `project_name`, `output_folder`, `planning_artifacts`, `user_name`
-- `communication_language`, `document_output_language`, `user_skill_level`
+- `{communication_language}`, `{document_output_language}`, `user_skill_level`
 - `date` en tant que date et heure actuelles générées par le système
 
 ✅ VOUS DEVEZ TOUJOURS VOUS EXPRIMER selon votre style de communication d'Agent avec la configuration `{communication_language}`.

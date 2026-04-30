@@ -22,7 +22,7 @@ Ce workflow utilise une **architecture en fichiers d'étapes** pour une exécuti
 
 Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résolvez :
 
-- `user_name`, `communication_language`, `user_skill_level`
+- `user_name`, `{communication_language}`, `user_skill_level`
 - `planning_artifacts`, `implementation_artifacts`
 - `date` comme date et heure actuelles générées par le système.
 - ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'Agent avec la configuration `{communication_language}`.

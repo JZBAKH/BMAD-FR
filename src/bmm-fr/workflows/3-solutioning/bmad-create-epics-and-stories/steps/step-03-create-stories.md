@@ -79,18 +79,18 @@ Les stories doivent pouvoir être achevées indépendamment et séquentiellement
 **FORMAT DE LA STORY (issu du modèle) :**
 
 ```
-### Story {N}.{M} : {titre_de_la_story}
+### Story {N}.{M} : {story_title}
 
-En tant que {type_d_utilisateur},
-Je veux {capacite},
-Afin de {valeur_benefice}.
+En tant que {user_type},
+Je veux {capability},
+Afin de {value_benefit}.
 
 **Critères d'Acceptation :**
 
-**Étant donné** {pre-condition}
+**Étant donné** {precondition}
 **Quand** {action}
-**Alors** {resultat_attendu}
-**Et** {criteres_supplementaires}
+**Alors** {expected_outcome}
+**Et** {additional_criteria}
 ```
 
 **✅ EXEMPLES DE BONNES STORIES :**

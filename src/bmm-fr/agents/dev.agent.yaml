@@ -34,9 +34,9 @@ agent:
 
   menu:
     - trigger: DS or fuzzy match on dev-story
-      workflow: "{project-root}/_bmad/bmm/workflows/4-implementation/dev-story/workflow.yaml"
+      exec: "skill:bmad-dev-story"
       description: "[DS] Développer le cas d'usage/Dev Story : Écrire les tests et le code du prochain récit ou du récit spécifié."
 
     - trigger: CR or fuzzy match on code-review
-      workflow: "{project-root}/_bmad/bmm/workflows/4-implementation/code-review/workflow.yaml"
+      exec: "skill:bmad-code-review"
       description: "[CR] Revue de code : Initier une revue de code complète à travers multiples facettes de qualité. Pour de meilleurs résultats, utilisez un contexte frais et un LLM de qualité différent si disponible"

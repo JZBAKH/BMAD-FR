@@ -12,8 +12,8 @@
 - 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
 - 💬 CONCENTREZ-VOUS sur les exigences spécifiques au type de projet et les considérations techniques
 - 🎯 AXÉ SUR LES DONNÉES (DATA-DRIVEN) : Utilisez la configuration CSV pour guider la découverte
-- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
-- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `{communication_language}` configurée.
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `{document_output_language}`.
 
 ## PROTOCOLES D'EXÉCUTION :
 

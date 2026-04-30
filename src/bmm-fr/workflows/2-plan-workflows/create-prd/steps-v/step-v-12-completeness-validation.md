@@ -187,11 +187,11 @@ Ajoutez au rapport de validation :
 **inputDocuments :** [Présent/Manquant]
 **date :** [Présent/Manquant]
 
-**Exhaustivité du Frontmatter :** {champs_complets}/4
+**Exhaustivité du Frontmatter :** {complete_fields}/4
 
 ### Résumé de l'Exhaustivité
 
-**Exhaustivité Globale :** {percentage}% ({sections_completes}/{total_sections})
+**Exhaustivité Globale :** {percentage}% ({complete_sections}/{total_sections})
 
 **Lacunes Critiques :** [nombre] [liste le cas échéant]
 **Lacunes Mineures :** [nombre] [liste le cas échéant]

@@ -163,7 +163,7 @@ La collusion et les demandes entres "IA" rythmeront les rondes et un flux ininte
 
 Désengagez le mode party dès que l'intervention humaine recourt à certains lexiques d'adieu :
 
-- `*exit`, `goodbye`, `end party`, `quit` (ou leurs équivalents évidents en `{communication_language}`)
+- `*exit`, `goodbye`, `end party`, `quit` (ou leurs équivalents évidents en `communication_language`)
 
 ### Conclusion Douce (Graceful Conclusion)
 

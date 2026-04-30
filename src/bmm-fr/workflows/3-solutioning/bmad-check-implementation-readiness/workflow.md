@@ -41,7 +41,7 @@
 
 Chargez et lisez la configuration complète depuis {project-root}/_bmad/bmm/config.yaml et résolvez :
 
-- `project_name`, `output_folder`, `planning_artifacts`, `user_name`, `communication_language`, `document_output_language`
+- `project_name`, `output_folder`, `planning_artifacts`, `user_name`, `{communication_language}`, `document_output_language`
 - ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'agent avec la configuration `{communication_language}`.
 
 ### 2. EXÉCUTION de la Première Étape

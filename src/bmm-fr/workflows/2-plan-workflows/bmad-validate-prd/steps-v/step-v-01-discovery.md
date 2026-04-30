@@ -112,8 +112,8 @@ Affichez :
 
 **Contexte Chargé :**
 - PRD lu avec succès.
-- {Nombre} documents d'entrée trouvés dans le frontmatter.
-- {Nombre} documents chargés avec succès.
+- {number} documents d'entrée trouvés dans le frontmatter.
+- {number} documents chargés avec succès.
 {Lister brièvement les documents chargés, ou indiquer les manquants}
 
 **Sommes-nous prêts à commencer la détection du format ?**"

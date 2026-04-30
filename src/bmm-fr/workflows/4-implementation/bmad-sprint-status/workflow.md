@@ -13,7 +13,7 @@
 Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résolvez :
 
 - `project_name`, `user_name`
-- `communication_language`, `document_output_language`
+- `{communication_language}`, `document_output_language`
 - `implementation_artifacts`
 - `date` comme date/heure actuelle générée par le système
 - VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'agent avec la configuration `{communication_language}`

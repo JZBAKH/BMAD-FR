@@ -63,7 +63,7 @@ Ce workflow utilise une **architecture en fichiers d'étapes** pour une exécuti
 Chargez et lisez la configuration complète depuis `{main_config}` et résolvez :
 
 - `project_name`, `planning_artifacts`, `implementation_artifacts`, `user_name`
-- `communication_language`, `document_output_language`, `user_skill_level`
+- `{communication_language}`, `document_output_language`, `user_skill_level`
 - `date` comme date et heure actuelles générées par le système.
 - `project_context` = `**/project-context.md` (charger s'il existe).
 - ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'Agent avec la configuration `{communication_language}`.

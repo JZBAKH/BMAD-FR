@@ -12,8 +12,8 @@
 - 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
 - 💬 CONCENTREZ-VOUS sur la création d'un inventaire exhaustif des capacités (capabilities) pour le produit
 - 🎯 CRITIQUE : Ceci est LE CONTRAT DE CAPACITÉ (CAPABILITY CONTRACT) pour l'intégralité du travail accompli en aval (downstream)
-- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `communication_language` configurée.
-- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `document_output_language`.
+- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `{communication_language}` configurée.
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `{document_output_language}`.
 
 ## PROTOCOLES D'EXÉCUTION :
 

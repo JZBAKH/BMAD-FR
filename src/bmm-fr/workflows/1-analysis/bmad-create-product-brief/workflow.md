@@ -45,7 +45,7 @@ Ce workflow utilise une **architecture en fichiers d'étapes** pour une exécuti
 
 Chargez et lisez la configuration complète depuis `{project-root}/_bmad/bmm/config.yaml` et résolvez :
 
-- `project_name`, `output_folder`, `planning_artifacts`, `user_name`, `communication_language`, `document_output_language`, `user_skill_level`
+- `project_name`, `output_folder`, `planning_artifacts`, `user_name`, `{communication_language}`, `{document_output_language}`, `user_skill_level`
 
 ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'Agent avec la configuration `{communication_language}`.
 ✅ VOUS DEVEZ TOUJOURS RÉDIGER tout le contenu de l'artefact et du document en `{document_output_language}`.

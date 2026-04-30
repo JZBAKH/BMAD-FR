@@ -52,7 +52,7 @@ Ceci utilise une **architecture de fichiers par étapes** pour une exécution di
 Chargez et lisez la configuration complète depuis {main_config} et résolvez :
 
 - `project_name`, `output_folder`, `planning_artifacts`, `user_name`
-- `communication_language`, `document_output_language`, `user_skill_level`
+- `{communication_language}`, `{document_output_language}`, `user_skill_level`
 - `date` comme date/heure actuelle générée par le système
 
 ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'Agent avec la configuration `{communication_language}`.

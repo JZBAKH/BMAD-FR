@@ -13,7 +13,7 @@ sources:
   - "product-brief-example.md"
   - "product-brief-example-discovery-notes.md"
 downstream_consumer: "création de PRD"
-created: "{{date}}"
+created: "2026-03-13"
 token_estimate: 1200
 parts: 1
 ---
@@ -121,7 +121,7 @@ sources:
   - "product-brief-bmad-next-gen-installer.md"
   - "product-brief-bmad-next-gen-installer-discovery-notes.md"
 downstream_consumer: "création de PRD"
-created: "{{date}}"
+created: "2026-03-13"
 token_estimate: 1450
 parts: 1
 ---

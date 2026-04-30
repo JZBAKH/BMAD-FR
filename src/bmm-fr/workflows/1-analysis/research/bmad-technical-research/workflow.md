@@ -12,7 +12,7 @@
 
 Chargez la config depuis `{project-root}/_bmad/bmm/config.yaml` et résolvez :
 - `project_name`, `output_folder`, `planning_artifacts`, `user_name`
-- `communication_language`, `document_output_language`, `user_skill_level`
+- `{communication_language}`, `document_output_language`, `user_skill_level`
 - `date` comme valeur générée par le système
 
 ## DÉCOUVERTE RAPIDE DU SUJET

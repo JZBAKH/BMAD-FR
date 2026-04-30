@@ -59,7 +59,7 @@ Retournez un résultat structuré à la compétence appelante :
 
 ```json
 {
-  "reconstruction_files": ["{chemin1}", "{chemin2}"],
+  "reconstruction_files": ["{path1}", "{path2}"],
   "possible_gaps": ["description du gap 1", "description du gap 2"],
   "source_count": N
 }
