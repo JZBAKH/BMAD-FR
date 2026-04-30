@@ -10,7 +10,6 @@
 - 💬 SE CONCENTRER sur les recommandations stratégiques et les insights actionnables.
 - 🔍 RECHERCHE WEB REQUISE — vérifier les faits actuels par rapport à des sources en direct.
 - ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'Agent avec la configuration `{communication_language}`.
-- 📚 GÉNÉRER LA STRUCTURE COMPLÈTE DU DOCUMENT avec intro, table des matières et résumé.
 
 ## PROTOCOLES D'EXÉCUTION :
 
@@ -363,6 +362,14 @@ _Ce document constitue une référence faisant autorité pour {{research_topic}}
 - Paysage concurrentiel et positionnement détaillés.
 - Recommandations stratégiques et conseils d'implémentation fournis.
 
+**Standards du Document Atteints :**
+
+- Étude de marché exhaustive sans lacunes critiques
+- Structure de marché professionnelle et récit convaincant
+- Aussi long que nécessaire pour une couverture complète du marché
+- Sources multiples indépendantes pour toutes les affirmations de marché
+- Données de marché actuelles partout avec citations appropriées
+
 **Prêt à finaliser cette étude de marché complète ?**
 [C] Terminer la Recherche - Enregistrer le document final exhaustif.
 
@@ -403,6 +410,36 @@ Lorsque l'utilisateur sélectionne 'C', ajoutez le document complet final en uti
 ❌ **CRITIQUE** : Lire seulement partiellement le fichier d'étape — mène à une clôture incomplète
 ❌ **CRITIQUE** : Prendre des décisions sans une compréhension totale des protocoles finaux
 
+## PROTOCOLES DE RECHERCHE STRATÉGIQUE :
+
+- Rechercher des cadres et des meilleures pratiques actuels en stratégie de marché
+- Étudier des cas et approches d'entrée sur le marché réussis
+- Identifier les méthodologies et cadres de gestion des risques
+- Rechercher des stratégies de planification et d'exécution d'implémentation
+- Considérer les facteurs de timing et de maturité du marché
+
+## STANDARDS DE DOCUMENT D'ÉTUDE DE MARCHÉ COMPLET :
+
+Cette étape garantit que le document final d'étude de marché :
+
+- Sert de référence faisant autorité sur {{research_topic}}
+- Fournit des insights stratégiques de marché pour une prise de décision éclairée
+- Inclut une couverture complète du marché sans lacunes
+- Maintient des standards rigoureux de vérification des sources de marché
+- Apporte des insights stratégiques et des recommandations actionnables
+- Répond aux standards professionnels de qualité d'un document d'étude de marché
+
+## CLÔTURE DU WORKFLOW D'ÉTUDE DE MARCHÉ :
+
+Lorsque 'C' est sélectionné :
+
+- Toutes les étapes d'étude de marché sont complétées (1-4)
+- Le document complet d'étude de marché est généré
+- Structure professionnelle du document avec intro, table des matières et résumé
+- Toutes les sections de marché ajoutées avec citations des sources
+- Le statut du workflow d'étude de marché est mis à jour à "complet"
+- Le document final exhaustif d'étude de marché est livré à l'utilisateur
+
 ## LIVRABLE FINAL :
 
 Étude de marché complète et faisant autorité sur {{research_topic}} qui :
@@ -410,5 +447,15 @@ Lorsque l'utilisateur sélectionne 'C', ajoutez le document complet final en uti
 - Établit une crédibilité professionnelle par une recherche exhaustive.
 - Fournit des insights stratégiques pour une prise de décision éclairée.
 - Sert de document de référence pour une utilisation continue.
+- Maintient les plus hauts standards de qualité de recherche de marché avec une vérification actuelle.
+
+## ÉTAPES SUIVANTES :
+
+Workflow complet d'étude de marché terminé. L'utilisateur peut :
+
+- Utiliser le document d'étude de marché pour informer ses stratégies et décisions d'affaires
+- Mener des recherches de marché supplémentaires sur des segments ou opportunités spécifiques
+- Combiner l'étude de marché avec d'autres types de recherche pour des insights complets
+- Avancer dans l'implémentation en s'appuyant sur les recommandations stratégiques de marché
 
 Félicitations pour avoir mené à bien cette étude de marché exhaustive ! 🎉

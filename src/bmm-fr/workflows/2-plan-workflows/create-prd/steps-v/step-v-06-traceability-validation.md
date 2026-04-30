@@ -185,7 +185,7 @@ Ajoutez au rapport de validation :
 
 Affichez : "**Validation de la traçabilité terminée**
 
-Total des problèmes : {count} ({sévérité})
+Total des problèmes : {count} ({severity})
 
 **Passage au prochain contrôle de validation...**"
 

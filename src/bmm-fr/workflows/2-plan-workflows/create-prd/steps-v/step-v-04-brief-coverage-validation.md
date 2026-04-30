@@ -182,7 +182,7 @@ Ajoutez au rapport de validation :
 
 Affichez : "**Validation de la couverture du Product Brief terminée**
 
-Couverture globale : {évaluation}
+Couverture globale : {assessment}
 
 **Passage au prochain contrôle de validation...**"
 

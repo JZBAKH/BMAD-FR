@@ -43,62 +43,132 @@ Vision → Critères de Réussite → Parcours Utilisateurs → Exigences Foncti
 - La cartographie Parcours Utilisateur → Exigence Fonctionnelle
 - La traçabilité de toutes les exigences vers les besoins utilisateurs
 
-**Pourquoi :** Chaque artefact en aval (UX, Architecture, Epics, Tests) repose sur cette chaîne ininterrompue.
+**Pourquoi :** Chaque artefact en aval (UX, Architecture, Epics, Stories) doit pouvoir être tracé jusqu'aux besoins utilisateurs documentés et aux objectifs commerciaux. Cette chaîne garantit que nous construisons la bonne chose.
 
 ---
 
-## La Mesurabilité est Obligatoire
+## Qu'est-ce qui fait d'excellentes Exigences Fonctionnelles (FRs) ?
 
-**Exigences Fonctionnelles (FRs)**
-- ❌ "Le système doit être facile à utiliser"
-- ✅ "L'utilisateur peut terminer l'onboarding en moins de 3 minutes avec 0 erreur"
+### Les FRs sont des Capacités, pas de l'Implémentation
 
-**Exigences Non Fonctionnelles (NFRs)**
-- ❌ "Le système doit être rapide"
-- ✅ "Temps de réponse du point d'accès (endpoint) API < 200ms au 95ème centile sous une charge de 1000 RPS"
+**Bonne FR :** "Les utilisateurs peuvent réinitialiser leur mot de passe via un lien par email"
+**Mauvaise FR :** "Le système envoie un JWT par email et le valide avec la base de données" (fuite d'implémentation)
+
+**Bonne FR :** "Le tableau de bord se charge en moins de 2 secondes pour le 95ème centile"
+**Mauvaise FR :** "Temps de chargement rapide" (subjectif, non mesurable)
+
+### Critères de Qualité SMART
+
+**Specific (Spécifique) :** Capacité claire et précisément définie
+**Measurable (Mesurable) :** Quantifiable avec des critères de test
+**Attainable (Atteignable) :** Réaliste dans les contraintes
+**Relevant (Pertinent) :** Aligné avec les objectifs commerciaux
+**Traceable (Traçable) :** Lié à une source (résumé exécutif ou parcours utilisateur)
+
+### Anti-Patterns FR
+
+**Adjectifs Subjectifs :**
+- ❌ "facile à utiliser", "intuitif", "convivial", "rapide", "réactif"
+- ✅ Utilisez des métriques : "tâche accomplie en moins de 3 clics", "se charge en moins de 2 secondes"
+
+**Fuite d'Implémentation :**
+- ❌ Noms de technologies, bibliothèques spécifiques, détails d'implémentation
+- ✅ Concentrez-vous sur la capacité et les résultats mesurables
+
+**Quantificateurs Vagues :**
+- ❌ "plusieurs utilisateurs", "plusieurs options", "divers formats"
+- ✅ "jusqu'à 100 utilisateurs simultanés", "3-5 options", "formats PDF, DOCX, TXT"
+
+**Critères de Test Manquants :**
+- ❌ "Le système doit fournir des notifications"
+- ✅ "Le système doit envoyer des notifications par email dans les 30 secondes suivant l'événement déclencheur"
 
 ---
 
-## Limites : Pas de Fuite vers l'Implémentation (No Implementation Leakage)
+## Qu'est-ce qui fait d'excellentes Exigences Non-Fonctionnelles (NFRs) ?
 
-Le PRD définit **QUOI** et **POURQUOI**. Il ne définit PAS **COMMENT**.
+### Les NFRs Doivent Être Mesurables
 
-- ❌ "Utiliser le contexte React pour la gestion d'état" (C'est le rôle de l'Architecture)
-- ❌ "Ajouter une ombre portée au bouton principal" (C'est le rôle du Design UX)
-- ❌ "Créer une table 'users' avec une colonne 'status'" (C'est le rôle de l'Architecture / Conception de Base de Données)
-- ✅ "Les utilisateurs doivent pouvoir réinitialiser leur mot de passe de manière sécurisée via un lien par email" (C'est le rôle du PRD)
+**Modèle :**
+```
+"Le système doit [métrique] [condition] [méthode de mesure]"
+```
+
+**Exemples :**
+- ✅ "Le système doit répondre aux requêtes API en moins de 200ms pour le 95ème centile, mesuré par la surveillance APM"
+- ✅ "Le système doit maintenir une disponibilité de 99,9% pendant les heures ouvrables, mesurée par le SLA du fournisseur cloud"
+- ✅ "Le système doit prendre en charge 10 000 utilisateurs simultanés, mesurés par tests de charge"
+
+### Anti-Patterns NFR
+
+**Affirmations Non Mesurables :**
+- ❌ "Le système doit être évolutif" → ✅ "Le système doit gérer une croissance de charge de 10x via la mise à l'échelle horizontale"
+- ❌ "Haute disponibilité requise" → ✅ "99,9% de disponibilité, mesurée par le SLA du fournisseur cloud"
+
+**Contexte Manquant :**
+- ❌ "Temps de réponse inférieur à 1 seconde" → ✅ "Temps de réponse API inférieur à 1 seconde pour le 95ème centile sous charge normale"
 
 ---
 
-## Structure Centrale BMAD
+## Exigences Spécifiques au Domaine (Domain-Specific Requirements)
 
-1. Résumé Exécutif (Executive Summary)
-2. Critères de Réussite (Success Criteria)
-3. Périmètre du Produit (Product Scope)
-4. Parcours Utilisateurs (User Journeys)
-5. Exigences du Domaine (Domain Requirements) (si applicable)
-6. Analyse d'Innovation (Innovation Analysis) (si applicable)
-7. Exigences du Type de Projet (Project-Type Requirements)
-8. Exigences Fonctionnelles (Functional Requirements)
-9. Exigences Non Fonctionnelles (Non-Functional Requirements)
+**Auto-Détection et Application Selon le Contexte du Projet**
+
+Certaines industries ont des exigences obligatoires qui doivent être présentes :
+
+- **Santé (Healthcare) :** Règles de confidentialité et de sécurité HIPAA, chiffrement PHI, journalisation d'audit, MFA
+- **Fintech :** PCI-DSS Niveau 1, conformité AML/KYC, contrôles SOX, traces d'audit financières
+- **GovTech :** Cadre NIST, accessibilité Section 508 (WCAG 2.1 AA), FedRAMP, résidence des données
+- **E-Commerce :** PCI-DSS pour les paiements, exactitude de l'inventaire, calcul de taxes par juridiction
+
+**Pourquoi :** L'absence de ces exigences dans le PRD signifie qu'elles seront manquées dans l'architecture et l'implémentation, créant des reprises coûteuses. Lors de la création du PRD il y a une étape pour couvrir ce point - lors de la validation nous voulons nous assurer qu'il a bien été traité. À cette fin, les étapes utiliseront un fichier `domain-complexity.csv` et un fichier `project-types.csv`.
+
+---
+
+## Structure du Document (Markdown, Lisible par les Humains)
+
+### Sections Requises
+1. **Résumé Exécutif (Executive Summary)** - Vision, différenciateur, utilisateurs cibles
+2. **Critères de Réussite (Success Criteria)** - Résultats mesurables (SMART)
+3. **Périmètre du Produit (Product Scope)** - Phases MVP, Croissance, Vision
+4. **Parcours Utilisateurs (User Journeys)** - Couverture complète
+5. **Exigences du Domaine (Domain Requirements)** - Conformité spécifique à l'industrie (si applicable)
+6. **Analyse d'Innovation (Innovation Analysis)** - Différenciation concurrentielle (si applicable)
+7. **Exigences du Type de Projet (Project-Type Requirements)** - Besoins spécifiques à la plateforme
+8. **Exigences Fonctionnelles (Functional Requirements)** - Contrat de capacité (FRs)
+9. **Exigences Non-Fonctionnelles (Non-Functional Requirements)** - Attributs de qualité (NFRs)
+
+### Mise en Forme pour une Double Consommation
+
+**Pour les Humains :**
+- Langage clair et professionnel
+- Flux logique de la vision aux exigences
+- Facile à examiner et à approuver pour les parties prenantes
+
+**Pour les LLMs :**
+- En-têtes de niveau 2 (##) pour toutes les sections principales (permet l'extraction)
+- Structure et patterns cohérents
+- Langage précis et testable
+- Haute densité d'information
 
 ---
 
 ## Impact en Aval (Downstream Impact)
 
-Comment le PRD est utilisé par les étapes BMAD suivantes :
+**Comment le PRD Alimente les Artefacts Suivants :**
 
 **Design UX :**
-- Parcours utilisateurs (User journeys) → flux d'écrans (screen flows)
-- FRs → composants UI
+- Parcours utilisateurs → flux d'interaction
+- FRs → exigences de design
+- Critères de réussite → métriques UX
 
 **Architecture :**
-- FRs → capacités du système (system capabilities)
+- FRs → capacités du système
 - NFRs → décisions d'architecture
 - Exigences du domaine → architecture de conformité
 - Exigences du type de projet → choix de plateforme
 
-**Thèmes & Stories (créés après l'architecture) :**
+**Thèmes & Stories (Epics & Stories) (créés après l'architecture) :**
 - FRs → user stories (1 FR pourrait potentiellement correspondre à 1-3 stories)
 - Critères d'acceptation → tests d'acceptation de story
 - Priorité → séquencement des sprints

@@ -208,41 +208,41 @@ Après avoir facilité toutes les catégories de décision, préparez le contenu
 ### Analyse de Priorité des Décisions
 
 **Décisions Critiques (Bloquent l'Implémentation) :**
-{{décisions_critiques_prises}}
+{{critical_decisions_made}}
 
 **Décisions Importantes (Façonnent l'Architecture) :**
-{{décisions_importantes_prises}}
+{{important_decisions_made}}
 
 **Décisions Reportées (Post-MVP) :**
-{{décisions_reportées_avec_justification}}
+{{decisions_deferred_with_rationale}}
 
 ### Architecture des Données
 
-{{décisions_liées_aux_données_avec_versions_et_justification}}
+{{data_related_decisions_with_versions_and_rationale}}
 
 ### Authentification & Sécurité
 
-{{décisions_liées_à_la_sécurité_avec_versions_et_justification}}
+{{security_related_decisions_with_versions_and_rationale}}
 
 ### API & Modèles de Communication
 
-{{décisions_liées_à_l'API_avec_versions_et_justification}}
+{{api_related_decisions_with_versions_and_rationale}}
 
 ### Architecture Frontend
 
-{{décisions_liées_au_frontend_avec_versions_et_justification}}
+{{frontend_related_decisions_with_versions_and_rationale}}
 
 ### Infrastructure & Déploiement
 
-{{décisions_liées_à_l'infrastructure_avec_versions_et_justification}}
+{{infrastructure_related_decisions_with_versions_and_rationale}}
 
 ### Analyse d'Impact des Décisions
 
 **Séquence d'Implémentation :**
-{{liste_ordonnée_des_décisions_pour_l'implémentation}}
+{{ordered_list_of_decisions_for_implementation}}
 
 **Dépendances entre Composants :**
-{{comment_les_décisions_s'affectent_mutuellement}}
+{{how_decisions_affect_each_other}}
 ```
 
 ### 6. Présenter le Contenu et le Menu

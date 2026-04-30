@@ -182,8 +182,8 @@ Ajoutez au rapport de validation :
 
 ### Évaluation Globale
 
-**Total des exigences :** {EF + ENF}
-**Total des violations :** {violations EF + violations ENF}
+**Total des exigences :** {FRs + NFRs}
+**Total des violations :** {FR violations + NFR violations}
 
 **Sévérité :** [Critique si >10 violations, Avertissement si 5-10, Réussite si <5]
 
@@ -197,7 +197,7 @@ Ajoutez au rapport de validation :
 
 Affichez : "**Validation de la mesurabilité terminée**
 
-Total des violations : {count} ({sévérité})
+Total des violations : {count} ({severity})
 
 **Passage au prochain contrôle de validation...**"
 

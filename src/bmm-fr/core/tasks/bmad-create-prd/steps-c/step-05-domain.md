@@ -186,8 +186,9 @@ UNIQUEMENT LORSQUE [l'option de continuation C] est sélectionnée et que [le co
 - Ne pas vérifier la complexité du domaine en premier lieu
 - Ne pas proposer de sauter l'étape pour les domaines à faible complexité (low-complexity)
 - Manquer des exigences de conformité critiques
-- Prendre à la légère les données réglementaires sans poser les questions vitales
-- Formuler des lignes génériques inutilisables ou ne pas s'armer/absorber le contexte
-- Écraser tout ce travail d'expertise du domaine sans l'approbation humaine !
+- Ne pas explorer les contraintes techniques
+- Ne pas poser de questions sur les risques spécifiques au domaine
+- Être générique au lieu d'être spécifique au domaine
+- Poursuivre sans la validation de l'utilisateur
 
 **Règle Principale :** Cette étape est OPTIONNELLE pour les domaines simples. Pour les domaines complexes, concentrez-vous implacablement sur la conformité, les contraintes, et les modèles du domaine. Une vraie conversation naturelle.

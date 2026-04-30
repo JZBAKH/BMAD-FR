@@ -158,7 +158,7 @@ Ajoutez au rapport de validation :
 
 **EF à faible score :**
 
-**EF-{numéro} :** {suggestion spécifique d'amélioration}
+**EF-{number} :** {suggestion spécifique d'amélioration}
 [Pour chaque EF avec un score < 3 dans n'importe quelle catégorie]
 
 ### Évaluation Globale

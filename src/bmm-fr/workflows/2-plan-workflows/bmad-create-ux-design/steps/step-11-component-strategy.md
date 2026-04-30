@@ -73,12 +73,13 @@ Pour chaque composant sur mesure nécessaire, concevoir minutieusement :
 
 **Pour chaque composant sur mesure :**
 "**Design de [Nom du Composant] :**
-- **Objectif :** Que fait ce composant pour les utilisateurs ?
-- **Contenu :** Quelles informations ou données affiche-t-il ?
-- **Actions :** Que peuvent faire les utilisateurs avec ce composant ?
-- **États :** Quels sont ses différents états ? (par défaut, survol, actif, désactivé, erreur, etc.)
-- **Variantes :** Des tailles ou styles différents sont-ils nécessaires ?
-- **Accessibilité :** Quels labels ARIA et quel support clavier sont nécessaires ?
+
+**Objectif :** Que fait ce composant pour les utilisateurs ?
+**Contenu :** Quelles informations ou données affiche-t-il ?
+**Actions :** Que peuvent faire les utilisateurs avec ce composant ?
+**États :** Quels sont ses différents états ? (par défaut, survol, actif, désactivé, erreur, etc.)
+**Variantes :** Des tailles ou styles différents sont-ils nécessaires ?
+**Accessibilité :** Quels labels ARIA et quel support clavier sont nécessaires ?
 
 Passons en revue chaque composant sur mesure de manière systématique."
 

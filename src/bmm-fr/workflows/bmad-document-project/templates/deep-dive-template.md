@@ -1,10 +1,10 @@
 # {{target_name}} - Documentation Approfondie (Deep Dive)
 
 **Généré le :** {{date}}
-**Périmètre (Scope) :** {{target_path}}
+**Périmètre :** {{target_path}}
 **Fichiers Analysés :** {{file_count}}
 **Lignes de Code :** {{total_loc}}
-**Mode de Workflow :** Plongée Approfondie Exhaustive
+**Mode du Workflow :** Plongée Approfondie Exhaustive
 
 ## Présentation
 
@@ -32,13 +32,13 @@
 - `{{signature}}` - {{description}}
   {{/each}}
 
-**Dépendances (Imports) :**
+**Dépendances :**
 {{#each imports}}
 
 - `{{import_path}}` - {{reason}}
   {{/each}}
 
-**Utilisé Par (Dependents) :**
+**Utilisé Par :**
 {{#each dependents}}
 
 - `{{dependent_path}}`
@@ -60,7 +60,7 @@
 
 **Gestion de l'État :** {{state_approach}}
 
-**Effets de Bord (Side Effects) :**
+**Effets de Bord :**
 {{#each side_effects}}
 
 - {{effect_type}} : {{effect_description}}
@@ -86,7 +86,7 @@
 
 ## Liste de Contrôle du Contributeur
 
-- **Risques et Points de Vigilance (Gotchas) :** {{risks_notes}}
+- **Risques et Pièges :** {{risks_notes}}
 - **Étapes de Vérification Pré-changement :** {{verification_steps}}
 - **Tests Suggérés Avant PR :** {{suggested_tests}}
 
@@ -96,7 +96,7 @@
 
 {{organization_approach}}
 
-### Patterns de Conception (Design Patterns)
+### Patterns de Conception
 
 {{#each design_patterns}}
 
@@ -115,7 +115,7 @@
 
 {{testing_strategy}}
 
-## Flux de Données (Data Flow)
+## Flux de Données
 
 {{data_flow_diagram}}
 
@@ -139,6 +139,55 @@
 
 - **{{exit_name}}** : {{exit_description}}
   {{/each}}
+
+## Points d'Intégration
+
+### APIs Consommées
+
+{{#each apis_consumed}}
+
+- **{{api_endpoint}}** : {{api_description}}
+  - Méthode : {{method}}
+  - Authentification : {{auth_requirement}}
+  - Réponse : {{response_schema}}
+    {{/each}}
+
+### APIs Exposées
+
+{{#each apis_exposed}}
+
+- **{{api_endpoint}}** : {{api_description}}
+  - Méthode : {{method}}
+  - Requête : {{request_schema}}
+  - Réponse : {{response_schema}}
+    {{/each}}
+
+### État Partagé
+
+{{#each shared_state}}
+
+- **{{state_name}}** : {{state_description}}
+  - Type : {{state_type}}
+  - Accédé Par : {{accessors}}
+    {{/each}}
+
+### Événements
+
+{{#each events}}
+
+- **{{event_name}}** : {{event_description}}
+  - Type : {{publish_or_subscribe}}
+  - Charge utile : {{payload_schema}}
+    {{/each}}
+
+### Accès à la Base de Données
+
+{{#each database_operations}}
+
+- **{{table_name}}** : {{operation_type}}
+  - Requêtes : {{query_patterns}}
+  - Index Utilisés : {{indexes}}
+    {{/each}}
 
 ## Graphe de Dépendances
 
@@ -174,10 +223,10 @@
 
 ### Résumé de la Couverture de Test
 
-- **Statements (Instructions) :** {{statements_coverage}}%
-- **Branches (Branchements) :** {{branches_coverage}}%
-- **Functions (Fonctions) :** {{functions_coverage}}%
-- **Lines (Lignes) :** {{lines_coverage}}%
+- **Statements :** {{statements_coverage}}%
+- **Branches :** {{branches_coverage}}%
+- **Functions :** {{functions_coverage}}%
+- **Lines :** {{lines_coverage}}%
 
 ### Fichiers de Test
 
@@ -196,7 +245,7 @@
 - `{{utility_name}}` : {{utility_description}}
   {{/each}}
 
-### Lacunes de Test (Testing Gaps)
+### Lacunes de Test
 
 {{#each testing_gaps}}
 

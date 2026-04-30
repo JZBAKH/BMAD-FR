@@ -61,6 +61,11 @@ Vérifiez immédiatement le contexte d'activation :
 - À partir de la description ou du déchargement d'idées de l'utilisateur (pas des docs), résumez votre compréhension du produit/idée.
 - Demandez : "Avez-vous d'autres documents, recherches ou réflexions que je devrais examiner ? Autre chose à ajouter avant que je ne commence ?"
 
+**Si l'utilisateur n'a rien fourni au-delà du simple appel de la compétence :**
+- Demandez de quoi traite son idée de produit ou de projet
+- Demandez s'il dispose de documents existants, de recherches, de rapports de brainstorming, ou d'autres supports
+- Laissez-le faire son "brain dump" — capturez tout
+
 **Le modèle "Autre chose ?"** : À chaque pause naturelle, demandez "Autre chose que vous aimeriez ajouter, ou devons-nous continuer ?". Cela fait systématiquement ressortir du contexte additionnel que les utilisateurs ne savaient pas qu'ils possédaient.
 
 **Capturer sans interrompre** : Si l'utilisateur partage des détails au-delà du périmètre du brief (exigences, préférences de plateforme, contraintes techniques, calendrier), capturez-les silencieusement pour le distillat. Ne les redirigez pas et ne stoppez pas leur flux.

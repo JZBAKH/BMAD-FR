@@ -1,6 +1,6 @@
 ---
 name: 'step-v-04-brief-coverage-validation'
-description: 'Vérification de la Couverture du Brief Produit - Valider que le PRD couvre tout le contenu du Brief Produit (s''il a été fourni en entrée)'
+description: 'Vérification de la couverture du brief produit - Valider que le cahier des charges produit (PRD) couvre l''intégralité du contenu du brief produit (s''il a été utilisé en entrée)'
 
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
 nextStepFile: './step-v-05-measurability-validation.md'
@@ -9,143 +9,184 @@ productBrief: '{product_brief_path}'
 validationReportPath: '{validation_report_path}'
 ---
 
-# Étape V-4 : Validation de la Couverture du Brief Produit
+# Étape 4 : Validation de la couverture du brief produit
 
 ## OBJECTIF DE L'ÉTAPE :
 
-Valider que le PRD couvre l'intégralité du contenu du Brief Produit (si un brief a été utilisé en entrée), en mettant en correspondance le contenu du brief avec les sections du PRD et en identifiant les éventuelles lacunes (gaps).
+Valider que le cahier des charges produit (PRD) couvre l'intégralité du contenu du brief produit (si un brief a été utilisé en entrée), en mettant en correspondance le contenu du brief avec les sections du cahier des charges produit (PRD) et en identifiant les écarts.
 
 ## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-### Règles Universelles :
+### Règles universelles :
 
 - 🛑 NE JAMAIS générer de contenu sans la contribution de l'utilisateur
-- 📖 CRITIQUE : Lisez TOUJOURS le fichier d'étape en entier avant d'entreprendre la moindre action
-- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que l'ensemble du fichier est lu et compris
+- 📖 CRITIQUE : Lire l'intégralité du fichier d'étape avant d'entreprendre la moindre action
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que l'ensemble du fichier est lu
 - 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
-- ✅ VOUS DEVEZ TOUJOURS EFFECTUER LA SORTIE ORALE dans votre style de communication d'Agent avec la `{communication_language}` configurée
+- ✅ VOUS DEVEZ TOUJOURS PRODUIRE LA SORTIE dans votre style de communication d'agent avec la configuration `{communication_language}`
 
-### Renforcement du Rôle :
+### Renforcement du rôle :
 
-- ✅ Vous êtes un Architecte de Validation et un Spécialiste de l'Assurance Qualité
-- ✅ Si l'on vous a déjà fourni des modèles de communication ou des personnas, continuez à les utiliser tout en jouant ce nouveau rôle
+- ✅ Vous êtes un Architecte de validation et un Spécialiste de l'assurance qualité
+- ✅ Si l'on vous a déjà fourni des modèles de communication ou de persona, continuez à les utiliser tout en jouant ce nouveau rôle
 - ✅ Nous nous engageons dans une validation systématique, pas dans un dialogue collaboratif
 - ✅ Vous apportez une rigueur analytique et une expertise en matière de traçabilité
-- ✅ Cette étape s'exécute de manière autonome - aucune intervention de l'utilisateur n'est requise
+- ✅ Cette étape s'exécute de manière autonome - aucune contribution de l'utilisateur n'est requise
 
-### Règles Spécifiques à cette Étape :
+### Règles spécifiques à cette étape :
 
-- 🎯 Concentrez-vous UNIQUEMENT sur la traçabilité entre le Brief Produit et le PRD
-- 🚫 INTERDICTION de corriger les erreurs - ne faites que les signaler
-- 💬 Approche : Autonome, méthodique, comparaison rigoureuse
-- 🚪 Cette étape transitera automatiquement vers l'étape suivante une fois terminée
+- 🎯 Concentrez-vous UNIQUEMENT sur la couverture du brief produit (conditionnel à l'existence du brief)
+- 🚫 INTERDICTION de valider d'autres aspects à cette étape
+- 💬 Approche : Mise en correspondance systématique et analyse des écarts
+- 🚪 Il s'agit d'une étape de séquence de validation - poursuit automatiquement une fois terminée
 
 ## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Vérifiez si un Brief Produit existe dans les documents d'entrée (input documents)
-- 🎯 Scannez le Brief Produit et le PRD pour identifier la couverture du contenu
-- 🎯 Classifiez la gravité (severity) des lacunes de couverture (coverage gaps)
-- 🎯 Consignez les conclusions dans le rapport de validation
-- 💬 Affichez un résumé de la progression à l'utilisateur
-- 🎯 Poursuivez automatiquement vers l'étape de validation suivante
+- 🎯 Vérifier si un brief produit existe dans les documents d'entrée
+- 💬 Si aucun brief : Sauter cette vérification et signaler "S/O - Aucun brief produit"
+- 🎯 Si un brief existe : Mettre en correspondance le contenu du brief avec les sections du cahier des charges produit (PRD)
+- 💾 Ajouter les constats relatifs à la couverture au rapport de validation
+- 📖 Afficher "Passage à la vérification suivante..." et charger l'étape suivante
+- 🚫 INTERDICTION de mettre en pause ou de demander la contribution de l'utilisateur
 
 ## LIMITES DU CONTEXTE :
 
-- Contexte disponible : L'intégralité du PRD, le Brief Produit (si chargé), et les directives `prd-purpose.md`
-- Concentration : Couverture de l'information et traçabilité depuis le brief
-- Limites : Ne pas valider d'autres aspects de la qualité (seulement la couverture du brief)
-- Dépendances : Validation de la Densité (Étape v-03) terminée
+- Contexte disponible : Fichier de cahier des charges produit (PRD), documents d'entrée de l'étape 1, rapport de validation
+- Concentration : Couverture du brief produit uniquement (conditionnelle)
+- Limites : Ne pas valider d'autres aspects, exécution conditionnelle
+- Dépendances : Étape 1 terminée - documents d'entrée chargés
 
 ## SÉQUENCE OBLIGATOIRE
 
-**CRITIQUE :** Suivez cette séquence à la lettre. Ne sautez pas, ne réorganisez pas et n'improvisez pas.
+**CRITIQUE :** Suivez cette séquence à la lettre. Ne sautez pas, ne réorganisez pas et n'improvisez pas, sauf si l'utilisateur demande explicitement un changement.
 
-### 1. Vérifier l'Existence du Brief Produit
+### 1. Vérifier la présence d'un brief produit
 
-Vérifiez si un Brief Produit (ou un document similaire de définition de projet) a été chargé lors de l'étape de découverte (discovery).
+Vérifier si un brief produit a été chargé dans les inputDocuments de l'étape 1 :
 
-**S'IL N'Y A PAS DE BRIEF PRODUIT :**
-- Inscrivez silencieusement dans le rapport de validation : "Validation de la Couverture du Brief Produit : N/A (Aucun brief fourni)"
-- Affichez : "**Validation de la Couverture du Brief Produit : Ignorée (Aucun Brief Produit fourni)**"
-- Passez immédiatement à l'étape 6.
-
-**SI UN BRIEF PRODUIT EXISTE :**
-- Poursuivez à l'étape 2.
-
-### 2. Sous-processus de Validation de la Couverture
-
-**Si l'outil Tâche (Task tool) est disponible, déléguez ceci à un sous-agent :**
-
-"Exécutez une vérification de la couverture du Brief Produit sur le PRD.
-1. Extrayez les éléments de contenu clés du Brief Produit (objectifs, public cible, fonctionnalités principales, contraintes).
-2. Vérifiez si chaque élément clé est abordé dans le PRD.
-3. Identifiez toute information critique du brief qui est manquante ou contredite dans le PRD.
-
-Pour chaque élément clé du brief, classifiez sa couverture dans le PRD :
-- **Entièrement Couvert (Fully Covered) :** Présent et détaillé
-- **Partiellement Couvert (Partially Covered) :** Mentionné mais manquant de profondeur par rapport au brief
-- **Non Trouvé (Not Found) :** Manquant dans le PRD
-- **Exclu Intentionnellement (Intentionally Excluded) :** Manquant, mais le PRD explique pourquoi (par ex., repoussé à une version ultérieure)
-
-Évaluez la gravité globale des lacunes :
-- **Critique (Critical) :** Objectifs principaux ou fonctionnalités clés manquants
-- **Modérée (Moderate) :** Détails de soutien ou contraintes manquants
-- **Informative (Informational) :** Le PRD s'écarte légèrement mais de manière justifiable"
-
-### 3. Dégradation Gracieuse (Si l'outil Tâche est indisponible)
-
-Si vous ne pouvez pas utiliser l'outil Tâche, effectuez l'analyse de couverture vous-même de manière silencieuse dans votre fenêtre contextuelle (context window). Comparez le contenu clé du brief au PRD, identifiez les lacunes, et évaluez la gravité manuellement.
-
-### 4. Mettre à Jour le Rapport de Validation
-
-Ajoutez silencieusement ce qui suit au fichier `{validationReportPath}` :
-
+**SI aucun brief produit n'est trouvé :**
+Ajouter au rapport de validation :
 ```markdown
-## 4. Couverture du Brief Produit
-**Statut :** {Critique / Modérée / Informative / Succès}
+## Couverture du brief produit
 
-### Analyse de la Couverture
-- **Éléments Entièrement Couverts :** {count}
-- **Éléments Partiellement Couverts :** {count}
-- **Éléments Non Trouvés :** {count}
-- **Exclusions Intentionnelles :** {count}
-
-### Lacunes Critiques (à corriger)
-1. {Lacune 1 avec sa source dans le brief}
-2. {Lacune 2 avec sa source dans le brief}
-
-### Lacunes Modérées
-1. {Lacune 1 avec sa source dans le brief}
+**Statut :** S/O - Aucun brief produit n'a été fourni en entrée
 ```
 
-### 5. Compiler le Résumé des Constats (Pour l'affichage uniquement)
-
-Préparez ce texte pour la console (n'attendez PAS d'action de l'utilisateur) :
-
-```text
-**Analyse de la Couverture du Brief Produit :**
-- Entièrement Couvert : {count} éléments
-- Partiellement Couvert : {count} éléments
-- Non Trouvé : {count} éléments
-
-**Lacunes d'Information Critiques :** [count] [listez-les s'il y en a]
-**Lacunes d'Information Modérées :** [count] [listez-les s'il y en a]
-
-**Recommandation :**
-[Si lacunes critiques] "Le PRD doit être révisé pour couvrir le contenu critique du Brief Produit."
-[Si lacunes modérées] "Envisagez de combler les lacunes modérées pour une couverture complète."
-[Si lacunes minimes] "Le PRD offre une bonne couverture du contenu du Brief Produit."
-```
-
-### 6. Afficher la Progression et Passer Automatiquement à la Suite
-
-Affichez : "**Validation de la Couverture du Brief Produit Terminée**
-
-Couverture globale : {Critique/Modérée/Informative/Succès ou N/A}
+Afficher : "**Couverture du brief produit : Ignorée** (Aucun brief produit fourni)
 
 **Passage à la vérification de validation suivante...**"
 
-Sans délai, lisez entièrement et suivez : `{nextStepFile}` (step-v-05-measurability-validation.md)
+Sans délai, lire intégralement et suivre : {nextStepFile}
+
+**SI un brief produit existe :** Continuer à l'étape 2 ci-dessous
+
+### 2. Tenter la validation par sous-processus
+
+**Tenter d'utiliser l'outil Task pour générer un sous-processus :**
+
+"Effectuer la validation de la couverture du brief produit :
+
+1. Charger le brief produit
+2. Extraire le contenu clé :
+   - Énoncé de vision
+   - Utilisateurs/personas cibles
+   - Énoncé du problème
+   - Fonctionnalités clés
+   - Buts/objectifs
+   - Différenciateurs
+   - Contraintes
+3. Pour chaque élément, rechercher dans le cahier des charges produit (PRD) la couverture correspondante
+4. Classifier la couverture : Entièrement couvert / Partiellement couvert / Non trouvé / Exclu intentionnellement
+5. Noter les écarts avec leur gravité : Critique / Modérée / Informatif
+
+Retourner une carte de couverture structurée avec les classifications."
+
+### 3. Dégradation gracieuse (si l'outil Task est indisponible)
+
+Si l'outil Task est indisponible, effectuer l'analyse directement :
+
+**Extraire du brief produit :**
+- Vision : Quel est ce produit ?
+- Utilisateurs : À qui s'adresse-t-il ?
+- Problème : Quel problème résout-il ?
+- Fonctionnalités : Quelles sont les capacités clés ?
+- Buts : Quels sont les critères de réussite ?
+- Différenciateurs : Qu'est-ce qui le rend unique ?
+
+**Pour chaque élément, rechercher dans le cahier des charges produit (PRD) :**
+- Scanner le résumé exécutif pour la vision
+- Vérifier les parcours utilisateurs ou les personas utilisateurs
+- Rechercher l'énoncé du problème
+- Examiner les exigences fonctionnelles pour les fonctionnalités
+- Vérifier la section critères de réussite
+- Rechercher les différenciateurs
+
+**Classifier la couverture :**
+- **Entièrement couvert :** Contenu présent et complet
+- **Partiellement couvert :** Contenu présent mais incomplet
+- **Non trouvé :** Contenu manquant dans le cahier des charges produit (PRD)
+- **Exclu intentionnellement :** Contenu explicitement hors périmètre
+
+### 4. Évaluer la couverture et la gravité
+
+**Pour chaque écart (Partiellement couvert ou Non trouvé) :**
+- Est-il Critique ? (Vision principale, utilisateurs primaires, fonctionnalités principales)
+- Est-il Modéré ? (Fonctionnalités secondaires, certains buts)
+- Est-il Informatif ? (Fonctionnalités souhaitables, détails mineurs)
+
+**Note :** Certaines exclusions peuvent être intentionnelles (décisions de cadrage valides)
+
+### 5. Consigner les constats relatifs à la couverture dans le rapport de validation
+
+Ajouter au rapport de validation :
+
+```markdown
+## Couverture du brief produit
+
+**Brief produit :** {brief_file_name}
+
+### Carte de couverture
+
+**Énoncé de vision :** [Entièrement/Partiellement/Non trouvé/Exclu intentionnellement]
+[Si écart : Noter la gravité et le contenu spécifique manquant]
+
+**Utilisateurs cibles :** [Entièrement/Partiellement/Non trouvé/Exclu intentionnellement]
+[Si écart : Noter la gravité et le contenu spécifique manquant]
+
+**Énoncé du problème :** [Entièrement/Partiellement/Non trouvé/Exclu intentionnellement]
+[Si écart : Noter la gravité et le contenu spécifique manquant]
+
+**Fonctionnalités clés :** [Entièrement/Partiellement/Non trouvé/Exclu intentionnellement]
+[Si écart : Lister les fonctionnalités spécifiques avec leur gravité]
+
+**Buts/objectifs :** [Entièrement/Partiellement/Non trouvé/Exclu intentionnellement]
+[Si écart : Noter la gravité et le contenu spécifique manquant]
+
+**Différenciateurs :** [Entièrement/Partiellement/Non trouvé/Exclu intentionnellement]
+[Si écart : Noter la gravité et le contenu spécifique manquant]
+
+### Résumé de la couverture
+
+**Couverture globale :** [pourcentage ou évaluation qualitative]
+**Écarts critiques :** [count] [lister s'il y en a]
+**Écarts modérés :** [count] [lister s'il y en a]
+**Écarts informatifs :** [count] [lister s'il y en a]
+
+**Recommandation :**
+[S'il existe des écarts critiques] "Le cahier des charges produit (PRD) doit être révisé pour couvrir le contenu critique du brief produit."
+[Si écarts modérés] "Envisagez de combler les écarts modérés pour une couverture complète."
+[Si écarts minimes] "Le cahier des charges produit (PRD) offre une bonne couverture du contenu du brief produit."
+```
+
+### 6. Afficher la progression et passer automatiquement à la suite
+
+Afficher : "**Validation de la couverture du brief produit terminée**
+
+Couverture globale : {assessment}
+
+**Passage à la vérification de validation suivante...**"
+
+Sans délai, lire intégralement et suivre : {nextStepFile} (step-v-05-measurability-validation.md)
 
 ---
 
@@ -153,22 +194,21 @@ Sans délai, lisez entièrement et suivez : `{nextStepFile}` (step-v-05-measurab
 
 ### ✅ RÉUSSITE :
 
-- Vérification correcte de l'existence du Brief Produit
-- Si aucun brief : Signalement "N/A" et saut effectué proprement
-- Si le brief existe : Mise en correspondance de tout le contenu clé du brief avec les sections du PRD
-- Couverture classifiée de manière appropriée (Entièrement/Partiellement/Non trouvée/Exclue intentionnellement)
-- Gravité évaluée pour les lacunes (Critique/Modérée/Informative)
-- Conclusions consignées dans le rapport de validation
+- Vérification correcte de l'existence du brief produit
+- Si aucun brief : Signalement "S/O" et saut effectué proprement
+- Si un brief existe : Mise en correspondance de tout le contenu clé du brief avec les sections du cahier des charges produit (PRD)
+- Couverture classifiée de manière appropriée (Entièrement/Partiellement/Non trouvé/Exclu intentionnellement)
+- Gravité évaluée pour les écarts (Critique/Modérée/Informatif)
+- Constats consignés dans le rapport de validation
 - Passage automatique à l'étape de validation suivante
-- Tentative de sous-processus avec dégradation gracieuse
+- Sous-processus tenté avec dégradation gracieuse
 
 ### ❌ ÉCHEC DU SYSTÈME :
 
 - Ne pas vérifier l'existence du brief avant de tenter la validation
-- Si le brief existe : ne pas mettre en correspondance tous les domaines de contenu clés
+- Si un brief existe : ne pas mettre en correspondance tous les domaines de contenu clés
 - Classifications de couverture manquantes
-- Non-consignation des conclusions dans le rapport de validation
-- Absence de passage automatique (mise en pause)
-- Ne pas tenter l'architecture de sous-processus
+- Ne pas consigner les constats dans le rapport de validation
+- Ne pas poursuivre automatiquement
 
-**Règle Principale :** La couverture du Brief Produit est conditionnelle - ignorez si aucun brief, validez minutieusement si un brief existe. Poursuivez toujours automatiquement.
+**Règle principale :** La couverture du brief produit est conditionnelle - sauter si aucun brief, valider minutieusement si un brief existe. Toujours poursuivre automatiquement.

@@ -1,84 +1,76 @@
-# Étape 8 : Finalisation du Workflow d'Architecture
+# Étape 8 : Finalisation de l'Architecture & Transition
 
 ## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
 - 🛑 NE JAMAIS générer de contenu sans l'intervention de l'utilisateur
 
-- 📖 CRITIQUE : TOUJOURS lire l'intégralité du fichier d'étape avant toute action — une compréhension incomplète mène à une clôture bâclée
-- ✅ TOUJOURS traiter cela comme une réussite collaborative entre pairs architectes
-- 📋 VOUS ÊTES UN FACILITATEUR, concluez le partenariat
+- 📖 CRITIQUE : TOUJOURS lire l'intégralité du fichier d'étape avant d'entreprendre toute action — une compréhension partielle mène à des décisions incomplètes
+- ✅ TOUJOURS traiter cela comme une finalisation collaborative entre pairs architectes
+- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
+- 💬 CONCENTREZ-VOUS sur la finalisation réussie du workflow et la transition vers l'implémentation
+- 🎯 FOURNIR des prochaines étapes claires pour la phase d'implémentation
 - ⚠️ ABSOLUMENT AUCUNE ESTIMATION DE TEMPS — la vitesse de développement de l'IA a fondamentalement changé
 - ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'agent avec la configuration `{communication_language}`
 
 ## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Afficher votre analyse finale du travail accompli
-- 💾 Mettre à jour le frontmatter final (statut terminé)
-- 🚫 INTERDICTION de continuer vers un autre workflow sans avoir officiellement clos celui-ci
+- 🎯 Afficher votre analyse avant d'entreprendre toute action
+- 🎯 Présenter le résumé de finalisation et les conseils d'implémentation
+- 📖 Mettre à jour le frontmatter avec l'état final du workflow
+- 🚫 CECI EST L'ÉTAPE FINALE DE CE WORKFLOW
 
 ## VOTRE TÂCHE :
 
-Finaliser officiellement le document d'architecture, célébrer le travail accompli avec l'utilisateur et préparer le terrain pour la phase d'implémentation.
+Finaliser le workflow d'architecture, fournir un résumé de finalisation complet et guider l'utilisateur vers la prochaine phase de développement de son projet.
 
 ## SÉQUENCE DE FINALISATION :
 
-### 1. Synthèse de la Réussite Collaborative
+### 1. Féliciter l'Utilisateur pour la Finalisation
 
-Présentez un résumé chaleureux et professionnel de l'architecture créée :
+Vous et l'utilisateur avez accompli quelque chose de formidable ici — donnez un résumé de ce que vous avez réalisé ensemble et félicitez vraiment l'utilisateur pour le travail bien fait.
 
-"Félicitations {{user_name}} ! Nous venons de poser les fondations architecturales de {{project_name}}.
+### 2. Mettre à Jour le frontmatter du document créé
 
-**Ensemble, nous avons :**
+```yaml
+stepsCompleted: [1, 2, 3, 4, 5, 6, 7, 8]
+workflowType: 'architecture'
+lastStep: 8
+status: 'complete'
+completedAt: '{{current_date}}'
+```
 
-- Analysé le contexte et l'échelle du projet
-- Sélectionné le starter optimal : {{starter_selection}}
-- Pris les décisions technologiques clés ({{tech_summary}})
-- Établi les modèles de cohérence pour les agents IA
-- Défini une structure de fichiers robuste
-- Validé la préparation à l'implémentation"
+### 3. Conseils pour les Prochaines Étapes
 
-### 2. Mise à Jour Finale du Frontmatter
+Architecture finalisée. Invoquez le skill `bmad-help`.
 
-Mettez à jour le frontmatter de `{planning_artifacts}/architecture.md` :
+À la finalisation de la sortie de la tâche : proposer de répondre à toutes les questions concernant le Document d'Architecture.
 
-- `stepsCompleted: [1, 2, 3, 4, 5, 6, 7, 8]`
-- `workflowStatus: 'completed'`
-- `completionDate: '{{date}}'`
-
-### 3. Message de Clôture & Guidage
-
-Fournissez des instructions claires pour la suite :
-
-"Votre Document de Décision d'Architecture est maintenant prêt et sauvegardé dans `{planning_artifacts}/architecture.md`.
-
-**Prochaines étapes recommandées :**
-
-1. **Création du Projet** : Exécutez la commande d'initialisation du starter définie à l'étape 3.
-2. **Implémentation** : Utilisez `bmad-help` pour explorer les workflows d'implémentation.
-3. **Référence** : Gardez ce document à portée de main ; il sera la source de vérité pour tous les agents IA qui travailleront sur le code.
-
-C'était un plaisir de collaborer avec vous sur ce design. Souhaitez-vous que je vous aide sur autre chose, ou préférez-vous lancer l'initialisation du projet ?"
-
-### 4. Transition vers l'Aide Globale
-
-Si l'utilisateur a terminé, suggérez l'utilisation de `bmad-help`.
 
 ## INDICATEURS DE RÉUSSITE :
 
-✅ Résumé complet et gratifiant présenté à l'utilisateur
-✅ Frontmatter du document mis à jour avec le statut 'completed'
-✅ Prochaines étapes de développement clairement énoncées
-✅ Transition fluide vers l'implémentation ou l'aide globale
+✅ Document d'architecture complet livré avec toutes les sections
+✅ Toutes les décisions architecturales documentées et validées
+✅ Modèles d'implémentation et règles de cohérence finalisés
+✅ Structure du projet complète avec tous les fichiers et répertoires
+✅ Utilisateur fourni avec des prochaines étapes claires et des conseils d'implémentation
+✅ État du workflow correctement mis à jour
+✅ Collaboration utilisateur maintenue tout au long du processus de finalisation
 
 ## MODES D'ÉCHEC :
 
-❌ Terminer brusquement sans résumé ni félicitations
-❌ Oublier de mettre à jour le statut final dans le frontmatter
-❌ Ne pas fournir de directives claires pour la phase d'implémentation
-❌ Perdre le lien avec le document d'architecture finalisé
+❌ Ne pas fournir de conseils d'implémentation clairs
+❌ Manquer la validation finale de l'exhaustivité du document
+❌ Ne pas mettre à jour l'état du workflow de manière appropriée
+❌ Ne pas célébrer la finalisation réussie
+❌ Ne pas fournir de prochaines étapes spécifiques pour l'utilisateur
+❌ Précipiter la finalisation sans résumé approprié
 
 ❌ **CRITIQUE** : Lecture partielle du fichier d'étape — mène à une compréhension incomplète et à de mauvaises décisions
+❌ **CRITIQUE** : Continuer avec 'C' sans lire et comprendre intégralement le prochain fichier d'étape
+❌ **CRITIQUE** : Prendre des décisions sans une compréhension complète des exigences et des protocoles de l'étape
 
-## FIN DU WORKFLOW
+## WORKFLOW TERMINÉ :
 
-Le workflow `bmad-create-architecture` est maintenant terminé.
+Ceci est l'étape finale du workflow d'Architecture. L'utilisateur dispose maintenant d'un document d'architecture complet et validé, prêt pour l'implémentation par les agents IA.
+
+L'architecture servira de source unique de vérité pour toutes les décisions techniques, garantissant une implémentation cohérente sur l'ensemble du cycle de développement du projet.

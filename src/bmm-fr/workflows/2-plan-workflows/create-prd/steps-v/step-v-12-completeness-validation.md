@@ -208,7 +208,7 @@ Ajoutez au rapport de validation :
 
 Affichez : "**Validation de l'exhaustivité terminée**
 
-Exhaustivité globale : {percentage}% ({sévérité})
+Exhaustivité globale : {percentage}% ({severity})
 
 **Passage à l'étape finale...**"
 

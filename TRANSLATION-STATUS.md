@@ -1,6 +1,6 @@
 # Tableau de bord de la traduction BMAD-FR
 
-_Généré automatiquement le 2026-04-29 23:21:27 UTC par `tools/audit-translation-coverage.mjs`._
+_Généré automatiquement le 2026-04-30 13:25:50 UTC par `tools/audit-translation-coverage.mjs`._
 
 ## Résumé global
 

@@ -1,6 +1,6 @@
 ---
 name: 'step-v-02-format-detection'
-description: 'Détection du Format et Analyse de la Structure - Classifier le format du PRD et l''acheminer de manière appropriée'
+description: 'Détection du format et analyse de la structure - Classifier le format du cahier des charges produit (PRD) et l''acheminer de manière appropriée'
 
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
 nextStepFile: './step-v-03-density-validation.md'
@@ -9,124 +9,162 @@ prdFile: '{prd_file_path}'
 validationReportPath: '{validation_report_path}'
 ---
 
-# Étape V-2 : Détection du Format & Analyse de la Structure
+# Étape 2 : Détection du format et analyse de la structure
 
 ## OBJECTIF DE L'ÉTAPE :
 
-Détecter si le PRD suit le format BMAD et l'acheminer (router) de manière appropriée - le classifier comme BMAD Standard / Variante BMAD / Non-Standard, avec une vérification de parité optionnelle pour les formats non-standards.
+Détecter si le cahier des charges produit (PRD) suit le format BMAD et l'acheminer de manière appropriée - le classifier comme BMAD Standard / Variante BMAD / Non-Standard, avec une vérification de parité optionnelle pour les formats non-standards.
 
 ## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-### Règles Universelles :
+### Règles universelles :
 
 - 🛑 NE JAMAIS générer de contenu sans la contribution de l'utilisateur
-- 📖 CRITIQUE : Lisez TOUJOURS le fichier d'étape en entier avant d'entreprendre la moindre action
-- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que l'ensemble du fichier est lu et compris
+- 📖 CRITIQUE : Lire l'intégralité du fichier d'étape avant d'entreprendre la moindre action
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que l'ensemble du fichier est lu
 - 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
-- ✅ VOUS DEVEZ TOUJOURS EFFECTUER LA SORTIE ORALE dans votre style de communication d'Agent avec la `{communication_language}` configurée
+- ✅ VOUS DEVEZ TOUJOURS PRODUIRE LA SORTIE dans votre style de communication d'agent avec la configuration `{communication_language}`
 
-### Renforcement du Rôle :
+### Renforcement du rôle :
 
-- ✅ Vous êtes un Architecte de Validation et un Spécialiste de l'Assurance Qualité
-- ✅ Si l'on vous a déjà fourni des modèles de communication ou des personnas, continuez à les utiliser tout en jouant ce nouveau rôle
-- ✅ Nous nous engageons dans un dialogue collaboratif, pas dans un échange de type commande/réponse
-- ✅ Vous apportez votre expertise en matière de validation systématique et de reconnaissance de modèles (pattern recognition)
-- ✅ L'utilisateur apporte sa connaissance du domaine et le contexte du PRD
+- ✅ Vous êtes un Architecte de validation et un Spécialiste de l'assurance qualité
+- ✅ Si l'on vous a déjà fourni des modèles de communication ou de persona, continuez à les utiliser tout en jouant ce nouveau rôle
+- ✅ Nous nous engageons dans un dialogue collaboratif, pas dans un échange de type commande-réponse
+- ✅ Vous apportez une expertise systématique de validation et de la reconnaissance de modèles (pattern recognition)
+- ✅ L'utilisateur apporte sa connaissance du domaine et le contexte du cahier des charges produit (PRD)
 
-### Règles Spécifiques à cette Étape :
+### Règles spécifiques à cette étape :
 
-- 🎯 Concentrez-vous UNIQUEMENT sur l'extraction des en-têtes et la classification du format
-- 🚫 INTERDICTION d'effectuer une validation détaillée du contenu au cours de cette étape
-- 💬 Approche : Analytique, objective et décisive
-- 🚪 Cette étape détermine le chemin de validation qui sera emprunté
+- 🎯 Concentrez-vous UNIQUEMENT sur la détection du format et la classification de la structure
+- 🚫 INTERDICTION d'effectuer d'autres vérifications de validation à cette étape
+- 💬 Approche : Analytique et systématique, compte rendu clair des constats
+- 🚪 Il s'agit d'une étape de branchement - peut router vers la vérification de parité pour les cahiers des charges produit (PRD) non-standards
 
 ## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Extrayez tous les en-têtes (headers) de Niveau 2 (##) du PRD
-- 🎯 Comparez-les aux sections standards de BMAD
-- 🎯 Classifiez le format du PRD
-- 🎯 Consignez les constats dans le rapport de validation
-- 💬 Informez l'utilisateur et routez-le en fonction de la classification
+- 🎯 Analyser systématiquement la structure du cahier des charges produit (PRD)
+- 💾 Ajouter les constats relatifs au format au rapport de validation
+- 📖 Acheminer de manière appropriée selon la classification du format
+- 🚫 INTERDICTION de sauter la détection du format ou de poursuivre sans classification
 
 ## LIMITES DU CONTEXTE :
 
-- Contexte disponible : Le PRD chargé
-- Concentration : Analyse de la structure du document
-- Limites : Ne pas valider la densité ou la qualité du contenu
-- Dépendances : L'étape v-01 est terminée et le PRD est chargé en mémoire
+- Contexte disponible : Fichier de cahier des charges produit (PRD) chargé à l'étape 1, rapport de validation initialisé
+- Concentration : Détection et classification du format uniquement
+- Limites : Ne pas effectuer d'autres validations, ne pas sauter la classification
+- Dépendances : Étape 1 terminée - cahier des charges produit (PRD) chargé et rapport initialisé
 
 ## SÉQUENCE OBLIGATOIRE
 
-**CRITIQUE :** Suivez cette séquence à la lettre. Ne sautez pas, ne réorganisez pas et n'improvisez pas.
+**CRITIQUE :** Suivez cette séquence à la lettre. Ne sautez pas, ne réorganisez pas et n'improvisez pas, sauf si l'utilisateur demande explicitement un changement.
 
-### 1. Extraire les En-têtes de Niveau 2 (Level 2 Headers)
+### 1. Extraire la structure du cahier des charges produit (PRD)
 
-Parcourez le PRD et dressez la liste de tous les en-têtes de Niveau 2 (`##`). Comparez-les aux 9 sections centrales (core sections) de BMAD :
-1. Résumé Exécutif (Executive Summary)
-2. Critères de Réussite (Success Criteria)
-3. Périmètre du Produit (Product Scope)
-4. Parcours Utilisateurs (User Journeys)
-5. Exigences du Domaine (Domain Requirements)
-6. Analyse d'Innovation (Innovation Analysis)
-7. Exigences du Type de Projet (Project-Type Requirements)
-8. Exigences Fonctionnelles (Functional Requirements)
-9. Exigences Non Fonctionnelles (Non-Functional Requirements)
+Charger l'intégralité du fichier de cahier des charges produit (PRD) et extraire :
 
-### 2. Classifier le Format
+**Tous les en-têtes de niveau 2 (##) :**
+- Parcourir l'intégralité du document de cahier des charges produit (PRD)
+- Extraire tous les en-têtes de section ##
+- Les lister dans l'ordre
 
-En fonction de l'extraction des en-têtes :
-- **BMAD Standard :** Contient les 9 sections fondamentales (Passez à l'étape 3, puis routez directement vers `step-v-03`)
-- **Variante BMAD :** Contient 5 à 8 sections fondamentales (Passez à l'étape 3, puis routez directement vers `step-v-03`)
-- **Non-Standard (Legacy) :** Contient moins de 5 sections fondamentales BMAD (Passez à l'étape 3, puis présentez le MENU à l'utilisateur)
+**Frontmatter du cahier des charges produit (PRD) :**
+- Extraire classification.domain s'il est présent
+- Extraire classification.projectType s'il est présent
+- Noter toute autre métadonnée pertinente
 
-### 3. Mettre à Jour le Rapport de Validation
+### 2. Vérifier les sections fondamentales du cahier des charges produit (PRD) BMAD
 
-Ajoutez silencieusement ce qui suit au fichier `{validationReportPath}` :
+Vérifier si le cahier des charges produit (PRD) contient les sections fondamentales suivantes du cahier des charges produit (PRD) BMAD :
+
+1. **Résumé exécutif** (ou variations : ## Executive Summary, ## Overview, ## Introduction)
+2. **Critères de réussite** (ou : ## Success Criteria, ## Goals, ## Objectives)
+3. **Périmètre du produit** (ou : ## Product Scope, ## Scope, ## In Scope, ## Out of Scope)
+4. **Parcours utilisateurs** (ou : ## User Journeys, ## User Stories, ## User Flows)
+5. **Exigences fonctionnelles** (ou : ## Functional Requirements, ## Features, ## Capabilities)
+6. **Exigences non-fonctionnelles** (ou : ## Non-Functional Requirements, ## NFRs, ## Quality Attributes)
+
+**Compter les correspondances :**
+- Combien de ces 6 sections fondamentales sont présentes ?
+- Quelles sections spécifiques sont présentes ?
+- Lesquelles sont manquantes ?
+
+### 3. Classifier le format du cahier des charges produit (PRD)
+
+Selon le nombre de sections fondamentales, classifier :
+
+**BMAD Standard :**
+- 5-6 sections fondamentales présentes
+- Suit étroitement la structure du cahier des charges produit (PRD) BMAD
+
+**Variante BMAD :**
+- 3-4 sections fondamentales présentes
+- Suit globalement les modèles BMAD mais peut présenter des différences structurelles
+- Manque certaines sections mais reconnaissable comme étant de style BMAD
+
+**Non-Standard :**
+- Moins de 3 sections fondamentales présentes
+- Ne suit pas la structure du cahier des charges produit (PRD) BMAD
+- Peut être un format entièrement personnalisé, hérité (legacy), ou provenir d'un autre framework
+
+### 4. Consigner les constats relatifs au format dans le rapport de validation
+
+Ajouter au rapport de validation :
 
 ```markdown
-## 2. Format et Structure
-- **Format Détecté :** {BMAD Standard / Variante BMAD / Non-Standard}
-- **Sections Fondamentales Présentes :** {count}/9
-- **Sections Manquantes :** {liste des sections centrales manquantes, le cas échéant}
-- **Sections Supplémentaires :** {liste des sections non-standards, le cas échéant}
+## Détection du format
+
+**Structure du cahier des charges produit (PRD) :**
+[Lister tous les en-têtes ## de niveau 2 trouvés]
+
+**Sections fondamentales BMAD présentes :**
+- Résumé exécutif : [Présente/Manquante]
+- Critères de réussite : [Présente/Manquante]
+- Périmètre du produit : [Présente/Manquante]
+- Parcours utilisateurs : [Présente/Manquante]
+- Exigences fonctionnelles : [Présente/Manquante]
+- Exigences non-fonctionnelles : [Présente/Manquante]
+
+**Classification du format :** [BMAD Standard / Variante BMAD / Non-Standard]
+**Sections fondamentales présentes :** [count]/6
 ```
 
-### 4. Présenter les Constats (Findings) et Acheminer (Route)
+### 5. Acheminer en fonction de la classification du format
 
-**SI BMAD Standard OU Variante BMAD :**
-Affichez : "**Format Détecté : {classification}**
-J'ai identifié {count}/9 sections fondamentales BMAD.
+**SI le format est BMAD Standard ou Variante BMAD :**
 
-**Passage automatique à la validation de la densité de l'information...**"
-Lisez entièrement et suivez : `{nextStepFile}` (step-v-03-density-validation.md)
+Afficher : "**Format détecté :** {classification}
 
-**SI Non-Standard (Legacy) :**
-Affichez : "**Format Détecté : Non-Standard (Legacy)**
-Ce PRD ne suit pas la structure standard BMAD (seulement {count}/9 sections fondamentales identifiées).
+Passage aux vérifications de validation systématiques..."
 
-Pour garantir une validation de haute qualité, nous devons décider comment procéder. Je peux effectuer une \"Vérification de Parité\" (Parity Check) pour identifier les lacunes exactes par rapport à un PRD BMAD, ou nous pouvons valider la structure actuelle telle quelle.
+Sans délai, lire intégralement et suivre : {nextStepFile} (step-v-03-density-validation.md)
 
-**Comment souhaitez-vous procéder ?**"
+**SI le format est Non-Standard (< 3 sections fondamentales) :**
 
-Passez à l'étape 5 pour présenter le menu.
+Afficher : "**Format détecté :** Cahier des charges produit (PRD) non-standard
 
-### 5. Présenter les OPTIONS DU MENU (Pour les formats Non-Standards uniquement)
+Ce cahier des charges produit (PRD) ne suit pas la structure standard BMAD (seulement {count}/6 sections fondamentales présentes).
 
-**[A] Parity Check** - Analyser les lacunes et estimer l'effort pour atteindre la parité avec un PRD BMAD
-**[B] Validate As-Is** - Poursuivre la validation en utilisant la structure actuelle
-**[C] Exit** - Quitter la validation et examiner les conclusions sur le format
+Vous avez plusieurs options :"
+
+Présenter les OPTIONS DU MENU ci-dessous pour la sélection de l'utilisateur
+
+### 6. Présenter les OPTIONS DU MENU (Cahiers des charges produit (PRD) non-standards uniquement)
+
+**[A] Vérification de parité** - Analyser les écarts et estimer l'effort pour atteindre la parité avec le cahier des charges produit (PRD) BMAD
+**[B] Valider tel quel** - Procéder à la validation en utilisant la structure actuelle
+**[C] Quitter** - Quitter la validation et examiner les constats sur le format
 
 #### RÈGLES D'EXÉCUTION :
 
-- Arrêtez-vous TOUJOURS et attendez la contribution de l'utilisateur
-- Ne procédez qu'en fonction de la sélection de l'utilisateur
+- TOUJOURS s'arrêter et attendre la contribution de l'utilisateur
+- Ne procéder qu'en fonction de la sélection de l'utilisateur
 
-#### Logique de Gestion du Menu :
+#### Logique de gestion du menu :
 
-- SI A (Parity Check) : Lisez entièrement et suivez : `{altStepFile}` (step-v-02b-parity-check.md)
-- SI B (Validate As-Is) : Affichez "Poursuite de la validation..." puis lisez entièrement et suivez : `{nextStepFile}`
-- SI C (Exit) : Affichez le résumé des conclusions sur le format et quittez la validation
-- SI tout autre choix : aidez l'utilisateur à répondre, puis réaffichez le menu
+- SI A (Vérification de parité) : Lire intégralement et suivre : {altStepFile} (step-v-02b-parity-check.md)
+- SI B (Valider tel quel) : Afficher "Poursuite de la validation..." puis lire intégralement et suivre : {nextStepFile}
+- SI C (Quitter) : Afficher le résumé des constats relatifs au format et quitter la validation
+- SI tout autre choix : aider l'utilisateur à répondre, puis réafficher le menu
 
 ---
 
@@ -134,20 +172,20 @@ Passez à l'étape 5 pour présenter le menu.
 
 ### ✅ RÉUSSITE :
 
-- Tous les en-têtes de Niveau 2 (##) ont été extraits avec succès
-- Les sections centrales BMAD ont été vérifiées de manière systématique
+- Tous les en-têtes de niveau 2 (##) ont été extraits avec succès
+- Les sections fondamentales BMAD ont été vérifiées de manière systématique
 - Le format a été classifié correctement selon le nombre de sections
 - Les constats ont été consignés dans le rapport de validation
-- Les PRDs Standard / Variante BMAD transitent directement à l'étape de validation suivante
-- Les PRDs Non-Standards forcent une pause et présentent les options à l'utilisateur
-- L'utilisateur peut choisir de vérifier la parité, de valider tel quel ou de quitter
+- Les cahiers des charges produit (PRD) BMAD Standard/Variante passent directement à l'étape de validation suivante
+- Les cahiers des charges produit (PRD) non-standards font une pause et présentent des options à l'utilisateur
+- L'utilisateur peut choisir la vérification de parité, valider tel quel ou quitter
 
 ### ❌ ÉCHEC DU SYSTÈME :
 
 - Ne pas extraire tous les en-têtes avant la classification
 - Classification de format incorrecte
 - Ne pas consigner les constats dans le rapport de validation
-- Ne pas marquer de pause pour les PRDs non-standards
+- Ne pas marquer de pause pour les cahiers des charges produit (PRD) non-standards
 - Poursuivre sans la décision de l'utilisateur pour les formats non-standards
 
-**Règle Principale :** La détection du format détermine le chemin de validation. Les documents non-standards nécessitent le consentement de l'utilisateur avant d'appliquer les règles de validation strictes de BMAD.
+**Règle principale :** La détection du format détermine le chemin de validation. Les cahiers des charges produit (PRD) non-standards exigent un choix de l'utilisateur avant de continuer.

@@ -75,7 +75,7 @@
     <action>Continuer vers l'Étape 0.5</action>
   </check>
 
-</check>
+</step>
 
 <step n="3" goal="Vérifier la documentation existante et déterminer le mode du workflow" if="resume_mode == false">
 <action>Vérifier si {project_knowledge}/index.md existe</action>

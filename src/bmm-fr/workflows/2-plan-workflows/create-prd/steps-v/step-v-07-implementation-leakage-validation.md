@@ -174,7 +174,7 @@ Ajoutez au rapport de validation :
 
 Affichez : "**Validation des fuites d'implémentation terminée**
 
-Total des violations : {count} ({sévérité})
+Total des violations : {count} ({severity})
 
 **Passage au prochain contrôle de validation...**"
 

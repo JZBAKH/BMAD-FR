@@ -58,12 +58,12 @@ Lire et analyser intégralement les documents du projet chargés pour comprendre
 - Noter toutes les contraintes techniques ou dépendances mentionnées
 - Compter et catégoriser les exigences pour comprendre l'échelle du projet
 
-**Des Epics/Stories (si disponibles) :**
+**Des Thèmes/Cas d'usage (Epics/Stories) (si disponibles) :**
 
-- Cartographier la structure des epics et des user stories par rapport aux composants architecturaux
+- Cartographier la structure des thèmes et des cas d'usage par rapport aux composants architecturaux
 - Extraire les critères d'acceptation pour en déduire les implications techniques
-- Identifier les préoccupations transversales (cross-cutting concerns) qui couvrent plusieurs epics
-- Estimer la complexité des stories pour la planification architecturale
+- Identifier les préoccupations transversales (cross-cutting concerns) qui couvrent plusieurs thèmes
+- Estimer la complexité des cas d'usage pour la planification architecturale
 
 **Du Design UX (si disponible) :**
 
@@ -96,7 +96,7 @@ Présentez votre analyse à l'utilisateur pour validation :
 
 "Je passe en revue votre documentation de projet pour {{project_name}}.
 
-{if_epics_loaded}Je vois {{epic_count}} epics avec un total de {{story_count}} stories.{/if_epics_loaded}
+{if_epics_loaded}Je vois {{epic_count}} thèmes (epics) avec un total de {{story_count}} cas d'usage (stories).{/if_epics_loaded}
 {if_no_epics}J'ai trouvé {{fr_count}} exigences fonctionnelles organisées en {{fr_category_list}}.{/if_no_epics}
 {if_ux_loaded}J'ai également trouvé votre spécification UX qui définit les exigences d'expérience utilisateur.{/if_ux_loaded}
 
@@ -130,10 +130,10 @@ Préparez le contenu à ajouter au document :
 ### Aperçu des Exigences
 
 **Exigences Fonctionnelles :**
-{{analyse des FRs et de leur signification architecturale}}
+{{analysis of FRs and what they mean architecturally}}
 
 **Exigences Non-Fonctionnelles :**
-{{NFRs qui orienteront les décisions architecturales}}
+{{NFRs that will drive architectural decisions}}
 
 **Échelle & Complexité :**
 {{project_scale_assessment}}
@@ -148,7 +148,7 @@ Préparez le contenu à ajouter au document :
 
 ### Préoccupations Transversales Identifiées
 
-{{préoccupations_affectant_plusieurs_composants}}
+{{concerns_that_will_affect_multiple_components}}
 ```
 
 ### 5. Présenter le Contenu et le Menu

@@ -1,6 +1,6 @@
 ---
 name: 'step-v-03-density-validation'
-description: 'Validation de la Densité de l''Information - Scanner à la recherche d''anti-patterns qui violent les principes de densité de l''information'
+description: 'Vérification de la densité de l''information - Scanner à la recherche d''anti-patterns qui violent les principes de densité de l''information'
 
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
 nextStepFile: './step-v-04-brief-coverage-validation.md'
@@ -8,130 +8,147 @@ prdFile: '{prd_file_path}'
 validationReportPath: '{validation_report_path}'
 ---
 
-# Étape V-3 : Validation de la Densité de l'Information
+# Étape 3 : Validation de la densité de l'information
 
 ## OBJECTIF DE L'ÉTAPE :
 
-Valider que le PRD répond bien aux normes BMAD en matière de densité de l'information en scannant la présence de remplissage conversationnel (conversational filler), de phrases verbeuses (wordy phrases), et d'expressions redondantes qui violent les principes de concision.
+Valider que le cahier des charges produit (PRD) respecte les standards BMAD de densité de l'information en scannant la présence de remplissage conversationnel, de phrases verbeuses et d'expressions redondantes qui violent les principes de concision.
 
 ## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-### Règles Universelles :
+### Règles universelles :
 
 - 🛑 NE JAMAIS générer de contenu sans la contribution de l'utilisateur
-- 📖 CRITIQUE : Lisez TOUJOURS le fichier d'étape en entier avant d'entreprendre la moindre action
-- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que l'ensemble du fichier est lu et compris
+- 📖 CRITIQUE : Lire l'intégralité du fichier d'étape avant d'entreprendre la moindre action
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que l'ensemble du fichier est lu
 - 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
-- ✅ VOUS DEVEZ TOUJOURS EFFECTUER LA SORTIE ORALE dans votre style de communication d'Agent avec la `{communication_language}` configurée
+- ✅ VOUS DEVEZ TOUJOURS PRODUIRE LA SORTIE dans votre style de communication d'agent avec la configuration `{communication_language}`
 
-### Renforcement du Rôle :
+### Renforcement du rôle :
 
-- ✅ Vous êtes un Architecte de Validation et un Spécialiste de l'Assurance Qualité
-- ✅ Si l'on vous a déjà fourni des modèles de communication ou des personnas, continuez à les utiliser tout en jouant ce nouveau rôle
-- ✅ Nous nous engageons dans une validation systématique, pas un dialogue collaboratif
-- ✅ Vous apportez une rigueur analytique et une attention aux détails
-- ✅ Cette étape s'exécute de manière autonome - aucune intervention de l'utilisateur n'est requise
+- ✅ Vous êtes un Architecte de validation et un Spécialiste de l'assurance qualité
+- ✅ Si l'on vous a déjà fourni des modèles de communication ou de persona, continuez à les utiliser tout en jouant ce nouveau rôle
+- ✅ Nous nous engageons dans une validation systématique, pas dans un dialogue collaboratif
+- ✅ Vous apportez une rigueur analytique et un souci du détail
+- ✅ Cette étape s'exécute de manière autonome - aucune contribution de l'utilisateur n'est requise
 
-### Règles Spécifiques à cette Étape :
+### Règles spécifiques à cette étape :
 
 - 🎯 Concentrez-vous UNIQUEMENT sur les anti-patterns de densité de l'information
-- 🚫 INTERDICTION de corriger les erreurs - ne faites que les signaler
-- 💬 Approche : Autonome, scrupuleuse, signalement rigoureux
-- 🚪 Cette étape transitera automatiquement vers l'étape suivante une fois terminée
+- 🚫 INTERDICTION de valider d'autres aspects à cette étape
+- 💬 Approche : Scan systématique et catégorisation
+- 🚪 Il s'agit d'une étape de séquence de validation - poursuit automatiquement une fois terminée
 
 ## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Scannez le PRD à la recherche de mots superflus (fluff) et de verbiage
-- 🎯 Classifiez la gravité (severity) de la densité
-- 🎯 Consignez les conclusions dans le rapport de validation
-- 💬 Affichez un résumé de la progression à l'utilisateur
-- 🎯 Poursuivez automatiquement vers l'étape de validation suivante
+- 🎯 Scanner le cahier des charges produit (PRD) pour identifier les anti-patterns de densité de manière systématique
+- 💾 Ajouter les constats relatifs à la densité au rapport de validation
+- 📖 Afficher "Passage à la vérification suivante..." et charger l'étape suivante
+- 🚫 INTERDICTION de mettre en pause ou de demander la contribution de l'utilisateur
 
 ## LIMITES DU CONTEXTE :
 
-- Contexte disponible : L'intégralité du PRD et les directives `prd-purpose.md`
-- Concentration : Efficacité linguistique et suppression du "bruit"
-- Limites : Ne pas valider la qualité de l'architecture ou des fonctionnalités
-- Dépendances : Détection du format (Étape v-02) terminée
+- Contexte disponible : Fichier de cahier des charges produit (PRD), rapport de validation avec constats relatifs au format
+- Concentration : Validation de la densité de l'information uniquement
+- Limites : Ne pas valider d'autres aspects, ne pas mettre en pause pour la contribution de l'utilisateur
+- Dépendances : Étape 2 terminée - classification du format effectuée
 
 ## SÉQUENCE OBLIGATOIRE
 
-**CRITIQUE :** Suivez cette séquence à la lettre. Ne sautez pas, ne réorganisez pas et n'improvisez pas.
+**CRITIQUE :** Suivez cette séquence à la lettre. Ne sautez pas, ne réorganisez pas et n'improvisez pas, sauf si l'utilisateur demande explicitement un changement.
 
-### 1. Sous-processus d'Évaluation de la Densité de l'Information
+### 1. Tenter la validation par sous-processus
 
-**Si l'outil Tâche (Task tool) est disponible, déléguez ceci à un sous-agent :**
+**Tenter d'utiliser l'outil Task pour générer un sous-processus :**
 
-"Exécutez une vérification de la densité de l'information sur le PRD actuel.
-Scannez les catégories d'anti-patterns suivantes :
+"Effectuer une validation de la densité de l'information sur ce cahier des charges produit (PRD) :
 
-1. **Remplissage Conversationnel (Conversational Filler) :** "Il est important de noter que", "Comme nous pouvons le voir", "Afin de"
-2. **Phrases Verbeuses (Wordy Phrases) :** "Le système permettra aux utilisateurs de", "Aura la capacité de"
-3. **Expressions Redondantes (Redundant Expressions) :** "Absolument essentiel", "Complètement terminé", "Innovations futures"
+1. Charger le fichier de cahier des charges produit (PRD)
+2. Scanner les anti-patterns suivants :
+   - Phrases de remplissage conversationnel (exemples : 'The system will allow users to...', 'It is important to note that...', 'In order to')
+   - Phrases verbeuses (exemples : 'Due to the fact that', 'In the event of', 'For the purpose of')
+   - Phrases redondantes (exemples : 'Future plans', 'Absolutely essential', 'Past history')
+3. Compter les violations par catégorie avec les numéros de ligne
+4. Classifier la gravité : Critique (>10 violations), Avertissement (5-10), Réussite (<5)
 
-Pour chaque catégorie, comptez les occurrences et relevez les pires infractions avec leurs numéros de ligne approximatifs (ou les sections concernées).
+Retourner des constats structurés avec les comptes et exemples."
 
-Évaluez la gravité globale :
-- **Critique (Critical) :** >20 violations ou remplissage généralisé cachant le sens
-- **Avertissement (Warning) :** 5-20 violations, principalement un mauvais phrasé
-- **Succès (Pass) :** <5 violations, rédaction globalement concise"
+### 2. Dégradation gracieuse (si l'outil Task est indisponible)
 
-### 2. Dégradation Gracieuse (Si l'outil Tâche est indisponible)
+Si l'outil Task est indisponible, effectuer l'analyse directement :
 
-Si vous ne pouvez pas utiliser l'outil Tâche, effectuez le scan vous-même de manière silencieuse dans votre fenêtre contextuelle (context window). Parcourez le texte du PRD et identifiez le remplissage, la verbosité et la redondance. Comptez et évaluez la gravité manuellement.
+**Scanner les modèles de remplissage conversationnel :**
+- "The system will allow users to..."
+- "It is important to note that..."
+- "In order to"
+- "For the purpose of"
+- "With regard to"
+- Compter les occurrences et noter les numéros de ligne
 
-### 3. Mettre à Jour le Rapport de Validation
+**Scanner les phrases verbeuses :**
+- "Due to the fact that" (utiliser "because")
+- "In the event of" (utiliser "if")
+- "At this point in time" (utiliser "now")
+- "In a manner that" (utiliser "how")
+- Compter les occurrences et noter les numéros de ligne
 
-Ajoutez silencieusement ce qui suit au fichier `{validationReportPath}` :
+**Scanner les phrases redondantes :**
+- "Future plans" (juste "plans")
+- "Past history" (juste "history")
+- "Absolutely essential" (juste "essential")
+- "Completely finish" (juste "finish")
+- Compter les occurrences et noter les numéros de ligne
+
+### 3. Classifier la gravité
+
+**Calculer le total des violations :**
+- Compte du remplissage conversationnel
+- Compte des phrases verbeuses
+- Compte des phrases redondantes
+- Total = somme de toutes les catégories
+
+**Déterminer la gravité :**
+- **Critique :** Total > 10 violations
+- **Avertissement :** Total 5-10 violations
+- **Réussite :** Total < 5 violations
+
+### 4. Consigner les constats relatifs à la densité dans le rapport de validation
+
+Ajouter au rapport de validation :
 
 ```markdown
-## 3. Validation de la Densité de l'Information
-**Statut :** {Critique / Avertissement / Succès}
+## Validation de la densité de l'information
 
-### Constats sur les Anti-Patterns
-- **Remplissage Conversationnel :** {count} occurrences
-- **Phrases Verbeuses :** {count} occurrences
-- **Expressions Redondantes :** {count} occurrences
+**Violations d'anti-patterns :**
 
-### Exemples de Violations (à corriger)
-1. {Exemple 1 avec section/ligne}
-2. {Exemple 2 avec section/ligne}
-3. {Exemple 3 avec section/ligne}
-```
+**Remplissage conversationnel :** {count} occurrences
+[Si count > 0, lister les exemples avec les numéros de ligne]
 
-### 4. Compiler le Résumé des Constats (Pour l'affichage uniquement, pas besoin de validation de l'utilisateur)
+**Phrases verbeuses :** {count} occurrences
+[Si count > 0, lister les exemples avec les numéros de ligne]
 
-Préparez ce texte pour la console (n'attendez PAS d'action de l'utilisateur) :
+**Phrases redondantes :** {count} occurrences
+[Si count > 0, lister les exemples avec les numéros de ligne]
 
-```text
-**Remplissage Conversationnel :** {count} occurrences
-[Si count > 0, listez des exemples avec les numéros de ligne]
+**Total des violations :** {total}
 
-**Phrases Verbeuses :** {count} occurrences
-[Si count > 0, listez des exemples avec les numéros de ligne]
-
-**Expressions Redondantes :** {count} occurrences
-[Si count > 0, listez des exemples avec les numéros de ligne]
-
-**Total des Violations :** {total}
-
-**Évaluation de la Gravité :** [Critique/Avertissement/Succès]
+**Évaluation de la gravité :** [Critique/Avertissement/Réussite]
 
 **Recommandation :**
-[Si Critique] "Le PRD nécessite une révision importante pour améliorer la densité de l'information. Chaque phrase doit porter son propre poids, sans mots superflus."
-[Si Avertissement] "Le PRD gagnerait à être moins verbeux et à éliminer les phrases de remplissage."
-[Si Succès] "Le PRD fait preuve d'une bonne densité d'information avec des violations minimes."
+[Si Critique] "Le cahier des charges produit (PRD) nécessite une révision importante pour améliorer la densité de l'information. Chaque phrase doit porter son propre poids, sans remplissage."
+[Si Avertissement] "Le cahier des charges produit (PRD) gagnerait à être moins verbeux et à éliminer les phrases de remplissage."
+[Si Réussite] "Le cahier des charges produit (PRD) fait preuve d'une bonne densité de l'information avec des violations minimes."
 ```
 
-### 5. Afficher la Progression et Passer Automatiquement à la Suite
+### 5. Afficher la progression et passer automatiquement à la suite
 
-Affichez : "**Validation de la Densité de l'Information Terminée**
+Afficher : "**Validation de la densité de l'information terminée**
 
-Gravité : {Critique/Avertissement/Succès}
+Gravité : {Critique/Avertissement/Réussite}
 
 **Passage à la vérification de validation suivante...**"
 
-Sans délai, lisez entièrement et suivez : `{nextStepFile}` (step-v-04-brief-coverage-validation.md)
+Sans délai, lire intégralement et suivre : {nextStepFile} (step-v-04-brief-coverage-validation.md)
 
 ---
 
@@ -139,19 +156,19 @@ Sans délai, lisez entièrement et suivez : `{nextStepFile}` (step-v-04-brief-co
 
 ### ✅ RÉUSSITE :
 
-- Le PRD a été scanné pour les trois catégories d'anti-patterns
-- Les violations ont été comptées avec mention des numéros de ligne (ou sections)
+- Le cahier des charges produit (PRD) a été scanné pour les trois catégories d'anti-patterns
+- Les violations ont été comptées avec leurs numéros de ligne
 - La gravité a été correctement classifiée
 - Les constats ont été consignés dans le rapport de validation
-- Le système transite automatiquement vers la prochaine étape de validation
-- Le sous-processus a été tenté avec une possibilité de dégradation gracieuse
+- Passage automatique à l'étape de validation suivante
+- Sous-processus tenté avec dégradation gracieuse
 
 ### ❌ ÉCHEC DU SYSTÈME :
 
 - Ne pas scanner toutes les catégories d'anti-patterns
-- Oubli de la classification de la gravité
+- Classification de gravité manquante
 - Ne pas consigner les constats dans le rapport de validation
-- Mise en pause pour une intervention de l'utilisateur (le système DOIT avancer de lui-même)
+- Mise en pause pour la contribution de l'utilisateur (devrait poursuivre automatiquement)
 - Ne pas tenter l'architecture de sous-processus
 
-**Règle Principale :** La validation de la densité de l'information s'exécute de manière autonome. Scannez, classifiez, signalez, poursuivez automatiquement. Aucune intervention de l'utilisateur n'est autorisée.
+**Règle principale :** La validation de la densité de l'information s'exécute de manière autonome. Scanner, classifier, consigner, poursuivre automatiquement. Aucune interaction utilisateur nécessaire.

@@ -150,6 +150,7 @@ Présentez le bloc brut final pour son acquiescement solennel en dernière ligne
 - Répétez haut et fort que tout superflu, sans justification logique contextuelle, a été purifié d'emblée à vos yeux.
 - Insistez bien que les NFR viennent borner "avec quelle justesse / puissance / perfection" le système tourne réellement, au nom de sa survie !
 - Requérez s'ils souhaitent fignoler le tout au cutter, solliciter le jugement ultime optionnel "d'autres regards externes", ou marquer d'un signet favorable final "Passons au verrouillage de fond".
+- Présentez les options du menu naturellement dans le cadre de la conversation
 
 Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers l'Étape de Polissage du Document (Étape 11 sur 12)"
 

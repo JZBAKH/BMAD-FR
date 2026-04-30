@@ -138,8 +138,8 @@ Félicitez l'utilisateur pour l'achèvement du design UX que vous avez réalisé
 5. **Création d'Epics** - Décomposer les exigences UX pour le développement.
 
 **Séquence recommandée :**
-- Pour les équipes axées sur le design : Wireframes → Prototypes → Design Figma → Développement.
-- Pour les équipes techniques : Architecture → Création d'Epics → Développement.
+Pour les équipes axées sur le design : Wireframes → Prototypes → Design Figma → Développement.
+Pour les équipes techniques : Architecture → Création d'Epics → Développement.
 
 Tenez compte de la capacité de l'équipe, des délais et déterminez si une validation utilisateur est nécessaire avant l'implémentation.
 

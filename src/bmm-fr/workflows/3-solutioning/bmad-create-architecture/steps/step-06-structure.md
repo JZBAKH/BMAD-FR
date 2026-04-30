@@ -1,4 +1,4 @@
-# Étape 6 : Structure du Projet & Frontières Architecturales
+# Étape 6 : Structure du Projet & Frontières
 
 ## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
@@ -8,15 +8,15 @@
 - 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que l'intégralité du fichier est lue et comprise avant de continuer
 - ✅ TOUJOURS traiter cela comme une découverte collaborative entre pairs architectes
 - 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
-- 💬 CONCENTREZ-VOUS sur la définition d'une structure de projet claire que les agents IA peuvent parcourir
-- 🎯 METTEZ L'ACCENT sur les frontières, pas seulement sur les dossiers — spécifiez ce qui va où et pourquoi
+- 💬 CONCENTREZ-VOUS sur la définition d'une structure de projet complète et de frontières claires
+- 🗺️ CARTOGRAPHIER les exigences/thèmes (epics) vers les composants architecturaux
 - ⚠️ ABSOLUMENT AUCUNE ESTIMATION DE TEMPS — la vitesse de développement de l'IA a fondamentalement changé
 - ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'agent avec la configuration `{communication_language}`
 
 ## PROTOCOLES D'EXÉCUTION :
 
 - 🎯 Afficher votre analyse avant d'entreprendre toute action
-- 🎯 Se concentrer sur l'organisation logique et physique du projet
+- 🗺️ Créer une arborescence de projet complète, pas des espaces réservés génériques
 - ⚠️ Présenter le menu A/P/C après avoir généré la structure du projet
 - 💾 Sauvegarder UNIQUEMENT lorsque l'utilisateur choisit C (Continuer)
 - 📖 Mettre à jour le frontmatter `stepsCompleted: [1, 2, 3, 4, 5, 6]` avant de charger l'étape suivante
@@ -26,9 +26,9 @@
 
 Cette étape générera du contenu et présentera des choix :
 
-- **A (Elicitation Avancée)** : Utiliser les protocoles de découverte pour concevoir des structures de projet complexes ou multi-modules
-- **P (Mode Party)** : Apporter plusieurs perspectives pour optimiser l'organisation du projet pour différents flux de travail
-- **C (Continuer)** : Sauvegarder la structure et passer à la validation de l'architecture
+- **A (Elicitation Avancée)** : Utiliser les protocoles de découverte pour explorer des approches innovantes d'organisation de projet
+- **P (Mode Party)** : Apporter plusieurs perspectives pour évaluer les compromis de structure du projet
+- **C (Continuer)** : Sauvegarder la structure du projet et passer à la validation
 
 ## INTÉGRATION DES PROTOCOLES :
 
@@ -39,181 +39,302 @@ Cette étape générera du contenu et présentera des choix :
 
 ## LIMITES DE CONTEXTE :
 
-- Les modèles d'implémentation de l'étape 5 sont terminés
-- La pile technologique et les décisions fondamentales sont fixées
-- Se concentrer sur l'organisation des fichiers, les répertoires et les frontières de composants
-- Considérer comment les exigences (epics/stories) seront cartographiées vers cette structure
+- Toutes les décisions architecturales précédentes sont terminées
+- Les modèles d'implémentation et les règles de cohérence sont définis
+- Se concentrer sur la structure physique du projet et les frontières des composants
+- Cartographier les exigences vers des fichiers et répertoires spécifiques
 
 ## VOTRE TÂCHE :
 
-Définir la structure complète du répertoire du projet et les frontières architecturales qui guideront les agents IA dans l'emplacement correct du code et des ressources.
+Définir la structure complète du projet et les frontières architecturales basées sur toutes les décisions prises, en créant un guide d'implémentation concret pour les agents IA.
 
-## SÉQUENCE DE DÉFINITION DE LA STRUCTURE :
+## SÉQUENCE DE STRUCTURE DU PROJET :
 
-### 1. Cartographier les Exigences vers les Composants
+### 1. Analyser la Cartographie des Exigences
 
-Sur la base de l'Analyse de Contexte (Étape 2) et des Décisions (Étape 4), identifiez les composants structurels nécessaires :
+Cartographier les exigences du projet vers les composants architecturaux :
 
-**Exigences Fonctionnelles & Epics :**
-"Nous avons {{nombre_epics}} epics. Regroupons-les en domaines logiques qui deviendront nos répertoires principaux."
+**Depuis les Thèmes/Epics (si disponibles) :**
+"Thème (Epic) : {{epic_name}} → Réside dans {{module/directory/service}}"
 
-**Composants Techniques :**
-"Basé sur {{tech_stack}}, nous aurons besoin de structures pour :
+- Cas d'usage (user stories) au sein du thème
+- Dépendances inter-thèmes
+- Composants partagés nécessaires
 
-- {{composant_technique_1}} (ex: API, Frontend, Database)
-- {{composant_technique_2}} (ex: Services, Utils, Config)"
+**Depuis les Catégories de FR (si pas de thèmes) :**
+"Catégorie de FR : {{fr_category_name}} → Réside dans {{module/directory/service}}"
 
-### 2. Faciliter les Décisions de Structure
+- Exigences fonctionnelles connexes
+- Fonctionnalités partagées entre catégories
+- Points d'intégration entre catégories
 
-Pour chaque partie du projet, facilitez la définition collaborative de la structure :
+### 2. Définir la Structure des Répertoires du Projet
 
-**Présenter l'Organisation Logicielle :**
-"Comment devrions-nous organiser notre logique métier ?
+Sur la base de la pile technologique et des modèles, créer la structure complète du projet :
 
-Options courantes pour {{tech_stack}} :
+**Fichiers de Configuration à la Racine :**
 
-1. {{organisation_option_1}} (ex: Organisation par fonctionnalité / Domain-Driven)
-2. {{organisation_option_2}} (ex: Organisation par type / Layered Architecture)
+- Fichiers de gestion de paquets (package.json, requirements.txt, etc.)
+- Configuration de build et de développement
+- Fichiers de configuration d'environnement
+- Fichiers de pipeline CI/CD
+- Fichiers de documentation
 
-Quelle structure facilitera le travail indépendant des agents IA sans qu'ils ne se marchent sur les pieds ?"
+**Organisation du Code Source :**
 
-**Définir les Frontières d'Intégration :**
-"Où les composants se rencontrent-ils ? Définissons les points d'entrée et de sortie clairs."
+- Points d'entrée de l'application
+- Structure principale de l'application
+- Organisation des fonctionnalités/modules
+- Utilitaires et bibliothèques partagés
+- Fichiers de configuration et d'environnement
 
-### 3. Définir l'Arborescence du Projet
+**Organisation des Tests :**
 
-Créez une vue d'ensemble de la structure des répertoires du projet :
+- Emplacements et structure des tests unitaires
+- Organisation des tests d'intégration
+- Structure des tests de bout en bout (end-to-end)
+- Utilitaires et fixtures de test
 
-#### Racine du Projet & Configuration
+**Build et Distribution :**
 
-- `_bmad/` : Artefacts de planification et configuration BMAD
-- `docs/` : Documentation du projet
-- `config/` : Fichiers de configuration globale
-- `scripts/` : Scripts de build et d'automatisation
-- `tests/` : Tests d'intégration et système
+- Répertoires de sortie de build
+- Fichiers de distribution
+- Ressources statiques (assets)
+- Build de la documentation
 
-#### Code Source (`src/`)
+### 3. Définir les Frontières d'Intégration
 
-**Organisation du Backend (si applicable) :**
+Cartographier comment les composants communiquent et où les frontières existent :
 
-- `/api` : Points de terminaison (endpoints) et contrôleurs
-- `/services` : Logique métier et services
-- `/models` : Définitions des données et schémas
-- `/db` : Migrations et configuration de la base de données
-- `/middleware` : Authentification et middleware de sécurité
+**Frontières d'API :**
 
-**Organisation du Frontend (si applicable) :**
+- Points de terminaison (endpoints) d'API externes
+- Frontières de services internes
+- Frontières d'authentification et d'autorisation
+- Frontières de la couche d'accès aux données
 
-- `/components` : Composants UI réutilisables
-- `/pages` ou `/app` : Pages et routage
-- `/hooks` : Hooks personnalisés
-- `/store` ou `/state` : Gestion d'état
-- `/assets` : Images, styles, polices
-- `/services` : Clients API frontend
+**Frontières de Composants :**
 
-#### Autres Répertoires Spécifiques
+- Modèles de communication des composants frontend
+- Frontières de gestion d'état
+- Modèles de communication des services
+- Points d'intégration pilotés par les événements
 
-- `/lib` ou `/utils` : Bibliothèques et utilitaires partagés
-- `/types` : Définitions de types (TypeScript)
-- `/public` : Fichiers publics statiques
+**Frontières de Données :**
 
-### 4. Définir les Frontières de Responsabilité
+- Frontières du schéma de base de données
+- Modèles d'accès aux données
+- Frontières de mise en cache
+- Points d'intégration de données externes
 
-Pour chaque répertoire principal, spécifiez :
+### 4. Créer une Arborescence Complète du Projet
 
-- **Responsabilité :** Que contient ce dossier ?
-- **Interdictions :** Ce qui ne doit JAMAIS se trouver ici.
-- **Dépendances :** Quels autres dossiers ce dossier a-t-il le droit d'importer ?
+Générer une structure de répertoires exhaustive montrant tous les fichiers et répertoires :
 
-### 5. Générer le Contenu de la Structure
+**Exemples de Structure Spécifiques à la Technologie :**
+
+**Next.js Full-Stack :**
+
+```
+project-name/
+├── README.md
+├── package.json
+├── next.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── .env.local
+├── .env.example
+├── .gitignore
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── src/
+│   ├── app/
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/
+│   │   ├── ui/
+│   │   ├── forms/
+│   │   └── features/
+│   ├── lib/
+│   │   ├── db.ts
+│   │   ├── auth.ts
+│   │   └── utils.ts
+│   ├── types/
+│   └── middleware.ts
+├── prisma/
+│   ├── schema.prisma
+│   └── migrations/
+├── tests/
+│   ├── __mocks__/
+│   ├── components/
+│   └── e2e/
+└── public/
+    └── assets/
+```
+
+**Backend API (NestJS) :**
+
+```
+project-name/
+├── package.json
+├── nest-cli.json
+├── tsconfig.json
+├── .env
+├── .env.example
+├── .gitignore
+├── README.md
+├── src/
+│   ├── main.ts
+│   ├── app.module.ts
+│   ├── config/
+│   ├── modules/
+│   │   ├── auth/
+│   │   ├── users/
+│   │   └── common/
+│   ├── services/
+│   ├── repositories/
+│   ├── decorators/
+│   ├── pipes/
+│   ├── guards/
+│   └── interceptors/
+├── test/
+│   ├── unit/
+│   ├── integration/
+│   └── e2e/
+├── prisma/
+│   ├── schema.prisma
+│   └── migrations/
+└── docker-compose.yml
+```
+
+### 5. Cartographier les Exigences vers la Structure
+
+Créer une cartographie explicite des exigences du projet vers des fichiers/répertoires spécifiques :
+
+**Cartographie des Thèmes/Fonctionnalités :**
+"Thème (Epic) : Gestion des Utilisateurs
+
+- Composants : src/components/features/users/
+- Services : src/services/users/
+- Routes API : src/app/api/users/
+- Base de données : prisma/migrations/_*users*_
+- Tests : tests/features/users/"
+
+**Préoccupations Transversales :**
+"Système d'Authentification
+
+- Composants : src/components/auth/
+- Services : src/services/auth/
+- Middleware : src/middleware/auth.ts
+- Guards : src/guards/auth.guard.ts
+- Tests : tests/auth/"
+
+### 6. Générer le Contenu de la Structure
 
 Préparez le contenu à ajouter au document :
 
 #### Structure du Contenu :
 
-````markdown
-## Structure du Projet & Frontières Architecturales
+```markdown
+## Structure du Projet & Frontières
 
-### Arborescence Globale du Projet
-
-```text
-{{project_root_tree_diagram}}
+### Structure Complète du Répertoire du Projet
 ```
 
-### Organisation de la Logique Métier
+{{complete_project_tree_with_all_files_and_directories}}
 
-**Approche d'Organisation :**
-{{description_de_l'organisation_choisie_ex_domain_driven}}
-
-**Cartographie des Epics vers les Répertoires :**
-{{mapping_epics_stories_to_folders}}
-
-### Arborescence Détaillée de la Source (`src/`)
-
-```text
-{{detailed_src_tree_diagram}}
 ```
 
-### Définition des Frontières Architecturales
+### Frontières Architecturales
 
-**Composant : {{nom_composant}}**
+**Frontières d'API :**
+{{api_boundary_definitions_and_endpoints}}
 
-- **Chemin :** `{{path}}`
-- **Responsabilité :** {{description}}
-- **Règles d'Importation :** {{peut_importer_de_X_ne_doit_pas_importer_de_Y}}
-- **Points d'Entrée Clairs :** {{ex_index_ts}}
+**Frontières de Composants :**
+{{component_communication_patterns_and_boundaries}}
 
-**Composant : {{nom_composant_2}}**
-... (répéter pour les composants clés)
+**Frontières de Services :**
+{{service_integration_patterns_and_boundaries}}
 
-### Cartographie des Exigences vers les Fichiers
+**Frontières de Données :**
+{{data_access_patterns_and_boundaries}}
 
-| Exigence / Epic | Composant Principal | Répertoire Cible |
-| :--- | :--- | :--- |
-| {{epic_name}} | {{component_name}} | `{{path}}` |
-| ... | ... | ... |
+### Cartographie Exigences vers Structure
 
-### Guide de Navigation pour les Agents IA
+**Cartographie Fonctionnalités/Thèmes :**
+{{mapping_of_epics_or_features_to_specific_directories}}
 
-**Pour ajouter une nouvelle fonctionnalité :**
+**Préoccupations Transversales :**
+{{mapping_of_shared_functionality_to_locations}}
 
-1. {{etape_navigation_1}}
-2. {{etape_navigation_2}}
-3. {{etape_navigation_3}}
+### Points d'Intégration
 
-**Pour modifier le schéma de données :**
-...
-````
+**Communication Interne :**
+{{how_components_within_the_project_communicate}}
 
-### 6. Présenter le Contenu et le Menu
+**Intégrations Externes :**
+{{third_party_service_integration_points}}
 
-Affichez le contenu de la structure généré et présentez les choix :
+**Flux de Données :**
+{{how_data_flows_through_the_architecture}}
 
-"J'ai défini la structure complète du répertoire et les frontières architecturales de {{project_name}}. Cela garantit que chaque agent IA sait exactement où placer le code.
+### Modèles d'Organisation des Fichiers
+
+**Fichiers de Configuration :**
+{{where_and_how_config_files_are_organized}}
+
+**Organisation des Sources :**
+{{how_source_code_is_structured_and_organized}}
+
+**Organisation des Tests :**
+{{how_tests_are_structured_and_organized}}
+
+**Organisation des Ressources :**
+{{how_static_and_dynamic_assets_are_organized}}
+
+### Intégration au Workflow de Développement
+
+**Structure du Serveur de Développement :**
+{{how_the_project_is organized_for_development}}
+
+**Structure du Processus de Build :**
+{{how_the_build_process_uses_the_project_structure}}
+
+**Structure de Déploiement :**
+{{how_the_project_structure_supports_deployment}}
+```
+
+### 7. Présenter le Contenu et le Menu
+
+Affichez le contenu de la structure du projet généré et présentez les choix :
+
+"J'ai créé une structure de projet complète basée sur toutes nos décisions architecturales.
 
 **Voici ce que je vais ajouter au document :**
 
-[Afficher le contenu markdown complet de l'étape 5]
+[Afficher le contenu markdown complet de l'étape 6]
 
 **Que souhaitez-vous faire ?**
-[A] Elicitation Avancée — Concevoir des structures plus complexes ou spécialisées
-[P] Mode Party — Optimiser l'organisation pour différents flux de travail
-[C] Continuer — Sauvegarder cette structure et valider l'architecture globale"
+[A] Elicitation Avancée — Explorer des approches innovantes d'organisation de projet
+[P] Mode Party — Revoir la structure sous différentes perspectives de développement
+[C] Continuer — Sauvegarder cette structure et passer à la validation de l'architecture"
 
-### 7. Gérer la Sélection du Menu
+### 8. Gérer la Sélection du Menu
 
 #### Si 'A' (Elicitation Avancée) :
 
-- Invoquez le skill `bmad-advanced-elicitation` avec la structure actuelle
-- Traitez les organisations de projet enrichies qui reviennent
-- Demandez à l'utilisateur : "Accepter ces affinements de structure ? (y/n)"
+- Invoquez le skill `bmad-advanced-elicitation` avec la structure actuelle du projet
+- Traitez les informations organisationnelles enrichies qui reviennent
+- Demandez à l'utilisateur : "Accepter ces changements pour la structure du projet ? (y/n)"
 - Si oui : Mettre à jour le contenu, puis revenir au menu A/P/C
 - Si non : Conserver le contenu original, puis revenir au menu A/P/C
 
 #### Si 'P' (Mode Party) :
 
 - Invoquez le skill `bmad-party-mode` avec le contexte de structure du projet
-- Traitez les informations collaboratives sur l'organisation des fichiers
+- Traitez les informations collaboratives sur les compromis d'organisation
 - Demandez à l'utilisateur : "Accepter ces changements pour la structure du projet ? (y/n)"
 - Si oui : Mettre à jour le contenu, puis revenir au menu A/P/C
 - Si non : Conserver le contenu original, puis revenir au menu A/P/C
@@ -226,24 +347,25 @@ Affichez le contenu de la structure généré et présentez les choix :
 
 ## AJOUT AU DOCUMENT :
 
-Lorsque l'utilisateur sélectionne 'C', ajoutez le contenu directement au document en utilisant la structure de l'étape 5.
+Lorsque l'utilisateur sélectionne 'C', ajoutez le contenu directement au document en utilisant la structure de l'étape 6.
 
 ## INDICATEURS DE RÉUSSITE :
 
-✅ Structure de répertoire complète et cohérente avec la pile technologique définie
-✅ Frontières architecturales (responsabilités, imports) clairement spécifiées
-✅ Cartographie explicite des epics/stories vers les répertoires du projet
-✅ Guide de navigation pour les agents IA inclus
-✅ Utilisateur ayant collaboré à l'organisation physique du code
+✅ Arborescence complète du projet définie avec tous les fichiers et répertoires
+✅ Toutes les frontières architecturales clairement documentées
+✅ Exigences/thèmes cartographiés vers des emplacements spécifiques
+✅ Points d'intégration et modèles de communication définis
+✅ Structure du projet alignée avec la pile technologique choisie
 ✅ Menu A/P/C présenté et géré correctement
 ✅ Contenu correctement ajouté au document lorsque C est sélectionné
 
 ## MODES D'ÉCHEC :
 
-❌ Créer une structure générique qui ne tient pas compte des spécificités du projet
-❌ Oublier de définir les frontières d'importation (risques de dépendances circulaires)
-❌ Ne pas lier les exigences métier (epics) à la structure physique
-❌ Fournir une arborescence trop complexe ou trop simple pour l'échelle du projet
+❌ Créer une structure générique avec des espaces réservés au lieu d'une arborescence spécifique et complète
+❌ Ne pas cartographier les exigences vers des fichiers et répertoires spécifiques
+❌ Manquer d'importantes frontières d'intégration
+❌ Ne pas tenir compte de la pile technologique choisie dans la conception de la structure
+❌ Ne pas définir comment les composants communiquent à travers les frontières
 ❌ Ne pas présenter le menu A/P/C après la génération de contenu
 
 ❌ **CRITIQUE** : Lecture partielle du fichier d'étape — mène à une compréhension incomplète et à de mauvaises décisions
@@ -252,6 +374,6 @@ Lorsque l'utilisateur sélectionne 'C', ajoutez le contenu directement au docume
 
 ## ÉTAPE SUIVANTE :
 
-Après que l'utilisateur a sélectionné 'C' et que le contenu a été sauvegardé, chargez `./step-07-validation.md` pour valider l'architecture complète avant de terminer.
+Après que l'utilisateur a sélectionné 'C' et que le contenu a été sauvegardé, chargez `./step-07-validation.md` pour valider la cohérence et l'exhaustivité architecturales.
 
 Rappel : NE PAS passer à step-07 tant que l'utilisateur n'a pas explicitement sélectionné 'C' dans le menu A/P/C et que le contenu n'est pas sauvegardé !

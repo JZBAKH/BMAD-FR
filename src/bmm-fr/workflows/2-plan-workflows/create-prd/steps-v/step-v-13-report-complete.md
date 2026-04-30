@@ -142,7 +142,7 @@ Affichez :
 **Points Forts :**
 {Listez les points forts clés}
 
-**Qualité Holistique :** {rating}/5 - {libellé}
+**Qualité Holistique :** {rating}/5 - {label}
 
 **Top 3 des Améliorations :**
 1. {Amélioration 1}

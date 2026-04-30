@@ -108,9 +108,9 @@ Nous devons établir des modèles cohérents que tous les agents suivront."
 **Montrer les Options et les Compromis :**
 "Approches courantes pour {{pattern_category}} :
 
-1. {{option_1}} — {{avantages_et_inconvénients}}
-2. {{option_2}} — {{avantages_et_inconvénients}}
-3. {{option_3}} — {{avantages_et_inconvénients}}
+1. {{option_1}} — {{pros_and_cons}}
+2. {{option_2}} — {{pros_and_cons}}
+3. {{option_3}} — {{pros_and_cons}}
 
 Quelle approche semble la plus logique pour notre projet ?"
 
@@ -223,53 +223,53 @@ Préparez le contenu à ajouter au document :
 ### Modèles de Nommage
 
 **Conventions de Nommage de la Base de Données :**
-{{règles_de_nommage_bdd_avec_exemples}}
+{{database_naming_rules_with_examples}}
 
 **Conventions de Nommage de l'API :**
-{{règles_de_nommage_api_avec_exemples}}
+{{api_naming_rules_with_examples}}
 
 **Conventions de Nommage du Code :**
-{{règles_de_nommage_code_avec_exemples}}
+{{code_naming_rules_with_examples}}
 
 ### Modèles de Structure
 
 **Organisation du Projet :**
-{{règles_de_structure_projet_avec_exemples}}
+{{project_structure_rules_with_examples}}
 
 **Modèles de Structure de Fichiers :**
-{{règles_d'organisation_fichiers_avec_exemples}}
+{{file_organization_rules_with_examples}}
 
 ### Modèles de Format
 
 **Formats de Réponse API :**
-{{règles_de_structure_réponse_api}}
+{{api_response_structure_rules}}
 
 **Formats d'Échange de Données :**
-{{règles_de_format_données_avec_exemples}}
+{{data_format_rules_with_examples}}
 
 ### Modèles de Communication
 
 **Modèles du Système d'Événements :**
-{{règles_de_nommage_et_structure_événements}}
+{{event_naming_and_structure_rules}}
 
 **Modèles de Gestion d'État :**
-{{règles_de_mise_à_jour_et_organisation_état}}
+{{state_update_and_organization_rules}}
 
 ### Modèles de Processus
 
 **Modèles de Gestion des Erreurs :**
-{{approches_cohérentes_de_gestion_erreurs}}
+{{consistent_error_handling_approaches}}
 
 **Modèles d'État de Chargement :**
-{{règles_de_gestion_état_chargement}}
+{{loading_state_management_rules}}
 
 ### Directives d'Application
 
 **Tous les Agents IA DOIVENT :**
 
-- {{modèle_obligatoire_1}}
-- {{modèle_obligatoire_2}}
-- {{modèle_obligatoire_3}}
+- {{mandatory_pattern_1}}
+- {{mandatory_pattern_2}}
+- {{mandatory_pattern_3}}
 
 **Application des Modèles :**
 
@@ -280,10 +280,10 @@ Préparez le contenu à ajouter au document :
 ### Exemples de Modèles
 
 **Bons Exemples :**
-{{exemples_concrets_d'utilisation_correcte_des_modèles}}
+{{concrete_examples_of_correct_pattern_usage}}
 
 **Anti-modèles (À éviter) :**
-{{exemples_de_ce_qu'il_faut_éviter}}
+{{examples_of_what_to_avoid}}
 ```
 
 ### 5. Présenter le Contenu et le Menu

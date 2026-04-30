@@ -10,7 +10,7 @@
 - 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
 - 💬 CONCENTREZ-VOUS sur la compréhension de l'état actuel et l'obtention de la confirmation de l'utilisateur
 - 🚪 GÉRER la reprise du workflow de manière fluide et transparente
-- ⚠️ ABSOLUTELY AUCUNE ESTIMATION DE TEMPS — la vitesse de développement de l'IA a fondamentalement changé
+- ⚠️ ABSOLUMENT AUCUNE ESTIMATION DE TEMPS — la vitesse de développement de l'IA a fondamentalement changé
 - ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'agent avec la configuration `{communication_language}`
 
 ## PROTOCOLES D'EXÉCUTION :
@@ -59,17 +59,17 @@ Montrez à l'utilisateur ses progrès actuels :
 
 **Progrès actuel :**
 
-- Étapes terminées : {{liste stepsCompleted}}
+- Étapes terminées : {{stepsCompleted list}}
 - Dernière étape travaillée : Étape {{lastStep}}
-- Documents d'entrée chargés : {{nombre d'inputDocuments}} fichiers
+- Documents d'entrée chargés : {{number of inputDocuments}} fichiers
 
 **Sections de document trouvées :**
-{lister toutes les sections H2/H3 trouvées dans le document}
+{list all H2/H3 sections found in the document}
 
 {if_incomplete_sections}
 **Zones incomplètes :**
 
-- {zones qui semblent incomplètes ou possèdent des placeholders}
+- {areas that appear incomplete or have placeholders}
   {/if_incomplete_sections}
 
 **Que souhaitez-vous faire ?**
