@@ -30,7 +30,7 @@ class ExternalModuleManager {
       this.cachedModules = config;
       return config;
     } catch (error) {
-      await prompts.log.warn(`Failed to load external modules config: ${error.message}`);
+      await prompts.log.warn(`Échec du chargement de la configuration des modules externes : ${error.message}`);
       return { modules: {} };
     }
   }

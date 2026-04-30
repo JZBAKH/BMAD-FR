@@ -151,26 +151,26 @@ class ModuleManager {
             // File hasn't been modified by user, safe to update
             await this.copyFileWithPlaceholderReplacement(sourceFilePath, targetFilePath, true);
             if (process.env.BMAD_VERBOSE_INSTALL === 'true') {
-              await prompts.log.message(`    Updated sidecar file: ${relativeToBmad}`);
+              await prompts.log.message(`    Fichier sidecar mis à jour : ${relativeToBmad}`);
             }
           } else {
             // User has modified the file, preserve it
             if (process.env.BMAD_VERBOSE_INSTALL === 'true') {
-              await prompts.log.message(`    Preserving user-modified file: ${relativeToBmad}`);
+              await prompts.log.message(`    Préservation du fichier modifié par l'utilisateur : ${relativeToBmad}`);
             }
           }
         } else {
           // First time seeing this file in manifest, copy it
           await this.copyFileWithPlaceholderReplacement(sourceFilePath, targetFilePath, true);
           if (process.env.BMAD_VERBOSE_INSTALL === 'true') {
-            await prompts.log.message(`    Added new sidecar file: ${relativeToBmad}`);
+            await prompts.log.message(`    Nouveau fichier sidecar ajouté : ${relativeToBmad}`);
           }
         }
       } else {
         // New installation
         await this.copyFileWithPlaceholderReplacement(sourceFilePath, targetFilePath, true);
         if (process.env.BMAD_VERBOSE_INSTALL === 'true') {
-          await prompts.log.message(`    Copied sidecar file: ${relativeToBmad}`);
+          await prompts.log.message(`    Fichier sidecar copié : ${relativeToBmad}`);
         }
       }
 
@@ -283,7 +283,7 @@ class ModuleManager {
       moduleInfo.dependencies = config.dependencies || [];
       moduleInfo.defaultSelected = config.default_selected === undefined ? false : config.default_selected;
     } catch (error) {
-      await prompts.log.warn(`Failed to read config for ${defaultName}: ${error.message}`);
+      await prompts.log.warn(`Échec de la lecture de la configuration pour ${defaultName} : ${error.message}`);
     }
 
     return moduleInfo;
@@ -349,7 +349,7 @@ class ModuleManager {
     const moduleInfo = await this.externalModuleManager.getModuleByCode(moduleCode);
 
     if (!moduleInfo) {
-      throw new Error(`External module '${moduleCode}' not found in external-official-modules.yaml`);
+      throw new Error(`Module externe '${moduleCode}' introuvable dans external-official-modules.yaml`);
     }
 
     const cacheDir = this.getExternalCacheDir();
@@ -388,7 +388,7 @@ class ModuleManager {
     if (await fs.pathExists(moduleCacheDir)) {
       // Try to update if it's a git repo
       const fetchSpinner = await createSpinner();
-      fetchSpinner.start(`Fetching ${moduleInfo.name}...`);
+      fetchSpinner.start(`Récupération de ${moduleInfo.name}...`);
       try {
         const currentRef = execSync('git rev-parse HEAD', { cwd: moduleCacheDir, stdio: 'pipe' }).toString().trim();
         // Fetch and reset to remote - works better with shallow clones than pull
@@ -404,13 +404,13 @@ class ModuleManager {
         });
         const newRef = execSync('git rev-parse HEAD', { cwd: moduleCacheDir, stdio: 'pipe' }).toString().trim();
 
-        fetchSpinner.stop(`Fetched ${moduleInfo.name}`);
+        fetchSpinner.stop(`${moduleInfo.name} récupéré`);
         // Force dependency install if we got new code
         if (currentRef !== newRef) {
           needsDependencyInstall = true;
         }
       } catch {
-        fetchSpinner.error(`Fetch failed, re-downloading ${moduleInfo.name}`);
+        fetchSpinner.error(`Échec de la récupération, re-téléchargement de ${moduleInfo.name}`);
         // If update fails, remove and re-clone
         await fs.remove(moduleCacheDir);
         wasNewClone = true;
@@ -422,16 +422,16 @@ class ModuleManager {
     // Clone if not exists or was removed
     if (wasNewClone) {
       const fetchSpinner = await createSpinner();
-      fetchSpinner.start(`Fetching ${moduleInfo.name}...`);
+      fetchSpinner.start(`Récupération de ${moduleInfo.name}...`);
       try {
         execSync(`git clone --depth 1 "${moduleInfo.url}" "${moduleCacheDir}"`, {
           stdio: ['ignore', 'pipe', 'pipe'],
           env: { ...process.env, GIT_TERMINAL_PROMPT: '0' },
         });
-        fetchSpinner.stop(`Fetched ${moduleInfo.name}`);
+        fetchSpinner.stop(`${moduleInfo.name} récupéré`);
       } catch (error) {
-        fetchSpinner.error(`Failed to fetch ${moduleInfo.name}`);
-        throw new Error(`Failed to clone external module '${moduleCode}': ${error.message}`);
+        fetchSpinner.error(`Échec de la récupération de ${moduleInfo.name}`);
+        throw new Error(`Échec du clonage du module externe '${moduleCode}' : ${error.message}`);
       }
     }
 
@@ -445,16 +445,16 @@ class ModuleManager {
       // Force install if we updated or cloned new
       if (needsDependencyInstall || wasNewClone || nodeModulesMissing) {
         const installSpinner = await createSpinner();
-        installSpinner.start(`Installing dependencies for ${moduleInfo.name}...`);
+        installSpinner.start(`Installation des dépendances pour ${moduleInfo.name}...`);
         try {
           execSync('npm install --omit=dev --no-audit --no-fund --no-progress --legacy-peer-deps', {
             cwd: moduleCacheDir,
             stdio: ['ignore', 'pipe', 'pipe'],
             timeout: 120_000, // 2 minute timeout
           });
-          installSpinner.stop(`Installed dependencies for ${moduleInfo.name}`);
+          installSpinner.stop(`Dépendances installées pour ${moduleInfo.name}`);
         } catch (error) {
-          installSpinner.error(`Failed to install dependencies for ${moduleInfo.name}`);
+          installSpinner.error(`Échec de l'installation des dépendances pour ${moduleInfo.name}`);
           if (!silent) await prompts.log.warn(`  ${error.message}`);
         }
       } else {
@@ -471,16 +471,16 @@ class ModuleManager {
 
         if (packageJsonNewer) {
           const installSpinner = await createSpinner();
-          installSpinner.start(`Installing dependencies for ${moduleInfo.name}...`);
+          installSpinner.start(`Installation des dépendances pour ${moduleInfo.name}...`);
           try {
             execSync('npm install --omit=dev --no-audit --no-fund --no-progress --legacy-peer-deps', {
               cwd: moduleCacheDir,
               stdio: ['ignore', 'pipe', 'pipe'],
               timeout: 120_000, // 2 minute timeout
             });
-            installSpinner.stop(`Installed dependencies for ${moduleInfo.name}`);
+            installSpinner.stop(`Dépendances installées pour ${moduleInfo.name}`);
           } catch (error) {
-            installSpinner.error(`Failed to install dependencies for ${moduleInfo.name}`);
+            installSpinner.error(`Échec de l'installation des dépendances pour ${moduleInfo.name}`);
             if (!silent) await prompts.log.warn(`  ${error.message}`);
           }
         }
@@ -531,7 +531,7 @@ class ModuleManager {
     if (!sourcePath) {
       // Provide a more user-friendly error message
       throw new Error(
-        `Source for module '${moduleName}' is not available. It will be retained but cannot be updated without its source files.`,
+        `La source du module '${moduleName}' n'est pas disponible. Il sera conservé mais ne pourra pas être mis à jour sans ses fichiers source.`,
       );
     }
 
@@ -544,7 +544,7 @@ class ModuleManager {
         const customContent = await fs.readFile(rootCustomConfigPath, 'utf8');
         customConfig = yaml.parse(customContent);
       } catch (error) {
-        await prompts.log.warn(`Failed to read custom.yaml for ${moduleName}: ${error.message}`);
+        await prompts.log.warn(`Échec de la lecture de custom.yaml pour ${moduleName} : ${error.message}`);
       }
     }
 
@@ -552,7 +552,7 @@ class ModuleManager {
     if (customConfig) {
       options.moduleConfig = { ...options.moduleConfig, ...customConfig };
       if (options.logger) {
-        await options.logger.log(`  Merged custom configuration for ${moduleName}`);
+        await options.logger.log(`  Configuration personnalisée fusionnée pour ${moduleName}`);
       }
     }
 
@@ -611,12 +611,12 @@ class ModuleManager {
 
     // Check if source module exists
     if (!sourcePath) {
-      throw new Error(`Module '${moduleName}' not found in any source location`);
+      throw new Error(`Module '${moduleName}' introuvable dans aucun emplacement source`);
     }
 
     // Check if module is installed
     if (!(await fs.pathExists(targetPath))) {
-      throw new Error(`Module '${moduleName}' is not installed`);
+      throw new Error(`Le module '${moduleName}' n'est pas installé`);
     }
 
     if (force) {
@@ -648,7 +648,7 @@ class ModuleManager {
     const targetPath = path.join(bmadDir, moduleName);
 
     if (!(await fs.pathExists(targetPath))) {
-      throw new Error(`Module '${moduleName}' is not installed`);
+      throw new Error(`Le module '${moduleName}' n'est pas installé`);
     }
 
     await fs.remove(targetPath);
@@ -696,7 +696,7 @@ class ModuleManager {
         const config = yaml.parse(configContent);
         Object.assign(moduleInfo, config);
       } catch (error) {
-        await prompts.log.warn(`Failed to read installed module config: ${error.message}`);
+        await prompts.log.warn(`Échec de la lecture de la configuration du module installé : ${error.message}`);
       }
     }
 
@@ -760,7 +760,7 @@ class ModuleManager {
         // Check for localskip="true" in the agent tag
         const agentMatch = content.match(/<agent[^>]*\slocalskip="true"[^>]*>/);
         if (agentMatch) {
-          await prompts.log.message(`  Skipping web-only agent: ${path.basename(file)}`);
+          await prompts.log.message(`  Agent web-only ignoré : ${path.basename(file)}`);
           continue; // Skip this agent
         }
       }
@@ -822,7 +822,7 @@ class ModuleManager {
             await this.copyFileWithPlaceholderReplacement(genericTemplatePath, customizePath);
             // Only show customize creation in verbose mode
             if (process.env.BMAD_VERBOSE_INSTALL === 'true') {
-              await prompts.log.message(`  Created customize: ${moduleName}-${agentName}.customize.yaml`);
+              await prompts.log.message(`  Customize créé : ${moduleName}-${agentName}.customize.yaml`);
             }
 
             // Store original hash for modification detection
@@ -922,10 +922,10 @@ class ModuleManager {
             const copiedFiles = await this.copySidecarToMemory(sourceSidecarPath, agentName, bmadMemoryPath, isUpdate, bmadDir, installer);
 
             if (process.env.BMAD_VERBOSE_INSTALL === 'true' && copiedFiles.length > 0) {
-              await prompts.log.message(`    Sidecar files processed: ${copiedFiles.length} files`);
+              await prompts.log.message(`    Fichiers sidecar traités : ${copiedFiles.length} fichiers`);
             }
           } else if (process.env.BMAD_VERBOSE_INSTALL === 'true') {
-            await prompts.log.warn(`    Agent marked as having sidecar but ${sidecarDirName} directory not found`);
+            await prompts.log.warn(`    Agent marqué comme ayant un sidecar mais répertoire ${sidecarDirName} introuvable`);
           }
         }
 
@@ -945,11 +945,11 @@ class ModuleManager {
         // Only show compilation details in verbose mode
         if (process.env.BMAD_VERBOSE_INSTALL === 'true') {
           await prompts.log.message(
-            `    Compiled agent: ${agentName} -> ${path.relative(targetPath, targetMdPath)}${hasSidecar ? ' (with sidecar)' : ''}`,
+            `    Agent compilé : ${agentName} -> ${path.relative(targetPath, targetMdPath)}${hasSidecar ? ' (avec sidecar)' : ''}`,
           );
         }
       } catch (error) {
-        await prompts.log.warn(`    Failed to compile agent ${agentName}: ${error.message}`);
+        await prompts.log.warn(`    Échec de la compilation de l'agent ${agentName} : ${error.message}`);
       }
     }
   }
@@ -1069,11 +1069,11 @@ class ModuleManager {
       }
 
       if (!workflowsVendored) {
-        await prompts.log.info(`\n  Vendoring cross-module workflows for ${moduleName}...`);
+        await prompts.log.info(`\n  Vendorisation des workflows inter-modules pour ${moduleName}...`);
         workflowsVendored = true;
       }
 
-      await prompts.log.message(`    Processing: ${agentFile}`);
+      await prompts.log.message(`    Traitement : ${agentFile}`);
 
       for (const item of workflowInstallItems) {
         const sourceWorkflowPath = item.exec; // Where to copy FROM
@@ -1083,7 +1083,7 @@ class ModuleManager {
         // Example: {project-root}/_bmad/bmm/workflows/4-implementation/bmad-create-story/workflow.md
         const sourceMatch = sourceWorkflowPath.match(/\{project-root\}\/(?:_bmad)\/([^/]+)\/workflows\/(.+)/);
         if (!sourceMatch) {
-          await prompts.log.warn(`      Could not parse workflow path: ${sourceWorkflowPath}`);
+          await prompts.log.warn(`      Impossible d'analyser le chemin du workflow : ${sourceWorkflowPath}`);
           continue;
         }
 
@@ -1093,7 +1093,7 @@ class ModuleManager {
         // Example: {project-root}/_bmad/bmgd/workflows/4-production/create-story/workflow.md
         const installMatch = installWorkflowPath.match(/\{project-root\}\/(?:_bmad)\/([^/]+)\/workflows\/(.+)/);
         if (!installMatch) {
-          await prompts.log.warn(`      Could not parse workflow-install path: ${installWorkflowPath}`);
+          await prompts.log.warn(`      Impossible d'analyser le chemin workflow-install : ${installWorkflowPath}`);
           continue;
         }
 
@@ -1106,13 +1106,13 @@ class ModuleManager {
 
         // Check if source workflow exists
         if (!(await fs.pathExists(actualSourceWorkflowPath))) {
-          await prompts.log.warn(`      Source workflow not found: ${actualSourceWorkflowPath}`);
+          await prompts.log.warn(`      Workflow source introuvable : ${actualSourceWorkflowPath}`);
           continue;
         }
 
         // Copy the entire workflow folder
         await prompts.log.message(
-          `      Vendoring: ${sourceModule}/workflows/${sourceWorkflowSubPath.replace(/\/workflow\.md$/, '')} → ${moduleName}/workflows/${installWorkflowSubPath.replace(/\/workflow\.md$/, '')}`,
+          `      Vendorisation : ${sourceModule}/workflows/${sourceWorkflowSubPath.replace(/\/workflow\.md$/, '')} → ${moduleName}/workflows/${installWorkflowSubPath.replace(/\/workflow\.md$/, '')}`,
         );
 
         await fs.ensureDir(path.dirname(actualDestWorkflowPath));
@@ -1122,7 +1122,7 @@ class ModuleManager {
     }
 
     if (workflowsVendored) {
-      await prompts.log.success(`  Workflow vendoring complete\n`);
+      await prompts.log.success(`  Vendorisation des workflows terminée\n`);
     }
   }
 
@@ -1208,7 +1208,7 @@ class ModuleManager {
       const normalizedRoot = path.normalize(projectRoot);
       if (!normalizedPath.startsWith(normalizedRoot + path.sep) && normalizedPath !== normalizedRoot) {
         const color = await prompts.getColor();
-        await prompts.log.warn(color.yellow(`${configKey} path escapes project root, skipping: ${dirPath}`));
+        await prompts.log.warn(color.yellow(`Le chemin ${configKey} sort de la racine du projet, ignoré : ${dirPath}`));
         continue;
       }
 
@@ -1241,7 +1241,7 @@ class ModuleManager {
               const color = await prompts.getColor();
               await prompts.log.warn(
                 color.yellow(
-                  `${configKey}: cannot move between parent/child paths (${oldDirPath} / ${dirPath}), creating new directory instead`,
+                  `${configKey} : impossible de déplacer entre des chemins parent/enfant (${oldDirPath} / ${dirPath}), création d'un nouveau répertoire à la place`,
                 ),
               );
               oldFullPath = null;
@@ -1264,7 +1264,7 @@ class ModuleManager {
           const color = await prompts.getColor();
           await prompts.log.warn(
             color.yellow(
-              `Failed to move ${oldDirPath} → ${dirPath}: ${moveError.message}\n  Creating new directory instead. Please move contents from the old directory manually.`,
+              `Échec du déplacement ${oldDirPath} → ${dirPath} : ${moveError.message}\n  Création d'un nouveau répertoire à la place. Veuillez déplacer le contenu de l'ancien répertoire manuellement.`,
             ),
           );
           await fs.ensureDir(fullPath);
@@ -1275,7 +1275,7 @@ class ModuleManager {
         const color = await prompts.getColor();
         await prompts.log.warn(
           color.yellow(
-            `${dirName}: path changed but both directories exist:\n  Old: ${oldDirPath}\n  New: ${dirPath}\n  Old directory may contain orphaned documents — please review and merge manually.`,
+            `${dirName} : chemin modifié mais les deux répertoires existent :\n  Ancien : ${oldDirPath}\n  Nouveau : ${dirPath}\n  L'ancien répertoire peut contenir des documents orphelins — veuillez vérifier et fusionner manuellement.`,
           ),
         );
       } else if (!(await fs.pathExists(fullPath))) {
@@ -1317,7 +1317,7 @@ class ModuleManager {
 
         await fs.writeFile(configPath, configContent, 'utf8');
       } catch (error) {
-        await prompts.log.warn(`Failed to process module config: ${error.message}`);
+        await prompts.log.warn(`Échec du traitement de la configuration du module : ${error.message}`);
       }
     }
   }

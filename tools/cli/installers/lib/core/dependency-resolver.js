@@ -24,7 +24,7 @@ class DependencyResolver {
    */
   async resolve(bmadDir, selectedModules = [], options = {}) {
     if (options.verbose) {
-      await prompts.log.info('Resolving module dependencies...');
+      await prompts.log.info('Résolution des dépendances de modules...');
     }
 
     // Always include core as base
@@ -95,7 +95,7 @@ class DependencyResolver {
       }
 
       if (!(await fs.pathExists(moduleDir))) {
-        await prompts.log.warn('Module directory not found: ' + moduleDir);
+        await prompts.log.warn('Répertoire de module introuvable : ' + moduleDir);
         continue;
       }
 
@@ -183,7 +183,7 @@ class DependencyResolver {
             }
           }
         } catch (error) {
-          await prompts.log.warn('Failed to parse frontmatter in ' + file.name + ': ' + error.message);
+          await prompts.log.warn("Échec de l'analyse du frontmatter dans " + file.name + ' : ' + error.message);
         }
       }
 
@@ -663,7 +663,7 @@ class DependencyResolver {
    * Report resolution results
    */
   async reportResults(organized, selectedModules) {
-    await prompts.log.success('Dependency resolution complete');
+    await prompts.log.success('Résolution des dépendances terminée');
 
     for (const [module, files] of Object.entries(organized)) {
       const isSelected = selectedModules.includes(module) || module === 'core';
@@ -671,29 +671,29 @@ class DependencyResolver {
         files.agents.length + files.tasks.length + files.tools.length + files.templates.length + files.data.length + files.other.length;
 
       if (totalFiles > 0) {
-        await prompts.log.info(`  ${module.toUpperCase()} module:`);
-        await prompts.log.message(`    Status: ${isSelected ? 'Selected' : 'Dependencies only'}`);
+        await prompts.log.info(`  Module ${module.toUpperCase()} :`);
+        await prompts.log.message(`    Statut : ${isSelected ? 'Sélectionné' : 'Dépendances uniquement'}`);
 
         if (files.agents.length > 0) {
-          await prompts.log.message(`    Agents: ${files.agents.length}`);
+          await prompts.log.message(`    Agents : ${files.agents.length}`);
         }
         if (files.tasks.length > 0) {
-          await prompts.log.message(`    Tasks: ${files.tasks.length}`);
+          await prompts.log.message(`    Tâches : ${files.tasks.length}`);
         }
         if (files.templates.length > 0) {
-          await prompts.log.message(`    Templates: ${files.templates.length}`);
+          await prompts.log.message(`    Templates : ${files.templates.length}`);
         }
         if (files.data.length > 0) {
-          await prompts.log.message(`    Data files: ${files.data.length}`);
+          await prompts.log.message(`    Fichiers de données : ${files.data.length}`);
         }
         if (files.other.length > 0) {
-          await prompts.log.message(`    Other files: ${files.other.length}`);
+          await prompts.log.message(`    Autres fichiers : ${files.other.length}`);
         }
       }
     }
 
     if (this.missingDependencies.size > 0) {
-      await prompts.log.warn('Missing dependencies:');
+      await prompts.log.warn('Dépendances manquantes :');
       for (const missing of this.missingDependencies) {
         await prompts.log.warn(`    - ${missing}`);
       }

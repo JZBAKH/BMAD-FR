@@ -101,7 +101,7 @@ class Manifest {
           ides: manifestData.ides || [],
         };
       } catch (error) {
-        await prompts.log.error(`Failed to read YAML manifest: ${error.message}`);
+        await prompts.log.error(`Échec de la lecture du manifeste YAML : ${error.message}`);
       }
     }
 
@@ -231,7 +231,7 @@ class Manifest {
         const content = await fs.readFile(yamlPath, 'utf8');
         return yaml.parse(content);
       } catch (error) {
-        await prompts.log.error(`Failed to read YAML manifest: ${error.message}`);
+        await prompts.log.error(`Échec de la lecture du manifeste YAML : ${error.message}`);
       }
     }
 
@@ -408,7 +408,7 @@ class Manifest {
   async addIde(bmadDir, ideName) {
     const manifest = await this.read(bmadDir);
     if (!manifest) {
-      throw new Error('No manifest found');
+      throw new Error('Aucun manifeste trouvé');
     }
 
     if (!manifest.ides) {
@@ -475,7 +475,7 @@ class Manifest {
             }
           }
         } catch (error) {
-          await prompts.log.warn(`Could not parse ${filePath}: ${error.message}`);
+          await prompts.log.warn(`Impossible d'analyser ${filePath} : ${error.message}`);
         }
       }
       // Handle other file types (CSV, JSON, YAML, etc.)
@@ -777,7 +777,7 @@ class Manifest {
           configs[moduleName] = yaml.parse(content);
         }
       } catch (error) {
-        await prompts.log.warn(`Could not load config for module ${moduleName}: ${error.message}`);
+        await prompts.log.warn(`Impossible de charger la configuration pour le module ${moduleName} : ${error.message}`);
       }
     }
 
@@ -791,7 +791,7 @@ class Manifest {
   async addCustomModule(bmadDir, customModule) {
     const manifest = await this.read(bmadDir);
     if (!manifest) {
-      throw new Error('No manifest found');
+      throw new Error('Aucun manifeste trouvé');
     }
 
     if (!manifest.customModules) {
@@ -879,7 +879,7 @@ class Manifest {
             const pkg = require(packageJsonPath);
             version = pkg.version;
           } catch (error) {
-            await prompts.log.warn(`Failed to read package.json for ${moduleName}: ${error.message}`);
+            await prompts.log.warn(`Échec de la lecture de package.json pour ${moduleName} : ${error.message}`);
           }
         }
       }
@@ -907,7 +907,7 @@ class Manifest {
           repoUrl: moduleConfig.repoUrl || null,
         };
       } catch (error) {
-        await prompts.log.warn(`Failed to read module.yaml for ${moduleName}: ${error.message}`);
+        await prompts.log.warn(`Échec de la lecture de module.yaml pour ${moduleName} : ${error.message}`);
       }
     }
 

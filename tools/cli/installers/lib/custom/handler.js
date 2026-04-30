@@ -88,7 +88,7 @@ class CustomHandler {
       try {
         config = yaml.parse(configContent);
       } catch (parseError) {
-        await prompts.log.warn('YAML parse error in ' + configPath + ': ' + parseError.message);
+        await prompts.log.warn("Erreur d'analyse YAML dans " + configPath + ' : ' + parseError.message);
         return null;
       }
 
@@ -111,7 +111,7 @@ class CustomHandler {
         isInstallConfig: isInstallConfig, // Track which type this is
       };
     } catch (error) {
-      await prompts.log.warn('Failed to read ' + configPath + ': ' + error.message);
+      await prompts.log.warn('Échec de la lecture de ' + configPath + ' : ' + error.message);
       return null;
     }
   }
@@ -185,12 +185,12 @@ class CustomHandler {
               }
             }
           } catch (error) {
-            results.errors.push(`Failed to copy file ${entry.name}: ${error.message}`);
+            results.errors.push(`Échec de la copie du fichier ${entry.name} : ${error.message}`);
           }
         }
       }
     } catch (error) {
-      results.errors.push(`Installation failed: ${error.message}`);
+      results.errors.push(`Échec de l'installation : ${error.message}`);
     }
 
     return results;
@@ -276,7 +276,7 @@ class CustomHandler {
             }
           }
         } catch (error) {
-          results.errors.push(`Failed to copy ${entry.name}: ${error.message}`);
+          results.errors.push(`Échec de la copie de ${entry.name} : ${error.message}`);
         }
       }
     }
@@ -322,7 +322,7 @@ class CustomHandler {
             await fs.writeFile(customizePath, templateContent, 'utf8');
             // Only show customize creation in verbose mode
             if (process.env.BMAD_VERBOSE_INSTALL === 'true') {
-              await prompts.log.message('  Created customize: custom-' + agentName + '.customize.yaml');
+              await prompts.log.message('  Customize créé : custom-' + agentName + '.customize.yaml');
             }
           }
         }
@@ -346,11 +346,11 @@ class CustomHandler {
 
         // Only show compilation details in verbose mode
         if (process.env.BMAD_VERBOSE_INSTALL === 'true') {
-          await prompts.log.message('    Compiled agent: ' + agentName + ' -> ' + path.relative(targetAgentsPath, targetMdPath));
+          await prompts.log.message('    Agent compilé : ' + agentName + ' -> ' + path.relative(targetAgentsPath, targetMdPath));
         }
       } catch (error) {
-        await prompts.log.warn('    Failed to compile agent ' + agentName + ': ' + error.message);
-        results.errors.push(`Failed to compile agent ${agentName}: ${error.message}`);
+        await prompts.log.warn("    Échec de la compilation de l'agent " + agentName + ' : ' + error.message);
+        results.errors.push(`Échec de la compilation de l'agent ${agentName} : ${error.message}`);
       }
     }
   }

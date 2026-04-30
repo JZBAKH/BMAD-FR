@@ -67,11 +67,11 @@ Après le retour du compresseur (ou compresseur fusionneur) :
    - Chaque ligne/point est autosuffisant
    - Les domaines thématiques s'adossent scrupuleusement aux titres (headings) en `##`
 
-3. **Détermination du format d'exportation.** En associant les anticipations de division (Stade 1) à l'envergure confirmée du rendu :
+3. **Détermination du format d'exportation.** En associant la prédiction de fractionnement (Stade 1) à la taille effective du distillat :
 
-   **Distillat unique** (≤~5 000 tokens ou un paramètre token_budget maintenu intact) :
+   **Distillat unique** (≤~5 000 tokens ou token_budget non dépassé) :
 
-   Enregistrez sous la forme d'un simple fichier en y greffant le frontmatter :
+   Enregistrez sous forme d'un fichier unique en ajoutant le frontmatter :
 
    ```yaml
    ---
@@ -88,29 +88,29 @@ Après le retour du compresseur (ou compresseur fusionneur) :
 
    **Distillat fragmenté** (>~5 000 tokens, ou imposé par le token_budget) :
 
-   Aménagez un sous-dossier `{base-name}-distillate/` embarquant :
+   Créez un dossier `{base-name}-distillate/` contenant :
 
    ```
    {base-name}-distillate/
-   ├── _index.md           # Clés, axes transversaux, descriptif des sections (manifest)
-   ├── 01-{topic-slug}.md  # Tronçon monolithique
+   ├── _index.md           # Orientation, éléments transversaux, manifeste des sections
+   ├── 01-{topic-slug}.md  # Section autonome
    ├── 02-{topic-slug}.md
    └── 03-{topic-slug}.md
    ```
 
-   Le fichier `_index.md` détient :
-   - Frontmatter agrégeant sources (accès relatifs reliant au dossier du distillat jusqu'aux bases d'origine)
-   - Accompagnement en 3-5 traits pour l'orientation (ce qui a été épuré/et sa provenance)
-   - Manifest des volets de découpe : intitulé de fichier par tronçon + bref résumé (1 ligne)
-   - Considérations transversales englobant ou débordant plusieurs unités segmentées
+   Le fichier `_index.md` contient :
+   - Frontmatter avec les sources (chemins relatifs depuis le dossier du distillat vers les originaux)
+   - Orientation en 3-5 puces (ce qui a été distillé, à partir de quoi)
+   - Manifeste des sections : nom de fichier de chaque section + description en 1 ligne
+   - Éléments transversaux qui couvrent plusieurs sections
 
-   Chaque sous-section fait office de format clos — sollicitable unitairement. Munissez les extraits d'une brève estampille liminaire formatée : "This section covers [topic]. Part N of M."
+   Chaque fichier de section est autonome — chargeable indépendamment. Incluez une en-tête de contexte d'une ligne : "This section covers [topic]. Part N of M."
 
-   Les liens sources logés via frontmatter répondront impérativement à des trajectoires localisées au regard du socle du distillat.
+   Les chemins des sources dans le frontmatter doivent être relatifs à l'emplacement du distillat.
 
-4. **Mesurer le distillat.** Assurez le passage de l'exécutif `scripts/analyze_sources.py` sur ce/ces fichier(s) du rendu propre final de sorte d'obtenir la bonne métrique "token" visée à l'export. Retenez la mention de la sortie `total_estimated_tokens` livrée comme valeur globale indexée pour `distillate_total_tokens`.
+4. **Mesurer le distillat.** Exécutez `scripts/analyze_sources.py` sur le(s) fichier(s) finaux du distillat pour obtenir un comptage précis des tokens en sortie. Utilisez la valeur `total_estimated_tokens` de cette analyse comme `distillate_total_tokens`.
 
-5. **Remettre vos conclusions.** Retournez immanquablement un constat sous encodage JSON organisé :
+5. **Reporter les résultats.** Retournez toujours une sortie JSON structurée :
 
    ```json
    {
@@ -125,29 +125,29 @@ Après le retour du compresseur (ou compresseur fusionneur) :
    }
    ```
 
-   Où `source_total_tokens` traduit le verdict initial à l'analyse (Stade 1) et `distillate_total_tokens` la captation du pas numéro 4. Cet indicateur de ratio `compression_ratio` s'observe par : `source_total_tokens / distillate_total_tokens` mis en page par la déclinaison formelle "X:1" (ex: "3.2:1").
+   Où `source_total_tokens` provient de l'analyse du Stade 1 et `distillate_total_tokens` de l'étape 4. Le `compression_ratio` est `source_total_tokens / distillate_total_tokens` formaté en "X:1" (ex. : "3.2:1").
 
-6. Si la clé de lancement signalait `--validate`, passez sans délai au Stade 4. Sinon, l'activité s'achève ici.
+6. Si le flag `--validate` était spécifié, passez au Stade 4. Sinon, terminé.
 
 ### Stade 4 : Validation en Cycle Complet (--validate uniquement)
 
-Ce process valide par un tour probatoire le maintien du distillat comme porteur sans perte puisque l'idée consiste à recomposer une abstraction du fond depuis cet unique extrait allégé. Sollicité particulièrement sur de la donnée dont le degré de préjudice (pour lacune info) excède des normes, ou faisant figure de filtre de très haute instance lié aux travaux d'un workflow critique aval. Non prescrit sur de l'usage classique du quotidien — ajout non anodin lié à la facturation des tokens par sollicitation du sous-Agent dédié.
+Ce stade prouve que le distillat est sans perte en reconstruisant les documents sources à partir du distillat seul. À utiliser pour les documents critiques où toute perte d'information est inacceptable, ou comme contrôle qualité pour les workflows aval à forts enjeux. Non recommandé pour un usage courant — ce stade ajoute un coût en tokens significatif.
 
-1. **Lancez un Agent reconstructeur** en chargeant `agents/round-trip-reconstructor.md`. Veillez formellement à relayer de manière stricte et EXCLUSIVE l'unique pont au fichier épuré/distillat (ou chemin sur le socle `_index.md` en format splitté) — ledit agent est absolument tenu sous secret au demeurant par rapport au document originel dont les traces et données ont été édictées puis purgées !
+1. **Lancez l'Agent reconstructeur** en utilisant `agents/round-trip-reconstructor.md`. Transmettez-lui UNIQUEMENT le chemin du fichier distillat (ou le chemin de `_index.md` pour les distillats fragmentés) — il NE DOIT PAS avoir accès aux documents sources d'origine.
 
-   Contexte à divisions multiples, lancez l'ingérence en parallèle de sous-Agents (un par bloc de coupe). Chacun d'eux recueillant sa division assortie du contexte mère de la souche structurelle issue de `_index.md`.
+   Pour les distillats fragmentés, lancez un reconstructeur par section en parallèle. Chacun reçoit son fichier de section ainsi que `_index.md` pour le contexte transversal.
 
-   **Dégradation gracieuse :** À défaut d'accessibilité avérée aux méthodes d'invocation des instances filles propres, il sera interdit à ce sous-groupe (disposant de la réalité primitive ancrée par mémorisation liée en phase 1-2 d'opérer ces requêtes par ses capacités "propres"). Transmettez que cette phase doit opérer "uniquement à travers un pool fonctionnellement ouvert rattaché aux capacités en de sous-Agents distanciés de contexte global", et éludez ce Stade.
+   **Dégradation gracieuse :** Si le lancement de sous-Agents est indisponible, ce stade ne peut être exécuté par l'Agent principal (il a déjà vu les sources originales). Signalez que la validation en cycle complet requiert le support des sous-Agents et passez ce stade.
 
-2. **Rapatrier ces essais recréés.** Le compilateur d'analyse retourne alors l'adresse des livrables recréés pour stationner à proximité du socle d'origine allégé (le distillat final de l'(Agent d'Étape 2).
+2. **Récupérez les reconstructions.** Le reconstructeur renvoie les chemins des fichiers de reconstruction enregistrés à côté du distillat.
 
-3. **Opérer la réconciliation via Diff Sémantique.** Incorporez conjointement données des parquets primaires avec ce rendu récent de recomposition. Section après section comparez :
-   - La nature intrinsèque des informations mères est-elle reflétée à travers le jumeau recréé ?
-   - Les particularismes affilés sont-ils là avec acuité et discernement ? (chiffres, nomenclatures des actes ou noms de validation et seuils) ?
-   - Intégrité liée aux raisons d'êtres fondatrices de chaque règle est-elle constante et fluide ?
-   - Le pendant reconstitué présente-il des données inattendues non certifiées sur le terreau source ? (indicateur pointant une imagination comblant d'hypothétiques vides ou hallucinations du modèle générant).
+3. **Effectuez le diff sémantique.** Lisez à la fois les documents sources originaux et les reconstructions. Pour chaque section de l'original, évaluez :
+   - L'information essentielle est-elle présente dans la reconstruction ?
+   - Les détails spécifiques sont-ils préservés (chiffres, noms, décisions) ?
+   - Les relations et la justification sont-elles intactes ?
+   - La reconstruction a-t-elle ajouté des éléments absents de l'original ? (signe d'hallucinations comblant des lacunes)
 
-4. **Produire l'Audit Diagnostique** que vous fixerez contre votre composante "distillat" sous affichage standard `-validation-report.md` :
+4. **Produisez le rapport de validation** enregistré à côté du distillat sous le nom `-validation-report.md` :
 
    ```markdown
    ---
@@ -157,22 +157,22 @@ Ce process valide par un tour probatoire le maintien du distillat comme porteur 
    created: "{date}"
    ---
 
-   ## Bilan Sommaire
-   - Statut: PASS | PASS_WITH_WARNINGS | FAIL
-   - Conservation Informative: {estimation taux pourcentage}
-   - Filles et Ruptures de fil info localisées: {count}
-   - Hallucinations reconnues: {count}
+   ## Synthèse de Validation
+   - Statut : PASS | PASS_WITH_WARNINGS | FAIL
+   - Information préservée : {estimation en pourcentage}
+   - Lacunes détectées : {count}
+   - Hallucinations détectées : {count}
 
-   ## Ruptures Mémorielles (Manque du jet reconstruisant d'une info existante)
-   - {description du manque} — Source : {fichier original concerné}, Section : {where}
+   ## Lacunes (information présente dans les originaux mais absente de la reconstruction)
+   - {description de la lacune} — Source : {fichier original concerné}, Section : {where}
 
-   ## Faux Positifs Assumés ou Contenu Distrait/Inventé
-   - {description de l'hallucination} — semble combler un manque dans : {section}
+   ## Hallucinations (information dans la reconstruction non traçable aux originaux)
+   - {description de l'hallucination} — semble combler une lacune dans : {section}
 
-   ## Traceurs de Vices Possibles (Reconnu au travers du reconstructeur ciblé)
-   - {marqueur local décrié descriptif}
+   ## Marqueurs de Lacunes Possibles (signalés par le reconstructeur)
+   - {description du marqueur}
    ```
 
-5. **Preuve constatant un dommage ou disparition notable**, proposez alors une courte navette opératoire de retouche visant votre allégement certifié — corrigeant en complétant l'attendu amputé n'entrainant point là de processus réitératif à charge globale. Limitation figée actant de l'arbitrage maximal de vos interventions : 2 exécutions au demeurant.
+5. **Si des lacunes sont détectées**, proposez d'effectuer une passe correctrice ciblée sur le distillat — pour ajouter l'information manquante sans recompression complète. Limité à 2 passes correctrices au maximum.
 
-6. **Purgation achevée** — broyez et oblitérez de concert tous documents à portée reconstructionnelle mis sur pied momentanément juste après que l'acte finalisant le script du diagnostic de rapport se soit vu gravé et enregistré.
+6. **Nettoyage** — supprimez les fichiers de reconstruction temporaires une fois le rapport généré.

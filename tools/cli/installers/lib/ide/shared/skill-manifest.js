@@ -19,7 +19,7 @@ async function loadSkillManifest(dirPath) {
     if (parsed.canonicalId || parsed.type) return { __single: parsed };
     return parsed;
   } catch (error) {
-    console.warn(`Warning: Failed to parse bmad-skill-manifest.yaml in ${dirPath}: ${error.message}`);
+    console.warn(`Avertissement : Échec de l'analyse de bmad-skill-manifest.yaml dans ${dirPath} : ${error.message}`);
     return null;
   }
 }

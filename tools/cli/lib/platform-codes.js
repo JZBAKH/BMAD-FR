@@ -22,11 +22,11 @@ class PlatformCodes {
         const content = fs.readFileSync(this.configPath, 'utf8');
         this.config = yaml.parse(content);
       } else {
-        console.warn(`Platform codes config not found at ${this.configPath}`);
+        console.warn(`Configuration des codes de plateforme introuvable à ${this.configPath}`);
         this.config = { platforms: {} };
       }
     } catch (error) {
-      console.error(`Error loading platform codes: ${error.message}`);
+      console.error(`Erreur lors du chargement des codes de plateforme : ${error.message}`);
       this.config = { platforms: {} };
     }
   }

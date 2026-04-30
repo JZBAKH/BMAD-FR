@@ -94,7 +94,7 @@ class IdeConfigManager {
       const config = yaml.parse(content);
       return config;
     } catch (error) {
-      await prompts.log.warn(`Failed to load IDE config for ${ideName}: ${error.message}`);
+      await prompts.log.warn(`Échec du chargement de la configuration IDE pour ${ideName} : ${error.message}`);
       return null;
     }
   }
@@ -124,7 +124,7 @@ class IdeConfigManager {
         }
       }
     } catch (error) {
-      await prompts.log.warn(`Failed to load IDE configs: ${error.message}`);
+      await prompts.log.warn(`Échec du chargement des configurations IDE : ${error.message}`);
     }
 
     return configs;

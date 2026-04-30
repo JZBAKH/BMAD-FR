@@ -22,7 +22,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Add upstream remote and fetch
         run: |
@@ -44,8 +44,28 @@ jobs:
             echo "new_files=$new_files" >> $GITHUB_OUTPUT
           fi
 
+      # Upload the report as a downloadable artifact regardless of whether
+      # the issue creation step succeeds. This guarantees that the user
+      # always has access to the report even if GITHUB_TOKEN doesn't have
+      # `issues: write` permission at the repo level.
+      - name: Upload report as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: upstream-sync-report
+          path: upstream-sync-report.md
+          retention-days: 90
+
+      # The label/issue creation steps require the repo's "Workflow
+      # permissions" setting to be set to "Read and write permissions"
+      # (Settings → Actions → General → Workflow permissions). When the
+      # default read-only setting is used, these steps would fail and
+      # mask the actual report. We use `continue-on-error: true` so the
+      # workflow as a whole is still green and the report artifact is
+      # always available.
       - name: Ensure labels exist
         if: steps.report.outputs.nothing_new == 'false'
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -54,6 +74,7 @@ jobs:
 
       - name: Create tracking issue
         if: steps.report.outputs.nothing_new == 'false'
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

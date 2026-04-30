@@ -196,7 +196,7 @@ class CustomModuleCache {
     // Verify cache integrity
     const currentCacheHash = await this.calculateHash(cacheDir);
     if (currentCacheHash !== cached.cacheHash) {
-      await prompts.log.warn(`Cache integrity check failed for ${moduleId}`);
+      await prompts.log.warn(`Échec du contrôle d'intégrité du cache pour ${moduleId}`);
     }
 
     return {

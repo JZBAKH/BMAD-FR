@@ -199,7 +199,7 @@ class ConfigCollector {
           hasFieldsWithoutDefaults,
         });
       } catch (error) {
-        await prompts.log.warn(`Could not read schema for module "${moduleName}": ${error.message}`);
+        await prompts.log.warn(`Impossible de lire le schéma pour le module "${moduleName}" : ${error.message}`);
       }
     }
 
@@ -250,10 +250,10 @@ class ConfigCollector {
 
       if (customizableModules.length > 0) {
         const configMode = await prompts.select({
-          message: 'Module configuration',
+          message: 'Configuration des modules',
           choices: [
-            { name: 'Express Setup', value: 'express', hint: 'accept all defaults (recommended)' },
-            { name: 'Customize', value: 'customize', hint: 'choose modules to configure' },
+            { name: 'Configuration Express', value: 'express', hint: 'accepter tous les défauts (recommandé)' },
+            { name: 'Personnaliser', value: 'customize', hint: 'choisir les modules à configurer' },
           ],
           default: 'express',
         });
@@ -262,11 +262,11 @@ class ConfigCollector {
           const choices = customizableModules.map((m) => ({
             name: `${m.displayName} (${m.questionCount} option${m.questionCount === 1 ? '' : 's'})`,
             value: m.moduleName,
-            hint: m.hasFieldsWithoutDefaults ? 'has fields without defaults' : undefined,
+            hint: m.hasFieldsWithoutDefaults ? 'contient des champs sans valeur par défaut' : undefined,
             checked: m.hasFieldsWithoutDefaults,
           }));
           const selected = await prompts.multiselect({
-            message: 'Select modules to customize:',
+            message: 'Sélectionnez les modules à personnaliser :',
             choices,
             required: false,
           });
@@ -301,11 +301,11 @@ class ConfigCollector {
         }
 
         const configSpinner = await prompts.spinner();
-        configSpinner.start('Configuring modules...');
+        configSpinner.start('Configuration des modules...');
         try {
           for (const moduleName of defaultModules) {
             const displayName = displayNameMap.get(moduleName) || moduleName.toUpperCase();
-            configSpinner.message(`Configuring ${displayName}...`);
+            configSpinner.message(`Configuration de ${displayName}...`);
             try {
               this._silentConfig = true;
               await this.collectModuleConfig(moduleName, projectDir);
@@ -314,7 +314,7 @@ class ConfigCollector {
             }
           }
         } finally {
-          configSpinner.stop(customizeModules.length > 0 ? 'Module defaults applied' : 'Module configuration complete');
+          configSpinner.stop(customizeModules.length > 0 ? 'Valeurs par défaut des modules appliquées' : 'Configuration des modules terminée');
         }
       }
 
@@ -324,7 +324,7 @@ class ConfigCollector {
       }
 
       if (customizeModules.length > 0) {
-        await prompts.log.step('Module configuration complete');
+        await prompts.log.step('Configuration des modules terminée');
       }
     }
 
@@ -475,7 +475,7 @@ class ConfigCollector {
       }
 
       // Show "no config" message for modules with no new questions (that have config keys)
-      await prompts.log.message(`  \u2713 ${moduleName.toUpperCase()} module already up to date`);
+      await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} d\u00e9j\u00e0 \u00e0 jour`);
       return false; // No new fields
     }
 
@@ -511,7 +511,7 @@ class ConfigCollector {
         Object.assign(allAnswers, promptedAnswers);
       } else if (newStaticKeys.length > 0) {
         // Only static fields, no questions - show no config message
-        await prompts.log.message(`  \u2713 ${moduleName.toUpperCase()} module configuration updated`);
+        await prompts.log.message(`  \u2713 Configuration du module ${moduleName.toUpperCase()} mise \u00e0 jour`);
       }
 
       // Store all answers for cross-referencing
@@ -734,7 +734,7 @@ class ConfigCollector {
 
       // Skip prompts mode: use all defaults without asking
       if (this.skipPrompts) {
-        await prompts.log.info(`Using default configuration for ${moduleDisplayName}`);
+        await prompts.log.info(`Utilisation de la configuration par défaut pour ${moduleDisplayName}`);
         // Use defaults for all questions
         for (const question of questions) {
           const hasDefault = question.default !== undefined && question.default !== null && question.default !== '';
@@ -743,7 +743,7 @@ class ConfigCollector {
           }
         }
       } else {
-        if (!this._silentConfig) await prompts.log.step(`Configuring ${moduleDisplayName}`);
+        if (!this._silentConfig) await prompts.log.step(`Configuration de ${moduleDisplayName}`);
         let useDefaults = true;
         if (moduleName === 'core') {
           useDefaults = false; // Core: always show all questions
@@ -753,7 +753,7 @@ class ConfigCollector {
             {
               type: 'confirm',
               name: 'customize',
-              message: 'Accept Defaults (no to customize)?',
+              message: 'Accepter les valeurs par défaut (non pour personnaliser) ?',
               default: true,
             },
           ]);
@@ -768,7 +768,7 @@ class ConfigCollector {
           const questionsWithoutDefaults = questions.filter((q) => q.default === undefined || q.default === null || q.default === '');
 
           if (questionsWithoutDefaults.length > 0) {
-            await prompts.log.message(`  Asking required questions for ${moduleName.toUpperCase()}...`);
+            await prompts.log.message(`  Questions obligatoires pour ${moduleName.toUpperCase()}...`);
             const promptedAnswers = await prompts.prompt(questionsWithoutDefaults);
             Object.assign(allAnswers, promptedAnswers);
           }
@@ -899,11 +899,11 @@ class ConfigCollector {
           if (moduleConfig.subheader) {
             await prompts.log.message(`  \u2713 ${moduleConfig.subheader}`);
           } else {
-            await prompts.log.message(`  \u2713 No custom configuration required`);
+            await prompts.log.message(`  \u2713 Aucune configuration personnalis\u00e9e requise`);
           }
         } else {
           // Module has config but just no questions to ask
-          await prompts.log.message(`  \u2713 ${moduleName.toUpperCase()} module configured`);
+          await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} configur\u00e9`);
         }
       }
     }
@@ -1118,12 +1118,12 @@ class ConfigCollector {
     const color = await prompts.getColor();
     if (existingValue !== null && existingValue !== undefined) {
       if (typeof existingValue === 'boolean') {
-        message += color.dim(` (current: ${existingValue ? 'true' : 'false'})`);
+        message += color.dim(` (actuel : ${existingValue ? 'true' : 'false'})`);
       } else if (Array.isArray(existingValue)) {
-        message += color.dim(` (current: ${existingValue.join(', ')})`);
+        message += color.dim(` (actuel : ${existingValue.join(', ')})`);
       } else if (questionType !== 'list') {
         // Show the cleaned value (without {project-root}/) for display
-        message += color.dim(` (current: ${existingValue})`);
+        message += color.dim(` (actuel : ${existingValue})`);
       }
     } else if (item.example && questionType === 'input') {
       // Show example for input fields
@@ -1133,7 +1133,7 @@ class ConfigCollector {
         exampleText = this.replacePlaceholders(exampleText, moduleName, moduleConfig);
         exampleText = exampleText.replace('{project-root}/', '');
       }
-      message += color.dim(` (e.g., ${exampleText})`);
+      message += color.dim(` (ex. ${exampleText})`);
     }
 
     // Build the question object
@@ -1180,13 +1180,13 @@ class ConfigCollector {
     if (questionType === 'input') {
       question.validate = (input) => {
         if (!input && item.required) {
-          return 'This field is required';
+          return 'Ce champ est obligatoire';
         }
         // Validate against regex pattern if provided
         if (input && item.regex) {
           const regex = new RegExp(item.regex);
           if (!regex.test(input)) {
-            return `Invalid format. Must match pattern: ${item.regex}`;
+            return `Format invalide. Doit correspondre au motif : ${item.regex}`;
           }
         }
         return true;
@@ -1197,7 +1197,7 @@ class ConfigCollector {
     if (questionType === 'checkbox' && item.required) {
       question.validate = (answers) => {
         if (!answers || answers.length === 0) {
-          return 'At least one option must be selected';
+          return 'Au moins une option doit être sélectionnée';
         }
         return true;
       };

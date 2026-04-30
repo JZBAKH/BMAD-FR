@@ -111,7 +111,7 @@ const AgentPartyGenerator = {
         principles: principlesMatch ? principlesMatch[1].trim() : '',
       };
     } catch (error) {
-      console.error(`Error extracting details for agent ${agentName}:`, error);
+      console.error(`Erreur lors de l'extraction des détails de l'agent ${agentName} :`, error);
       return null;
     }
   },
@@ -175,7 +175,7 @@ const AgentPartyGenerator = {
 
       return details;
     } catch (error) {
-      console.error(`Error applying config overrides:`, error);
+      console.error(`Erreur lors de l'application des surcharges de configuration :`, error);
       return details;
     }
   },

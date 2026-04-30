@@ -24,6 +24,8 @@ const TESTS = [
   './09-glossary-terms',
   './10-skill-descriptions-fr',
   './11-french-coverage-floor',
+  './12-cli-no-english-strings',
+  './13-root-md-files-fr',
 ];
 
 runner.header('BMAD-FR · Tests linguistiques (Lot 2)');

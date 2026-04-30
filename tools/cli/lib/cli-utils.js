@@ -82,7 +82,7 @@ const CLIUtils = {
    * @param {string} subheader - Custom subheader from module.yaml
    */
   async displayModuleConfigHeader(moduleName, header = null, subheader = null) {
-    const title = header || `Configuring ${moduleName.toUpperCase()} Module`;
+    const title = header || `Configuration du module ${moduleName.toUpperCase()}`;
     await prompts.note(subheader || '', title);
   },
 
@@ -93,7 +93,7 @@ const CLIUtils = {
    * @param {string} subheader - Custom subheader from module.yaml
    */
   async displayModuleNoConfig(moduleName, header = null, subheader = null) {
-    const title = header || `${moduleName.toUpperCase()} Module - No Custom Configuration`;
+    const title = header || `Module ${moduleName.toUpperCase()} - Aucune configuration personnalisée`;
     await prompts.note(subheader || '', title);
   },
 
@@ -114,7 +114,7 @@ const CLIUtils = {
    */
   async displayComplete(message) {
     const color = await prompts.getColor();
-    await prompts.box(`\u2728 ${message}`, 'Complete', {
+    await prompts.box(`\u2728 ${message}`, 'Termin\u00e9', {
       rounded: true,
       formatBorder: color.green,
     });
@@ -126,7 +126,7 @@ const CLIUtils = {
    */
   async displayError(message) {
     const color = await prompts.getColor();
-    await prompts.box(`\u2717 ${message}`, 'Error', {
+    await prompts.box(`\u2717 ${message}`, 'Erreur', {
       rounded: true,
       formatBorder: color.red,
     });

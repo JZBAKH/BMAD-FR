@@ -27,7 +27,7 @@ class ActivationBuilder {
     const fragmentPath = path.join(this.agentComponents, fragmentName);
 
     if (!(await fs.pathExists(fragmentPath))) {
-      throw new Error(`Fragment not found: ${fragmentName}`);
+      throw new Error(`Fragment introuvable : ${fragmentName}`);
     }
 
     const content = await fs.readFile(fragmentPath, 'utf8');
@@ -87,7 +87,7 @@ class ActivationBuilder {
         const handler = await this.loadFragment(fragmentName);
         handlerFragments.push(handler);
       } catch {
-        console.warn(`Warning: Handler fragment not found: ${fragmentName}`);
+        console.warn(`Avertissement : Fragment de handler introuvable : ${fragmentName}`);
       }
     }
 

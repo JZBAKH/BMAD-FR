@@ -94,12 +94,12 @@ class ManifestGenerator {
     this.allInstalledFiles = installedFiles;
 
     if (!Object.prototype.hasOwnProperty.call(options, 'ides')) {
-      throw new Error('ManifestGenerator requires `options.ides` to be provided – installer should supply the selected IDEs array.');
+      throw new Error("ManifestGenerator nécessite que `options.ides` soit fourni – l'installateur doit fournir le tableau des IDE sélectionnés.");
     }
 
     const resolvedIdes = options.ides ?? [];
     if (!Array.isArray(resolvedIdes)) {
-      throw new TypeError('ManifestGenerator expected `options.ides` to be an array.');
+      throw new TypeError('ManifestGenerator attendait que `options.ides` soit un tableau.');
     }
 
     // Filter out any undefined/null values from IDE list
@@ -193,7 +193,7 @@ class ManifestGenerator {
             // Skills derive canonicalId from directory name — never from manifest
             if (manifest && manifest.__single && manifest.__single.canonicalId) {
               console.warn(
-                `Warning: Skill manifest at ${dir}/bmad-skill-manifest.yaml contains canonicalId — this field is ignored for skills (directory name is the canonical ID)`,
+                `Avertissement : le manifeste de Skill dans ${dir}/bmad-skill-manifest.yaml contient canonicalId — ce champ est ignoré pour les Skills (le nom du dossier est l'ID canonique)`,
               );
             }
             const canonicalId = dirName;
@@ -293,7 +293,7 @@ class ManifestGenerator {
         }
 
         if (skillMeta.name !== dirName) {
-          console.error(`Error: SKILL.md name "${skillMeta.name}" does not match directory name "${dirName}" — skipping`);
+          console.error(`Erreur : le nom dans SKILL.md "${skillMeta.name}" ne correspond pas au nom du dossier "${dirName}" — ignoré`);
           return null;
         }
 
@@ -440,7 +440,7 @@ class ManifestGenerator {
               }
             }
           } catch (error) {
-            await prompts.log.warn(`Failed to parse workflow at ${fullPath}: ${error.message}`);
+            await prompts.log.warn(`Échec de l'analyse du workflow dans ${fullPath} : ${error.message}`);
           }
         }
       }
@@ -909,7 +909,7 @@ class ManifestGenerator {
 
       return preservedRows;
     } catch (error) {
-      await prompts.log.warn(`Failed to read existing CSV ${csvPath}: ${error.message}`);
+      await prompts.log.warn(`Échec de la lecture du CSV existant ${csvPath} : ${error.message}`);
       return [];
     }
   }
@@ -1333,7 +1333,7 @@ class ManifestGenerator {
         }
       }
     } catch (error) {
-      await prompts.log.warn(`Could not scan for installed modules: ${error.message}`);
+      await prompts.log.warn(`Impossible d'analyser les modules installés : ${error.message}`);
     }
 
     return modules;

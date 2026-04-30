@@ -22,7 +22,7 @@ const { validateAgentFile } = require('./schema/agent.js');
  * @param {string} [customProjectRoot] - Optional project root to scan (for testing)
  */
 async function main(customProjectRoot) {
-  console.log('🔍 Scanning for agent files...\n');
+  console.log('🔍 Recherche des fichiers d\'agents...\n');
 
   // Determine project root: use custom path if provided, otherwise default to repo root
   const project_root = customProjectRoot || path.join(__dirname, '..');
@@ -34,12 +34,12 @@ async function main(customProjectRoot) {
   });
 
   if (agentFiles.length === 0) {
-    console.log('❌ No agent files found. This likely indicates a configuration error.');
-    console.log('   Expected to find *.agent.yaml files in src/{core,modules/*}/agents/');
+    console.log('❌ Aucun fichier d\'agent trouvé. Cela indique probablement une erreur de configuration.');
+    console.log('   Fichiers *.agent.yaml attendus dans src/{core,modules/*}/agents/');
     process.exit(1);
   }
 
-  console.log(`Found ${agentFiles.length} agent file(s)\n`);
+  console.log(`${agentFiles.length} fichier(s) d'agent trouvé(s)\n`);
 
   const errors = [];
 
@@ -70,7 +70,7 @@ async function main(customProjectRoot) {
         issues: [
           {
             code: 'parse_error',
-            message: `Failed to parse YAML: ${error.message}`,
+            message: `Échec du parsing YAML : ${error.message}`,
             path: [],
           },
         ],
@@ -80,31 +80,31 @@ async function main(customProjectRoot) {
 
   // Report errors
   if (errors.length > 0) {
-    console.log('\n❌ Validation failed for the following files:\n');
+    console.log('\n❌ Validation échouée pour les fichiers suivants :\n');
 
     for (const { file, issues } of errors) {
       console.log(`\n📄 ${file}`);
       for (const issue of issues) {
-        const pathString = issue.path.length > 0 ? issue.path.join('.') : '(root)';
-        console.log(`   Path: ${pathString}`);
-        console.log(`   Error: ${issue.message}`);
+        const pathString = issue.path.length > 0 ? issue.path.join('.') : '(racine)';
+        console.log(`   Chemin : ${pathString}`);
+        console.log(`   Erreur : ${issue.message}`);
         if (issue.code) {
-          console.log(`   Code: ${issue.code}`);
+          console.log(`   Code : ${issue.code}`);
         }
       }
     }
 
-    console.log(`\n\n💥 ${errors.length} file(s) failed validation`);
+    console.log(`\n\n💥 ${errors.length} fichier(s) ont échoué à la validation`);
     process.exit(1);
   }
 
-  console.log(`\n✨ All ${agentFiles.length} agent file(s) passed validation!\n`);
+  console.log(`\n✨ Tous les ${agentFiles.length} fichier(s) d'agent ont passé la validation !\n`);
   process.exit(0);
 }
 
 // Run with optional command-line argument for project root
 const customProjectRoot = process.argv[2];
 main(customProjectRoot).catch((error) => {
-  console.error('Fatal error:', error);
+  console.error('Erreur fatale :', error);
   process.exit(1);
 });

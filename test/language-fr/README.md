@@ -32,6 +32,8 @@ Exit code : **0** = tous les tests bloquants passent, **1** = au moins un échec
 | 09 | `09-glossary-terms.js` | §4 Dictionnaire métier — termes obligatoires (Senior Implementation Engineer, Strategic Business Analyst, System Architect, Technical Scrum Master, Requirements Expert) appliqués correctement |
 | 10 | `10-skill-descriptions-fr.js` | §4 — `description:` du frontmatter de chaque `SKILL.md -fr` contient au moins un caractère accentué ou un mot français commun |
 | 11 | `11-french-coverage-floor.js` | §4 — score de "francisation" (ratio accents + mots FR/EN) ≥ 0.05 pour chaque fichier de prose, avec liste blanche pour les exceptions documentées |
+| 12 | `12-cli-no-english-strings.js` | Filet anti-régression : aucune chaîne anglaise user-facing dans `tools/cli/`, `tools/schema/` et `tools/validate-*.js` (détection par marqueurs anglais exclusifs) |
+| 13 | `13-root-md-files-fr.js` | Vitrine publique : `README.md`, `GLOSSAIRE.md`, `AGENTS.md`, `AUDIT-FINAL.md` rédigés en français. Les fichiers volontairement EN (SECURITY, TRADEMARK, CONTRIBUTING, CONTRIBUTORS, CHANGELOG) sont documentés et exclus |
 
 ## Liste blanche — exceptions documentées
 

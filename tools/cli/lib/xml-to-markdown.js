@@ -3,7 +3,7 @@ const path = require('node:path');
 
 function convertXmlToMarkdown(xmlFilePath) {
   if (!xmlFilePath.endsWith('.xml')) {
-    throw new Error('Input file must be an XML file');
+    throw new Error('Le fichier d\'entrée doit être un fichier XML');
   }
 
   const xmlContent = fs.readFileSync(xmlFilePath, 'utf8');
@@ -55,22 +55,22 @@ function main() {
   const args = process.argv.slice(2);
 
   if (args.length === 0) {
-    console.error('Usage: node xml-to-markdown.js <xml-file-path>');
+    console.error('Utilisation : node xml-to-markdown.js <chemin-fichier-xml>');
     process.exit(1);
   }
 
   const xmlFilePath = path.resolve(args[0]);
 
   if (!fs.existsSync(xmlFilePath)) {
-    console.error(`Error: File not found: ${xmlFilePath}`);
+    console.error(`Erreur : Fichier introuvable : ${xmlFilePath}`);
     process.exit(1);
   }
 
   try {
     const mdFilePath = convertXmlToMarkdown(xmlFilePath);
-    console.log(`Successfully converted: ${xmlFilePath} -> ${mdFilePath}`);
+    console.log(`Conversion réussie : ${xmlFilePath} -> ${mdFilePath}`);
   } catch (error) {
-    console.error(`Error converting file: ${error.message}`);
+    console.error(`Erreur lors de la conversion du fichier : ${error.message}`);
     process.exit(1);
   }
 }

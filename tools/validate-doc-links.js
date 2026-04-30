@@ -323,11 +323,11 @@ function applyFixes(content, issues) {
 }
 
 // Main execution
-console.log(`\nValidating docs in: ${DOCS_ROOT}`);
-console.log(`Mode: ${DRY_RUN ? 'DRY RUN (use --write to fix)' : 'WRITE MODE'}\n`);
+console.log(`\nValidation des docs dans : ${DOCS_ROOT}`);
+console.log(`Mode : ${DRY_RUN ? 'DRY RUN (utiliser --write pour corriger)' : 'MODE ÉCRITURE'}\n`);
 
 const files = getMarkdownFiles(DOCS_ROOT);
-console.log(`Found ${files.length} markdown files\n`);
+console.log(`${files.length} fichier(s) markdown trouvé(s)\n`);
 
 let totalIssues = 0;
 let autoFixable = 0;
@@ -355,7 +355,7 @@ for (const filePath of files) {
       } else if (issue.status === 'needs-review') {
         needsReview++;
         console.log(`  [REVIEW] ${issue.href}`);
-        console.log(`     Multiple matches found:`);
+        console.log(`     Plusieurs correspondances trouvées :`);
         for (const candidate of issue.candidates) {
           console.log(`       - ${candidate}`);
         }
@@ -366,7 +366,7 @@ for (const filePath of files) {
       } else {
         manualCheck++;
         console.log(`  [MANUAL] ${issue.href}`);
-        console.log(`     File not found anywhere - may need to remove link`);
+        console.log(`     Fichier introuvable nulle part — il faudra peut-être supprimer le lien`);
       }
 
       allIssues.push({ file: relativePath, ...issue });
@@ -384,22 +384,22 @@ for (const filePath of files) {
 }
 
 console.log(`\n${'─'.repeat(60)}`);
-console.log(`\nSummary:`);
-console.log(`   Files scanned: ${files.length}`);
-console.log(`   Files with issues: ${filesWithIssues}`);
-console.log(`   Total issues: ${totalIssues}`);
+console.log(`\nRésumé :`);
+console.log(`   Fichiers scannés : ${files.length}`);
+console.log(`   Fichiers avec problèmes : ${filesWithIssues}`);
+console.log(`   Total problèmes : ${totalIssues}`);
 
 if (totalIssues > 0) {
-  console.log(`\n   Breakdown:`);
-  console.log(`     Auto-fixable:  ${autoFixable}`);
-  console.log(`     Needs review:  ${needsReview}`);
-  console.log(`     Manual check:  ${manualCheck}`);
+  console.log(`\n   Détail :`);
+  console.log(`     Auto-corrigeables :  ${autoFixable}`);
+  console.log(`     À revoir :           ${needsReview}`);
+  console.log(`     Vérification manuelle : ${manualCheck}`);
 }
 
 if (totalIssues === 0) {
-  console.log(`\n   All links valid!`);
+  console.log(`\n   Tous les liens sont valides !`);
 } else if (DRY_RUN && autoFixable > 0) {
-  console.log(`\nRun with --write to auto-fix ${autoFixable} issue(s)`);
+  console.log(`\nUtiliser --write pour auto-corriger ${autoFixable} problème(s)`);
 }
 
 console.log('');

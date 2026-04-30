@@ -151,12 +151,12 @@ async function promptInstallQuestions(installConfig, defaults, presetAnswers = {
 
   const answers = { ...defaults, ...presetAnswers };
 
-  await prompts.note(installConfig.description || '', 'Agent Configuration');
+  await prompts.note(installConfig.description || '', 'Configuration de l\'agent');
 
   for (const q of installConfig.questions) {
     // Skip questions for variables that are already set (e.g., custom_name set upfront)
     if (answers[q.var] !== undefined && answers[q.var] !== defaults[q.var]) {
-      await prompts.log.message(`   ${q.var}: ${answers[q.var]} (already set)`);
+      await prompts.log.message(`   ${q.var} : ${answers[q.var]} (déjà défini)`);
       continue;
     }
 

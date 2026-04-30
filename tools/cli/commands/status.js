@@ -10,7 +10,7 @@ const ui = new UI();
 
 module.exports = {
   command: 'status',
-  description: 'Display BMAD installation status and module versions',
+  description: 'Afficher le statut de l\'installation BMAD et les versions des modules',
   options: [],
   action: async (options) => {
     try {
@@ -21,9 +21,9 @@ module.exports = {
       // Check if bmad directory exists
       const fs = require('fs-extra');
       if (!(await fs.pathExists(bmadDir))) {
-        await prompts.log.warn('No BMAD installation found in the current directory.');
-        await prompts.log.message(`Expected location: ${bmadDir}`);
-        await prompts.log.message('Run "bmad install" to set up a new installation.');
+        await prompts.log.warn('Aucune installation BMAD trouvée dans le répertoire courant.');
+        await prompts.log.message(`Emplacement attendu : ${bmadDir}`);
+        await prompts.log.message('Lancez "bmad install" pour configurer une nouvelle installation.');
         process.exit(0);
         return;
       }
@@ -32,8 +32,8 @@ module.exports = {
       const manifestData = await manifest._readRaw(bmadDir);
 
       if (!manifestData) {
-        await prompts.log.warn('No BMAD installation manifest found.');
-        await prompts.log.message('Run "bmad install" to set up a new installation.');
+        await prompts.log.warn('Aucun manifeste d\'installation BMAD trouvé.');
+        await prompts.log.message('Lancez "bmad install" pour configurer une nouvelle installation.');
         process.exit(0);
         return;
       }
@@ -55,7 +55,7 @@ module.exports = {
 
       process.exit(0);
     } catch (error) {
-      await prompts.log.error(`Status check failed: ${error.message}`);
+      await prompts.log.error(`Échec de la vérification du statut : ${error.message}`);
       if (process.env.BMAD_DEBUG) {
         await prompts.log.message(error.stack);
       }

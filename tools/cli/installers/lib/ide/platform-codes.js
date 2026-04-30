@@ -16,7 +16,7 @@ async function loadPlatformCodes() {
   }
 
   if (!(await fs.pathExists(PLATFORM_CODES_PATH))) {
-    throw new Error(`Platform codes configuration not found at: ${PLATFORM_CODES_PATH}`);
+    throw new Error(`Configuration des codes de plateforme introuvable à : ${PLATFORM_CODES_PATH}`);
   }
 
   const content = await fs.readFile(PLATFORM_CODES_PATH, 'utf8');
@@ -31,7 +31,7 @@ async function loadPlatformCodes() {
  */
 function getPlatformInfo(platformCode) {
   if (!_cachedPlatformCodes) {
-    throw new Error('Platform codes not loaded. Call loadPlatformCodes() first.');
+    throw new Error('Codes de plateforme non chargés. Appelez d\'abord loadPlatformCodes().');
   }
 
   return _cachedPlatformCodes.platforms[platformCode] || null;

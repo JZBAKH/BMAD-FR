@@ -15,8 +15,13 @@ La modification (même un simple espace ou un changement de casse) des élément
 - Placeholders d'activation : `{agent-file-basename}`, `{MENU_STEP}`, `{HELP_STEP}`, `{HALT_STEP}`, `{INPUT_STEP}`, `{EXECUTE_STEP}`, `{AGENT_SPECIFIC_STEPS}`, `{DYNAMIC_HANDLERS}`
 
 ### Identifiants & Noms d'Agents
-Les prénoms sont des identifiants système. Ne jamais les franciser.
-- `Mary` (analyst), `Winston` (architect), `Amelia` (dev), `John` (pm), `Bob` (sm), `Sally` (ux-designer), `Paige` (tech-writer), `Barry` (quick-flow-solo-dev).
+Les prénoms sont des identifiants système. **Règle générale : ne jamais les franciser.**
+- Agents `bmm` : `Mary` (analyst), `Winston` (architect), `John` (pm), `Bob` (sm), `Sally` (ux-designer), `Paige` (tech-writer), `Barry` (quick-flow-solo-dev).
+- Agents `cis` (méthodes créatives) : `Carson`, `Dr. Quinn`, `Maya`, `Victor`, `Spike`, `Sophia`, `Leonardo di ser Piero`, `Salvador Dali`, `Edward de Bono`, `Joseph Campbell`, `Steve Jobs`.
+
+**🟡 Exception documentée — Amélie (dev) :** Dans ce fork, l'agent `dev` (Implementation Engineer) a été délibérément francisé de `Amelia` → `Amélie` par le project owner. Cette exception est unique, intentionnelle, et doit être préservée à TOUS les emplacements (CSV `default-party.csv`, YAML `dev.agent.yaml`, prompts, workflows). Le test `02-agent-names-intact.js` tolère explicitement les deux formes comme équivalentes.
+
+⚠️ N'ajoutez **aucune autre francisation** — toutes les autres références à des prénoms d'agents doivent rester strictement identiques à l'amont.
 
 ### Triggers & Regex
 Les codes et instructions de déclenchement parsés par le code :

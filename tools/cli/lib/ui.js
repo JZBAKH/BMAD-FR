@@ -43,10 +43,10 @@ class UI {
       const expandedDir = this.expandUserPath(options.directory);
       const validation = this.validateDirectorySync(expandedDir);
       if (validation) {
-        throw new Error(`Invalid directory: ${validation}`);
+        throw new Error(`Répertoire invalide : ${validation}`);
       }
       confirmedDirectory = expandedDir;
-      await prompts.log.info(`Using directory from command-line: ${confirmedDirectory}`);
+      await prompts.log.info(`Utilisation du répertoire depuis la ligne de commande : ${confirmedDirectory}`);
     } else {
       confirmedDirectory = await this.getConfirmedDirectory();
     }
@@ -97,40 +97,40 @@ class UI {
     // Handle legacy .bmad or _cfg folder - these are very old (v4 or alpha)
     // Show version warning instead of offering conversion
     if (hasLegacyBmadFolder || hasLegacyCfg) {
-      await prompts.log.warn('LEGACY INSTALLATION DETECTED');
+      await prompts.log.warn('INSTALLATION EXISTANTE D\u00c9TECT\u00c9E');
       await prompts.note(
-        'Found a ".bmad"/"bmad" folder, or a legacy "_cfg" folder under the bmad folder -\n' +
-          'this is from an old BMAD version that is out of date for automatic upgrade,\n' +
-          'manual intervention required.\n\n' +
-          'You have a legacy version installed (v4 or alpha).\n' +
-          'Legacy installations may have compatibility issues.\n\n' +
-          'For the best experience, we strongly recommend:\n' +
-          '  1. Delete your current BMAD installation folder (.bmad or bmad)\n' +
-          '  2. Run a fresh installation\n\n' +
-          'If you do not want to start fresh, you can attempt to proceed beyond this\n' +
-          'point IF you have ensured the bmad folder is named _bmad, and under it there\n' +
-          'is a _config folder. If you have a folder under your bmad folder named _cfg,\n' +
-          'you would need to rename it _config, and then restart the installer.\n\n' +
-          'Benefits of a fresh install:\n' +
-          '  \u2022 Cleaner configuration without legacy artifacts\n' +
-          '  \u2022 All new features properly configured\n' +
-          '  \u2022 Fewer potential conflicts\n\n' +
-          'If you have already produced output from an earlier alpha version, you can\n' +
-          'still retain those artifacts. After installation, ensure you configured during\n' +
-          'install the proper file locations for artifacts depending on the module you\n' +
-          'are using, or move the files to the proper locations.',
-        'Legacy Installation Detected',
+        'Un dossier ".bmad"/"bmad" ou un dossier obsol\u00e8te "_cfg" a \u00e9t\u00e9 d\u00e9tect\u00e9 sous le dossier bmad -\n' +
+          'cette installation provient d\'une ancienne version de BMAD trop ancienne pour une mise \u00e0 niveau automatique,\n' +
+          'une intervention manuelle est requise.\n\n' +
+          'Vous avez une version existante install\u00e9e (v4 ou alpha).\n' +
+          'Les installations existantes peuvent pr\u00e9senter des probl\u00e8mes de compatibilit\u00e9.\n\n' +
+          'Pour une meilleure exp\u00e9rience, nous recommandons fortement :\n' +
+          '  1. Supprimer le dossier d\'installation BMAD actuel (.bmad ou bmad)\n' +
+          '  2. Effectuer une nouvelle installation\n\n' +
+          'Si vous ne souhaitez pas repartir de z\u00e9ro, vous pouvez tenter de poursuivre\n' +
+          '\u00e0 partir de ce point SI vous avez v\u00e9rifi\u00e9 que le dossier bmad est nomm\u00e9 _bmad, et qu\'il contient\n' +
+          'un dossier _config. Si votre dossier bmad contient un dossier nomm\u00e9 _cfg,\n' +
+          'vous devrez le renommer en _config, puis relancer l\'installateur.\n\n' +
+          'Avantages d\'une nouvelle installation :\n' +
+          '  \u2022 Configuration plus propre sans artefacts obsol\u00e8tes\n' +
+          '  \u2022 Toutes les nouvelles fonctionnalit\u00e9s correctement configur\u00e9es\n' +
+          '  \u2022 Moins de conflits potentiels\n\n' +
+          'Si vous avez d\u00e9j\u00e0 produit des fichiers \u00e0 partir d\'une version alpha pr\u00e9c\u00e9dente, vous pouvez\n' +
+          'toujours conserver ces artefacts. Apr\u00e8s l\'installation, assurez-vous d\'avoir configur\u00e9 durant\n' +
+          'l\'installation les emplacements de fichiers appropri\u00e9s pour les artefacts selon le module\n' +
+          'que vous utilisez, ou d\u00e9placez les fichiers aux emplacements appropri\u00e9s.',
+        'Installation existante d\u00e9tect\u00e9e',
       );
 
       const proceed = await prompts.select({
-        message: 'How would you like to proceed?',
+        message: 'Comment souhaitez-vous procéder ?',
         choices: [
           {
-            name: 'Cancel and do a fresh install (recommended)',
+            name: 'Annuler et effectuer une nouvelle installation (recommandé)',
             value: 'cancel',
           },
           {
-            name: 'Proceed anyway (will attempt update, potentially may fail or have unstable behavior)',
+            name: 'Poursuivre malgré tout (la mise à jour sera tentée, peut échouer ou avoir un comportement instable)',
             value: 'proceed',
           },
         ],
@@ -138,33 +138,33 @@ class UI {
       });
 
       if (proceed === 'cancel') {
-        await prompts.note('1. Delete the existing bmad folder in your project\n' + "2. Run 'bmad install' again", 'To do a fresh install');
+        await prompts.note('1. Supprimer le dossier bmad existant dans votre projet\n' + "2. Relancer 'bmad install'", 'Pour effectuer une nouvelle installation');
         process.exit(0);
         return;
       }
 
       const s = await prompts.spinner();
-      s.start('Updating folder structure...');
+      s.start('Mise à jour de la structure des dossiers...');
       try {
         // Handle .bmad folder
         if (hasLegacyBmadFolder) {
           const newBmadPath = path.join(confirmedDirectory, '_bmad');
           await fs.move(legacyBmadPath, newBmadPath);
           bmadDir = newBmadPath;
-          s.stop(`Renamed "${path.basename(legacyBmadPath)}" to "_bmad"`);
+          s.stop(`"${path.basename(legacyBmadPath)}" renommé en "_bmad"`);
         }
 
         // Handle _cfg folder (either from .bmad or standalone)
         const cfgPath = path.join(bmadDir, '_cfg');
         if (await fs.pathExists(cfgPath)) {
-          s.start('Renaming configuration folder...');
+          s.start('Renommage du dossier de configuration...');
           const newCfgPath = path.join(bmadDir, '_config');
           await fs.move(cfgPath, newCfgPath);
-          s.stop('Renamed "_cfg" to "_config"');
+          s.stop('"_cfg" renommé en "_config"');
         }
       } catch (error) {
-        s.stop('Failed to update folder structure');
-        await prompts.log.error(`Error: ${error.message}`);
+        s.stop('Échec de la mise à jour de la structure des dossiers');
+        await prompts.log.error(`Erreur : ${error.message}`);
         process.exit(1);
       }
     }
@@ -203,7 +203,7 @@ class UI {
       // Always show Quick Update first (allows refreshing installation even on same version)
       if (installedVersion !== 'unknown') {
         choices.push({
-          name: `Quick Update (v${installedVersion} → v${currentVersion})`,
+          name: `Mise à jour rapide (v${installedVersion} → v${currentVersion})`,
           value: 'quick-update',
         });
       }
@@ -211,33 +211,33 @@ class UI {
       // Add custom agent compilation option
       if (installedVersion !== 'unknown') {
         choices.push({
-          name: 'Recompile Agents (apply customizations only)',
+          name: 'Recompiler les agents (appliquer uniquement les personnalisations)',
           value: 'compile-agents',
         });
       }
 
       // Common actions
-      choices.push({ name: 'Modify BMAD Installation', value: 'update' });
+      choices.push({ name: 'Modifier l\'installation BMAD', value: 'update' });
 
       // Check if action is provided via command-line
       if (options.action) {
         const validActions = choices.map((c) => c.value);
         if (!validActions.includes(options.action)) {
-          throw new Error(`Invalid action: ${options.action}. Valid actions: ${validActions.join(', ')}`);
+          throw new Error(`Action invalide : ${options.action}. Actions valides : ${validActions.join(', ')}`);
         }
         actionType = options.action;
-        await prompts.log.info(`Using action from command-line: ${actionType}`);
+        await prompts.log.info(`Utilisation de l'action depuis la ligne de commande : ${actionType}`);
       } else if (options.yes) {
         // Default to quick-update if available, otherwise first available choice
         if (choices.length === 0) {
-          throw new Error('No valid actions available for this installation');
+          throw new Error('Aucune action valide disponible pour cette installation');
         }
         const hasQuickUpdate = choices.some((c) => c.value === 'quick-update');
         actionType = hasQuickUpdate ? 'quick-update' : choices[0].value;
-        await prompts.log.info(`Non-interactive mode (--yes): defaulting to ${actionType}`);
+        await prompts.log.info(`Mode non interactif (--yes) : action par défaut ${actionType}`);
       } else {
         actionType = await prompts.select({
-          message: 'How would you like to proceed?',
+          message: 'Comment souhaitez-vous procéder ?',
           choices: choices,
           default: choices[0].value,
         });
@@ -308,7 +308,7 @@ class UI {
         // Get existing installation info
         const { installedModuleIds } = await this.getExistingInstallation(confirmedDirectory);
 
-        await prompts.log.message(`Found existing modules: ${[...installedModuleIds].join(', ')}`);
+        await prompts.log.message(`Modules existants trouvés : ${[...installedModuleIds].join(', ')}`);
 
         // Unified module selection - all modules in one grouped multiselect
         let selectedModules;
@@ -318,11 +318,11 @@ class UI {
             .split(',')
             .map((m) => m.trim())
             .filter(Boolean);
-          await prompts.log.info(`Using modules from command-line: ${selectedModules.join(', ')}`);
+          await prompts.log.info(`Utilisation des modules depuis la ligne de commande : ${selectedModules.join(', ')}`);
         } else if (options.yes) {
           selectedModules = await this.getDefaultModules(installedModuleIds);
           await prompts.log.info(
-            `Non-interactive mode (--yes): using default modules (installed + defaults): ${selectedModules.join(', ')}`,
+            `Mode non interactif (--yes) : utilisation des modules par défaut (installés + défauts) : ${selectedModules.join(', ')}`,
           );
         } else {
           selectedModules = await this.selectAllModules(installedModuleIds);
@@ -337,7 +337,7 @@ class UI {
             .split(',')
             .map((p) => p.trim())
             .filter(Boolean);
-          await prompts.log.info(`Using custom content from command-line: ${paths.join(', ')}`);
+          await prompts.log.info(`Utilisation du contenu personnalisé depuis la ligne de commande : ${paths.join(', ')}`);
 
           // Build custom content config similar to promptCustomContentSource
           const customPaths = [];
@@ -348,7 +348,7 @@ class UI {
             const expandedPath = this.expandUserPath(customPath);
             const validation = this.validateCustomContentPathSync(expandedPath);
             if (validation) {
-              await prompts.log.warn(`Skipping invalid custom content path: ${customPath} - ${validation}`);
+              await prompts.log.warn(`Chemin de contenu personnalisé invalide ignoré : ${customPath} - ${validation}`);
               continue;
             }
 
@@ -360,17 +360,17 @@ class UI {
               const yaml = require('yaml');
               moduleMeta = yaml.parse(moduleYaml);
             } catch (error) {
-              await prompts.log.warn(`Skipping custom content path: ${customPath} - failed to read module.yaml: ${error.message}`);
+              await prompts.log.warn(`Chemin de contenu personnalisé ignoré : ${customPath} - échec de la lecture de module.yaml : ${error.message}`);
               continue;
             }
 
             if (!moduleMeta) {
-              await prompts.log.warn(`Skipping custom content path: ${customPath} - module.yaml is empty`);
+              await prompts.log.warn(`Chemin de contenu personnalisé ignoré : ${customPath} - module.yaml est vide`);
               continue;
             }
 
             if (!moduleMeta.code) {
-              await prompts.log.warn(`Skipping custom content path: ${customPath} - module.yaml missing 'code' field`);
+              await prompts.log.warn(`Chemin de contenu personnalisé ignoré : ${customPath} - le champ 'code' est manquant dans module.yaml`);
               continue;
             }
 
@@ -406,14 +406,14 @@ class UI {
               }
             }
             await prompts.log.info(
-              `Non-interactive mode (--yes): preserving ${customModuleResult.selectedCustomModules.length} existing custom module(s)`,
+              `Mode non interactif (--yes) : préservation de ${customModuleResult.selectedCustomModules.length} module(s) personnalisé(s) existant(s)`,
             );
           } else {
-            await prompts.log.info('Non-interactive mode (--yes): no existing custom modules found');
+            await prompts.log.info('Mode non interactif (--yes) : aucun module personnalisé existant trouvé');
           }
         } else {
           const changeCustomModules = await prompts.confirm({
-            message: 'Modify custom modules, agents, or workflows?',
+            message: 'Modifier les modules personnalisés, agents ou workflows ?',
             default: false,
           });
 
@@ -475,11 +475,11 @@ class UI {
         .split(',')
         .map((m) => m.trim())
         .filter(Boolean);
-      await prompts.log.info(`Using modules from command-line: ${selectedModules.join(', ')}`);
+      await prompts.log.info(`Utilisation des modules depuis la ligne de commande : ${selectedModules.join(', ')}`);
     } else if (options.yes) {
       // Use default modules when --yes flag is set
       selectedModules = await this.getDefaultModules(installedModuleIds);
-      await prompts.log.info(`Using default modules (--yes flag): ${selectedModules.join(', ')}`);
+      await prompts.log.info(`Utilisation des modules par défaut (option --yes) : ${selectedModules.join(', ')}`);
     } else {
       selectedModules = await this.selectAllModules(installedModuleIds);
     }
@@ -491,7 +491,7 @@ class UI {
         .split(',')
         .map((p) => p.trim())
         .filter(Boolean);
-      await prompts.log.info(`Using custom content from command-line: ${paths.join(', ')}`);
+      await prompts.log.info(`Utilisation du contenu personnalisé depuis la ligne de commande : ${paths.join(', ')}`);
 
       // Build custom content config similar to promptCustomContentSource
       const customPaths = [];
@@ -502,7 +502,7 @@ class UI {
         const expandedPath = this.expandUserPath(customPath);
         const validation = this.validateCustomContentPathSync(expandedPath);
         if (validation) {
-          await prompts.log.warn(`Skipping invalid custom content path: ${customPath} - ${validation}`);
+          await prompts.log.warn(`Chemin de contenu personnalisé invalide ignoré : ${customPath} - ${validation}`);
           continue;
         }
 
@@ -514,17 +514,17 @@ class UI {
           const yaml = require('yaml');
           moduleMeta = yaml.parse(moduleYaml);
         } catch (error) {
-          await prompts.log.warn(`Skipping custom content path: ${customPath} - failed to read module.yaml: ${error.message}`);
+          await prompts.log.warn(`Chemin de contenu personnalisé ignoré : ${customPath} - échec de la lecture de module.yaml : ${error.message}`);
           continue;
         }
 
         if (!moduleMeta) {
-          await prompts.log.warn(`Skipping custom content path: ${customPath} - module.yaml is empty`);
+          await prompts.log.warn(`Chemin de contenu personnalisé ignoré : ${customPath} - module.yaml est vide`);
           continue;
         }
 
         if (!moduleMeta.code) {
-          await prompts.log.warn(`Skipping custom content path: ${customPath} - module.yaml missing 'code' field`);
+          await prompts.log.warn(`Chemin de contenu personnalisé ignoré : ${customPath} - le champ 'code' est manquant dans module.yaml`);
           continue;
         }
 
@@ -548,7 +548,7 @@ class UI {
       }
     } else if (!options.yes) {
       const wantsCustomContent = await prompts.confirm({
-        message: 'Add custom modules, agents, or workflows from your computer?',
+        message: 'Ajouter des modules, agents ou workflows personnalisés depuis votre ordinateur ?',
         default: false,
       });
 
@@ -615,7 +615,7 @@ class UI {
     const allKnownValues = new Set([...preferredIdes, ...otherIdes].map((ide) => ide.value));
     const unknownTools = configuredIdes.filter((id) => id && typeof id === 'string' && !allKnownValues.has(id));
     if (unknownTools.length > 0) {
-      await prompts.log.warn(`Previously configured tools are no longer available: ${unknownTools.join(', ')}`);
+      await prompts.log.warn(`Les outils précédemment configurés ne sont plus disponibles : ${unknownTools.join(', ')}`);
     }
 
     // ─────────────────────────────────────────────────────────────────────────────
@@ -627,20 +627,20 @@ class UI {
       // Non-interactive: handle --tools and --yes flags before interactive prompt
       if (options.tools) {
         if (options.tools.toLowerCase() === 'none') {
-          await prompts.log.info('Skipping tool configuration (--tools none)');
+          await prompts.log.info('Configuration des outils ignorée (--tools none)');
           return { ides: [], skipIde: true };
         }
         const selectedIdes = options.tools
           .split(',')
           .map((t) => t.trim())
           .filter(Boolean);
-        await prompts.log.info(`Using tools from command-line: ${selectedIdes.join(', ')}`);
+        await prompts.log.info(`Utilisation des outils depuis la ligne de commande : ${selectedIdes.join(', ')}`);
         await this.displaySelectedTools(selectedIdes, preferredIdes, allTools);
         return { ides: selectedIdes, skipIde: false };
       }
 
       if (options.yes) {
-        await prompts.log.info(`Non-interactive mode (--yes): keeping configured tools: ${configuredIdes.join(', ')}`);
+        await prompts.log.info(`Mode non interactif (--yes) : conservation des outils configurés : ${configuredIdes.join(', ')}`);
         await this.displaySelectedTools(configuredIdes, preferredIdes, allTools);
         return { ides: configuredIdes, skipIde: false };
       }
@@ -664,7 +664,7 @@ class UI {
       const sortedInitialValues = sortedTools.filter((ide) => configuredIdes.includes(ide.value)).map((ide) => ide.value);
 
       const upgradeSelected = await prompts.autocompleteMultiselect({
-        message: 'Integrate with',
+        message: 'Intégrer avec',
         options: upgradeOptions,
         initialValues: sortedInitialValues,
         required: false,
@@ -675,7 +675,7 @@ class UI {
 
       if (selectedIdes.length === 0) {
         const confirmNoTools = await prompts.confirm({
-          message: 'No tools selected. Continue without installing any tools?',
+          message: 'Aucun outil sélectionné. Continuer sans installer d\'outil ?',
           default: false,
         });
 
@@ -713,32 +713,32 @@ class UI {
     if (options.tools) {
       // Check for explicit "none" value to skip tool installation
       if (options.tools.toLowerCase() === 'none') {
-        await prompts.log.info('Skipping tool configuration (--tools none)');
+        await prompts.log.info('Configuration des outils ignorée (--tools none)');
         return { ides: [], skipIde: true };
       } else {
         selectedIdes = options.tools
           .split(',')
           .map((t) => t.trim())
           .filter(Boolean);
-        await prompts.log.info(`Using tools from command-line: ${selectedIdes.join(', ')}`);
+        await prompts.log.info(`Utilisation des outils depuis la ligne de commande : ${selectedIdes.join(', ')}`);
         await this.displaySelectedTools(selectedIdes, preferredIdes, allTools);
         return { ides: selectedIdes, skipIde: false };
       }
     } else if (options.yes) {
       // If --yes flag is set, skip tool prompt and use previously configured tools or empty
       if (configuredIdes.length > 0) {
-        await prompts.log.info(`Using previously configured tools (--yes flag): ${configuredIdes.join(', ')}`);
+        await prompts.log.info(`Utilisation des outils précédemment configurés (option --yes) : ${configuredIdes.join(', ')}`);
         await this.displaySelectedTools(configuredIdes, preferredIdes, allTools);
         return { ides: configuredIdes, skipIde: false };
       } else {
-        await prompts.log.info('Skipping tool configuration (--yes flag, no previous tools)');
+        await prompts.log.info('Configuration des outils ignorée (option --yes, aucun outil précédent)');
         return { ides: [], skipIde: true };
       }
     }
 
     // Interactive mode
     const interactiveSelectedIdes = await prompts.autocompleteMultiselect({
-      message: 'Integrate with:',
+      message: 'Intégrer avec :',
       options: allToolOptions,
       initialValues: configuredIdes.length > 0 ? configuredIdes : undefined,
       required: false,
@@ -752,7 +752,7 @@ class UI {
     // ─────────────────────────────────────────────────────────────────────────────
     if (selectedIdes.length === 0) {
       const confirmNoTools = await prompts.confirm({
-        message: 'No tools selected. Continue without installing any tools?',
+        message: 'Aucun outil sélectionné. Continuer sans installer d\'outil ?',
         default: false,
       });
 
@@ -782,12 +782,12 @@ class UI {
    */
   async promptUpdate() {
     const backupFirst = await prompts.confirm({
-      message: 'Create backup before updating?',
+      message: 'Créer une sauvegarde avant la mise à jour ?',
       default: true,
     });
 
     const preserveCustomizations = await prompts.confirm({
-      message: 'Preserve local customizations?',
+      message: 'Préserver les personnalisations locales ?',
       default: true,
     });
 
@@ -857,19 +857,19 @@ class UI {
       const coreConfig = {};
       if (options.userName) {
         coreConfig.user_name = options.userName;
-        await prompts.log.info(`Using user name from command-line: ${options.userName}`);
+        await prompts.log.info(`Utilisation du nom d'utilisateur depuis la ligne de commande : ${options.userName}`);
       }
       if (options.communicationLanguage) {
         coreConfig.communication_language = options.communicationLanguage;
-        await prompts.log.info(`Using communication language from command-line: ${options.communicationLanguage}`);
+        await prompts.log.info(`Utilisation de la langue de communication depuis la ligne de commande : ${options.communicationLanguage}`);
       }
       if (options.documentOutputLanguage) {
         coreConfig.document_output_language = options.documentOutputLanguage;
-        await prompts.log.info(`Using document output language from command-line: ${options.documentOutputLanguage}`);
+        await prompts.log.info(`Utilisation de la langue de sortie des documents depuis la ligne de commande : ${options.documentOutputLanguage}`);
       }
       if (options.outputFolder) {
         coreConfig.output_folder = options.outputFolder;
-        await prompts.log.info(`Using output folder from command-line: ${options.outputFolder}`);
+        await prompts.log.info(`Utilisation du dossier de sortie depuis la ligne de commande : ${options.outputFolder}`);
       }
 
       // Load existing config to merge with provided options
@@ -906,7 +906,7 @@ class UI {
           document_output_language: 'English',
           output_folder: '_bmad-output',
         };
-        await prompts.log.info('Using default configuration (--yes flag)');
+        await prompts.log.info('Utilisation de la configuration par défaut (option --yes)');
       }
     } else {
       // Load existing configs first if they exist
@@ -971,7 +971,7 @@ class UI {
 
       if (!isDuplicate) {
         allCustomModules.push({
-          name: `${color.cyan('\u2713')} ${mod.name} ${color.dim('(cached)')}`,
+          name: `${color.cyan('\u2713')} ${mod.name} ${color.dim('(en cache)')}`,
           value: mod.id,
           checked: isNewInstallation ? mod.defaultSelected || false : installedModuleIds.has(mod.id),
           hint: mod.description || undefined,
@@ -1025,7 +1025,7 @@ class UI {
     const lockedValues = ['core'];
 
     // Core module is always installed — show it locked at the top
-    allOptions.push({ label: 'BMad Core Module', value: 'core', hint: 'Core configuration and shared resources' });
+    allOptions.push({ label: 'Module BMad Core', value: 'core', hint: 'Configuration core et ressources partagées' });
     initialValues.push('core');
 
     // Helper to build module entry with proper sorting and selection
@@ -1080,7 +1080,7 @@ class UI {
     allOptions.push(...communityModules.map(({ label, value, hint }) => ({ label, value, hint })));
 
     const selected = await prompts.autocompleteMultiselect({
-      message: 'Select modules to install:',
+      message: 'Sélectionner les modules à installer :',
       options: allOptions,
       initialValues: initialValues.length > 0 ? initialValues : undefined,
       lockedValues,
@@ -1096,7 +1096,7 @@ class UI {
         const opt = allOptions.find((o) => o.value === moduleId);
         return `  \u2022 ${opt?.label || moduleId}`;
       });
-      await prompts.log.message('Selected modules:\n' + moduleLines.join('\n'));
+      await prompts.log.message('Modules sélectionnés :\n' + moduleLines.join('\n'));
     }
 
     return result;
@@ -1136,7 +1136,7 @@ class UI {
   async promptForDirectory() {
     // Use sync validation because @clack/prompts doesn't support async validate
     const directory = await prompts.text({
-      message: 'Installation directory:',
+      message: 'Répertoire d\'installation :',
       default: process.cwd(),
       placeholder: process.cwd(),
       validate: (input) => this.validateDirectorySync(input),
@@ -1158,7 +1158,7 @@ class UI {
    * @param {string} directory - The directory path
    */
   async displayDirectoryInfo(directory) {
-    await prompts.log.info(`Resolved installation path: ${directory}`);
+    await prompts.log.info(`Chemin d'installation résolu : ${directory}`);
 
     const dirExists = await fs.pathExists(directory);
     if (dirExists) {
@@ -1174,10 +1174,10 @@ class UI {
           const hasBmadInstall =
             (await fs.pathExists(bmadResult.bmadDir)) && (await fs.pathExists(path.join(bmadResult.bmadDir, '_config', 'manifest.yaml')));
 
-          const bmadNote = hasBmadInstall ? ` including existing BMAD installation (${path.basename(bmadResult.bmadDir)})` : '';
-          await prompts.log.message(`Directory exists and contains ${files.length} item(s)${bmadNote}`);
+          const bmadNote = hasBmadInstall ? ` incluant une installation BMAD existante (${path.basename(bmadResult.bmadDir)})` : '';
+          await prompts.log.message(`Le répertoire existe et contient ${files.length} élément(s)${bmadNote}`);
         } else {
-          await prompts.log.message('Directory exists and is empty');
+          await prompts.log.message('Le répertoire existe et est vide');
         }
       }
     }
@@ -1193,24 +1193,24 @@ class UI {
 
     if (dirExists) {
       const proceed = await prompts.confirm({
-        message: 'Install to this directory?',
+        message: 'Installer dans ce répertoire ?',
         default: true,
       });
 
       if (!proceed) {
-        await prompts.log.warn("Let's try again with a different path.");
+        await prompts.log.warn('Réessayons avec un autre chemin.');
       }
 
       return proceed;
     } else {
       // Ask for confirmation to create the directory
       const create = await prompts.confirm({
-        message: `Create directory: ${directory}?`,
+        message: `Créer le répertoire : ${directory} ?`,
         default: false,
       });
 
       if (!create) {
-        await prompts.log.warn("Let's try again with a different path.");
+        await prompts.log.warn('Réessayons avec un autre chemin.');
       }
 
       return create;
@@ -1243,7 +1243,7 @@ class UI {
       const existingParent = this.findExistingParentSync(expandedPath);
 
       if (!existingParent) {
-        return 'Cannot create directory: no existing parent directory found';
+        return 'Impossible de créer le répertoire : aucun répertoire parent existant trouvé';
       }
 
       // Check if the existing parent is writable
@@ -1253,21 +1253,21 @@ class UI {
         return;
       } catch {
         // Provide a detailed error message explaining both issues
-        return `Directory '${expandedPath}' does not exist and cannot be created: parent directory '${existingParent}' is not writable`;
+        return `Le répertoire '${expandedPath}' n'existe pas et ne peut pas être créé : le répertoire parent '${existingParent}' n'est pas accessible en écriture`;
       }
     }
 
     // If it exists, validate it's a directory and writable
     const stat = fs.statSync(expandedPath);
     if (!stat.isDirectory()) {
-      return `Path exists but is not a directory: ${expandedPath}`;
+      return `Le chemin existe mais n'est pas un répertoire : ${expandedPath}`;
     }
 
     // Check write permissions
     try {
       fs.accessSync(expandedPath, fs.constants.W_OK);
     } catch {
-      return `Directory is not writable: ${expandedPath}`;
+      return `Le répertoire n'est pas accessible en écriture : ${expandedPath}`;
     }
 
     return;
@@ -1299,7 +1299,7 @@ class UI {
       const existingParent = await this.findExistingParent(expandedPath);
 
       if (!existingParent) {
-        return 'Cannot create directory: no existing parent directory found';
+        return 'Impossible de créer le répertoire : aucun répertoire parent existant trouvé';
       }
 
       // Check if the existing parent is writable
@@ -1309,21 +1309,21 @@ class UI {
         return true;
       } catch {
         // Provide a detailed error message explaining both issues
-        return `Directory '${expandedPath}' does not exist and cannot be created: parent directory '${existingParent}' is not writable`;
+        return `Le répertoire '${expandedPath}' n'existe pas et ne peut pas être créé : le répertoire parent '${existingParent}' n'est pas accessible en écriture`;
       }
     }
 
     // If it exists, validate it's a directory and writable
     const stat = await fs.stat(expandedPath);
     if (!stat.isDirectory()) {
-      return `Path exists but is not a directory: ${expandedPath}`;
+      return `Le chemin existe mais n'est pas un répertoire : ${expandedPath}`;
     }
 
     // Check write permissions
     try {
       await fs.access(expandedPath, fs.constants.W_OK);
     } catch {
-      return `Directory is not writable: ${expandedPath}`;
+      return `Le répertoire n'est pas accessible en écriture : ${expandedPath}`;
     }
 
     return true;
@@ -1378,7 +1378,7 @@ class UI {
    */
   expandUserPath(inputPath) {
     if (typeof inputPath !== 'string') {
-      throw new TypeError('Path must be a string.');
+      throw new TypeError('Le chemin doit être une chaîne de caractères.');
     }
 
     let expanded = inputPath.trim();
@@ -1395,7 +1395,7 @@ class UI {
         const separatorIndex = restOfPath.indexOf(path.sep);
         const username = separatorIndex === -1 ? restOfPath : restOfPath.slice(0, separatorIndex);
         if (username) {
-          throw new Error(`Path expansion for ~${username} is not supported. Please use an absolute path or ~${path.sep}`);
+          throw new Error(`L'expansion du chemin pour ~${username} n'est pas prise en charge. Veuillez utiliser un chemin absolu ou ~${path.sep}`);
         }
       }
     }
@@ -1430,7 +1430,7 @@ class UI {
       return configs;
     } catch {
       // If loading fails, return empty configs
-      await prompts.log.warn('Could not load existing configurations');
+      await prompts.log.warn('Impossible de charger les configurations existantes');
       return configs;
     }
   }
@@ -1467,19 +1467,19 @@ class UI {
 
       // Check if path exists
       if (!fs.pathExistsSync(expandedPath)) {
-        return 'Path does not exist';
+        return 'Le chemin n\'existe pas';
       }
 
       // Check if it's a directory
       const stat = fs.statSync(expandedPath);
       if (!stat.isDirectory()) {
-        return 'Path must be a directory';
+        return 'Le chemin doit être un répertoire';
       }
 
       // Check for module.yaml in the root
       const moduleYamlPath = path.join(expandedPath, 'module.yaml');
       if (!fs.pathExistsSync(moduleYamlPath)) {
-        return 'Directory must contain a module.yaml file in the root';
+        return 'Le répertoire doit contenir un fichier module.yaml à sa racine';
       }
 
       // Try to parse the module.yaml to get the module ID
@@ -1488,15 +1488,15 @@ class UI {
         const content = fs.readFileSync(moduleYamlPath, 'utf8');
         const moduleData = yaml.parse(content);
         if (!moduleData.code) {
-          return 'module.yaml must contain a "code" field for the module ID';
+          return 'module.yaml doit contenir un champ "code" pour l\'identifiant du module';
         }
       } catch (error) {
-        return 'Invalid module.yaml file: ' + error.message;
+        return 'Fichier module.yaml invalide : ' + error.message;
       }
 
       return; // Valid
     } catch (error) {
-      return 'Error validating path: ' + error.message;
+      return 'Erreur lors de la validation du chemin : ' + error.message;
     }
   }
 
@@ -1512,10 +1512,10 @@ class UI {
       // First ask if user wants to add another module or continue
       if (customContentConfig.sources.length > 0) {
         const action = await prompts.select({
-          message: 'Would you like to:',
+          message: 'Souhaitez-vous :',
           choices: [
-            { name: 'Add another custom module', value: 'add' },
-            { name: 'Continue with installation', value: 'continue' },
+            { name: 'Ajouter un autre module personnalisé', value: 'add' },
+            { name: 'Continuer avec l\'installation', value: 'continue' },
           ],
           default: 'continue',
         });
@@ -1531,7 +1531,7 @@ class UI {
       while (!isValid) {
         // Use sync validation because @clack/prompts doesn't support async validate
         const inputPath = await prompts.text({
-          message: 'Path to custom module folder (press Enter to skip):',
+          message: 'Chemin vers le dossier du module personnalisé (Entrée pour passer) :',
           validate: (input) => this.validateCustomContentPathSync(input),
         });
 
@@ -1561,12 +1561,12 @@ class UI {
         name: moduleData.name || moduleData.code,
       });
 
-      await prompts.log.success(`Confirmed local custom module: ${moduleData.name || moduleData.code}`);
+      await prompts.log.success(`Module personnalisé local confirmé : ${moduleData.name || moduleData.code}`);
     }
 
     // Ask if user wants to add these to the installation
     const shouldInstall = await prompts.confirm({
-      message: `Install these ${customContentConfig.sources.length} custom modules?`,
+      message: `Installer ces ${customContentConfig.sources.length} modules personnalisés ?`,
       default: true,
     });
 
@@ -1612,7 +1612,7 @@ class UI {
             cachedCustomModules.push({
               id: entry.name,
               name: moduleData.name || entry.name,
-              description: moduleData.description || 'Custom module from cache',
+              description: moduleData.description || 'Module personnalisé depuis le cache',
               checked: selectedModules.includes(entry.name),
               fromCache: true,
             });
@@ -1627,28 +1627,28 @@ class UI {
     };
 
     // Ask user about custom modules
-    await prompts.log.info('Custom Modules');
+    await prompts.log.info('Modules personnalisés');
     if (cachedCustomModules.length > 0) {
-      await prompts.log.message('Found custom modules in your installation:');
+      await prompts.log.message('Modules personnalisés trouvés dans votre installation :');
     } else {
-      await prompts.log.message('No custom modules currently installed.');
+      await prompts.log.message('Aucun module personnalisé actuellement installé.');
     }
 
     // Build choices dynamically based on whether we have existing modules
     const choices = [];
     if (cachedCustomModules.length > 0) {
       choices.push(
-        { name: 'Keep all existing custom modules', value: 'keep' },
-        { name: 'Select which custom modules to keep', value: 'select' },
-        { name: 'Add new custom modules', value: 'add' },
-        { name: 'Remove all custom modules', value: 'remove' },
+        { name: 'Conserver tous les modules personnalisés existants', value: 'keep' },
+        { name: 'Sélectionner les modules personnalisés à conserver', value: 'select' },
+        { name: 'Ajouter de nouveaux modules personnalisés', value: 'add' },
+        { name: 'Supprimer tous les modules personnalisés', value: 'remove' },
       );
     } else {
-      choices.push({ name: 'Add new custom modules', value: 'add' }, { name: 'Cancel (no custom modules)', value: 'cancel' });
+      choices.push({ name: 'Ajouter de nouveaux modules personnalisés', value: 'add' }, { name: 'Annuler (pas de modules personnalisés)', value: 'cancel' });
     }
 
     const customAction = await prompts.select({
-      message: cachedCustomModules.length > 0 ? 'Manage custom modules?' : 'Add custom modules?',
+      message: cachedCustomModules.length > 0 ? 'Gérer les modules personnalisés ?' : 'Ajouter des modules personnalisés ?',
       choices: choices,
       default: cachedCustomModules.length > 0 ? 'keep' : 'add',
     });
@@ -1657,7 +1657,7 @@ class UI {
       case 'keep': {
         // Keep all existing custom modules
         result.selectedCustomModules = cachedCustomModules.map((m) => m.id);
-        await prompts.log.message(`Keeping ${result.selectedCustomModules.length} custom module(s)`);
+        await prompts.log.message(`Conservation de ${result.selectedCustomModules.length} module(s) personnalisé(s)`);
         break;
       }
 
@@ -1673,21 +1673,21 @@ class UI {
         const choicesWithSkip = [
           ...selectChoices,
           {
-            name: '⚠ None / I changed my mind - keep no custom modules',
+            name: '⚠ Aucun / J\'ai changé d\'avis - ne conserver aucun module personnalisé',
             value: '__NONE__',
             checked: false,
           },
         ];
 
         const keepModules = await prompts.multiselect({
-          message: 'Select custom modules to keep (use arrow keys, space to toggle):',
+          message: 'Sélectionner les modules personnalisés à conserver (touches fléchées, espace pour cocher) :',
           choices: choicesWithSkip,
           required: true,
         });
 
         // If user selected both "__NONE__" and other modules, honor the "None" choice
         if (keepModules && keepModules.includes('__NONE__') && keepModules.length > 1) {
-          await prompts.log.warn('"None / I changed my mind" was selected, so no custom modules will be kept.');
+          await prompts.log.warn('"Aucun / J\'ai changé d\'avis" a été sélectionné, aucun module personnalisé ne sera conservé.');
           result.selectedCustomModules = [];
         } else {
           // Filter out the special '__NONE__' value
@@ -1712,13 +1712,13 @@ class UI {
 
       case 'remove': {
         // Remove all custom modules
-        await prompts.log.warn('All custom modules will be removed from the installation');
+        await prompts.log.warn('Tous les modules personnalisés seront supprimés de l\'installation');
         break;
       }
 
       case 'cancel': {
         // User cancelled - no custom modules
-        await prompts.log.message('No custom modules will be added');
+        await prompts.log.message('Aucun module personnalisé ne sera ajouté');
         break;
       }
     }
@@ -1753,39 +1753,39 @@ class UI {
 
     let warningContent;
     if (installedVersion === 'unknown') {
-      warningContent = 'Unable to detect your installed BMAD version.\n' + 'This appears to be a legacy or unsupported installation.';
+      warningContent = 'Impossible de d\u00e9tecter votre version BMAD install\u00e9e.\n' + 'Il semble s\'agir d\'une installation existante ou non prise en charge.';
     } else {
       warningContent =
-        `You are updating from ${installedVersion} to ${currentVersion}.\n` + 'You have a legacy version installed (v4 or alpha).';
+        `Vous effectuez la mise \u00e0 jour de ${installedVersion} vers ${currentVersion}.\n` + 'Vous avez une version existante install\u00e9e (v4 ou alpha).';
     }
 
     warningContent +=
-      '\n\nFor the best experience, we recommend:\n' +
-      '  1. Delete your current BMAD installation folder\n' +
-      `     (the "${bmadFolderName}/" folder in your project)\n` +
-      '  2. Run a fresh installation\n\n' +
-      'Benefits of a fresh install:\n' +
-      '  \u2022 Cleaner configuration without legacy artifacts\n' +
-      '  \u2022 All new features properly configured\n' +
-      '  \u2022 Fewer potential conflicts';
+      '\n\nPour une meilleure exp\u00e9rience, nous recommandons :\n' +
+      '  1. Supprimer le dossier d\'installation BMAD actuel\n' +
+      `     (le dossier "${bmadFolderName}/" dans votre projet)\n` +
+      '  2. Effectuer une nouvelle installation\n\n' +
+      'Avantages d\'une nouvelle installation :\n' +
+      '  \u2022 Configuration plus propre sans artefacts obsol\u00e8tes\n' +
+      '  \u2022 Toutes les nouvelles fonctionnalit\u00e9s correctement configur\u00e9es\n' +
+      '  \u2022 Moins de conflits potentiels';
 
-    await prompts.log.warn('VERSION WARNING');
-    await prompts.note(warningContent, 'Version Warning');
+    await prompts.log.warn('AVERTISSEMENT DE VERSION');
+    await prompts.note(warningContent, 'Avertissement de version');
 
     if (options.yes) {
-      await prompts.log.warn('Non-interactive mode (--yes): auto-proceeding with legacy update');
+      await prompts.log.warn('Mode non interactif (--yes) : poursuite automatique de la mise \u00e0 jour existante');
       return true;
     }
 
     const proceed = await prompts.select({
-      message: 'How would you like to proceed?',
+      message: 'Comment souhaitez-vous proc\u00e9der ?',
       choices: [
         {
-          name: 'Proceed with update anyway (may have issues)',
+          name: 'Poursuivre la mise \u00e0 jour malgr\u00e9 tout (peut pr\u00e9senter des probl\u00e8mes)',
           value: 'proceed',
         },
         {
-          name: 'Cancel (recommended - do a fresh install instead)',
+          name: 'Annuler (recommand\u00e9 - effectuer une nouvelle installation \u00e0 la place)',
           value: 'cancel',
         },
       ],
@@ -1794,8 +1794,8 @@ class UI {
 
     if (proceed === 'cancel') {
       await prompts.note(
-        `1. Delete the "${bmadFolderName}/" folder in your project\n` + "2. Run 'bmad install' again",
-        'To do a fresh install',
+        `1. Supprimer le dossier "${bmadFolderName}/" dans votre projet\n` + "2. Relancer 'bmad install'",
+        'Pour effectuer une nouvelle installation',
       );
     }
 
@@ -1820,7 +1820,8 @@ class UI {
       lines.push(title);
       for (const mod of group) {
         const updateInfo = availableUpdates.find((u) => u.name === mod.name);
-        const versionDisplay = mod.version || 'unknown';
+        // 'unknown' est une valeur sentinelle interne ; on l'affiche comme "inconnue".
+        const versionDisplay = !mod.version || mod.version === 'unknown' ? 'inconnue' : mod.version;
         if (updateInfo) {
           lines.push(`  ${mod.name.padEnd(20)} ${versionDisplay} \u2192 ${updateInfo.latestVersion} \u2191`);
         } else {
@@ -1829,12 +1830,12 @@ class UI {
       }
     };
 
-    formatGroup(builtIn, 'Built-in Modules');
-    formatGroup(external, 'External Modules (Official)');
-    formatGroup(custom, 'Custom Modules');
-    formatGroup(unknown, 'Other Modules');
+    formatGroup(builtIn, 'Modules intégrés');
+    formatGroup(external, 'Modules externes (officiels)');
+    formatGroup(custom, 'Modules personnalisés');
+    formatGroup(unknown, 'Autres modules');
 
-    await prompts.note(lines.join('\n'), 'Module Versions');
+    await prompts.note(lines.join('\n'), 'Versions des modules');
   }
 
   /**
@@ -1847,7 +1848,7 @@ class UI {
       return [];
     }
 
-    await prompts.log.info('Available Updates');
+    await prompts.log.info('Mises \u00e0 jour disponibles');
 
     const choices = availableUpdates.map((update) => ({
       name: `${update.name} (v${update.installedVersion} \u2192 v${update.latestVersion})`,
@@ -1857,11 +1858,11 @@ class UI {
 
     // Add "Update All" and "Cancel" options
     const action = await prompts.select({
-      message: 'How would you like to proceed?',
+      message: 'Comment souhaitez-vous proc\u00e9der ?',
       choices: [
-        { name: 'Update all available modules', value: 'all' },
-        { name: 'Select specific modules to update', value: 'select' },
-        { name: 'Skip updates for now', value: 'skip' },
+        { name: 'Mettre \u00e0 jour tous les modules disponibles', value: 'all' },
+        { name: 'S\u00e9lectionner les modules sp\u00e9cifiques \u00e0 mettre \u00e0 jour', value: 'select' },
+        { name: 'Ignorer les mises \u00e0 jour pour le moment', value: 'skip' },
       ],
       default: 'all',
     });
@@ -1876,7 +1877,7 @@ class UI {
 
     // Allow specific selection
     const selected = await prompts.multiselect({
-      message: 'Select modules to update (use arrow keys, space to toggle):',
+      message: 'Sélectionner les modules à mettre à jour (touches fléchées, espace pour cocher) :',
       choices: choices,
       required: true,
     });
@@ -1893,23 +1894,23 @@ class UI {
 
     // Installation info
     const infoLines = [
-      `Version:       ${installation.version || 'unknown'}`,
-      `Location:      ${bmadDir}`,
-      `Installed:     ${new Date(installation.installDate).toLocaleDateString()}`,
-      `Last Updated:  ${installation.lastUpdated ? new Date(installation.lastUpdated).toLocaleDateString() : 'unknown'}`,
+      `Version :          ${installation.version || 'inconnue'}`,
+      `Emplacement :      ${bmadDir}`,
+      `Installée le :     ${new Date(installation.installDate).toLocaleDateString()}`,
+      `Dernière mise à jour : ${installation.lastUpdated ? new Date(installation.lastUpdated).toLocaleDateString() : 'inconnue'}`,
     ];
 
-    await prompts.note(infoLines.join('\n'), 'BMAD Status');
+    await prompts.note(infoLines.join('\n'), 'Statut BMAD');
 
     // Module versions
     await this.displayModuleVersions(modules, availableUpdates);
 
     // Update summary
     if (availableUpdates.length > 0) {
-      await prompts.log.warn(`${availableUpdates.length} update(s) available`);
-      await prompts.log.message('Run \'bmad install\' and select "Quick Update" to update');
+      await prompts.log.warn(`${availableUpdates.length} mise(s) à jour disponible(s)`);
+      await prompts.log.message('Lancez \'bmad install\' et sélectionnez "Mise à jour rapide" pour mettre à jour');
     } else {
-      await prompts.log.success('All modules are up to date');
+      await prompts.log.success('Tous les modules sont à jour');
     }
   }
 
@@ -1929,7 +1930,7 @@ class UI {
       const marker = preferredValues.has(ideValue) ? ' \u2B50' : '';
       return `  \u2022 ${name}${marker}`;
     });
-    await prompts.log.message('Selected tools:\n' + toolLines.join('\n'));
+    await prompts.log.message('Outils sélectionnés :\n' + toolLines.join('\n'));
   }
 }
 

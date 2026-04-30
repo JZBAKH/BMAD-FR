@@ -70,9 +70,9 @@ class ConfigDrivenIdeSetup extends BaseIdeSetup {
       const conflict = await this.findAncestorConflict(projectDir);
       if (conflict) {
         await prompts.log.error(
-          `Found existing BMAD skills in ancestor installation: ${conflict}\n` +
-            `  ${this.name} inherits skills from parent directories, so this would cause duplicates.\n` +
-            `  Please remove the BMAD files from that directory first:\n` +
+          `Skills BMAD existants trouvés dans une installation parente : ${conflict}\n` +
+            `  ${this.name} hérite des Skills des répertoires parents, ce qui causerait des doublons.\n` +
+            `  Veuillez d'abord supprimer les fichiers BMAD de ce répertoire :\n` +
             `    rm -rf "${conflict}"/bmad*`,
         );
         return {
@@ -84,7 +84,7 @@ class ConfigDrivenIdeSetup extends BaseIdeSetup {
       }
     }
 
-    if (!options.silent) await prompts.log.info(`Setting up ${this.name}...`);
+    if (!options.silent) await prompts.log.info(`Configuration de ${this.name}...`);
 
     // Clean up any old BMAD installation first
     await this.cleanup(projectDir, options);
@@ -492,7 +492,7 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
     const skillName = path.basename(flatName.replace(/\.md$/, ''));
 
     if (!skillName) {
-      throw new Error(`Cannot derive skill name for artifact: ${artifact.relativePath || JSON.stringify(artifact)}`);
+      throw new Error(`Impossible de déterminer le nom du Skill pour l'artefact : ${artifact.relativePath || JSON.stringify(artifact)}`);
     }
 
     // Create skill directory
@@ -717,7 +717,7 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
     const skillCount = totalDirs - (results.agents || 0);
     if (skillCount > 0) parts.push(`${skillCount} skills`);
     if (results.agents > 0) parts.push(`${results.agents} agents`);
-    await prompts.log.success(`${this.name} configured: ${parts.join(', ')} → ${targetDir}`);
+    await prompts.log.success(`${this.name} configuré : ${parts.join(', ')} → ${targetDir}`);
   }
 
   /**
@@ -727,7 +727,7 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
   async cleanup(projectDir, options = {}) {
     // Migrate legacy target directories (e.g. .opencode/agent → .opencode/agents)
     if (this.installerConfig?.legacy_targets) {
-      if (!options.silent) await prompts.log.message('  Migrating legacy directories...');
+      if (!options.silent) await prompts.log.message('  Migration des répertoires existants...');
       for (const legacyDir of this.installerConfig.legacy_targets) {
         if (this.isGlobalPath(legacyDir)) {
           await this.warnGlobalLegacy(legacyDir, options);
@@ -801,7 +801,7 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
       const bmadFiles = entries.filter((e) => typeof e === 'string' && e.startsWith('bmad'));
 
       if (bmadFiles.length > 0 && !options.silent) {
-        await prompts.log.warn(`Found ${bmadFiles.length} stale BMAD file(s) in ${expanded}. Remove manually: rm ${expanded}/bmad-*`);
+        await prompts.log.warn(`${bmadFiles.length} fichier(s) BMAD obsolète(s) trouvé(s) dans ${expanded}. À supprimer manuellement : rm ${expanded}/bmad-*`);
       }
     } catch {
       // Errors reading global paths are silently ignored
@@ -851,7 +851,7 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
     }
 
     if (removedCount > 0 && !options.silent) {
-      await prompts.log.message(`  Cleaned ${removedCount} BMAD files from ${targetDir}`);
+      await prompts.log.message(`  ${removedCount} fichier(s) BMAD supprimé(s) de ${targetDir}`);
     }
 
     // Remove empty directory after cleanup
@@ -890,7 +890,7 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
         const backupPath = `${filePath}.bak`;
         if (await fs.pathExists(backupPath)) {
           await fs.rename(backupPath, filePath);
-          if (!options.silent) await prompts.log.message('  Restored copilot-instructions.md from backup');
+          if (!options.silent) await prompts.log.message('  copilot-instructions.md restauré depuis la sauvegarde');
         }
       } else {
         await fs.writeFile(filePath, cleaned, 'utf8');
@@ -898,9 +898,9 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
         if (await fs.pathExists(backupPath)) await fs.remove(backupPath);
       }
 
-      if (!options.silent) await prompts.log.message('  Cleaned BMAD markers from copilot-instructions.md');
+      if (!options.silent) await prompts.log.message('  Marqueurs BMAD nettoyés de copilot-instructions.md');
     } catch {
-      if (!options.silent) await prompts.log.warn('  Warning: Could not clean BMAD markers from copilot-instructions.md');
+      if (!options.silent) await prompts.log.warn('  Avertissement : impossible de nettoyer les marqueurs BMAD de copilot-instructions.md');
     }
   }
 
@@ -920,7 +920,7 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
     try {
       config = yaml.parse(content) || {};
     } catch {
-      if (!options.silent) await prompts.log.warn('  Warning: Could not parse .kilocodemodes for cleanup');
+      if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'analyser .kilocodemodes pour le nettoyage');
       return;
     }
 
@@ -933,9 +933,9 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
     if (removedCount > 0) {
       try {
         await fs.writeFile(kiloModesPath, yaml.stringify(config, { lineWidth: 0 }));
-        if (!options.silent) await prompts.log.message(`  Removed ${removedCount} BMAD modes from .kilocodemodes`);
+        if (!options.silent) await prompts.log.message(`  ${removedCount} mode(s) BMAD supprimé(s) de .kilocodemodes`);
       } catch {
-        if (!options.silent) await prompts.log.warn('  Warning: Could not write .kilocodemodes during cleanup');
+        if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'écrire .kilocodemodes lors du nettoyage');
       }
     }
   }
@@ -957,7 +957,7 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
     try {
       config = yaml.parse(content) || {};
     } catch {
-      if (!options.silent) await prompts.log.warn('  Warning: Could not parse prompts.yml for cleanup');
+      if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'analyser prompts.yml pour le nettoyage');
       return;
     }
 
@@ -974,9 +974,9 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
         } else {
           await fs.writeFile(promptsPath, yaml.stringify(config, { lineWidth: 0 }));
         }
-        if (!options.silent) await prompts.log.message(`  Removed ${removedCount} BMAD entries from prompts.yml`);
+        if (!options.silent) await prompts.log.message(`  ${removedCount} entrée(s) BMAD supprimée(s) de prompts.yml`);
       } catch {
-        if (!options.silent) await prompts.log.warn('  Warning: Could not write prompts.yml during cleanup');
+        if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'écrire prompts.yml lors du nettoyage');
       }
     }
   }

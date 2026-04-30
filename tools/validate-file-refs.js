@@ -400,11 +400,11 @@ module.exports = { extractCsvRefs };
 // --- Main ---
 
 if (require.main === module) {
-  console.log(`\nValidating file references in: ${SRC_DIR}`);
-  console.log(`Mode: ${STRICT ? 'STRICT (exit 1 on issues)' : 'WARNING (exit 0)'}${VERBOSE ? ' + VERBOSE' : ''}\n`);
+  console.log(`\nValidation des références de fichier dans : ${SRC_DIR}`);
+  console.log(`Mode : ${STRICT ? 'STRICT (sort en 1 si problèmes)' : 'WARNING (sort en 0)'}${VERBOSE ? ' + DÉTAILLÉ' : ''}\n`);
 
   const files = getSourceFiles(SRC_DIR);
-  console.log(`Found ${files.length} source files\n`);
+  console.log(`${files.length} fichier(s) source trouvé(s)\n`);
 
   let totalRefs = 0;
   let brokenRefs = 0;
@@ -482,12 +482,12 @@ if (require.main === module) {
       }
 
       for (const { ref, resolved, kind } of broken) {
-        const location = ref.line ? `line ${ref.line}` : ref.key ? `key: ${ref.key}` : '';
+        const location = ref.line ? `ligne ${ref.line}` : ref.key ? `clé : ${ref.key}` : '';
         const tag = kind === 'unresolved' ? 'UNRESOLVED' : 'BROKEN';
-        const detail = kind === 'unresolved' ? 'Not found as file or directory' : 'Target not found';
+        const detail = kind === 'unresolved' ? 'Introuvable en tant que fichier ou répertoire' : 'Cible introuvable';
         const issueType = kind === 'unresolved' ? 'unresolved path' : 'broken ref';
         console.log(`  [${tag}] ${ref.raw}${location ? ` (${location})` : ''}`);
-        console.log(`     ${detail}: ${resolved}`);
+        console.log(`     ${detail} : ${resolved}`);
         allIssues.push({ file: relativePath, line: ref.line || 1, ref: ref.raw, issue: issueType });
         if (process.env.GITHUB_ACTIONS) {
           const line = ref.line || 1;
@@ -498,7 +498,7 @@ if (require.main === module) {
       }
 
       for (const leak of leaks) {
-        console.log(`  [ABS-PATH] Line ${leak.line}: ${leak.content}`);
+        console.log(`  [ABS-PATH] Ligne ${leak.line} : ${leak.content}`);
         allIssues.push({ file: relativePath, line: leak.line, ref: leak.content, issue: 'abs-path' });
         if (process.env.GITHUB_ACTIONS) {
           console.log(`::warning file=${relativePath},line=${leak.line}::${escapeAnnotation(`Absolute path leak: ${leak.content}`)}`);
@@ -515,24 +515,24 @@ if (require.main === module) {
 
   // Summary
   console.log(`\n${'─'.repeat(60)}`);
-  console.log(`\nSummary:`);
-  console.log(`   Files scanned: ${files.length}`);
-  console.log(`   References checked: ${totalRefs}`);
-  console.log(`   Broken references: ${brokenRefs}`);
-  console.log(`   Absolute path leaks: ${totalLeaks}`);
+  console.log(`\nRésumé :`);
+  console.log(`   Fichiers scannés : ${files.length}`);
+  console.log(`   Références vérifiées : ${totalRefs}`);
+  console.log(`   Références cassées : ${brokenRefs}`);
+  console.log(`   Fuites de chemins absolus : ${totalLeaks}`);
 
   const hasIssues = brokenRefs > 0 || totalLeaks > 0;
 
   if (hasIssues) {
-    console.log(`\n   ${filesWithIssues} file(s) with issues`);
+    console.log(`\n   ${filesWithIssues} fichier(s) avec problèmes`);
 
     if (STRICT) {
-      console.log(`\n   [STRICT MODE] Exiting with failure.`);
+      console.log(`\n   [MODE STRICT] Sortie en échec.`);
     } else {
-      console.log(`\n   Run with --strict to treat warnings as errors.`);
+      console.log(`\n   Utiliser --strict pour traiter les warnings comme des erreurs.`);
     }
   } else {
-    console.log(`\n   All file references valid!`);
+    console.log(`\n   Toutes les références de fichier sont valides !`);
   }
 
   console.log('');

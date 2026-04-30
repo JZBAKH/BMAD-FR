@@ -14,7 +14,7 @@ class Config {
    */
   async loadYaml(configPath) {
     if (!(await fs.pathExists(configPath))) {
-      throw new Error(`Configuration file not found: ${configPath}`);
+      throw new Error(`Fichier de configuration introuvable : ${configPath}`);
     }
 
     const content = await fs.readFile(configPath, 'utf8');

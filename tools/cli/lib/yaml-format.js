@@ -53,7 +53,7 @@ async function formatYamlContent(content, filename) {
 
     // Debug: show what we're trying to parse
     if (fixedContent !== content) {
-      console.log(chalk.blue(`🔧 Applied YAML fixes to ${filename}`));
+      console.log(chalk.blue(`🔧 Corrections YAML appliquées à ${filename}`));
     }
 
     // Parse and re-dump YAML to format it
@@ -66,8 +66,8 @@ async function formatYamlContent(content, filename) {
     // Ensure POSIX-compliant final newline
     return formatted.endsWith('\n') ? formatted : formatted + '\n';
   } catch (error) {
-    console.error(chalk.red(`❌ YAML syntax error in ${filename}:`), error.message);
-    console.error(chalk.yellow(`💡 Try manually fixing the YAML structure first`));
+    console.error(chalk.red(`❌ Erreur de syntaxe YAML dans ${filename} :`), error.message);
+    console.error(chalk.yellow(`💡 Essayez d'abord de corriger manuellement la structure YAML`));
     return null;
   }
 }
@@ -83,7 +83,7 @@ async function processMarkdownFile(filePath) {
   newContent = newContent.replaceAll(/^```\n([\s\S]*?)\n```$/gm, '```text\n$1\n```');
   if (newContent !== content) {
     modified = true;
-    console.log(chalk.blue(`🔧 Added 'text' type to untyped code blocks in ${filePath}`));
+    console.log(chalk.blue(`🔧 Type 'text' ajouté aux blocs de code non typés dans ${filePath}`));
   }
 
   // Find YAML code blocks
@@ -99,7 +99,7 @@ async function processMarkdownFile(filePath) {
 
       if (trimmedFormatted !== yamlContent) {
         modified = true;
-        console.log(chalk.green(`✓ Formatted YAML in ${filePath}`));
+        console.log(chalk.green(`✓ YAML formaté dans ${filePath}`));
       }
 
       replacements.push({
@@ -146,7 +146,7 @@ async function lintYamlFile(filePath) {
     execSync(`npx yaml-lint "${filePath}"`, { stdio: 'pipe' });
     return true;
   } catch (error) {
-    console.error(chalk.red(`❌ YAML lint error in ${filePath}:`));
+    console.error(chalk.red(`❌ Erreur de lint YAML dans ${filePath} :`));
     console.error(error.stdout?.toString() || error.message);
     return false;
   }
@@ -158,7 +158,7 @@ async function main() {
   const glob = require('glob');
 
   if (arguments_.length === 0) {
-    console.error('Usage: node yaml-format.js <file1> [file2] ...');
+    console.error('Utilisation : node yaml-format.js <fichier1> [fichier2] ...');
     process.exit(1);
   }
 
@@ -183,7 +183,7 @@ async function main() {
     if (!fs.existsSync(filePath)) {
       // Skip silently for glob patterns that don't match anything
       if (!arguments_.some((argument) => argument.includes('*') && filePath === argument)) {
-        console.error(chalk.red(`❌ File not found: ${filePath}`));
+        console.error(chalk.red(`❌ Fichier introuvable : ${filePath}`));
         hasErrors = true;
       }
       continue;
@@ -219,25 +219,25 @@ async function main() {
         filesProcessed.push(filePath);
       }
     } catch (error) {
-      console.error(chalk.red(`❌ Error processing ${filePath}:`), error.message);
+      console.error(chalk.red(`❌ Erreur lors du traitement de ${filePath} :`), error.message);
       hasErrors = true;
     }
   }
 
   if (hasChanges) {
-    console.log(chalk.green(`\n✨ YAML formatting completed! Modified ${filesProcessed.length} files:`));
+    console.log(chalk.green(`\n✨ Formatage YAML terminé ! ${filesProcessed.length} fichier(s) modifié(s) :`));
     for (const file of filesProcessed) console.log(chalk.blue(`  📝 ${file}`));
   }
 
   if (hasErrors) {
-    console.error(chalk.red('\n💥 Some files had errors. Please fix them before committing.'));
+    console.error(chalk.red('\n💥 Certains fichiers contiennent des erreurs. Veuillez les corriger avant de committer.'));
     process.exit(1);
   }
 }
 
 if (require.main === module) {
   main().catch((error) => {
-    console.error('Error:', error);
+    console.error('Erreur :', error);
     process.exit(1);
   });
 }

@@ -47,7 +47,7 @@ class BaseIdeSetup {
    * @param {Object} options - Setup options
    */
   async setup(projectDir, bmadDir, options = {}) {
-    throw new Error(`setup() must be implemented by ${this.name} handler`);
+    throw new Error(`setup() doit être implémenté par le gestionnaire ${this.name}`);
   }
 
   /**
@@ -62,7 +62,7 @@ class BaseIdeSetup {
         const bmadRulesPath = path.join(configPath, BMAD_FOLDER_NAME);
         if (await fs.pathExists(bmadRulesPath)) {
           await fs.remove(bmadRulesPath);
-          if (!options.silent) await prompts.log.message(`Removed ${this.name} BMAD configuration`);
+          if (!options.silent) await prompts.log.message(`Configuration BMAD ${this.name} supprimée`);
         }
       }
     }

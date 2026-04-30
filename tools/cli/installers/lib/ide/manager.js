@@ -133,15 +133,15 @@ class IdeManager {
     const handler = this.handlers.get(ideName.toLowerCase());
 
     if (!handler) {
-      await prompts.log.warn(`IDE '${ideName}' is not yet supported`);
-      await prompts.log.message(`Supported IDEs: ${[...this.handlers.keys()].join(', ')}`);
+      await prompts.log.warn(`L'IDE '${ideName}' n'est pas encore pris en charge`);
+      await prompts.log.message(`IDE pris en charge : ${[...this.handlers.keys()].join(', ')}`);
       return { success: false, ide: ideName, error: 'unsupported IDE' };
     }
 
     // Block suspended platforms — clean up legacy files but don't install
     if (handler.platformConfig?.suspended) {
       if (!options.silent) {
-        await prompts.log.warn(`${handler.displayName || ideName}: ${handler.platformConfig.suspended}`);
+        await prompts.log.warn(`${handler.displayName || ideName} : ${handler.platformConfig.suspended}`);
       }
       // Still clean up legacy artifacts so old broken configs don't linger
       if (typeof handler.cleanup === 'function') {
@@ -172,7 +172,7 @@ class IdeManager {
       const success = handlerResult?.success !== false;
       return { success, ide: ideName, detail, error: handlerResult?.error, handlerResult };
     } catch (error) {
-      await prompts.log.error(`Failed to setup ${ideName}: ${error.message}`);
+      await prompts.log.error(`Échec de la configuration de ${ideName} : ${error.message}`);
       return { success: false, ide: ideName, error: error.message };
     }
   }
@@ -281,7 +281,7 @@ class IdeManager {
       const handler = this.handlers.get(ideName.toLowerCase());
 
       if (!handler) {
-        await prompts.log.warn(`IDE '${ideName}' is not yet supported for custom agent installation`);
+        await prompts.log.warn(`L'IDE '${ideName}' n'est pas encore pris en charge pour l'installation d'agents personnalisés`);
         continue;
       }
 
@@ -293,7 +293,7 @@ class IdeManager {
           }
         }
       } catch (error) {
-        await prompts.log.warn(`Failed to install ${ideName} launcher: ${error.message}`);
+        await prompts.log.warn(`Échec de l'installation du lanceur ${ideName} : ${error.message}`);
       }
     }
 
