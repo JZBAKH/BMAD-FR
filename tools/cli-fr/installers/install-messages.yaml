@@ -1,0 +1,20 @@
+# BMAD Installer Messages
+# These messages are displayed during installation
+# Edit this file to change what users see during the install process
+
+# Display at the START of installation (after logo, before prompts)
+startMessage: |
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  BMAD-fr - Bâtir Méthodiquement une Architecture Durable !
+  
+      🎉 Bienvenue sur le Fork FR de la méthode BMAD !
+
+    - Sélectionnez et installez des modules pendant la configuration - personnalisez votre expérience
+    - Documentation originale en anglais : https://docs.bmad-method.org
+    - Fork FR par Jason ZBAKH
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# No end message - install summary and next steps are rendered by the installer
+endMessage: ""

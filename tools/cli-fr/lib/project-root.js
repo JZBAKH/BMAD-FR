@@ -55,40 +55,17 @@ function getSourcePath(...segments) {
 
 /**
  * Get path to a module's directory
- *
- * Modules built-in (présents directement sous src/) :
- *   - LEGACY (pré-refactor mars 2026, encore référencé par l'ancien CLI tools/cli/) :
- *       'core'    → 'core-fr'
- *       'bmm'     → 'bmm-fr'
- *       'utility' → 'utility-fr'
- *   - NOUVEAU (post-refactor upstream) :
- *       'bmm-skills'  → 'bmm-skills-fr'
- *       'core-skills' → 'core-skills-fr'
- *       'scripts'     → 'scripts' (Python natif, pas de traduction)
- *
- * Tout chemin physique passe par cette fonction → garantit que le
- * contenu chargé/copié est en français quand une version FR existe.
- *
- * Tous les autres modules (modules tiers / community) sont cherchés
- * dans les répertoires frères ou dans node_modules.
+ * bmm is a built-in module directly under src/
+ * core is also directly under src/
+ * utility is also directly under src/ (provides agent-components shared by every module)
+ * All other modules are stored remote
  */
 function getModulePath(moduleName, ...segments) {
-  // Mapping explicite des modules built-in vers leur version FR.
-  // L'ordre n'a pas d'importance — chaque clé est un nom de module exact.
-  const FRENCH_MODULE_MAP = {
-    // Anciens noms (legacy CLI tools/cli/)
-    core: 'core-fr',
-    bmm: 'bmm-fr',
-    utility: 'utility-fr',
-    // Nouveaux noms (upstream actuel + nouveau CLI tools/installer/)
-    'bmm-skills': 'bmm-skills-fr',
-    'core-skills': 'core-skills-fr',
-    // scripts/ contient du Python natif, pas de traduction nécessaire
-    scripts: 'scripts',
-  };
-
-  if (Object.prototype.hasOwnProperty.call(FRENCH_MODULE_MAP, moduleName)) {
-    const frenchModule = FRENCH_MODULE_MAP[moduleName];
+  // MODIFICATION FR : Redirection vers les dossiers -fr pour les modules built-in
+  // (core, bmm, utility). Tout chemin physique passe par cette fonction → garantit
+  // que le contenu chargé/copié est en français.
+  if (moduleName === 'core' || moduleName === 'bmm' || moduleName === 'utility') {
+    const frenchModule = moduleName + '-fr';
     return path.join(getProjectRoot(), 'src', frenchModule, ...segments);
   }
 

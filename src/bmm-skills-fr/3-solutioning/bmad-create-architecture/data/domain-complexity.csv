@@ -1,0 +1,13 @@
+domain,signals,complexity_level,suggested_workflow,web_searches
+e_commerce,"boutique,panier,commande,paiement,produits,magasin",medium,standard,"modèles d'architecture e-commerce, traitement des paiements, gestion des stocks"
+fintech,"banque,paiement,trading,finance,argent,investissement",high,enhanced,"sécurité financière, conformité PCI, algorithmes de trading, détection de fraude"
+healthcare,"médical,diagnostic,clinique,patient,hôpital,santé",high,enhanced,"conformité HIPAA, sécurité des données médicales, réglementations FDA, health tech"
+social,"réseau social,communauté,utilisateurs,amis,publications,partage",high,advanced,"algorithmes de graphes sociaux, classement de flux, systèmes de notification, confidentialité"
+education,"apprentissage,cours,étudiant,enseignant,formation,académique",medium,standard,"architecture LMS, suivi des progrès, systèmes d'évaluation, streaming vidéo"
+productivity,"productivité,workflow,tâches,gestion,entreprise,outils",medium,standard,"modèles de collaboration, édition en temps réel, systèmes de notification, intégration"
+media,"contenu,média,vidéo,audio,streaming,diffusion",high,advanced,"architecture CDN, encodage vidéo, protocoles de streaming, diffusion de contenu"
+iot,"IoT,capteurs,appareils,embarqué,intelligent,connecté",high,advanced,"communication entre appareils, traitement des données en temps réel, edge computing, sécurité"
+government,"gouvernement,civique,public,admin,politique,réglementation",high,enhanced,"normes d'accessibilité, habilitation de sécurité, confidentialité des données, pistes d'audit"
+process_control,"automatisation industrielle,contrôle de processus,API,SCADA,DCS,HMI,technologie opérationnelle,système de contrôle,cyberphysique,MES,instrumentation,I&C,P&ID",high,advanced,"architecture de contrôle de processus industriel, conception de système SCADA, architecture de cybersécurité OT, systèmes de contrôle en temps réel"
+building_automation,"automatisation du bâtiment,BAS,BMS,CVC,bâtiment intelligent,alarme incendie,protection incendie,extinction d'incendie,sécurité des personnes,ascenseur,DDC,contrôle d'accès,séquence d'opérations,mise en service",high,advanced,"architecture d'automatisation du bâtiment, modèles d'intégration BACnet, conception de bâtiment intelligent, sécurité du système de gestion du bâtiment"
+gaming,"jeu,gaming,multijoueur,temps réel,interactif,divertissement",high,advanced,"multijoueur en temps réel, architecture de moteur de jeu, matchmaking, classements"

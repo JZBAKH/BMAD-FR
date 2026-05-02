@@ -1,0 +1,130 @@
+name: Sync EN sources from upstream
+
+# Synchronise les dossiers EN d'upstream vers la branche bmad-fr.
+#
+# Stratégie : whitelist EXPLICITE des chemins EN à synchroniser. Tout
+# ce qui n'est pas dans la whitelist (notamment les dossiers -fr et le
+# README.md FR) est intouchable car non listé.
+#
+# Quand upstream ajoute/modifie/supprime un fichier dans un de ces
+# chemins, ce workflow l'applique automatiquement sur bmad-fr. Le
+# `git checkout upstream/main -- <chemin>` reproduit fidèlement
+# l'état upstream pour ces chemins (ajouts, modifs, ET suppressions).
+#
+# Si des changements sont détectés, le workflow commit + push.
+# Le test-fr.yml se déclenchera ensuite via le push pour valider.
+#
+# La traduction des nouveaux contenus EN reste manuelle (par lots
+# avec sub-agents) — ce workflow ne fait que l'import EN.
+
+on:
+  schedule:
+    # Tous les jours à 06:00 UTC (1× par jour suffit pour un fork de traduction)
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout bmad-fr
+        uses: actions/checkout@v4
+        with:
+          ref: bmad-fr
+          fetch-depth: 0
+          token: ${{ secrets.PAT_WORKFLOW_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Add upstream remote and fetch
+        run: |
+          git remote add upstream https://github.com/bmad-code-org/BMAD-METHOD.git
+          git fetch upstream main --quiet
+
+      # Whitelist explicite. Ces chemins sont les seuls qui peuvent
+      # être modifiés par ce workflow. Tout le reste de bmad-fr (dossiers
+      # -fr, README.md, AGENTS-fr.md, GLOSSAIRE-fr.md, etc.) est
+      # intouchable car non listé ici.
+      #
+      # Les chemins qui n'existent plus upstream (ex: src/bmm/, tools/cli/)
+      # ne sont pas dans cette whitelist : ils ne seront jamais ressuscités
+      # par ce workflow.
+      - name: Sync whitelisted EN paths from upstream
+        id: sync
+        run: |
+          # Liste des chemins à synchroniser (uniquement le contenu EN)
+          PATHS=(
+            "src/bmm-skills"
+            "src/core-skills"
+            "src/scripts"
+            "tools/installer"
+            "tools/javascript-conventions.md"
+            "tools/validate-skills.js"
+            "tools/build-docs.mjs"
+            "tools/fix-doc-links.js"
+            "tools/format-workflow-md.js"
+            "tools/migrate-custom-module-paths.js"
+            "tools/skill-validator.md"
+            "tools/validate-svg-changes.sh"
+            "docs"
+            "website"
+            "test"
+            ".husky"
+            ".markdownlint-cli2.yaml"
+            ".npmrc"
+            ".nvmrc"
+            ".prettierignore"
+          )
+
+          # Récupérer chaque chemin depuis upstream
+          for path in "${PATHS[@]}"; do
+            if git cat-file -e upstream/main:"$path" 2>/dev/null; then
+              git checkout upstream/main -- "$path" 2>/dev/null || echo "  Skipped: $path (path not in upstream/main)"
+            else
+              echo "  Skipped: $path (not present in upstream/main)"
+            fi
+          done
+
+          # Détecter s'il y a des changements
+          if git diff --staged --quiet && git diff --quiet; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+            echo "✅ Nothing new from upstream"
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+            git diff --shortstat
+          fi
+
+      - name: Commit and push if changes
+        if: steps.sync.outputs.changes == 'true'
+        run: |
+          git config user.name "bmad-fr-sync[bot]"
+          git config user.email "bmad-fr-sync[bot]@users.noreply.github.com"
+          git add -A
+          DATE=$(date -u +%Y-%m-%d)
+          git commit -m "chore(sync): import upstream EN changes ($DATE)
+
+Auto-import via .github/workflows/sync-upstream-en.yml.
+
+Whitelist appliquée — seuls les chemins EN sont mis à jour.
+Les dossiers -fr (traductions) restent intacts.
+
+Co-Authored-By: bmad-fr-sync[bot] <noreply@github.com>"
+          git push origin bmad-fr
+
+      - name: Summary
+        if: always()
+        run: |
+          if [ "${{ steps.sync.outputs.changes }}" = "true" ]; then
+            echo "## ✅ Sync done — upstream changes imported" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Vérifie test-fr.yml qui s'est déclenché sur le push." >> $GITHUB_STEP_SUMMARY
+            echo "Les traductions FR de nouveaux fichiers restent à faire manuellement." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## ✅ Nothing new from upstream" >> $GITHUB_STEP_SUMMARY
+          fi
