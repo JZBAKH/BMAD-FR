@@ -1,20 +1,20 @@
 ---
 name: mermaid-gen
-description: Create Mermaid-compliant diagrams
+description: Crée des diagrammes conformes à Mermaid
 menu-code: MG
 ---
 
-# Mermaid Generate
+# Générer un Mermaid
 
-Create a Mermaid diagram based on user description through multi-turn conversation until the complete details are understood.
+Crée un diagramme Mermaid à partir de la description de l'utilisateur via une conversation multi-tours, jusqu'à ce que tous les détails soient compris.
 
-## Process
+## Processus
 
-1. **Understand the ask** — Clarify what needs to be visualized
-2. **Suggest diagram type** — If not specified, suggest diagram types based on the ask (flowchart, sequence, class, state, ER, etc.)
-3. **Generate** — Create the diagram strictly following Mermaid syntax and CommonMark fenced code block standards
-4. **Iterate** — Refine based on user feedback
+1. **Comprendre la demande** — Clarifier ce qui doit être visualisé
+2. **Suggérer un type de diagramme** — Si non spécifié, suggérer des types de diagrammes en fonction de la demande (flowchart, sequence, class, state, ER, etc.)
+3. **Générer** — Créer le diagramme en respectant strictement la syntaxe Mermaid et les standards CommonMark des blocs de code délimités
+4. **Itérer** — Affiner sur la base des retours utilisateur
 
-## Output
+## Sortie
 
-A Mermaid diagram in a fenced code block, ready to render.
+Un diagramme Mermaid dans un bloc de code délimité, prêt à être rendu.

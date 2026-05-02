@@ -1,177 +1,173 @@
-# Market Research Step 5: Competitive Analysis
+# Market Research Étape 5 : Analyse concurrentielle
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (LIRE EN PREMIER) :
 
-- 🛑 NEVER generate content without web search verification
+- 🛑 NE JAMAIS générer de contenu sans vérification par recherche web
 
-- 📖 CRITICAL: ALWAYS read the complete step file before taking any action - partial understanding leads to incomplete decisions
-- 🔄 CRITICAL: When loading next step with 'C', ensure the entire file is read and understood before proceeding
-- ✅ Search the web to verify and supplement your knowledge with current facts
-- 📋 YOU ARE A COMPETITIVE ANALYST, not content generator
-- 💬 FOCUS on competitive landscape and market positioning
-- 🔍 WEB SEARCH REQUIRED - verify current facts against live sources
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
+- 📖 CRITIQUE : TOUJOURS lire le fichier d'étape complet avant toute action — une compréhension partielle mène à des décisions incomplètes
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que le fichier entier est lu et compris avant de procéder
+- ✅ Faire des recherches web pour vérifier et compléter vos connaissances avec des faits actuels
+- 📋 VOUS ÊTES UN ANALYSTE CONCURRENTIEL, pas un générateur de contenu
+- 💬 SE CONCENTRER sur le paysage concurrentiel et le positionnement sur le marché
+- 🔍 RECHERCHE WEB REQUISE — vérifier les faits actuels par rapport à des sources en direct
+- ✅ VOUS DEVEZ TOUJOURS PARLER LA SORTIE dans le style de communication de votre Agent avec la configuration `{communication_language}`
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Show web search analysis before presenting findings
-- ⚠️ Present [C] complete option after competitive analysis content generation
-- 💾 ONLY save when user chooses C (Complete)
-- 📖 Update frontmatter `stepsCompleted: [1, 2, 3, 4, 5]` before completing workflow
-- 🚫 FORBIDDEN to complete workflow until C is selected
+- 🎯 Montrer l'analyse de recherche web avant de présenter les résultats
+- ⚠️ Présenter l'option [C] complete après la génération du contenu d'analyse concurrentielle
+- 💾 Sauvegarder UNIQUEMENT lorsque l'utilisateur choisit C (Complete)
+- 📖 Mettre à jour le frontmatter `stepsCompleted: [1, 2, 3, 4, 5]` avant de terminer le workflow
+- 🚫 INTERDIT de terminer le workflow tant que C n'est pas sélectionné
 
-## CONTEXT BOUNDARIES:
+## LIMITES DE CONTEXTE :
 
-- Current document and frontmatter from previous steps are available
-- Focus on competitive landscape and market positioning analysis
-- Web search capabilities with source verification are enabled
-- May need to search for specific competitor information
+- Le document courant et le frontmatter des étapes précédentes sont disponibles
+- Se concentrer sur l'analyse du paysage concurrentiel et du positionnement sur le marché
+- Les capacités de recherche web avec vérification des sources sont activées
+- Peut nécessiter des recherches sur des informations spécifiques aux concurrents
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Conduct comprehensive competitive analysis with emphasis on market positioning.
+Mener une analyse concurrentielle complète en mettant l'accent sur le positionnement sur le marché.
 
-## COMPETITIVE ANALYSIS SEQUENCE:
+## SÉQUENCE D'ANALYSE CONCURRENTIELLE :
 
-### 1. Begin Competitive Analysis
+### 1. Commencer l'analyse concurrentielle
 
-Start with competitive research approach:
-"Now I'll conduct **competitive analysis** to understand the competitive landscape.
+Commencer avec l'approche de recherche concurrentielle :
+"Maintenant, je vais mener une **analyse concurrentielle** pour comprendre le paysage concurrentiel.
 
-**Competitive Analysis Focus:**
+**Focus de l'analyse concurrentielle :**
 
-- Key players and market share
-- Competitive positioning strategies
-- Strengths and weaknesses analysis
-- Market differentiation opportunities
-- Competitive threats and challenges
+- Acteurs clés et parts de marché
+- Stratégies de positionnement concurrentiel
+- Analyse des forces et faiblesses
+- Opportunités de différenciation sur le marché
+- Menaces et défis concurrentiels
 
-**Let me search for current competitive information.**"
+**Permettez-moi de rechercher les informations concurrentielles actuelles.**"
 
-### 2. Generate Competitive Analysis Content
+### 2. Générer le contenu de l'analyse concurrentielle
 
-Prepare competitive analysis with web search citations:
+Préparer l'analyse concurrentielle avec citations de recherche web :
 
-#### Content Structure:
+#### Structure du contenu :
 
-When saving to document, append these Level 2 and Level 3 sections:
+Lors de la sauvegarde dans le document, ajouter ces sections de niveau 2 et niveau 3 :
 
 ```markdown
-## Competitive Landscape
+## Paysage concurrentiel
 
-### Key Market Players
+### Acteurs clés du marché
 
-[Key players analysis with market share data]
-_Source: [URL]_
+[Analyse des acteurs clés avec données de parts de marché]
+_Source : [URL]_
 
-### Market Share Analysis
+### Analyse des parts de marché
 
-[Market share analysis with source citations]
-_Source: [URL]_
+[Analyse des parts de marché avec citations des sources]
+_Source : [URL]_
 
-### Competitive Positioning
+### Positionnement concurrentiel
 
-[Positioning analysis with source citations]
-_Source: [URL]_
+[Analyse du positionnement avec citations des sources]
+_Source : [URL]_
 
-### Strengths and Weaknesses
+### Forces et faiblesses
 
-[SWOT analysis with source citations]
-_Source: [URL]_
+[Analyse SWOT avec citations des sources]
+_Source : [URL]_
 
-### Market Differentiation
+### Différenciation sur le marché
 
-[Differentiation analysis with source citations]
-_Source: [URL]_
+[Analyse de la différenciation avec citations des sources]
+_Source : [URL]_
 
-### Competitive Threats
+### Menaces concurrentielles
 
-[Threats analysis with source citations]
-_Source: [URL]_
+[Analyse des menaces avec citations des sources]
+_Source : [URL]_
 
-### Opportunities
+### Opportunités
 
-[Competitive opportunities analysis with source citations]
-_Source: [URL]_
+[Analyse des opportunités concurrentielles avec citations des sources]
+_Source : [URL]_
 ```
 
-### 3. Present Analysis and Complete Option
+### 3. Présenter l'analyse et l'option de complétion
 
-Show the generated competitive analysis and present complete option:
-"I've completed the **competitive analysis** for the competitive landscape.
+Montrer l'analyse concurrentielle générée et présenter l'option de complétion :
+"J'ai complété l'**analyse concurrentielle** pour le paysage concurrentiel.
 
-**Key Competitive Findings:**
+**Conclusions clés concurrentielles :**
 
-- Key market players and market share identified
-- Competitive positioning strategies mapped
-- Strengths and weaknesses thoroughly analyzed
-- Market differentiation opportunities identified
-- Competitive threats and challenges documented
+- Acteurs clés du marché et parts de marché identifiés
+- Stratégies de positionnement concurrentiel cartographiées
+- Forces et faiblesses analysées en profondeur
+- Opportunités de différenciation sur le marché identifiées
+- Menaces et défis concurrentiels documentés
 
-**Ready to complete the market research?**
-[C] Complete Research - Save final document and conclude
+**Prêt à compléter la recherche de marché ?**
+[C] Compléter la recherche — Sauvegarder l'analyse concurrentielle et procéder à la complétion de la recherche
 
-### 4. Handle Complete Selection
+**HALT — attendre la réponse de l'utilisateur avant de continuer.**
 
-#### If 'C' (Complete Research):
+### 4. Gérer la sélection Complete
 
-- Append the final content to the research document
-- Update frontmatter: `stepsCompleted: [1, 2, 3]`
-- Complete the market research workflow
+#### Si 'C' (Compléter la recherche) :
 
-## APPEND TO DOCUMENT:
+- Ajouter le contenu final au document de recherche
+- Mettre à jour le frontmatter : `stepsCompleted: [1, 2, 3, 4, 5]`
+- Charger : `./step-06-research-completion.md`
 
-When user selects 'C', append the content directly to the research document using the structure from step 2.
+## AJOUTER AU DOCUMENT :
 
-## SUCCESS METRICS:
+Lorsque l'utilisateur sélectionne 'C', ajouter le contenu directement au document de recherche en utilisant la structure de l'étape 2.
 
-✅ Key market players identified
-✅ Market share analysis completed with source verification
-✅ Competitive positioning strategies clearly mapped
-✅ Strengths and weaknesses thoroughly analyzed
-✅ Market differentiation opportunities identified
-✅ [C] complete option presented and handled correctly
-✅ Content properly appended to document when C selected
-✅ Market research workflow completed successfully
+## MÉTRIQUES DE SUCCÈS :
 
-## FAILURE MODES:
+✅ Acteurs clés du marché identifiés
+✅ Analyse des parts de marché complétée avec vérification des sources
+✅ Stratégies de positionnement concurrentiel clairement cartographiées
+✅ Forces et faiblesses analysées en profondeur
+✅ Opportunités de différenciation sur le marché identifiées
+✅ Option [C] complete présentée et gérée correctement
+✅ Contenu correctement ajouté au document lorsque C est sélectionné
+✅ Workflow de recherche de marché complété avec succès
 
-❌ Relying solely on training data without web verification for current facts
+## MODES D'ÉCHEC :
 
-❌ Missing key market players or market share data
-❌ Incomplete competitive positioning analysis
-❌ Not identifying market differentiation opportunities
-❌ Not presenting completion option for research workflow
-❌ Appending content without user selecting 'C'
+❌ Se reposer uniquement sur les données d'entraînement sans vérification web pour les faits actuels
 
-❌ **CRITICAL**: Reading only partial step file - leads to incomplete understanding and poor decisions
-❌ **CRITICAL**: Proceeding with 'C' without fully reading and understanding the next step file
-❌ **CRITICAL**: Making decisions without complete understanding of step requirements and protocols
+❌ Acteurs clés du marché ou données de parts de marché manquantes
+❌ Analyse de positionnement concurrentiel incomplète
+❌ Ne pas identifier les opportunités de différenciation sur le marché
+❌ Ne pas présenter l'option de complétion pour le workflow de recherche
+❌ Ajouter du contenu sans que l'utilisateur ait sélectionné 'C'
 
-## COMPETITIVE RESEARCH PROTOCOLS:
+❌ **CRITIQUE** : Lire seulement partiellement le fichier d'étape — mène à une compréhension incomplète et de mauvaises décisions
+❌ **CRITIQUE** : Procéder avec 'C' sans lire et comprendre entièrement le fichier d'étape suivant
+❌ **CRITIQUE** : Prendre des décisions sans compréhension complète des exigences et protocoles de l'étape
 
-- Search for industry reports and competitive intelligence
-- Use competitor company websites and annual reports
-- Research market research firm competitive analyses
-- Note competitive advantages and disadvantages
-- Search for recent market developments and disruptions
+## PROTOCOLES DE RECHERCHE CONCURRENTIELLE :
 
-## MARKET RESEARCH COMPLETION:
+- Rechercher des rapports d'industrie et de l'intelligence concurrentielle
+- Utiliser les sites web et rapports annuels des entreprises concurrentes
+- Rechercher les analyses concurrentielles des sociétés d'études de marché
+- Noter les avantages et désavantages concurrentiels
+- Rechercher les développements récents du marché et les disruptions
 
-When 'C' is selected:
+## COMPLÉTION DE LA RECHERCHE DE MARCHÉ :
 
-- All market research steps completed
-- Comprehensive market research document generated
-- All sections appended with source citations
-- Market research workflow status updated
-- Final recommendations provided to user
+Lorsque 'C' est sélectionné :
 
-## NEXT STEPS:
+- Toutes les étapes de recherche de marché complétées
+- Document de recherche de marché complet généré
+- Toutes les sections ajoutées avec citations des sources
+- Statut du workflow de recherche de marché mis à jour
+- Recommandations finales fournies à l'utilisateur
 
-Market research workflow complete. User may:
+## ÉTAPE SUIVANTE :
 
-- Use market research to inform product development strategies
-- Conduct additional competitive research on specific companies
-- Combine market research with other research types for comprehensive insights
-
-Congratulations on completing comprehensive market research! 🎉
+Après que l'utilisateur sélectionne 'C', charger `./step-06-research-completion.md` pour produire le document final complet de recherche de marché avec synthèse stratégique, résumé exécutif et structure complète du document.

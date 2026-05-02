@@ -133,8 +133,8 @@ class IdeManager {
     const handler = this.handlers.get(ideName.toLowerCase());
 
     if (!handler) {
-      await prompts.log.warn(`IDE '${ideName}' is not yet supported`);
-      await prompts.log.message(`Supported IDEs: ${[...this.handlers.keys()].join(', ')}`);
+      await prompts.log.warn(`L'IDE '${ideName}' n'est pas encore pris en charge`);
+      await prompts.log.message(`IDE pris en charge : ${[...this.handlers.keys()].join(', ')}`);
       return { success: false, ide: ideName, error: 'unsupported IDE' };
     }
 
@@ -168,16 +168,16 @@ class IdeManager {
         }
         const targetDir = handler.installerConfig?.target_dir || null;
         if (count > 0 && targetDir) {
-          detail = `${count} skills → ${targetDir}`;
+          detail = `${count} Skills → ${targetDir}`;
         } else if (count > 0) {
-          detail = `${count} skills`;
+          detail = `${count} Skills`;
         }
       }
       // Propagate handler's success status (default true for backward compat)
       const success = handlerResult?.success !== false;
       return { success, ide: ideName, detail, error: handlerResult?.error, handlerResult };
     } catch (error) {
-      await prompts.log.error(`Failed to setup ${ideName}: ${error.message}`);
+      await prompts.log.error(`Échec de la configuration de ${ideName} : ${error.message}`);
       return { success: false, ide: ideName, error: error.message };
     }
   }

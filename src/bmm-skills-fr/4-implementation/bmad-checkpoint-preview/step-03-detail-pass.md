@@ -1,56 +1,56 @@
-# Step 3: Detail Pass
+# Étape 3 : Detail Pass
 
-Display: `Orientation → Walkthrough → [Detail Pass] → Testing`
+Affichez : `Orientation → Walkthrough → [Detail Pass] → Testing`
 
-## Follow Global Step Rules in SKILL.md
+## Suivez les Règles globales d'étape dans SKILL.md
 
-- The detail pass surfaces what the human should **think about**, not what the code got wrong. Machine hardening already handled correctness. This activates risk awareness.
-- The LLM detects risk category by pattern. The human judges significance. Do not assign severity scores or numeric rankings — ordering by blast radius (below) is sequencing for readability, not a severity judgment.
-- If no high-risk spots exist, say so explicitly. Do not invent findings.
+- Le detail pass fait émerger ce sur quoi l'humain doit **réfléchir**, pas ce que le code a mal fait. Le durcissement machine s'est déjà occupé de la correction. Cela active la conscience du risque.
+- Le LLM détecte les catégories de risque par motif. L'humain juge la portée. N'attribuez pas de scores de sévérité ni de classements numériques — l'ordonnancement par rayon d'impact (ci-dessous) est une mise en séquence pour la lisibilité, pas un jugement de sévérité.
+- S'il n'existe aucun spot à haut risque, dites-le explicitement. N'inventez pas de constatations.
 
-## IDENTIFY RISK SPOTS
+## IDENTIFIER LES SPOTS DE RISQUE
 
-Scan the diff for changes touching risk-sensitive patterns. Look for 2–5 spots where a mistake would have the highest blast radius — not the most complex code, but the code where being wrong costs the most.
+Scannez le diff pour les changements touchant des motifs sensibles au risque. Cherchez 2 à 5 spots où une erreur aurait le plus grand rayon d'impact — pas le code le plus complexe, mais le code où se tromper coûte le plus.
 
-Risk categories to detect:
+Catégories de risque à détecter :
 
-- `[auth]` — authentication, authorization, session, token, permission, access control
-- `[public API]` — new/changed endpoints, exports, public methods, interface contracts
-- `[schema]` — database migrations, schema changes, data model modifications, serialization
-- `[billing]` — payment, pricing, subscription, metering, usage tracking
-- `[infra]` — deployment, CI/CD, environment variables, config files, infrastructure
-- `[security]` — input validation, sanitization, crypto, secrets, CORS, CSP
-- `[config]` — feature flags, environment-dependent behavior, defaults
-- `[other]` — anything risk-sensitive that doesn't fit the above (e.g., concurrency, data privacy, backwards compatibility). Use a descriptive tag.
+- `[auth]` — authentification, autorisation, session, token, permission, contrôle d'accès
+- `[public API]` — endpoints nouveaux/modifiés, exports, méthodes publiques, contrats d'interface
+- `[schema]` — migrations de base de données, changements de schéma, modifications de modèle de données, sérialisation
+- `[billing]` — paiement, tarification, abonnement, comptage, suivi d'utilisation
+- `[infra]` — déploiement, CI/CD, variables d'environnement, fichiers de configuration, infrastructure
+- `[security]` — validation d'entrée, sanitization, crypto, secrets, CORS, CSP
+- `[config]` — feature flags, comportement dépendant de l'environnement, valeurs par défaut
+- `[other]` — tout ce qui est sensible au risque et ne rentre pas dans les catégories ci-dessus (par exemple, concurrence, confidentialité des données, rétrocompatibilité). Utilisez un tag descriptif.
 
-Sequence spots so the highest blast radius comes first (how much breaks if this is wrong), not by diff order or file order. If more than 5 spots qualify, show the top 5 and note: "N additional spots omitted — ask if you want the full list."
+Séquencez les spots pour que le plus grand rayon d'impact vienne en premier (combien casse si c'est faux), pas par ordre du diff ni par ordre de fichier. Si plus de 5 spots se qualifient, montrez le top 5 et notez : "N additional spots omitted — ask if you want the full list."
 
-If the change has no spots matching these patterns, state: "No high-risk spots found in this change — the diff speaks for itself." Do not force findings.
+Si le changement n'a aucun spot correspondant à ces motifs, indiquez : "No high-risk spots found in this change — the diff speaks for itself." Ne forcez pas de constatations.
 
-## SURFACE MACHINE HARDENING FINDINGS
+## FAIRE ÉMERGER LES CONSTATATIONS DU DURCISSEMENT MACHINE
 
-Check whether the spec has a `## Spec Change Log` section with entries (populated by adversarial review loops).
+Vérifiez si la spec a une section `## Spec Change Log` avec des entrées (alimentée par les boucles de revue contradictoire).
 
-- **If entries exist:** Read them. Surface findings that are instructive for the human reviewer — not bugs that were already fixed, but decisions the review loop flagged that the human should be aware of. Format: brief summary of what was flagged and what was decided.
-- **If no entries or no spec:** Skip this section entirely. Do not mention it.
+- **Si des entrées existent :** Lisez-les. Faites émerger les constatations qui sont instructives pour le relecteur humain — pas des bugs déjà corrigés, mais des décisions que la boucle de revue a signalées et dont l'humain devrait être conscient. Format : résumé bref de ce qui a été signalé et ce qui a été décidé.
+- **Si pas d'entrées ou pas de spec :** Sautez cette section entièrement. Ne la mentionnez pas.
 
-## PRESENT
+## PRÉSENTER
 
-Output as a single message:
+Sortez en un seul message :
 
 ```
 Orientation → Walkthrough → [Detail Pass] → Testing
 ```
 
-### Risk Spots
+### Spots de Risque
 
-For each spot, one line:
+Pour chaque spot, une ligne :
 
 ```
 - `path:line` — [tag] reason-phrase
 ```
 
-Example:
+Exemple :
 
 ```
 - `src/auth/middleware.ts:42` — [auth] New token validation bypasses rate limiter
@@ -58,7 +58,7 @@ Example:
 - `api/routes/billing.ts:118` — [billing] Metering calculation changed, verify idempotency
 ```
 
-### Machine Hardening (only if findings exist)
+### Durcissement Machine (uniquement si des constatations existent)
 
 ```
 ### Machine Hardening
@@ -67,9 +67,9 @@ Example:
 - ...
 ```
 
-### Closing menu
+### Menu de clôture
 
-End the message with:
+Terminez le message par :
 
 ```
 ---
@@ -79,28 +79,28 @@ You've seen the design and the risk landscape. From here:
 - **"next"** — I'll suggest how to observe the behavior
 ```
 
-## EARLY EXIT
+## SORTIE ANTICIPÉE
 
-If at any point the human signals they want to make a decision about this {change_type} (e.g., "let's ship it", "this needs a rethink", "I'm done reviewing", or anything suggesting they're ready to decide), confirm their intent:
+Si à un moment donné l'humain signale qu'il veut prendre une décision sur ce {change_type} (par exemple, « let's ship it », « this needs a rethink », « I'm done reviewing », ou tout ce qui suggère qu'il est prêt à décider), confirmez son intention :
 
-- If they want to **approve and ship** → read fully and follow `./step-05-wrapup.md`
-- If they want to **reject and rework** → read fully and follow `./step-05-wrapup.md`
-- If you misread them → acknowledge and continue the current step.
+- S'il veut **approuver et livrer** → lisez intégralement et suivez `./step-05-wrapup.md`
+- S'il veut **rejeter et retravailler** → lisez intégralement et suivez `./step-05-wrapup.md`
+- Si vous l'avez mal interprété → reconnaissez-le et continuez l'étape courante.
 
-## TARGETED RE-REVIEW
+## RE-REVUE CIBLÉE
 
-When the human says "dig into [area]" (e.g., "dig into the auth changes", "dig into the schema migration"):
+Quand l'humain dit « dig into [area] » (par exemple, « dig into the auth changes », « dig into the schema migration ») :
 
-1. If the specified area does not map to any code in the diff, say so: "I don't see [area] in this change — did you mean something else?" Return to the closing menu.
-2. Identify all code locations in the diff relevant to the specified area.
-3. Read each location in full context (not just the diff hunk — read surrounding code).
-4. Shift to **correctness mode**: trace edge cases, check boundary conditions, verify error handling, look for off-by-one errors, race conditions, resource leaks.
-5. Present findings as a compact list — each finding is `path:line` + what you found + why it matters.
-6. If nothing concerning is found, say so: "Looked closely at [area] — nothing concerning. The implementation is solid."
-7. After presenting, show only the closing menu (not the full risk spots list again).
+1. Si la zone spécifiée ne correspond à aucun code dans le diff, dites-le : "I don't see [area] in this change — did you mean something else?" Retournez au menu de clôture.
+2. Identifiez tous les emplacements de code dans le diff pertinents pour la zone spécifiée.
+3. Lisez chaque emplacement dans son contexte complet (pas seulement le hunk du diff — lisez le code environnant).
+4. Basculez en **mode correction** : tracez les cas limites, vérifiez les conditions aux frontières, vérifiez la gestion d'erreurs, cherchez les erreurs off-by-one, les conditions de course, les fuites de ressources.
+5. Présentez les constatations comme une liste compacte — chaque constatation est `path:line` + ce que vous avez trouvé + pourquoi c'est important.
+6. Si rien d'inquiétant n'est trouvé, dites-le : "Looked closely at [area] — nothing concerning. The implementation is solid."
+7. Après présentation, n'affichez que le menu de clôture (pas à nouveau la liste complète des spots de risque).
 
-The human can trigger multiple targeted re-reviews. Each time, present new findings and the closing menu only.
+L'humain peut déclencher plusieurs re-revues ciblées. À chaque fois, présentez les nouvelles constatations et seulement le menu de clôture.
 
-## NEXT
+## SUITE
 
-Read fully and follow `./step-04-testing.md`
+Lisez intégralement et suivez `./step-04-testing.md`

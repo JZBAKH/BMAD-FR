@@ -2,70 +2,70 @@
 deferred_work_file: '{implementation_artifacts}/deferred-work.md'
 ---
 
-# Step One-Shot: Implement, Review, Present
+# Étape Oneshot : Implémenter, Revoir, Présenter
 
-## RULES
+## RÈGLES
 
-- YOU MUST ALWAYS SPEAK OUTPUT in your Agent communication style with the config `{communication_language}`
-- NEVER auto-push.
+- VOUS DEVEZ TOUJOURS RÉPONDRE EN SORTIE dans le style de communication de votre Agent avec la config `{communication_language}`
+- Ne JAMAIS pousser automatiquement.
 
 ## INSTRUCTIONS
 
-### Implement
+### Implémenter
 
-Follow `./sync-sprint-status.md` with `{target_status}` = `in-progress`.
+Suivez `./sync-sprint-status.md` avec `{target_status}` = `in-progress`.
 
-Implement the clarified intent directly.
+Implémentez directement l'intention clarifiée.
 
-### Review
+### Revoir
 
-Invoke the `bmad-review-adversarial-general` skill in a subagent with the changed files. The subagent gets NO conversation context — to avoid anchoring bias. Launch at the same model capability as the current session. If no sub-agents are available, write the changed files to a review prompt file in `{implementation_artifacts}` and HALT. Ask the human to run the review in a separate session and paste back the findings.
+Invoquez le skill `bmad-review-adversarial-general` dans un subagent avec les fichiers modifiés. Le subagent ne reçoit AUCUN contexte conversationnel — afin d'éviter le biais d'ancrage. Lancez-le à la même capacité de modèle que la session courante. Si aucun sub-agent n'est disponible, écrivez les fichiers modifiés dans un fichier de prompt de revue dans `{implementation_artifacts}` et HALT. Demandez à l'humain d'exécuter la revue dans une session séparée et de coller en retour les constats.
 
-### Classify
+### Classifier
 
-Deduplicate all review findings. Three categories only:
+Dédupliquez tous les constats de revue. Trois catégories uniquement :
 
-- **patch** — trivially fixable. Auto-fix immediately.
-- **defer** — pre-existing issue not caused by this change. Append to `{deferred_work_file}`.
-- **reject** — noise. Drop silently.
+- **patch** — corrigible trivialement. Auto-correction immédiate.
+- **defer** — problème préexistant non causé par ce changement. À ajouter à `{deferred_work_file}`.
+- **reject** — bruit. À écarter silencieusement.
 
-If a finding is caused by this change but too significant for a trivial patch, HALT and present it to the human for decision before proceeding.
+Si un constat est causé par ce changement mais trop significatif pour un patch trivial, HALT et présentez-le à l'humain pour décision avant de poursuivre.
 
-### Generate Spec Trace
+### Générer la trace de spec
 
-Set `{title}` = a concise title derived from the clarified intent.
+Définissez `{title}` = un titre concis dérivé de l'intention clarifiée.
 
-Write `{spec_file}` using `./spec-template.md`. Fill only these sections — delete all others:
+Écrivez `{spec_file}` en utilisant `./spec-template.md`. Remplissez uniquement ces sections — supprimez toutes les autres :
 
-1. **Frontmatter** — set `title: '{title}'`, `type`, `created`, `status: 'done'`. Add `route: 'one-shot'`.
-2. **Title and Intent** — `# {title}` heading and `## Intent` with **Problem** and **Approach** lines. Reuse the summary you already generated for the terminal.
-3. **Suggested Review Order** — append after Intent. Build using the same convention as `./step-05-present.md` § "Generate Suggested Review Order" (spec-file-relative links, concern-based ordering, ultra-concise framing).
+1. **Frontmatter** — définissez `title: '{title}'`, `type`, `created`, `status: 'done'`. Ajoutez `route: 'one-shot'`.
+2. **Title and Intent** — titre `# {title}` et `## Intent` avec lignes **Problem** et **Approach**. Réutilisez le résumé que vous avez déjà généré pour le terminal.
+3. **Suggested Review Order** — à ajouter après Intent. Construisez en utilisant la même convention que `./step-05-present.md` § « Generate Suggested Review Order » (liens relatifs au fichier de spec, ordre par préoccupation, formulation ultra-concise).
 
-Follow `./sync-sprint-status.md` with `{target_status}` = `review`.
+Suivez `./sync-sprint-status.md` avec `{target_status}` = `review`.
 
 ### Commit
 
-If version control is available and the tree is dirty, create a local commit with a conventional message derived from the intent. If VCS is unavailable, skip.
+Si le contrôle de version est disponible et que l'arbre est sale, créez un commit local avec un message conventionnel dérivé de l'intention. Si le VCS est indisponible, sautez.
 
-### Present
+### Présenter
 
-1. Open the spec in the user's editor so they can click through the Suggested Review Order:
-   - Resolve two absolute paths: (1) the repository root (`git rev-parse --show-toplevel` — returns the worktree root when in a worktree, project root otherwise; if this fails, fall back to the current working directory), (2) `{spec_file}`. Run `code -r "{absolute-root}" "{absolute-spec-file}"` — the root first so VS Code opens in the right context, then the spec file. Always double-quote paths to handle spaces and special characters.
-   - If `code` is not available (command fails), skip gracefully and tell the user the spec file path instead.
-2. Display a summary in conversation output, including:
-   - The commit hash (if one was created).
-   - List of files changed with one-line descriptions. Any file paths shown in conversation/terminal output must use CWD-relative format (no leading `/`) with `:line` notation (e.g., `src/path/file.ts:42`) for terminal clickability — this differs from spec-file links which use spec-file-relative paths.
-   - Review findings breakdown: patches applied, items deferred, items rejected. If all findings were rejected, say so.
-   - A note that the spec is open in their editor (or the file path if it couldn't be opened). Mention that `{spec_file}` now contains a Suggested Review Order.
-   - **Navigation tip:** "Ctrl+click (Cmd+click on macOS) the links in the Suggested Review Order to jump to each stop."
-3. Offer to push and/or create a pull request.
+1. Ouvrez la spec dans l'éditeur de l'utilisateur pour qu'il puisse cliquer à travers le Suggested Review Order :
+   - Résolvez deux chemins absolus : (1) la racine du dépôt (`git rev-parse --show-toplevel` — retourne la racine du worktree quand on est dans un worktree, sinon la racine du projet ; en cas d'échec, repliez-vous sur le répertoire de travail courant), (2) `{spec_file}`. Exécutez `code -r "{absolute-root}" "{absolute-spec-file}"` — la racine d'abord pour que VS Code s'ouvre dans le bon contexte, puis le fichier de spec. Mettez toujours les chemins entre guillemets doubles pour gérer les espaces et caractères spéciaux.
+   - Si `code` n'est pas disponible (la commande échoue), sautez gracieusement et indiquez à l'utilisateur le chemin du fichier de spec à la place.
+2. Affichez un résumé en sortie de conversation, comprenant :
+   - Le hash du commit (s'il en a été créé un).
+   - Liste des fichiers changés avec descriptions d'une ligne. Tout chemin de fichier affiché en sortie de conversation/terminal doit utiliser le format relatif au CWD (sans `/` initial) avec la notation `:line` (par exemple, `src/path/file.ts:42`) pour la cliquabilité dans le terminal — cela diffère des liens du fichier de spec qui utilisent des chemins relatifs au fichier de spec.
+   - Décomposition des constats de revue : patchs appliqués, items reportés, items rejetés. Si tous les constats ont été rejetés, dites-le.
+   - Une note indiquant que la spec est ouverte dans leur éditeur (ou le chemin du fichier s'il n'a pas pu être ouvert). Mentionnez que `{spec_file}` contient désormais un Suggested Review Order.
+   - **Astuce de navigation :** « Ctrl+clic (Cmd+clic sur macOS) sur les liens du Suggested Review Order pour sauter à chaque étape. »
+3. Proposez de pousser et/ou de créer une pull request.
 
-HALT and wait for human input.
+HALT et attendez l'entrée humaine.
 
-Workflow complete.
+Workflow terminé.
 
 ## On Complete
 
 Run: `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete`
 
-If the resolved `workflow.on_complete` is non-empty, follow it as the final terminal instruction before exiting.
+Si le `workflow.on_complete` résolu est non vide, suivez-le comme instruction terminale finale avant la sortie.

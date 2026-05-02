@@ -33,9 +33,9 @@ const REPO_ROOT = path.resolve(__dirname, '..', '..');
 // Fichiers obligatoirement en français (vitrine du fork)
 const REQUIRED_FR_FILES = [
   'README.md',
-  'GLOSSAIRE.md',
-  'AGENTS.md',
-  'AUDIT-FINAL.md',
+  'GLOSSAIRE-fr.md',
+  'AGENTS-fr.md',
+  'AUDIT-FINAL-fr.md',
 ];
 
 // Fichiers documentés comme volontairement en anglais (info, audit

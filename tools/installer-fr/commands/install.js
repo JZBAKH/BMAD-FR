@@ -8,43 +8,43 @@ const ui = new UI();
 
 module.exports = {
   command: 'install',
-  description: 'Install BMAD Core agents and tools',
+  description: 'Installer les agents et outils BMAD Core',
   options: [
-    ['-d, --debug', 'Enable debug output for manifest generation'],
-    ['--directory <path>', 'Installation directory (default: current directory)'],
-    ['--modules <modules>', 'Comma-separated list of module IDs to install (e.g., "bmm,bmb")'],
+    ['-d, --debug', 'Activer la sortie de débogage pour la génération du manifeste'],
+    ['--directory <path>', 'Répertoire d\'installation (par défaut : répertoire courant)'],
+    ['--modules <modules>', 'Liste d\'IDs de modules à installer, séparés par des virgules (ex. : "bmm,bmb")'],
     [
       '--tools <tools>',
-      'Comma-separated list of tool/IDE IDs to configure (e.g., "claude-code,cursor"). Required for fresh non-interactive (--yes) installs. Run with --list-tools to see all valid IDs.',
+      'Liste d\'IDs d\'outils/IDE à configurer, séparés par des virgules (ex. : "claude-code,cursor"). Obligatoire pour une nouvelle installation non interactive (--yes). Exécutez avec --list-tools pour voir tous les IDs valides.',
     ],
-    ['--list-tools', 'Print all supported tool/IDE IDs (with target directories) and exit.'],
+    ['--list-tools', 'Afficher tous les IDs d\'outils/IDE pris en charge (avec leurs répertoires cibles) puis quitter.'],
     [
       '--set <spec>',
-      'Set a module config option non-interactively. Spec format: <module>.<key>=<value> (e.g. bmm.project_knowledge=research). Repeatable. Run --list-options to see available keys.',
+      'Définir une option de configuration de module de manière non interactive. Format de la spec : <module>.<key>=<value> (ex. : bmm.project_knowledge=research). Répétable. Exécutez --list-options pour voir les clés disponibles.',
       (value, prev) => [...(prev || []), value],
       [],
     ],
     [
       '--list-options [module]',
-      'List available --set keys for all locally-known official modules, or for a single module by code, then exit.',
+      'Lister les clés --set disponibles pour tous les modules officiels connus localement, ou pour un seul module par code, puis quitter.',
     ],
-    ['--action <type>', 'Action type for existing installations: install, update, or quick-update'],
-    ['--user-name <name>', 'Name for agents to use (default: system username)'],
-    ['--communication-language <lang>', 'Language for agent communication (default: English)'],
-    ['--document-output-language <lang>', 'Language for document output (default: English)'],
-    ['--output-folder <path>', 'Output folder path relative to project root (default: _bmad-output)'],
-    ['--custom-source <sources>', 'Comma-separated Git URLs or local paths to install custom modules from'],
-    ['-y, --yes', 'Accept all defaults and skip prompts where possible'],
+    ['--action <type>', 'Type d\'action pour les installations existantes : install, update, ou quick-update'],
+    ['--user-name <name>', 'Nom à utiliser pour les agents (par défaut : nom d\'utilisateur système)'],
+    ['--communication-language <lang>', 'Langue pour la communication des agents (par défaut : English)'],
+    ['--document-output-language <lang>', 'Langue pour la sortie des documents (par défaut : English)'],
+    ['--output-folder <path>', 'Chemin du dossier de sortie relatif à la racine du projet (par défaut : _bmad-output)'],
+    ['--custom-source <sources>', 'URLs Git ou chemins locaux séparés par des virgules pour installer des modules personnalisés'],
+    ['-y, --yes', 'Accepter toutes les valeurs par défaut et ignorer les invites lorsque c\'est possible'],
     [
       '--channel <channel>',
-      'Apply channel (stable|next) to all external modules being installed. --all-stable and --all-next are aliases.',
+      'Appliquer le canal (stable|next) à tous les modules externes en cours d\'installation. --all-stable et --all-next sont des alias.',
     ],
-    ['--all-stable', 'Alias for --channel=stable. Resolves externals to the highest stable release tag.'],
-    ['--all-next', 'Alias for --channel=next. Resolves externals to main HEAD.'],
-    ['--next <code>', 'Install module <code> from main HEAD (next channel). Repeatable.', (value, prev) => [...(prev || []), value], []],
+    ['--all-stable', 'Alias pour --channel=stable. Résout les externes vers le tag de release stable le plus élevé.'],
+    ['--all-next', 'Alias pour --channel=next. Résout les externes vers le HEAD de main.'],
+    ['--next <code>', 'Installer le module <code> depuis le HEAD de main (canal next). Répétable.', (value, prev) => [...(prev || []), value], []],
     [
       '--pin <spec>',
-      'Pin module to a specific tag: --pin CODE=TAG (e.g. --pin bmb=v1.7.0). Repeatable.',
+      'Épingler un module sur un tag spécifique : --pin CODE=TAG (ex. : --pin bmb=v1.7.0). Répétable.',
       (value, prev) => [...(prev || []), value],
       [],
     ],
@@ -78,7 +78,7 @@ module.exports = {
       // Set debug flag as environment variable for all components
       if (options.debug) {
         process.env.BMAD_DEBUG_MANIFEST = 'true';
-        await prompts.log.info('Debug mode enabled');
+        await prompts.log.info('Mode débogage activé');
       }
 
       // Validate --set syntax up-front so malformed entries fail fast,
@@ -98,7 +98,7 @@ module.exports = {
 
       // Handle cancel
       if (config.actionType === 'cancel') {
-        await prompts.log.warn('Installation cancelled.');
+        await prompts.log.warn('Installation annulée.');
         process.exit(0);
       }
 
@@ -110,8 +110,8 @@ module.exports = {
         const { parseSetEntries } = require('../set-overrides');
         config.setOverrides = parseSetEntries(options.set || []);
         const result = await installer.quickUpdate(config);
-        await prompts.log.success('Quick update complete!');
-        await prompts.log.info(`Updated ${result.moduleCount} modules with preserved settings (${result.modules.join(', ')})`);
+        await prompts.log.success('Mise à jour rapide terminée !');
+        await prompts.log.info(`${result.moduleCount} modules mis à jour avec les paramètres préservés (${result.modules.join(', ')})`);
         process.exit(0);
       }
 
@@ -132,7 +132,7 @@ module.exports = {
         if (error.fullMessage) {
           await prompts.log.error(error.fullMessage);
         } else {
-          await prompts.log.error(`Installation failed: ${error.message}`);
+          await prompts.log.error(`Échec de l'installation : ${error.message}`);
         }
         if (error.stack && !error.expected) {
           await prompts.log.message(error.stack);

@@ -116,15 +116,15 @@ async function warnPreNativeSkillsLegacy({ projectRoot, existingVersion } = {}) 
 
   if (versionTriggered) {
     await prompts.log.warn(
-      `Detected previous BMAD install v${existingVersion} (pre-${MIN_NATIVE_SKILLS_VERSION}). ` +
-        `BMAD switched to native skills format in v${MIN_NATIVE_SKILLS_VERSION}; old command/workflow directories from your prior install may still be present.`,
+      `Installation BMAD précédente détectée v${existingVersion} (antérieure à ${MIN_NATIVE_SKILLS_VERSION}). ` +
+        `BMAD est passé au format de Skills natifs en v${MIN_NATIVE_SKILLS_VERSION} ; les anciens répertoires de commandes/workflows de votre installation précédente peuvent encore être présents.`,
     );
   }
 
   if (staleDirs.length > 0) {
     await prompts.log.warn(
-      `Found stale BMAD entries in ${staleDirs.length} legacy location(s) that the new installer no longer manages. ` +
-        `Your AI tool may load these alongside the new skills, causing duplicates. Remove them manually:`,
+      `${staleDirs.length} emplacement(s) obsolète(s) contenant des entrées BMAD que le nouvel installateur ne gère plus. ` +
+        `Votre outil IA peut les charger en parallèle des nouveaux Skills, provoquant des doublons. Supprimez-les manuellement :`,
     );
     for (const finding of staleDirs) {
       // Print each entry by exact name. A `bmad*` glob would (a) miss
@@ -137,7 +137,7 @@ async function warnPreNativeSkillsLegacy({ projectRoot, existingVersion } = {}) 
     }
   } else if (versionTriggered) {
     await prompts.log.message(
-      '  No stale legacy directories detected, but if your AI tool shows duplicate BMAD commands after install, check for old `bmad-*` entries in tool-specific dirs (e.g. .claude/commands, .cursor/commands).',
+      '  Aucun répertoire obsolète détecté, mais si votre outil IA affiche des commandes BMAD en double après l\'installation, vérifiez la présence d\'anciennes entrées `bmad-*` dans les répertoires spécifiques aux outils (ex. .claude/commands, .cursor/commands).',
     );
   }
 }

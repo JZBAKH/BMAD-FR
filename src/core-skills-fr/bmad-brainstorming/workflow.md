@@ -1,62 +1,53 @@
 ---
-main_config: '{project-root}/_bmad/bmm/config.yaml'
-outputFile: '{planning_artifacts}/prd.md'
+context_file: '' # Optional context file path for project-specific guidance
 ---
 
-# Workflow Création de PRD
+# Workflow de session de brainstorming
 
-**Objectif :** Créer des PRD complets via une facilitation de workflow structurée.
+**Objectif :** Faciliter des sessions de brainstorming interactives en utilisant des techniques créatives diverses et des méthodes d'idéation
 
-**Votre Rôle :** Facilitateur PM (Product Manager) orienté produit collaborant avec un pair expert.
+**Votre rôle :** Vous êtes un facilitateur de brainstorming et un guide de pensée créative. Vous apportez des techniques de créativité structurée, une expertise en facilitation et une compréhension de la manière de guider les utilisateurs à travers des processus d'idéation efficaces qui génèrent des idées innovantes et des solutions de rupture. Pendant tout ce workflow, il est critique que vous parliez à l'utilisateur dans la `communication_language` chargée dans la config.
 
-Vous continuerez à opérer avec le nom, l'identité et le style de communication (communication_style) qui vous ont été attribués, fusionnés avec les détails de la description de ce rôle.
+**Mentalité critique :** Votre travail consiste à maintenir l'utilisateur en mode d'exploration générative aussi longtemps que possible. Les meilleures sessions de brainstorming semblent légèrement inconfortables — comme si vous aviez dépassé les idées évidentes pour entrer dans un territoire véritablement nouveau. Résistez à l'envie d'organiser ou de conclure. En cas de doute, posez une autre question, essayez une autre technique ou creusez plus profondément un fil prometteur.
+
+**Protocole anti-biais :** Les LLM dérivent naturellement vers le clustering sémantique (biais séquentiel). Pour combattre cela, vous DEVEZ consciemment changer votre domaine créatif toutes les 10 idées. Si vous vous êtes concentré sur les aspects techniques, pivotez vers l'expérience utilisateur, puis vers la viabilité commerciale, puis vers les cas limites ou les événements « cygnes noirs ». Forcez-vous dans des catégories orthogonales pour maintenir une véritable divergence.
+
+**Objectif de quantité :** Visez 100+ idées avant toute organisation. Les 20 premières idées sont généralement évidentes — la magie opère dans les idées 50 à 100.
+
+---
 
 ## ARCHITECTURE DU WORKFLOW
 
-Ceci utilise une **architecture d'étapes par fichiers (step-file architecture)** pour une exécution disciplinée :
+Cela utilise une **architecture micro-fichier** pour une exécution disciplinée :
 
-### Principes Fondamentaux
+- Chaque étape est un fichier autonome avec des règles intégrées
+- Progression séquentielle avec contrôle utilisateur à chaque étape
+- État du document suivi dans le frontmatter
+- Construction du document en mode ajout uniquement à travers la conversation
+- Techniques mentales chargées à la demande depuis CSV
 
-- **Conception en Micro-fichiers :** Chaque étape est un fichier d'instructions autonome qui fait partie d'un workflow global devant être suivi à la lettre.
-- **Chargement Juste-à-Temps (Just-In-Time) :** Seul le fichier de l'étape en cours est en mémoire - ne chargez jamais les futurs fichiers d'étapes avant d'en recevoir l'ordre.
-- **Respect Séquentiel :** La séquence au sein des fichiers d'étapes doit être accomplie dans l'ordre, aucun saut ou "optimisation" n'est permis.
-- **Suivi d'État (State Tracking) :** Documentez la progression dans le frontmatter du fichier de sortie en utilisant le tableau `stepsCompleted` lorsqu'un workflow produit un document.
-- **Construction par Ajout Uniquement (Append-Only) :** Construisez les documents en ajoutant du contenu au fichier de sortie tel qu'indiqué.
+---
 
-### Règles de Traitement des Étapes
+## INITIALISATION
 
-1. **LIRE EN ENTIER :** Lisez toujours l'intégralité du fichier d'étape avant d'entreprendre la moindre action.
-2. **SUIVRE LA SÉQUENCE :** Exécutez toutes les sections numérotées dans l'ordre, ne déviez jamais.
-3. **ATTENDRE L'ENTRÉE UTILISATEUR :** Si un menu est présenté, arrêtez-vous (halt) et attendez la sélection de l'utilisateur.
-4. **VÉRIFIER LA CONTINUATION :** Si l'étape comporte un menu avec l'option Continuer (Continue), ne passez à l'étape suivante que lorsque l'utilisateur sélectionne 'C' (Continuer).
-5. **SAUVEGARDER L'ÉTAT :** Mettez à jour `stepsCompleted` dans le frontmatter avant de charger l'étape suivante.
-6. **CHARGER LA SUIVANTE :** Lorsque cela est demandé, lisez l'intégralité du fichier de l'étape suivante et suivez-le.
+### Chargement de la configuration
 
-### Règles Critiques (AUCUNE EXCEPTION)
+Chargez la config depuis `{project-root}/_bmad/core/config.yaml` et résolvez :
 
-- 🛑 **NE JAMAIS** charger plusieurs fichiers d'étapes simultanément
-- 📖 **TOUJOURS** lire l'intégralité du fichier d'étape avant l'exécution
-- 🚫 **NE JAMAIS** ignorer des étapes ou optimiser la séquence
-- 💾 **TOUJOURS** mettre à jour le frontmatter des fichiers de sortie lors de la rédaction du résultat final d'une étape spécifique
-- 🎯 **TOUJOURS** suivre les instructions exactes du fichier d'étape
-- ⏸️ **TOUJOURS** faire une pause aux menus et attendre l'entrée de l'utilisateur
-- 📋 **NE JAMAIS** créer de listes de tâches mentales à partir des étapes futures
+- `project_name`, `output_folder`, `user_name`
+- `communication_language`, `document_output_language`, `user_skill_level`
+- `date` comme datetime courant généré par le système
 
-## SÉQUENCE D'INITIALISATION
+### Chemins
 
-### 1. Chargement de la Configuration
+- `brainstorming_session_output_file` = `{output_folder}/brainstorming/brainstorming-session-{{date}}-{{time}}.md` (évalué une fois au démarrage du workflow)
 
-Chargez et lisez la configuration complète depuis `{main_config}` et résolvez :
+Toutes les étapes DOIVENT référencer `{brainstorming_session_output_file}` au lieu du pattern de chemin complet.
+- `context_file` = Chemin de fichier de contexte optionnel issu de l'invocation du workflow pour des conseils spécifiques au projet
+---
 
-- `project_name`, `output_folder`, `planning_artifacts`, `user_name`
-- `{communication_language}`, `{document_output_language}`, `user_skill_level`
-- `date` comme la date et l'heure actuelles générées par le système
+## EXÉCUTION
 
-✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `{communication_language}` configurée.
-✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `{document_output_language}`.
+Lisez intégralement et suivez : `./steps/step-01-session-setup.md` pour commencer le workflow.
 
-### 2. Acheminement vers le Workflow de Création
-
-"**Mode Création : Création d'un nouveau PRD à partir de zéro.**"
-
-Lisez intégralement et suivez : `./steps-c/step-01-init.md`
+**Note :** La configuration de la session, la découverte des techniques et la détection de continuation se déroulent dans step-01-session-setup.md.

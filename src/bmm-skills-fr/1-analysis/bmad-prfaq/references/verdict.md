@@ -1,37 +1,37 @@
 **Language:** Use `{communication_language}` for all output.
 **Output Language:** Use `{document_output_language}` for documents.
 **Output Location:** `{planning_artifacts}`
-**Coaching stance:** Be direct and honest — the verdict exists to surface truth, not to soften it. But frame every finding constructively.
+**Posture de coaching :** Sois direct et honnête — le verdict existe pour faire émerger la vérité, pas pour l'adoucir. Mais cadre chaque finding de manière constructive.
 
-# Stage 5: The Verdict
+# Étape 5 : Le Verdict
 
-**Goal:** Step back from the details and give the user an honest assessment of where their concept stands. Finalize the PRFAQ document and produce the downstream distillate.
+**Objectif :** Prendre du recul par rapport aux détails et donner à l'utilisateur une évaluation honnête de l'état de son concept. Finaliser le document PRFAQ et produire le distillat aval.
 
-## The Assessment
+## L'Évaluation
 
-Review the entire PRFAQ — press release, customer FAQ, internal FAQ — and deliver a candid verdict:
+Passe en revue l'ensemble du PRFAQ — communiqué de presse, Customer FAQ, Internal FAQ — et délivre un verdict candide :
 
-**Concept Strength:** Rate the overall concept readiness. Not a score — a narrative assessment. Where is the thinking sharp and where is it still soft? What survived the gauntlet and what barely held together?
+**Solidité du concept :** Évalue la maturité globale du concept. Pas une note — une évaluation narrative. Où la pensée est-elle affûtée et où est-elle encore molle ? Qu'est-ce qui a survécu au gauntlet et qu'est-ce qui a tenu de justesse ?
 
-**Three categories of findings:**
+**Trois catégories de findings :**
 
-- **Forged in steel** — aspects of the concept that are clear, compelling, and defensible. The press release sections that would actually make a customer stop. The FAQ answers that are honest and convincing.
-- **Needs more heat** — areas that are promising but underdeveloped. The user has a direction but hasn't gone deep enough. These need more work before they're ready for a PRD.
-- **Cracks in the foundation** — genuine risks, unresolved contradictions, or gaps that could undermine the whole concept. Not necessarily deal-breakers, but things that must be addressed deliberately.
+- **Forgé dans l'acier** — aspects du concept qui sont clairs, convaincants et défendables. Les sections du communiqué de presse qui feraient réellement stopper un client. Les réponses de FAQ honnêtes et convaincantes.
+- **A besoin de plus de chaleur** — domaines prometteurs mais sous-développés. L'utilisateur a une direction mais n'est pas allé assez en profondeur. Ils nécessitent plus de travail avant d'être prêts pour un PRD.
+- **Fissures dans les fondations** — risques réels, contradictions non résolues, ou trous qui pourraient saper l'ensemble du concept. Pas nécessairement des deal-breakers, mais des éléments qui doivent être traités délibérément.
 
-**Present the verdict directly.** Don't soften it. The whole point of this process is to surface truth before committing resources. But frame findings constructively — for every crack, suggest what it would take to address it.
+**Présente le verdict directement.** Ne l'adoucis pas. Le but de tout ce processus est de faire émerger la vérité avant d'engager des ressources. Mais cadre les findings de manière constructive — pour chaque fissure, suggère ce qu'il faudrait pour la traiter.
 
-## Finalize the Document
+## Finaliser le document
 
-1. **Polish the PRFAQ** — ensure the press release reads as a cohesive narrative, FAQs flow logically, formatting is consistent
-2. **Append The Verdict section** to the output document with the assessment
-3. Update frontmatter: `status: "complete"`, `stage: 5`, `updated` timestamp
+1. **Polir le PRFAQ** — s'assurer que le communiqué de presse se lit comme un récit cohérent, que les FAQ s'enchaînent logiquement, et que la mise en forme est cohérente
+2. **Ajouter la section Le Verdict** au document de sortie avec l'évaluation
+3. Mettre à jour le frontmatter : `status: "complete"`, `stage: 5`, horodatage `updated`
 
-## Produce the Distillate
+## Produire le distillat
 
-Throughout the process, you captured context beyond what fits in the PRFAQ. Source material for the distillate includes the `<!-- coaching-notes-stage-N -->` blocks in the output document (which survive context compaction) as well as anything remaining in session memory — rejected framings, alternative positioning, technical constraints, competitive intelligence, scope signals, resource estimates, open questions.
+Tout au long du processus, tu as capturé du contexte au-delà de ce qui tient dans le PRFAQ. Le matériau source du distillat comprend les blocs `<!-- coaching-notes-stage-N -->` du document de sortie (qui survivent à la compaction du contexte) ainsi que tout ce qui reste en mémoire de session — cadrages rejetés, positionnement alternatif, contraintes techniques, intelligence concurrentielle, signaux de portée, estimations de ressources, questions ouvertes.
 
-**Always produce the distillate** at `{planning_artifacts}/prfaq-{project_name}-distillate.md`:
+**Toujours produire le distillat** à `{planning_artifacts}/prfaq-{project_name}-distillate.md` :
 
 ```yaml
 ---
@@ -43,26 +43,26 @@ purpose: "Token-efficient context for downstream PRD creation"
 ---
 ```
 
-**Distillate content:** Dense bullet points grouped by theme. Each bullet stands alone with enough context for a downstream LLM to use it. Include:
-- Rejected framings and why they were dropped
-- Requirements signals captured during coaching
-- Technical context, constraints, and platform preferences
-- Competitive intelligence from discussion
-- Open questions and unknowns flagged during internal FAQ
-- Scope signals — what's in, out, and maybe for MVP
-- Resource and timeline estimates discussed
-- The Verdict findings (especially "needs more heat" and "cracks") as actionable items
+**Contenu du distillat :** Puces denses regroupées par thème. Chaque puce se suffit à elle-même avec assez de contexte pour qu'un LLM aval puisse l'utiliser. Inclure :
+- Cadrages rejetés et pourquoi ils ont été abandonnés
+- Signaux d'exigences capturés pendant le coaching
+- Contexte technique, contraintes et préférences de plateforme
+- Intelligence concurrentielle issue de la discussion
+- Questions ouvertes et inconnues marquées pendant l'Internal FAQ
+- Signaux de portée — ce qui est dedans, dehors, et peut-être pour le MVP
+- Estimations de ressources et de timeline discutées
+- Findings du Verdict (en particulier « a besoin de plus de chaleur » et « fissures ») sous forme d'éléments actionnables
 
-## Present Completion
+## Présenter la complétion
 
-"Your PRFAQ for {project_name} has survived the gauntlet.
+« Votre PRFAQ pour {project_name} a survécu au gauntlet.
 
-**PRFAQ:** `{planning_artifacts}/prfaq-{project_name}.md`
-**Detail Pack:** `{planning_artifacts}/prfaq-{project_name}-distillate.md`
+**PRFAQ :** `{planning_artifacts}/prfaq-{project_name}.md`
+**Detail Pack :** `{planning_artifacts}/prfaq-{project_name}-distillate.md`
 
-**Recommended next step:** Use the PRFAQ and detail pack as input for PRD creation. The PRFAQ replaces the product brief in your planning pipeline — tell your PM 'create a PRD' and point them to these files."
+**Étape suivante recommandée :** Utilisez le PRFAQ et le detail pack comme entrée pour la création du PRD. Le PRFAQ remplace le brief produit dans votre pipeline de planification — dites à votre PM 'create a PRD' et indiquez-lui ces fichiers. »
 
-**Headless mode output:**
+**Sortie en mode headless :**
 ```json
 {
   "status": "complete",
@@ -74,10 +74,10 @@ purpose: "Token-efficient context for downstream PRD creation"
 }
 ```
 
-## Stage Complete
+## Étape complétée
 
-This is the terminal stage. If the user wants to revise, loop back to the relevant stage. Otherwise, the workflow is done.
+C'est l'étape terminale. Si l'utilisateur veut réviser, boucle vers l'étape pertinente. Sinon, le workflow est terminé.
 
-Run: `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete`
+Exécuter : `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete`
 
-If the resolved `workflow.on_complete` is non-empty, follow it as the final terminal instruction before exiting.
+Si le `workflow.on_complete` résolu est non vide, suis-le comme instruction terminale finale avant de sortir.

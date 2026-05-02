@@ -1,197 +1,197 @@
-# BMAD PRD Purpose
+# Finalité du PRD BMAD
 
-**The PRD is the top of the required funnel that feeds all subsequent product development work in rhw BMad Method.**
-
----
-
-## What is a BMAD PRD?
-
-A dual-audience document serving:
-1. **Human Product Managers and builders** - Vision, strategy, stakeholder communication
-2. **LLM Downstream Consumption** - UX Design → Architecture → Epics → Development AI Agents
-
-Each successive document becomes more AI-tailored and granular.
+**Le PRD est le sommet de l'entonnoir requis qui alimente tout le travail de développement produit ultérieur dans la BMad Method.**
 
 ---
 
-## Core Philosophy: Information Density
+## Qu'est-ce qu'un PRD BMAD ?
 
-**High Signal-to-Noise Ratio**
+Un document à double audience servant :
+1. **Les Product Managers humains et les bâtisseurs** — Vision, stratégie, communication avec les parties prenantes
+2. **La consommation aval par les LLM** — UX Design → Architecture → Epics → Agents IA de développement
 
-Every sentence must carry information weight. LLMs consume precise, dense content efficiently.
-
-**Anti-Patterns (Eliminate These):**
-- ❌ "The system will allow users to..." → ✅ "Users can..."
-- ❌ "It is important to note that..." → ✅ State the fact directly
-- ❌ "In order to..." → ✅ "To..."
-- ❌ Conversational filler and padding → ✅ Direct, concise statements
-
-**Goal:** Maximum information per word. Zero fluff.
+Chaque document successif devient plus adapté à l'IA et plus granulaire.
 
 ---
 
-## The Traceability Chain
+## Philosophie centrale : la densité d'information
 
-**PRD starts the chain:**
+**Ratio signal/bruit élevé**
+
+Chaque phrase doit porter du poids informationnel. Les LLM consomment efficacement un contenu précis et dense.
+
+**Anti-patterns (à éliminer) :**
+- ❌ « Le système permettra aux utilisateurs de... » → ✅ « Les utilisateurs peuvent... »
+- ❌ « Il est important de noter que... » → ✅ Énoncer le fait directement
+- ❌ « Afin de... » → ✅ « Pour... »
+- ❌ Remplissage conversationnel et bourrage → ✅ Énoncés directs et concis
+
+**Objectif :** Maximum d'information par mot. Zéro fioriture.
+
+---
+
+## La chaîne de traçabilité
+
+**Le PRD démarre la chaîne :**
 ```
 Vision → Success Criteria → User Journeys → Functional Requirements → (future: User Stories)
 ```
 
-**In the PRD, establish:**
-- Vision → Success Criteria alignment
-- Success Criteria → User Journey coverage
-- User Journey → Functional Requirement mapping
-- All requirements traceable to user needs
+**Dans le PRD, établir :**
+- Alignement Vision → Critères de succès
+- Couverture Critères de succès → Parcours utilisateur
+- Cartographie Parcours utilisateur → Exigence fonctionnelle
+- Toutes les exigences traçables aux besoins utilisateurs
 
-**Why:** Each downstream artifact (UX, Architecture, Epics, Stories) must trace back to documented user needs and business objectives. This chain ensures we build the right thing.
-
----
-
-## What Makes Great Functional Requirements?
-
-### FRs are Capabilities, Not Implementation
-
-**Good FR:** "Users can reset their password via email link"
-**Bad FR:** "System sends JWT via email and validates with database" (implementation leakage)
-
-**Good FR:** "Dashboard loads in under 2 seconds for 95th percentile"
-**Bad FR:** "Fast loading time" (subjective, unmeasurable)
-
-### SMART Quality Criteria
-
-**Specific:** Clear, precisely defined capability
-**Measurable:** Quantifiable with test criteria
-**Attainable:** Realistic within constraints
-**Relevant:** Aligns with business objectives
-**Traceable:** Links to source (executive summary or user journey)
-
-### FR Anti-Patterns
-
-**Subjective Adjectives:**
-- ❌ "easy to use", "intuitive", "user-friendly", "fast", "responsive"
-- ✅ Use metrics: "completes task in under 3 clicks", "loads in under 2 seconds"
-
-**Implementation Leakage:**
-- ❌ Technology names, specific libraries, implementation details
-- ✅ Focus on capability and measurable outcomes
-
-**Vague Quantifiers:**
-- ❌ "multiple users", "several options", "various formats"
-- ✅ "up to 100 concurrent users", "3-5 options", "PDF, DOCX, TXT formats"
-
-**Missing Test Criteria:**
-- ❌ "The system shall provide notifications"
-- ✅ "The system shall send email notifications within 30 seconds of trigger event"
+**Pourquoi :** Chaque artefact aval (UX, Architecture, Epics, Stories) doit pouvoir remonter à des besoins utilisateurs documentés et à des objectifs métier. Cette chaîne garantit que nous construisons la bonne chose.
 
 ---
 
-## What Makes Great Non-Functional Requirements?
+## Qu'est-ce qui fait de bonnes exigences fonctionnelles ?
 
-### NFRs Must Be Measurable
+### Les FR sont des capacités, pas de l'implémentation
 
-**Template:**
+**Bonne FR :** « Les utilisateurs peuvent réinitialiser leur mot de passe via un lien e-mail »
+**Mauvaise FR :** « Le système envoie un JWT par e-mail et valide via la base de données » (fuite d'implémentation)
+
+**Bonne FR :** « Le tableau de bord se charge en moins de 2 secondes pour le 95e percentile »
+**Mauvaise FR :** « Temps de chargement rapide » (subjectif, non mesurable)
+
+### Critères de qualité SMART
+
+**Spécifique :** Capacité claire et précisément définie
+**Mesurable :** Quantifiable avec des critères de test
+**Atteignable :** Réaliste dans les contraintes
+**Pertinent :** S'aligne avec les objectifs métier
+**Traçable :** Lié à une source (résumé exécutif ou parcours utilisateur)
+
+### Anti-patterns des FR
+
+**Adjectifs subjectifs :**
+- ❌ « facile à utiliser », « intuitif », « convivial », « rapide », « réactif »
+- ✅ Utilisez des métriques : « termine la tâche en moins de 3 clics », « se charge en moins de 2 secondes »
+
+**Fuite d'implémentation :**
+- ❌ Noms de technologies, librairies spécifiques, détails d'implémentation
+- ✅ Concentrez-vous sur la capacité et les résultats mesurables
+
+**Quantificateurs vagues :**
+- ❌ « plusieurs utilisateurs », « plusieurs options », « divers formats »
+- ✅ « jusqu'à 100 utilisateurs simultanés », « 3 à 5 options », « formats PDF, DOCX, TXT »
+
+**Critères de test manquants :**
+- ❌ « Le système doit fournir des notifications »
+- ✅ « Le système doit envoyer des notifications par e-mail dans les 30 secondes suivant l'événement déclencheur »
+
+---
+
+## Qu'est-ce qui fait de bonnes exigences non fonctionnelles ?
+
+### Les NFR doivent être mesurables
+
+**Gabarit :**
 ```
 "The system shall [metric] [condition] [measurement method]"
 ```
 
-**Examples:**
-- ✅ "The system shall respond to API requests in under 200ms for 95th percentile as measured by APM monitoring"
-- ✅ "The system shall maintain 99.9% uptime during business hours as measured by cloud provider SLA"
-- ✅ "The system shall support 10,000 concurrent users as measured by load testing"
+**Exemples :**
+- ✅ « Le système doit répondre aux requêtes API en moins de 200 ms pour le 95e percentile, mesuré par la supervision APM »
+- ✅ « Le système doit maintenir une disponibilité de 99,9 % pendant les heures ouvrées, mesurée par le SLA du fournisseur cloud »
+- ✅ « Le système doit prendre en charge 10 000 utilisateurs simultanés, mesuré par des tests de charge »
 
-### NFR Anti-Patterns
+### Anti-patterns des NFR
 
-**Unmeasurable Claims:**
-- ❌ "The system shall be scalable" → ✅ "The system shall handle 10x load growth through horizontal scaling"
-- ❌ "High availability required" → ✅ "99.9% uptime as measured by cloud provider SLA"
+**Affirmations non mesurables :**
+- ❌ « Le système doit être scalable » → ✅ « Le système doit absorber une croissance de charge x10 par scaling horizontal »
+- ❌ « Haute disponibilité requise » → ✅ « 99,9 % de disponibilité mesurée par le SLA du fournisseur cloud »
 
-**Missing Context:**
-- ❌ "Response time under 1 second" → ✅ "API response time under 1 second for 95th percentile under normal load"
-
----
-
-## Domain-Specific Requirements
-
-**Auto-Detect and Enforce Based on Project Context**
-
-Certain industries have mandatory requirements that must be present:
-
-- **Healthcare:** HIPAA Privacy & Security Rules, PHI encryption, audit logging, MFA
-- **Fintech:** PCI-DSS Level 1, AML/KYC compliance, SOX controls, financial audit trails
-- **GovTech:** NIST framework, Section 508 accessibility (WCAG 2.1 AA), FedRAMP, data residency
-- **E-Commerce:** PCI-DSS for payments, inventory accuracy, tax calculation by jurisdiction
-
-**Why:** Missing these requirements in the PRD means they'll be missed in architecture and implementation, creating expensive rework. During PRD creation there is a step to cover this - during validation we want to make sure it was covered. For this purpose steps will utilize a domain-complexity.csv and project-types.csv.
+**Contexte manquant :**
+- ❌ « Temps de réponse inférieur à 1 seconde » → ✅ « Temps de réponse API inférieur à 1 seconde pour le 95e percentile sous charge normale »
 
 ---
 
-## Document Structure (Markdown, Human-Readable)
+## Exigences spécifiques au domaine
 
-### Required Sections
-1. **Executive Summary** - Vision, differentiator, target users
-2. **Success Criteria** - Measurable outcomes (SMART)
-3. **Product Scope** - MVP, Growth, Vision phases
-4. **User Journeys** - Comprehensive coverage
-5. **Domain Requirements** - Industry-specific compliance (if applicable)
-6. **Innovation Analysis** - Competitive differentiation (if applicable)
-7. **Project-Type Requirements** - Platform-specific needs
-8. **Functional Requirements** - Capability contract (FRs)
-9. **Non-Functional Requirements** - Quality attributes (NFRs)
+**Détection automatique et application selon le contexte du projet**
 
-### Formatting for Dual Consumption
+Certaines industries ont des exigences obligatoires qui doivent être présentes :
 
-**For Humans:**
-- Clear, professional language
-- Logical flow from vision to requirements
-- Easy for stakeholders to review and approve
+- **Santé :** Règles HIPAA Privacy & Security, chiffrement des PHI, journalisation d'audit, MFA
+- **Fintech :** PCI-DSS Niveau 1, conformité AML/KYC, contrôles SOX, pistes d'audit financières
+- **GovTech :** Cadre NIST, accessibilité Section 508 (WCAG 2.1 AA), FedRAMP, résidence des données
+- **E-Commerce :** PCI-DSS pour les paiements, exactitude des stocks, calcul de taxes par juridiction
 
-**For LLMs:**
-- ## Level 2 headers for all main sections (enables extraction)
-- Consistent structure and patterns
-- Precise, testable language
-- High information density
+**Pourquoi :** L'absence de ces exigences dans le PRD signifie qu'elles seront oubliées dans l'architecture et l'implémentation, créant un retravail coûteux. Lors de la création du PRD, il existe une étape pour couvrir cela — lors de la validation, nous voulons nous assurer que ce point a bien été traité. À cette fin, les étapes utiliseront un domain-complexity.csv et un project-types.csv.
 
 ---
 
-## Downstream Impact
+## Structure du document (Markdown, lisible par l'humain)
 
-**How the PRD Feeds Next Artifacts:**
+### Sections requises
+1. **Résumé exécutif** — Vision, élément différenciateur, utilisateurs cibles
+2. **Critères de succès** — Résultats mesurables (SMART)
+3. **Périmètre produit** — Phases MVP, Croissance, Vision
+4. **Parcours utilisateur** — Couverture exhaustive
+5. **Exigences du domaine** — Conformité spécifique au secteur (le cas échéant)
+6. **Analyse de l'innovation** — Différenciation concurrentielle (le cas échéant)
+7. **Exigences par type de projet** — Besoins spécifiques à la plateforme
+8. **Exigences fonctionnelles** — Contrat de capacités (FR)
+9. **Exigences non fonctionnelles** — Attributs de qualité (NFR)
 
-**UX Design:**
-- User journeys → interaction flows
-- FRs → design requirements
-- Success criteria → UX metrics
+### Mise en forme pour la double consommation
 
-**Architecture:**
-- FRs → system capabilities
-- NFRs → architecture decisions
-- Domain requirements → compliance architecture
-- Project-type requirements → platform choices
+**Pour les humains :**
+- Langage clair et professionnel
+- Flux logique de la vision aux exigences
+- Facile à examiner et à approuver pour les parties prenantes
 
-**Epics & Stories (created after architecture):**
-- FRs → user stories (1 FR could map to 1-3 stories potentially)
-- Acceptance criteria → story acceptance tests
-- Priority → sprint sequencing
-- Traceability → stories map back to vision
-
-**Development AI Agents:**
-- Precise requirements → implementation clarity
-- Test criteria → automated test generation
-- Domain requirements → compliance enforcement
-- Measurable NFRs → performance targets
-
----
-
-## Summary: What Makes a Great BMAD PRD?
-
-✅ **High Information Density** - Every sentence carries weight, zero fluff
-✅ **Measurable Requirements** - All FRs and NFRs are testable with specific criteria
-✅ **Clear Traceability** - Each requirement links to user need and business objective
-✅ **Domain Awareness** - Industry-specific requirements auto-detected and included
-✅ **Zero Anti-Patterns** - No subjective adjectives, implementation leakage, or vague quantifiers
-✅ **Dual Audience Optimized** - Human-readable AND LLM-consumable
-✅ **Markdown Format** - Professional, clean, accessible to all stakeholders
+**Pour les LLM :**
+- En-têtes de niveau 2 ## pour toutes les sections principales (permet l'extraction)
+- Structure et patterns cohérents
+- Langage précis et testable
+- Forte densité d'information
 
 ---
 
-**Remember:** The PRD is the foundation. Quality here ripples through every subsequent phase. A dense, precise, well-traced PRD makes UX design, architecture, epic breakdown, and AI development dramatically more effective.
+## Impact aval
+
+**Comment le PRD alimente les artefacts suivants :**
+
+**UX Design :**
+- Parcours utilisateur → flux d'interaction
+- FR → exigences de design
+- Critères de succès → métriques UX
+
+**Architecture :**
+- FR → capacités système
+- NFR → décisions d'architecture
+- Exigences du domaine → architecture de conformité
+- Exigences par type de projet → choix de plateforme
+
+**Epics & Stories (créés après l'architecture) :**
+- FR → user stories (1 FR peut potentiellement correspondre à 1 à 3 stories)
+- Critères d'acceptation → tests d'acceptation des stories
+- Priorité → séquencement des sprints
+- Traçabilité → les stories remontent à la vision
+
+**Agents IA de développement :**
+- Exigences précises → clarté d'implémentation
+- Critères de test → génération automatique de tests
+- Exigences du domaine → application de la conformité
+- NFR mesurables → cibles de performance
+
+---
+
+## Synthèse : qu'est-ce qui fait un excellent PRD BMAD ?
+
+✅ **Forte densité d'information** — Chaque phrase porte du poids, zéro fioriture
+✅ **Exigences mesurables** — Toutes les FR et NFR sont testables avec des critères spécifiques
+✅ **Traçabilité claire** — Chaque exigence est liée à un besoin utilisateur et à un objectif métier
+✅ **Conscience du domaine** — Exigences spécifiques au secteur détectées et incluses automatiquement
+✅ **Zéro anti-pattern** — Aucun adjectif subjectif, fuite d'implémentation ou quantificateur vague
+✅ **Optimisé pour la double audience** — Lisible par l'humain ET consommable par les LLM
+✅ **Format Markdown** — Professionnel, propre, accessible à toutes les parties prenantes
+
+---
+
+**Rappel :** Le PRD est la fondation. La qualité ici se répercute sur chaque phase ultérieure. Un PRD dense, précis et bien tracé rend le design UX, l'architecture, le découpage en epics et le développement IA nettement plus efficaces.

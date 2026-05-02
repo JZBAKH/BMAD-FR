@@ -18,7 +18,7 @@ const { walk } = require('../fr-helpers/walk');
 const { pairFrToOriginal } = require('../fr-helpers/pair-with-original');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
-const FR_ROOTS = ['src/bmm-fr', 'src/core-fr', 'src/utility-fr'];
+const FR_ROOTS = ['src/bmm-skills-fr', 'src/core-skills-fr', 'src/bmm-fr', 'src/core-fr', 'src/utility-fr'];
 
 function countBullets(text) {
   return (text.match(/^\s*[-*]\s+\S/gm) || []).length;

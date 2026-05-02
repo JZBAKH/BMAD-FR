@@ -1,19 +1,19 @@
 ---
 name: validate-doc
-description: Validate documentation against standards and best practices
+description: Valide la documentation par rapport aux standards et bonnes pratiques
 menu-code: VD
 ---
 
-# Validate Documentation
+# Valider la Documentation
 
-Review the specified document against documentation best practices along with anything additional the user asked you to focus on.
+Examine le document spécifié au regard des bonnes pratiques de documentation, ainsi que de tout autre point sur lequel l'utilisateur a demandé de se concentrer.
 
-## Process
+## Processus
 
-1. **Load the document** — Read the specified document fully
-2. **Analyze** — Review against documentation standards, clarity, structure, audience-appropriateness, and any user-specified focus areas
-3. **Report** — Return specific, actionable improvement suggestions organized by priority
+1. **Charger le document** — Lire intégralement le document spécifié
+2. **Analyser** — Examiner par rapport aux standards de documentation, à la clarté, à la structure, à l'adéquation au public, et à tout axe spécifié par l'utilisateur
+3. **Rapporter** — Retourner des suggestions d'amélioration spécifiques et actionnables, organisées par priorité
 
-## Output
+## Sortie
 
-A prioritized list of specific, actionable improvement suggestions.
+Une liste priorisée de suggestions d'amélioration spécifiques et actionnables.

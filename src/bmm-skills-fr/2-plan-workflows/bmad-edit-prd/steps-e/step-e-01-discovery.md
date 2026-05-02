@@ -1,246 +1,242 @@
 ---
-name: 'step-e-01-discovery'
-description: 'Découverte et Compréhension - Comprendre ce que l''utilisateur souhaite modifier et détecter le format du PRD'
-
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
-altStepFile: './step-e-01b-legacy-conversion.md'
-prdPurpose: '{project-root}/_bmad/bmm/workflows/2-plan-workflows/create-prd/data/prd-purpose.md'
+prdPurpose: '../data/prd-purpose.md'
 ---
 
-# Étape E-1 : Découverte et Compréhension
+# Étape E-1 : Découverte et compréhension
 
 ## OBJECTIF DE L'ÉTAPE :
 
-Comprendre ce que l'utilisateur souhaite modifier dans le PRD, détecter le format/type du PRD, vérifier les indications du rapport de validation et orienter de manière appropriée.
+Comprendre ce que l'utilisateur veut éditer dans le PRD, détecter le format/type du PRD, vérifier les indications du rapport de validation, et router de manière appropriée.
 
 ## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-### Règles Universelles :
+### Règles universelles :
 
-- 🛑 NE JAMAIS générer de contenu sans l'entrée de l'utilisateur.
-- 📖 CRITIQUE : Lire l'intégralité du fichier d'étape avant de prendre toute mesure.
-- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que tout le fichier est lu.
-- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu.
-- ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'Agent avec la configuration `{communication_language}`.
-- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout le contenu des artefacts et des documents dans la langue `{document_output_language}`.
+- 🛑 NE JAMAIS générer de contenu sans entrée utilisateur
+- 📖 CRITIQUE : Lire le fichier d'étape complet avant toute action
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que le fichier entier est lu
+- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
+- ✅ VOUS DEVEZ TOUJOURS PARLER EN SORTIE dans votre style de communication d'Agent avec la config `{communication_language}`
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout le contenu d'artefact et de document dans `{document_output_language}`
 
-### Renforcement du Rôle :
+### Renforcement du rôle :
 
-- ✅ Vous êtes un Architecte de Validation et un Spécialiste de l'Amélioration de PRD.
-- ✅ Si des modèles de communication ou de persona vous ont déjà été donnés, continuez à les utiliser tout en jouant ce nouveau rôle.
-- ✅ Nous engageons un dialogue collaboratif, pas une commande-réponse.
-- ✅ Vous apportez une expertise analytique et des conseils d'amélioration.
-- ✅ L'utilisateur apporte sa connaissance du domaine et ses exigences de modification.
+- ✅ Vous êtes un Architecte de Validation et Spécialiste d'Amélioration de PRD
+- ✅ Si on vous a déjà donné des patterns de communication ou de persona, continuez à les utiliser tout en jouant ce nouveau rôle
+- ✅ Nous engageons un dialogue collaboratif, pas du commande-réponse
+- ✅ Vous apportez l'expertise analytique et le guidage d'amélioration
+- ✅ L'utilisateur apporte la connaissance du domaine et les exigences d'édition
 
-### Règles Spécifiques à l'Étape :
+### Règles spécifiques à l'étape :
 
-- 🎯 Concentrez-vous UNIQUEMENT sur la découverte de l'intention de l'utilisateur et du format du PRD.
-- 🚫 INTERDICTION de faire des modifications pour le moment.
-- 💬 Approche : Curieux et analytique, comprendre avant d'agir.
-- 🚪 Il s'agit d'une étape d'aiguillage - elle peut orienter vers la conversion d'un document existant (legacy).
+- 🎯 Se focaliser UNIQUEMENT sur la découverte de l'intention utilisateur et du format PRD
+- 🚫 INTERDIT de faire des éditions pour l'instant
+- 💬 Approche : Curieuse et analytique, comprendre avant d'agir
+- 🚪 Ceci est une étape de branchement - peut router vers la conversion legacy
 
 ## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Découvrir les exigences de modification de l'utilisateur.
-- 🎯 Détecter automatiquement les rapports de validation dans le dossier du PRD (utiliser comme guide).
-- 🎯 Charger le rapport de validation s'il est fourni (utiliser comme guide).
-- 🎯 Détecter le format du PRD (BMAD/legacy).
-- 🎯 Orienter de manière appropriée en fonction du format.
-- 💾 Documenter les découvertes pour l'étape suivante.
-- 🚫 INTERDICTION de procéder sans avoir compris les exigences.
+- 🎯 Découvrir les exigences d'édition de l'utilisateur
+- 🎯 Auto-détecter les rapports de validation dans le dossier PRD (utiliser comme guide)
+- 🎯 Charger le rapport de validation si fourni (utiliser comme guide)
+- 🎯 Détecter le format PRD (BMAD/legacy)
+- 🎯 Router de manière appropriée selon le format
+- 💾 Documenter les découvertes pour l'étape suivante
+- 🚫 INTERDIT de procéder sans comprendre les exigences
 
-## LIMITES DU CONTEXTE :
+## LIMITES DE CONTEXTE :
 
-- Contexte disponible : Fichier PRD à modifier, rapport de validation optionnel, rapports de validation détectés automatiquement.
-- Focus : Découverte de l'intention de l'utilisateur et détection de format uniquement.
-- Limites : Ne pas éditer encore, ne pas valider encore.
-- Dépendances : Aucune - c'est la première étape d'édition.
+- Contexte disponible : fichier PRD à éditer, rapport de validation optionnel, rapports de validation auto-détectés
+- Focus : Découverte de l'intention utilisateur et détection de format uniquement
+- Limites : Ne pas éditer encore, ne pas valider encore
+- Dépendances : Aucune - ceci est la première étape d'édition
 
 ## SÉQUENCE OBLIGATOIRE
 
-**CRITIQUE :** Suivez cette séquence exactement. Ne sautez pas, ne réordonnez pas et n'improvisez pas, sauf si l'utilisateur demande explicitement un changement.
+**CRITIQUE :** Suivre cette séquence exactement. Ne pas sauter, réordonner ou improviser sauf si l'utilisateur demande explicitement un changement.
 
-### 1. Charger les standards de l'objectif du PRD (PRD Purpose)
+### 1. Charger les standards de finalité du PRD
 
-Chargez et lisez le fichier complet à l'adresse suivante :
+Charger et lire le fichier complet à :
 `{prdPurpose}` (data/prd-purpose.md)
 
-Ce fichier définit ce qui fait un excellent PRD BMAD. Internalisez cette compréhension - elle guidera vos recommandations d'amélioration.
+Ce fichier définit ce qui fait un excellent PRD BMAD. Internalisez cette compréhension - elle guidera les recommandations d'amélioration.
 
-### 2. Découvrir le PRD à modifier
+### 2. Découvrir le PRD à éditer
 
-"**Workflow de Modification de PRD**
+« **Workflow d'édition de PRD**
 
-Quel PRD souhaitez-vous modifier ?
+Quel PRD aimeriez-vous éditer ?
 
-Veuillez fournir le chemin vers le fichier PRD que vous souhaitez modifier."
+Veuillez fournir le chemin vers le fichier PRD que vous voulez éditer. »
 
-**Attendez que l'utilisateur fournisse le chemin du PRD.**
+**Attendre que l'utilisateur fournisse le chemin du PRD.**
 
-### 3. Valider l'existence du PRD et le charger
+### 3. Valider que le PRD existe et le charger
 
 Une fois le chemin du PRD fourni :
-- Vérifiez si le fichier PRD existe au chemin spécifié.
-- Si non trouvé : "Je ne trouve pas de PRD à ce chemin. Veuillez vérifier le chemin et réessayer."
-- Si trouvé : Chargez le fichier PRD complet, y compris le frontmatter.
+- Vérifier si le fichier PRD existe au chemin spécifié
+- Si non trouvé : « Je ne peux pas trouver de PRD à ce chemin. Veuillez vérifier le chemin et réessayer. »
+- Si trouvé : Charger le fichier PRD complet incluant le frontmatter
 
-### 4. Vérifier s'il existe un rapport de validation
+### 4. Vérifier l'existence d'un rapport de validation
 
-**Vérifiez si un rapport de validation existe dans le dossier du PRD :**
+**Vérifier si un rapport de validation existe dans le dossier PRD :**
 
 ```bash
-# Rechercher le rapport de validation le plus récent dans le dossier du PRD
+# Chercher le rapport de validation le plus récent dans le dossier PRD
 ls -t {prd_folder_path}/validation-report-*.md 2>/dev/null | head -1
 ```
 
-**Si un rapport de validation est trouvé :**
+**Si rapport de validation trouvé :**
 
-Affichez :
-"**📋 Rapport de Validation Trouvé**
+Afficher :
+« **📋 Rapport de validation trouvé**
 
-J'ai trouvé un rapport de validation daté du {validation_date} dans le dossier du PRD.
+J'ai trouvé un rapport de validation du {validation_date} dans le dossier PRD.
 
-Ce rapport contient les résultats des précédents contrôles de validation et peut nous aider à orienter nos modifications pour corriger les problèmes connus.
+Ce rapport contient les conclusions des vérifications de validation précédentes et peut aider à guider nos éditions pour corriger les problèmes connus.
 
-**Souhaitez-vous :**
-- **[U] Utiliser le rapport de validation** - Le charger pour guider et hiérarchiser les modifications.
-- **[S] Ignorer** - Procéder à une découverte manuelle des modifications."
+**Aimeriez-vous :**
+- **[U] Utiliser le rapport de validation** - Le charger pour guider et prioriser les éditions
+- **[S] Passer** - Procéder avec la découverte manuelle d'éditions »
 
-**Attendez l'entrée de l'utilisateur.**
+**Attendre l'entrée utilisateur.**
 
 **SI U (Utiliser le rapport de validation) :**
-- Chargez le fichier du rapport de validation.
-- Extrayez les conclusions, les problèmes et les suggestions d'amélioration.
-- Note : "Rapport de validation chargé - il sera utilisé pour guider les améliorations prioritaires."
-- Continuez vers l'étape 5.
+- Charger le fichier de rapport de validation
+- Extraire les conclusions, problèmes et suggestions d'amélioration
+- Note : « Rapport de validation chargé - sera utilisé pour guider les améliorations priorisées »
+- Continuer à l'étape 5
 
-**SI S (Ignorer) ou si aucun rapport de validation n'est trouvé :**
-- Note : "Poursuite de la découverte manuelle des modifications."
-- Continuez vers l'étape 5.
+**SI S (Passer) ou aucun rapport de validation trouvé :**
+- Note : « Procède avec la découverte manuelle d'éditions »
+- Continuer à l'étape 5
 
-**Si aucun rapport de validation n'est trouvé :**
-- Note : "Aucun rapport de validation trouvé dans le dossier du PRD."
-- Continuez vers l'étape 5 sans demander à l'utilisateur.
+**Si aucun rapport de validation trouvé :**
+- Note : « Aucun rapport de validation trouvé dans le dossier PRD »
+- Continuer à l'étape 5 sans demander à l'utilisateur
 
-### 5. Poser des questions sur le rapport de validation
+### 5. Demander au sujet du rapport de validation
 
-"**Avez-vous un rapport de validation pour guider les modifications ?**
+« **Avez-vous un rapport de validation pour guider les éditions ?**
 
-Si vous avez exécuté le workflow de validation sur ce PRD, je peux utiliser ce rapport pour guider les améliorations et hiérarchiser les changements.
+Si vous avez exécuté le workflow de validation sur ce PRD, je peux utiliser ce rapport pour guider les améliorations et prioriser les changements.
 
-Chemin du rapport de validation (ou tapez 'aucun') :"
+Chemin du rapport de validation (ou taper 'aucun') : »
 
-**Attendez l'entrée de l'utilisateur.**
+**Attendre l'entrée utilisateur.**
 
-**Si un chemin de rapport de validation est fourni :**
-- Chargez le rapport de validation.
-- Extrayez les conclusions, la sévérité, les suggestions d'amélioration.
-- Note : "Rapport de validation chargé - il sera utilisé pour guider les améliorations prioritaires."
+**Si chemin de rapport de validation fourni :**
+- Charger le rapport de validation
+- Extraire les conclusions, sévérité, suggestions d'amélioration
+- Note : « Rapport de validation chargé - sera utilisé pour guider les améliorations priorisées »
 
 **Si pas de rapport de validation :**
-- Note : "Poursuite de la découverte manuelle des modifications."
-- Continuez vers l'étape 6.
+- Note : « Procède avec la découverte manuelle d'éditions »
+- Continuer à l'étape 6
 
-### 6. Découvrir les exigences de modification
+### 6. Découvrir les exigences d'édition
 
-"**Que souhaiteriez-vous modifier dans ce PRD ?**
+« **Que voudriez-vous éditer dans ce PRD ?**
 
-Veuillez décrire les changements que vous souhaitez effectuer. Par exemple :
-- Corriger des problèmes spécifiques (densité d'information, fuites d'implémentation, etc.).
-- Ajouter des sections ou du contenu manquants.
-- Améliorer la structure et le flux.
-- Convertir au format BMAD (s'il s'agit d'un PRD existant/legacy).
-- Améliorations générales.
-- Autres changements.
+Veuillez décrire les changements que vous voulez faire. Par exemple :
+- Corriger des problèmes spécifiques (densité d'information, fuites d'implémentation, etc.)
+- Ajouter des sections ou contenu manquants
+- Améliorer la structure et le flux
+- Convertir au format BMAD (si PRD legacy)
+- Améliorations générales
+- Autres changements
 
-**Décrivez vos objectifs de modification :**"
+**Décrivez vos objectifs d'édition :** »
 
-**Attendez que l'utilisateur décrive ses exigences.**
+**Attendre que l'utilisateur décrive ses exigences.**
 
 ### 7. Détecter le format du PRD
 
-Analysez le PRD chargé :
+Analyser le PRD chargé :
 
-**Extraire tous les en-têtes de niveau 2 (##)** du PRD.
+**Extraire tous les en-têtes de niveau 2 ##** du PRD
 
-**Vérifier la présence des sections de base du PRD BMAD :**
-1. Résumé Analytique (Executive Summary)
+**Vérifier les sections essentielles du PRD BMAD :**
+1. Résumé Exécutif
 2. Critères de Succès
-3. Périmètre du Produit (Product Scope)
+3. Périmètre Produit
 4. Parcours Utilisateurs
 5. Exigences Fonctionnelles
-6. Exigences Non Fonctionnelles
+6. Exigences Non-Fonctionnelles
 
 **Classifier le format :**
-- **Standard BMAD :** 5 à 6 sections de base présentes.
-- **Variante BMAD :** 3 à 4 sections de base présentes, suit globalement les modèles BMAD.
-- **Legacy (Non-Standard) :** Moins de 3 sections de base, ne suit pas la structure BMAD.
+- **BMAD Standard :** 5-6 sections essentielles présentes
+- **BMAD Variant :** 3-4 sections essentielles présentes, suit généralement les patterns BMAD
+- **Legacy (Non-Standard) :** Moins de 3 sections essentielles, ne suit pas la structure BMAD
 
-### 8. Orienter en fonction du format et du contexte
+### 8. Router selon le format et le contexte
 
-**SI un rapport de validation est fourni OU si le PRD est un Standard/Variante BMAD :**
+**SI rapport de validation fourni OU PRD est BMAD Standard/Variant :**
 
-Affichez : "**Exigences de modification comprises**
+Afficher : « **Exigences d'édition comprises**
 
-**Format du PRD :** {classification}
-{Si rapport de validation : "**Guide de validation :** Oui - utilisera les conclusions du rapport de validation"}
-**Objectifs de modification :** {résumé des exigences de l'utilisateur}
+**Format PRD :** {classification}
+{Si rapport de validation : « **Guide de validation :** Oui - utilisera les conclusions du rapport de validation »}
+**Objectifs d'édition :** {résumé des exigences de l'utilisateur}
 
-**Passage à la révision et à l'analyse approfondies...**"
+**Procède à la revue approfondie et à l'analyse...** »
 
-Lisez complètement et suivez : étape suivante (step-e-02-review.md)
+Lire entièrement et suivre : `./step-e-02-review.md`
 
-**SI le PRD est Legacy (Non-Standard) ET qu'aucun rapport de validation n'est fourni :**
+**SI PRD est Legacy (Non-Standard) ET pas de rapport de validation :**
 
-Affichez : "**Format détecté :** PRD Legacy
+Afficher : « **Format détecté :** PRD Legacy
 
-Ce PRD ne suit pas la structure standard BMAD (seulement {count}/6 sections de base présentes).
+Ce PRD ne suit pas la structure standard BMAD (seulement {count}/6 sections essentielles présentes).
 
-**Vos objectifs de modification :** {exigences de l'utilisateur}
+**Vos objectifs d'édition :** {exigences de l'utilisateur}
 
-**Comment souhaiteriez-vous procéder ?**"
+**Comment aimeriez-vous procéder ?** »
 
-Présentez les OPTIONS DU MENU ci-dessous pour la sélection de l'utilisateur.
+Présenter les OPTIONS DE MENU ci-dessous pour la sélection de l'utilisateur
 
-### 9. Présenter les OPTIONS DU MENU (PRD Legacy uniquement)
+### 9. Présenter les OPTIONS DE MENU (PRDs Legacy uniquement)
 
-**[C] Convertir au format BMAD** - Convertir le PRD vers la structure standard BMAD, puis appliquer vos modifications.
-**[E] Modifier tel quel** - Appliquer vos modifications sans convertir le format.
-**[X] Quitter** - Quitter et examiner les options de conversion.
+**[C] Convertir au format BMAD** - Convertir le PRD à la structure standard BMAD, puis appliquer vos éditions
+**[E] Éditer en l'état** - Appliquer vos éditions sans convertir le format
+**[X] Sortir** - Sortir et examiner les options de conversion
 
 #### RÈGLES D'EXÉCUTION :
 
-- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur.
-- Procéder uniquement en fonction de la sélection de l'utilisateur.
+- TOUJOURS s'arrêter et attendre l'entrée utilisateur
+- Procéder uniquement selon la sélection de l'utilisateur
 
-#### Logique de Gestion du Menu :
+#### Logique de gestion du menu :
 
-- SI C (Convertir) : Lisez complètement et suivez : {altStepFile} (step-e-01b-legacy-conversion.md).
-- SI E (Modifier tel quel) : Affichez "Poursuite des modifications..." puis chargez l'étape suivante.
-- SI X (Quitter) : Affichez le résumé et quittez.
-- SI Autre : aidez l'utilisateur, puis réaffichez le menu.
+- SI C (Convertir) : Lire entièrement et suivre : `./step-e-01b-legacy-conversion.md`
+- SI E (Éditer en l'état) : Afficher « Procède avec les éditions... » puis charger l'étape suivante
+- SI X (Sortir) : Afficher le résumé et sortir
+- SI Autre chose : aider l'utilisateur, puis ré-afficher le menu
 
 ---
 
-## 🚨 MÉTRIQUES DE RÉUSSITE/ÉCHEC DU SYSTÈME
+## 🚨 MÉTRIQUES DE SUCCÈS/ÉCHEC SYSTÈME
 
-### ✅ RÉUSSITE :
+### ✅ SUCCÈS :
 
-- Exigences de modification de l'utilisateur clairement comprises.
-- Rapports de validation détectés automatiquement chargés et analysés (si trouvés).
-- Rapport de validation manuel chargé et analysé (si fourni).
-- Format du PRD détecté correctement.
-- Les PRD BMAD passent directement à l'étape de révision.
-- Les PRD Legacy font une pause et présentent les options de conversion.
-- L'utilisateur peut choisir le chemin de conversion ou modifier tel quel.
+- Exigences d'édition de l'utilisateur clairement comprises
+- Rapports de validation auto-détectés chargés et analysés (lorsque trouvés)
+- Rapport de validation manuel chargé et analysé (si fourni)
+- Format PRD détecté correctement
+- PRDs BMAD procèdent directement à l'étape de revue
+- PRDs Legacy mettent en pause et présentent les options de conversion
+- L'utilisateur peut choisir le chemin de conversion ou éditer en l'état
 
-### ❌ ÉCHEC DU SYSTÈME :
+### ❌ ÉCHEC SYSTÈME :
 
-- Ne pas découvrir les exigences de modification de l'utilisateur.
-- Ne pas détecter automatiquement les rapports de validation dans le dossier du PRD.
-- Ne pas charger le rapport de validation lorsqu'il est fourni (auto ou manuel).
-- Détection de format manquante.
-- Ne pas faire de pause pour les PRD legacy sans guide.
-- Passage automatique à la suite sans comprendre l'intention.
+- Ne pas découvrir les exigences d'édition de l'utilisateur
+- Ne pas auto-détecter les rapports de validation dans le dossier PRD
+- Ne pas charger le rapport de validation lorsque fourni (auto ou manuel)
+- Manquer la détection de format
+- Ne pas mettre en pause pour les PRDs legacy sans guidage
+- Auto-procéder sans comprendre l'intention
 
-**Règle Maîtresse :** Comprendre avant de modifier. Détecter le format tôt pour pouvoir guider les utilisateurs de manière appropriée. Détecter automatiquement et utiliser les rapports de validation pour les améliorations prioritaires.
+**Règle maîtresse :** Comprendre avant d'éditer. Détecter le format tôt afin de pouvoir guider les utilisateurs de manière appropriée. Auto-détecter et utiliser les rapports de validation pour les améliorations priorisées.

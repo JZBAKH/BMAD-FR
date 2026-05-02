@@ -6,121 +6,127 @@ outputFile: '{planning_artifacts}/implementation-readiness-report-{{date}}.md'
 
 ## OBJECTIF DE L'ÉTAPE :
 
-Fournir un résumé complet de tous les résultats et apporter une dernière touche au rapport, en garantissant des recommandations claires et un état de préparation global.
+Fournir un résumé exhaustif de toutes les conclusions et donner au rapport une finition finale, en assurant des recommandations claires et un statut de préparation global.
 
 ## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-### Règles Universelles :
+### Règles universelles :
 
-- 🛑 NE JAMAIS générer de contenu sans l'intervention de l'utilisateur.
-- 📖 CRITIQUE : Lire l'intégralité du fichier d'étape avant d'entreprendre toute action.
-- 📖 Vous êtes à la dernière étape — terminez l'évaluation.
-- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu.
-- ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'agent avec la configuration `{communication_language}`.
+- 🛑 NE JAMAIS générer de contenu sans entrée utilisateur
+- 📖 CRITIQUE : Lire le fichier d'étape complet avant toute action
+- 📖 Vous êtes à l'étape finale - compléter l'évaluation
+- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
+- ✅ VOUS DEVEZ TOUJOURS PARLER EN SORTIE dans votre style de communication d'Agent avec la config `{communication_language}`
 
-### Renforcement du Rôle :
+### Renforcement du rôle :
 
-- ✅ Vous livrez l'ÉVALUATION FINALE.
-- ✅ Vos conclusions sont objectives et étayées par des preuves.
-- ✅ Fournissez des recommandations claires et exploitables.
-- ✅ Le succès se mesure à la valeur ajoutée des conclusions.
+- ✅ Vous livrez l'ÉVALUATION FINALE
+- ✅ Vos conclusions sont objectives et soutenues par des preuves
+- ✅ Fournir des recommandations claires et actionnables
+- ✅ Le succès est mesuré par la valeur des conclusions
 
-### Règles Spécifiques à l'Étape :
+### Règles spécifiques à l'étape :
 
-- 🎯 Compiler et résumer tous les résultats.
-- 🚫 Ne pas adoucir le message — soyez direct.
-- 💬 Fournir des exemples spécifiques pour chaque problème.
-- 🚪 Ajouter la section finale au rapport.
+- 🎯 Compiler et résumer toutes les conclusions
+- 🚫 Ne pas adoucir le message - être direct
+- 💬 Fournir des exemples spécifiques pour les problèmes
+- 🚪 Ajouter la section finale au rapport
 
 ## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Examiner tous les résultats des étapes précédentes.
-- 💾 Ajouter le résumé et les recommandations.
-- 📖 Déterminer l'état de préparation global (Readiness status).
-- 🚫 Terminer et présenter le rapport final.
+- 🎯 Examiner toutes les conclusions des étapes précédentes
+- 💾 Ajouter le résumé et les recommandations
+- 📖 Déterminer le statut global de préparation
+- 🚫 Compléter et présenter le rapport final
 
 ## PROCESSUS D'ÉVALUATION FINALE :
 
-### 1. Initialiser l'Évaluation Finale
+### 1. Initialiser l'évaluation finale
 
-"Finalisation de l'**Évaluation finale**.
+« Achèvement de l'**Évaluation finale**.
 
 Je vais maintenant :
 
-1. Examiner tous les résultats des étapes précédentes.
-2. Fournir un résumé complet.
-3. Ajouter des recommandations spécifiques.
-4. Déterminer l'état de préparation global."
+1. Examiner toutes les conclusions des étapes précédentes
+2. Fournir un résumé exhaustif
+3. Ajouter des recommandations spécifiques
+4. Déterminer le statut global de préparation »
 
-### 2. Examiner les Résultats Précédents
+### 2. Examiner les conclusions précédentes
 
-Vérifier dans {outputFile} les sections ajoutées par les étapes précédentes :
+Vérifier le {outputFile} pour les sections ajoutées par les étapes précédentes :
 
-- Résultats de la validation des fichiers et des FR.
-- Problèmes d'alignement UX.
-- Violations de la qualité des Epics.
+- Conclusions de validation des fichiers et EFs
+- Problèmes d'alignement UX
+- Violations de qualité des thèmes
 
-### 3. Ajouter la Section d'Évaluation Finale
+### 3. Ajouter la section d'évaluation finale
 
-Ajouter à {outputFile} :
+Ajouter au {outputFile} :
 
 ```markdown
 ## Résumé et recommandations
 
-### État de préparation global (Overall Readiness Status)
+### Statut global de préparation
 
-[PRÊT / NÉCESSITE DU TRAVAIL / NON PRÊT]
+[PRÊT/NÉCESSITE DU TRAVAIL/PAS PRÊT]
 
 ### Problèmes critiques nécessitant une action immédiate
 
-[Lister les problèmes les plus critiques qui doivent être résolus]
+[Lister les problèmes les plus critiques qui doivent être adressés]
 
-### Prochaines étapes recommandées
+### Étapes suivantes recommandées
 
-1. [Action spécifique 1]
-2. [Action spécifique 2]
-3. [Action spécifique 3]
+1. [Élément d'action spécifique 1]
+2. [Élément d'action spécifique 2]
+3. [Élément d'action spécifique 3]
 
 ### Note finale
 
-Cette évaluation a identifié [X] problèmes dans [Y] catégories. Traitez les problèmes critiques avant de passer à l'implémentation. Ces conclusions peuvent être utilisées pour améliorer les artefacts, ou vous pouvez choisir de poursuivre en l'état.
+Cette évaluation a identifié [X] problèmes à travers [Y] catégories. Adressez les problèmes critiques avant de procéder à l'implémentation. Ces conclusions peuvent être utilisées pour améliorer les artefacts ou vous pouvez choisir de procéder en l'état.
 ```
 
-### 4. Finaliser le Rapport
+### 4. Compléter le rapport
 
-- S'assurer que tous les résultats sont clairement documentés.
-- Vérifier que les recommandations sont exploitables.
-- Ajouter la date et les informations de l'évaluateur.
-- Sauvegarder le rapport final.
+- S'assurer que toutes les conclusions sont clairement documentées
+- Vérifier que les recommandations sont actionnables
+- Ajouter la date et les informations de l'évaluateur
+- Sauvegarder le rapport final
 
-### 5. Présenter la Fin du Travail
+### 5. Présenter l'achèvement
 
 Afficher :
-"**Évaluation de la préparation à l'implémentation terminée**
+« **Évaluation de la préparation à l'implémentation complète**
 
 Rapport généré : {outputFile}
 
-L'évaluation a révélé [nombre] problèmes nécessitant une attention particulière. Consultez le rapport détaillé pour connaître les conclusions et les recommandations spécifiques."
+L'évaluation a trouvé [number] problèmes nécessitant attention. Examinez le rapport détaillé pour les conclusions et recommandations spécifiques. »
 
-## WORKFLOW TERMINÉ
+## WORKFLOW COMPLET
 
-Le workflow de préparation à l'implémentation est maintenant terminé. Le rapport contient tous les résultats et recommandations à l'attention de l'utilisateur.
+Le workflow de préparation à l'implémentation est maintenant complet. Le rapport contient toutes les conclusions et recommandations à considérer par l'utilisateur.
 
-Préparation à l'implémentation terminée. Invoquez le skill `bmad-help`.
+Préparation à l'implémentation complète. Invoquer le skill `bmad-help`.
 
 ---
 
-## 🚨 MESURES DE RÉUSSITE/ÉCHEC DU SYSTÈME
+## 🚨 MÉTRIQUES DE SUCCÈS/ÉCHEC SYSTÈME
 
-### ✅ RÉUSSITE :
+### ✅ SUCCÈS :
 
-- Tous les résultats compilés et résumés.
-- Recommandations claires fournies.
-- État de préparation déterminé.
-- Rapport final sauvegardé.
+- Toutes les conclusions compilées et résumées
+- Recommandations claires fournies
+- Statut de préparation déterminé
+- Rapport final sauvegardé
 
-### ❌ ÉCHEC DU SYSTÈME :
+### ❌ ÉCHEC SYSTÈME :
 
-- Ne pas examiner les résultats précédents.
-- Résumé incomplet.
-- Aucune recommandation claire.
+- Ne pas examiner les conclusions précédentes
+- Résumé incomplet
+- Pas de recommandations claires
+
+## À l'achèvement
+
+Exécuter : `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete`
+
+Si le `workflow.on_complete` résolu n'est pas vide, le suivre comme instruction terminale finale avant de sortir.

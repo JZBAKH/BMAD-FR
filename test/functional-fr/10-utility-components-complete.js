@@ -41,6 +41,31 @@ function countLines(filePath) {
 function run() {
   runner.section('10 — utility-fr/agent-components/ complet');
 
+  // Le module `utility` a été retiré upstream lors du refactor de mars 2026
+  // (intégré ailleurs ou supprimé). Le dossier src/utility/ n'existe plus,
+  // donc la comparaison de compteurs avec l'original upstream est impossible.
+  //
+  // On vérifie seulement que les fragments FR existent encore dans
+  // src/utility-fr/agent-components/ (en tant que fallback historique pour
+  // le runtime CLI legacy `tools/cli/`).
+  const fullEnDir = path.join(REPO_ROOT, COMPONENTS_DIR_EN);
+  if (!fs.existsSync(fullEnDir)) {
+    runner.warn(
+      `${COMPONENTS_DIR_EN} n'existe plus (utility retiré upstream). ` +
+        `Test de compteur de lignes désactivé. Vérification de présence FR uniquement.`,
+    );
+    for (const fragment of EXPECTED_FRAGMENTS) {
+      const frPath = `${COMPONENTS_DIR_FR}/${fragment}`;
+      runner.test(`${fragment} existe dans utility-fr (legacy)`, () => {
+        runner.assert(
+          fs.existsSync(path.join(REPO_ROOT, frPath)),
+          `fragment manquant : ${frPath}`,
+        );
+      });
+    }
+    return;
+  }
+
   for (const fragment of EXPECTED_FRAGMENTS) {
     const frPath = `${COMPONENTS_DIR_FR}/${fragment}`;
     const enPath = `${COMPONENTS_DIR_EN}/${fragment}`;

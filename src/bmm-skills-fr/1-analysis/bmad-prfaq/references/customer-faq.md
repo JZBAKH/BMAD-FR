@@ -1,55 +1,55 @@
 **Language:** Use `{communication_language}` for all output.
 **Output Language:** Use `{document_output_language}` for documents.
 **Output Location:** `{planning_artifacts}`
-**Coaching stance:** Be direct, challenge vague thinking, but offer concrete alternatives when the user is stuck — tough love, not tough silence.
-**Concept type:** Check `{concept_type}` — calibrate all question framing to match (commercial, internal tool, open-source, community/nonprofit).
+**Posture de coaching :** Sois direct, conteste les pensées vagues, mais propose des alternatives concrètes lorsque l'utilisateur est bloqué — tough love, pas tough silence.
+**Type de concept :** Vérifier `{concept_type}` — calibrer tout le cadrage des questions pour qu'il corresponde (commercial, outil interne, open-source, communauté/à but non lucratif).
 
-# Stage 3: Customer FAQ
+# Étape 3 : Customer FAQ
 
-**Goal:** Validate the value proposition by asking the hardest questions a real user would ask — and crafting answers that hold up under scrutiny.
+**Objectif :** Valider la proposition de valeur en posant les questions les plus difficiles qu'un véritable utilisateur poserait — et en élaborant des réponses qui tiennent sous le feu de la critique.
 
-## The Devil's Advocate
+## L'Avocat du Diable
 
-You are now the customer. Not a friendly early-adopter — a busy, skeptical person who has been burned by promises before. You've read the press release. Now you have questions.
+Tu es maintenant le client. Pas un early-adopter conciliant — une personne pressée, sceptique, qui s'est déjà fait avoir par des promesses. Elle a lu le communiqué de presse. Maintenant, elle a des questions.
 
-**Generate 6-10 customer FAQ questions** that cover these angles:
+**Génère 6 à 10 questions de Customer FAQ** qui couvrent ces angles :
 
-- **Skepticism:** "How is this different from [existing solution]?" / "Why should I switch from what I use today?"
-- **Trust:** "What happens to my data?" / "What if this shuts down?" / "Who's behind this?"
-- **Practical concerns:** "How much does it cost?" / "How long does it take to get started?" / "Does it work with [thing I already use]?"
-- **Edge cases:** "What if I need to [uncommon but real scenario]?" / "Does it work for [adjacent use case]?"
-- **The hard question they're afraid of:** Every product has one question the team hopes nobody asks. Find it and ask it.
+- **Scepticisme :** « En quoi est-ce différent de [solution existante] ? » / « Pourquoi devrais-je quitter ce que j'utilise aujourd'hui ? »
+- **Confiance :** « Qu'arrive-t-il à mes données ? » / « Et si ça ferme ? » / « Qui est derrière ? »
+- **Préoccupations pratiques :** « Combien ça coûte ? » / « Combien de temps faut-il pour démarrer ? » / « Est-ce compatible avec [ce que j'utilise déjà] ? »
+- **Cas particuliers :** « Et si j'ai besoin de [scénario peu commun mais réel] ? » / « Est-ce que ça fonctionne pour [cas d'usage adjacent] ? »
+- **La question difficile qu'ils craignent :** Chaque produit a une question que l'équipe espère que personne ne posera. Trouve-la et pose-la.
 
-**Don't generate softball questions.** "How do I sign up?" is not a FAQ — it's a CTA. Real customer FAQs are the objections standing between interest and adoption.
+**Ne génère pas de questions faciles.** « Comment je m'inscris ? » n'est pas une FAQ — c'est un CTA. Les vraies Customer FAQ sont les objections qui se dressent entre l'intérêt et l'adoption.
 
-**Calibrate to concept type.** For non-commercial concepts (internal tools, open-source, community projects), adapt question framing: replace "cost" with "effort to adopt," replace "competitor switching" with "why change from current workflow," replace "trust/company viability" with "maintenance and sustainability."
+**Calibre selon le type de concept.** Pour les concepts non commerciaux (outils internes, open-source, projets communautaires), adapte le cadrage des questions : remplace « coût » par « effort à adopter », remplace « basculer depuis un concurrent » par « pourquoi changer du workflow actuel », remplace « confiance/viabilité de l'entreprise » par « maintenance et pérennité ».
 
-## Coaching the Answers
+## Coacher les réponses
 
-Present the questions and work through answers with the user:
+Présente les questions et travaille les réponses avec l'utilisateur :
 
-1. **Present all questions at once** — let the user see the full landscape of customer concern.
-2. **Work through answers together.** The user drafts (or you draft and they react). For each answer:
-   - Is it honest? If the answer is "we don't do that yet," say so — and explain the roadmap or alternative.
-   - Is it specific? "We have enterprise-grade security" is not an answer. What certifications? What encryption? What SLA?
-   - Would a customer believe it? Marketing language in FAQ answers destroys credibility.
-3. **If an answer reveals a real gap in the concept**, name it directly and force a decision: is this a launch blocker, a fast-follow, or an accepted trade-off?
-4. **The user can add their own questions too.** Often they know the scary questions better than anyone.
+1. **Présenter toutes les questions d'un coup** — laisser l'utilisateur voir le panorama complet des préoccupations clients.
+2. **Travailler les réponses ensemble.** L'utilisateur rédige (ou tu rédiges et il réagit). Pour chaque réponse :
+   - Est-elle honnête ? Si la réponse est « on ne le fait pas encore », dis-le — et explique la roadmap ou l'alternative.
+   - Est-elle spécifique ? « Nous avons une sécurité de niveau entreprise » n'est pas une réponse. Quelles certifications ? Quel chiffrement ? Quel SLA ?
+   - Un client y croirait-il ? Le langage marketing dans les réponses FAQ détruit la crédibilité.
+3. **Si une réponse révèle un véritable trou dans le concept**, nomme-le directement et force une décision : est-ce un bloqueur de lancement, un fast-follow, ou un compromis accepté ?
+4. **L'utilisateur peut aussi ajouter ses propres questions.** Souvent, il connaît les questions qui font peur mieux que personne.
 
-## Headless Mode
+## Mode Headless
 
-Generate questions and best-effort answers from available context. Flag answers with low confidence so a human can review.
+Génère les questions et des réponses au mieux de tes capacités à partir du contexte disponible. Marque les réponses à faible confiance pour qu'un humain puisse les revoir.
 
-## Updating the Document
+## Mise à jour du document
 
-Append the Customer FAQ section to the output document. Update frontmatter: `status: "customer-faq"`, `stage: 3`, `updated` timestamp.
+Ajoute la section Customer FAQ au document de sortie. Mets à jour le frontmatter : `status: "customer-faq"`, `stage: 3`, horodatage `updated`.
 
-## Coaching Notes Capture
+## Capture des notes de coaching
 
-Before moving on, append a `<!-- coaching-notes-stage-3 -->` block to the output document: gaps revealed by customer questions, trade-off decisions made (launch blocker vs fast-follow vs accepted), competitive intelligence surfaced, and any scope or requirements signals.
+Avant de passer à l'étape suivante, ajoute un bloc `<!-- coaching-notes-stage-3 -->` au document de sortie : trous révélés par les questions clients, décisions de compromis prises (bloqueur de lancement vs fast-follow vs accepté), intelligence concurrentielle qui a émergé, et tout signal de portée ou d'exigences.
 
-## Stage Complete
+## Étape complétée
 
-This stage is complete when every question has an honest, specific answer — and the user has confronted the hardest customer objections their concept faces. No softballs survived.
+Cette étape est complétée quand chaque question a une réponse honnête et spécifique — et que l'utilisateur a affronté les objections clients les plus difficiles auxquelles son concept fait face. Aucune question facile n'a survécu.
 
-Route to `./internal-faq.md`.
+Router vers `./internal-faq.md`.

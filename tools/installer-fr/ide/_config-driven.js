@@ -192,9 +192,9 @@ class ConfigDrivenIdeSetup {
       const conflict = await this.findAncestorConflict(projectDir);
       if (conflict) {
         await prompts.log.error(
-          `Found existing BMAD skills in ancestor installation: ${conflict}\n` +
-            `  ${this.name} inherits skills from parent directories, so this would cause duplicates.\n` +
-            `  Please remove the BMAD files from that directory first:\n` +
+          `Skills BMAD existants trouvés dans une installation ancêtre : ${conflict}\n` +
+            `  ${this.name} hérite des Skills des répertoires parents, ce qui provoquerait des doublons.\n` +
+            `  Veuillez d'abord supprimer les fichiers BMAD de ce répertoire :\n` +
             `    rm -rf "${conflict}"/bmad*`,
         );
         return {
@@ -206,7 +206,7 @@ class ConfigDrivenIdeSetup {
       }
     }
 
-    if (!options.silent) await prompts.log.info(`Setting up ${this.name}...`);
+    if (!options.silent) await prompts.log.info(`Configuration de ${this.name}...`);
 
     // Clean up any old BMAD installation first
     await this.cleanup(projectDir, options, bmadDir);
@@ -347,7 +347,7 @@ class ConfigDrivenIdeSetup {
 
       let description = (record.description || '').trim();
       if (!description) {
-        description = `Run the ${canonicalId} skill`;
+        description = `Exécuter le Skill ${canonicalId}`;
         result.fallbackDescription++;
       }
 
@@ -380,7 +380,7 @@ class ConfigDrivenIdeSetup {
           } catch (error) {
             result.writeFailures++;
             if (!options.silent) {
-              await prompts.log.warn(`Failed to update command pointer ${canonicalId}${extension}: ${error.message}`);
+              await prompts.log.warn(`Échec de la mise à jour du pointeur de commande ${canonicalId}${extension} : ${error.message}`);
             }
           }
           continue;
@@ -396,7 +396,7 @@ class ConfigDrivenIdeSetup {
       } catch (error) {
         result.writeFailures++;
         if (!options.silent) {
-          await prompts.log.warn(`Failed to write command pointer ${canonicalId}${extension}: ${error.message}`);
+          await prompts.log.warn(`Échec de l'écriture du pointeur de commande ${canonicalId}${extension} : ${error.message}`);
         }
       }
     }
@@ -476,18 +476,18 @@ class ConfigDrivenIdeSetup {
     if (options.silent) return;
     const count = results.skillDirectories || results.skills || 0;
     if (count > 0) {
-      await prompts.log.success(`${this.name} configured: ${count} skills → ${targetDir}`);
+      await prompts.log.success(`${this.name} configuré : ${count} Skills → ${targetDir}`);
     }
     const cmd = results.commands;
     if (cmd && (cmd.created > 0 || cmd.updated > 0) && this.installerConfig?.commands_target_dir) {
       const total = cmd.created + cmd.updated;
-      const detail = cmd.updated > 0 ? `${cmd.created} new, ${cmd.updated} refreshed` : `${total}`;
-      await prompts.log.success(`${this.name} commands: ${detail} → ${this.installerConfig.commands_target_dir}`);
+      const detail = cmd.updated > 0 ? `${cmd.created} nouveau(x), ${cmd.updated} actualisé(s)` : `${total}`;
+      await prompts.log.success(`Commandes ${this.name} : ${detail} → ${this.installerConfig.commands_target_dir}`);
       if (cmd.skippedCollision > 0) {
-        await prompts.log.message(`  (${cmd.skippedCollision} skipped — name collides with reserved slash command)`);
+        await prompts.log.message(`  (${cmd.skippedCollision} ignoré(s) — le nom entre en collision avec une commande slash réservée)`);
       }
       if (cmd.writeFailures > 0) {
-        await prompts.log.warn(`  (${cmd.writeFailures} pointer writes failed — see warnings above)`);
+        await prompts.log.warn(`  (${cmd.writeFailures} écriture(s) de pointeur en échec — voir les avertissements ci-dessus)`);
       }
     }
   }
@@ -842,7 +842,7 @@ class ConfigDrivenIdeSetup {
         const backupPath = `${filePath}.bak`;
         if (await fs.pathExists(backupPath)) {
           await fs.rename(backupPath, filePath);
-          if (!options.silent) await prompts.log.message('  Restored copilot-instructions.md from backup');
+          if (!options.silent) await prompts.log.message('  copilot-instructions.md restauré depuis la sauvegarde');
         }
       } else {
         await fs.writeFile(filePath, cleaned, 'utf8');
@@ -850,9 +850,9 @@ class ConfigDrivenIdeSetup {
         if (await fs.pathExists(backupPath)) await fs.remove(backupPath);
       }
 
-      if (!options.silent) await prompts.log.message('  Cleaned BMAD markers from copilot-instructions.md');
+      if (!options.silent) await prompts.log.message('  Marqueurs BMAD nettoyés de copilot-instructions.md');
     } catch {
-      if (!options.silent) await prompts.log.warn('  Warning: Could not clean BMAD markers from copilot-instructions.md');
+      if (!options.silent) await prompts.log.warn('  Avertissement : impossible de nettoyer les marqueurs BMAD de copilot-instructions.md');
     }
   }
 
@@ -872,7 +872,7 @@ class ConfigDrivenIdeSetup {
     try {
       config = yaml.parse(content) || {};
     } catch {
-      if (!options.silent) await prompts.log.warn('  Warning: Could not parse .kilocodemodes for cleanup');
+      if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'analyser .kilocodemodes pour le nettoyage');
       return;
     }
 
@@ -885,9 +885,9 @@ class ConfigDrivenIdeSetup {
     if (removedCount > 0) {
       try {
         await fs.writeFile(kiloModesPath, yaml.stringify(config, { lineWidth: 0 }));
-        if (!options.silent) await prompts.log.message(`  Removed ${removedCount} BMAD modes from .kilocodemodes`);
+        if (!options.silent) await prompts.log.message(`  ${removedCount} modes BMAD supprimés de .kilocodemodes`);
       } catch {
-        if (!options.silent) await prompts.log.warn('  Warning: Could not write .kilocodemodes during cleanup');
+        if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'écrire .kilocodemodes lors du nettoyage');
       }
     }
   }
@@ -909,7 +909,7 @@ class ConfigDrivenIdeSetup {
     try {
       config = yaml.parse(content) || {};
     } catch {
-      if (!options.silent) await prompts.log.warn('  Warning: Could not parse prompts.yml for cleanup');
+      if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'analyser prompts.yml pour le nettoyage');
       return;
     }
 
@@ -926,9 +926,9 @@ class ConfigDrivenIdeSetup {
         } else {
           await fs.writeFile(promptsPath, yaml.stringify(config, { lineWidth: 0 }));
         }
-        if (!options.silent) await prompts.log.message(`  Removed ${removedCount} BMAD entries from prompts.yml`);
+        if (!options.silent) await prompts.log.message(`  ${removedCount} entrées BMAD supprimées de prompts.yml`);
       } catch {
-        if (!options.silent) await prompts.log.warn('  Warning: Could not write prompts.yml during cleanup');
+        if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'écrire prompts.yml lors du nettoyage');
       }
     }
   }

@@ -1,259 +1,261 @@
-# Market Research Step 4: Customer Decisions and Journey
+# Market Research Étape 4 : Décisions et journey client
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (LIRE EN PREMIER) :
 
-- 🛑 NEVER generate content without web search verification
+- 🛑 NE JAMAIS générer de contenu sans vérification par recherche web
 
-- 📖 CRITICAL: ALWAYS read the complete step file before taking any action - partial understanding leads to incomplete decisions
-- 🔄 CRITICAL: When loading next step with 'C', ensure the entire file is read and understood before proceeding
-- ✅ Search the web to verify and supplement your knowledge with current facts
-- 📋 YOU ARE A CUSTOMER DECISION ANALYST, not content generator
-- 💬 FOCUS on customer decision processes and journey mapping
-- 🔍 WEB SEARCH REQUIRED - verify current facts against live sources
-- 📝 WRITE CONTENT IMMEDIATELY TO DOCUMENT
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
+- 📖 CRITIQUE : TOUJOURS lire le fichier d'étape complet avant toute action — une compréhension partielle mène à des décisions incomplètes
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que le fichier entier est lu et compris avant de procéder
+- ✅ Faire des recherches web pour vérifier et compléter vos connaissances avec des faits actuels
+- 📋 VOUS ÊTES UN ANALYSTE EN DÉCISION CLIENT, pas un générateur de contenu
+- 💬 SE CONCENTRER sur les processus de décision client et le journey mapping
+- 🔍 RECHERCHE WEB REQUISE — vérifier les faits actuels par rapport à des sources en direct
+- 📝 ÉCRIRE LE CONTENU IMMÉDIATEMENT DANS LE DOCUMENT
+- ✅ VOUS DEVEZ TOUJOURS PARLER LA SORTIE dans le style de communication de votre Agent avec la configuration `{communication_language}`
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Show web search analysis before presenting findings
-- ⚠️ Present [C] continue option after decision processes content generation
-- 📝 WRITE CUSTOMER DECISIONS ANALYSIS TO DOCUMENT IMMEDIATELY
-- 💾 ONLY proceed when user chooses C (Continue)
-- 📖 Update frontmatter `stepsCompleted: [1, 2, 3, 4]` before loading next step
-- 🚫 FORBIDDEN to load next step until C is selected
+- 🎯 Montrer l'analyse de recherche web avant de présenter les résultats
+- ⚠️ Présenter l'option [C] continue après la génération du contenu sur les processus de décision
+- 📝 ÉCRIRE L'ANALYSE DES DÉCISIONS CLIENT DANS LE DOCUMENT IMMÉDIATEMENT
+- 💾 Procéder UNIQUEMENT lorsque l'utilisateur choisit C (Continue)
+- 📖 Mettre à jour le frontmatter `stepsCompleted: [1, 2, 3, 4]` avant de charger l'étape suivante
+- 🚫 INTERDIT de charger l'étape suivante tant que C n'est pas sélectionné
 
-## CONTEXT BOUNDARIES:
+## LIMITES DE CONTEXTE :
 
-- Current document and frontmatter from previous steps are available
-- Customer behavior and pain points analysis completed in previous steps
-- Focus on customer decision processes and journey mapping
-- Web search capabilities with source verification are enabled
-- **Research topic = "{{research_topic}}"** - established from initial discussion
-- **Research goals = "{{research_goals}}"** - established from initial discussion
+- Le document courant et le frontmatter des étapes précédentes sont disponibles
+- L'analyse du comportement et des points de douleur client a été complétée aux étapes précédentes
+- Se concentrer sur les processus de décision client et le journey mapping
+- Les capacités de recherche web avec vérification des sources sont activées
+- **Sujet de recherche = "{{research_topic}}"** — établi à partir de la discussion initiale
+- **Objectifs de recherche = "{{research_goals}}"** — établis à partir de la discussion initiale
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Conduct customer decision processes and journey analysis with emphasis on decision factors and journey mapping.
+Mener une analyse des processus de décision et du journey client en mettant l'accent sur les facteurs de décision et le journey mapping.
 
-## CUSTOMER DECISIONS ANALYSIS SEQUENCE:
+## SÉQUENCE D'ANALYSE DES DÉCISIONS CLIENT :
 
-### 1. Begin Customer Decisions Analysis
+### 1. Commencer l'analyse des décisions client
 
-**UTILIZE SUBPROCESSES AND SUBAGENTS**: Use research subagents, subprocesses or parallel processing if available to thoroughly analyze different customer decision areas simultaneously and thoroughly.
+**UTILISER LES SOUS-PROCESSUS ET SOUS-AGENTS** : Utiliser les sous-agents de recherche, sous-processus ou traitement parallèle si disponibles pour analyser en profondeur différentes zones de décision client simultanément et de manière approfondie.
 
-Start with customer decisions research approach:
-"Now I'll conduct **customer decision processes analysis** for **{{research_topic}}** to understand customer decision-making.
+Commencer avec l'approche de recherche sur les décisions client :
+"Maintenant, je vais mener une **analyse des processus de décision client** pour **{{research_topic}}** afin de comprendre la prise de décision client.
 
-**Customer Decisions Focus:**
+**Focus des décisions client :**
 
-- Customer decision-making processes
-- Decision factors and criteria
-- Customer journey mapping
-- Purchase decision influencers
-- Information gathering patterns
+- Processus de prise de décision client
+- Facteurs et critères de décision
+- Cartographie du journey client
+- Influenceurs des décisions d'achat
+- Schémas de collecte d'informations
 
-**Let me search for current customer decision insights.**"
+**Permettez-moi de rechercher les insights actuels sur les décisions client.**"
 
-### 2. Parallel Decisions Research Execution
+### 2. Exécution de la recherche parallèle sur les décisions
 
-**Execute multiple web searches simultaneously:**
+**Exécuter plusieurs recherches web simultanément :**
 
-Search the web: "{{research_topic}} customer decision process"
-Search the web: "{{research_topic}} buying criteria factors"
-Search the web: "{{research_topic}} customer journey mapping"
-Search the web: "{{research_topic}} decision influencing factors"
+Rechercher sur le web : "{{research_topic}} customer decision process"
+Rechercher sur le web : "{{research_topic}} buying criteria factors"
+Rechercher sur le web : "{{research_topic}} customer journey mapping"
+Rechercher sur le web : "{{research_topic}} decision influencing factors"
 
-**Analysis approach:**
+**Approche d'analyse :**
 
-- Look for customer decision research studies
-- Search for buying criteria and factor analysis
-- Research customer journey mapping methodologies
-- Analyze decision influence factors and channels
-- Study information gathering and evaluation patterns
+- Chercher les études de recherche sur les décisions client
+- Chercher l'analyse des critères et facteurs d'achat
+- Rechercher les méthodologies de cartographie du journey client
+- Analyser les facteurs et canaux d'influence sur la décision
+- Étudier les schémas de collecte d'information et d'évaluation
 
-### 3. Analyze and Aggregate Results
+### 3. Analyser et agréger les résultats
 
-**Collect and analyze findings from all parallel searches:**
+**Collecter et analyser les conclusions de toutes les recherches parallèles :**
 
-"After executing comprehensive parallel web searches, let me analyze and aggregate customer decision findings:
+"Après avoir exécuté des recherches web parallèles complètes, permettez-moi d'analyser et d'agréger les conclusions sur les décisions client :
 
-**Research Coverage:**
+**Couverture de la recherche :**
 
-- Customer decision-making processes
-- Decision factors and criteria
-- Customer journey mapping
-- Decision influence factors
+- Processus de prise de décision client
+- Facteurs et critères de décision
+- Cartographie du journey client
+- Facteurs d'influence sur la décision
 
-**Cross-Decisions Analysis:**
-[Identify patterns connecting decision factors and journey stages]
+**Analyse inter-décisions :**
+[Identifier les schémas reliant les facteurs de décision et les étapes du journey]
 
-**Quality Assessment:**
-[Overall confidence levels and research gaps identified]"
+**Évaluation de la qualité :**
+[Niveaux de confiance globaux et lacunes de recherche identifiées]"
 
-### 4. Generate Customer Decisions Content
+### 4. Générer le contenu sur les décisions client
 
-**WRITE IMMEDIATELY TO DOCUMENT**
+**ÉCRIRE IMMÉDIATEMENT DANS LE DOCUMENT**
 
-Prepare customer decisions analysis with web search citations:
+Préparer l'analyse des décisions client avec citations de recherche web :
 
-#### Content Structure:
+#### Structure du contenu :
 
-When saving to document, append these Level 2 and Level 3 sections:
+Lors de la sauvegarde dans le document, ajouter ces sections de niveau 2 et niveau 3 :
 
 ```markdown
-## Customer Decision Processes and Journey
+## Processus de décision et journey client
 
-### Customer Decision-Making Processes
+### Processus de prise de décision client
 
-[Decision processes analysis with source citations]
-_Decision Stages: [Key stages in customer decision making]_
-_Decision Timelines: [Timeframes for different decisions]_
-_Complexity Levels: [Decision complexity assessment]_
-_Evaluation Methods: [How customers evaluate options]_
-_Source: [URL]_
+[Analyse des processus de décision avec citations des sources]
+_Étapes de décision : [Étapes clés dans la prise de décision client]_
+_Calendriers de décision : [Délais pour différentes décisions]_
+_Niveaux de complexité : [Évaluation de la complexité de la décision]_
+_Méthodes d'évaluation : [Comment les clients évaluent les options]_
+_Source : [URL]_
 
-### Decision Factors and Criteria
+### Facteurs et critères de décision
 
-[Decision factors analysis with source citations]
-_Primary Decision Factors: [Most important factors in decisions]_
-_Secondary Decision Factors: [Supporting factors influencing decisions]_
-_Weighing Analysis: [How different factors are weighed]_
-_Evoluton Patterns: [How factors change over time]_
-_Source: [URL]_
+[Analyse des facteurs de décision avec citations des sources]
+_Facteurs primaires de décision : [Facteurs les plus importants dans les décisions]_
+_Facteurs secondaires de décision : [Facteurs de soutien influençant les décisions]_
+_Analyse de pondération : [Comment les différents facteurs sont pondérés]_
+_Schémas d'évolution : [Comment les facteurs changent au fil du temps]_
+_Source : [URL]_
 
-### Customer Journey Mapping
+### Cartographie du journey client
 
-[Journey mapping analysis with source citations]
-_Awareness Stage: [How customers become aware of {{research_topic}}]_
-_Consideration Stage: [Evaluation and comparison process]_
-_Decision Stage: [Final decision-making process]_
-_Purchase Stage: [Purchase execution and completion]_
-_Post-Purchase Stage: [Post-decision evaluation and behavior]_
-_Source: [URL]_
+[Analyse du journey mapping avec citations des sources]
+_Étape de prise de conscience : [Comment les clients prennent conscience de {{research_topic}}]_
+_Étape de considération : [Processus d'évaluation et de comparaison]_
+_Étape de décision : [Processus final de prise de décision]_
+_Étape d'achat : [Exécution et finalisation de l'achat]_
+_Étape post-achat : [Évaluation et comportement post-décision]_
+_Source : [URL]_
 
-### Touchpoint Analysis
+### Analyse des points de contact
 
-[Touchpoint analysis with source citations]
-_Digital Touchpoints: [Online and digital interaction points]_
-_Offline Touchpoints: [Physical and in-person interaction points]_
-_Information Sources: [Where customers get information]_
-_Influence Channels: [What influences customer decisions]_
-_Source: [URL]_
+[Analyse des points de contact avec citations des sources]
+_Points de contact numériques : [Points d'interaction en ligne et numériques]_
+_Points de contact hors ligne : [Points d'interaction physiques et en personne]_
+_Sources d'information : [Où les clients obtiennent les informations]_
+_Canaux d'influence : [Ce qui influence les décisions client]_
+_Source : [URL]_
 
-### Information Gathering Patterns
+### Schémas de collecte d'informations
 
-[Information patterns analysis with source citations]
-_Research Methods: [How customers research options]_
-_Information Sources Trusted: [Most trusted information sources]_
-_Research Duration: [Time spent gathering information]_
-_Evaluation Criteria: [How customers evaluate information]_
-_Source: [URL]_
+[Analyse des schémas d'information avec citations des sources]
+_Méthodes de recherche : [Comment les clients recherchent les options]_
+_Sources d'information de confiance : [Sources d'information les plus fiables]_
+_Durée de recherche : [Temps consacré à la collecte d'informations]_
+_Critères d'évaluation : [Comment les clients évaluent les informations]_
+_Source : [URL]_
 
-### Decision Influencers
+### Influenceurs de décision
 
-[Decision influencer analysis with source citations]
-_Peer Influence: [How friends and family influence decisions]_
-_Expert Influence: [How expert opinions affect decisions]_
-_Media Influence: [How media and marketing affect decisions]_
-_Social Proof Influence: [How reviews and testimonials affect decisions]_
-_Source: [URL]_
+[Analyse des influenceurs de décision avec citations des sources]
+_Influence des pairs : [Comment amis et famille influencent les décisions]_
+_Influence des experts : [Comment les opinions d'experts affectent les décisions]_
+_Influence des médias : [Comment les médias et le marketing affectent les décisions]_
+_Influence de la preuve sociale : [Comment avis et témoignages affectent les décisions]_
+_Source : [URL]_
 
-### Purchase Decision Factors
+### Facteurs de décision d'achat
 
-[Purchase decision factors analysis with source citations]
-_Immediate Purchase Drivers: [Factors triggering immediate purchase]_
-_Delayed Purchase Drivers: [Factors causing purchase delays]_
-_Brand Loyalty Factors: [Factors driving repeat purchases]_
-_Price Sensitivity: [How price affects purchase decisions]_
-_Source: [URL]_
+[Analyse des facteurs de décision d'achat avec citations des sources]
+_Moteurs d'achat immédiat : [Facteurs déclenchant un achat immédiat]_
+_Moteurs d'achat différé : [Facteurs causant des délais d'achat]_
+_Facteurs de fidélité à la marque : [Facteurs guidant les achats répétés]_
+_Sensibilité au prix : [Comment le prix affecte les décisions d'achat]_
+_Source : [URL]_
 
-### Customer Decision Optimizations
+### Optimisations des décisions client
 
-[Decision optimization analysis with source citations]
-_Friction Reduction: [Ways to make decisions easier]_
-_Trust Building: [Building customer trust in decisions]_
-_Conversion Optimization: [Optimizing decision-to-purchase rates]_
-_Loyalty Building: [Building long-term customer relationships]_
-_Source: [URL]_
+[Analyse des optimisations de décision avec citations des sources]
+_Réduction des frictions : [Façons de faciliter les décisions]_
+_Construction de la confiance : [Construire la confiance client dans les décisions]_
+_Optimisation de la conversion : [Optimiser les taux décision-vers-achat]_
+_Construction de la fidélité : [Construire des relations client à long terme]_
+_Source : [URL]_
 ```
 
-### 5. Present Analysis and Continue Option
+### 5. Présenter l'analyse et l'option de continuation
 
-**Show analysis and present continue option:**
+**Montrer l'analyse et présenter l'option de continuation :**
 
-"I've completed **customer decision processes analysis** for {{research_topic}}, focusing on customer decision-making.
+"J'ai complété l'**analyse des processus de décision client** pour {{research_topic}}, en mettant l'accent sur la prise de décision client.
 
-**Key Decision Findings:**
+**Conclusions clés sur la décision :**
 
-- Customer decision-making processes clearly mapped
-- Decision factors and criteria thoroughly analyzed
-- Customer journey mapping completed across all stages
-- Decision influencers and touchpoints identified
-- Information gathering patterns documented
+- Processus de prise de décision client clairement cartographiés
+- Facteurs et critères de décision analysés en profondeur
+- Cartographie du journey client complétée à toutes les étapes
+- Influenceurs de décision et points de contact identifiés
+- Schémas de collecte d'informations documentés
 
-**Ready to proceed to competitive analysis?**
-[C] Continue - Save this to document and proceed to competitive analysis
+**Prêt à passer à l'analyse concurrentielle ?**
+[C] Continuer — Sauvegarder ceci dans le document et procéder à l'analyse concurrentielle
 
-### 6. Handle Continue Selection
+**HALT — attendre la réponse de l'utilisateur avant de continuer.**
 
-#### If 'C' (Continue):
+### 6. Gérer la sélection Continue
 
-- **CONTENT ALREADY WRITTEN TO DOCUMENT**
-- Update frontmatter: `stepsCompleted: [1, 2, 3, 4]`
-- Load: `{project-root}/_bmad/bmm/workflows/1-analysis/research/market-steps/step-05-competitive-analysis.md`
+#### Si 'C' (Continue) :
 
-## APPEND TO DOCUMENT:
+- **CONTENU DÉJÀ ÉCRIT DANS LE DOCUMENT**
+- Mettre à jour le frontmatter : `stepsCompleted: [1, 2, 3, 4]`
+- Charger : `./step-05-competitive-analysis.md`
 
-Content is already written to document when generated in step 4. No additional append needed.
+## AJOUTER AU DOCUMENT :
 
-## SUCCESS METRICS:
+Le contenu est déjà écrit dans le document lors de sa génération à l'étape 4. Aucun ajout supplémentaire nécessaire.
 
-✅ Customer decision-making processes clearly mapped
-✅ Decision factors and criteria thoroughly analyzed
-✅ Customer journey mapping completed across all stages
-✅ Decision influencers and touchpoints identified
-✅ Information gathering patterns documented
-✅ Content written immediately to document
-✅ [C] continue option presented and handled correctly
-✅ Proper routing to next step (competitive analysis)
-✅ Research goals alignment maintained
+## MÉTRIQUES DE SUCCÈS :
 
-## FAILURE MODES:
+✅ Processus de prise de décision client clairement cartographiés
+✅ Facteurs et critères de décision analysés en profondeur
+✅ Cartographie du journey client complétée à toutes les étapes
+✅ Influenceurs de décision et points de contact identifiés
+✅ Schémas de collecte d'informations documentés
+✅ Contenu écrit immédiatement dans le document
+✅ Option [C] continue présentée et gérée correctement
+✅ Routage approprié vers l'étape suivante (analyse concurrentielle)
+✅ Alignement avec les objectifs de recherche maintenu
 
-❌ Relying solely on training data without web verification for current facts
+## MODES D'ÉCHEC :
 
-❌ Missing critical decision-making process stages
-❌ Not identifying key decision factors
-❌ Incomplete customer journey mapping
-❌ Not writing content immediately to document
-❌ Not presenting [C] continue option after content generation
-❌ Not routing to competitive analysis step
+❌ Se reposer uniquement sur les données d'entraînement sans vérification web pour les faits actuels
 
-❌ **CRITICAL**: Reading only partial step file - leads to incomplete understanding and poor decisions
-❌ **CRITICAL**: Proceeding with 'C' without fully reading and understanding the next step file
-❌ **CRITICAL**: Making decisions without complete understanding of step requirements and protocols
+❌ Étapes critiques du processus de prise de décision manquantes
+❌ Ne pas identifier les facteurs de décision clés
+❌ Cartographie du journey client incomplète
+❌ Ne pas écrire le contenu immédiatement dans le document
+❌ Ne pas présenter l'option [C] continue après la génération du contenu
+❌ Ne pas router vers l'étape d'analyse concurrentielle
 
-## CUSTOMER DECISIONS RESEARCH PROTOCOLS:
+❌ **CRITIQUE** : Lire seulement partiellement le fichier d'étape — mène à une compréhension incomplète et de mauvaises décisions
+❌ **CRITIQUE** : Procéder avec 'C' sans lire et comprendre entièrement le fichier d'étape suivant
+❌ **CRITIQUE** : Prendre des décisions sans compréhension complète des exigences et protocoles de l'étape
 
-- Research customer decision studies and psychology
-- Use customer journey mapping methodologies
-- Analyze buying criteria and decision factors
-- Study decision influence and touchpoint analysis
-- Focus on current decision data
-- Present conflicting information when sources disagree
-- Apply confidence levels appropriately
+## PROTOCOLES DE RECHERCHE SUR LES DÉCISIONS CLIENT :
 
-## DECISION ANALYSIS STANDARDS:
+- Rechercher des études et la psychologie de la décision client
+- Utiliser les méthodologies de cartographie du journey client
+- Analyser les critères d'achat et facteurs de décision
+- Étudier l'influence sur la décision et l'analyse des points de contact
+- Se concentrer sur les données actuelles de décision
+- Présenter les informations contradictoires lorsque les sources divergent
+- Appliquer les niveaux de confiance de manière appropriée
 
-- Always cite URLs for web search results
-- Use authoritative customer decision research sources
-- Note data currency and potential limitations
-- Present multiple perspectives when sources conflict
-- Apply confidence levels to uncertain data
-- Focus on actionable decision insights
+## STANDARDS D'ANALYSE DE DÉCISION :
 
-## NEXT STEP:
+- Toujours citer les URLs pour les résultats de recherche web
+- Utiliser des sources de recherche en décision client faisant autorité
+- Noter l'actualité des données et les limitations potentielles
+- Présenter plusieurs perspectives lorsque les sources sont en conflit
+- Appliquer les niveaux de confiance aux données incertaines
+- Se concentrer sur les insights de décision actionnables
 
-After user selects 'C', load `{project-root}/_bmad/bmm/workflows/1-analysis/research/market-steps/step-05-competitive-analysis.md` to analyze competitive landscape, market positioning, and competitive strategies for {{research_topic}}.
+## ÉTAPE SUIVANTE :
 
-Remember: Always write research content to document immediately and emphasize current customer decision data with rigorous source verification!
+Après que l'utilisateur sélectionne 'C', charger `./step-05-competitive-analysis.md` pour analyser le paysage concurrentiel, le positionnement sur le marché et les stratégies concurrentielles pour {{research_topic}}.
+
+Rappel : Toujours écrire le contenu de la recherche dans le document immédiatement et mettre l'accent sur les données actuelles de décision client avec une vérification rigoureuse des sources !

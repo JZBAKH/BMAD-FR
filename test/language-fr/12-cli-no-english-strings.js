@@ -30,6 +30,7 @@ const { walk } = require('../fr-helpers/walk');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const CLI_ROOT = path.join(REPO_ROOT, 'tools', 'cli');
+const INSTALLER_FR_ROOT = path.join(REPO_ROOT, 'tools', 'installer-fr');
 const SCHEMA_ROOT = path.join(REPO_ROOT, 'tools', 'schema');
 const VALIDATE_FILES = [
   path.join(REPO_ROOT, 'tools', 'validate-agent-schema.js'),
@@ -133,8 +134,13 @@ function isLikelyEnglishUserString(str) {
 function collectFiles() {
   const files = [];
 
-  // tools/cli/ : récursif, .js/.cjs/.mjs
+  // tools/cli/ : ancien CLI runtime (encore utilisé), à garder traduit
   files.push(...walk(CLI_ROOT, { extensions: ['.js', '.cjs', '.mjs'], base: REPO_ROOT }));
+
+  // tools/installer-fr/ : nouveau CLI traduit (issu d'upstream actuel)
+  if (fs.existsSync(INSTALLER_FR_ROOT)) {
+    files.push(...walk(INSTALLER_FR_ROOT, { extensions: ['.js', '.cjs', '.mjs'], base: REPO_ROOT }));
+  }
 
   // tools/schema/ : récursif, .js/.cjs/.mjs
   if (fs.existsSync(SCHEMA_ROOT)) {

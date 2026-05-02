@@ -1,41 +1,41 @@
-# Step 4: Testing
+# Étape 4 : Testing
 
-Display: `Orientation → Walkthrough → Detail Pass → [Testing]`
+Affichez : `Orientation → Walkthrough → Detail Pass → [Testing]`
 
-## Follow Global Step Rules in SKILL.md
+## Suivez les Règles globales d'étape dans SKILL.md
 
-- This is **experiential**, not analytical. The detail pass asked "did you think about X?" — this says "you could see X with your own eyes."
-- Do not prescribe. The human decides whether observing the behavior is worth their time. Frame suggestions as options, not obligations.
-- Do not duplicate CI, test suites, or automated checks. Assume those exist and work. This is about manual observation — the kind of confidence-building no automated test provides.
-- If the change has no user-visible behavior, say so explicitly. Do not invent observations.
+- Cette étape est **expérientielle**, non analytique. Le detail pass demandait « avez-vous pensé à X ? » — celle-ci dit « vous pourriez voir X de vos propres yeux ».
+- Ne prescrivez pas. L'humain décide si observer le comportement vaut son temps. Cadrez les suggestions comme des options, pas des obligations.
+- Ne dupliquez pas la CI, les suites de tests ou les vérifications automatisées. Supposez qu'elles existent et fonctionnent. Il s'agit d'observation manuelle — le type de confiance qu'aucun test automatisé ne fournit.
+- Si le changement n'a pas de comportement visible par l'utilisateur, dites-le explicitement. N'inventez pas d'observations.
 
-## IDENTIFY OBSERVABLE BEHAVIOR
+## IDENTIFIER LE COMPORTEMENT OBSERVABLE
 
-Scan the diff and spec for changes that produce behavior a human could directly observe. Categories to look for:
+Scannez le diff et la spec pour les changements qui produisent un comportement qu'un humain peut directement observer. Catégories à rechercher :
 
-- **UI changes** — new screens, modified layouts, changed interactions, error states
-- **CLI/terminal output** — new commands, changed output, new flags or options
-- **API responses** — new endpoints, changed payloads, different status codes
-- **State changes** — database records, file system artifacts, config effects
-- **Error paths** — bad input, missing dependencies, edge conditions
+- **Changements UI** — nouveaux écrans, layouts modifiés, interactions changées, états d'erreur
+- **Sortie CLI/terminal** — nouvelles commandes, sortie modifiée, nouveaux flags ou options
+- **Réponses API** — nouveaux endpoints, payloads modifiés, codes de statut différents
+- **Changements d'état** — enregistrements de base de données, artefacts de système de fichiers, effets de configuration
+- **Chemins d'erreur** — entrée invalide, dépendances manquantes, conditions limites
 
-For each observable behavior, determine:
+Pour chaque comportement observable, déterminez :
 
-1. **What to do** — the specific action (command to run, button to click, request to send)
-2. **What to expect** — the observable result that confirms the change works
-3. **Why bother** — one phrase connecting this observation to the change's intent (omit if obvious from context)
+1. **Quoi faire** — l'action spécifique (commande à exécuter, bouton à cliquer, requête à envoyer)
+2. **À quoi s'attendre** — le résultat observable qui confirme que le changement fonctionne
+3. **Pourquoi se donner la peine** — une phrase reliant cette observation à l'intention du changement (à omettre si évident d'après le contexte)
 
-Target 2–5 suggestions for a typical change. If more than 5 qualify, prioritize by how much confidence the observation provides relative to effort. A change with zero observable behavior is fine — do not pad with trivial observations.
+Visez 2 à 5 suggestions pour un changement typique. Si plus de 5 se qualifient, priorisez par la confiance que l'observation procure relativement à l'effort. Un changement sans aucun comportement observable convient — ne rembourrez pas avec des observations triviales.
 
-## PRESENT
+## PRÉSENTER
 
-Output as a single message:
+Sortez en un seul message :
 
 ```
 Orientation → Walkthrough → Detail Pass → [Testing]
 ```
 
-Then the testing suggestions using this format:
+Puis les suggestions de testing en utilisant ce format :
 
 ```
 ### How to See It Working
@@ -49,9 +49,9 @@ Do: {specific action}
 Expect: {observable result}
 ```
 
-Include code blocks for commands or requests where helpful.
+Incluez des blocs de code pour les commandes ou requêtes lorsque c'est utile.
 
-If the change has no observable behavior, replace the suggestions with:
+Si le changement n'a pas de comportement observable, remplacez les suggestions par :
 
 ```
 ### How to See It Working
@@ -59,9 +59,9 @@ If the change has no observable behavior, replace the suggestions with:
 This change is internal — no user-visible behavior to observe. The diff and tests tell the full story.
 ```
 
-### Closing
+### Clôture
 
-End the message with:
+Terminez le message par :
 
 ```
 ---
@@ -69,6 +69,6 @@ End the message with:
 You've seen the change and how to verify it. When you're ready to make a call, just say so.
 ```
 
-## NEXT
+## SUITE
 
-When the human signals they're ready to make a decision about this {change_type}, read fully and follow `./step-05-wrapup.md`
+Quand l'humain signale qu'il est prêt à prendre une décision sur ce {change_type}, lisez intégralement et suivez `./step-05-wrapup.md`

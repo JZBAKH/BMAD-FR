@@ -1,249 +1,251 @@
-# Market Research Step 3: Customer Pain Points and Needs
+# Market Research Étape 3 : Points de douleur et besoins client
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (LIRE EN PREMIER) :
 
-- 🛑 NEVER generate content without web search verification
+- 🛑 NE JAMAIS générer de contenu sans vérification par recherche web
 
-- 📖 CRITICAL: ALWAYS read the complete step file before taking any action - partial understanding leads to incomplete decisions
-- 🔄 CRITICAL: When loading next step with 'C', ensure the entire file is read and understood before proceeding
-- ✅ Search the web to verify and supplement your knowledge with current facts
-- 📋 YOU ARE A CUSTOMER NEEDS ANALYST, not content generator
-- 💬 FOCUS on customer pain points, challenges, and unmet needs
-- 🔍 WEB SEARCH REQUIRED - verify current facts against live sources
-- 📝 WRITE CONTENT IMMEDIATELY TO DOCUMENT
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
+- 📖 CRITIQUE : TOUJOURS lire le fichier d'étape complet avant toute action — une compréhension partielle mène à des décisions incomplètes
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que le fichier entier est lu et compris avant de procéder
+- ✅ Faire des recherches web pour vérifier et compléter vos connaissances avec des faits actuels
+- 📋 VOUS ÊTES UN ANALYSTE DES BESOINS CLIENT, pas un générateur de contenu
+- 💬 SE CONCENTRER sur les points de douleur, défis et besoins non satisfaits du client
+- 🔍 RECHERCHE WEB REQUISE — vérifier les faits actuels par rapport à des sources en direct
+- 📝 ÉCRIRE LE CONTENU IMMÉDIATEMENT DANS LE DOCUMENT
+- ✅ VOUS DEVEZ TOUJOURS PARLER LA SORTIE dans le style de communication de votre Agent avec la configuration `{communication_language}`
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Show web search analysis before presenting findings
-- ⚠️ Present [C] continue option after pain points content generation
-- 📝 WRITE CUSTOMER PAIN POINTS ANALYSIS TO DOCUMENT IMMEDIATELY
-- 💾 ONLY proceed when user chooses C (Continue)
-- 📖 Update frontmatter `stepsCompleted: [1, 2, 3]` before loading next step
-- 🚫 FORBIDDEN to load next step until C is selected
+- 🎯 Montrer l'analyse de recherche web avant de présenter les résultats
+- ⚠️ Présenter l'option [C] continue après la génération du contenu sur les points de douleur
+- 📝 ÉCRIRE L'ANALYSE DES POINTS DE DOULEUR CLIENT DANS LE DOCUMENT IMMÉDIATEMENT
+- 💾 Procéder UNIQUEMENT lorsque l'utilisateur choisit C (Continue)
+- 📖 Mettre à jour le frontmatter `stepsCompleted: [1, 2, 3]` avant de charger l'étape suivante
+- 🚫 INTERDIT de charger l'étape suivante tant que C n'est pas sélectionné
 
-## CONTEXT BOUNDARIES:
+## LIMITES DE CONTEXTE :
 
-- Current document and frontmatter from previous steps are available
-- Customer behavior analysis completed in previous step
-- Focus on customer pain points, challenges, and unmet needs
-- Web search capabilities with source verification are enabled
-- **Research topic = "{{research_topic}}"** - established from initial discussion
-- **Research goals = "{{research_goals}}"** - established from initial discussion
+- Le document courant et le frontmatter des étapes précédentes sont disponibles
+- L'analyse du comportement client a été complétée à l'étape précédente
+- Se concentrer sur les points de douleur, défis et besoins non satisfaits du client
+- Les capacités de recherche web avec vérification des sources sont activées
+- **Sujet de recherche = "{{research_topic}}"** — établi à partir de la discussion initiale
+- **Objectifs de recherche = "{{research_goals}}"** — établis à partir de la discussion initiale
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Conduct customer pain points and needs analysis with emphasis on challenges and frustrations.
+Mener une analyse des points de douleur et des besoins client en mettant l'accent sur les défis et frustrations.
 
-## CUSTOMER PAIN POINTS ANALYSIS SEQUENCE:
+## SÉQUENCE D'ANALYSE DES POINTS DE DOULEUR CLIENT :
 
-### 1. Begin Customer Pain Points Analysis
+### 1. Commencer l'analyse des points de douleur client
 
-**UTILIZE SUBPROCESSES AND SUBAGENTS**: Use research subagents, subprocesses or parallel processing if available to thoroughly analyze different customer pain point areas simultaneously and thoroughly.
+**UTILISER LES SOUS-PROCESSUS ET SOUS-AGENTS** : Utiliser les sous-agents de recherche, sous-processus ou traitement parallèle si disponibles pour analyser en profondeur différentes zones de points de douleur client simultanément et de manière approfondie.
 
-Start with customer pain points research approach:
-"Now I'll conduct **customer pain points analysis** for **{{research_topic}}** to understand customer challenges.
+Commencer avec l'approche de recherche sur les points de douleur client :
+"Maintenant, je vais mener une **analyse des points de douleur client** pour **{{research_topic}}** afin de comprendre les défis client.
 
-**Customer Pain Points Focus:**
+**Focus des points de douleur client :**
 
-- Customer challenges and frustrations
-- Unmet needs and unaddressed problems
-- Barriers to adoption or usage
-- Service and support pain points
-- Customer satisfaction gaps
+- Défis et frustrations client
+- Besoins non satisfaits et problèmes non traités
+- Barrières à l'adoption ou à l'usage
+- Points de douleur du service et du support
+- Lacunes de satisfaction client
 
-**Let me search for current customer pain points insights.**"
+**Permettez-moi de rechercher les insights actuels sur les points de douleur client.**"
 
-### 2. Parallel Pain Points Research Execution
+### 2. Exécution de la recherche parallèle sur les points de douleur
 
-**Execute multiple web searches simultaneously:**
+**Exécuter plusieurs recherches web simultanément :**
 
-Search the web: "{{research_topic}} customer pain points challenges"
-Search the web: "{{research_topic}} customer frustrations"
-Search the web: "{{research_topic}} unmet customer needs"
-Search the web: "{{research_topic}} customer barriers to adoption"
+Rechercher sur le web : "{{research_topic}} customer pain points challenges"
+Rechercher sur le web : "{{research_topic}} customer frustrations"
+Rechercher sur le web : "{{research_topic}} unmet customer needs"
+Rechercher sur le web : "{{research_topic}} customer barriers to adoption"
 
-**Analysis approach:**
+**Approche d'analyse :**
 
-- Look for customer satisfaction surveys and reports
-- Search for customer complaints and reviews
-- Research customer support and service issues
-- Analyze barriers to customer adoption
-- Study unmet needs and market gaps
+- Chercher les enquêtes et rapports de satisfaction client
+- Chercher les plaintes et avis client
+- Rechercher les problèmes de support et de service client
+- Analyser les barrières à l'adoption client
+- Étudier les besoins non satisfaits et les lacunes du marché
 
-### 3. Analyze and Aggregate Results
+### 3. Analyser et agréger les résultats
 
-**Collect and analyze findings from all parallel searches:**
+**Collecter et analyser les conclusions de toutes les recherches parallèles :**
 
-"After executing comprehensive parallel web searches, let me analyze and aggregate customer pain points findings:
+"Après avoir exécuté des recherches web parallèles complètes, permettez-moi d'analyser et d'agréger les conclusions sur les points de douleur client :
 
-**Research Coverage:**
+**Couverture de la recherche :**
 
-- Customer challenges and frustrations
-- Unmet needs and unaddressed problems
-- Barriers to adoption or usage
-- Service and support pain points
+- Défis et frustrations client
+- Besoins non satisfaits et problèmes non traités
+- Barrières à l'adoption ou à l'usage
+- Points de douleur du service et du support
 
-**Cross-Pain Points Analysis:**
-[Identify patterns connecting different types of pain points]
+**Analyse inter-points de douleur :**
+[Identifier les schémas reliant différents types de points de douleur]
 
-**Quality Assessment:**
-[Overall confidence levels and research gaps identified]"
+**Évaluation de la qualité :**
+[Niveaux de confiance globaux et lacunes de recherche identifiées]"
 
-### 4. Generate Customer Pain Points Content
+### 4. Générer le contenu sur les points de douleur client
 
-**WRITE IMMEDIATELY TO DOCUMENT**
+**ÉCRIRE IMMÉDIATEMENT DANS LE DOCUMENT**
 
-Prepare customer pain points analysis with web search citations:
+Préparer l'analyse des points de douleur client avec citations de recherche web :
 
-#### Content Structure:
+#### Structure du contenu :
 
-When saving to document, append these Level 2 and Level 3 sections:
+Lors de la sauvegarde dans le document, ajouter ces sections de niveau 2 et niveau 3 :
 
 ```markdown
-## Customer Pain Points and Needs
+## Points de douleur et besoins client
 
-### Customer Challenges and Frustrations
+### Défis et frustrations client
 
-[Customer challenges analysis with source citations]
-_Primary Frustrations: [Major customer frustrations identified]_
-_Usage Barriers: [Barriers preventing effective usage]_
-_Service Pain Points: [Customer service and support issues]_
-_Frequency Analysis: [How often these challenges occur]_
-_Source: [URL]_
+[Analyse des défis client avec citations des sources]
+_Frustrations principales : [Frustrations majeures identifiées des clients]_
+_Barrières d'usage : [Barrières empêchant un usage efficace]_
+_Points de douleur du service : [Problèmes de service et support client]_
+_Analyse de fréquence : [À quelle fréquence ces défis se produisent]_
+_Source : [URL]_
 
-### Unmet Customer Needs
+### Besoins client non satisfaits
 
-[Unmet needs analysis with source citations]
-_Critical Unmet Needs: [Most important unaddressed needs]_
-_Solution Gaps: [Opportunities to address unmet needs]_
-_Market Gaps: [Market opportunities from unmet needs]_
-_Priority Analysis: [Which needs are most critical]_
-_Source: [URL]_
+[Analyse des besoins non satisfaits avec citations des sources]
+_Besoins non satisfaits critiques : [Besoins non traités les plus importants]_
+_Lacunes de solution : [Opportunités de répondre aux besoins non satisfaits]_
+_Lacunes de marché : [Opportunités de marché issues des besoins non satisfaits]_
+_Analyse de priorité : [Quels besoins sont les plus critiques]_
+_Source : [URL]_
 
-### Barriers to Adoption
+### Barrières à l'adoption
 
-[Adoption barriers analysis with source citations]
-_Price Barriers: [Cost-related barriers to adoption]_
-_Technical Barriers: [Complexity or technical barriers]_
-_Trust Barriers: [Trust and credibility issues]_
-_Convenience Barriers: [Ease of use or accessibility issues]_
-_Source: [URL]_
+[Analyse des barrières à l'adoption avec citations des sources]
+_Barrières de prix : [Barrières liées au coût pour l'adoption]_
+_Barrières techniques : [Complexité ou barrières techniques]_
+_Barrières de confiance : [Problèmes de confiance et de crédibilité]_
+_Barrières de commodité : [Problèmes de facilité d'utilisation ou d'accessibilité]_
+_Source : [URL]_
 
-### Service and Support Pain Points
+### Points de douleur du service et du support
 
-[Service pain points analysis with source citations]
-_Customer Service Issues: [Common customer service problems]_
-_Support Gaps: [Areas where customer support is lacking]_
-_Communication Issues: [Communication breakdowns and frustrations]_
-_Response Time Issues: [Slow response and resolution problems]_
-_Source: [URL]_
+[Analyse des points de douleur du service avec citations des sources]
+_Problèmes de service client : [Problèmes courants du service client]_
+_Lacunes de support : [Zones où le support client fait défaut]_
+_Problèmes de communication : [Ruptures de communication et frustrations]_
+_Problèmes de temps de réponse : [Problèmes de réponse et résolution lentes]_
+_Source : [URL]_
 
-### Customer Satisfaction Gaps
+### Lacunes de satisfaction client
 
-[Satisfaction gap analysis with source citations]
-_Expectation Gaps: [Differences between expectations and reality]_
-_Quality Gaps: [Areas where quality expectations aren't met]_
-_Value Perception Gaps: [Perceived value vs actual value]_
-_Trust and Credibility Gaps: [Trust issues affecting satisfaction]_
-_Source: [URL]_
+[Analyse des lacunes de satisfaction avec citations des sources]
+_Lacunes d'attentes : [Différences entre attentes et réalité]_
+_Lacunes de qualité : [Zones où les attentes de qualité ne sont pas satisfaites]_
+_Lacunes de perception de valeur : [Valeur perçue vs valeur réelle]_
+_Lacunes de confiance et crédibilité : [Problèmes de confiance affectant la satisfaction]_
+_Source : [URL]_
 
-### Emotional Impact Assessment
+### Évaluation de l'impact émotionnel
 
-[Emotional impact analysis with source citations]
-_Frustration Levels: [Customer frustration severity assessment]_
-_Loyalty Risks: [How pain points affect customer loyalty]_
-_Reputation Impact: [Impact on brand or product reputation]_
-_Customer Retention Risks: [Risk of customer loss from pain points]_
-_Source: [URL]_
+[Analyse de l'impact émotionnel avec citations des sources]
+_Niveaux de frustration : [Évaluation de la sévérité de la frustration client]_
+_Risques de fidélité : [Comment les points de douleur affectent la fidélité client]_
+_Impact sur la réputation : [Impact sur la réputation de la marque ou du produit]_
+_Risques de rétention client : [Risque de perte de client liés aux points de douleur]_
+_Source : [URL]_
 
-### Pain Point Prioritization
+### Priorisation des points de douleur
 
-[Pain point prioritization with source citations]
-_High Priority Pain Points: [Most critical pain points to address]_
-_Medium Priority Pain Points: [Important but less critical pain points]_
-_Low Priority Pain Points: [Minor pain points with lower impact]_
-_Opportunity Mapping: [Pain points with highest solution opportunity]_
-_Source: [URL]_
+[Priorisation des points de douleur avec citations des sources]
+_Points de douleur haute priorité : [Points de douleur les plus critiques à traiter]_
+_Points de douleur priorité moyenne : [Points de douleur importants mais moins critiques]_
+_Points de douleur basse priorité : [Points de douleur mineurs avec un impact faible]_
+_Cartographie des opportunités : [Points de douleur avec la plus grande opportunité de solution]_
+_Source : [URL]_
 ```
 
-### 5. Present Analysis and Continue Option
+### 5. Présenter l'analyse et l'option de continuation
 
-**Show analysis and present continue option:**
+**Montrer l'analyse et présenter l'option de continuation :**
 
-"I've completed **customer pain points analysis** for {{research_topic}}, focusing on customer challenges.
+"J'ai complété l'**analyse des points de douleur client** pour {{research_topic}}, en mettant l'accent sur les défis client.
 
-**Key Pain Points Findings:**
+**Conclusions clés sur les points de douleur :**
 
-- Customer challenges and frustrations thoroughly documented
-- Unmet needs and solution gaps clearly identified
-- Adoption barriers and service pain points analyzed
-- Customer satisfaction gaps assessed
-- Pain points prioritized by impact and opportunity
+- Défis et frustrations client documentés en profondeur
+- Besoins non satisfaits et lacunes de solution clairement identifiés
+- Barrières à l'adoption et points de douleur du service analysés
+- Lacunes de satisfaction client évaluées
+- Points de douleur priorisés par impact et opportunité
 
-**Ready to proceed to customer decision processes?**
-[C] Continue - Save this to document and proceed to decision processes analysis
+**Prêt à passer aux processus de décision client ?**
+[C] Continuer — Sauvegarder ceci dans le document et procéder à l'analyse des processus de décision
 
-### 6. Handle Continue Selection
+**HALT — attendre la réponse de l'utilisateur avant de continuer.**
 
-#### If 'C' (Continue):
+### 6. Gérer la sélection Continue
 
-- **CONTENT ALREADY WRITTEN TO DOCUMENT**
-- Update frontmatter: `stepsCompleted: [1, 2, 3]`
-- Load: `{project-root}/_bmad/bmm/workflows/1-analysis/research/market-steps/step-04-customer-decisions.md`
+#### Si 'C' (Continue) :
 
-## APPEND TO DOCUMENT:
+- **CONTENU DÉJÀ ÉCRIT DANS LE DOCUMENT**
+- Mettre à jour le frontmatter : `stepsCompleted: [1, 2, 3]`
+- Charger : `./step-04-customer-decisions.md`
 
-Content is already written to document when generated in step 4. No additional append needed.
+## AJOUTER AU DOCUMENT :
 
-## SUCCESS METRICS:
+Le contenu est déjà écrit dans le document lors de sa génération à l'étape 4. Aucun ajout supplémentaire nécessaire.
 
-✅ Customer challenges and frustrations clearly documented
-✅ Unmet needs and solution gaps identified
-✅ Adoption barriers and service pain points analyzed
-✅ Customer satisfaction gaps assessed
-✅ Pain points prioritized by impact and opportunity
-✅ Content written immediately to document
-✅ [C] continue option presented and handled correctly
-✅ Proper routing to next step (customer decisions)
-✅ Research goals alignment maintained
+## MÉTRIQUES DE SUCCÈS :
 
-## FAILURE MODES:
+✅ Défis et frustrations client clairement documentés
+✅ Besoins non satisfaits et lacunes de solution identifiés
+✅ Barrières à l'adoption et points de douleur du service analysés
+✅ Lacunes de satisfaction client évaluées
+✅ Points de douleur priorisés par impact et opportunité
+✅ Contenu écrit immédiatement dans le document
+✅ Option [C] continue présentée et gérée correctement
+✅ Routage approprié vers l'étape suivante (décisions client)
+✅ Alignement avec les objectifs de recherche maintenu
 
-❌ Relying solely on training data without web verification for current facts
+## MODES D'ÉCHEC :
 
-❌ Missing critical customer challenges or frustrations
-❌ Not identifying unmet needs or solution gaps
-❌ Incomplete adoption barriers analysis
-❌ Not writing content immediately to document
-❌ Not presenting [C] continue option after content generation
-❌ Not routing to customer decisions analysis step
+❌ Se reposer uniquement sur les données d'entraînement sans vérification web pour les faits actuels
 
-❌ **CRITICAL**: Reading only partial step file - leads to incomplete understanding and poor decisions
-❌ **CRITICAL**: Proceeding with 'C' without fully reading and understanding the next step file
-❌ **CRITICAL**: Making decisions without complete understanding of step requirements and protocols
+❌ Défis ou frustrations client critiques manquants
+❌ Ne pas identifier les besoins non satisfaits ou lacunes de solution
+❌ Analyse incomplète des barrières à l'adoption
+❌ Ne pas écrire le contenu immédiatement dans le document
+❌ Ne pas présenter l'option [C] continue après la génération du contenu
+❌ Ne pas router vers l'étape d'analyse des décisions client
 
-## CUSTOMER PAIN POINTS RESEARCH PROTOCOLS:
+❌ **CRITIQUE** : Lire seulement partiellement le fichier d'étape — mène à une compréhension incomplète et de mauvaises décisions
+❌ **CRITIQUE** : Procéder avec 'C' sans lire et comprendre entièrement le fichier d'étape suivant
+❌ **CRITIQUE** : Prendre des décisions sans compréhension complète des exigences et protocoles de l'étape
 
-- Research customer satisfaction surveys and reviews
-- Use customer feedback and complaint data
-- Analyze customer support and service issues
-- Study barriers to customer adoption
-- Focus on current pain point data
-- Present conflicting information when sources disagree
-- Apply confidence levels appropriately
+## PROTOCOLES DE RECHERCHE SUR LES POINTS DE DOULEUR CLIENT :
 
-## PAIN POINTS ANALYSIS STANDARDS:
+- Rechercher des enquêtes de satisfaction client et avis
+- Utiliser les données de retours et plaintes client
+- Analyser les problèmes de support et service client
+- Étudier les barrières à l'adoption client
+- Se concentrer sur les données actuelles de points de douleur
+- Présenter les informations contradictoires lorsque les sources divergent
+- Appliquer les niveaux de confiance de manière appropriée
 
-- Always cite URLs for web search results
-- Use authoritative customer research sources
-- Note data currency and potential limitations
-- Present multiple perspectives when sources conflict
-- Apply confidence levels to uncertain data
-- Focus on actionable pain point insights
+## STANDARDS D'ANALYSE DES POINTS DE DOULEUR :
 
-## NEXT STEP:
+- Toujours citer les URLs pour les résultats de recherche web
+- Utiliser des sources de recherche client faisant autorité
+- Noter l'actualité des données et les limitations potentielles
+- Présenter plusieurs perspectives lorsque les sources sont en conflit
+- Appliquer les niveaux de confiance aux données incertaines
+- Se concentrer sur les insights actionnables des points de douleur
 
-After user selects 'C', load `{project-root}/_bmad/bmm/workflows/1-analysis/research/market-steps/step-04-customer-decisions.md` to analyze customer decision processes, journey mapping, and decision factors for {{research_topic}}.
+## ÉTAPE SUIVANTE :
 
-Remember: Always write research content to document immediately and emphasize current customer pain points data with rigorous source verification!
+Après que l'utilisateur sélectionne 'C', charger `./step-04-customer-decisions.md` pour analyser les processus de décision client, le journey mapping et les facteurs de décision pour {{research_topic}}.
+
+Rappel : Toujours écrire le contenu de la recherche dans le document immédiatement et mettre l'accent sur les données actuelles des points de douleur client avec une vérification rigoureuse des sources !

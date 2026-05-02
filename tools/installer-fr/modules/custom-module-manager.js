@@ -6,7 +6,7 @@ const prompts = require('../prompts');
 
 function quoteCustomRef(ref) {
   if (typeof ref !== 'string' || !/^[\w.\-+/]+$/.test(ref)) {
-    throw new Error(`Unsafe ref name: ${JSON.stringify(ref)}`);
+    throw new Error(`Nom de ref non sécurisé : ${JSON.stringify(ref)}`);
   }
   return `"${ref}"`;
 }
@@ -42,7 +42,7 @@ class CustomModuleManager {
         cacheKey: null,
         displayName: null,
         isValid: false,
-        error: 'Source is required',
+        error: 'La source est requise',
       };
     }
 
@@ -56,7 +56,7 @@ class CustomModuleManager {
         cacheKey: null,
         displayName: null,
         isValid: false,
-        error: 'Source is required',
+        error: 'La source est requise',
       };
     }
 
@@ -104,7 +104,7 @@ class CustomModuleManager {
           cacheKey: null,
           displayName: null,
           isValid: false,
-          error: 'Local paths do not support @version suffixes',
+          error: 'Les chemins locaux ne prennent pas en charge les suffixes @version',
         };
       }
       return this._parseLocalPath(trimmed);
@@ -194,7 +194,7 @@ class CustomModuleManager {
             cacheKey: null,
             displayName: null,
             isValid: false,
-            error: 'Not a valid Git URL or local path',
+            error: 'URL Git ou chemin local invalide',
           };
         }
 
@@ -234,7 +234,7 @@ class CustomModuleManager {
       cacheKey: null,
       displayName: null,
       isValid: false,
-      error: 'Not a valid Git URL or local path',
+      error: 'URL Git ou chemin local invalide',
     };
   }
 
@@ -256,7 +256,7 @@ class CustomModuleManager {
         cacheKey: null,
         displayName: path.basename(resolved),
         isValid: false,
-        error: `Path does not exist: ${resolved}`,
+        error: `Le chemin n'existe pas : ${resolved}`,
       };
     }
 
@@ -301,7 +301,7 @@ class CustomModuleManager {
     const plugins = marketplaceData?.plugins;
 
     if (!Array.isArray(plugins) || plugins.length === 0) {
-      throw new Error('marketplace.json contains no plugins');
+      throw new Error('marketplace.json ne contient aucun plugin');
     }
 
     return plugins.map((plugin) => this._normalizeCustomModule(plugin, sourceUrl, marketplaceData));
@@ -333,7 +333,7 @@ class CustomModuleManager {
       rootDir = parsed.subdir ? path.join(repoPath, parsed.subdir) : repoPath;
 
       if (parsed.subdir && !(await fs.pathExists(rootDir))) {
-        throw new Error(`Subdirectory '${parsed.subdir}' not found in cloned repository`);
+        throw new Error(`Sous-répertoire '${parsed.subdir}' introuvable dans le dépôt cloné`);
       }
     }
 
@@ -365,7 +365,7 @@ class CustomModuleManager {
   async cloneRepo(sourceInput, options = {}) {
     const parsed = this.parseSource(sourceInput);
     if (!parsed.isValid) throw new Error(parsed.error);
-    if (parsed.type === 'local') throw new Error('cloneRepo does not accept local paths');
+    if (parsed.type === 'local') throw new Error('cloneRepo n\'accepte pas les chemins locaux');
 
     const cacheDir = this.getCacheDir();
     const repoCacheDir = path.join(cacheDir, ...parsed.cacheKey.split('/'));
@@ -403,7 +403,7 @@ class CustomModuleManager {
     if (await fs.pathExists(repoCacheDir)) {
       // Update existing clone (same version as before)
       const fetchSpinner = await createSpinner();
-      fetchSpinner.start(`Updating ${displayName}...`);
+      fetchSpinner.start(`Mise à jour de ${displayName}...`);
       try {
         execSync('git fetch origin --depth 1', {
           cwd: repoCacheDir,
@@ -429,16 +429,16 @@ class CustomModuleManager {
             stdio: ['ignore', 'pipe', 'pipe'],
           });
         }
-        fetchSpinner.stop(`Updated ${displayName}`);
+        fetchSpinner.stop(`${displayName} mis à jour`);
       } catch {
-        fetchSpinner.error(`Update failed, re-downloading ${displayName}`);
+        fetchSpinner.error(`Mise à jour échouée, retéléchargement de ${displayName}`);
         await fs.remove(repoCacheDir);
       }
     }
 
     if (!(await fs.pathExists(repoCacheDir))) {
       const fetchSpinner = await createSpinner();
-      fetchSpinner.start(`Cloning ${displayName}${effectiveVersion ? ` @ ${effectiveVersion}` : ''}...`);
+      fetchSpinner.start(`Clonage de ${displayName}${effectiveVersion ? ` @ ${effectiveVersion}` : ''}...`);
       try {
         if (effectiveVersion) {
           execSync(`git clone --depth 1 --branch ${quoteCustomRef(effectiveVersion)} "${parsed.cloneUrl}" "${repoCacheDir}"`, {
@@ -451,11 +451,11 @@ class CustomModuleManager {
             env: { ...process.env, GIT_TERMINAL_PROMPT: '0' },
           });
         }
-        fetchSpinner.stop(`Cloned ${displayName}`);
+        fetchSpinner.stop(`${displayName} cloné`);
       } catch (error_) {
-        fetchSpinner.error(`Failed to clone ${displayName}`);
+        fetchSpinner.error(`Échec du clonage de ${displayName}`);
         const refSuffix = effectiveVersion ? `@${effectiveVersion}` : '';
-        throw new Error(`Failed to clone ${parsed.cloneUrl}${refSuffix}: ${error_.message}`);
+        throw new Error(`Échec du clonage de ${parsed.cloneUrl}${refSuffix} : ${error_.message}`);
       }
     }
 
@@ -483,16 +483,16 @@ class CustomModuleManager {
     const packageJsonPath = path.join(repoCacheDir, 'package.json');
     if (!options.skipInstall && (await fs.pathExists(packageJsonPath))) {
       const installSpinner = await createSpinner();
-      installSpinner.start(`Installing dependencies for ${displayName}...`);
+      installSpinner.start(`Installation des dépendances pour ${displayName}...`);
       try {
         execSync('npm install --omit=dev --no-audit --no-fund --no-progress --legacy-peer-deps', {
           cwd: repoCacheDir,
           stdio: ['ignore', 'pipe', 'pipe'],
           timeout: 120_000,
         });
-        installSpinner.stop(`Installed dependencies for ${displayName}`);
+        installSpinner.stop(`Dépendances installées pour ${displayName}`);
       } catch (error_) {
-        installSpinner.error(`Failed to install dependencies for ${displayName}`);
+        installSpinner.error(`Échec de l'installation des dépendances pour ${displayName}`);
         if (!silent) await prompts.log.warn(`  ${error_.message}`);
       }
     }

@@ -50,7 +50,7 @@ class Installer {
         });
       } catch (error) {
         // Legacy-dir scan is informational; never let it abort install.
-        await prompts.log.warn(`Warning: Could not check for legacy BMAD entries: ${error.message}`);
+        await prompts.log.warn(`Avertissement : Impossible de vérifier les entrées BMAD obsolètes : ${error.message}`);
       }
 
       if (existingInstall.installed) {
@@ -88,7 +88,7 @@ class Installer {
             if (r.canonicalId) previousSkillIds.add(r.canonicalId);
           }
         } catch (error) {
-          await prompts.log.warn(`Failed to parse skill-manifest.csv: ${error.message}`);
+          await prompts.log.warn(`Échec de l'analyse de skill-manifest.csv : ${error.message}`);
         }
       }
 
@@ -122,7 +122,7 @@ class Installer {
         projectDir: paths.projectRoot,
       };
     } catch (error) {
-      await prompts.log.error('Installation failed');
+      await prompts.log.error('Échec de l\'installation');
 
       // Clean up any temp backup directories that were created before the failure
       try {
@@ -156,7 +156,7 @@ class Installer {
           await fs.remove(modulePath);
         }
       } catch (error) {
-        await prompts.log.warn(`Warning: Failed to remove ${moduleId}: ${error.message}`);
+        await prompts.log.warn(`Avertissement : Échec de la suppression de ${moduleId} : ${error.message}`);
       }
     }
   }
@@ -179,7 +179,7 @@ class Installer {
         await prompts.log.error(`${handler.displayName || ide}: ${handler.platformConfig.suspended}`);
       }
       throw new Error(
-        `All selected tool(s) are suspended: ${suspendedIdes.join(', ')}. Installation aborted to prevent upgrading _bmad/ without a working IDE configuration.`,
+        `Tous les outils sélectionnés sont suspendus : ${suspendedIdes.join(', ')}. Installation interrompue pour éviter de mettre à jour _bmad/ sans configuration IDE fonctionnelle.`,
       );
     }
   }
@@ -204,7 +204,7 @@ class Installer {
 
     for (const result of results || []) {
       if (result && result.success === false) {
-        await prompts.log.warn(`Warning: Failed to remove ${result.ide}: ${result.error || 'unknown error'}`);
+        await prompts.log.warn(`Avertissement : Échec de la suppression de ${result.ide} : ${result.error || 'erreur inconnue'}`);
       }
     }
   }
@@ -221,17 +221,17 @@ class Installer {
     const installTasks = [];
 
     installTasks.push({
-      title: 'Installing shared scripts',
+      title: 'Installation des scripts partagés',
       task: async () => {
         await this._installSharedScripts(paths);
-        addResult('Shared scripts', 'ok');
-        return 'Shared scripts installed';
+        addResult('Scripts partagés', 'ok');
+        return 'Scripts partagés installés';
       },
     });
 
     if (allModules.length > 0) {
       installTasks.push({
-        title: isQuickUpdate ? `Updating ${allModules.length} module(s)` : `Installing ${allModules.length} module(s)`,
+        title: isQuickUpdate ? `Mise à jour de ${allModules.length} module(s)` : `Installation de ${allModules.length} module(s)`,
         task: async (message) => {
           const installedModuleNames = new Set();
 
@@ -240,13 +240,13 @@ class Installer {
             installedModuleNames,
           });
 
-          return `${allModules.length} module(s) ${isQuickUpdate ? 'updated' : 'installed'}`;
+          return `${allModules.length} module(s) ${isQuickUpdate ? 'mis à jour' : 'installé(s)'}`;
         },
       });
     }
 
     installTasks.push({
-      title: 'Creating module directories',
+      title: 'Création des répertoires des modules',
       task: async (message) => {
         const verboseMode = process.env.BMAD_VERBOSE_INSTALL === 'true' || config.verbose;
         const moduleLogger = {
@@ -257,7 +257,7 @@ class Installer {
 
         if (config.modules && config.modules.length > 0) {
           for (const moduleName of config.modules) {
-            message(`Setting up ${moduleName}...`);
+            message(`Configuration de ${moduleName}...`);
             const result = await officialModules.createModuleDirectories(moduleName, paths.bmadDir, {
               installedIDEs: config.ides || [],
               moduleConfig: moduleConfigs[moduleName] || {},
@@ -274,22 +274,22 @@ class Installer {
           }
         }
 
-        addResult('Module directories', 'ok');
-        return 'Module directories created';
+        addResult('Répertoires des modules', 'ok');
+        return 'Répertoires des modules créés';
       },
     });
 
     const configTask = {
-      title: 'Generating configurations',
+      title: 'Génération des configurations',
       task: async (message) => {
         await this.generateModuleConfigs(paths.bmadDir, moduleConfigs);
-        addResult('Configurations', 'ok', 'generated');
+        addResult('Configurations', 'ok', 'générées');
 
         this.installedFiles.add(paths.manifestFile());
         this.installedFiles.add(paths.centralConfig());
         this.installedFiles.add(paths.centralUserConfig());
 
-        message('Generating manifests...');
+        message('Génération des manifestes...');
         const manifestGen = new ManifestGenerator();
 
         const allModulesForManifest = config.isQuickUpdate()
@@ -320,15 +320,15 @@ class Installer {
           const applied = await applySetOverrides(config.setOverrides, paths.bmadDir);
           if (applied.length > 0) {
             const summary = applied.map((a) => `${a.module}.${a.key} → ${a.file}`).join(', ');
-            await prompts.log.info(`Applied --set overrides: ${summary}`);
+            await prompts.log.info(`Surcharges --set appliquées : ${summary}`);
           }
         }
 
-        message('Generating help catalog...');
+        message('Génération du catalogue d\'aide...');
         await this.mergeModuleHelpCatalogs(paths.bmadDir, manifestGen.agents);
-        addResult('Help catalog', 'ok');
+        addResult('Catalogue d\'aide', 'ok');
 
-        return 'Configurations generated';
+        return 'Configurations générées';
       },
     };
     installTasks.push(configTask);
@@ -340,15 +340,15 @@ class Installer {
     const color = await prompts.getColor();
     if (dirResults.movedDirs.length > 0) {
       const lines = dirResults.movedDirs.map((d) => `  ${d}`).join('\n');
-      await prompts.log.message(color.cyan(`Moved directories:\n${lines}`));
+      await prompts.log.message(color.cyan(`R\u00e9pertoires d\u00e9plac\u00e9s :\n${lines}`));
     }
     if (dirResults.createdDirs.length > 0) {
       const lines = dirResults.createdDirs.map((d) => `  ${d}`).join('\n');
-      await prompts.log.message(color.yellow(`Created directories:\n${lines}`));
+      await prompts.log.message(color.yellow(`R\u00e9pertoires cr\u00e9\u00e9s :\n${lines}`));
     }
     if (dirResults.createdWdsFolders.length > 0) {
       const lines = dirResults.createdWdsFolders.map((f) => color.dim(`  \u2713 ${f}/`)).join('\n');
-      await prompts.log.message(color.cyan(`Created WDS folder structure:\n${lines}`));
+      await prompts.log.message(color.cyan(`Structure de dossiers WDS cr\u00e9\u00e9e :\n${lines}`));
     }
 
     await prompts.tasks([configTask]);
@@ -364,7 +364,7 @@ class Installer {
     const validIdes = config.ides.filter((ide) => ide && typeof ide === 'string');
 
     if (validIdes.length === 0) {
-      addResult('IDE configuration', 'warn', 'no valid IDEs selected');
+      addResult('Configuration IDE', 'warn', 'aucun IDE valide sélectionné');
       return;
     }
 
@@ -379,7 +379,7 @@ class Installer {
       if (setupResult.success) {
         addResult(ide, 'ok', setupResult.detail || '');
       } else {
-        addResult(ide, 'error', setupResult.error || 'failed');
+        addResult(ide, 'error', setupResult.error || 'échec');
       }
     }
   }
@@ -430,10 +430,10 @@ class Installer {
 
     await prompts.tasks([
       {
-        title: 'Finalizing installation',
+        title: 'Finalisation de l\'installation',
         task: async (message) => {
           if (updateState.customFiles.length > 0) {
-            message(`Restoring ${updateState.customFiles.length} custom files...`);
+            message(`Restauration de ${updateState.customFiles.length} fichiers personnalisés...`);
 
             for (const originalPath of updateState.customFiles) {
               const relativePath = path.relative(paths.bmadDir, originalPath);
@@ -456,7 +456,7 @@ class Installer {
             restoredModifiedFiles = updateState.modifiedFiles;
 
             if (updateState.tempModifiedBackupDir && (await fs.pathExists(updateState.tempModifiedBackupDir))) {
-              message(`Restoring ${restoredModifiedFiles.length} modified files as .bak...`);
+              message(`Restauration de ${restoredModifiedFiles.length} fichiers modifiés en .bak...`);
 
               for (const modifiedFile of restoredModifiedFiles) {
                 const relativePath = path.relative(paths.bmadDir, modifiedFile.path);
@@ -473,7 +473,7 @@ class Installer {
             }
           }
 
-          return 'Installation finalized';
+          return 'Installation finalisée';
         },
       },
     ]);
@@ -506,7 +506,7 @@ class Installer {
         config.coreConfig = existingCoreConfig;
         officialModules.moduleConfigs.core = existingCoreConfig;
       } catch (error) {
-        await prompts.log.warn(`Warning: Could not read existing core config: ${error.message}`);
+        await prompts.log.warn(`Avertissement : Impossible de lire la configuration core existante : ${error.message}`);
       }
     }
 
@@ -570,7 +570,7 @@ class Installer {
   async _installSharedScripts(paths) {
     const srcScriptsDir = path.join(paths.srcDir, 'src', 'scripts');
     if (!(await fs.pathExists(srcScriptsDir))) {
-      throw new Error(`Shared scripts source directory not found: ${srcScriptsDir}`);
+      throw new Error(`Répertoire source des scripts partagés introuvable : ${srcScriptsDir}`);
     }
 
     await fs.remove(paths.scriptsDir);
@@ -614,7 +614,7 @@ class Installer {
       if (installedModuleNames.has(moduleName)) continue;
       installedModuleNames.add(moduleName);
 
-      message(`${isQuickUpdate ? 'Updating' : 'Installing'} ${moduleName}...`);
+      message(`${isQuickUpdate ? 'Mise à jour de' : 'Installation de'} ${moduleName}...`);
 
       const moduleConfig = officialModules.moduleConfigs[moduleName] || {};
       const installResult = await officialModules.install(
@@ -716,7 +716,7 @@ class Installer {
 
       return files;
     } catch (error) {
-      await prompts.log.warn('Could not read files-manifest.csv: ' + error.message);
+      await prompts.log.warn('Impossible de lire files-manifest.csv : ' + error.message);
       return [];
     }
   }
@@ -984,8 +984,8 @@ class Installer {
             if (line.startsWith('module,')) {
               if (!headerWarned && line.trim() !== headerRow) {
                 await prompts.log.warn(
-                  `  ${moduleName}/module-help.csv header does not match canonical schema. ` +
-                    `Expected: ${headerRow} | Found: ${line.trim()} | Data loaded positionally.`,
+                  `  L'en-tête de ${moduleName}/module-help.csv ne correspond pas au schéma canonique. ` +
+                    `Attendu : ${headerRow} | Trouvé : ${line.trim()} | Données chargées par position.`,
                 );
                 headerWarned = true;
               }
@@ -1010,10 +1010,10 @@ class Installer {
           }
 
           if (process.env.BMAD_VERBOSE_INSTALL === 'true') {
-            await prompts.log.message(`  Merged module-help from: ${moduleName}`);
+            await prompts.log.message(`  module-help fusionné depuis : ${moduleName}`);
           }
         } catch (error) {
-          await prompts.log.warn(`  Warning: Failed to read module-help.csv from ${moduleName}: ${error.message}`);
+          await prompts.log.warn(`  Avertissement : Échec de la lecture de module-help.csv depuis ${moduleName} : ${error.message}`);
         }
       }
     }
@@ -1045,7 +1045,7 @@ class Installer {
     this.installedFiles.add(outputPath);
 
     if (process.env.BMAD_VERBOSE_INSTALL === 'true') {
-      await prompts.log.message(`  Generated bmad-help.csv: ${sortedRows.length} workflows`);
+      await prompts.log.message(`  bmad-help.csv généré : ${sortedRows.length} workflows`);
     }
   }
 
@@ -1094,13 +1094,13 @@ class Installer {
         // false-negative "no change".
         const isMainLike = oldVersion === 'main' || oldVersion === 'HEAD';
         if (oldVersion && oldVersion === r.newVersion && !isMainLike) {
-          detail = ` (${newV}, no change)`;
+          detail = ` (${newV}, aucun changement)`;
         } else if (oldVersion && isMainLike) {
-          detail = ` (${newV}, refreshed)`;
+          detail = ` (${newV}, actualisé)`;
         } else if (oldVersion) {
           detail = ` (${fmt(oldVersion, r.newSha)} → ${newV})`;
         } else {
-          detail = ` (${newV}, installed)`;
+          detail = ` (${newV}, installé)`;
         }
       } else if (r.detail) {
         detail = ` (${r.detail})`;
@@ -1109,33 +1109,33 @@ class Installer {
     }
 
     if ((context.ides || []).length === 0) {
-      lines.push(`  ${color.green('\u2713')}  No IDE selected (installed in _bmad only)`);
+      lines.push(`  ${color.green('\u2713')}  Aucun IDE s\u00e9lectionn\u00e9 (install\u00e9 uniquement dans _bmad)`);
     }
 
     // Context and warnings
     lines.push('');
     if (context.bmadDir) {
-      lines.push(`  Installed to: ${context.bmadDir}`);
+      lines.push(`  Install\u00e9 dans : ${context.bmadDir}`);
     }
     if (context.customFiles && context.customFiles.length > 0) {
-      lines.push(`  ${color.cyan(`Custom files preserved: ${context.customFiles.length}`)}`);
+      lines.push(`  ${color.cyan(`Fichiers personnalis\u00e9s pr\u00e9serv\u00e9s : ${context.customFiles.length}`)}`);
     }
     if (context.modifiedFiles && context.modifiedFiles.length > 0) {
-      lines.push(`  ${color.yellow(`Modified files backed up (.bak): ${context.modifiedFiles.length}`)}`);
+      lines.push(`  ${color.yellow(`Fichiers modifi\u00e9s sauvegard\u00e9s (.bak) : ${context.modifiedFiles.length}`)}`);
     }
 
     // Next steps
     lines.push(
       '',
-      '  Get started:',
-      `    1. Launch your AI agent from your project folder`,
-      `    2. Not sure what to do? Invoke the ${color.cyan('bmad-help')} skill and ask it what to do!`,
+      '  Pour commencer :',
+      `    1. Lancez votre agent IA depuis le dossier de votre projet`,
+      `    2. Vous ne savez pas par o\u00f9 commencer ? Invoquez le Skill ${color.cyan('bmad-help')} et demandez-lui quoi faire !`,
       '',
-      `    Blog, Docs and Guides: ${color.blue('https://bmadcode.com/')}`,
-      `    Community: ${color.blue('https://discord.gg/gk8jAdXWmj')}`,
+      `    Blog, documentation et guides : ${color.blue('https://bmadcode.com/')}`,
+      `    Communaut\u00e9 : ${color.blue('https://discord.gg/gk8jAdXWmj')}`,
     );
 
-    await prompts.box(lines.join('\n'), 'BMAD is ready to use!', {
+    await prompts.box(lines.join('\n'), 'BMAD est pr\u00eat \u00e0 l\'emploi !', {
       rounded: true,
       formatBorder: color.green,
     });
@@ -1152,7 +1152,7 @@ class Installer {
 
     // Check if bmad directory exists
     if (!(await fs.pathExists(bmadDir))) {
-      throw new Error(`BMAD not installed at ${bmadDir}. Use regular install for first-time setup.`);
+      throw new Error(`BMAD n'est pas installé dans ${bmadDir}. Utilisez l'installation normale pour la configuration initiale.`);
     }
 
     // Detect existing installation
@@ -1217,7 +1217,7 @@ class Installer {
     const skippedModules = installedModules.filter((id) => !availableModuleIds.has(id));
 
     if (skippedModules.length > 0) {
-      await prompts.log.warn(`Skipping ${skippedModules.length} module(s) - no source available: ${skippedModules.join(', ')}`);
+      await prompts.log.warn(`Ignoré ${skippedModules.length} module(s) - aucune source disponible : ${skippedModules.join(', ')}`);
     }
 
     // Build channel options from the existing manifest FIRST so the config
@@ -1255,8 +1255,8 @@ class Installer {
             if (cls === 'major') {
               channelOptions.pins.set(entry.name, entry.version);
               await prompts.log.warn(
-                `${entry.name} ${entry.version} → ${topTag} is a new major release; staying on ${entry.version}. ` +
-                  `Run \`bmad install\` (Modify) with \`--pin ${entry.name}=${topTag}\` to accept.`,
+                `${entry.name} ${entry.version} → ${topTag} est une nouvelle version majeure ; maintien sur ${entry.version}. ` +
+                  `Exécutez \`bmad install\` (Modifier) avec \`--pin ${entry.name}=${topTag}\` pour accepter.`,
               );
             }
           } catch (error) {
@@ -1264,14 +1264,14 @@ class Installer {
             // version rather than guessing — the existing cache is already
             // at that ref, so re-using it keeps the install stable.
             channelOptions.pins.set(entry.name, entry.version);
-            await prompts.log.warn(`Could not check ${entry.name} for updates (${error.message}); staying on ${entry.version}.`);
+            await prompts.log.warn(`Impossible de vérifier les mises à jour pour ${entry.name} (${error.message}) ; maintien sur ${entry.version}.`);
           }
         }
       }
     }
 
     // Load existing configs and collect new fields (if any)
-    await prompts.log.info('Checking for new configuration options...');
+    await prompts.log.info('Vérification des nouvelles options de configuration...');
     const quickModules = new OfficialModules({ channelOptions });
     await quickModules.loadExistingConfig(projectDir);
 
@@ -1291,7 +1291,7 @@ class Installer {
     }
 
     if (!promptedForNewFields) {
-      await prompts.log.success('All configuration is up to date, no new options to configure');
+      await prompts.log.success('Toute la configuration est à jour, aucune nouvelle option à configurer');
     }
 
     quickModules.collectedConfig._meta = {

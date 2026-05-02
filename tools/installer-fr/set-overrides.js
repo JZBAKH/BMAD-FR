@@ -34,11 +34,11 @@ const yaml = require('yaml');
  */
 function parseSetEntry(entry) {
   if (typeof entry !== 'string' || entry.length === 0) {
-    throw new Error('--set: empty entry. Expected <module>.<key>=<value>');
+    throw new Error('--set : entrée vide. Format attendu : <module>.<key>=<value>');
   }
   const eq = entry.indexOf('=');
   if (eq === -1) {
-    throw new Error(`--set "${entry}": missing '='. Expected <module>.<key>=<value>`);
+    throw new Error(`--set "${entry}" : '=' manquant. Format attendu : <module>.<key>=<value>`);
   }
   const lhs = entry.slice(0, eq);
   // Note: only the LHS is trimmed. Values may legitimately contain leading
@@ -47,16 +47,16 @@ function parseSetEntry(entry) {
   const value = entry.slice(eq + 1);
   const dot = lhs.indexOf('.');
   if (dot === -1) {
-    throw new Error(`--set "${entry}": missing '.'. Expected <module>.<key>=<value>`);
+    throw new Error(`--set "${entry}" : '.' manquant. Format attendu : <module>.<key>=<value>`);
   }
   const moduleCode = lhs.slice(0, dot).trim();
   const key = lhs.slice(dot + 1).trim();
   if (!moduleCode || !key) {
-    throw new Error(`--set "${entry}": empty module or key. Expected <module>.<key>=<value>`);
+    throw new Error(`--set "${entry}" : module ou clé vide. Format attendu : <module>.<key>=<value>`);
   }
   if (PROTOTYPE_POLLUTING_NAMES.has(moduleCode) || PROTOTYPE_POLLUTING_NAMES.has(key)) {
     throw new Error(
-      `--set "${entry}": '__proto__', 'prototype', and 'constructor' are reserved and cannot be used as a module or key name.`,
+      `--set "${entry}" : '__proto__', 'prototype' et 'constructor' sont réservés et ne peuvent pas être utilisés comme nom de module ou de clé.`,
     );
   }
   return { module: moduleCode, key, value };
@@ -269,7 +269,7 @@ async function applySetOverrides(overrides, bmadDir) {
       if (await fs.pathExists(targetPath)) {
         content = await fs.readFile(targetPath, 'utf8');
       } else {
-        content = '# Personal overrides for _bmad/config.toml.\n';
+        content = '# Remplacements personnels pour _bmad/config.toml.\n';
       }
 
       const next = upsertTomlKey(content, section, key, valueToml);

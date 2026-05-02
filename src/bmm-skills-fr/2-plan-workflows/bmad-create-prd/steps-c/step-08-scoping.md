@@ -1,153 +1,166 @@
-# Étape 8 : Exercice de Périmètre et Dimensionnement (Scoping) - MVP & Fonctionnalités Futures
+# Étape 8 : Exercice de cadrage - Définition du périmètre (Phasé ou Single-Release)
 
-**Progression : Étape 8 sur 11** - Suivante : Exigences Fonctionnelles (Functional Requirements)
+**Progression : Étape 8 sur 11** - Suivante : Exigences fonctionnelles
 
 ## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- 🛑 NE JAMAIS générer de contenu sans l'intervention de l'utilisateur
+- 🛑 NE JAMAIS générer de contenu sans entrée utilisateur
 
-- 📖 CRITIQUE : Lisez TOUJOURS le fichier d'étape complet avant d'entreprendre toute action - une compréhension partielle entraîne des décisions incomplètes
-- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que le fichier entier est lu et compris avant de continuer
-- ✅ ABORDEZ TOUJOURS cela comme une découverte collaborative entre pairs PM
+- 📖 CRITIQUE : TOUJOURS lire le fichier d'étape complet avant toute action - une compréhension partielle mène à des décisions incomplètes
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que le fichier entier est lu et compris avant de procéder
+- ✅ TOUJOURS traiter cela comme une découverte collaborative entre pairs PM
 - 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
-- 💬 CONCENTREZ-VOUS sur les décisions stratégiques liées au périmètre (scope) qui maintiennent la viabilité des projets
-- 🎯 INSISTEZ sur une réflexion MVP minimaliste (lean) tout en préservant la vision à long terme
-- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `{communication_language}` configurée.
-- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout contenu d'artefact et de document dans la `{document_output_language}`.
+- 💬 SE FOCALISER sur les décisions stratégiques de périmètre qui maintiennent les projets viables
+- 🎯 METTRE L'ACCENT sur la pensée MVP allégée tout en préservant la vision long-terme
+- ⚠️ NE JAMAIS retirer du périmètre, différer ou phaser les exigences que l'utilisateur a explicitement incluses dans ses documents d'entrée sans demander d'abord
+- ⚠️ NE JAMAIS inventer un phasage (MVP/Croissance/Vision) à moins que l'utilisateur ne demande une livraison phasée — si les documents d'entrée définissent tous les composants comme exigences essentielles, ils sont TOUS dans le périmètre
+- ✅ VOUS DEVEZ TOUJOURS PARLER EN SORTIE dans votre style de communication d'Agent avec la config `{communication_language}`
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout le contenu d'artefact et de document dans `{document_output_language}`
 
 ## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Montrez votre analyse avant d'entreprendre toute action
-- 📚 Révisez l'ensemble du document PRD construit jusqu'à présent
-- ⚠️ Présentez le menu A/P/C après avoir généré les décisions liées au périmètre (scoping decisions)
-- 💾 Sauvegardez UNIQUEMENT lorsque l'utilisateur choisit C (Continuer)
-- 📖 Mettez à jour le frontmatter du fichier de sortie, en ajoutant le nom de cette étape à la fin de la liste `stepsCompleted`
-- 🚫 INTERDICTION de charger l'étape suivante tant que C n'a pas été sélectionné
+- 🎯 Montrez votre analyse avant toute action
+- 📚 Examinez le document PRD complet construit jusqu'ici
+- ⚠️ Présentez le menu A/P/C après avoir généré les décisions de cadrage
+- 💾 SAUVEGARDEZ UNIQUEMENT lorsque l'utilisateur choisit C (Continuer)
+- 📖 Mettez à jour le frontmatter du fichier de sortie, en ajoutant le nom de cette étape à la fin de la liste stepsCompleted
+- 🚫 INTERDIT de charger l'étape suivante tant que C n'est pas sélectionné
 
 
-## LIMITES DU CONTEXTE :
+## LIMITES DE CONTEXTE :
 
-- Le document PRD complet, construit jusqu'à présent, est disponible pour examen (review)
-- Les parcours utilisateurs, les critères de succès, et les exigences du domaine sont documentés
-- Concentrez-vous sur les décisions stratégiques du périmètre, et non sur le détail des fonctionnalités
-- Équilibrez audacieusement la valeur brute à l'utilisateur face à la viabilité mathématique d'implémentation (feasibility)
+- Le document PRD complet construit jusqu'ici est disponible pour examen
+- Les parcours utilisateurs, critères de succès et exigences de domaine sont documentés
+- Se focaliser sur les décisions stratégiques de périmètre, pas les détails de fonctionnalités
+- Équilibre entre valeur utilisateur et faisabilité d'implémentation
 
 ## VOTRE TÂCHE :
 
-Mener un exercice complet d'évaluation du périmètre (scoping) pour délimiter fermement les frontières du MVP et définir la hiérarchisation des différentes autres strates/sections de fonctionnalités à déployer à travers les ères progressives de développement.
+Conduire un exercice de cadrage exhaustif pour définir les limites de release et prioriser les fonctionnalités selon le mode de livraison choisi par l'utilisateur (phasé ou single-release).
 
-## SÉQUENCE DE DIMENSIONNEMENT (SCOPING) :
+## SÉQUENCE DE CADRAGE :
 
-### 1. Passer en revue l'État Actuel du PRD
+### 1. Examiner l'état actuel du PRD
 
-Analysez minutieusement tout ce qui a été documenté jusqu'à présent :
-- Présentez une synthèse claire de la vision établie, des critères de succès et des parcours (journeys)
-- Évaluez le domaine et les points fondamentaux de sa ligne d'innovation
-- Évaluez les implications globales de périmètre : Projet simple de MVP (Initial), moyen volume ou projet lourd et ultra-complexe ?
-- Demandez si cette analyse préliminaire lui paraît pertinente ou si sa lecture du chemin s'en trouverait radicalement tout autre.
+Analyser tout ce qui a été documenté jusqu'ici :
+- Présenter une synthèse de la vision établie, des critères de succès et des parcours
+- Évaluer le focus domaine et innovation
+- Évaluer les implications de périmètre : MVP simple, moyen ou projet complexe
+- Demander si l'évaluation initiale semble juste ou s'ils la voient différemment
 
-### 2. Définir la Stratégie MVP
+### 2. Définir la stratégie MVP
 
-Pilotez intelligemment de profondes décisions de niveau macro au sein du corps du fameux MVP :
-- Explorez toutes les grandes palettes existantes sous-jacentes du MVP : Mode Résolution ciblée pur (Problem-solving), Experience MVP primordiale, infrastructure de socle lourd Plateforme (Platform MVP), ou focalisation abrupte sur le volume d'affaires instantané immédiat du produit sur son marché natif (Revenue MVP).
-- Lancez un questionnement redoutable, sans issue de fuite possible :
-  - Quelle est la ligne de faille infranchissable ou minimum vital faisant lâcher au sujet ciblé la phrase libératrice : "Incroyable, cette épure technique répond parfaitement au drame que je subis" ?
-  - Face au tribunal de jurés de financement (Investisseurs, Partenaires formels), au regard de quelles dispositions/caractéristiques massives crieront-ils à la salle "Il faut retenir de ça à minima son inimitable potentiel de victoire évidente !" ?
-  - Quelle est l'avenue la plus express devant asseoir purement ou renier par les faits nos postulats ?
-- Canalisez vigoureusement leur esprit frénétique (si nécessaire) vers la méthode MVP la plus adaptée à ce contexte précis et non un calque standard dévoyé.
+Faciliter les décisions stratégiques MVP :
+- Explorer les options de philosophie MVP : MVP de résolution de problème, d'expérience, de plateforme ou de revenus
+- Poser des questions critiques :
+  - Quel est le minimum qui ferait dire aux utilisateurs « c'est utile » ?
+  - Qu'est-ce qui ferait dire aux investisseurs/partenaires « cela a du potentiel » ?
+  - Quel est le chemin le plus rapide vers un apprentissage validé ?
+- Guider vers l'approche MVP appropriée pour leur produit
 
-### 3. Cadre Décisionnel de Périmètre (Scoping Decision Framework)
+### 3. Cadre de décision de cadrage
 
-Imposez la structure méthodologique mathématique impitoyable vis-à-vis du spectre d'implémentation du concept (Scope) :
+Utiliser une prise de décision structurée pour le périmètre :
 
-**Analyse des Incontournables (Must-Have) :**
-- Imposez et formez fermement leur capacité à trancher impitoyablement les attributs de niveau MVP : ce qui survit ou disparaît sans ménagement !
-- Balayez chacun de bout en bout (Journeys, critères de succès) à grand coup d'épreuve du feu :
-  - Si l'on raye la pièce de cet échiquier de tête, notre prototype est-il un vain déchet avéré (Fail d'utilité) ?
-  - Tel composant peut-il endosser la tâche pénible via d'anciennes et poussives ruses sous un format dégradé manuel à la phase originelle (Le système démerde) ?
-  - Retirer cette vis à cette roue signera-t-il fatalement un exil d'office et une indignation meurtrière chez le clan/les légions prêtes d'utilisateurs "Early adopters" les plus dévoués et fans absolus ?
-- Auditez vigoureusement les circuits (Parcours / Journeys) retenant leurs souffles sur l'aspect absolu minimal pour espérer naître sur les étalons MVP (Les Essentials de l'action).
+**Analyse Must-Have :**
+- Guider l'identification des nécessités absolues du MVP
+- Pour chaque parcours et critère de succès, demander :
+  - Sans ceci, le produit échoue-t-il ?
+  - Cela peut-il être manuel initialement ?
+  - Est-ce un point bloquant pour les early adopters ?
+- Analyser les parcours pour les essentiels du MVP
 
-**Analyse des Bonus de Confort (Nice-to-Have) :**
-- Traquez le clinquant, le superficiel ou le simple perfectionnement superflu au lancement pur et reléguez les sans retour à des ères plus fructueuses (add-on plus tardifs) :
-  - Outils brillants sublimant la trame globale, cependant dépourvus d'apport ou nécessité première et critique face au drame et à l'usage ciblé.
-  - Franges segmentées complètes d'utilisateurs marginaux s'autorisant de patienter la relève en version 2 ou plus sans affect.
-  - Machinerie en amont, ultra-lourde fonctionnant sur / décuplant seulement, ce qui par ailleurs s'est consolidé sans faille sur les socles viables fondateurs fixés par temps originels du Minimum Viable Product.
-- Invitez le créateur à lâcher une réflexion d'ensemble à la lueur des V.2, V.3 et suivants pour mieux faire éclore ladite patience tactique ou abandon (temporaire).
+**Analyse Nice-to-Have :**
+- Identifier ce qui pourrait être ajouté plus tard :
+  - Fonctionnalités qui améliorent mais ne sont pas essentielles
+  - Types d'utilisateurs qui peuvent être ajoutés plus tard
+  - Fonctionnalités avancées qui s'appuient sur le MVP
+- Demander quelles fonctionnalités pourraient être ajoutées dans les versions 2, 3, etc.
 
-### 4. Feuille de Route de Fonctionnalités Progressives (Progressive Feature Roadmap)
+**⚠️ POINT DE CONFIRMATION DE CHANGEMENT DE PÉRIMÈTRE :**
+- Si vous croyez qu'une exigence spécifiée par l'utilisateur devrait être différée ou retirée du périmètre, vous DEVEZ présenter cela à l'utilisateur et obtenir une confirmation explicite AVANT de la retirer du périmètre
+- Le formuler comme une recommandation, pas une décision : « Je recommanderais de différer X parce que [raison]. Êtes-vous d'accord, ou devrait-elle rester dans le périmètre ? »
+- NE JAMAIS déplacer silencieusement les exigences utilisateur vers une phase ultérieure ou les exclure du MVP
+- Avant de créer tout artefact phasé conséquent (ex. tags de phase, libellés ou prompts de suivi), présenter la création d'artefact comme une recommandation et procéder uniquement après approbation explicite de l'utilisateur
 
-Érigez en un plan solide ce déploiement phasé :
-- Menez et répartissez par strates distinctes logiques les vagues de déploiement en cascade du développement total :
-- Bâtissez les structures : `Phase 1` (L'Avançée Pure du socle viable/MVP), `Phase 2` (Leviers colossaux et Expansion Croissante/Growth), `Phase 3` (Vision totale d'accomplissement/The Dream)
-- Exigez la solidité architecturale de chaque relais chronologique, ses dépendances techniques et ses liaisons de cause à effet logiques immuables avec d'abyssales prémices antécédentes indispensables.
+### 4. Feuille de route progressive des fonctionnalités
 
-- Valeur pivot brute déchargée dans l'escarcelle de l'usager sans compromis
-- Axes clés en main, cruciaux de la charte de cheminements et de résolutions de destins (L'Indispensable et formel des Parcours Utilisateurs)
-- Architecture simplifiée ne réfutant aucun test d'usurage de base qui ne ploie/chute à l'acte initial (Fiabilité/Reliable)
+**CRITIQUE : Le phasage n'est PAS automatique. Vérifiez d'abord l'entrée de l'utilisateur.**
 
-**Phase 2 : Croissance (Growth)**
+Avant de proposer toute approche phasée, examinez les documents d'entrée de l'utilisateur :
 
-- Réunification massive en renfort de vagues secondaires d'utilisateurs annexes restées tapis sous le manteau du concept jusqu'alors
-- Renforcements et florilège technique / arsenal d'élite (Enhanced features)
-- Métamorphoses profondes et colmatages/préhensions architecturales anticipant le changement radical massifié de trafic/de consommation de données du socle de départ. (Scale)
+- **Si les documents d'entrée définissent tous les composants comme exigences essentielles sans mention de phases :** Présentez toutes les exigences comme un périmètre de release unique. NE PAS inventer de phases ou déplacer les exigences vers des phases futures fabriquées.
+- **Si les documents d'entrée demandent explicitement une livraison phasée :** Guider le mappage des fonctionnalités à travers les phases définies par l'utilisateur.
+- **Si le périmètre n'est pas clair :** DEMANDEZ à l'utilisateur s'il veut une livraison phasée ou une release unique avant de procéder.
 
-**Phase 3 : Expansion**
+**Lorsque l'utilisateur demande une livraison phasée**, guider le mappage des fonctionnalités à travers les phases que l'utilisateur définit :
 
-- Fonctionnalités d'anticipations hors sphère actuelle aux traits techniques supérieurs à la moyenne de marché (Intelligence suprême des mécanismes/Super structures ou automatisations)
-- Bascules frénétiques de la forteresse Applicative fermée pure en Hub central ou socle Plateformes transversaux d'inter-connexions de masse
-- Ouvertures ciblées / Invasions et assauts d'autres contrées marchandes/business et de problématiques autres connexes au bloc d'origine.
+- Utiliser les libellés et le nombre de phases fournis par l'utilisateur ; si aucun n'est fourni, proposer un défaut (ex. MVP/Croissance/Vision) et demander confirmation
+- Assurer une progression et des dépendances claires entre les phases
 
-**Où se situe exactement votre image de marque chimérique ultime dans l'échéancier et dans quel espace temporel comptez-vous arrimer cette phase finale d'une telle vision ?**"
+**Chaque phase doit aborder :**
 
-### 5. Dimensionnement Basé sur les Risques (Risk-Based Scoping)
+- Livraison de valeur utilisateur essentielle et parcours essentiels pour cette phase
+- Limites claires sur ce qui est livré dans chaque phase
+- Dépendances avec les phases précédentes
 
-Ciblez, attaquez, dissipez les funestes risques qui minent toute entreprise d'évaluer ses étendues en un si court laps :
+**Lorsque l'utilisateur choisit une release unique**, définir le périmètre complet :
 
-**Risques Techniques :**
-"Relevons la voilure en nous référant aux données extraites par le passe d'innovation propre et le lourd tribut de votre nature environnementale (Dominants / Domains) :
+- Toutes les exigences spécifiées par l'utilisateur sont dans le périmètre
+- Focaliser l'analyse must-have vs nice-to-have sur ce qui est livré dans cette release
+- NE PAS créer de phases — utiliser la priorité must-have/nice-to-have au sein de la release unique
 
-- Laquelle entre toutes de ces montagnes réprésente la véritable plaie ouverte fatale de faisabilité technique selon vos ingénieurs ?
-- Trouverions-nous un biais salutaire simpliste pur à mettre temporairement en selle en place et lieu de ce mur bétonné de la version originale au déploiement du point 00 ?
-- L'angoisse abyssale la plus terrifiante que nos dogmes informatiques chérissent reposant fondamentalement dans votre structure de vision serait logiquement... ?"
+**Si livraison phasée :** « Où votre vision actuelle s'inscrit-elle dans cette séquence de développement ? »
+**Si release unique :** « Comment votre vision actuelle se mappe-t-elle à cette release à venir ? »
 
-**Risques de Marché :**
+### 5. Cadrage basé sur les risques
 
-- Le couperet le plus cruel à braver venant du front de bataille face aux foules, s'assimile à quelle figure/ombre macabre pour ledit projet ?
-- Quel pare-choc ou quel éboueur frontal est présent et paré pour contrer tel désastre d'indifférence/rejet lors de la sortie pure du MVP de demain ?
-- Pour tuer le monstre/l'incertitude et avancer à armes avérées (Valider ce socle test), sur quelles parcelles exactes la matrice/l'usage nous commandera de forer brutalement sous terre par la recherche pure d'enseignements tangibles ?
+Identifier et atténuer les risques de cadrage :
 
-**Risques de Ressources :**
+**Risques techniques :**
+« En regardant vos exigences d'innovation et de domaine :
 
-- Si l'air vient purement et soudainement d'échapper des fonds ou aux rangs de troupes dédiées, où est le sol solide (What if resources vanish) ?
-- Quelle troupe irréductible en nombre (La division plancher impossible de restreindre davantage) doit indubitablement faire rempart de chair dans l'antre ?
-- Possédons-nous une marge / flexibilité de déploiement en abattant cyniquement et joyeusement les listes des promesses et armes offertes à bord pour maintenir les lancements (Réduire formellement "L'arsenal ou scope") ?"
+- Quel est l'aspect le plus techniquement défiant ?
+- Pourrions-nous simplifier l'implémentation initiale ?
+- Quelle est l'hypothèse la plus risquée concernant la faisabilité technologique ? »
 
-### 6. Générer le Contenu de l'Évaluation du Périmètre (Scoping)
+**Risques de marché :**
 
-Préparez la section complète traitant des dimensionnements, étendue de volumes et des évaluations pures :
+- Quel est le plus grand risque de marché ?
+- Comment le MVP adresse-t-il cela ?
+- Quel apprentissage avons-nous besoin pour dé-risquer cela ? »
 
-#### Structure du Contenu :
+**Risques de ressources :**
 
-Lors de la sauvegarde locale (save), ajoutez (append) au document ces balisages exacts des niveaux 2 (`##`) et 3 (`###`) :
+- Que se passe-t-il si nous avons moins de ressources que prévu ?
+- Quelle est la taille minimale absolue d'équipe nécessaire ?
+- Pouvons-nous lancer avec un ensemble de fonctionnalités plus petit ? »
+
+### 6. Générer le contenu de cadrage
+
+Préparer une section de cadrage exhaustive :
+
+#### Structure du contenu :
+
+**Si l'utilisateur a choisi la livraison phasée :**
 
 ```markdown
-## Périmètre du Projet & Développement Phasé (Project Scoping & Phased Development)
+## Cadrage du projet et développement phasé
 
-### Stratégie & Philosophie MVP
+### Stratégie et philosophie MVP
 
-**Approche MVP (MVP Approach) :** {{chosen_mvp_approach}}
-**Exigences en Ressources (Resource Requirements) :** {{mvp_team_size_and_skills}}
+**Approche MVP :** {{chosen_mvp_approach}}
+**Exigences en ressources :** {{mvp_team_size_and_skills}}
 
-### Ensemble de Fonctionnalités MVP (Phase 1)
+### Ensemble de fonctionnalités MVP (Phase 1)
 
-**Parcours Utilisateurs Principaux Supportés (Core User Journeys Supported) :**
+**Parcours utilisateurs essentiels supportés :**
 {{essential_journeys_for_mvp}}
 
-**Capacités Incontournables (Must-Have Capabilities) :**
+**Capacités Must-Have :**
 {{list_of_essential_mvp_features}}
 
-### Fonctionnalités Post-MVP (Post-MVP Features)
+### Fonctionnalités post-MVP
 
 **Phase 2 (Post-MVP) :**
 {{planned_growth_features}}
@@ -155,64 +168,96 @@ Lors de la sauvegarde locale (save), ajoutez (append) au document ces balisages 
 **Phase 3 (Expansion) :**
 {{planned_expansion_features}}
 
-### Stratégie d'Atténuation des Risques (Risk Mitigation Strategy)
+### Stratégie d'atténuation des risques
 
-**Risques Techniques :** {{mitigation_approach}}
-**Risques Marché :** {{validation_approach}}
-**Risques Ressources :** {{contingency_approach}}
+**Risques techniques :** {{mitigation_approach}}
+**Risques de marché :** {{validation_approach}}
+**Risques de ressources :** {{contingency_approach}}
 ```
 
-### 7. Présenter les OPTIONS DU MENU
+**Si l'utilisateur a choisi une release unique (sans phasage) :**
 
-Présentez les décisions stratégiques liées au périmètre pour révision (review), puis affichez le menu :
-- Montrez le plan stratégique de périmètre (en utilisant la structure de l'étape 6)
-- Soulignez fermement les barrières/limites vitales du MVP ainsi que tout ce que la trajectoire tracée va dicter à terme.
-- Demandez aux cerveaux d'affiner leurs angles de vues au cutter, s'en remettre à une concertation (consult the group) ou se fier fermement au choix de s'avancer tel que c'est conçu l'instant même !
-- Offrez les portes d'entrées du menu coulant à l'intérieur des lignes textuelles échangées tout de bon.
+```markdown
+## Cadrage du projet
 
-Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers les Exigences Fonctionnelles (Étape 9 sur 11)"
+### Stratégie et philosophie
 
-#### Logique de Gestion du Menu :
-- SI A : Invoquez la compétence `bmad-advanced-elicitation` avec l'analyse actuelle du périmètre, traitez les idées/découvertes améliorées qui en reviennent, demandez à l'utilisateur : "Accepter ces améliorations au périmètre ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
-- SI P : Invoquez la compétence `bmad-party-mode` avec le contexte de périmètre actuel, traitez les validations collaboratives et les décisions d'expertise sur la feuille de route du MVP, demandez à l'utilisateur : "Accepter ces changements aux décisions de périmètre ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
-- SI C : Ajoutez (append) le contenu final à `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-09-functional.md`
-- SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
+**Approche :** {{chosen_approach}}
+**Exigences en ressources :** {{team_size_and_skills}}
+
+### Ensemble complet de fonctionnalités
+
+**Parcours utilisateurs essentiels supportés :**
+{{all_journeys}}
+
+**Capacités Must-Have :**
+{{list_of_must_have_features}}
+
+**Capacités Nice-to-Have :**
+{{list_of_nice_to_have_features}}
+
+### Stratégie d'atténuation des risques
+
+**Risques techniques :** {{mitigation_approach}}
+**Risques de marché :** {{validation_approach}}
+**Risques de ressources :** {{contingency_approach}}
+```
+
+### 7. Présenter les OPTIONS DE MENU
+
+Présenter les décisions de cadrage pour examen, puis afficher le menu :
+- Montrer le plan stratégique de cadrage (en utilisant la structure de l'étape 6)
+- Mettre en évidence les limites de release et la priorisation (feuille de route phasée uniquement si la livraison phasée a été sélectionnée)
+- Demander s'ils aimeraient affiner davantage, obtenir d'autres perspectives, ou procéder
+- Présenter les options de menu naturellement dans le cadre de la conversation
+
+Afficher : « **Sélectionnez :** [A] Élicitation Avancée [P] Mode Party [C] Continuer vers Exigences Fonctionnelles (Étape 9 sur 11) »
+
+#### Logique de gestion du menu :
+- SI A : Invoquer le skill `bmad-advanced-elicitation` avec l'analyse de cadrage actuelle, traiter les insights améliorés qui reviennent, demander à l'utilisateur s'il accepte les améliorations, si oui mettre à jour le contenu puis ré-afficher le menu, si non garder le contenu original puis ré-afficher le menu
+- SI P : Invoquer le skill `bmad-party-mode` avec le contexte de cadrage, traiter les insights collaboratifs sur les décisions MVP et de feuille de route, demander à l'utilisateur s'il accepte les changements, si oui mettre à jour le contenu puis ré-afficher le menu, si non garder le contenu original puis ré-afficher le menu
+- SI C : Ajouter le contenu final à {outputFile}, mettre à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau stepsCompleted (ajouter aussi `releaseMode: phased` ou `releaseMode: single-release` au frontmatter selon le choix de l'utilisateur), puis lire entièrement et suivre : ./step-09-functional.md
+- SI Autre chose : aider l'utilisateur à répondre, puis ré-afficher le menu
 
 #### RÈGLES D'EXÉCUTION :
-- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
-- NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
-- Après l'exécution d'autres options du menu, retournez à ce menu
+- TOUJOURS s'arrêter et attendre l'entrée utilisateur après avoir présenté le menu
+- UNIQUEMENT procéder à l'étape suivante quand l'utilisateur sélectionne 'C'
+- Après l'exécution d'autres éléments de menu, retourner à ce menu
 
-## AJOUTER AU DOCUMENT (APPEND) :
+## AJOUTER AU DOCUMENT :
 
-Lorsque l'utilisateur sélectionne 'C', ajoutez le contenu directement au document en utilisant la structure de l'étape 6.
+Lorsque l'utilisateur sélectionne 'C', ajouter le contenu directement au document en utilisant la structure de l'étape 6.
 
-## MÉTRIQUES DE RÉUSSITE (SUCCESS METRICS) :
+## MÉTRIQUES DE SUCCÈS :
 
-✅ Document PRD complet totalement absorbé par l'unité IA avant d'exorciser la folie des grandeurs (Analysis des implications / Scoping scope creep) !
-✅ Philosophie du combat initial de "L'approche MVP - MVP Strategy" dûment arrêtée net avec force argumentaire, validée/blindée par toutes les parties.
-✅ Frontières de sécurité infranchissables posées formellement sans l'ombre d'une contestation (MVP feature boundaries inées / must have)
-✅ Architecture temporelle par tranches (Phased development roadmap) sculptée avec la fluidité et certitude logico-technique sur de multiples plans séquentiels futurs successifs.
-✅ Pièges/failles sismiques vitaux, inhérents et collatéraux de l'environnement de création ciblés/anticipés puis enlacés judicieusement d'un nœud solide inviolable ! (Les mitigations Risk strategy implémentées formellement en amont !).
-✅ Validation irréprochable non équivoque actée des commanditaires du projet avec la pleine volonté en conscience absolue par voie expresse de signature formelle/affirmations pures du créateur en l'espèce.
-✅ Le menu A/P/C a été présenté et géré correctement
-✅ Le contenu a été inséré à l'édifice par append au feu vert 'C' express
+✅ Document PRD complet analysé pour les implications de périmètre
+✅ Approche MVP stratégique définie et justifiée
+✅ Limites claires de fonctionnalités établies (phasé ou single-release, selon la préférence de l'utilisateur)
+✅ Toutes les exigences spécifiées par l'utilisateur prises en compte — aucune retirée ou différée silencieusement
+✅ Toute recommandation de réduction de périmètre présentée à l'utilisateur avec justification et confirmation explicite obtenue
+✅ Risques clés identifiés et stratégies d'atténuation définies
+✅ L'utilisateur accepte explicitement les décisions de périmètre
+✅ Menu A/P/C présenté et géré correctement
+✅ Contenu correctement ajouté au document quand C est sélectionné
 
-## MODES D'ÉCHEC (FAILURE MODES) :
+## MODES D'ÉCHEC :
 
-❌ Agir comme chien errant/hors contrôle sans jeter formellement et humblement l'ancre au port initial ni se soumettre au cadre fixé par tous ses blocs textuels de naissance (No Full PRD Reviewing en first phase) afin d'orchestrer la restriction de création (The scoping act).
-❌ Juguler grossièrement l'arbre ou cisailler la matière vivante "Scope boundaries" au hasard complet en dépouillant le système sans une ossature argumentaire d'enchaînements rationnelle et indiscutable à l'appui pour motiver le sacrifice brutal pour tout parti présent.
-❌ Déraciner/Extirper de la matière (Scopes/Limites des modules/Frontières de validation/MVP) au bon vouloir du hasard ou en son libre arbitre purement informatique / lâche en écrasant littéralement le créateur-usager Humain de droits exclusifs par absence inacceptable et criminelle de quête probatoire valant accords et ratifications sur chaque composant actant.
-❌ S'aveugler misérablement sur un risque critique majeur qui crierait purement sa nature face aux yeux du monde sans même l'épingler/le relever formellement aux actes
-❌ Brouillonner le plan et sa construction globale par une indéfinition totale d'agenda temporel à séquentialités floues, ou en ratant la constitution d'approches segmentées (Development phased plan in roadmaps) dont aucun acteur interne ou externe l'analysant ultérieurement n'en tiendra le guide d'enchaînements ni le but par l'achèvement de toutes phases respectives.
-❌ Omission impardonnable de jeter les ponts (Le menu A/P/C en aval purement fin de section après création the content).
+❌ Ne pas analyser le PRD complet avant de prendre des décisions de cadrage
+❌ Prendre des décisions de périmètre sans justification stratégique
+❌ Ne pas obtenir l'accord explicite de l'utilisateur sur les limites du MVP
+❌ Manquer une analyse critique des risques
+❌ Ne pas présenter le menu A/P/C après la génération de contenu
+❌ **CRITIQUE** : Retirer ou différer silencieusement des exigences que l'utilisateur a explicitement incluses dans ses documents d'entrée
+❌ **CRITIQUE** : Inventer un phasage (MVP/Croissance/Vision) lorsque l'utilisateur n'a pas demandé de livraison phasée
+❌ **CRITIQUE** : Prendre des décisions de cadrage conséquentes (ce qui est dans/hors périmètre) sans confirmation explicite de l'utilisateur
+❌ **CRITIQUE** : Créer des artefacts phasés (tags, libellés, prompts de suivi) sans approbation explicite de l'utilisateur
 
-❌ **CRITIQUE** : Ne lire qu'une partie du fichier d'étape - cela conduit à une compréhension incomplète et à de mauvaises décisions
-❌ **CRITIQUE** : Poursuivre avec 'C' sans avoir lu intégralement et compris le fichier de l'étape suivante
-❌ **CRITIQUE** : Prendre des décisions sans une compréhension complète des exigences et des protocoles de l'étape
+❌ **CRITIQUE** : Lire seulement partiellement le fichier d'étape - mène à une compréhension incomplète et de mauvaises décisions
+❌ **CRITIQUE** : Procéder avec 'C' sans lire et comprendre entièrement le fichier d'étape suivant
+❌ **CRITIQUE** : Prendre des décisions sans compréhension complète des exigences et protocoles d'étape
 
 ## ÉTAPE SUIVANTE :
 
-Après que l'utilisateur a sélectionné 'C' et que le contenu a été sauvegardé dans le document, chargez `./step-09-functional.md`.
+Après que l'utilisateur sélectionne 'C' et que le contenu est sauvegardé dans le document, charger ./step-09-functional.md.
 
-N'oubliez pas : Ne passez PAS à l'étape `step-09` tant que l'utilisateur n'a pas explicitement sélectionné 'C' dans le menu A/P/C et que le contenu n'est pas sauvegardé !
+Rappel : NE PAS procéder à step-09 tant que l'utilisateur ne sélectionne pas explicitement 'C' depuis le menu A/P/C et que le contenu est sauvegardé !

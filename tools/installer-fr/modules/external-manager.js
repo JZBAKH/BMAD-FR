@@ -23,7 +23,7 @@ function normalizeChannelName(raw) {
  */
 function quoteShell(ref) {
   if (typeof ref !== 'string' || !/^[\w.\-+/]+$/.test(ref)) {
-    throw new Error(`Unsafe ref name: ${JSON.stringify(ref)}`);
+    throw new Error(`Nom de ref non sécurisé : ${JSON.stringify(ref)}`);
   }
   return `"${ref}"`;
 }
@@ -104,10 +104,10 @@ class ExternalModuleManager {
       const content = await fs.readFile(FALLBACK_CONFIG_PATH, 'utf8');
       const config = yaml.parse(content);
       this.cachedModules = config;
-      await prompts.log.warn('Could not reach BMad registry; using bundled module list.');
+      await prompts.log.warn('Impossible d\'atteindre le registre BMad ; utilisation de la liste de modules embarquée.');
       return config;
     } catch (error) {
-      await prompts.log.warn(`Failed to load modules config: ${error.message}`);
+      await prompts.log.warn(`Échec du chargement de la configuration des modules : ${error.message}`);
       return { modules: [] };
     }
   }
@@ -191,7 +191,7 @@ class ExternalModuleManager {
     const moduleInfo = await this.getModuleByCode(moduleCode);
 
     if (!moduleInfo) {
-      throw new Error(`External module '${moduleCode}' not found in the BMad registry`);
+      throw new Error(`Module externe '${moduleCode}' introuvable dans le registre BMad`);
     }
 
     const cacheDir = this.getExternalCacheDir();
@@ -277,7 +277,7 @@ class ExternalModuleManager {
       if (cachedMarker?.channel && (await fs.pathExists(moduleCacheDir))) {
         if (!silent) {
           await prompts.log.warn(
-            `Could not check for updates to ${moduleInfo.name} (${error.message}); using cached ${cachedMarker.version || cachedMarker.channel}.`,
+            `Impossible de vérifier les mises à jour pour ${moduleInfo.name} (${error.message}) ; utilisation de la version en cache ${cachedMarker.version || cachedMarker.channel}.`,
           );
         }
         ExternalModuleManager._resolutions.set(moduleCode, {
@@ -296,17 +296,17 @@ class ExternalModuleManager {
       const isRateLimited = /rate limit/i.test(error.message);
       const hint = isRateLimited
         ? process.env.GITHUB_TOKEN
-          ? 'Your GITHUB_TOKEN may have expired or been rate-limited on its own budget. Try a different token or wait for the reset.'
-          : 'Set a GITHUB_TOKEN env var (any personal access token with public-repo read) to raise the 60-req/hour anonymous limit.'
-        : `Check your network connection, or rerun with \`--next=${moduleCode}\` / \`--pin ${moduleCode}=<tag>\` to skip the tag lookup.`;
-      throw new Error(`Could not resolve stable tag for '${moduleCode}' (${error.message}). ${hint}`);
+          ? 'Votre GITHUB_TOKEN a peut-être expiré ou a été limité par son propre quota. Essayez un autre token ou attendez la réinitialisation.'
+          : 'Définissez une variable d\'environnement GITHUB_TOKEN (tout token d\'accès personnel avec lecture public-repo) pour augmenter la limite anonyme de 60 requêtes/heure.'
+        : `Vérifiez votre connexion réseau, ou relancez avec \`--next=${moduleCode}\` / \`--pin ${moduleCode}=<tag>\` pour ignorer la recherche de tag.`;
+      throw new Error(`Impossible de résoudre le tag stable pour '${moduleCode}' (${error.message}). ${hint}`);
     }
 
     if (resolved.resolvedFallback && !silent) {
       if (resolved.reason === 'no-stable-tags') {
-        await prompts.log.warn(`No stable releases found for ${moduleInfo.name}; installing from main.`);
+        await prompts.log.warn(`Aucune release stable trouvée pour ${moduleInfo.name} ; installation depuis main.`);
       } else if (resolved.reason === 'not-a-github-url') {
-        await prompts.log.warn(`Cannot determine stable tags for ${moduleInfo.name} (non-GitHub URL); installing from main.`);
+        await prompts.log.warn(`Impossible de déterminer les tags stables pour ${moduleInfo.name} (URL non-GitHub) ; installation depuis main.`);
       }
     }
 
@@ -317,7 +317,7 @@ class ExternalModuleManager {
         try {
           const exists = await tagExists(parsed.owner, parsed.repo, planEntry.pin);
           if (!exists) {
-            throw new Error(`Tag '${planEntry.pin}' not found in ${parsed.owner}/${parsed.repo}.`);
+            throw new Error(`Tag '${planEntry.pin}' introuvable dans ${parsed.owner}/${parsed.repo}.`);
           }
         } catch (error) {
           if (error.message?.includes('not found')) throw error;
@@ -343,7 +343,7 @@ class ExternalModuleManager {
     if (await fs.pathExists(moduleCacheDir)) {
       // Cache exists on the right channel. Refresh the ref.
       const fetchSpinner = await createSpinner();
-      fetchSpinner.start(`Fetching ${moduleInfo.name}...`);
+      fetchSpinner.start(`Téléchargement de ${moduleInfo.name}...`);
       try {
         const currentSha = execSync('git rev-parse HEAD', { cwd: moduleCacheDir, stdio: 'pipe' }).toString().trim();
 
@@ -372,10 +372,10 @@ class ExternalModuleManager {
         }
 
         const newSha = execSync('git rev-parse HEAD', { cwd: moduleCacheDir, stdio: 'pipe' }).toString().trim();
-        fetchSpinner.stop(`Fetched ${moduleInfo.name}`);
+        fetchSpinner.stop(`${moduleInfo.name} téléchargé`);
         if (currentSha !== newSha) needsDependencyInstall = true;
       } catch {
-        fetchSpinner.error(`Fetch failed, re-downloading ${moduleInfo.name}`);
+        fetchSpinner.error(`Téléchargement échoué, retéléchargement de ${moduleInfo.name}`);
         await fs.remove(moduleCacheDir);
         wasNewClone = true;
       }
@@ -385,7 +385,7 @@ class ExternalModuleManager {
 
     if (wasNewClone) {
       const fetchSpinner = await createSpinner();
-      fetchSpinner.start(`Fetching ${moduleInfo.name}...`);
+      fetchSpinner.start(`Téléchargement de ${moduleInfo.name}...`);
       try {
         if (resolved.channel === 'next') {
           execSync(`git clone --depth 1 "${moduleInfo.url}" "${moduleCacheDir}"`, {
@@ -398,10 +398,10 @@ class ExternalModuleManager {
             env: { ...process.env, GIT_TERMINAL_PROMPT: '0' },
           });
         }
-        fetchSpinner.stop(`Fetched ${moduleInfo.name}`);
+        fetchSpinner.stop(`${moduleInfo.name} téléchargé`);
       } catch (error) {
-        fetchSpinner.error(`Failed to fetch ${moduleInfo.name}`);
-        throw new Error(`Failed to clone external module '${moduleCode}' at ${resolved.version}: ${error.message}`);
+        fetchSpinner.error(`Échec du téléchargement de ${moduleInfo.name}`);
+        throw new Error(`Échec du clonage du module externe '${moduleCode}' à ${resolved.version} : ${error.message}`);
       }
     }
 
@@ -428,16 +428,16 @@ class ExternalModuleManager {
       // Force install if we updated or cloned new
       if (needsDependencyInstall || wasNewClone || nodeModulesMissing) {
         const installSpinner = await createSpinner();
-        installSpinner.start(`Installing dependencies for ${moduleInfo.name}...`);
+        installSpinner.start(`Installation des dépendances pour ${moduleInfo.name}...`);
         try {
           execSync('npm install --omit=dev --no-audit --no-fund --no-progress --legacy-peer-deps', {
             cwd: moduleCacheDir,
             stdio: ['ignore', 'pipe', 'pipe'],
             timeout: 120_000, // 2 minute timeout
           });
-          installSpinner.stop(`Installed dependencies for ${moduleInfo.name}`);
+          installSpinner.stop(`Dépendances installées pour ${moduleInfo.name}`);
         } catch (error) {
-          installSpinner.error(`Failed to install dependencies for ${moduleInfo.name}`);
+          installSpinner.error(`Échec de l'installation des dépendances pour ${moduleInfo.name}`);
           if (!silent) await prompts.log.warn(`  ${error.message}`);
         }
       } else {
@@ -454,16 +454,16 @@ class ExternalModuleManager {
 
         if (packageJsonNewer) {
           const installSpinner = await createSpinner();
-          installSpinner.start(`Installing dependencies for ${moduleInfo.name}...`);
+          installSpinner.start(`Installation des dépendances pour ${moduleInfo.name}...`);
           try {
             execSync('npm install --omit=dev --no-audit --no-fund --no-progress --legacy-peer-deps', {
               cwd: moduleCacheDir,
               stdio: ['ignore', 'pipe', 'pipe'],
               timeout: 120_000, // 2 minute timeout
             });
-            installSpinner.stop(`Installed dependencies for ${moduleInfo.name}`);
+            installSpinner.stop(`Dépendances installées pour ${moduleInfo.name}`);
           } catch (error) {
-            installSpinner.error(`Failed to install dependencies for ${moduleInfo.name}`);
+            installSpinner.error(`Échec de l'installation des dépendances pour ${moduleInfo.name}`);
             if (!silent) await prompts.log.warn(`  ${error.message}`);
           }
         }

@@ -16,7 +16,7 @@ async function loadPlatformCodes() {
   }
 
   if (!(await fs.pathExists(PLATFORM_CODES_PATH))) {
-    throw new Error(`Platform codes configuration not found at: ${PLATFORM_CODES_PATH}`);
+    throw new Error(`Configuration des codes de plateforme introuvable à : ${PLATFORM_CODES_PATH}`);
   }
 
   const content = await fs.readFile(PLATFORM_CODES_PATH, 'utf8');
@@ -53,13 +53,13 @@ async function formatPlatformList() {
   });
 
   const idWidth = Math.max(...entries.map((e) => e.id.length), 'ID'.length);
-  const nameWidth = Math.max(...entries.map((e) => e.name.length), 'Name'.length);
+  const nameWidth = Math.max(...entries.map((e) => e.name.length), 'Nom'.length);
 
   const pad = (s, w) => s + ' '.repeat(Math.max(0, w - s.length));
   const lines = [
-    `Supported tool IDs (pass via --tools <id>[,<id>...]):`,
+    `IDs d'outils pris en charge (à passer via --tools <id>[,<id>...]) :`,
     '',
-    `  ${pad('ID', idWidth)}  ${pad('Name', nameWidth)}  Target dir`,
+    `  ${pad('ID', idWidth)}  ${pad('Nom', nameWidth)}  Répertoire cible`,
     `  ${pad('-'.repeat(idWidth), idWidth)}  ${pad('-'.repeat(nameWidth), nameWidth)}  ${'-'.repeat(10)}`,
   ];
 
@@ -68,7 +68,7 @@ async function formatPlatformList() {
     lines.push(`${star}${pad(e.id, idWidth)}  ${pad(e.name, nameWidth)}  ${e.targetDir}`);
   }
 
-  lines.push('', '* = recommended / preferred', '', 'Example: bmad-method install --modules bmm --tools claude-code');
+  lines.push('', '* = recommandé / préféré', '', 'Exemple : bmad-method install --modules bmm --tools claude-code');
 
   return lines.join('\n');
 }

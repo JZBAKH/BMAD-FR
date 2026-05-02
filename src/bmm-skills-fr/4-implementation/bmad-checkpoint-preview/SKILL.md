@@ -1,68 +1,68 @@
 ---
 name: bmad-checkpoint-preview
-description: 'LLM-assisted human-in-the-loop review. Make sense of a change, focus attention where it matters, test. Use when the user says "checkpoint", "human review", or "walk me through this change".'
+description: 'Revue humaine assistée par LLM (human-in-the-loop). Donnez du sens à un changement, concentrez l''attention là où elle compte, testez. À utiliser lorsque l''utilisateur dit « checkpoint », « revue humaine » ou « explique-moi ce changement ».'
 ---
 
-# Checkpoint Review Workflow
+# Workflow de Revue Checkpoint
 
-**Goal:** Guide a human through reviewing a change — from purpose and context into details.
+**Objectif :** Guider un humain dans la revue d'un changement — depuis le but et le contexte jusqu'aux détails.
 
-**Your Role:** You are assisting the user in reviewing a change.
+**Votre rôle :** Vous assistez l'utilisateur dans la revue d'un changement.
 
 ## Conventions
 
-- Bare paths (e.g. `step-01-orientation.md`) resolve from the skill root.
-- `{skill-root}` resolves to this skill's installed directory (where `customize.toml` lives).
-- `{project-root}`-prefixed paths resolve from the project working directory.
-- `{skill-name}` resolves to the skill directory's basename.
+- Les chemins nus (par exemple `step-01-orientation.md`) sont résolus depuis la racine du skill.
+- `{skill-root}` correspond au répertoire installé de ce skill (là où réside `customize.toml`).
+- Les chemins préfixés par `{project-root}` sont résolus depuis le répertoire de travail du projet.
+- `{skill-name}` correspond au nom de base du répertoire du skill.
 
-## On Activation
+## À l'activation
 
-### Step 1: Resolve the Workflow Block
+### Étape 1 : Résoudre le bloc Workflow
 
-Run: `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow`
+Exécutez : `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow`
 
-**If the script fails**, resolve the `workflow` block yourself by reading these three files in base → team → user order and applying the same structural merge rules as the resolver:
+**Si le script échoue**, résolvez vous-même le bloc `workflow` en lisant ces trois fichiers dans l'ordre base → équipe → utilisateur, et en appliquant les mêmes règles de fusion structurelle que le résolveur :
 
-1. `{skill-root}/customize.toml` — defaults
-2. `{project-root}/_bmad/custom/{skill-name}.toml` — team overrides
-3. `{project-root}/_bmad/custom/{skill-name}.user.toml` — personal overrides
+1. `{skill-root}/customize.toml` — valeurs par défaut
+2. `{project-root}/_bmad/custom/{skill-name}.toml` — surcharges d'équipe
+3. `{project-root}/_bmad/custom/{skill-name}.user.toml` — surcharges personnelles
 
-Any missing file is skipped. Scalars override, tables deep-merge, arrays of tables keyed by `code` or `id` replace matching entries and append new entries, and all other arrays append.
+Tout fichier manquant est ignoré. Les scalaires écrasent, les tables fusionnent en profondeur, les tableaux de tables indexés par `code` ou `id` remplacent les entrées correspondantes et ajoutent les nouvelles entrées, et tous les autres tableaux sont concaténés.
 
-### Step 2: Execute Prepend Steps
+### Étape 2 : Exécuter les étapes de prepend
 
-Execute each entry in `{workflow.activation_steps_prepend}` in order before proceeding.
+Exécutez chaque entrée de `{workflow.activation_steps_prepend}` dans l'ordre avant de poursuivre.
 
-### Step 3: Load Persistent Facts
+### Étape 3 : Charger les faits persistants
 
-Treat every entry in `{workflow.persistent_facts}` as foundational context you carry for the rest of the workflow run. Entries prefixed `file:` are paths or globs under `{project-root}` — load the referenced contents as facts. All other entries are facts verbatim.
+Traitez chaque entrée de `{workflow.persistent_facts}` comme un contexte fondateur que vous portez pour le reste de l'exécution du Workflow. Les entrées préfixées par `file:` sont des chemins ou des globs sous `{project-root}` — chargez le contenu référencé comme des faits. Toutes les autres entrées sont des faits littéraux.
 
-### Step 4: Load Config
+### Étape 4 : Charger la configuration
 
-Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
+Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résolvez :
 
 - `implementation_artifacts`
 - `planning_artifacts`
 - `communication_language`
 - `document_output_language`
 
-### Step 5: Greet the User
+### Étape 5 : Saluer l'utilisateur
 
-Greet the user, speaking in `{communication_language}`.
+Saluez l'utilisateur, en parlant en `{communication_language}`.
 
-### Step 6: Execute Append Steps
+### Étape 6 : Exécuter les étapes d'append
 
-Execute each entry in `{workflow.activation_steps_append}` in order.
+Exécutez chaque entrée de `{workflow.activation_steps_append}` dans l'ordre.
 
-Activation is complete. Begin the workflow below.
+L'activation est terminée. Démarrez le Workflow ci-dessous.
 
-## Global Step Rules (apply to every step)
+## Règles globales d'étape (s'appliquent à chaque étape)
 
-- **Path:line format** — Every code reference must use CWD-relative `path:line` format (no leading `/`) so it is clickable in IDE-embedded terminals (e.g., `src/auth/middleware.ts:42`).
-- **Front-load then shut up** — Present the entire output for the current step in a single coherent message. Do not ask questions mid-step, do not drip-feed, do not pause between sections.
-- **Language** — Speak in `{communication_language}`. Write any file output in `{document_output_language}`.
+- **Format Path:line** — Chaque référence de code doit utiliser le format `path:line` relatif au CWD (sans `/` initial) afin d'être cliquable dans les terminaux intégrés à l'IDE (par exemple, `src/auth/middleware.ts:42`).
+- **Tout placer en tête puis se taire** — Présentez la totalité de la sortie pour l'étape courante en un seul message cohérent. Ne posez pas de questions en milieu d'étape, ne diffusez pas au compte-gouttes, ne marquez pas de pause entre les sections.
+- **Langue** — Parlez en `{communication_language}`. Écrivez toute sortie de fichier en `{document_output_language}`.
 
-## FIRST STEP
+## PREMIÈRE ÉTAPE
 
-Read fully and follow `./step-01-orientation.md` to begin.
+Lisez intégralement et suivez `./step-01-orientation.md` pour commencer.

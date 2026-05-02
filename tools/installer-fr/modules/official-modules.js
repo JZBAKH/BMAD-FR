@@ -168,7 +168,7 @@ class OfficialModules {
         .split('-')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' '),
-      description: 'BMAD Module',
+      description: 'Module BMAD',
       version: '5.0.0',
       source: sourceDescription,
     };
@@ -189,7 +189,7 @@ class OfficialModules {
       moduleInfo.dependencies = config.dependencies || [];
       moduleInfo.defaultSelected = config.default_selected === undefined ? false : config.default_selected;
     } catch (error) {
-      await prompts.log.warn(`Failed to read config for ${defaultName}: ${error.message}`);
+      await prompts.log.warn(`Échec de la lecture de la configuration pour ${defaultName} : ${error.message}`);
     }
 
     return moduleInfo;
@@ -292,7 +292,7 @@ class OfficialModules {
 
     if (!sourcePath) {
       throw new Error(
-        `Source for module '${moduleName}' is not available. It will be retained but cannot be updated without its source files.`,
+        `La source pour le module '${moduleName}' n'est pas disponible. Il sera conservé mais ne peut pas être mis à jour sans ses fichiers source.`,
       );
     }
 
@@ -427,11 +427,11 @@ class OfficialModules {
     const targetPath = path.join(bmadDir, moduleName);
 
     if (!sourcePath) {
-      throw new Error(`Module '${moduleName}' not found in any source location`);
+      throw new Error(`Module '${moduleName}' introuvable dans les emplacements source`);
     }
 
     if (!(await fs.pathExists(targetPath))) {
-      throw new Error(`Module '${moduleName}' is not installed`);
+      throw new Error(`Le module '${moduleName}' n'est pas installé`);
     }
 
     await this.syncModule(sourcePath, targetPath);
@@ -452,7 +452,7 @@ class OfficialModules {
     const targetPath = path.join(bmadDir, moduleName);
 
     if (!(await fs.pathExists(targetPath))) {
-      throw new Error(`Module '${moduleName}' is not installed`);
+      throw new Error(`Le module '${moduleName}' n'est pas installé`);
     }
 
     await fs.remove(targetPath);
@@ -500,7 +500,7 @@ class OfficialModules {
         const config = yaml.parse(configContent);
         Object.assign(moduleInfo, config);
       } catch (error) {
-        await prompts.log.warn(`Failed to read installed module config: ${error.message}`);
+        await prompts.log.warn(`Échec de la lecture de la configuration du module installé : ${error.message}`);
       }
     }
 
@@ -557,7 +557,7 @@ class OfficialModules {
         // Check for localskip="true" in the agent tag
         const agentMatch = content.match(/<agent[^>]*\slocalskip="true"[^>]*>/);
         if (agentMatch) {
-          await prompts.log.message(`  Skipping web-only agent: ${path.basename(file)}`);
+          await prompts.log.message(`  Agent web-only ignoré : ${path.basename(file)}`);
           continue; // Skip this agent
         }
       }
@@ -612,7 +612,7 @@ class OfficialModules {
       const yamlContent = await fs.readFile(moduleYamlPath, 'utf8');
       moduleYaml = yaml.parse(yamlContent);
     } catch (error) {
-      await prompts.log.warn(`Invalid module.yaml for ${moduleName}: ${error.message}`);
+      await prompts.log.warn(`module.yaml invalide pour ${moduleName} : ${error.message}`);
       return emptyResult;
     }
 
@@ -654,7 +654,7 @@ class OfficialModules {
       const normalizedRoot = path.normalize(projectRoot);
       if (!normalizedPath.startsWith(normalizedRoot + path.sep) && normalizedPath !== normalizedRoot) {
         const color = await prompts.getColor();
-        await prompts.log.warn(color.yellow(`${configKey} path escapes project root, skipping: ${dirPath}`));
+        await prompts.log.warn(color.yellow(`Le chemin ${configKey} sort de la racine du projet, ignoré : ${dirPath}`));
         continue;
       }
 
@@ -687,7 +687,7 @@ class OfficialModules {
               const color = await prompts.getColor();
               await prompts.log.warn(
                 color.yellow(
-                  `${configKey}: cannot move between parent/child paths (${oldDirPath} / ${dirPath}), creating new directory instead`,
+                  `${configKey} : impossible de déplacer entre des chemins parent/enfant (${oldDirPath} / ${dirPath}), création d'un nouveau répertoire à la place`,
                 ),
               );
               oldFullPath = null;
@@ -710,7 +710,7 @@ class OfficialModules {
           const color = await prompts.getColor();
           await prompts.log.warn(
             color.yellow(
-              `Failed to move ${oldDirPath} → ${dirPath}: ${moveError.message}\n  Creating new directory instead. Please move contents from the old directory manually.`,
+              `Échec du déplacement de ${oldDirPath} → ${dirPath} : ${moveError.message}\n  Création d'un nouveau répertoire à la place. Veuillez déplacer manuellement le contenu de l'ancien répertoire.`,
             ),
           );
           await fs.ensureDir(fullPath);
@@ -721,7 +721,7 @@ class OfficialModules {
         const color = await prompts.getColor();
         await prompts.log.warn(
           color.yellow(
-            `${dirName}: path changed but both directories exist:\n  Old: ${oldDirPath}\n  New: ${dirPath}\n  Old directory may contain orphaned documents — please review and merge manually.`,
+            `${dirName} : le chemin a changé mais les deux répertoires existent :\n  Ancien : ${oldDirPath}\n  Nouveau : ${dirPath}\n  L'ancien répertoire peut contenir des documents orphelins — veuillez vérifier et fusionner manuellement.`,
           ),
         );
       } else if (!(await fs.pathExists(fullPath))) {
@@ -1001,7 +1001,7 @@ class OfficialModules {
         const moduleConfig = yaml.parse(content);
         if (!moduleConfig) continue;
 
-        const displayName = moduleConfig.header || `${moduleName.toUpperCase()} Module`;
+        const displayName = moduleConfig.header || `Module ${moduleName.toUpperCase()}`;
         const configKeys = Object.keys(moduleConfig).filter((key) => key !== 'prompt');
         const questionKeys = configKeys.filter((key) => {
           if (metadataFields.has(key)) return false;
@@ -1021,7 +1021,7 @@ class OfficialModules {
           hasFieldsWithoutDefaults,
         });
       } catch (error) {
-        await prompts.log.warn(`Could not read schema for module "${moduleName}": ${error.message}`);
+        await prompts.log.warn(`Impossible de lire le schéma pour le module « ${moduleName} » : ${error.message}`);
       }
     }
 
@@ -1069,10 +1069,10 @@ class OfficialModules {
 
       if (customizableModules.length > 0) {
         const configMode = await prompts.select({
-          message: 'Module configuration',
+          message: 'Configuration des modules',
           choices: [
-            { name: 'Express Setup', value: 'express', hint: 'accept all defaults (recommended)' },
-            { name: 'Customize', value: 'customize', hint: 'choose modules to configure' },
+            { name: 'Configuration express', value: 'express', hint: 'accepter toutes les valeurs par défaut (recommandé)' },
+            { name: 'Personnaliser', value: 'customize', hint: 'choisir les modules à configurer' },
           ],
           default: 'express',
         });
@@ -1081,11 +1081,11 @@ class OfficialModules {
           const choices = customizableModules.map((m) => ({
             name: `${m.displayName} (${m.questionCount} option${m.questionCount === 1 ? '' : 's'})`,
             value: m.moduleName,
-            hint: m.hasFieldsWithoutDefaults ? 'has fields without defaults' : undefined,
+            hint: m.hasFieldsWithoutDefaults ? 'contient des champs sans valeurs par défaut' : undefined,
             checked: m.hasFieldsWithoutDefaults,
           }));
           const selected = await prompts.multiselect({
-            message: 'Select modules to customize:',
+            message: 'Sélectionnez les modules à personnaliser :',
             choices,
             required: false,
           });
@@ -1120,11 +1120,11 @@ class OfficialModules {
         }
 
         const configSpinner = await prompts.spinner();
-        configSpinner.start('Configuring modules...');
+        configSpinner.start('Configuration des modules...');
         try {
           for (const moduleName of defaultModules) {
             const displayName = displayNameMap.get(moduleName) || moduleName.toUpperCase();
-            configSpinner.message(`Configuring ${displayName}...`);
+            configSpinner.message(`Configuration de ${displayName}...`);
             try {
               this._silentConfig = true;
               await this.collectModuleConfig(moduleName, projectDir);
@@ -1133,7 +1133,7 @@ class OfficialModules {
             }
           }
         } finally {
-          configSpinner.stop(customizeModules.length > 0 ? 'Module defaults applied' : 'Module configuration complete');
+          configSpinner.stop(customizeModules.length > 0 ? 'Valeurs par défaut des modules appliquées' : 'Configuration des modules terminée');
         }
       }
 
@@ -1143,7 +1143,7 @@ class OfficialModules {
       }
 
       if (customizeModules.length > 0) {
-        await prompts.log.step('Module configuration complete');
+        await prompts.log.step('Configuration des modules terminée');
       }
     }
 
@@ -1219,7 +1219,7 @@ class OfficialModules {
 
     // If module has no config keys at all, handle it specially
     if (hasNoConfig && moduleConfig.subheader) {
-      const moduleDisplayName = moduleConfig.header || `${moduleName.toUpperCase()} Module`;
+      const moduleDisplayName = moduleConfig.header || `Module ${moduleName.toUpperCase()}`;
       await prompts.log.step(moduleDisplayName);
       await prompts.log.message(`  \u2713 ${moduleConfig.subheader}`);
       return false; // No new fields
@@ -1275,7 +1275,7 @@ class OfficialModules {
       }
 
       // Show "no config" message for modules with no new questions (that have config keys)
-      await prompts.log.message(`  \u2713 ${moduleName.toUpperCase()} module already up to date`);
+      await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} d\u00e9j\u00e0 \u00e0 jour`);
       return false; // No new fields
     }
 
@@ -1306,7 +1306,7 @@ class OfficialModules {
         for (const q of questions) {
           allAnswers[q.name] = typeof q.default === 'function' ? q.default({}) : q.default;
         }
-        await prompts.log.message(`  \u2713 ${moduleName.toUpperCase()} module configured with defaults`);
+        await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} configur\u00e9 avec les valeurs par d\u00e9faut`);
       } else if (questions.length > 0) {
         // Only show header if we actually have questions
         await CLIUtils.displayModuleConfigHeader(moduleName, moduleConfig.header, moduleConfig.subheader);
@@ -1317,7 +1317,7 @@ class OfficialModules {
         Object.assign(allAnswers, promptedAnswers);
       } else if (newStaticKeys.length > 0) {
         // Only static fields, no questions - show no config message
-        await prompts.log.message(`  \u2713 ${moduleName.toUpperCase()} module configuration updated`);
+        await prompts.log.message(`  \u2713 Configuration du module ${moduleName.toUpperCase()} mise \u00e0 jour`);
       }
 
       // Store all answers for cross-referencing
@@ -1527,11 +1527,11 @@ class OfficialModules {
 
     // If there are questions to ask, prompt for accepting defaults vs customizing
     if (questions.length > 0) {
-      const moduleDisplayName = moduleConfig.header || `${moduleName.toUpperCase()} Module`;
+      const moduleDisplayName = moduleConfig.header || `Module ${moduleName.toUpperCase()}`;
 
       // Skip prompts mode: use all defaults without asking
       if (this.skipPrompts) {
-        await prompts.log.info(`Using default configuration for ${moduleDisplayName}`);
+        await prompts.log.info(`Utilisation de la configuration par défaut pour ${moduleDisplayName}`);
         // Use defaults for all questions
         for (const question of questions) {
           const hasDefault = question.default !== undefined && question.default !== null && question.default !== '';
@@ -1540,7 +1540,7 @@ class OfficialModules {
           }
         }
       } else {
-        if (!this._silentConfig) await prompts.log.step(`Configuring ${moduleDisplayName}`);
+        if (!this._silentConfig) await prompts.log.step(`Configuration de ${moduleDisplayName}`);
         let useDefaults = true;
         if (moduleName === 'core') {
           useDefaults = false; // Core: always show all questions
@@ -1550,7 +1550,7 @@ class OfficialModules {
             {
               type: 'confirm',
               name: 'customize',
-              message: 'Accept Defaults (no to customize)?',
+              message: 'Accepter les valeurs par défaut (non pour personnaliser) ?',
               default: true,
             },
           ]);
@@ -1565,7 +1565,7 @@ class OfficialModules {
           const questionsWithoutDefaults = questions.filter((q) => q.default === undefined || q.default === null || q.default === '');
 
           if (questionsWithoutDefaults.length > 0) {
-            await prompts.log.message(`  Asking required questions for ${moduleName.toUpperCase()}...`);
+            await prompts.log.message(`  Questions requises pour ${moduleName.toUpperCase()}...`);
             const promptedAnswers = await prompts.prompt(questionsWithoutDefaults);
             Object.assign(allAnswers, promptedAnswers);
           }
@@ -1682,7 +1682,7 @@ class OfficialModules {
       // No longer display completion boxes - keep output clean
     } else {
       // No questions for this module - show completion message with header if available
-      const moduleDisplayName = moduleConfig.header || `${moduleName.toUpperCase()} Module`;
+      const moduleDisplayName = moduleConfig.header || `Module ${moduleName.toUpperCase()}`;
 
       // Check if this module has NO configuration keys at all (like CIS)
       // Filter out metadata fields and only count actual config objects
@@ -1696,11 +1696,11 @@ class OfficialModules {
           if (moduleConfig.subheader) {
             await prompts.log.message(`  \u2713 ${moduleConfig.subheader}`);
           } else {
-            await prompts.log.message(`  \u2713 No custom configuration required`);
+            await prompts.log.message(`  \u2713 Aucune configuration personnalis\u00e9e requise`);
           }
         } else {
           // Module has config but just no questions to ask
-          await prompts.log.message(`  \u2713 ${moduleName.toUpperCase()} module configured`);
+          await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} configur\u00e9`);
         }
       }
     }
@@ -2002,12 +2002,12 @@ class OfficialModules {
     const color = await prompts.getColor();
     if (existingValue !== null && existingValue !== undefined) {
       if (typeof existingValue === 'boolean') {
-        message += color.dim(` (current: ${existingValue ? 'true' : 'false'})`);
+        message += color.dim(` (actuel : ${existingValue ? 'true' : 'false'})`);
       } else if (Array.isArray(existingValue)) {
-        message += color.dim(` (current: ${existingValue.join(', ')})`);
+        message += color.dim(` (actuel : ${existingValue.join(', ')})`);
       } else if (questionType !== 'list') {
         // Show the cleaned value (without {project-root}/) for display
-        message += color.dim(` (current: ${existingValue})`);
+        message += color.dim(` (actuel : ${existingValue})`);
       }
     } else if (item.example && questionType === 'input') {
       // Show example for input fields
@@ -2017,7 +2017,7 @@ class OfficialModules {
         exampleText = this.replacePlaceholders(exampleText, moduleName, moduleConfig);
         exampleText = exampleText.replace('{project-root}/', '');
       }
-      message += color.dim(` (e.g., ${exampleText})`);
+      message += color.dim(` (ex. : ${exampleText})`);
     }
 
     // Build the question object
@@ -2064,13 +2064,13 @@ class OfficialModules {
     if (questionType === 'input') {
       question.validate = (input) => {
         if (!input && item.required) {
-          return 'This field is required';
+          return 'Ce champ est requis';
         }
         // Validate against regex pattern if provided
         if (input && item.regex) {
           const regex = new RegExp(item.regex);
           if (!regex.test(input)) {
-            return `Invalid format. Must match pattern: ${item.regex}`;
+            return `Format invalide. Doit correspondre au motif : ${item.regex}`;
           }
         }
         return true;
@@ -2081,7 +2081,7 @@ class OfficialModules {
     if (questionType === 'checkbox' && item.required) {
       question.validate = (answers) => {
         if (!answers || answers.length === 0) {
-          return 'At least one option must be selected';
+          return 'Au moins une option doit être sélectionnée';
         }
         return true;
       };

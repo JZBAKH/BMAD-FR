@@ -22,7 +22,7 @@ class ExistingInstall {
 
   get version() {
     if (!this.installed) {
-      throw new Error('version is not available when nothing is installed');
+      throw new Error('la version n\'est pas disponible lorsque rien n\'est installé');
     }
     return this.#version;
   }

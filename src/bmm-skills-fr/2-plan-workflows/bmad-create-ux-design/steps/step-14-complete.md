@@ -1,162 +1,177 @@
-# Étape 14 : Achèvement du Workflow
+# Étape 14 : Achèvement du workflow
 
-## RÈGLES d'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- ✅ C'EST UNE ÉTAPE FINALE - Achèvement du workflow requis.
+- ✅ CECI EST UNE ÉTAPE FINALE - Achèvement du workflow requis
 
-- 📖 CRITIQUE : TOUJOURS lire l'intégralité du fichier d'étape avant de prendre toute mesure - une compréhension partielle conduit à des décisions incomplètes.
-- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que tout le fichier est lu et compris avant de procéder.
-- 🛑 AUCUNE génération de contenu - il s'agit d'une étape de conclusion.
-- 📋 FINALISER le document et mettre à jour le statut du workflow.
-- 💬 CONCENTREZ-VOUS sur l'achèvement, la validation et les prochaines étapes.
-- 🎯 METTRE À JOUR les fichiers de statut du workflow avec les informations d'achèvement.
-- ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'Agent avec la configuration `{communication_language}`.
+- 📖 CRITIQUE : TOUJOURS lire le fichier d'étape complet avant toute action - une compréhension partielle mène à des décisions incomplètes
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que le fichier entier est lu et compris avant de procéder
+- 🛑 PAS de génération de contenu - ceci est une étape de clôture
+- 📋 FINALISER le document et mettre à jour le statut du workflow
+- 💬 SE FOCALISER sur l'achèvement, la validation et les étapes suivantes
+- 🎯 METTRE À JOUR les fichiers de statut du workflow avec les informations d'achèvement
+- ✅ VOUS DEVEZ TOUJOURS PARLER EN SORTIE dans votre style de communication d'Agent avec la config `{communication_language}`
 
 ## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Montrez votre analyse avant de prendre toute mesure.
-- 💾 Mettez à jour le fichier de statut principal du workflow avec les informations d'achèvement.
-- 📖 Suggérez des étapes de workflow suivantes potentielles pour l'utilisateur.
-- 🚫 NE PAS charger d'étapes supplémentaires après celle-ci.
+- 🎯 Montrez votre analyse avant toute action
+- 💾 Mettre à jour le fichier de statut principal du workflow avec les informations d'achèvement
+- 📖 Suggérer les étapes potentielles de workflow suivantes pour l'utilisateur
+- 🚫 NE PAS charger d'étapes additionnelles après celle-ci
 
-## PROTOCOLES DE L'ÉTAPE DE TERMINAISON :
+## PROTOCOLES D'ÉTAPE DE TERMINAISON :
 
-- Il s'agit d'une étape FINALE - achèvement du workflow requis.
-- 📖 Mettez à jour le frontmatter du fichier de sortie, en ajoutant cette étape à la fin de la liste `stepsCompleted` pour indiquer que tout est terminé.
-- Produisez un résumé de l'achèvement et des conseils pour l'étape suivante.
-- Mettez à jour le fichier de statut principal du workflow avec le document finalisé.
-- Suggérez des étapes de workflow suivantes potentielles pour l'utilisateur.
-- Marquez le workflow comme terminé dans le suivi de statut.
+- Ceci est une étape FINALE - achèvement du workflow requis
+- 📖 Mettre à jour le frontmatter du fichier de sortie, en ajoutant cette étape à la fin de la liste stepsCompleted pour indiquer que tout est terminé.
+- Sortir le résumé d'achèvement et le guide des étapes suivantes
+- Mettre à jour le fichier de statut principal du workflow avec le document finalisé
+- Suggérer les étapes potentielles de workflow suivantes pour l'utilisateur
+- Marquer le workflow comme complet dans le suivi de statut
 
-## LIMITES DU CONTEXTE :
+## LIMITES DE CONTEXTE :
 
-- La spécification de design UX complète est disponible à partir de toutes les étapes précédentes.
-- Le frontmatter du workflow montre toutes les étapes terminées.
-- Tout le contenu collaboratif a été généré et enregistré.
-- Focus sur l'achèvement, la validation et les prochaines étapes.
+- Spécification UX design complète disponible depuis toutes les étapes précédentes
+- Le frontmatter du workflow montre toutes les étapes complétées
+- Tout le contenu collaboratif a été généré et sauvegardé
+- Se focaliser sur l'achèvement, la validation et les étapes suivantes
 
 ## VOTRE TÂCHE :
 
-Terminer le workflow de design UX, mettre à jour les fichiers de statut et suggérer les prochaines étapes pour le projet.
+Compléter le workflow UX design, mettre à jour les fichiers de statut, et suggérer les étapes suivantes pour le projet.
 
-## SÉQUENCE d'ACHÈVEMENT DU WORKFLOW :
+## SÉQUENCE D'ACHÈVEMENT DU WORKFLOW :
 
 ### 1. Annoncer l'achèvement du workflow
 
-Informer l'utilisateur que le design UX est terminé :
-"🎉 **Design UX Terminé, {{user_name}} !**
+Informer l'utilisateur que l'UX design est complet :
+« 🎉 **UX Design complet, {{user_name}} !**
 
-J'ai collaboré avec succès avec vous pour créer une spécification complète de design UX pour {{project_name}}.
+J'ai collaboré avec succès avec vous pour créer une spécification UX design exhaustive pour {{project_name}}.
 
 **Ce que nous avons accompli :**
-- ✅ Compréhension du projet et insights utilisateurs.
-- ✅ Définition de l'expérience centrale et de la réponse émotionnelle.
-- ✅ Analyse des modèles UX et inspiration.
-- ✅ Choix du système de design et stratégie d'implémentation.
-- ✅ Définition de l'interaction centrale et mécanismes de l'expérience.
-- ✅ Fondations du design visuel (couleurs, typographie, espacement).
-- ✅ Maquettes de direction de design et explorations visuelles.
-- ✅ Flux de parcours utilisateurs et design d'interaction.
-- ✅ Stratégie de composants et spécifications des composants sur mesure.
-- ✅ Modèles de cohérence UX pour les interactions courantes.
-- ✅ Stratégie de design réactif et d'accessibilité.
 
-**La spécification complète du design UX est maintenant disponible sur :** `{planning_artifacts}/ux-design-specification.md`
+- ✅ Compréhension du projet et insights utilisateurs
+- ✅ Définition de l'expérience essentielle et de la réponse émotionnelle
+- ✅ Analyse de patterns UX et inspiration
+- ✅ Choix de design system et stratégie d'implémentation
+- ✅ Définition des interactions essentielles et mécaniques d'expérience
+- ✅ Fondation du design visuel (couleurs, typographie, espacement)
+- ✅ Maquettes de directions de design et explorations visuelles
+- ✅ Flux de parcours utilisateurs et design d'interaction
+- ✅ Stratégie de composants et spécifications de composants personnalisés
+- ✅ Patterns de cohérence UX pour les interactions courantes
+- ✅ Stratégie de design responsive et accessibilité
 
-**Ressources visuelles de support :**
+**La spécification UX design complète est maintenant disponible à :** `{planning_artifacts}/ux-design-specification.md`
+
+**Actifs visuels de support :**
+
 - Visualiseur de thèmes de couleurs : `{planning_artifacts}/ux-color-themes.html`
 - Maquettes de directions de design : `{planning_artifacts}/ux-design-directions.html`
 
-Cette spécification est maintenant prête à guider le design visuel, l'implémentation et le développement."
+Cette spécification est maintenant prête à guider le design visuel, l'implémentation et le développement. »
 
 ### 2. Mise à jour du statut du workflow
 
 Mettre à jour le fichier de statut principal du workflow :
-- Charger le fichier de statut du workflow du projet (s'il en existe un).
-- Mettre à jour workflow_status["create-ux-design"] = `{planning_artifacts}/ux-design-specification.md`.
-- Enregistrer le fichier, en préservant tous les commentaires et la structure.
-- Marquer l'horodatage actuel comme heure d'achèvement.
 
-### 3. Suggérer les prochaines étapes
+- Charger le fichier de statut du workflow du projet (s'il en existe un)
+- Mettre à jour workflow_status["create-ux-design"] = `{planning_artifacts}/ux-design-specification.md`
+- Sauvegarder le fichier, en préservant tous les commentaires et la structure
+- Marquer l'horodatage actuel comme heure d'achèvement
 
-Design UX terminé. Invoquez la compétence `bmad-help`.
+### 3. Suggérer les étapes suivantes
 
-### 4. Confirmation finale d'achèvement
+UX Design complet. Invoquer le skill `bmad-help`.
 
-Félicitez l'utilisateur pour l'achèvement du design UX que vous avez réalisé ensemble.
+### 5. Confirmation finale d'achèvement
 
-## MÉTRIQUES DE RÉUSSITE :
+Féliciter l'utilisateur pour l'achèvement de l'UX que vous avez tous deux complété ensemble.
 
-✅ La spécification de design UX contient toutes les sections requises.
-✅ Tout le contenu collaboratif a été correctement enregistré dans le document.
-✅ Le fichier de statut du workflow a été mis à jour avec les informations d'achèvement.
-✅ Des conseils clairs pour les prochaines étapes ont été fournis à l'utilisateur.
-✅ La validation de la qualité du document a été effectuée.
-✅ L'utilisateur reconnaît l'achèvement et comprend les prochaines options.
+
+
+## MÉTRIQUES DE SUCCÈS :
+
+✅ La spécification UX design contient toutes les sections requises
+✅ Tout le contenu collaboratif correctement sauvegardé dans le document
+✅ Fichier de statut du workflow mis à jour avec les informations d'achèvement
+✅ Guide clair des étapes suivantes fourni à l'utilisateur
+✅ Validation de la qualité du document complétée
+✅ L'utilisateur reconnaît l'achèvement et comprend les options suivantes
 
 ## MODES D'ÉCHEC :
 
-❌ Ne pas mettre à jour le fichier de statut du workflow avec les informations d'achèvement.
-❌ Absence de conseils clairs pour l'utilisateur sur les prochaines étapes.
-❌ Ne pas confirmer l'exhaustivité du document avec l'utilisateur.
-❌ Workflow non marqué correctement comme terminé dans le suivi de statut.
-❌ Utilisateur incertain de la suite des événements.
+❌ Ne pas mettre à jour le fichier de statut du workflow avec les informations d'achèvement
+❌ Manquer un guide clair des étapes suivantes pour l'utilisateur
+❌ Ne pas confirmer l'exhaustivité du document avec l'utilisateur
+❌ Workflow non correctement marqué comme complet dans le suivi de statut
+❌ Utilisateur non clair sur ce qui se passe ensuite
 
-❌ **CRITIQUE** : Lire seulement une partie du fichier d'étape - conduit à une compréhension incomplète et à de mauvaises décisions.
-❌ **CRITIQUE** : Procéder avec 'C' sans lire et comprendre pleinement le fichier de l'étape suivante (même si c'est la fin).
-❌ **CRITIQUE** : Prendre des décisions sans une compréhension complète des exigences et protocoles de l'étape.
+❌ **CRITIQUE** : Lire seulement partiellement le fichier d'étape - mène à une compréhension incomplète et de mauvaises décisions
+❌ **CRITIQUE** : Procéder avec 'C' sans lire et comprendre entièrement le fichier d'étape suivant
+❌ **CRITIQUE** : Prendre des décisions sans compréhension complète des exigences et protocoles d'étape
 
-## LISTE DE CONTRÔLE D'ACHÈVEMENT DU WORKFLOW :
+## CHECKLIST D'ACHÈVEMENT DU WORKFLOW :
 
-### Spécification de Design Terminée :
-- [ ] Résumé exécutif et compréhension du projet.
-- [ ] Définition de l'expérience centrale et de la réponse émotionnelle.
-- [ ] Analyse des modèles UX et inspiration.
-- [ ] Choix et stratégie du système de design.
-- [ ] Définition des mécanismes de l'interaction centrale.
-- [ ] Fondations du design visuel (couleurs, typographie, espacement).
-- [ ] Décisions de direction de design et maquettes.
-- [ ] Flux de parcours utilisateurs et design d'interaction.
-- [ ] Stratégie et spécifications des composants.
-- [ ] Documentation des modèles de cohérence UX.
-- [ ] Stratégie de design réactif et d'accessibilité.
+### Spécification de design complète :
 
-### Processus Terminé :
-- [ ] Toutes les étapes terminées avec confirmation utilisateur.
-- [ ] Tout le contenu enregistré dans le document de spécification.
-- [ ] Frontmatter correctement mis à jour avec toutes les étapes.
-- [ ] Fichier de statut du workflow mis à jour avec l'achèvement.
-- [ ] Prochaines étapes clairement communiquées.
+- [ ] Résumé exécutif et compréhension du projet
+- [ ] Définition de l'expérience essentielle et de la réponse émotionnelle
+- [ ] Analyse de patterns UX et inspiration
+- [ ] Choix de design system et stratégie
+- [ ] Définition des mécaniques d'interaction essentielles
+- [ ] Fondation du design visuel (couleurs, typographie, espacement)
+- [ ] Décisions et maquettes de directions de design
+- [ ] Flux de parcours utilisateurs et design d'interaction
+- [ ] Stratégie et spécifications de composants
+- [ ] Documentation des patterns de cohérence UX
+- [ ] Stratégie de design responsive et accessibilité
 
-## CONSEILS SUR LES PROCHAINES ÉTAPES :
+### Processus complet :
+
+- [ ] Toutes les étapes complétées avec confirmation utilisateur
+- [ ] Tout le contenu sauvegardé dans le document de spécification
+- [ ] Frontmatter correctement mis à jour avec toutes les étapes
+- [ ] Fichier de statut du workflow mis à jour avec achèvement
+- [ ] Étapes suivantes clairement communiquées
+
+## GUIDE DES ÉTAPES SUIVANTES :
 
 **Options immédiates :**
-1. **Génération de Wireframes** - Créer des mises en page basse fidélité basées sur la spécification UX.
-2. **Prototype Interactif** - Construire des prototypes cliquables pour les tests.
-3. **Architecture de Solution** - Design technique avec contexte UX.
-4. **Design Visuel Figma** - Implémentation de l'interface utilisateur haute fidélité.
-5. **Création d'Epics** - Décomposer les exigences UX pour le développement.
+
+1. **Génération de wireframes** - Créer des layouts basse-fidélité basés sur la spécification UX
+2. **Prototype interactif** - Construire des prototypes cliquables pour les tests
+3. **Architecture solution** - Design technique avec contexte UX
+4. **Design visuel Figma** - Implémentation UI haute-fidélité
+5. **Création de thèmes** - Décomposer les exigences UX pour le développement
 
 **Séquence recommandée :**
-Pour les équipes axées sur le design : Wireframes → Prototypes → Design Figma → Développement.
-Pour les équipes techniques : Architecture → Création d'Epics → Développement.
+Pour les équipes axées design : Wireframes → Prototypes → Design Figma → Développement
+Pour les équipes techniques : Architecture → Création de thèmes → Développement
 
-Tenez compte de la capacité de l'équipe, des délais et déterminez si une validation utilisateur est nécessaire avant l'implémentation.
+Considérer la capacité de l'équipe, la timeline, et si la validation utilisateur est nécessaire avant l'implémentation.
 
 ## FINALISATION DU WORKFLOW :
 
-- Définir `lastStep = 14` dans le frontmatter du document.
-- Mettre à jour le fichier de statut du workflow avec l'horodatage d'achèvement.
-- Fournir un résumé de l'achèvement à l'utilisateur.
-- NE PAS charger d'étapes supplémentaires.
+- Définir `lastStep = 14` dans le frontmatter du document
+- Mettre à jour le fichier de statut du workflow avec l'horodatage d'achèvement
+- Fournir le résumé d'achèvement à l'utilisateur
+- NE PAS charger d'étapes additionnelles
 
-## DERNIER RAPPEL :
+## RAPPEL FINAL :
 
-Ce workflow de design UX est maintenant terminé. La spécification sert de fondation pour tout le travail visuel et de développement. Toutes les décisions de design, les modèles et les exigences sont documentés pour garantir une implémentation cohérente, accessible et centrée sur l'utilisateur.
+Ce workflow UX design est maintenant complet. La spécification sert de fondation pour tout le travail visuel et de développement. Toutes les décisions de design, patterns et exigences sont documentés pour assurer une implémentation cohérente, accessible et centrée sur l'utilisateur.
 
-**Félicitations pour avoir terminé la Spécification de Design UX pour {{project_name}} !** 🎉
+**Félicitations pour avoir complété la Spécification UX Design pour {{project_name}} !** 🎉
 
-**Livrables Principaux :**
-- ✅ Spécification de Design UX : `{planning_artifacts}/ux-design-specification.md`
-- ✅ Visualiseur de Thèmes de Couleurs : `{planning_artifacts}/ux-color-themes.html`
-- ✅ Directions de Design : `{planning_artifacts}/ux-design-directions.html`
+**Livrables essentiels :**
+
+- ✅ Spécification UX Design : `{planning_artifacts}/ux-design-specification.md`
+- ✅ Visualiseur de thèmes de couleurs : `{planning_artifacts}/ux-color-themes.html`
+- ✅ Directions de design : `{planning_artifacts}/ux-design-directions.html`
+
+## À l'achèvement
+
+Exécuter : `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete`
+
+Si le `workflow.on_complete` résolu n'est pas vide, le suivre comme instruction terminale finale avant de sortir.

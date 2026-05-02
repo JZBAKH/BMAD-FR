@@ -2,34 +2,34 @@
 failed_layers: '' # set at runtime: comma-separated list of layers that failed or returned empty
 ---
 
-# Step 2: Review
+# Étape 2 : Revue
 
-## RULES
+## RÈGLES
 
-- YOU MUST ALWAYS SPEAK OUTPUT in your Agent communication style with the config `{communication_language}`
-- The Blind Hunter subagent receives NO project context — diff only.
-- The Edge Case Hunter subagent receives diff and project read access.
-- The Acceptance Auditor subagent receives diff, spec, and context docs.
-- All review subagents must run at the same model capability as the current session.
+- VOUS DEVEZ TOUJOURS RÉPONDRE EN SORTIE dans le style de communication de votre Agent avec la config `{communication_language}`
+- Le subagent Blind Hunter ne reçoit AUCUN contexte projet — uniquement le diff.
+- Le subagent Edge Case Hunter reçoit le diff et un accès en lecture au projet.
+- Le subagent Acceptance Auditor reçoit le diff, la spec et les documents de contexte.
+- Tous les subagents de revue doivent s'exécuter avec la même capacité de modèle que la session courante.
 
 ## INSTRUCTIONS
 
-1. If `{review_mode}` = `"no-spec"`, note to the user: "Acceptance Auditor skipped — no spec file provided."
+1. Si `{review_mode}` = `"no-spec"`, signalez à l'utilisateur : « Acceptance Auditor sauté — aucun fichier de spec fourni. »
 
-2. Launch parallel subagents without conversation context. If subagents are not available, generate prompt files in `{implementation_artifacts}` — one per reviewer role below — and HALT. Ask the user to run each in a separate session (ideally a different LLM) and paste back the findings. When findings are pasted, resume from this point and proceed to step 3.
+2. Lancez les subagents en parallèle sans contexte conversationnel. Si les subagents ne sont pas disponibles, générez des fichiers de prompt dans `{implementation_artifacts}` — un par rôle de relecteur ci-dessous — et HALT. Demandez à l'utilisateur d'exécuter chacun dans une session séparée (idéalement un LLM différent) et de coller en retour les constats. Lorsque les constats sont collés, reprenez à partir de ce point et passez à l'étape 3.
 
-   - **Blind Hunter** — receives `{diff_output}` only. No spec, no context docs, no project access. Invoke via the `bmad-review-adversarial-general` skill.
+   - **Blind Hunter** — reçoit `{diff_output}` uniquement. Aucune spec, aucun document de contexte, aucun accès au projet. Invoquez via le skill `bmad-review-adversarial-general`.
 
-   - **Edge Case Hunter** — receives `{diff_output}` and read access to the project. Invoke via the `bmad-review-edge-case-hunter` skill.
+   - **Edge Case Hunter** — reçoit `{diff_output}` et un accès en lecture au projet. Invoquez via le skill `bmad-review-edge-case-hunter`.
 
-   - **Acceptance Auditor** (only if `{review_mode}` = `"full"`) — receives `{diff_output}`, the content of the file at `{spec_file}`, and any loaded context docs. Its prompt:
-     > You are an Acceptance Auditor. Review this diff against the spec and context docs. Check for: violations of acceptance criteria, deviations from spec intent, missing implementation of specified behavior, contradictions between spec constraints and actual code. Output findings as a Markdown list. Each finding: one-line title, which AC/constraint it violates, and evidence from the diff.
+   - **Acceptance Auditor** (uniquement si `{review_mode}` = `"full"`) — reçoit `{diff_output}`, le contenu du fichier à `{spec_file}` et tous les documents de contexte chargés. Son prompt :
+     > Vous êtes un Acceptance Auditor. Examinez ce diff au regard de la spec et des documents de contexte. Vérifiez : violations des critères d'acceptation, écarts par rapport à l'intention de la spec, implémentation manquante d'un comportement spécifié, contradictions entre les contraintes de la spec et le code réel. Sortez les constats sous forme de liste Markdown. Chaque constat : titre d'une ligne, quel CA/contrainte il viole, et preuve issue du diff.
 
-3. **Subagent failure handling**: If any subagent fails, times out, or returns empty results, append the layer name to `{failed_layers}` (comma-separated) and proceed with findings from the remaining layers.
+3. **Gestion des échecs de subagent** : Si un subagent échoue, expire ou retourne des résultats vides, ajoutez le nom de la couche à `{failed_layers}` (séparé par des virgules) et poursuivez avec les constats des couches restantes.
 
-4. Collect all findings from the completed layers.
+4. Collectez tous les constats des couches terminées.
 
 
-## NEXT
+## SUITE
 
-Read fully and follow `./step-03-triage.md`
+Lisez intégralement et suivez `./step-03-triage.md`

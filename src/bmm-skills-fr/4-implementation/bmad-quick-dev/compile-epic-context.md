@@ -1,18 +1,18 @@
-# Compile Epic Context
+# Compiler le contexte du thème (Epic)
 
-**Task**
-Given an epic number, the epics file, the planning artifacts directory, and a desired output path, compile a clean, focused, developer-ready context file (`epic-<N>-context.md`).
+**Tâche**
+Étant donné un numéro de thème, le fichier des thèmes, le répertoire des artefacts de planification et un chemin de sortie souhaité, compiler un fichier de contexte (`epic-<N>-context.md`) propre, ciblé et prêt pour le développeur.
 
-**Steps**
+**Étapes**
 
-1. Read the epics file and extract the target epic's title, goal, and list of stories.
-2. Scan the planning artifacts directory for the standard files (PRD, architecture, UX/design, product brief).
-3. Pull only the information relevant to this epic.
-4. Write the compiled context to the exact output path using the format below.
+1. Lire le fichier des thèmes et extraire le titre, l'objectif et la liste des stories du thème cible.
+2. Scanner le répertoire des artefacts de planification à la recherche des fichiers standard (PRD, architecture, UX/design, brief produit).
+3. Ne récupérer que les informations pertinentes pour ce thème.
+4. Écrire le contexte compilé au chemin de sortie exact en utilisant le format ci-dessous.
 
-## Exact Output Format
+## Format de sortie exact
 
-Use these headings:
+Utiliser ces titres :
 
 ```markdown
 # Epic {N} Context: {Epic Title}
@@ -45,18 +45,18 @@ Use these headings:
 {Dependencies between stories in this epic or with other epics/systems (omit if none).}
 ```
 
-## Rules
+## Règles
 
-- **Scope aggressively.** Include only what a developer working on any story in this epic actually needs. When in doubt, leave it out — the developer can always read the full planning doc.
-- **Describe by purpose, not by source.** Write "API responses must include pagination metadata" not "Per PRD section 3.2.1, pagination is required." Planning doc internals will change; the constraint won't.
-- **No full copies.** Never quote source documents, section numbers, or paste large blocks verbatim. Always distill.
-- **No story-level details.** The story list is for orientation only. Individual story specs handle the details.
-- **Nothing derivable from the codebase.** Don't document what a developer can learn by reading the code.
-- **Be concise and actionable.** Target 800–1500 tokens total. This file loads into quick-dev's context alongside other material.
-- **Never hallucinate content.** If source material doesn't say something, don't invent it.
-- **Omit empty sections entirely**, except Goal and Stories, which are always required.
+- **Délimiter agressivement le périmètre.** N'inclure que ce dont un développeur travaillant sur n'importe quelle story de ce thème a réellement besoin. En cas de doute, exclure — le développeur peut toujours consulter le document de planification complet.
+- **Décrire par finalité, pas par source.** Écrire « Les réponses de l'API doivent inclure les métadonnées de pagination » et non « Selon la section 3.2.1 du PRD, la pagination est requise. » Les détails internes des documents de planification changeront ; la contrainte, non.
+- **Pas de copies intégrales.** Ne jamais citer les documents sources, les numéros de section, ni coller de gros blocs textuels. Toujours distiller.
+- **Pas de détails au niveau story.** La liste des stories sert uniquement de repère. Les spécifications individuelles de chaque story gèrent les détails.
+- **Rien de déductible depuis le code.** Ne pas documenter ce qu'un développeur peut apprendre en lisant le code.
+- **Être concis et actionnable.** Cibler 800 à 1500 tokens au total. Ce fichier se charge dans le contexte de quick-dev aux côtés d'autres éléments.
+- **Ne jamais halluciner de contenu.** Si la source ne le dit pas, ne pas l'inventer.
+- **Omettre entièrement les sections vides**, sauf Goal et Stories, qui sont toujours requises.
 
-## Error handling
+## Gestion des erreurs
 
-- **If the epics file is missing or the target epic is not found:** write nothing and report the problem to the calling agent. Goal and Stories cannot be populated without a usable epics file.
-- **If planning artifacts are missing or empty:** still produce the file with Goal and Stories populated from the epics file, and note the gap in the Goal section. Never hallucinate content to fill missing sections.
+- **Si le fichier des thèmes est manquant ou si le thème cible est introuvable :** ne rien écrire et signaler le problème à l'agent appelant. Goal et Stories ne peuvent pas être renseignés sans un fichier des thèmes utilisable.
+- **Si les artefacts de planification sont manquants ou vides :** produire malgré tout le fichier avec Goal et Stories renseignés depuis le fichier des thèmes, et noter le manque dans la section Goal. Ne jamais halluciner de contenu pour combler les sections manquantes.

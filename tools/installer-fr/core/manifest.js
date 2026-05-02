@@ -111,7 +111,7 @@ class Manifest {
           ides: manifestData.ides || [],
         };
       } catch (error) {
-        await prompts.log.error(`Failed to read YAML manifest: ${error.message}`);
+        await prompts.log.error(`Échec de la lecture du manifeste YAML : ${error.message}`);
       }
     }
 
@@ -132,7 +132,7 @@ class Manifest {
         const content = await fs.readFile(yamlPath, 'utf8');
         return yaml.parse(content);
       } catch (error) {
-        await prompts.log.error(`Failed to read YAML manifest: ${error.message}`);
+        await prompts.log.error(`Échec de la lecture du manifeste YAML : ${error.message}`);
       }
     }
 

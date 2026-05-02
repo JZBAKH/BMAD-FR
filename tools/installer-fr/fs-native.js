@@ -33,10 +33,10 @@ async function copy(src, dest, options = {}) {
     if (!overwrite) {
       try {
         await fsp.access(dest);
-        if (options.errorOnExist) throw new Error(`${dest} already exists`);
+        if (options.errorOnExist) throw new Error(`${dest} existe déjà`);
         return;
       } catch (error) {
-        if (error.message.includes('already exists')) throw error;
+        if (error.message.includes('existe déjà')) throw error;
       }
     }
     await fsp.copyFile(src, dest);

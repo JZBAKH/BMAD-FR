@@ -1,5 +1,5 @@
 ---
-title: "PRFAQ: {project_name}"
+title: "PRFAQ : {project_name}"
 status: "{status}"
 created: "{timestamp}"
 updated: "{timestamp}"
@@ -9,54 +9,54 @@ inputs: []
 
 # {Headline}
 
-## {Subheadline — one sentence: who benefits and what changes for them}
+## {Sous-titre — une phrase : à qui cela profite et ce qui change pour eux}
 
-**{City, Date}** — {Opening paragraph: announce the product/initiative, state the user's problem, and the key benefit.}
+**{Ville, Date}** — {Paragraphe d'ouverture : annoncer le produit/initiative, énoncer le problème de l'utilisateur, et le bénéfice clé.}
 
-{Problem paragraph: the user's pain today. Specific, concrete, felt. No mention of the solution yet.}
+{Paragraphe sur le problème : la douleur de l'utilisateur aujourd'hui. Spécifique, concrète, ressentie. Aucune mention de la solution pour le moment.}
 
-{Solution paragraph: what changes for the user. Benefits, not features. Outcomes, not implementation.}
+{Paragraphe sur la solution : ce qui change pour l'utilisateur. Bénéfices, pas fonctionnalités. Résultats, pas implémentation.}
 
-> "{Leader/founder quote — the vision beyond the feature list.}"
-> — {Name, Title/Role}
+> "{Citation du leader/fondateur — la vision au-delà de la liste des fonctionnalités.}"
+> — {Nom, Titre/Rôle}
 
-### How It Works
+### Comment ça marche
 
-{The user experience, step by step. Written from THEIR perspective. How they discover it, start using it, and get value from it.}
+{L'expérience utilisateur, étape par étape. Écrite de SON point de vue. Comment il la découvre, commence à l'utiliser et en tire de la valeur.}
 
-> "{User quote — what a real person would say after using this. Must sound human, not like marketing copy.}"
-> — {Name, Role}
+> "{Citation utilisateur — ce qu'une personne réelle dirait après avoir utilisé cela. Doit sonner humain, pas comme du marketing.}"
+> — {Nom, Rôle}
 
-### Getting Started
+### Démarrer
 
-{Clear, concrete path to first value. How to access, try, adopt, or contribute.}
-
----
-
-## Customer FAQ
-
-### Q: {Hardest customer question first}
-
-A: {Honest, specific answer}
-
-### Q: {Next question}
-
-A: {Answer}
+{Chemin clair et concret vers la première valeur. Comment accéder, essayer, adopter ou contribuer.}
 
 ---
 
-## Internal FAQ
+## FAQ Client
 
-### Q: {Hardest internal question first}
+### Q : {La question client la plus difficile en premier}
 
-A: {Honest, specific answer}
+R : {Réponse honnête et spécifique}
 
-### Q: {Next question}
+### Q : {Question suivante}
 
-A: {Answer}
+R : {Answer}
 
 ---
 
-## The Verdict
+## FAQ Interne
 
-{Concept strength assessment — what's forged in steel, what needs more heat, what has cracks in the foundation.}
+### Q : {La question interne la plus difficile en premier}
+
+R : {Réponse honnête et spécifique}
+
+### Q : {Question suivante}
+
+R : {Answer}
+
+---
+
+## Le Verdict
+
+{Évaluation de la solidité du concept — ce qui est forgé dans l'acier, ce qui a besoin de plus de chaleur, ce qui présente des fissures dans les fondations.}

@@ -2,131 +2,131 @@
 deferred_work_file: '{implementation_artifacts}/deferred-work.md'
 ---
 
-# Step 4: Present and Act
+# Étape 4 : Présenter et agir
 
-## RULES
+## RÈGLES
 
-- YOU MUST ALWAYS SPEAK OUTPUT in your Agent communication style with the config `{communication_language}`
-- When `{spec_file}` is set, always write findings to the story file before offering action choices.
-- `decision-needed` findings must be resolved before handling `patch` findings.
+- VOUS DEVEZ TOUJOURS RÉPONDRE EN SORTIE dans le style de communication de votre Agent avec la config `{communication_language}`
+- Lorsque `{spec_file}` est défini, écrivez toujours les constats dans le fichier de story avant d'offrir des choix d'action.
+- Les constats `decision-needed` doivent être résolus avant de traiter les constats `patch`.
 
 ## INSTRUCTIONS
 
-### 1. Clean review shortcut
+### 1. Raccourci revue propre
 
-If zero findings remain after triage (all dismissed or none raised): state that and proceed to section 6 (Sprint Status Update).
+S'il ne reste zéro constat après triage (tous écartés ou aucun soulevé) : énoncez-le et passez à la section 6 (Mise à jour du statut de sprint).
 
-### 2. Write findings to the story file
+### 2. Écrire les constats dans le fichier de story
 
-If `{spec_file}` exists and contains a Tasks/Subtasks section, append a `### Review Findings` subsection. Write all findings in this order:
+Si `{spec_file}` existe et contient une section Tasks/Subtasks, ajoutez une sous-section `### Review Findings`. Écrivez tous les constats dans cet ordre :
 
-1. **`decision-needed`** findings (unchecked):
+1. Constats **`decision-needed`** (non cochés) :
    `- [ ] [Review][Decision] <Title> — <Detail>`
 
-2. **`patch`** findings (unchecked):
+2. Constats **`patch`** (non cochés) :
    `- [ ] [Review][Patch] <Title> [<file>:<line>]`
 
-3. **`defer`** findings (checked off, marked deferred):
+3. Constats **`defer`** (cochés, marqués comme reportés) :
    `- [x] [Review][Defer] <Title> [<file>:<line>] — deferred, pre-existing`
 
-Also append each `defer` finding to `{deferred_work_file}` under a heading `## Deferred from: code review ({date})`. If `{spec_file}` is set, include its basename in the heading (e.g., `code review of story-3.3 (2026-03-18)`). One bullet per finding with description.
+Ajoutez aussi chaque constat `defer` à `{deferred_work_file}` sous un titre `## Deferred from: code review ({date})`. Si `{spec_file}` est défini, incluez son basename dans le titre (par exemple, `code review of story-3.3 (2026-03-18)`). Une puce par constat avec description.
 
-### 3. Present summary
+### 3. Présenter le résumé
 
-Announce what was written:
+Annoncez ce qui a été écrit :
 
-> **Code review complete.** <D> `decision-needed`, <P> `patch`, <W> `defer`, <R> dismissed as noise.
+> **Revue de code terminée.** <D> `decision-needed`, <P> `patch`, <W> `defer`, <R> écartés comme bruit.
 
-If `{spec_file}` is set, add: `Findings written to the review findings section in {spec_file}.`
-Otherwise add: `Findings are listed above. No story file was provided, so nothing was persisted.`
+Si `{spec_file}` est défini, ajoutez : `Constats écrits dans la section review findings de {spec_file}.`
+Sinon, ajoutez : `Les constats sont listés ci-dessus. Aucun fichier de story n'a été fourni, donc rien n'a été persisté.`
 
-### 4. Resolve decision-needed findings
+### 4. Résoudre les constats decision-needed
 
-If `decision_needed` findings exist, present each one with its detail and the options available. The user must decide — the correct fix is ambiguous without their input. Walk through each finding (or batch related ones) and get the user's call. Once resolved, each becomes a `patch`, `defer`, or is dismissed.
+Si des constats `decision_needed` existent, présentez chacun avec son détail et les options disponibles. L'utilisateur doit décider — la correction correcte est ambiguë sans son intervention. Parcourez chaque constat (ou groupez les constats apparentés) et obtenez la décision de l'utilisateur. Une fois résolu, chacun devient un `patch`, un `defer`, ou est écarté.
 
-If the user chooses to defer, ask: Quick one-line reason for deferring this item? (helps future reviews): — then append that reason to both the story file bullet and the `{deferred_work_file}` entry.
+Si l'utilisateur choisit de reporter, demandez : Raison rapide d'une ligne pour reporter cet item ? (aide les revues futures) : — puis ajoutez cette raison à la fois à la puce du fichier de story et à l'entrée `{deferred_work_file}`.
 
-**HALT** — I am waiting for your numbered choice. Reply with only the number. Do not proceed until you select an option.
+**HALT** — J'attends votre choix numéroté. Répondez uniquement avec le numéro. Ne poursuivez pas tant que vous n'avez pas sélectionné une option.
 
-### 5. Handle `patch` findings
+### 5. Traiter les constats `patch`
 
-If `patch` findings exist (including any resolved from step 4), HALT. Ask the user:
+Si des constats `patch` existent (y compris ceux résolus depuis l'étape 4), HALT. Demandez à l'utilisateur :
 
-If `{spec_file}` is set, present all three options:
+Si `{spec_file}` est défini, présentez les trois options :
 
-> **How would you like to handle the `<P>` `patch` findings?**
-> 1. **Apply every patch** — fix all of them now, no per-finding confirmation. Defer and decision-needed items are not touched.
-> 2. **Leave as action items** — they are already in the story file
-> 3. **Walk through each patch** — show details for each before deciding
+> **Comment voulez-vous traiter les `<P>` constats `patch` ?**
+> 1. **Appliquer chaque patch** — corrigez-les tous maintenant, sans confirmation par constat. Les items defer et decision-needed ne sont pas touchés.
+> 2. **Laisser comme action items** — ils sont déjà dans le fichier de story
+> 3. **Parcourir chaque patch** — afficher les détails de chacun avant de décider
 
-If `{spec_file}` is **not** set, present only options 1 and 2 (omit "Leave as action items" — findings were not written to a file):
+Si `{spec_file}` n'est **pas** défini, présentez uniquement les options 1 et 2 (omettez « Laisser comme action items » — les constats n'ont pas été écrits dans un fichier) :
 
-> **How would you like to handle the `<P>` `patch` findings?**
-> 1. **Apply every patch** — fix all of them now, no per-finding confirmation. Defer and decision-needed items are not touched.
-> 2. **Walk through each patch** — show details for each before deciding
+> **Comment voulez-vous traiter les `<P>` constats `patch` ?**
+> 1. **Appliquer chaque patch** — corrigez-les tous maintenant, sans confirmation par constat. Les items defer et decision-needed ne sont pas touchés.
+> 2. **Parcourir chaque patch** — afficher les détails de chacun avant de décider
 
-**HALT** — I am waiting for your numbered choice. Reply with only the number. Do not proceed until you select an option.
+**HALT** — J'attends votre choix numéroté. Répondez uniquement avec le numéro. Ne poursuivez pas tant que vous n'avez pas sélectionné une option.
 
-- **Apply every patch**: Apply every patch finding without per-finding confirmation. Do not modify defer or decision-needed items. After all patches are applied, present a summary of changes made. If `{spec_file}` is set, check off the patch items in the story file (leave defer items as-is).
-- **Leave as action items** (only when `{spec_file}` is set): Done — findings are already written to the story.
-- **Walk through each patch**: Present each finding with full detail, diff context, and suggested fix. After walkthrough, re-offer the applicable options above.
+- **Appliquer chaque patch** : Appliquez chaque constat patch sans confirmation par constat. Ne modifiez pas les items defer ou decision-needed. Une fois tous les patchs appliqués, présentez un résumé des changements effectués. Si `{spec_file}` est défini, cochez les items patch dans le fichier de story (laissez les items defer tels quels).
+- **Laisser comme action items** (uniquement si `{spec_file}` est défini) : Fait — les constats sont déjà écrits dans la story.
+- **Parcourir chaque patch** : Présentez chaque constat avec le détail complet, le contexte du diff et la correction suggérée. Après le parcours, ré-offrez les options applicables ci-dessus.
 
-  **HALT** — I am waiting for your numbered choice. Do not proceed until you select an option.
+  **HALT** — J'attends votre choix numéroté. Ne poursuivez pas tant que vous n'avez pas sélectionné une option.
 
-**✅ Code review actions complete**
+**✅ Actions de revue de code terminées**
 
-- Decision-needed resolved: <D>
-- Patches handled: <P>
-- Deferred: <W>
-- Dismissed: <R>
+- Decision-needed résolus : <D>
+- Patchs traités : <P>
+- Reportés : <W>
+- Écartés : <R>
 
-### 6. Update story status and sync sprint tracking
+### 6. Mettre à jour le statut de la story et synchroniser le suivi de sprint
 
-Skip this section if `{spec_file}` is not set.
+Sautez cette section si `{spec_file}` n'est pas défini.
 
-#### Determine new status based on review outcome
+#### Déterminer le nouveau statut selon le résultat de la revue
 
-- If all `decision-needed` and `patch` findings were resolved (fixed or dismissed) AND no unresolved HIGH/MEDIUM issues remain: set `{new_status}` = `done`. Update the story file Status section to `done`.
-- If `patch` findings were left as action items, or unresolved issues remain: set `{new_status}` = `in-progress`. Update the story file Status section to `in-progress`.
+- Si tous les constats `decision-needed` et `patch` ont été résolus (corrigés ou écartés) ET qu'il ne reste aucun problème HIGH/MEDIUM non résolu : définissez `{new_status}` = `done`. Mettez à jour la section Status du fichier de story à `done`.
+- Si des constats `patch` ont été laissés comme action items, ou s'il reste des problèmes non résolus : définissez `{new_status}` = `in-progress`. Mettez à jour la section Status du fichier de story à `in-progress`.
 
-Save the story file.
+Sauvegardez le fichier de story.
 
-#### Sync sprint-status.yaml
+#### Synchroniser sprint-status.yaml
 
-If `{story_key}` is not set, skip this subsection and note that sprint status was not synced because no story key was available.
+Si `{story_key}` n'est pas défini, sautez cette sous-section et notez que le statut de sprint n'a pas été synchronisé car aucune clé de story n'était disponible.
 
-If `{sprint_status}` file exists:
+Si le fichier `{sprint_status}` existe :
 
-1. Load the FULL `{sprint_status}` file.
-2. Find the `development_status` entry matching `{story_key}`.
-3. If found: update `development_status[{story_key}]` to `{new_status}`. Update `last_updated` to current date. Save the file, preserving ALL comments and structure including STATUS DEFINITIONS.
-4. If `{story_key}` not found in sprint status: warn the user that the story file was updated but sprint-status sync failed.
+1. Chargez le fichier `{sprint_status}` COMPLET.
+2. Trouvez l'entrée `development_status` correspondant à `{story_key}`.
+3. Si trouvée : mettez à jour `development_status[{story_key}]` à `{new_status}`. Mettez à jour `last_updated` à la date courante. Sauvegardez le fichier en préservant TOUS les commentaires et la structure y compris STATUS DEFINITIONS.
+4. Si `{story_key}` n'est pas trouvé dans le statut de sprint : avertissez l'utilisateur que le fichier de story a été mis à jour mais que la synchro sprint-status a échoué.
 
-If `{sprint_status}` file does not exist, note that story status was updated in the story file only.
+Si le fichier `{sprint_status}` n'existe pas, notez que le statut de la story a été mis à jour uniquement dans le fichier de story.
 
-#### Completion summary
+#### Résumé de complétion
 
-> **Review Complete!**
+> **Revue terminée !**
 >
-> **Story Status:** `{new_status}`
-> **Issues Fixed:** <fixed_count>
-> **Action Items Created:** <action_count>
-> **Deferred:** <W>
-> **Dismissed:** <R>
+> **Statut de la story :** `{new_status}`
+> **Problèmes corrigés :** <fixed_count>
+> **Action items créés :** <action_count>
+> **Reportés :** <W>
+> **Écartés :** <R>
 
-### 7. Next steps
+### 7. Étapes suivantes
 
-Present the user with follow-up options:
+Présentez à l'utilisateur les options de suite :
 
-> **What would you like to do next?**
-> 1. **Start the next story** — run `dev-story` to pick up the next `ready-for-dev` story
-> 2. **Re-run code review** — address findings and review again
-> 3. **Done** — end the workflow
+> **Que voulez-vous faire ensuite ?**
+> 1. **Démarrer la story suivante** — exécuter `dev-story` pour prendre en charge la prochaine story `ready-for-dev`
+> 2. **Relancer la revue de code** — traiter les constats et revoir à nouveau
+> 3. **Terminé** — terminer le workflow
 
-**HALT** — I am waiting for your choice. Do not proceed until the user selects an option.
+**HALT** — J'attends votre choix. Ne poursuivez pas tant que l'utilisateur n'a pas sélectionné une option.
 
 ## On Complete
 
 Run: `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete`
 
-If the resolved `workflow.on_complete` is non-empty, follow it as the final terminal instruction before exiting.
+Si le `workflow.on_complete` résolu est non vide, suivez-le comme instruction terminale finale avant la sortie.

@@ -1,25 +1,33 @@
 code: core
 name: "Module Principal BMad"
+description: "Configuration principale et ressources partagées"
 
-header: "Configuration Principale de BMad"
-subheader: "Configurez les paramètres de base pour votre installation BMad. Ces paramètres seront utilisés à travers tous les skills, workflows et agents bmad installés."
+header: "Configuration Principale BMad"
+subheader: "Configurez les paramètres de base de votre installation BMad.\nCes paramètres seront utilisés à travers tous les skills, workflows et agents bmad installés."
 
 user_name:
-  prompt: "Comment les agents doivent-ils vous appeler ? (Utilisez votre nom ou un titre)"
-  default: "Patron"
+  prompt: "Comment les agents doivent-ils vous appeler ? (Utilisez votre nom ou un nom d'équipe)"
+  scope: user
+  default: "BMad"
+  result: "{value}"
+
+project_name:
+  prompt: "Comment s'appelle votre projet ?"
+  default: "{directory_name}"
   result: "{value}"
 
 communication_language:
   prompt: "Quelle langue les agents doivent-ils utiliser pour discuter avec vous ?"
+  scope: user
   default: "Français"
   result: "{value}"
 
 document_output_language:
-  prompt: "Langue préférée pour la génération de documents ?"
+  prompt: "Langue de sortie préférée pour les documents ?"
   default: "Français"
   result: "{value}"
 
 output_folder:
-  prompt: "Où les fichiers de sortie doivent-ils être sauvegardés ?"
+  prompt: "Où les fichiers de sortie doivent-ils être enregistrés ?"
   default: "_bmad-output"
   result: "{project-root}/{value}"

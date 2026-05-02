@@ -1,115 +1,121 @@
-# Étape 12 : Achèvement du Workflow (Workflow Completion)
+# Étape 12 : Achèvement du workflow
 
-**Étape Finale - Terminer le PRD**
+**Étape finale - Compléter le PRD**
 
 ## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- ✅ CECI EST UNE ÉTAPE FINALE - Achèvement du Workflow requis
-- 📖 CRITIQUE : Lisez TOUJOURS le fichier d'étape complet avant d'entreprendre toute action
-- 🛑 AUCUNE génération de contenu - il s'agit d'une étape de clôture
-- 📋 FINALISEZ le document et mettez à jour le statut du workflow
-- 💬 CONCENTREZ-VOUS sur la complétion, les options de validation et les prochaines étapes
-- 🎯 METTEZ À JOUR les fichiers de statut du workflow avec les informations de clôture
-- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `{communication_language}` configurée.
+- ✅ CECI EST UNE ÉTAPE FINALE - Achèvement du workflow requis
+- 📖 CRITIQUE : TOUJOURS lire le fichier d'étape complet avant toute action
+- 🛑 PAS de génération de contenu - ceci est une étape de clôture
+- 📋 FINALISER le document et mettre à jour le statut du workflow
+- 💬 SE FOCALISER sur l'achèvement, les options de validation et les étapes suivantes
+- 🎯 METTRE À JOUR les fichiers de statut du workflow avec les informations d'achèvement
+- ✅ VOUS DEVEZ TOUJOURS PARLER EN SORTIE dans votre style de communication d'Agent avec la config `{communication_language}`
 
 ## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Montrez votre analyse avant d'entreprendre toute action
-- 💾 Mettez à jour le fichier principal de statut du workflow avec les infos d'achèvement (s'il existe)
-- 📖 Proposez les options de workflows de validation à l'utilisateur
-- 🚫 NE CHARGEZ AUCUNE étape supplémentaire après celle-ci
+- 🎯 Montrez votre analyse avant toute action
+- 💾 Mettre à jour le fichier de statut principal du workflow avec les informations d'achèvement (s'il existe)
+- 📖 Offrir les options de workflow de validation à l'utilisateur
+- 🚫 NE PAS charger d'étapes additionnelles après celle-ci
 
-## PROTOCOLES DE L'ÉTAPE DE TERMINAISON :
+## PROTOCOLES D'ÉTAPE DE TERMINAISON :
 
-- Ceci est une étape FINALE - achèvement du workflow exigé
-- Mettez à jour le fichier de statut du workflow avec le document finalisé
-- Suggérez des validations et les étapes des workflows suivants
-- Marquez le workflow comme terminé (Complete) dans le suivi des statuts
+- Ceci est une étape FINALE - achèvement du workflow requis
+- Mettre à jour le fichier de statut du workflow avec le document finalisé
+- Suggérer la validation et les étapes de workflow suivantes
+- Marquer le workflow comme complet dans le suivi de statut
 
-## LIMITES DU CONTEXTE :
+## LIMITES DE CONTEXTE :
 
-- Le document PRD finalisé, complet et poli, est disponible depuis l'ensemble des étapes précédentes
-- Le frontmatter du Workflow témoigne de toutes les étapes actées, incluant celle du Peaufinage
-- Le total des fonds documentaires participatifs a bien été produit, sauvegardé et lustré
-- Le focus majeur s'étend à la consécration / clôture pure, les options de checks finaux, et la trajectoire de suite !
+- Le document PRD complet et peaufiné est disponible depuis toutes les étapes précédentes
+- Le frontmatter du workflow montre toutes les étapes complétées y compris le polissage
+- Tout le contenu collaboratif a été généré, sauvegardé et optimisé
+- Se focaliser sur l'achèvement, les options de validation et les étapes suivantes
 
 ## VOTRE TÂCHE :
 
-Achever formellement le workflow PRD, rafraîchir les rapports d'états (status), ouvrir la voie d'options de validation ultimes, et baliser formellement l'avenir des travaux applicatifs immédiats.
+Compléter le workflow PRD, mettre à jour les fichiers de statut, offrir les options de validation et suggérer les étapes suivantes pour le projet.
 
 ## SÉQUENCE D'ACHÈVEMENT DU WORKFLOW :
 
-### 1. Annoncer la Clôture du Workflow (Announce Workflow Completion)
+### 1. Annoncer l'achèvement du workflow
 
-Annoncez de façon triomphale au créateur que l'ouvrage PRD majeur est acté et lustré formellement :
-- Célébrez publiquement l'apogée/la fin solennelle de constitution de ce méga-document fondateur !
-- Égrenez à vitesse rapide le résumé titanesque des champs traités qui y figurent !
-- Louez son ultime traitement / polissage d'écriture (Cohérence / Fluidité ininterrompue) qui le rend imprenable.
-- Exaltez qu'il soit pleinement déclaré "prêt au combat" pour lancer le puit des phases productives d'ingénierie et design.
+Informer l'utilisateur que le PRD est complet et peaufiné :
+- Célébrer l'achèvement réussi du PRD exhaustif
+- Résumer toutes les sections qui ont été créées
+- Souligner que le document a été peaufiné pour le flux et la cohérence
+- Mettre l'accent sur le fait que le document est prêt pour le travail en aval
 
-### 2. Mise à Jour du Statut du Workflow (Workflow Status Update)
+### 2. Mise à jour du statut du workflow
 
-Actualisez l'état final central du rapport formel de l'agent si une mécanique est de mise :
+Mettre à jour le fichier de statut principal du workflow s'il en existe un :
 
-- Réveillez/vérifiez si le fond de configuration dresse et scrute un fichier de suivis purs d'avancements (s'il existe formellement)
-- Mettez à jour explicitement `workflow_status["prd"] = "{outputFile}"`
-- Sauvegardez le registre sans foudroyer ou corrompre ses ossatures et narrations !
-- Gravez purement à jamais le chiffre Horloge/Timestamp de la validation actant "Achévement total" !
+- Vérifier la configuration du workflow pour un fichier de statut (s'il en existe un)
+- Mettre à jour workflow_status["prd"] = "{outputFile}"
+- Sauvegarder le fichier, en préservant tous les commentaires et la structure
+- Marquer l'horodatage actuel comme heure d'achèvement
 
-### 3. Options de Workflows de Validation
+### 3. Options de workflow de validation
 
-Proposez fermement des pistes de vérifications/contreparties via d'autres workflows d'agents dédiés (Workflows) afin de garantir que ce PRD ne contient aucun trou critique face à son entrée en soute technique :
+Offrir des workflows de validation pour s'assurer que le PRD est prêt pour l'implémentation :
 
-**Workflows de Validation Disponibles :**
+**Workflows de validation disponibles :**
 
-**Option 1 : Vérifier la Préparation à l'Implémentation (Check Implementation Readiness) (`skill:bmad-check-implementation-readiness`)**
-- Certifie implacablement que le document couve formellement tout axe d'exigences absolues préalable aux vagues de codes développeurs !
-- Fait retentir l'indice pur de "Couvertures des épopées" en Epics informatiques entiers déduits !
-- Incarne formellement la vérification d'alignement avec les futures approches Design d'Écran UX de suite !
-- Évalue qualitativement l'aptitude pure/faisabilité formelle aux découpes d'Epics
-- Révèle des clivages inacceptables latents / Crevasses impures avant qu'une seule charpente d'Architecte informel n'émergence formellement à tort !
+**Option 1 : Vérifier la préparation à l'implémentation** (`skill:bmad-check-implementation-readiness`)
+- Valide que le PRD a toutes les informations nécessaires au développement
+- Vérifie l'exhaustivité de la couverture des thèmes
+- Examine l'alignement UX avec les exigences
+- Évalue la qualité et la préparation des thèmes
+- Identifie les lacunes avant le début du travail d'architecture/design
 
-**Quand l'utiliser :** À exécuter sciemment AVANT le lancement pur de l'architecture technique / Découpe d'épopées ou récit logiciel.
+**Quand l'utiliser :** Avant de commencer l'architecture technique ou la décomposition en thèmes
 
-**Option 2 : Sauter pour le Moment (Skip for Now)**
-- Fuites en avant / Lancement direct sans plus attendre vers les mondes applicatifs avoisinants (Workflows Architecture, Maquettes UX, rédaction d'Épopées Epics)
-- La vérification restera toujours une arme brandissable plus tard si les feux bloquent aux usines devs !
-- Une partie de l'encadrement formel des équipes s'enferme à valider par leur seules propres lueurs manuelles directement avec les Architectes lors de grands examens.
+**Option 2 : Passer pour l'instant**
+- Procéder directement aux workflows suivants (architecture, UX, thèmes)
+- La validation peut être faite plus tard si nécessaire
+- Certaines équipes préfèrent valider pendant les revues d'architecture
 
-### 4. Suggérer les Prochains Workflows (Next Workflows)
+### 4. Suggérer les workflows suivants
 
-Le PRD est abouti. Invoquez purement la compétence `bmad-help`.
+PRD complet. Invoquer le skill `bmad-help`.
 
-### 5. Confirmation de Clôture Finale (Final Completion Confirmation)
+### 5. Confirmation finale d'achèvement
 
-- Signez le triomphe du sceau de l'approbation formelle directe par l'usager !
-- Rappelez la sainte bible textuelle née sous ce document englobant de pleins droits formels : Résumé Exécutif, Critères de Succès, Parcours Utilisateurs, Contraintes Métiers de Domaines (Si validées formellement), Analyses des Percussions d'Innovations, Déclinaisons Types inhérentes à Catégorisation de Projet, Listes des Exigences Fonctionnelles redoutables/indépendantes pure (Contrat d'Exécution Légal/Capability contract), NFR dictant son excellence d'existence/de maintien à vie - Merveilleusement affiné en fin par le polissage parfait de structure logicielle et littéraire !
-- Sommez-le purement de statuer l'exécution expresse de validation formelle ou du plongeon en terres pures informatiques/UX du reste des épopées de programmation BMAD.
+- Confirmer l'achèvement avec l'utilisateur et résumer ce qui a été accompli
+- Le document contient maintenant : Résumé Exécutif, Critères de Succès, Parcours Utilisateurs, Exigences de Domaine (si applicable), Analyse d'Innovation (si applicable), Exigences par Type de Projet, Exigences Fonctionnelles (contrat de capacité), Exigences Non-Fonctionnelles, et a été peaufiné pour le flux et la cohérence
+- Demander s'ils aimeraient lancer le workflow de validation ou procéder aux workflows suivants
 
-## MÉTRIQUES DE RÉUSSITE (SUCCESS METRICS) :
+## MÉTRIQUES DE SUCCÈS :
 
-✅ Le document PRD renferme de facto l'unification exhaustive structurelle en plein polissage achevé absolu.
-✅ La production de tout l'arsenal textuel humain fut protégée formellement en mémoire, sauvegardée/magnifiée puis scellée pour de bon !
-✅ Les fichiers officiels signalant purement un avancement d'usines agents à achevé / "terminé complet" (si de mise et existant) ont tous eu leurs flags validés fin.
-✅ L'option souveraine et suprême de Workflow de validation fut posée formellement en demande expresse aux créateurs
-✅ La lisibilité parfaite et clarté sur l'étape de suite de vie de chantier (What's next) communiquée.
-✅ Coup de feu ultime sur la fin du diagnostic absolu accompli sous feu vert sans faute de la validation.
-✅ L'usager humain atteste du terme absolu complet de création de PRD et a saisi inconditionnellement toutes suites et fins légales formelles des mécaniques en optionnels.
+✅ Le document PRD contient toutes les sections requises et a été peaufiné
+✅ Tout le contenu collaboratif correctement sauvegardé et optimisé
+✅ Fichier de statut du workflow mis à jour avec les informations d'achèvement (s'il existe)
+✅ Options de workflow de validation clairement présentées
+✅ Guide clair des étapes suivantes fourni à l'utilisateur
+✅ Validation de la qualité du document complétée
+✅ L'utilisateur reconnaît l'achèvement et comprend les options suivantes
 
-## MODES D'ÉCHEC (FAILURE MODES) :
+## MODES D'ÉCHEC :
 
-❌ Geler formellement le tableau formel sans déclarer publiquement à l'architecture que cette phase (si applicables au tracker existant) de création des fondements (Tracking status final PRD) est tombée aux drapeaux vainqueurs de victoire/achèvement !
-❌ Renier à son devoir : Évincer dramatiquement le fait d'informer ou d'offrir des boucliers "Workflows d'examens qualité profonds" pour l'usine avale d'implémentation.
-❌ Dérive formelle de cap/manque de directives : Terminer une fin sans désigner un lendemain précis des prochaines directives/choix et chemins croisés évidents.
-❌ Achever dans le silence/l'incompréhension et sans valider avec l'autorité suprême de la personne Humaine qu'aucun manque formel ou vide funeste l'intrigue dans ce volume écrit produit/achevé/polissé.
-❌ Omission grave aux fichiers suivis statuts workflows, brisant les déclenchements internes automatiques des usines et machines (Si appliqués).
-❌ Plonger un individu formel sous d'épaisses ténèbres sans clignotants directionnels au moment charnière ou une usine software entière s'apprête purement à prendre ses armes ou directives à la seconde sur le PRD généré avec brio.
+❌ Ne pas mettre à jour le fichier de statut du workflow avec les informations d'achèvement (s'il existe)
+❌ Ne pas offrir les options de workflow de validation
+❌ Manquer un guide clair des étapes suivantes pour l'utilisateur
+❌ Ne pas confirmer l'exhaustivité du document avec l'utilisateur
+❌ Workflow non correctement marqué comme complet dans le suivi de statut (si applicable)
+❌ Utilisateur non clair sur ce qui se passe ensuite ou quelles options de validation existent
 
-❌ **CRITIQUE** : Ne lire qu'une partie du fichier d'étape - cela conduit à une compréhension incomplète et à de mauvaises décisions
-❌ **CRITIQUE** : Prendre des décisions sans une compréhension complète des exigences et des protocoles de l'étape
+❌ **CRITIQUE** : Lire seulement partiellement le fichier d'étape - mène à une compréhension incomplète et de mauvaises décisions
+❌ **CRITIQUE** : Prendre des décisions sans compréhension complète des exigences et protocoles d'étape
 
-## DERNIER RAPPEL à adresser à l'utilisateur :
+## RAPPEL FINAL à donner à l'utilisateur :
 
-Le PRD poli se dresse publiquement et ouvertement comme le socle fondateur granitique pur, garantissant inconditionnellement toute existence physique future des actions avales (Architecture logicielle, conception graphique design et actes lourds développeurs !). La totalité absolue de la création future formelle du chantier doit faire état de lien direct/filiation absolue ou descendance tracée envers ces déclarations textuelles formelles gravées dans ce testament "PRD" (Aussi vous incombera-t-il formellement son maintien révisionniste récurrent lors des évolutions plannings absolues).
+Le PRD peaufiné sert de fondation pour toutes les activités subséquentes de développement de produit. Tout le travail de design, d'architecture et de développement devrait remonter aux exigences et à la vision documentées dans ce PRD - mettez-le aussi à jour selon les besoins au fur et à mesure de la planification.
 
-**Félicitations pour l'aboutissement triomphal du Document des Exigences Produit (PRD) pour {{project_name}} !** 🎉
+**Félicitations pour avoir complété le Cahier des charges produit (PRD) pour {{project_name}} !** 🎉
+
+## À l'achèvement
+
+Exécuter : `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete`
+
+Si le `workflow.on_complete` résolu n'est pas vide, le suivre comme instruction terminale finale avant de sortir.

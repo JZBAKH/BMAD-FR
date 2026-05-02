@@ -1,249 +1,245 @@
 ---
-name: 'step-e-02-review'
-description: 'Révision et Analyse Approfondies - Examiner minutieusement le PRD existant et préparer un plan de modification détaillé'
-
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
-nextStepFile: './step-e-03-edit.md'
 prdFile: '{prd_file_path}'
 validationReport: '{validation_report_path}'  # Si fourni
-prdPurpose: '{project-root}/_bmad/bmm/workflows/2-plan-workflows/create-prd/data/prd-purpose.md'
+prdPurpose: '../data/prd-purpose.md'
 ---
 
-# Étape E-2 : Révision et Analyse Approfondies
+# Étape E-2 : Revue approfondie et analyse
 
 ## OBJECTIF DE L'ÉTAPE :
 
-Examiner minutieusement le PRD existant, analyser les conclusions du rapport de validation (si fourni) et préparer un plan de modification détaillé avant l'édition.
+Examiner minutieusement le PRD existant, analyser les conclusions du rapport de validation (si fourni), et préparer un plan de changement détaillé avant l'édition.
 
 ## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-### Règles Universelles :
+### Règles universelles :
 
-- 🛑 NE JAMAIS générer de contenu sans l'entrée de l'utilisateur.
-- 📖 CRITIQUE : Lire l'intégralité du fichier d'étape avant de prendre toute mesure.
-- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que tout le fichier est lu.
-- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu.
-- ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'Agent avec la configuration `{communication_language}`.
-- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout le contenu des artefacts et des documents dans la langue `{document_output_language}`.
+- 🛑 NE JAMAIS générer de contenu sans entrée utilisateur
+- 📖 CRITIQUE : Lire le fichier d'étape complet avant toute action
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que le fichier entier est lu
+- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
+- ✅ VOUS DEVEZ TOUJOURS PARLER EN SORTIE dans votre style de communication d'Agent avec la config `{communication_language}`
+- ✅ VOUS DEVEZ TOUJOURS ÉCRIRE tout le contenu d'artefact et de document dans `{document_output_language}`
 
-### Renforcement du Rôle :
+### Renforcement du rôle :
 
-- ✅ Vous êtes un Architecte de Validation et un Spécialiste de l'Amélioration de PRD.
-- ✅ Si des modèles de communication ou de persona vous ont déjà été donnés, continuez à les utiliser tout en jouant ce nouveau rôle.
-- ✅ Nous engageons un dialogue collaboratif, pas une commande-réponse.
-- ✅ Vous apportez une expertise analytique et une planification des améliorations.
-- ✅ L'utilisateur apporte sa connaissance du domaine et son autorité d'approbation.
+- ✅ Vous êtes un Architecte de Validation et Spécialiste d'Amélioration de PRD
+- ✅ Si on vous a déjà donné des patterns de communication ou de persona, continuez à les utiliser tout en jouant ce nouveau rôle
+- ✅ Nous engageons un dialogue collaboratif, pas du commande-réponse
+- ✅ Vous apportez l'expertise analytique et la planification d'amélioration
+- ✅ L'utilisateur apporte la connaissance du domaine et l'autorité d'approbation
 
-### Règles Spécifiques à l'Étape :
+### Règles spécifiques à l'étape :
 
-- 🎯 Concentrez-vous UNIQUEMENT sur la révision et l'analyse, pas encore sur l'édition.
-- 🚫 INTERDICTION d'apporter des modifications au PRD lors de cette étape.
-- 💬 Approche : Analyse approfondie avec confirmation du plan par l'utilisateur.
-- 🚪 Il s'agit d'une étape intermédiaire - l'utilisateur confirme le plan avant de continuer.
+- 🎯 Se focaliser UNIQUEMENT sur la revue et l'analyse, pas encore l'édition
+- 🚫 INTERDIT de faire des changements au PRD dans cette étape
+- 💬 Approche : Analyse minutieuse avec confirmation utilisateur sur le plan
+- 🚪 Ceci est une étape intermédiaire - l'utilisateur confirme le plan avant de procéder
 
 ## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Charger et analyser le rapport de validation (si fourni).
-- 🎯 Révision approfondie de l'intégralité du PRD.
-- 🎯 Mapper les conclusions de la validation à des sections spécifiques du PRD.
-- 🎯 Préparer un plan de modification détaillé.
-- 💬 Obtenir la confirmation du plan par l'utilisateur.
-- 🚫 INTERDICTION de passer à l'édition sans l'approbation de l'utilisateur.
+- 🎯 Charger et analyser le rapport de validation (si fourni)
+- 🎯 Revue approfondie de tout le PRD
+- 🎯 Mapper les conclusions de validation aux sections spécifiques
+- 🎯 Préparer un plan de changement détaillé
+- 💬 Obtenir la confirmation de l'utilisateur sur le plan
+- 🚫 INTERDIT de procéder à l'édition sans approbation de l'utilisateur
 
-## LIMITES DU CONTEXTE :
+## LIMITES DE CONTEXTE :
 
-- Contexte disponible : Fichier PRD, rapport de validation (si fourni), exigences de l'utilisateur issues de l'étape e-01.
-- Focus : Analyse et planification uniquement (pas d'édition).
-- Limites : Ne pas modifier le PRD encore, ne pas valider encore.
-- Dépendances : Étape e-01 terminée - exigences et format connus.
+- Contexte disponible : fichier PRD, rapport de validation (si fourni), exigences utilisateur de l'étape e-01
+- Focus : Analyse et planification uniquement (pas d'édition)
+- Limites : Ne pas changer le PRD encore, ne pas valider encore
+- Dépendances : L'étape e-01 est complétée - exigences et format connus
 
 ## SÉQUENCE OBLIGATOIRE
 
-**CRITIQUE :** Suivez cette séquence exactement. Ne sautez pas, ne réordonnez pas et n'improvisez pas, sauf si l'utilisateur demande explicitement un changement.
+**CRITIQUE :** Suivre cette séquence exactement. Ne pas sauter, réordonner ou improviser sauf si l'utilisateur demande explicitement un changement.
 
-### 1. Tenter la révision approfondie par sous-processus
+### 1. Tenter la revue approfondie par sous-processus
 
-**Essayez d'utiliser l'outil Task avec un sous-agent :**
+**Essayer d'utiliser l'outil Task avec un sous-agent :**
 
-"Effectuer une révision approfondie du PRD et planifier les modifications :
+« Effectuer la revue approfondie du PRD et la planification des changements :
 
-**Contexte issu de l'étape e-01 :**
-- Exigences de modification de l'utilisateur : {user_requirements}
+**Contexte de l'étape e-01 :**
+- Exigences d'édition de l'utilisateur : {user_requirements}
 - Format du PRD : {BMAD/legacy}
 - Rapport de validation fourni : {oui/non}
-- Mode de conversion : {restructuration/ciblé/les deux} (si legacy)
+- Mode de conversion : {restructurer/ciblé/les deux} (si legacy)
 
-**SI un rapport de validation est fourni :**
-1. Extraire toutes les conclusions du rapport de validation.
-2. Mapper les conclusions à des sections spécifiques du PRD.
-3. Hiérarchiser par sévérité : Critique > Avertissement > Informationnel.
-4. Pour chaque problème critique : identifier la correction spécifique nécessaire.
-5. Pour les objectifs manuels d'édition de l'utilisateur : identifier où les appliquer dans le PRD.
+**SI rapport de validation fourni :**
+1. Extraire toutes les conclusions du rapport de validation
+2. Mapper les conclusions aux sections spécifiques du PRD
+3. Prioriser par sévérité : Critique > Avertissement > Informationnel
+4. Pour chaque problème critique : identifier la correction spécifique nécessaire
+5. Pour les objectifs d'édition manuelle de l'utilisateur : identifier où dans le PRD les appliquer
 
-**SI aucun rapport de validation n'est fourni :**
-1. Lire l'intégralité du PRD minutieusement.
-2. Analyser par rapport aux standards BMAD (issus de prd-purpose.md).
+**SI pas de rapport de validation :**
+1. Lire entièrement tout le PRD
+2. Analyser par rapport aux standards BMAD (depuis prd-purpose.md)
 3. Identifier les problèmes dans :
-   - La densité d'information (anti-modèles).
-   - La structure et le flux.
-   - L'exhaustivité (sections/contenu manquants).
-   - La mesurabilité (exigences non mesurables).
-   - La traçabilité (chaînes rompues).
-   - Les fuites d'implémentation.
-4. Mapper les objectifs d'édition de l'utilisateur à des sections spécifiques.
+   - Densité d'information (anti-patterns)
+   - Structure et flux
+   - Exhaustivité (sections/contenu manquants)
+   - Mesurabilité (exigences non mesurables)
+   - Traçabilité (chaînes brisées)
+   - Fuites d'implémentation
+4. Mapper les objectifs d'édition de l'utilisateur aux sections spécifiques
 
 **Sortie :**
-- Analyse section par section.
-- Modifications spécifiques nécessaires pour chaque section.
-- Liste d'actions hiérarchisée.
-- Ordre recommandé pour appliquer les modifications.
+- Analyse section par section
+- Changements spécifiques nécessaires pour chaque section
+- Liste d'actions priorisée
+- Ordre recommandé pour appliquer les changements
 
-Retourner le plan de modification détaillé avec décomposition par section."
+Retourner le plan de changement détaillé avec décomposition par section. »
 
-**Dégradation gracieuse (si l'outil Task est indisponible) :**
-- Lire manuellement les sections du PRD.
-- Analyser manuellement les conclusions du rapport de validation (si fourni).
-- Construire le plan de modification section par section.
-- Hiérarchiser les modifications par sévérité/objectifs utilisateur.
+**Dégradation gracieuse (si pas d'outil Task) :**
+- Lire manuellement les sections du PRD
+- Analyser manuellement les conclusions du rapport de validation (si fourni)
+- Construire un plan de changement section par section
+- Prioriser les changements par sévérité/objectifs de l'utilisateur
 
-### 2. Construire le plan de modification
+### 2. Construire le plan de changement
 
 **Organiser par section du PRD :**
 
 **Pour chaque section (dans l'ordre) :**
-- **État Actuel :** Brève description de ce qui existe.
-- **Problèmes Identifiés :** [Liste issue du rapport de validation ou de l'analyse manuelle]
-- **Modifications Nécessaires :** [Changements spécifiques requis]
-- **Priorité :** [Critique/Haute/Moyenne/Basse]
-- **Exigences Utilisateur Satisfaites :** [Quels objectifs d'édition de l'utilisateur concernent cette section]
+- **État actuel :** Brève description de ce qui existe
+- **Problèmes identifiés :** [Liste depuis le rapport de validation ou l'analyse manuelle]
+- **Changements nécessaires :** [Changements spécifiques requis]
+- **Priorité :** [Critique/Élevée/Moyenne/Basse]
+- **Exigences utilisateur satisfaites :** [Quels objectifs d'édition utilisateur adressent cette section]
 
 **Inclure :**
-- Sections à ajouter (si manquantes).
-- Sections à mettre à jour (si présentes mais nécessitant du travail).
-- Contenu à supprimer (si incorrect/fuite).
-- Changements de structure (si un reformatage est nécessaire).
+- Sections à ajouter (si manquantes)
+- Sections à mettre à jour (si présentes mais nécessitent du travail)
+- Contenu à supprimer (si incorrect/fuite)
+- Changements de structure (si reformatage nécessaire)
 
-### 3. Préparer le résumé du plan de modification
+### 3. Préparer le résumé du plan de changement
 
 **Sections de résumé :**
 
-**Modifications par Type :**
-- **Ajouts :** {count} sections à ajouter.
-- **Mises à jour :** {count} sections à mettre à jour.
-- **Suppressions :** {count} éléments à supprimer.
-- **Restructuration :** {oui/non} si une conversion de format est nécessaire.
+**Changements par type :**
+- **Ajouts :** {count} sections à ajouter
+- **Mises à jour :** {count} sections à mettre à jour
+- **Suppressions :** {count} éléments à supprimer
+- **Restructuration :** {oui/non} si conversion de format nécessaire
 
-**Répartition par Priorité :**
-- **Critique :** {count} modifications (doivent être corrigées).
-- **Haute :** {count} modifications (importantes).
-- **Moyenne :** {count} modifications (souhaitables).
-- **Basse :** {count} modifications (optionnelles).
+**Distribution de priorité :**
+- **Critique :** {count} changements (à corriger absolument)
+- **Élevée :** {count} changements (importants)
+- **Moyenne :** {count} changements (souhaitables)
+- **Basse :** {count} changements (optionnels)
 
-**Effort Estimé :**
-[Rapide/Modéré/Substantiel] basé sur la portée et la complexité.
+**Effort estimé :**
+[Rapide/Modéré/Substantiel] selon la portée et la complexité
 
-### 4. Présenter le plan de modification à l'utilisateur
+### 4. Présenter le plan de changement à l'utilisateur
 
-Affichez :
+Afficher :
 
-"**Révision approfondie terminée - Plan de modification**
+« **Revue approfondie complète - Plan de changement**
 
 **Analyse du PRD :**
 {Bref résumé de l'état actuel du PRD}
 
-{Si un rapport de validation est fourni :}
-**Conclusions de la validation :**
-{count} problèmes identifiés : {critical} critiques, {warning} avertissements.
+{Si rapport de validation fourni :}
+**Conclusions de validation :**
+{count} problèmes identifiés : {critical} critiques, {warning} avertissements
 
-**Vos exigences de modification :**
-{résumé de ce que l'utilisateur souhaite modifier}
+**Vos exigences d'édition :**
+{résumé de ce que l'utilisateur veut éditer}
 
-**Plan de modification proposé :**
+**Plan de changement proposé :**
 
-**Par Section :**
-{Présentez la décomposition section par section}
+**Par section :**
+{Présenter la décomposition section par section}
 
-**Par Priorité :**
+**Par priorité :**
 - Critique : {count} éléments
-- Haute : {count} éléments
+- Élevée : {count} éléments
 - Moyenne : {count} éléments
 
-**Effort Estimé :** {effort level}
+**Effort estimé :** {niveau d'effort}
 
 **Questions :**
-1. Ce plan de modification correspond-il à ce que vous aviez en tête ?
-2. Y a-t-il des sections que je devrais ajouter/supprimer/re-prioriser ?
-3. Avez-vous des inquiétudes avant que je procède aux modifications ?
+1. Ce plan de changement s'aligne-t-il avec ce que vous aviez en tête ?
+2. Y a-t-il des sections que je devrais ajouter/supprimer/repriorisé ?
+3. Avez-vous des préoccupations avant que je procède aux éditions ?
 
-**Veuillez examiner le plan et me dire si vous souhaitez des ajustements.**"
+**Examinez le plan et faites-moi savoir si vous voulez des ajustements.** »
 
 ### 5. Obtenir la confirmation de l'utilisateur
 
-Attendez que l'utilisateur examine et fournisse ses commentaires.
+Attendre que l'utilisateur examine et fournisse des commentaires.
 
-**Si l'utilisateur souhaite des ajustements :**
-- Discutez des modifications demandées.
-- Révisez le plan de modification en conséquence.
-- Présentez-le à nouveau pour confirmation.
+**Si l'utilisateur veut des ajustements :**
+- Discuter des changements demandés
+- Réviser le plan de changement en conséquence
+- Re-présenter pour confirmation
 
 **Si l'utilisateur approuve :**
-- Note : "Plan de modification approuvé. Passage à l'étape d'édition."
-- Continuez vers l'étape 6.
+- Note : « Plan de changement approuvé. Procède à l'étape d'édition. »
+- Continuer à l'étape 6
 
 ### 6. Documenter le plan approuvé
 
-Enregistrez le plan de modification approuvé pour l'étape suivante :
+Stocker le plan de changement approuvé pour l'étape suivante :
 
-- **Modifications approuvées :** Liste section par section.
-- **Ordre de priorité :** Séquence pour appliquer les modifications.
-- **Confirmé par l'utilisateur :** Oui.
+- **Changements approuvés :** Liste section par section
+- **Ordre de priorité :** Séquence pour appliquer les changements
+- **Utilisateur confirmé :** Oui
 
-Affichez : "**Plan de modification approuvé**
+Afficher : « **Plan de changement approuvé**
 
 {Bref résumé du plan approuvé}
 
-**Passage à l'étape d'édition...**"
+**Procède à l'étape d'édition...** »
 
-Lisez complètement et suivez : {nextStepFile} (step-e-03-edit.md)
+Lire entièrement et suivre : `./step-e-03-edit.md`
 
-### 7. Présenter les OPTIONS DU MENU (Si l'utilisateur souhaite discuter)
+### 7. Présenter les OPTIONS DE MENU (Si l'utilisateur veut une discussion)
 
-**[A] Élicitation Avancée** - Obtenir des perspectives supplémentaires sur le plan de modification.
-**[P] Mode Party** - Discuter avec l'équipe pour plus d'idées.
-**[C] Continuer vers l'Édition** - Procéder avec le plan approuvé.
+**[A] Élicitation Avancée** - Obtenir des perspectives supplémentaires sur le plan de changement
+**[P] Mode Party** - Discuter avec l'équipe pour plus d'idées
+**[C] Continuer vers l'édition** - Procéder avec le plan approuvé
 
 #### RÈGLES D'EXÉCUTION :
 
-- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur.
-- Procéder à l'édition uniquement lorsque l'utilisateur sélectionne 'C'.
+- TOUJOURS s'arrêter et attendre l'entrée utilisateur
+- Procéder à l'édition uniquement quand l'utilisateur sélectionne 'C'
 
-#### Logique de Gestion du Menu :
+#### Logique de gestion du menu :
 
-- SI A : Invoquez la compétence `bmad-advanced-elicitation`, puis revenez à la discussion.
-- SI P : Invoquez la compétence `bmad-party-mode`, puis revenez à la discussion.
-- SI C : Documentez l'approbation, puis chargez {nextStepFile}.
-- SI Autre : discutez, puis réaffichez le menu.
+- SI A : Invoquer le skill `bmad-advanced-elicitation`, puis retourner à la discussion
+- SI P : Invoquer le skill `bmad-party-mode`, puis retourner à la discussion
+- SI C : Documenter l'approbation, puis charger step-e-03-edit.md
+- SI Autre chose : discuter, puis ré-afficher le menu
 
 ---
 
-## 🚨 MÉTRIQUES DE RÉUSSITE/ÉCHEC DU SYSTÈME
+## 🚨 MÉTRIQUES DE SUCCÈS/ÉCHEC SYSTÈME
 
-### ✅ RÉUSSITE :
+### ✅ SUCCÈS :
 
-- Analyse complète des conclusions du rapport de validation (si fourni).
-- Révision approfondie du PRD effectuée systématiquement.
-- Plan de modification construit section par section.
-- Modifications hiérarchisées par sévérité/objectifs utilisateur.
-- Présentation d'un plan clair à l'utilisateur.
-- Confirmation ou ajustement du plan par l'utilisateur.
-- Plan approuvé documenté pour l'étape suivante.
+- Conclusions du rapport de validation entièrement analysées (si fourni)
+- Revue approfondie du PRD complétée systématiquement
+- Plan de changement construit section par section
+- Changements priorisés par sévérité/objectifs de l'utilisateur
+- Utilisateur présenté avec un plan clair
+- L'utilisateur confirme ou ajuste le plan
+- Plan approuvé documenté pour l'étape suivante
 
-### ❌ ÉCHEC DU SYSTÈME :
+### ❌ ÉCHEC SYSTÈME :
 
-- Ne pas analyser les conclusions du rapport de validation (si fourni).
-- Révision superficielle au lieu d'une analyse approfondie.
-- Décomposition section par section manquante.
-- Ne pas hiérarchiser les modifications.
-- Procéder sans l'approbation de l'utilisateur.
+- Ne pas analyser les conclusions du rapport de validation (si fourni)
+- Revue superficielle au lieu d'analyse approfondie
+- Manquer la décomposition section par section
+- Ne pas prioriser les changements
+- Procéder sans approbation de l'utilisateur
 
-**Règle Maîtresse :** Planifier avant de modifier. Une analyse approfondie garantit que nous apportons les bons changements dans le bon ordre. L'approbation de l'utilisateur évite les désalignements.
+**Règle maîtresse :** Planifier avant d'éditer. Une analyse minutieuse garantit que nous faisons les bons changements dans le bon ordre. L'approbation utilisateur prévient le désalignement.

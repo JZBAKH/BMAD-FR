@@ -1,20 +1,20 @@
 ---
 name: write-document
-description: Author a document following documentation best practices
+description: Rédige un document en suivant les bonnes pratiques de documentation
 menu-code: WD
 ---
 
-# Write Document
+# Rédiger un Document
 
-Engage in multi-turn conversation until you fully understand the ask. Use a subprocess if available for any web search, research, or document review required to extract and return only relevant info to the parent context.
+Engage une conversation multi-tours jusqu'à comprendre pleinement la demande. Utilise un sous-processus si disponible pour toute recherche web, recherche, ou revue de document nécessaire afin d'extraire et de retourner uniquement les informations pertinentes au contexte parent.
 
-## Process
+## Processus
 
-1. **Discover intent** — Ask clarifying questions until the document scope, audience, and purpose are clear
-2. **Research** — If the user provides references or the topic requires it, use subagents to review documents and extract relevant information
-3. **Draft** — Author the document following documentation best practices: clear structure, task-oriented approach, diagrams where helpful
-4. **Review** — Use a subprocess to review and revise for quality of content and standards compliance
+1. **Découvrir l'intention** — Poser des questions de clarification jusqu'à ce que la portée, le public et l'objectif du document soient clairs
+2. **Rechercher** — Si l'utilisateur fournit des références ou si le sujet l'exige, utiliser des sous-agents pour examiner les documents et en extraire les informations pertinentes
+3. **Rédiger** — Rédiger le document en suivant les bonnes pratiques de documentation : structure claire, approche orientée tâches, diagrammes lorsque c'est utile
+4. **Réviser** — Utiliser un sous-processus pour relire et réviser la qualité du contenu et la conformité aux standards
 
-## Output
+## Sortie
 
-A complete, well-structured document ready for use.
+Un document complet, bien structuré, prêt à être utilisé.

@@ -144,7 +144,7 @@ class UI {
     ) {
       channelOptions.global = 'next';
       await prompts.log.info(
-        'Launched from a prerelease — installing all external modules from main HEAD (next channel). Pass --all-stable or --pin to override.',
+        'Lancé depuis une préversion — installation de tous les modules externes depuis main HEAD (canal next). Utilisez --all-stable ou --pin pour outrepasser.',
       );
     }
 
@@ -155,10 +155,10 @@ class UI {
       const expandedDir = this.expandUserPath(options.directory);
       const validation = this.validateDirectorySync(expandedDir);
       if (validation) {
-        throw new Error(`Invalid directory: ${validation}`);
+        throw new Error(`Répertoire invalide : ${validation}`);
       }
       confirmedDirectory = expandedDir;
-      await prompts.log.info(`Using directory from command-line: ${confirmedDirectory}`);
+      await prompts.log.info(`Utilisation du répertoire depuis la ligne de commande : ${confirmedDirectory}`);
     } else {
       confirmedDirectory = await this.getConfirmedDirectory();
     }
@@ -184,36 +184,36 @@ class UI {
       // Always show Quick Update first (allows refreshing installation even on same version)
       if (existingInstall.installed) {
         choices.push({
-          name: 'Quick Update',
+          name: 'Mise à jour rapide',
           value: 'quick-update',
         });
       }
 
       // Common actions
-      choices.push({ name: 'Modify BMAD Installation', value: 'update' });
+      choices.push({ name: 'Modifier l\'installation BMAD', value: 'update' });
 
       // Check if action is provided via command-line
       if (options.action) {
         const validActions = choices.map((c) => c.value);
         if (!validActions.includes(options.action)) {
-          throw new Error(`Invalid action: ${options.action}. Valid actions: ${validActions.join(', ')}`);
+          throw new Error(`Action invalide : ${options.action}. Actions valides : ${validActions.join(', ')}`);
         }
         actionType = options.action;
-        await prompts.log.info(`Using action from command-line: ${actionType}`);
+        await prompts.log.info(`Utilisation de l'action depuis la ligne de commande : ${actionType}`);
       } else if (options.yes) {
         // Default to quick-update if available, unless flags that require the
         // full update path are present (e.g. --custom-source which re-clones
         // modules at a new version — quick-update skips that entirely).
         if (choices.length === 0) {
-          throw new Error('No valid actions available for this installation');
+          throw new Error('Aucune action valide disponible pour cette installation');
         }
         const hasQuickUpdate = choices.some((c) => c.value === 'quick-update');
         const needsFullUpdate = !!options.customSource;
         actionType = hasQuickUpdate && !needsFullUpdate ? 'quick-update' : (choices.find((c) => c.value === 'update') || choices[0]).value;
-        await prompts.log.info(`Non-interactive mode (--yes): defaulting to ${actionType}`);
+        await prompts.log.info(`Mode non interactif (--yes) : action par défaut ${actionType}`);
       } else {
         actionType = await prompts.select({
-          message: 'How would you like to proceed?',
+          message: 'Comment souhaitez-vous procéder ?',
           choices: choices,
           default: choices[0].value,
         });
@@ -234,7 +234,7 @@ class UI {
         // Get existing installation info
         const { installedModuleIds, installedModuleVersions } = await this.getExistingInstallation(confirmedDirectory);
 
-        await prompts.log.message(`Found existing modules: ${[...installedModuleIds].join(', ')}`);
+        await prompts.log.message(`Modules existants trouvés : ${[...installedModuleIds].join(', ')}`);
 
         // Unified module selection - all modules in one grouped multiselect
         let selectedModules;
@@ -244,7 +244,7 @@ class UI {
             .split(',')
             .map((m) => m.trim())
             .filter(Boolean);
-          await prompts.log.info(`Using modules from command-line: ${selectedModules.join(', ')}`);
+          await prompts.log.info(`Utilisation des modules depuis la ligne de commande : ${selectedModules.join(', ')}`);
         } else if (options.customSource && !options.yes) {
           // Custom source without --modules or --yes: start with empty list
           // (only custom source modules + core will be installed).
@@ -254,7 +254,7 @@ class UI {
         } else if (options.yes) {
           selectedModules = await this.getDefaultModules(installedModuleIds);
           await prompts.log.info(
-            `Non-interactive mode (--yes): using default modules (installed + defaults): ${selectedModules.join(', ')}`,
+            `Mode non interactif (--yes) : utilisation des modules par défaut (installés + défauts) : ${selectedModules.join(', ')}`,
           );
         } else {
           selectedModules = await this.selectAllModules(installedModuleIds, installedModuleVersions, channelOptions);
@@ -332,14 +332,14 @@ class UI {
         .split(',')
         .map((m) => m.trim())
         .filter(Boolean);
-      await prompts.log.info(`Using modules from command-line: ${selectedModules.join(', ')}`);
+      await prompts.log.info(`Utilisation des modules depuis la ligne de commande : ${selectedModules.join(', ')}`);
     } else if (options.customSource) {
       // Custom source without --modules: start with empty list (core added below)
       selectedModules = [];
     } else if (options.yes) {
       // Use default modules when --yes flag is set
       selectedModules = await this.getDefaultModules(installedModuleIds);
-      await prompts.log.info(`Using default modules (--yes flag): ${selectedModules.join(', ')}`);
+      await prompts.log.info(`Utilisation des modules par défaut (option --yes) : ${selectedModules.join(', ')}`);
     } else {
       selectedModules = await this.selectAllModules(installedModuleIds, installedModuleVersions, channelOptions);
     }
@@ -415,7 +415,7 @@ class UI {
 
     if (selectedIdes.length === 0) {
       const err = new Error(
-        '--tools was passed empty. Provide at least one tool ID (e.g. --tools claude-code) or run with --list-tools to see valid IDs.',
+        '--tools a été passé vide. Fournissez au moins un identifiant d\'outil (ex. --tools claude-code) ou exécutez avec --list-tools pour voir les identifiants valides.',
       );
       err.expected = true;
       throw err;
@@ -425,10 +425,10 @@ class UI {
     if (unknown.length > 0) {
       const err = new Error(
         [
-          `Unknown tool ID${unknown.length === 1 ? '' : 's'}: ${unknown.join(', ')}`,
+          `Identifiant${unknown.length === 1 ? '' : 's'} d'outil inconnu${unknown.length === 1 ? '' : 's'} : ${unknown.join(', ')}`,
           '',
-          'Run with --list-tools to see all valid IDs.',
-          'Common: claude-code, cursor, copilot, windsurf, cline',
+          'Exécutez avec --list-tools pour voir tous les identifiants valides.',
+          'Courants : claude-code, cursor, copilot, windsurf, cline',
         ].join('\n'),
       );
       err.expected = true;
@@ -462,7 +462,7 @@ class UI {
     const allKnownValues = new Set([...preferredIdes, ...otherIdes].map((ide) => ide.value));
     const unknownTools = configuredIdes.filter((id) => id && typeof id === 'string' && !allKnownValues.has(id));
     if (unknownTools.length > 0) {
-      await prompts.log.warn(`Previously configured tools are no longer available: ${unknownTools.join(', ')}`);
+      await prompts.log.warn(`Les outils précédemment configurés ne sont plus disponibles : ${unknownTools.join(', ')}`);
     }
 
     // ─────────────────────────────────────────────────────────────────────────────
@@ -476,13 +476,13 @@ class UI {
       // gets a specific "passed empty" error instead of being silently ignored.
       if (options.tools !== undefined) {
         const selectedIdes = this._parseToolsFlag(options.tools, allKnownValues);
-        await prompts.log.info(`Using tools from command-line: ${selectedIdes.join(', ')}`);
+        await prompts.log.info(`Utilisation des outils depuis la ligne de commande : ${selectedIdes.join(', ')}`);
         await this.displaySelectedTools(selectedIdes, preferredIdes, allTools);
         return { ides: selectedIdes, skipIde: false };
       }
 
       if (options.yes) {
-        await prompts.log.info(`Non-interactive mode (--yes): keeping configured tools: ${configuredIdes.join(', ')}`);
+        await prompts.log.info(`Mode non interactif (--yes) : conservation des outils configurés : ${configuredIdes.join(', ')}`);
         await this.displaySelectedTools(configuredIdes, preferredIdes, allTools);
         return { ides: configuredIdes, skipIde: false };
       }
@@ -506,7 +506,7 @@ class UI {
       const sortedInitialValues = sortedTools.filter((ide) => configuredIdes.includes(ide.value)).map((ide) => ide.value);
 
       const upgradeSelected = await prompts.autocompleteMultiselect({
-        message: 'Integrate with',
+        message: 'Intégrer avec',
         options: upgradeOptions,
         initialValues: sortedInitialValues,
         required: false,
@@ -517,7 +517,7 @@ class UI {
 
       if (selectedIdes.length === 0) {
         const confirmNoTools = await prompts.confirm({
-          message: 'No tools selected. Continue without installing any tools?',
+          message: 'Aucun outil sélectionné. Continuer sans installer d\'outil ?',
           default: false,
         });
 
@@ -555,24 +555,24 @@ class UI {
     // Use !== undefined so an explicit --tools "" still hits _parseToolsFlag's empty-value error.
     if (options.tools !== undefined) {
       selectedIdes = this._parseToolsFlag(options.tools, allKnownValues);
-      await prompts.log.info(`Using tools from command-line: ${selectedIdes.join(', ')}`);
+      await prompts.log.info(`Utilisation des outils depuis la ligne de commande : ${selectedIdes.join(', ')}`);
       await this.displaySelectedTools(selectedIdes, preferredIdes, allTools);
       return { ides: selectedIdes, skipIde: false };
     } else if (options.yes) {
       // If --yes flag is set, skip tool prompt and use previously configured tools or empty
       if (configuredIdes.length > 0) {
-        await prompts.log.info(`Using previously configured tools (--yes flag): ${configuredIdes.join(', ')}`);
+        await prompts.log.info(`Utilisation des outils précédemment configurés (option --yes) : ${configuredIdes.join(', ')}`);
         await this.displaySelectedTools(configuredIdes, preferredIdes, allTools);
         return { ides: configuredIdes, skipIde: false };
       } else {
         const err = new Error(
           [
-            '--tools is required for non-interactive install (--yes / -y) when no tools are previously configured.',
+            '--tools est requis pour une installation non interactive (--yes / -y) lorsque aucun outil n\'a été configuré au préalable.',
             '',
-            'Common: claude-code, cursor, copilot, windsurf, cline',
-            'See all supported tools: bmad-method install --list-tools',
+            'Courants : claude-code, cursor, copilot, windsurf, cline',
+            'Voir tous les outils pris en charge : bmad-method install --list-tools',
             '',
-            'Example: bmad-method install --modules bmm --tools claude-code -y',
+            'Exemple : bmad-method install --modules bmm --tools claude-code -y',
           ].join('\n'),
         );
         err.expected = true;
@@ -582,7 +582,7 @@ class UI {
 
     // Interactive mode
     const interactiveSelectedIdes = await prompts.autocompleteMultiselect({
-      message: 'Integrate with:',
+      message: 'Intégrer avec :',
       options: allToolOptions,
       initialValues: configuredIdes.length > 0 ? configuredIdes : undefined,
       required: false,
@@ -596,7 +596,7 @@ class UI {
     // ─────────────────────────────────────────────────────────────────────────────
     if (selectedIdes.length === 0) {
       const confirmNoTools = await prompts.confirm({
-        message: 'No tools selected. Continue without installing any tools?',
+        message: 'Aucun outil sélectionné. Continuer sans installer d\'outil ?',
         default: false,
       });
 
@@ -626,12 +626,12 @@ class UI {
    */
   async promptUpdate() {
     const backupFirst = await prompts.confirm({
-      message: 'Create backup before updating?',
+      message: 'Créer une sauvegarde avant la mise à jour ?',
       default: true,
     });
 
     const preserveCustomizations = await prompts.confirm({
-      message: 'Preserve local customizations?',
+      message: 'Préserver les personnalisations locales ?',
       default: true,
     });
 
@@ -733,7 +733,7 @@ class UI {
     for (const moduleCode of Object.keys(setOverrides)) {
       if (!selectedModuleSet.has(moduleCode)) {
         await prompts.log.warn(
-          `--set ${moduleCode}.* — module '${moduleCode}' is not in the install set; values will be ignored. Add it to --modules to apply.`,
+          `--set ${moduleCode}.* — le module '${moduleCode}' n'est pas dans le jeu d'installation ; les valeurs seront ignorées. Ajoutez-le à --modules pour l'appliquer.`,
         );
         delete setOverrides[moduleCode];
       }
@@ -746,19 +746,19 @@ class UI {
       const coreConfig = {};
       if (options.userName) {
         coreConfig.user_name = options.userName;
-        await prompts.log.info(`Using user name from command-line: ${options.userName}`);
+        await prompts.log.info(`Utilisation du nom d'utilisateur depuis la ligne de commande : ${options.userName}`);
       }
       if (options.communicationLanguage) {
         coreConfig.communication_language = options.communicationLanguage;
-        await prompts.log.info(`Using communication language from command-line: ${options.communicationLanguage}`);
+        await prompts.log.info(`Utilisation de la langue de communication depuis la ligne de commande : ${options.communicationLanguage}`);
       }
       if (options.documentOutputLanguage) {
         coreConfig.document_output_language = options.documentOutputLanguage;
-        await prompts.log.info(`Using document output language from command-line: ${options.documentOutputLanguage}`);
+        await prompts.log.info(`Utilisation de la langue de sortie des documents depuis la ligne de commande : ${options.documentOutputLanguage}`);
       }
       if (options.outputFolder) {
         coreConfig.output_folder = options.outputFolder;
-        await prompts.log.info(`Using output folder from command-line: ${options.outputFolder}`);
+        await prompts.log.info(`Utilisation du dossier de sortie depuis la ligne de commande : ${options.outputFolder}`);
       }
 
       // Load existing config to merge with provided options
@@ -795,7 +795,7 @@ class UI {
           document_output_language: 'English',
           output_folder: '_bmad-output',
         };
-        await prompts.log.info('Using default configuration (--yes flag)');
+        await prompts.log.info('Utilisation de la configuration par défaut (option --yes)');
       }
     }
 
@@ -901,7 +901,7 @@ class UI {
     let externalRegistryEntries = [];
     if (externalRegistryModules.length > 0) {
       const spinner = await prompts.spinner();
-      spinner.start('Checking latest module versions...');
+      spinner.start('Vérification des dernières versions des modules...');
 
       externalRegistryEntries = await Promise.all(
         externalRegistryModules.map(async (mod) => ({
@@ -917,12 +917,12 @@ class UI {
         })),
       );
 
-      spinner.stop('Checked latest module versions.');
+      spinner.stop('Dernières versions des modules vérifiées.');
 
       const attemptedLookups = externalRegistryEntries.filter(({ entry }) => entry.lookupAttempted).length;
       const successfulLookups = externalRegistryEntries.filter(({ entry }) => entry.lookupSucceeded).length;
       if (attemptedLookups > 0 && successfulLookups === 0) {
-        await prompts.log.warn('Could not check latest module versions; showing cached/local versions.');
+        await prompts.log.warn('Impossible de vérifier les dernières versions des modules ; affichage des versions en cache/locales.');
       }
     }
     for (const { code, entry } of externalRegistryEntries) {
@@ -933,7 +933,7 @@ class UI {
     }
 
     const selected = await prompts.autocompleteMultiselect({
-      message: 'Select official modules to install:',
+      message: 'Sélectionner les modules officiels à installer :',
       options: allOptions,
       initialValues: initialValues.length > 0 ? initialValues : undefined,
       lockedValues,
@@ -948,7 +948,7 @@ class UI {
         const opt = allOptions.find((o) => o.value === moduleId);
         return `  \u2022 ${opt?.label || moduleId}`;
       });
-      await prompts.log.message('Selected official modules:\n' + moduleLines.join('\n'));
+      await prompts.log.message('Modules officiels sélectionnés :\n' + moduleLines.join('\n'));
     }
 
     return result;
@@ -962,7 +962,7 @@ class UI {
    */
   async _browseCommunityModules(installedModuleIds = new Set()) {
     const browseCommunity = await prompts.confirm({
-      message: 'Would you like to browse community modules?',
+      message: 'Souhaitez-vous parcourir les modules communautaires ?',
       default: false,
     });
     if (!browseCommunity) return { codes: [], didBrowse: false };
@@ -971,7 +971,7 @@ class UI {
     const communityMgr = new CommunityModuleManager();
 
     const s = await prompts.spinner();
-    s.start('Loading community module catalog...');
+    s.start('Chargement du catalogue des modules communautaires...');
 
     let categories, featured, allCommunity;
     try {
@@ -980,15 +980,15 @@ class UI {
         communityMgr.listFeatured(),
         communityMgr.listAll(),
       ]);
-      s.stop(`Community catalog loaded (${allCommunity.length} modules)`);
+      s.stop(`Catalogue communautaire chargé (${allCommunity.length} modules)`);
     } catch (error) {
-      s.error('Failed to load community catalog');
+      s.error('Échec du chargement du catalogue communautaire');
       await prompts.log.warn(`  ${error.message}`);
       return { codes: [], didBrowse: false };
     }
 
     if (allCommunity.length === 0) {
-      await prompts.log.info('No community modules are currently available.');
+      await prompts.log.info('Aucun module communautaire n\'est actuellement disponible.');
       return { codes: [], didBrowse: false };
     }
 
@@ -1002,7 +1002,7 @@ class UI {
       if (featured.length > 0) {
         categoryChoices.push({
           value: '__featured__',
-          label: `\u2605 Featured (${featured.length} module${featured.length === 1 ? '' : 's'})`,
+          label: `\u2605 \u00c0 la une (${featured.length} module${featured.length === 1 ? '' : 's'})`,
         });
       }
 
@@ -1016,14 +1016,14 @@ class UI {
 
       // Special actions at bottom
       categoryChoices.push(
-        { value: '__all__', label: '\u25CE View all community modules' },
-        { value: '__search__', label: '\u25CE Search by keyword' },
-        { value: '__done__', label: '\u2713 Done browsing' },
+        { value: '__all__', label: '\u25CE Voir tous les modules communautaires' },
+        { value: '__search__', label: '\u25CE Rechercher par mot-cl\u00E9' },
+        { value: '__done__', label: '\u2713 Terminer la navigation' },
       );
 
       const selectedCount = selectedCodes.size;
       const categoryChoice = await prompts.select({
-        message: `Browse community modules${selectedCount > 0 ? ` (${selectedCount} selected)` : ''}:`,
+        message: `Parcourir les modules communautaires${selectedCount > 0 ? ` (${selectedCount} s\u00E9lectionn\u00E9${selectedCount > 1 ? 's' : ''})` : ''} :`,
         choices: categoryChoices,
       });
 
@@ -1046,13 +1046,13 @@ class UI {
         }
         case '__search__': {
           const query = await prompts.text({
-            message: 'Search community modules:',
-            placeholder: 'e.g., design, testing, game',
+            message: 'Rechercher des modules communautaires :',
+            placeholder: 'ex. design, testing, game',
           });
           if (!query || query.trim() === '') continue;
           modulesToShow = await communityMgr.searchByKeyword(query.trim());
           if (modulesToShow.length === 0) {
-            await prompts.log.warn('No matching modules found.');
+            await prompts.log.warn('Aucun module correspondant trouvé.');
             continue;
           }
 
@@ -1084,7 +1084,7 @@ class UI {
       const initialValues = modulesToShow.filter((m) => selectedCodes.has(m.code) || installedModuleIds.has(m.code)).map((m) => m.code);
 
       const selected = await prompts.autocompleteMultiselect({
-        message: 'Select community modules:',
+        message: 'Sélectionner les modules communautaires :',
         options,
         initialValues: initialValues.length > 0 ? initialValues : undefined,
         required: false,
@@ -1108,7 +1108,7 @@ class UI {
         const mod = await communityMgr.getModuleByCode(code);
         moduleLines.push(`  \u2022 ${mod?.displayName || code}`);
       }
-      await prompts.log.message('Selected community modules:\n' + moduleLines.join('\n'));
+      await prompts.log.message('Modules communautaires sélectionnés :\n' + moduleLines.join('\n'));
     }
 
     return { codes: [...selectedCodes], didBrowse: true };
@@ -1121,7 +1121,7 @@ class UI {
    */
   async _addCustomUrlModules(installedModuleIds = new Set()) {
     const addCustom = await prompts.confirm({
-      message: 'Would you like to install from a custom source (Git URL or local path)?',
+      message: 'Souhaitez-vous installer depuis une source personnalisée (URL Git ou chemin local) ?',
       default: false,
     });
     if (!addCustom) return [];
@@ -1133,39 +1133,39 @@ class UI {
     let addMore = true;
     while (addMore) {
       const sourceInput = await prompts.text({
-        message: 'Git URL or local path:',
-        placeholder: 'https://github.com/owner/repo or /path/to/module',
+        message: 'URL Git ou chemin local :',
+        placeholder: 'https://github.com/owner/repo ou /path/to/module',
         validate: (input) => {
-          if (!input || input.trim() === '') return 'Source is required';
+          if (!input || input.trim() === '') return 'La source est requise';
           const result = customMgr.parseSource(input.trim());
           return result.isValid ? undefined : result.error;
         },
       });
 
       const s = await prompts.spinner();
-      s.start('Resolving source...');
+      s.start('Résolution de la source...');
 
       let sourceResult;
       try {
         sourceResult = await customMgr.resolveSource(sourceInput.trim(), { skipInstall: true, silent: true });
-        s.stop(sourceResult.parsed.type === 'local' ? 'Local source resolved' : 'Repository cloned');
+        s.stop(sourceResult.parsed.type === 'local' ? 'Source locale résolue' : 'Dépôt cloné');
       } catch (error) {
-        s.error('Failed to resolve source');
+        s.error('Échec de la résolution de la source');
         await prompts.log.error(`  ${error.message}`);
-        addMore = await prompts.confirm({ message: 'Try another source?', default: false });
+        addMore = await prompts.confirm({ message: 'Essayer une autre source ?', default: false });
         continue;
       }
 
       if (sourceResult.parsed.type === 'local') {
-        await prompts.log.info('LOCAL MODULE: Pointing directly at local source (changes take effect on reinstall).');
+        await prompts.log.info('MODULE LOCAL : Pointage direct vers la source locale (les modifications prennent effet à la réinstallation).');
       } else {
         await prompts.log.warn(
-          'UNVERIFIED MODULE: This module has not been reviewed by the BMad team.\n' + '  Only install modules from sources you trust.',
+          'MODULE NON VÉRIFIÉ : Ce module n\'a pas été examiné par l\'équipe BMad.\n' + '  N\'installez que des modules provenant de sources de confiance.',
         );
       }
 
       // Resolve plugins based on discovery mode vs direct mode
-      s.start('Analyzing plugin structure...');
+      s.start('Analyse de la structure du plugin...');
       const allResolved = [];
       const localPath = sourceResult.parsed.type === 'local' ? sourceResult.rootDir : null;
 
@@ -1175,9 +1175,9 @@ class UI {
         try {
           plugins = await customMgr.discoverModules(sourceResult.marketplace, sourceResult.sourceUrl);
         } catch (discoverError) {
-          s.error('Failed to discover modules');
+          s.error('Échec de la découverte des modules');
           await prompts.log.error(`  ${discoverError.message}`);
-          addMore = await prompts.confirm({ message: 'Try another source?', default: false });
+          addMore = await prompts.confirm({ message: 'Essayer une autre source ?', default: false });
           continue;
         }
 
@@ -1200,7 +1200,7 @@ class UI {
               });
             }
           } catch (resolveError) {
-            await prompts.log.warn(`  Could not resolve ${plugin.name}: ${resolveError.message}`);
+            await prompts.log.warn(`  Impossible de résoudre ${plugin.name} : ${resolveError.message}`);
           }
         }
       } else {
@@ -1223,9 +1223,9 @@ class UI {
             }
           }
         } catch (scanError) {
-          s.error('Failed to scan directory');
+          s.error('Échec de l\'analyse du répertoire');
           await prompts.log.error(`  ${scanError.message}`);
-          addMore = await prompts.confirm({ message: 'Try another source?', default: false });
+          addMore = await prompts.confirm({ message: 'Essayer une autre source ?', default: false });
           continue;
         }
 
@@ -1234,15 +1234,15 @@ class UI {
             const resolved = await customMgr.resolvePlugin(sourceResult.rootDir, directPlugin, sourceResult.sourceUrl, localPath);
             allResolved.push(...resolved);
           } catch (resolveError) {
-            await prompts.log.warn(`  Could not resolve: ${resolveError.message}`);
+            await prompts.log.warn(`  Impossible de résoudre : ${resolveError.message}`);
           }
         }
       }
-      s.stop(`Found ${allResolved.length} installable module${allResolved.length === 1 ? '' : 's'}`);
+      s.stop(`${allResolved.length} module${allResolved.length === 1 ? '' : 's'} installable${allResolved.length === 1 ? '' : 's'} trouvé${allResolved.length === 1 ? '' : 's'}`);
 
       if (allResolved.length === 0) {
-        await prompts.log.warn('No installable modules found in this source.');
-        addMore = await prompts.confirm({ message: 'Try another source?', default: false });
+        await prompts.log.warn('Aucun module installable trouvé dans cette source.');
+        addMore = await prompts.confirm({ message: 'Essayer une autre source ?', default: false });
         continue;
       }
 
@@ -1252,9 +1252,9 @@ class UI {
       const choices = allResolved.map((mod) => {
         const versionStr = mod.version ? ` v${mod.version}` : '';
         const skillCount = mod.skillPaths ? mod.skillPaths.length : 0;
-        const skillStr = skillCount > 0 ? ` (${skillCount} skill${skillCount === 1 ? '' : 's'})` : '';
+        const skillStr = skillCount > 0 ? ` (${skillCount} Skill${skillCount === 1 ? '' : 's'})` : '';
         const alreadyInstalled = installedModuleIds.has(mod.code);
-        const hint = alreadyInstalled ? 'update' : undefined;
+        const hint = alreadyInstalled ? 'mise à jour' : undefined;
 
         return {
           name: `${mod.name}${versionStr}${skillStr}`,
@@ -1271,7 +1271,7 @@ class UI {
       }
 
       const selected = await prompts.multiselect({
-        message: 'Select modules to install:',
+        message: 'S\u00e9lectionner les modules \u00e0 installer :',
         choices,
         required: false,
       });
@@ -1283,13 +1283,13 @@ class UI {
       }
 
       addMore = await prompts.confirm({
-        message: 'Add another custom source?',
+        message: 'Ajouter une autre source personnalis\u00e9e ?',
         default: false,
       });
     }
 
     if (selectedModules.length > 0) {
-      await prompts.log.message('Selected custom modules:\n' + selectedModules.map((c) => `  \u2022 ${c}`).join('\n'));
+      await prompts.log.message('Modules personnalis\u00e9s s\u00e9lectionn\u00e9s :\n' + selectedModules.map((c) => `  \u2022 ${c}`).join('\n'));
     }
 
     return selectedModules;
@@ -1313,20 +1313,20 @@ class UI {
 
     for (const source of sources) {
       const s = await prompts.spinner();
-      s.start(`Resolving ${source}...`);
+      s.start(`Résolution de ${source}...`);
 
       let sourceResult;
       try {
         sourceResult = await customMgr.resolveSource(source, { skipInstall: true, silent: true });
-        s.stop(sourceResult.parsed.type === 'local' ? 'Local source resolved' : 'Repository cloned');
+        s.stop(sourceResult.parsed.type === 'local' ? 'Source locale résolue' : 'Dépôt cloné');
       } catch (error) {
-        s.error(`Failed to resolve ${source}`);
+        s.error(`Échec de la résolution de ${source}`);
         await prompts.log.error(`  ${error.message}`);
         continue;
       }
 
       const s2 = await prompts.spinner();
-      s2.start('Analyzing plugin structure...');
+      s2.start('Analyse de la structure du plugin...');
       const allResolved = [];
       const localPath = sourceResult.parsed.type === 'local' ? sourceResult.rootDir : null;
 
@@ -1345,7 +1345,7 @@ class UI {
             }
           }
         } catch (discoverError) {
-          s2.error('Failed to discover modules');
+          s2.error('Échec de la découverte des modules');
           await prompts.log.error(`  ${discoverError.message}`);
           continue;
         }
@@ -1379,12 +1379,12 @@ class UI {
           }
         }
       }
-      s2.stop(`Found ${allResolved.length} module${allResolved.length === 1 ? '' : 's'}`);
+      s2.stop(`${allResolved.length} module${allResolved.length === 1 ? '' : 's'} trouvé${allResolved.length === 1 ? '' : 's'}`);
 
       for (const mod of allResolved) {
         allCodes.push(mod.code);
         const versionStr = mod.version ? ` v${mod.version}` : '';
-        await prompts.log.info(`  Custom module: ${mod.name}${versionStr}`);
+        await prompts.log.info(`  Module personnalisé : ${mod.name}${versionStr}`);
       }
     }
 
@@ -1437,7 +1437,7 @@ class UI {
   async promptForDirectory() {
     // Use sync validation because @clack/prompts doesn't support async validate
     const directory = await prompts.text({
-      message: 'Installation directory:',
+      message: 'Répertoire d\'installation :',
       default: process.cwd(),
       placeholder: process.cwd(),
       validate: (input) => this.validateDirectorySync(input),
@@ -1459,7 +1459,7 @@ class UI {
    * @param {string} directory - The directory path
    */
   async displayDirectoryInfo(directory) {
-    await prompts.log.info(`Resolved installation path: ${directory}`);
+    await prompts.log.info(`Chemin d'installation résolu : ${directory}`);
 
     const dirExists = await fs.pathExists(directory);
     if (dirExists) {
@@ -1475,10 +1475,10 @@ class UI {
           const hasBmadInstall =
             (await fs.pathExists(bmadResult.bmadDir)) && (await fs.pathExists(path.join(bmadResult.bmadDir, '_config', 'manifest.yaml')));
 
-          const bmadNote = hasBmadInstall ? ` including existing BMAD installation (${path.basename(bmadResult.bmadDir)})` : '';
-          await prompts.log.message(`Directory exists and contains ${files.length} item(s)${bmadNote}`);
+          const bmadNote = hasBmadInstall ? ` incluant une installation BMAD existante (${path.basename(bmadResult.bmadDir)})` : '';
+          await prompts.log.message(`Le répertoire existe et contient ${files.length} élément(s)${bmadNote}`);
         } else {
-          await prompts.log.message('Directory exists and is empty');
+          await prompts.log.message('Le répertoire existe et est vide');
         }
       }
     }
@@ -1494,24 +1494,24 @@ class UI {
 
     if (dirExists) {
       const proceed = await prompts.confirm({
-        message: 'Install to this directory?',
+        message: 'Installer dans ce répertoire ?',
         default: true,
       });
 
       if (!proceed) {
-        await prompts.log.warn("Let's try again with a different path.");
+        await prompts.log.warn('Réessayons avec un chemin différent.');
       }
 
       return proceed;
     } else {
       // Ask for confirmation to create the directory
       const create = await prompts.confirm({
-        message: `Create directory: ${directory}?`,
+        message: `Créer le répertoire : ${directory} ?`,
         default: false,
       });
 
       if (!create) {
-        await prompts.log.warn("Let's try again with a different path.");
+        await prompts.log.warn('Réessayons avec un chemin différent.');
       }
 
       return create;
@@ -1544,7 +1544,7 @@ class UI {
       const existingParent = this.findExistingParentSync(expandedPath);
 
       if (!existingParent) {
-        return 'Cannot create directory: no existing parent directory found';
+        return 'Impossible de créer le répertoire : aucun répertoire parent existant trouvé';
       }
 
       // Check if the existing parent is writable
@@ -1554,21 +1554,21 @@ class UI {
         return;
       } catch {
         // Provide a detailed error message explaining both issues
-        return `Directory '${expandedPath}' does not exist and cannot be created: parent directory '${existingParent}' is not writable`;
+        return `Le répertoire '${expandedPath}' n'existe pas et ne peut pas être créé : le répertoire parent '${existingParent}' n'est pas accessible en écriture`;
       }
     }
 
     // If it exists, validate it's a directory and writable
     const stat = fs.statSync(expandedPath);
     if (!stat.isDirectory()) {
-      return `Path exists but is not a directory: ${expandedPath}`;
+      return `Le chemin existe mais n'est pas un répertoire : ${expandedPath}`;
     }
 
     // Check write permissions
     try {
       fs.accessSync(expandedPath, fs.constants.W_OK);
     } catch {
-      return `Directory is not writable: ${expandedPath}`;
+      return `Le répertoire n'est pas accessible en écriture : ${expandedPath}`;
     }
 
     return;
@@ -1600,7 +1600,7 @@ class UI {
       const existingParent = await this.findExistingParent(expandedPath);
 
       if (!existingParent) {
-        return 'Cannot create directory: no existing parent directory found';
+        return 'Impossible de créer le répertoire : aucun répertoire parent existant trouvé';
       }
 
       // Check if the existing parent is writable
@@ -1610,21 +1610,21 @@ class UI {
         return true;
       } catch {
         // Provide a detailed error message explaining both issues
-        return `Directory '${expandedPath}' does not exist and cannot be created: parent directory '${existingParent}' is not writable`;
+        return `Le répertoire '${expandedPath}' n'existe pas et ne peut pas être créé : le répertoire parent '${existingParent}' n'est pas accessible en écriture`;
       }
     }
 
     // If it exists, validate it's a directory and writable
     const stat = await fs.stat(expandedPath);
     if (!stat.isDirectory()) {
-      return `Path exists but is not a directory: ${expandedPath}`;
+      return `Le chemin existe mais n'est pas un répertoire : ${expandedPath}`;
     }
 
     // Check write permissions
     try {
       await fs.access(expandedPath, fs.constants.W_OK);
     } catch {
-      return `Directory is not writable: ${expandedPath}`;
+      return `Le répertoire n'est pas accessible en écriture : ${expandedPath}`;
     }
 
     return true;
@@ -1679,7 +1679,7 @@ class UI {
    */
   expandUserPath(inputPath) {
     if (typeof inputPath !== 'string') {
-      throw new TypeError('Path must be a string.');
+      throw new TypeError('Le chemin doit être une chaîne de caractères.');
     }
 
     let expanded = inputPath.trim();
@@ -1696,7 +1696,7 @@ class UI {
         const separatorIndex = restOfPath.indexOf(path.sep);
         const username = separatorIndex === -1 ? restOfPath : restOfPath.slice(0, separatorIndex);
         if (username) {
-          throw new Error(`Path expansion for ~${username} is not supported. Please use an absolute path or ~${path.sep}`);
+          throw new Error(`L'expansion du chemin pour ~${username} n'est pas prise en charge. Veuillez utiliser un chemin absolu ou ~${path.sep}`);
         }
       }
     }
@@ -1738,7 +1738,7 @@ class UI {
       lines.push(title);
       for (const mod of group) {
         const updateInfo = availableUpdates.find((u) => u.name === mod.name);
-        const versionDisplay = mod.version || 'unknown';
+        const versionDisplay = mod.version || 'inconnue';
         if (updateInfo) {
           lines.push(`  ${mod.name.padEnd(20)} ${versionDisplay} \u2192 ${updateInfo.latestVersion} \u2191`);
         } else {
@@ -1747,13 +1747,13 @@ class UI {
       }
     };
 
-    formatGroup(builtIn, 'Built-in Modules');
-    formatGroup(external, 'External Modules (Official)');
-    formatGroup(community, 'Community Modules');
-    formatGroup(custom, 'Custom Modules');
-    formatGroup(unknown, 'Other Modules');
+    formatGroup(builtIn, 'Modules intégrés');
+    formatGroup(external, 'Modules externes (officiels)');
+    formatGroup(community, 'Modules communautaires');
+    formatGroup(custom, 'Modules personnalisés');
+    formatGroup(unknown, 'Autres modules');
 
-    await prompts.note(lines.join('\n'), 'Module Versions');
+    await prompts.note(lines.join('\n'), 'Versions des modules');
   }
 
   /**
@@ -1766,7 +1766,7 @@ class UI {
       return [];
     }
 
-    await prompts.log.info('Available Updates');
+    await prompts.log.info('Mises \u00e0 jour disponibles');
 
     const choices = availableUpdates.map((update) => ({
       name: `${update.name} (v${update.installedVersion} \u2192 v${update.latestVersion})`,
@@ -1776,11 +1776,11 @@ class UI {
 
     // Add "Update All" and "Cancel" options
     const action = await prompts.select({
-      message: 'How would you like to proceed?',
+      message: 'Comment souhaitez-vous proc\u00e9der ?',
       choices: [
-        { name: 'Update all available modules', value: 'all' },
-        { name: 'Select specific modules to update', value: 'select' },
-        { name: 'Skip updates for now', value: 'skip' },
+        { name: 'Mettre \u00e0 jour tous les modules disponibles', value: 'all' },
+        { name: 'S\u00e9lectionner les modules sp\u00e9cifiques \u00e0 mettre \u00e0 jour', value: 'select' },
+        { name: 'Ignorer les mises \u00e0 jour pour l\'instant', value: 'skip' },
       ],
       default: 'all',
     });
@@ -1795,7 +1795,7 @@ class UI {
 
     // Allow specific selection
     const selected = await prompts.multiselect({
-      message: 'Select modules to update (use arrow keys, space to toggle):',
+      message: 'Sélectionner les modules à mettre à jour (flèches pour naviguer, espace pour basculer) :',
       choices: choices,
       required: true,
     });
@@ -1812,23 +1812,23 @@ class UI {
 
     // Installation info
     const infoLines = [
-      `Version:       ${installation.version || 'unknown'}`,
-      `Location:      ${bmadDir}`,
-      `Installed:     ${new Date(installation.installDate).toLocaleDateString()}`,
-      `Last Updated:  ${installation.lastUpdated ? new Date(installation.lastUpdated).toLocaleDateString() : 'unknown'}`,
+      `Version :         ${installation.version || 'inconnue'}`,
+      `Emplacement :     ${bmadDir}`,
+      `Installé le :     ${new Date(installation.installDate).toLocaleDateString()}`,
+      `Dernière MAJ :    ${installation.lastUpdated ? new Date(installation.lastUpdated).toLocaleDateString() : 'inconnue'}`,
     ];
 
-    await prompts.note(infoLines.join('\n'), 'BMAD Status');
+    await prompts.note(infoLines.join('\n'), 'État de BMAD');
 
     // Module versions
     await this.displayModuleVersions(modules, availableUpdates);
 
     // Update summary
     if (availableUpdates.length > 0) {
-      await prompts.log.warn(`${availableUpdates.length} update(s) available`);
-      await prompts.log.message('Run \'bmad install\' and select "Quick Update" to update');
+      await prompts.log.warn(`${availableUpdates.length} mise(s) à jour disponible(s)`);
+      await prompts.log.message('Exécutez \'bmad install\' et sélectionnez « Mise à jour rapide » pour mettre à jour');
     } else {
-      await prompts.log.success('All modules are up to date');
+      await prompts.log.success('Tous les modules sont à jour');
     }
   }
 
@@ -1848,7 +1848,7 @@ class UI {
       const marker = preferredValues.has(ideValue) ? ' \u2B50' : '';
       return `  \u2022 ${name}${marker}`;
     });
-    await prompts.log.message('Selected tools:\n' + toolLines.join('\n'));
+    await prompts.log.message('Outils sélectionnés :\n' + toolLines.join('\n'));
   }
 
   /**
@@ -1903,7 +1903,7 @@ class UI {
     if (channelSelectable.length === 0) return;
 
     const fastPath = await prompts.confirm({
-      message: `Ready to install (all stable)? Pick "n" to customize channels or pin versions.`,
+      message: `Prêt à installer (tout en stable) ? Choisissez « n » pour personnaliser les canaux ou épingler des versions.`,
       default: true,
     });
     if (fastPath) return; // stable for all, registry default applies
@@ -1916,13 +1916,13 @@ class UI {
       const repoUrl = info.url;
 
       // Try to pre-resolve the top stable tag so we can surface it in the picker.
-      let stableLabel = 'stable (released version)';
+      let stableLabel = 'stable (version publi\u00e9e)';
       try {
         const parsed = repoUrl ? parseGitHubRepo(repoUrl) : null;
         if (parsed) {
           const tags = await fetchStableTags(parsed.owner, parsed.repo);
           if (tags.length > 0) {
-            stableLabel = `stable  ${tags[0].tag}  (released version)`;
+            stableLabel = `stable  ${tags[0].tag}  (version publi\u00e9e)`;
           }
         }
       } catch {
@@ -1930,11 +1930,11 @@ class UI {
       }
 
       const choice = await prompts.select({
-        message: `${code}: choose a channel`,
+        message: `${code} : choisissez un canal`,
         choices: [
           { name: stableLabel, value: 'stable' },
-          { name: 'next   (main HEAD \u2014 current development)', value: 'next' },
-          { name: 'pin    (specific version)', value: 'pin' },
+          { name: 'next   (main HEAD \u2014 d\u00e9veloppement en cours)', value: 'next' },
+          { name: 'pin    (version sp\u00e9cifique)', value: 'pin' },
         ],
         default: 'stable',
       });
@@ -1943,10 +1943,10 @@ class UI {
         channelOptions.nextSet.add(code);
       } else if (choice === 'pin') {
         const pinValue = await prompts.text({
-          message: `Enter a version tag for '${code}' (e.g. v1.6.0):`,
+          message: `Saisissez un tag de version pour '${code}' (ex. v1.6.0) :`,
           validate: (value) => {
             if (!value || !/^[\w.\-+/]+$/.test(String(value).trim())) {
-              return 'Must be a non-empty tag name (letters, digits, dots, hyphens).';
+              return 'Doit \u00eatre un nom de tag non vide (lettres, chiffres, points, tirets).';
             }
           },
         });
@@ -2008,7 +2008,7 @@ class UI {
       });
       if (existingWithChannel.length > 0) {
         reviewChannels = await prompts.confirm({
-          message: 'Review channel assignments (stable / next / pin) for your existing modules?',
+          message: 'Vérifier les assignations de canaux (stable / next / pin) pour vos modules existants ?',
           default: false,
         });
       }
@@ -2038,10 +2038,10 @@ class UI {
           continue;
         }
         const chosen = await prompts.select({
-          message: `${code}: your existing install tracks the main branch. Switch to stable releases (recommended for production), or keep on main?`,
+          message: `${code} : votre installation existante suit la branche main. Passer aux versions stables (recommandé en production), ou rester sur main ?`,
           choices: [
-            { name: 'Switch to stable', value: 'stable' },
-            { name: 'Keep on main (next)', value: 'next' },
+            { name: 'Passer en stable', value: 'stable' },
+            { name: 'Rester sur main (next)', value: 'next' },
           ],
           default: 'stable',
         });
@@ -2056,20 +2056,20 @@ class UI {
       if (reviewChannels && recordedChannel) {
         const switchChoices = [
           {
-            name: `Keep on '${recordedChannel}'${prev.version ? ` @ ${prev.version}` : ''}`,
+            name: `Conserver '${recordedChannel}'${prev.version ? ` @ ${prev.version}` : ''}`,
             value: 'keep',
           },
         ];
         if (recordedChannel !== 'stable') {
-          switchChoices.push({ name: 'Switch to stable (released version)', value: 'stable' });
+          switchChoices.push({ name: 'Passer en stable (version publiée)', value: 'stable' });
         }
         if (recordedChannel !== 'next') {
-          switchChoices.push({ name: 'Switch to next (main HEAD)', value: 'next' });
+          switchChoices.push({ name: 'Passer en next (main HEAD)', value: 'next' });
         }
-        switchChoices.push({ name: 'Pin to a specific version tag', value: 'pin' });
+        switchChoices.push({ name: 'Épingler à un tag de version spécifique', value: 'pin' });
 
         const choice = await prompts.select({
-          message: `${code} channel:`,
+          message: `Canal pour ${code} :`,
           choices: switchChoices,
           default: 'keep',
         });
@@ -2080,10 +2080,10 @@ class UI {
         }
         if (choice === 'pin') {
           const pinValue = await prompts.text({
-            message: `Enter a version tag for '${code}' (e.g. v1.6.0):`,
+            message: `Saisissez un tag de version pour '${code}' (ex. v1.6.0) :`,
             validate: (value) => {
               if (!value || !/^[\w.\-+/]+$/.test(String(value).trim())) {
-                return 'Must be a non-empty tag name (letters, digits, dots, hyphens).';
+                return 'Doit être un nom de tag non vide (lettres, chiffres, points, tirets).';
               }
             },
           });
@@ -2138,7 +2138,7 @@ class UI {
       try {
         tags = await fetchStableTags(parsed.owner, parsed.repo);
       } catch (error) {
-        await prompts.log.warn(`Could not check for updates on ${code} (${error.message}). Leaving at ${prev.version}.`);
+        await prompts.log.warn(`Impossible de vérifier les mises à jour de ${code} (${error.message}). Maintien sur ${prev.version}.`);
         if (prev.version) channelOptions.pins.set(code, prev.version);
         continue;
       }
@@ -2155,17 +2155,17 @@ class UI {
         if (yes) {
           // Major under --yes is refused by design.
           await prompts.log.warn(
-            `${code} ${currentTag} → ${topTag} is a new major release; staying on ${currentTag}. ` +
-              `To accept, rerun with --pin ${code}=${topTag}.`,
+            `${code} ${currentTag} → ${topTag} est une nouvelle version majeure ; maintien sur ${currentTag}. ` +
+              `Pour accepter, relancez avec --pin ${code}=${topTag}.`,
           );
           channelOptions.pins.set(code, currentTag);
           continue;
         }
         accept = await prompts.confirm({
           message:
-            `${code} ${topTag} available — new major release (may change behavior).` +
-            (notes ? ` Release notes: ${notes}.` : '') +
-            ' Upgrade?',
+            `${code} ${topTag} disponible — nouvelle version majeure (peut modifier le comportement).` +
+            (notes ? ` Notes de version : ${notes}.` : '') +
+            ' Mettre à niveau ?',
           default: false,
         });
       } else if (diffClass === 'minor') {
@@ -2173,7 +2173,7 @@ class UI {
           accept = true;
         } else {
           accept = await prompts.confirm({
-            message: `${code} ${topTag} available (new features).` + (notes ? ` Release notes: ${notes}.` : '') + ' Upgrade?',
+            message: `${code} ${topTag} disponible (nouvelles fonctionnalités).` + (notes ? ` Notes de version : ${notes}.` : '') + ' Mettre à niveau ?',
             default: true,
           });
         }
@@ -2183,7 +2183,7 @@ class UI {
           accept = true;
         } else {
           accept = await prompts.confirm({
-            message: `${code} ${topTag} available. Upgrade?`,
+            message: `${code} ${topTag} disponible. Mettre à niveau ?`,
             default: true,
           });
         }

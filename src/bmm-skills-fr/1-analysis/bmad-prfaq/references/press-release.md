@@ -1,60 +1,60 @@
 **Language:** Use `{communication_language}` for all output.
 **Output Language:** Use `{document_output_language}` for documents.
 **Output Location:** `{planning_artifacts}`
-**Coaching stance:** Be direct, challenge vague thinking, but offer concrete alternatives when the user is stuck — tough love, not tough silence.
+**Posture de coaching :** Sois direct, conteste les pensées vagues, mais propose des alternatives concrètes lorsque l'utilisateur est bloqué — tough love, pas tough silence.
 
-# Stage 2: The Press Release
+# Étape 2 : Le Communiqué de Presse
 
-**Goal:** Produce a press release that would make a real customer stop scrolling and pay attention. Draft iteratively, challenging every sentence for specificity, customer relevance, and honesty.
+**Objectif :** Produire un communiqué de presse qui ferait stopper le scroll d'un véritable client et capter son attention. Rédiger de façon itérative, en challengeant chaque phrase sur la spécificité, la pertinence client et l'honnêteté.
 
-**Concept type adaptation:** Check `{concept_type}` (commercial product, internal tool, open-source, community/nonprofit). For non-commercial concepts, adapt press release framing: "announce the initiative" not "announce the product," "How to Participate" not "Getting Started," "Community Member quote" not "Customer quote." The structure stays — the language shifts to match the audience.
+**Adaptation au type de concept :** Vérifier `{concept_type}` (produit commercial, outil interne, open-source, communauté/à but non lucratif). Pour les concepts non commerciaux, adapter le cadrage du communiqué de presse : « annoncer l'initiative » plutôt que « annoncer le produit », « Comment participer » plutôt que « Pour commencer », « Citation membre de la communauté » plutôt que « Citation client ». La structure reste — la langue s'adapte au public.
 
-## The Forge
+## La Forge
 
-The press release is the heart of Working Backwards. It has a specific structure, and each part earns its place by forcing a different type of clarity:
+Le communiqué de presse est le cœur de Working Backwards. Il a une structure spécifique, et chaque partie gagne sa place en imposant un type différent de clarté :
 
-| Section | What It Forces |
-|---------|---------------|
-| **Headline** | Can you say what this is in one sentence a customer would understand? |
-| **Subheadline** | Who benefits and what changes for them? |
-| **Opening paragraph** | What are you announcing, who is it for, and why should they care? |
-| **Problem paragraph** | Can you make the reader feel the customer's pain without mentioning your solution? |
-| **Solution paragraph** | What changes for the customer? (Not: what did you build.) |
-| **Leader quote** | What's the vision beyond the feature list? |
-| **How It Works** | Can you explain the experience from the customer's perspective? |
-| **Customer quote** | Would a real person say this? Does it sound human? |
-| **Getting Started** | Is the path to value clear and concrete? |
+| Section | Ce qu'elle impose |
+|---------|-------------------|
+| **Headline** | Peux-tu dire ce qu'est ceci en une phrase qu'un client comprendrait ? |
+| **Sous-titre** | Qui en bénéficie et qu'est-ce qui change pour eux ? |
+| **Paragraphe d'ouverture** | Qu'annonces-tu, à qui s'adresse-t-il, et pourquoi devraient-ils s'en soucier ? |
+| **Paragraphe problème** | Peux-tu faire ressentir au lecteur la douleur du client sans mentionner ta solution ? |
+| **Paragraphe solution** | Qu'est-ce qui change pour le client ? (Pas : ce que tu as construit.) |
+| **Citation du leader** | Quelle est la vision au-delà de la liste des fonctionnalités ? |
+| **Comment ça fonctionne** | Peux-tu expliquer l'expérience du point de vue du client ? |
+| **Citation client** | Une vraie personne dirait-elle cela ? Est-ce que ça sonne humain ? |
+| **Pour commencer** | Le chemin vers la valeur est-il clair et concret ? |
 
-## Coaching Approach
+## Approche de coaching
 
-The coaching dynamic: draft each section yourself first, then model critical thinking by challenging your own draft out loud before inviting the user to sharpen it. Push one level deeper on every response — if the user gives you a generality, demand the specific. The cycle is: draft → self-challenge → invite → deepen.
+La dynamique de coaching : rédige toi-même chaque section en premier, puis modélise la pensée critique en challengeant ton propre brouillon à voix haute avant d'inviter l'utilisateur à l'affûter. Pousse d'un cran plus en profondeur à chaque réponse — si l'utilisateur te donne une généralité, exige le spécifique. Le cycle est : rédiger → s'auto-challenger → inviter → approfondir.
 
-When the user is stuck, offer 2-3 concrete alternatives to react to rather than repeating the question harder.
+Quand l'utilisateur est bloqué, propose 2-3 alternatives concrètes auxquelles réagir plutôt que de répéter la question avec plus d'insistance.
 
-## Quality Bars
+## Critères de qualité
 
-These are the standards to hold the press release to. Don't enumerate them to the user — embody them in your challenges:
+Voici les standards à imposer au communiqué de presse. Ne les énumère pas à l'utilisateur — incarne-les dans tes challenges :
 
-- **No jargon** — If a customer wouldn't use the word, neither should the press release
-- **No weasel words** — "significantly", "revolutionary", "best-in-class" are banned. Replace with specifics.
-- **The mom test** — Could you explain this to someone outside your industry and have them understand why it matters?
-- **The "so what?" test** — Every sentence should survive "so what?" If it can't, cut or sharpen it.
-- **Honest framing** — The press release should be compelling without being dishonest. If you're overselling, the customer FAQ will expose it.
+- **Pas de jargon** — Si un client n'utiliserait pas le mot, le communiqué de presse non plus
+- **Pas de mots flous** — « significativement », « révolutionnaire », « best-in-class » sont bannis. Remplace-les par du spécifique.
+- **Le mom test** — Pourrais-tu expliquer ceci à quelqu'un en dehors de ton industrie et lui faire comprendre pourquoi c'est important ?
+- **Le test du « so what ? »** — Chaque phrase devrait survivre à un « so what ? ». Si elle ne le peut pas, coupe ou affûte.
+- **Cadrage honnête** — Le communiqué de presse doit être convaincant sans être malhonnête. Si tu sur-vends, la Customer FAQ l'exposera.
 
-## Headless Mode
+## Mode Headless
 
-If running headless: draft the complete press release based on available inputs without interaction. Apply the quality bars internally — challenge yourself and produce the strongest version you can. Write directly to the output document.
+Si exécuté en mode headless : rédige le communiqué de presse complet à partir des entrées disponibles, sans interaction. Applique les critères de qualité en interne — challenge-toi toi-même et produis la version la plus solide possible. Écris directement dans le document de sortie.
 
-## Updating the Document
+## Mise à jour du document
 
-After each section is refined, append it to the output document at `{planning_artifacts}/prfaq-{project_name}.md`. Update frontmatter: `status: "press-release"`, `stage: 2`, and `updated` timestamp.
+Après que chaque section a été affinée, ajoute-la au document de sortie à `{planning_artifacts}/prfaq-{project_name}.md`. Mets à jour le frontmatter : `status: "press-release"`, `stage: 2`, et l'horodatage `updated`.
 
-## Coaching Notes Capture
+## Capture des notes de coaching
 
-Before moving on, append a brief `<!-- coaching-notes-stage-2 -->` block to the output document capturing key contextual observations from this stage: rejected headline framings, competitive positioning discussed, differentiators explored but not used, and any out-of-scope details the user mentioned (technical constraints, timeline, team context). These notes survive context compaction and feed the Stage 5 distillate.
+Avant de passer à l'étape suivante, ajoute un bloc `<!-- coaching-notes-stage-2 -->` au document de sortie pour capturer les observations contextuelles clés de cette étape : cadrages de headline rejetés, positionnement concurrentiel discuté, différenciateurs explorés mais non retenus, et tout détail hors-périmètre mentionné par l'utilisateur (contraintes techniques, calendrier, contexte d'équipe). Ces notes survivent à la compaction du contexte et alimentent le distillat de l'Étape 5.
 
-## Stage Complete
+## Étape complétée
 
-This stage is complete when the full press release reads as a coherent, compelling announcement that a real customer would find relevant. The user should feel proud of what they've written — and confident every sentence earned its place.
+Cette étape est complétée quand le communiqué de presse complet se lit comme une annonce cohérente et convaincante, qu'un véritable client jugerait pertinente. L'utilisateur devrait être fier de ce qu'il a écrit — et confiant que chaque phrase a gagné sa place.
 
-Route to `./customer-faq.md`.
+Router vers `./customer-faq.md`.

@@ -6,14 +6,14 @@ const { BMAD_FOLDER_NAME } = require('../ide/shared/path-utils');
 class InstallPaths {
   static async create(config) {
     const srcDir = getProjectRoot();
-    await assertReadableDir(srcDir, 'BMAD source root');
+    await assertReadableDir(srcDir, 'racine source BMAD');
 
     const pkgPath = path.join(srcDir, 'package.json');
     await assertReadableFile(pkgPath, 'package.json');
     const version = require(pkgPath).version;
 
     const projectRoot = path.resolve(config.directory);
-    await ensureWritableDir(projectRoot, 'project root');
+    await ensureWritableDir(projectRoot, 'racine du projet');
 
     const bmadDir = path.join(projectRoot, BMAD_FOLDER_NAME);
     const isUpdate = await fs.pathExists(bmadDir);
@@ -24,11 +24,11 @@ class InstallPaths {
     const customDir = path.join(bmadDir, 'custom');
 
     for (const [dir, label] of [
-      [bmadDir, 'bmad directory'],
-      [configDir, 'config directory'],
-      [coreDir, 'core module directory'],
-      [scriptsDir, 'shared scripts directory'],
-      [customDir, 'customizations directory'],
+      [bmadDir, 'répertoire bmad'],
+      [configDir, 'répertoire de configuration'],
+      [coreDir, 'répertoire du module core'],
+      [scriptsDir, 'répertoire des scripts partagés'],
+      [customDir, 'répertoire des personnalisations'],
     ]) {
       await ensureWritableDir(dir, label);
     }
@@ -77,55 +77,55 @@ class InstallPaths {
 async function assertReadableDir(dirPath, label) {
   const stat = await fs.stat(dirPath).catch(() => null);
   if (!stat) {
-    throw new Error(`${label} does not exist: ${dirPath}`);
+    throw new Error(`${label} n'existe pas : ${dirPath}`);
   }
   if (!stat.isDirectory()) {
-    throw new Error(`${label} is not a directory: ${dirPath}`);
+    throw new Error(`${label} n'est pas un répertoire : ${dirPath}`);
   }
   try {
     await fs.access(dirPath, fs.constants.R_OK);
   } catch {
-    throw new Error(`${label} is not readable: ${dirPath}`);
+    throw new Error(`${label} n'est pas lisible : ${dirPath}`);
   }
 }
 
 async function assertReadableFile(filePath, label) {
   const stat = await fs.stat(filePath).catch(() => null);
   if (!stat) {
-    throw new Error(`${label} does not exist: ${filePath}`);
+    throw new Error(`${label} n'existe pas : ${filePath}`);
   }
   if (!stat.isFile()) {
-    throw new Error(`${label} is not a file: ${filePath}`);
+    throw new Error(`${label} n'est pas un fichier : ${filePath}`);
   }
   try {
     await fs.access(filePath, fs.constants.R_OK);
   } catch {
-    throw new Error(`${label} is not readable: ${filePath}`);
+    throw new Error(`${label} n'est pas lisible : ${filePath}`);
   }
 }
 
 async function ensureWritableDir(dirPath, label) {
   const stat = await fs.stat(dirPath).catch(() => null);
   if (stat && !stat.isDirectory()) {
-    throw new Error(`${label} exists but is not a directory: ${dirPath}`);
+    throw new Error(`${label} existe mais n'est pas un répertoire : ${dirPath}`);
   }
 
   try {
     await fs.ensureDir(dirPath);
   } catch (error) {
     if (error.code === 'EACCES') {
-      throw new Error(`${label}: permission denied creating directory: ${dirPath}`);
+      throw new Error(`${label} : permission refusée lors de la création du répertoire : ${dirPath}`);
     }
     if (error.code === 'ENOSPC') {
-      throw new Error(`${label}: no space left on device: ${dirPath}`);
+      throw new Error(`${label} : plus d'espace disponible sur le périphérique : ${dirPath}`);
     }
-    throw new Error(`${label}: cannot create directory: ${dirPath} (${error.message})`);
+    throw new Error(`${label} : impossible de créer le répertoire : ${dirPath} (${error.message})`);
   }
 
   try {
     await fs.access(dirPath, fs.constants.R_OK | fs.constants.W_OK);
   } catch {
-    throw new Error(`${label} is not writable: ${dirPath}`);
+    throw new Error(`${label} n'est pas accessible en écriture : ${dirPath}`);
   }
 }
 

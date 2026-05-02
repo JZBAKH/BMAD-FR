@@ -6,16 +6,16 @@ status: 'draft' # draft | ready-for-dev | in-progress | in-review | done
 context: [] # optional: `{project-root}/`-prefixed paths to project-wide standards/docs the implementation agent should load. Keep short — only what isn't already distilled into the spec body.
 ---
 
-<!-- Target: 900–1300 tokens. Above 1600 = high risk of context rot.
-     Never over-specify "how" — use boundaries + examples instead.
-     Cohesive cross-layer stories (DB+BE+UI) stay in ONE file.
-     IMPORTANT: Remove all HTML comments when filling this template. -->
+<!-- Cible : 900–1300 tokens. Au-delà de 1600 = risque élevé de pourriture du contexte.
+     Ne sur-spécifiez jamais le « comment » — utilisez plutôt limites + exemples.
+     Les stories cohésives multi-couches (DB+BE+UI) restent dans UN SEUL fichier.
+     IMPORTANT : Supprimez tous les commentaires HTML lors du remplissage de ce gabarit. -->
 
 <frozen-after-approval reason="human-owned intent — do not modify unless human renegotiates">
 
 ## Intent
 
-<!-- What is broken or missing, and why it matters. Then the high-level approach — the "what", not the "how". -->
+<!-- Ce qui est cassé ou manquant, et pourquoi cela importe. Puis l'approche de haut niveau — le « quoi », pas le « comment ». -->
 
 **Problem:** ONE_TO_TWO_SENTENCES
 
@@ -23,18 +23,18 @@ context: [] # optional: `{project-root}/`-prefixed paths to project-wide standar
 
 ## Boundaries & Constraints
 
-<!-- Three tiers: Always = invariant rules. Ask First = human-gated decisions. Never = out of scope + forbidden approaches. -->
+<!-- Trois niveaux : Always = règles invariantes. Ask First = décisions soumises à l'humain. Never = hors périmètre + approches interdites. -->
 
 **Always:** INVARIANT_RULES
 
 **Ask First:** DECISIONS_REQUIRING_HUMAN_APPROVAL
-<!-- Agent: if any of these trigger during execution, HALT and ask the user before proceeding. -->
+<!-- Agent : si l'un de ces points se déclenche pendant l'exécution, HALT et demandez à l'utilisateur avant de poursuivre. -->
 
 **Never:** NON_GOALS_AND_FORBIDDEN_APPROACHES
 
 ## I/O & Edge-Case Matrix
 
-<!-- If no meaningful I/O scenarios exist, DELETE THIS ENTIRE SECTION. Do not write "N/A" or "None". -->
+<!-- S'il n'existe aucun scénario d'E/S significatif, SUPPRIMEZ TOUTE CETTE SECTION. N'écrivez pas « N/A » ni « None ». -->
 
 | Scenario | Input / State | Expected Output / Behavior | Error Handling |
 |----------|--------------|---------------------------|----------------|
@@ -45,16 +45,16 @@ context: [] # optional: `{project-root}/`-prefixed paths to project-wide standar
 
 ## Code Map
 
-<!-- Agent-populated during planning. Annotated paths prevent blind codebase searching. -->
+<!-- Rempli par l'agent pendant la planification. Les chemins annotés évitent les recherches aveugles dans le codebase. -->
 
 - `FILE` -- ROLE_OR_RELEVANCE
 - `FILE` -- ROLE_OR_RELEVANCE
 
 ## Tasks & Acceptance
 
-<!-- Tasks: backtick-quoted file path -- action -- rationale. Prefer one task per file; group tightly-coupled changes when splitting would be artificial. -->
-<!-- If an I/O Matrix is present, include a task to unit-test its edge cases. -->
-<!-- AC covers system-level behaviors not captured by the I/O Matrix. Do not duplicate I/O scenarios here. -->
+<!-- Tâches : chemin de fichier entre backticks -- action -- justification. Préférez une tâche par fichier ; regroupez les changements fortement couplés lorsque les séparer serait artificiel. -->
+<!-- Si une matrice d'E/S est présente, incluez une tâche pour tester unitairement ses cas limites. -->
+<!-- Les CA couvrent les comportements de niveau système non capturés par la matrice d'E/S. Ne dupliquez pas les scénarios d'E/S ici. -->
 
 **Execution:**
 - [ ] `FILE` -- ACTION -- RATIONALE
@@ -64,22 +64,22 @@ context: [] # optional: `{project-root}/`-prefixed paths to project-wide standar
 
 ## Spec Change Log
 
-<!-- Append-only. Populated by step-04 during review loops. Do not modify or delete existing entries.
-     Each entry records: what finding triggered the change, what was amended, what known-bad state
-     the amendment avoids, and any KEEP instructions (what worked well and must survive re-derivation).
-     Empty until the first bad_spec loopback. -->
+<!-- En ajout uniquement. Rempli par step-04 pendant les boucles de revue. Ne modifiez ni ne supprimez les entrées existantes.
+     Chaque entrée enregistre : quel constat a déclenché le changement, ce qui a été amendé, quel état connu-mauvais
+     l'amendement évite, et toutes les instructions KEEP (ce qui a bien fonctionné et doit survivre à une re-dérivation).
+     Vide jusqu'au premier loopback bad_spec. -->
 
 ## Design Notes
 
-<!-- If the approach is straightforward, DELETE THIS ENTIRE SECTION. Do not write "N/A" or "None". -->
-<!-- Design rationale and golden examples only when non-obvious. Keep examples to 5–10 lines. -->
+<!-- Si l'approche est simple, SUPPRIMEZ TOUTE CETTE SECTION. N'écrivez pas « N/A » ni « None ». -->
+<!-- Justification du design et exemples canoniques uniquement lorsque non évident. Limitez les exemples à 5–10 lignes. -->
 
 DESIGN_RATIONALE_AND_EXAMPLES
 
 ## Verification
 
-<!-- If no build, test, or lint commands apply, DELETE THIS ENTIRE SECTION. Do not write "N/A" or "None". -->
-<!-- How the agent confirms its own work. Prefer CLI commands. When no CLI check applies, state what to inspect manually. -->
+<!-- Si aucune commande de build, test ou lint ne s'applique, SUPPRIMEZ TOUTE CETTE SECTION. N'écrivez pas « N/A » ni « None ». -->
+<!-- Comment l'agent confirme son propre travail. Préférez les commandes CLI. Lorsqu'aucune vérification CLI ne s'applique, indiquez ce qu'il faut inspecter manuellement. -->
 
 **Commands:**
 - `COMMAND` -- expected: SUCCESS_CRITERIA

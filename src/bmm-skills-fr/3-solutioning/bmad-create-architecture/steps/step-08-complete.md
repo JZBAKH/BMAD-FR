@@ -1,35 +1,35 @@
-# Étape 8 : Finalisation de l'Architecture & Transition
+# Étape 8 : Finalisation de l'architecture et transmission
 
 ## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-- 🛑 NE JAMAIS générer de contenu sans l'intervention de l'utilisateur
+- 🛑 NE JAMAIS générer de contenu sans intervention de l'utilisateur
 
-- 📖 CRITIQUE : TOUJOURS lire l'intégralité du fichier d'étape avant d'entreprendre toute action — une compréhension partielle mène à des décisions incomplètes
-- ✅ TOUJOURS traiter cela comme une finalisation collaborative entre pairs architectes
+- 📖 CRITIQUE : TOUJOURS lire le fichier d'étape complet avant toute action — une compréhension partielle conduit à des décisions incomplètes
+- ✅ TOUJOURS traiter cela comme une finalisation collaborative entre pairs architecturaux
 - 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
-- 💬 CONCENTREZ-VOUS sur la finalisation réussie du workflow et la transition vers l'implémentation
-- 🎯 FOURNIR des prochaines étapes claires pour la phase d'implémentation
-- ⚠️ ABSOLUMENT AUCUNE ESTIMATION DE TEMPS — la vitesse de développement de l'IA a fondamentalement changé
-- ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'agent avec la configuration `{communication_language}`
+- 💬 CONCENTREZ-VOUS sur la réussite de la finalisation du workflow et la transmission de l'implémentation
+- 🎯 FOURNISSEZ des prochaines étapes claires pour la phase d'implémentation
+- ⚠️ ABSOLUMENT AUCUNE ESTIMATION DE TEMPS — la vitesse de développement IA a fondamentalement changé
+- ✅ VOUS DEVEZ TOUJOURS PARLER EN SORTIE selon le style de communication de votre Agent avec la config `{communication_language}`
 
 ## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Afficher votre analyse avant d'entreprendre toute action
-- 🎯 Présenter le résumé de finalisation et les conseils d'implémentation
-- 📖 Mettre à jour le frontmatter avec l'état final du workflow
+- 🎯 Présentez votre analyse avant toute action
+- 🎯 Présentez le résumé de finalisation et les conseils d'implémentation
+- 📖 Mettez à jour le frontmatter avec l'état final du workflow
 - 🚫 CECI EST L'ÉTAPE FINALE DE CE WORKFLOW
 
 ## VOTRE TÂCHE :
 
-Finaliser le workflow d'architecture, fournir un résumé de finalisation complet et guider l'utilisateur vers la prochaine phase de développement de son projet.
+Finalisez le workflow d'architecture, fournissez un résumé exhaustif de finalisation, et guidez l'utilisateur vers la phase suivante du développement de son projet.
 
 ## SÉQUENCE DE FINALISATION :
 
-### 1. Féliciter l'Utilisateur pour la Finalisation
+### 1. Féliciter l'utilisateur pour la finalisation
 
-Vous et l'utilisateur avez accompli quelque chose de formidable ici — donnez un résumé de ce que vous avez réalisé ensemble et félicitez vraiment l'utilisateur pour le travail bien fait.
+Vous et l'utilisateur avez accompli quelque chose de remarquable ici — donnez un résumé de ce que vous avez réalisé ensemble et félicitez vraiment l'utilisateur pour le travail bien fait.
 
-### 2. Mettre à Jour le frontmatter du document créé
+### 2. Mettre à jour le frontmatter du document créé
 
 ```yaml
 stepsCompleted: [1, 2, 3, 4, 5, 6, 7, 8]
@@ -39,38 +39,44 @@ status: 'complete'
 completedAt: '{{current_date}}'
 ```
 
-### 3. Conseils pour les Prochaines Étapes
+### 3. Conseils sur les prochaines étapes
 
-Architecture finalisée. Invoquez le skill `bmad-help`.
+Architecture terminée. Invoquez le skill `bmad-help`.
 
-À la finalisation de la sortie de la tâche : proposer de répondre à toutes les questions concernant le Document d'Architecture.
+À la finalisation de la sortie de la tâche : proposez de répondre à toute question sur le Document d'architecture.
 
 
 ## INDICATEURS DE RÉUSSITE :
 
 ✅ Document d'architecture complet livré avec toutes les sections
 ✅ Toutes les décisions architecturales documentées et validées
-✅ Modèles d'implémentation et règles de cohérence finalisés
+✅ Patterns d'implémentation et règles de cohérence finalisés
 ✅ Structure du projet complète avec tous les fichiers et répertoires
-✅ Utilisateur fourni avec des prochaines étapes claires et des conseils d'implémentation
-✅ État du workflow correctement mis à jour
-✅ Collaboration utilisateur maintenue tout au long du processus de finalisation
+✅ Utilisateur muni de prochaines étapes claires et de conseils d'implémentation
+✅ Statut du workflow correctement mis à jour
+✅ Collaboration avec l'utilisateur maintenue tout au long du processus de finalisation
 
 ## MODES D'ÉCHEC :
 
 ❌ Ne pas fournir de conseils d'implémentation clairs
-❌ Manquer la validation finale de l'exhaustivité du document
-❌ Ne pas mettre à jour l'état du workflow de manière appropriée
-❌ Ne pas célébrer la finalisation réussie
+❌ Validation finale manquante de la complétude du document
+❌ Ne pas mettre à jour le statut du workflow correctement
+❌ Échouer à célébrer la finalisation réussie
 ❌ Ne pas fournir de prochaines étapes spécifiques pour l'utilisateur
-❌ Précipiter la finalisation sans résumé approprié
+❌ Précipiter la finalisation sans résumé adéquat
 
-❌ **CRITIQUE** : Lecture partielle du fichier d'étape — mène à une compréhension incomplète et à de mauvaises décisions
-❌ **CRITIQUE** : Continuer avec 'C' sans lire et comprendre intégralement le prochain fichier d'étape
-❌ **CRITIQUE** : Prendre des décisions sans une compréhension complète des exigences et des protocoles de l'étape
+❌ **CRITIQUE** : Lire seulement partiellement le fichier d'étape — conduit à une compréhension incomplète et à de mauvaises décisions
+❌ **CRITIQUE** : Procéder avec 'C' sans lire et comprendre pleinement le fichier de l'étape suivante
+❌ **CRITIQUE** : Prendre des décisions sans compréhension complète des exigences et protocoles de l'étape
 
 ## WORKFLOW TERMINÉ :
 
-Ceci est l'étape finale du workflow d'Architecture. L'utilisateur dispose maintenant d'un document d'architecture complet et validé, prêt pour l'implémentation par les agents IA.
+C'est l'étape finale du workflow Architecture. L'utilisateur dispose désormais d'un document d'architecture complet et validé, prêt pour l'implémentation par l'agent IA.
 
 L'architecture servira de source unique de vérité pour toutes les décisions techniques, garantissant une implémentation cohérente sur l'ensemble du cycle de développement du projet.
+
+## À la finalisation
+
+Exécutez : `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete`
+
+Si le `workflow.on_complete` résolu est non vide, suivez-le comme instruction terminale finale avant de quitter.

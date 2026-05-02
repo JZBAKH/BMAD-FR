@@ -1,49 +1,49 @@
 ---
 ---
 
-# Step 3: Triage
+# Étape 3 : Triage
 
-## RULES
+## RÈGLES
 
-- YOU MUST ALWAYS SPEAK OUTPUT in your Agent communication style with the config `{communication_language}`
-- Be precise. When uncertain between categories, prefer the more conservative classification.
+- VOUS DEVEZ TOUJOURS RÉPONDRE EN SORTIE dans le style de communication de votre Agent avec la config `{communication_language}`
+- Soyez précis. En cas d'incertitude entre catégories, préférez la classification la plus conservatrice.
 
 ## INSTRUCTIONS
 
-1. **Normalize** findings into a common format. Expected input formats:
-   - Adversarial (Blind Hunter): markdown list of descriptions
-   - Edge Case Hunter: JSON array with `location`, `trigger_condition`, `guard_snippet`, `potential_consequence` fields
-   - Acceptance Auditor: markdown list with title, AC/constraint reference, and evidence
+1. **Normalisez** les constats dans un format commun. Formats d'entrée attendus :
+   - Adversarial (Blind Hunter) : liste Markdown de descriptions
+   - Edge Case Hunter : tableau JSON avec champs `location`, `trigger_condition`, `guard_snippet`, `potential_consequence`
+   - Acceptance Auditor : liste Markdown avec titre, référence CA/contrainte et preuve
 
-   If a layer's output does not match its expected format, attempt best-effort parsing. Note any parsing issues for the user.
+   Si la sortie d'une couche ne correspond pas à son format attendu, tentez un parsing au mieux. Notez tout problème de parsing pour l'utilisateur.
 
-   Convert all to a unified list where each finding has:
-   - `id` -- sequential integer
-   - `source` -- `blind`, `edge`, `auditor`, or merged sources (e.g., `blind+edge`)
-   - `title` -- one-line summary
-   - `detail` -- full description
-   - `location` -- file and line reference (if available)
+   Convertissez tout en une liste unifiée où chaque constat possède :
+   - `id` -- entier séquentiel
+   - `source` -- `blind`, `edge`, `auditor`, ou sources fusionnées (par exemple, `blind+edge`)
+   - `title` -- résumé d'une ligne
+   - `detail` -- description complète
+   - `location` -- référence fichier et ligne (si disponible)
 
-2. **Deduplicate.** If two or more findings describe the same issue, merge them into one:
-   - Use the most specific finding as the base (prefer edge-case JSON with location over adversarial prose).
-   - Append any unique detail, reasoning, or location references from the other finding(s) into the surviving `detail` field.
-   - Set `source` to the merged sources (e.g., `blind+edge`).
+2. **Dédupliquez.** Si deux constats ou plus décrivent le même problème, fusionnez-les en un seul :
+   - Utilisez le constat le plus spécifique comme base (préférez le JSON edge-case avec localisation à la prose adversarial).
+   - Ajoutez tout détail, raisonnement ou référence de localisation unique du ou des autres constats dans le champ `detail` survivant.
+   - Définissez `source` aux sources fusionnées (par exemple, `blind+edge`).
 
-3. **Classify** each finding into exactly one bucket:
-   - **decision_needed** -- There is an ambiguous choice that requires human input. The code cannot be correctly patched without knowing the user's intent. Only possible if `{review_mode}` = `"full"`.
-   - **patch** -- Code issue that is fixable without human input. The correct fix is unambiguous.
-   - **defer** -- Pre-existing issue not caused by the current change. Real but not actionable now.
-   - **dismiss** -- Noise, false positive, or handled elsewhere.
+3. **Classifiez** chaque constat dans exactement un seau :
+   - **decision_needed** -- Il existe un choix ambigu nécessitant une intervention humaine. Le code ne peut pas être correctement patché sans connaître l'intention de l'utilisateur. Possible uniquement si `{review_mode}` = `"full"`.
+   - **patch** -- Problème de code corrigible sans intervention humaine. La correction correcte est sans ambiguïté.
+   - **defer** -- Problème préexistant non causé par le changement courant. Réel mais non actionnable maintenant.
+   - **dismiss** -- Bruit, faux positif ou traité ailleurs.
 
-   If `{review_mode}` = `"no-spec"` and a finding would otherwise be `decision_needed`, reclassify it as `patch` (if the fix is unambiguous) or `defer` (if not).
+   Si `{review_mode}` = `"no-spec"` et qu'un constat serait sinon `decision_needed`, reclassifiez-le en `patch` (si la correction est sans ambiguïté) ou `defer` (sinon).
 
-4. **Drop** all `dismiss` findings. Record the dismiss count for the summary.
+4. **Éliminez** tous les constats `dismiss`. Enregistrez le compte des dismiss pour le résumé.
 
-5. If `{failed_layers}` is non-empty, report which layers failed before announcing results. If zero findings remain after dropping dismissed AND `{failed_layers}` is non-empty, warn the user that the review may be incomplete rather than announcing a clean review.
+5. Si `{failed_layers}` est non vide, signalez quelles couches ont échoué avant d'annoncer les résultats. S'il ne reste zéro constat après élimination des dismiss ET que `{failed_layers}` est non vide, avertissez l'utilisateur que la revue peut être incomplète plutôt que d'annoncer une revue propre.
 
-6. If zero findings remain after triage (all rejected or none raised): state "✅ Clean review — all layers passed." (Step 3 already warned if any review layers failed via `{failed_layers}`.)
+6. S'il ne reste zéro constat après triage (tous rejetés ou aucun soulevé) : énoncez « ✅ Revue propre — toutes les couches ont passé. » (L'étape 3 a déjà averti si des couches de revue ont échoué via `{failed_layers}`.)
 
 
-## NEXT
+## SUITE
 
-Read fully and follow `./step-04-present.md`
+Lisez intégralement et suivez `./step-04-present.md`

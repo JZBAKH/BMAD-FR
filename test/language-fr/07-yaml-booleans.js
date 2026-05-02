@@ -13,7 +13,7 @@ const runner = require('../fr-helpers/runner');
 const { walk } = require('../fr-helpers/walk');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
-const FR_ROOTS = ['src/bmm-fr', 'src/core-fr', 'src/utility-fr'];
+const FR_ROOTS = ['src/bmm-skills-fr', 'src/core-skills-fr', 'src/bmm-fr', 'src/core-fr', 'src/utility-fr'];
 
 // Match ": vrai" or ": faux" at end-of-value position. The YAML parser would
 // not accept these; we want to catch them BEFORE the parser does.

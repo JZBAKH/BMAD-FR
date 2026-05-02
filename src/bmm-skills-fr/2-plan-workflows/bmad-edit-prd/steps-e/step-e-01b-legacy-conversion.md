@@ -1,208 +1,204 @@
 ---
-name: 'step-e-01b-legacy-conversion'
-description: 'Évaluation de la Conversion de PRD Legacy - Analyser le PRD legacy et proposer une stratégie de conversion'
-
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
-nextStepFile: './step-e-02-review.md'
 prdFile: '{prd_file_path}'
-prdPurpose: '{project-root}/_bmad/bmm/workflows/2-plan-workflows/create-prd/data/prd-purpose.md'
+prdPurpose: '../data/prd-purpose.md'
 ---
 
-# Étape E-1B : Évaluation de la Conversion de PRD Legacy
+# Étape E-1B : Évaluation de conversion de PRD Legacy
 
 ## OBJECTIF DE L'ÉTAPE :
 
-Analyser le PRD legacy par rapport aux standards BMAD, identifier les lacunes, proposer une stratégie de conversion et laisser l'utilisateur choisir comment procéder.
+Analyser le PRD legacy par rapport aux standards BMAD, identifier les lacunes, proposer une stratégie de conversion, et laisser l'utilisateur choisir comment procéder.
 
 ## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-### Règles Universelles :
+### Règles universelles :
 
-- 🛑 NE JAMAIS générer de contenu sans l'entrée de l'utilisateur.
-- 📖 CRITIQUE : Lire l'intégralité du fichier d'étape avant de prendre toute mesure.
-- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que tout le fichier est lu.
-- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu.
-- ✅ VOUS DEVEZ TOUJOURS COMMUNIQUER dans votre style d'Agent avec la configuration `{communication_language}`.
+- 🛑 NE JAMAIS générer de contenu sans entrée utilisateur
+- 📖 CRITIQUE : Lire le fichier d'étape complet avant toute action
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que le fichier entier est lu
+- 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
+- ✅ VOUS DEVEZ TOUJOURS PARLER EN SORTIE dans votre style de communication d'Agent avec la config `{communication_language}`
 
-### Renforcement du Rôle :
+### Renforcement du rôle :
 
-- ✅ Vous êtes un Architecte de Validation et un Spécialiste de l'Amélioration de PRD.
-- ✅ Si des modèles de communication ou de persona vous ont déjà été donnés, continuez à les utiliser tout en jouant ce nouveau rôle.
-- ✅ Nous engageons un dialogue collaboratif, pas une commande-réponse.
-- ✅ Vous apportez votre expertise des standards BMAD et vos conseils de conversion.
-- ✅ L'utilisateur apporte sa connaissance du domaine et ses exigences de modification.
+- ✅ Vous êtes un Architecte de Validation et Spécialiste d'Amélioration de PRD
+- ✅ Si on vous a déjà donné des patterns de communication ou de persona, continuez à les utiliser tout en jouant ce nouveau rôle
+- ✅ Nous engageons un dialogue collaboratif, pas du commande-réponse
+- ✅ Vous apportez l'expertise des standards BMAD et le guidage de conversion
+- ✅ L'utilisateur apporte la connaissance du domaine et les exigences d'édition
 
-### Règles Spécifiques à l'Étape :
+### Règles spécifiques à l'étape :
 
-- 🎯 Concentrez-vous UNIQUEMENT sur l'évaluation et la proposition de conversion.
-- 🚫 INTERDICTION d'effectuer la conversion pour le moment (cela se fera lors de l'étape d'édition).
-- 💬 Approche : Analyse analytique des lacunes avec des recommandations claires.
-- 🚪 Il s'agit d'une étape d'aiguillage - l'utilisateur choisit son chemin de conversion.
+- 🎯 Se focaliser UNIQUEMENT sur l'évaluation et la proposition de conversion
+- 🚫 INTERDIT d'effectuer la conversion pour l'instant (cela vient à l'étape d'édition)
+- 💬 Approche : Analyse de lacunes analytique avec recommandations claires
+- 🚪 Ceci est une étape de branchement - l'utilisateur choisit le chemin de conversion
 
 ## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Analyser le PRD legacy par rapport au standard BMAD.
-- 💾 Identifier les lacunes et estimer l'effort de conversion.
-- 📖 Présenter les options de conversion avec les estimations d'effort.
-- 🚫 INTERDICTION de procéder sans sélection de l'utilisateur.
+- 🎯 Analyser le PRD legacy par rapport au standard BMAD
+- 💾 Identifier les lacunes et estimer l'effort de conversion
+- 📖 Présenter les options de conversion avec estimations d'effort
+- 🚫 INTERDIT de procéder sans la sélection de l'utilisateur
 
-## LIMITES DU CONTEXTE :
+## LIMITES DE CONTEXTE :
 
-- Contexte disponible : PRD Legacy, exigences de modification de l'utilisateur, standards prd-purpose.
-- Focus : Évaluation de la conversion uniquement (pas la conversion réelle).
-- Limites : Ne pas convertir encore, ne pas valider encore.
-- Dépendances : L'étape e-01 a détecté le format legacy et a orienté ici.
+- Contexte disponible : PRD legacy, exigences d'édition de l'utilisateur, standards prd-purpose
+- Focus : Évaluation de conversion uniquement (pas la conversion réelle)
+- Limites : Ne pas convertir encore, ne pas valider encore
+- Dépendances : L'étape e-01 a détecté le format legacy et routé ici
 
 ## SÉQUENCE OBLIGATOIRE
 
-**CRITIQUE :** Suivez cette séquence exactement. Ne sautez pas, ne réordonnez pas et n'improvisez pas, sauf si l'utilisateur demande explicitement un changement.
+**CRITIQUE :** Suivre cette séquence exactement. Ne pas sauter, réordonner ou improviser sauf si l'utilisateur demande explicitement un changement.
 
 ### 1. Tenter l'évaluation par sous-processus
 
-**Essayez d'utiliser l'outil Task avec un sous-agent :**
+**Essayer d'utiliser l'outil Task avec un sous-agent :**
 
-"Effectuer l'évaluation de la conversion du PRD legacy :
+« Effectuer l'évaluation de conversion du PRD legacy :
 
 **Charger le PRD et prd-purpose.md**
 
-**Pour chaque section du PRD BMAD, analysez :**
-1. Le PRD contient-il cette section ? (Résumé Analytique, Critères de Succès, Périmètre du Produit, Parcours Utilisateurs, Exigences Fonctionnelles, Exigences Non Fonctionnelles)
+**Pour chaque section du PRD BMAD, analyser :**
+1. Le PRD a-t-il cette section ? (Résumé Exécutif, Critères de Succès, Périmètre Produit, Parcours Utilisateurs, Exigences Fonctionnelles, Exigences Non-Fonctionnelles)
 2. Si présente : Est-elle complète et bien structurée ?
-3. Si manquante : Quel contenu existant pourrait migrer vers cette section ?
+3. Si manquante : Quel contenu existe qui pourrait migrer vers cette section ?
 4. Effort pour créer/compléter : Minimal / Modéré / Significatif
 
 **Identifier :**
-- Sections de base présentes : {count}/6
-- Lacunes de contenu dans chaque section.
+- Sections essentielles présentes : {count}/6
+- Lacunes de contenu dans chaque section
 - Effort global de conversion : Rapide / Modéré / Substantiel
-- Approche recommandée : Restructuration complète vs améliorations ciblées.
+- Approche recommandée : Restructuration complète vs améliorations ciblées
 
-Retourner l'évaluation de conversion avec l'analyse des lacunes et l'estimation de l'effort."
+Retourner l'évaluation de conversion avec analyse des lacunes et estimation d'effort. »
 
-**Dégradation gracieuse (si l'outil Task est indisponible) :**
-- Vérifier manuellement chaque section BMAD dans le PRD.
-- Noter ce qui est présent et ce qui manque.
-- Estimer l'effort de conversion.
-- Identifier la meilleure approche de conversion.
+**Dégradation gracieuse (si pas d'outil Task) :**
+- Vérifier manuellement le PRD pour chaque section BMAD
+- Noter ce qui est présent et ce qui manque
+- Estimer l'effort de conversion
+- Identifier la meilleure approche de conversion
 
 ### 2. Construire l'analyse des lacunes
 
-**Pour chaque section de base BMAD :**
+**Pour chaque section essentielle BMAD :**
 
-**Résumé Analytique :**
+**Résumé Exécutif :**
 - Présent : [Oui/Non/Partiel]
-- Lacune : [ce qui est manquant ou incomplet]
+- Lacune : [ce qui manque ou est incomplet]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
 **Critères de Succès :**
 - Présent : [Oui/Non/Partiel]
-- Lacune : [ce qui est manquant ou incomplet]
+- Lacune : [ce qui manque ou est incomplet]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
-**Périmètre du Produit :**
+**Périmètre Produit :**
 - Présent : [Oui/Non/Partiel]
-- Lacune : [ce qui est manquant ou incomplet]
+- Lacune : [ce qui manque ou est incomplet]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
 **Parcours Utilisateurs :**
 - Présent : [Oui/Non/Partiel]
-- Lacune : [ce qui est manquant ou incomplet]
+- Lacune : [ce qui manque ou est incomplet]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
 **Exigences Fonctionnelles :**
 - Présent : [Oui/Non/Partiel]
-- Lacune : [ce qui est manquant ou incomplet]
+- Lacune : [ce qui manque ou est incomplet]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
-**Exigences Non Fonctionnelles :**
+**Exigences Non-Fonctionnelles :**
 - Présent : [Oui/Non/Partiel]
-- Lacune : [ce qui est manquant ou incomplet]
+- Lacune : [ce qui manque ou est incomplet]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
-**Évaluation Globale :**
+**Évaluation globale :**
 - Sections présentes : {count}/6
 - Effort total de conversion : [Rapide/Modéré/Substantiel]
 - Recommandé : [Restructuration complète / Améliorations ciblées]
 
-### 3. Présenter l'évaluation de la conversion
+### 3. Présenter l'évaluation de conversion
 
-Affichez :
+Afficher :
 
-"**Évaluation de la Conversion du PRD Legacy**
+« **Évaluation de conversion du PRD legacy**
 
 **Structure actuelle du PRD :**
-- Sections de base présentes : {count}/6
-{Listez quelles sections sont présentes/manquantes}
+- Sections essentielles présentes : {count}/6
+{Lister quelles sections sont présentes/manquantes}
 
 **Analyse des lacunes :**
 
-{Présentez le tableau d'analyse des lacunes montrant l'état et l'effort pour chaque section}
+{Présenter le tableau d'analyse des lacunes montrant le statut de chaque section et l'effort}
 
-**Effort Global de Conversion :** {effort level}
+**Effort global de conversion :** {niveau d'effort}
 
-**Vos objectifs de modification :**
-{Réitérez les exigences de modification énoncées par l'utilisateur}
+**Vos objectifs d'édition :**
+{Réitérer les exigences d'édition déclarées par l'utilisateur}
 
 **Recommandation :**
-{Sur la base de l'effort et des objectifs de l'utilisateur, recommandez la meilleure approche}
+{Selon l'effort et les objectifs de l'utilisateur, recommander la meilleure approche}
 
-**Comment souhaiteriez-vous procéder ?**"
+**Comment aimeriez-vous procéder ?** »
 
-### 4. Présenter les OPTIONS DU MENU
+### 4. Présenter les OPTIONS DE MENU
 
-**[R] Restructurer vers BMAD** - Conversion complète vers le format BMAD, puis application de vos modifications.
-**[I] Améliorations ciblées** - Appliquer vos modifications à la structure existante sans restructuration.
-**[E] Modifier et Restructurer** - Faire les deux : convertir le format ET appliquer vos modifications.
-**[X] Quitter** - Examiner l'évaluation et décider.
+**[R] Restructurer vers BMAD** - Conversion complète vers le format BMAD, puis appliquer vos éditions
+**[I] Améliorations ciblées** - Appliquer vos éditions à la structure existante sans restructuration
+**[E] Éditer et restructurer** - Faire les deux : convertir le format ET appliquer vos éditions
+**[X] Sortir** - Examiner l'évaluation et décider
 
 #### RÈGLES D'EXÉCUTION :
 
-- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur.
-- Procéder uniquement en fonction de la sélection de l'utilisateur.
+- TOUJOURS s'arrêter et attendre l'entrée utilisateur
+- Procéder uniquement selon la sélection de l'utilisateur
 
-#### Logique de Gestion du Menu :
+#### Logique de gestion du menu :
 
-- SI R (Restructurer) : Notez le mode conversion, puis chargez l'étape suivante.
-- SI I (Ciblées) : Notez le mode ciblé, puis chargez l'étape suivante.
-- SI E (Modifier et Restructurer) : Notez les deux modes, puis chargez l'étape suivante.
-- SI X (Quitter) : Affichez le résumé, quittez.
+- SI R (Restructurer) : Noter le mode de conversion, puis charger l'étape suivante
+- SI I (Ciblées) : Noter le mode ciblé, puis charger l'étape suivante
+- SI E (Éditer et restructurer) : Noter le mode combiné, puis charger l'étape suivante
+- SI X (Sortir) : Afficher le résumé, sortir
 
 ### 5. Documenter la stratégie de conversion
 
-Enregistrez la décision de conversion pour l'étape suivante :
+Stocker la décision de conversion pour l'étape suivante :
 
 - **Mode de conversion :** [Restructuration complète / Améliorations ciblées / Les deux]
-- **Exigences de modification :** [exigences de l'utilisateur issues de l'étape e-01]
+- **Exigences d'édition :** [exigences de l'utilisateur depuis l'étape e-01]
 - **Analyse des lacunes :** [résumé des lacunes identifiées]
 
-Affichez : "**Stratégie de conversion documentée**
+Afficher : « **Stratégie de conversion documentée**
 
-Mode : {conversion mode}
-Objectifs de modification : {summary}
+Mode : {mode de conversion}
+Objectifs d'édition : {summary}
 
-**Passage à la révision approfondie...**"
+**Procède à la revue approfondie...** »
 
-Lisez complètement et suivez : {nextStepFile} (step-e-02-review.md)
+Lire entièrement et suivre : `./step-e-02-review.md`
 
 ---
 
-## 🚨 MÉTRIQUES DE RÉUSSITE/ÉCHEC DU SYSTÈME
+## 🚨 MÉTRIQUES DE SUCCÈS/ÉCHEC SYSTÈME
 
-### ✅ RÉUSSITE :
+### ✅ SUCCÈS :
 
-- Analyse des lacunes effectuée pour les 6 sections de base BMAD.
-- Estimations d'effort fournies pour chaque section.
-- Effort global de conversion évalué correctement.
-- Recommandation claire fournie basée sur l'effort et les objectifs de l'utilisateur.
-- L'utilisateur choisit sa stratégie de conversion (restructurer/ciblée/les deux).
-- Stratégie de conversion documentée pour l'étape suivante.
+- Toutes les 6 sections essentielles BMAD analysées pour les lacunes
+- Estimations d'effort fournies pour chaque section
+- Effort global de conversion évalué correctement
+- Recommandation claire fournie selon l'effort et les objectifs de l'utilisateur
+- L'utilisateur choisit la stratégie de conversion (restructurer/ciblé/les deux)
+- Stratégie de conversion documentée pour l'étape suivante
 
-### ❌ ÉCHEC DU SYSTÈME :
+### ❌ ÉCHEC SYSTÈME :
 
-- Ne pas analyser les 6 sections de base.
-- Estimations d'effort manquantes.
-- Ne pas fournir de recommandation claire.
-- Passage automatique à la suite sans sélection de l'utilisateur.
-- Ne pas documenter la stratégie de conversion.
+- Ne pas analyser les 6 sections essentielles
+- Manquer les estimations d'effort
+- Ne pas fournir une recommandation claire
+- Auto-procéder sans la sélection de l'utilisateur
+- Ne pas documenter la stratégie de conversion
 
-**Règle Maîtresse :** Les PRD Legacy nécessitent une évaluation de conversion pour que les utilisateurs comprennent le travail impliqué et puissent choisir la meilleure approche.
+**Règle maîtresse :** Les PRDs legacy ont besoin d'une évaluation de conversion afin que les utilisateurs comprennent le travail impliqué et puissent choisir la meilleure approche.

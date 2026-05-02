@@ -60,21 +60,21 @@ function fetchJson(url, { timeout = DEFAULT_TIMEOUT_MS } = {}) {
       res.on('data', (chunk) => (body += chunk));
       res.on('end', () => {
         if (res.statusCode < 200 || res.statusCode >= 300) {
-          const err = new Error(`GitHub API ${res.statusCode} for ${url}: ${body.slice(0, 200)}`);
+          const err = new Error(`API GitHub a renvoyé ${res.statusCode} pour ${url} : ${body.slice(0, 200)}`);
           err.statusCode = res.statusCode;
           return reject(err);
         }
         try {
           resolve(JSON.parse(body));
         } catch (error) {
-          reject(new Error(`Failed to parse GitHub response: ${error.message}`));
+          reject(new Error(`Échec de l'analyse de la réponse GitHub : ${error.message}`));
         }
       });
     });
     req.on('error', reject);
     req.on('timeout', () => {
       req.destroy();
-      reject(new Error(`GitHub API request timed out: ${url}`));
+      reject(new Error(`Délai d'attente dépassé pour la requête API GitHub : ${url}`));
     });
   });
 }
@@ -109,7 +109,7 @@ async function fetchStableTags(owner, repo, { timeout } = {}) {
   const url = `${GITHUB_API_BASE}/repos/${owner}/${repo}/tags?per_page=100`;
   const raw = await fetchJson(url, { timeout });
   if (!Array.isArray(raw)) {
-    throw new TypeError(`Unexpected response from ${url}`);
+    throw new TypeError(`Réponse inattendue de ${url}`);
   }
 
   const stable = [];
@@ -167,7 +167,7 @@ async function resolveChannel({ channel, pin, repoUrl, timeout }) {
       return { channel: 'stable', ref: top.tag, version: top.tag, resolvedFallback: false };
     } catch (error) {
       // Propagate the error; callers decide whether to fall back or abort.
-      error.message = `Failed to resolve stable channel for ${parsed.owner}/${parsed.repo}: ${error.message}`;
+      error.message = `Échec de la résolution du canal stable pour ${parsed.owner}/${parsed.repo} : ${error.message}`;
       throw error;
     }
   }

@@ -1,20 +1,20 @@
 ---
 name: explain-concept
-description: Create clear technical explanations with examples
+description: Crée des explications techniques claires avec des exemples
 menu-code: EC
 ---
 
-# Explain Concept
+# Expliquer un Concept
 
-Create a clear technical explanation with examples and diagrams for a complex concept.
+Crée une explication technique claire avec des exemples et des diagrammes pour un concept complexe.
 
-## Process
+## Processus
 
-1. **Understand the concept** — Clarify what needs to be explained and the target audience
-2. **Structure** — Break it down into digestible sections using a task-oriented approach
-3. **Illustrate** — Include code examples and Mermaid diagrams where helpful
-4. **Deliver** — Present the explanation in clear, accessible language appropriate for the audience
+1. **Comprendre le concept** — Clarifier ce qui doit être expliqué et le public cible
+2. **Structurer** — Décomposer en sections digestes en suivant une approche orientée tâches
+3. **Illustrer** — Inclure des exemples de code et des diagrammes Mermaid lorsque c'est utile
+4. **Livrer** — Présenter l'explication dans un langage clair et accessible adapté au public
 
-## Output
+## Sortie
 
-A structured explanation with examples and diagrams that makes the complex simple.
+Une explication structurée avec exemples et diagrammes qui rend le complexe simple.

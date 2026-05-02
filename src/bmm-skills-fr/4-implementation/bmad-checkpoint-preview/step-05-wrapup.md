@@ -1,10 +1,10 @@
-# Step 5: Wrap-Up
+# Étape 5 : Wrap-Up
 
-Display: `Orientation → Walkthrough → Detail Pass → Testing → [Wrap-Up]`
+Affichez : `Orientation → Walkthrough → Detail Pass → Testing → [Wrap-Up]`
 
-## Follow Global Step Rules in SKILL.md
+## Suivez les Règles globales d'étape dans SKILL.md
 
-## PROMPT FOR DECISION
+## INVITER À LA DÉCISION
 
 ```
 ---
@@ -15,16 +15,16 @@ Review complete. What's the call on this {change_type}?
 - **Discuss** — something's still on your mind
 ```
 
-HALT — do not proceed until the user makes their choice.
+ARRÊTEZ — ne poursuivez pas tant que l'utilisateur n'a pas fait son choix.
 
-## ACT ON DECISION
+## AGIR SUR LA DÉCISION
 
-- **Approve**: Acknowledge briefly. If the human wants to patch something before shipping, help apply the fix interactively. If reviewing a PR, offer to approve via `gh pr review --approve` — but confirm with the human before executing, since this is a visible action on a shared resource.
-- **Rework**: Ask what went wrong — was it the approach, the spec, or the implementation? Help the human decide on next steps (revert commit, open an issue, revise the spec, etc.). Help draft specific, actionable feedback tied to `path:line` locations if the change is a PR from someone else.
-- **Discuss**: Open conversation — answer questions, explore concerns, dig into any aspect. After discussion, return to the decision prompt above.
+- **Approve** : Reconnaissez brièvement. Si l'humain veut patcher quelque chose avant la livraison, aidez à appliquer la correction de manière interactive. S'il s'agit de la revue d'une PR, proposez d'approuver via `gh pr review --approve` — mais confirmez avec l'humain avant d'exécuter, car il s'agit d'une action visible sur une ressource partagée.
+- **Rework** : Demandez ce qui n'a pas fonctionné — était-ce l'approche, la spec ou l'implémentation ? Aidez l'humain à décider des prochaines étapes (revert du commit, ouvrir une issue, réviser la spec, etc.). Aidez à rédiger un retour spécifique et actionnable lié à des emplacements `path:line` si le changement est une PR de quelqu'un d'autre.
+- **Discuss** : Conversation ouverte — répondez aux questions, explorez les inquiétudes, fouillez dans n'importe quel aspect. Après discussion, retournez à l'invite de décision ci-dessus.
 
-## On Complete
+## À la fin
 
-Run: `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete`
+Exécutez : `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete`
 
-If the resolved `workflow.on_complete` is non-empty, follow it as the final terminal instruction before exiting.
+Si le `workflow.on_complete` résolu est non vide, suivez-le comme instruction terminale finale avant de sortir.

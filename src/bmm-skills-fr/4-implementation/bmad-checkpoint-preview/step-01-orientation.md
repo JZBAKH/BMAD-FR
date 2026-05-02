@@ -1,92 +1,92 @@
-# Step 1: Orientation
+# Étape 1 : Orientation
 
-Display: `[Orientation] → Walkthrough → Detail Pass → Testing`
+Affichez : `[Orientation] → Walkthrough → Detail Pass → Testing`
 
-## Follow Global Step Rules in SKILL.md
+## Suivez les Règles globales d'étape dans SKILL.md
 
-## FIND THE CHANGE
+## TROUVER LE CHANGEMENT
 
-The conversation context before this skill was triggered IS your starting point — not a blank slate. Check in this order — stop as soon as the change is identified:
+Le contexte de la conversation précédant le déclenchement de ce skill EST votre point de départ — pas une page blanche. Vérifiez dans cet ordre — arrêtez-vous dès que le changement est identifié :
 
-1. **Explicit argument**
-   Did the user pass a PR, commit SHA, branch, or spec file this message?
-   - PR reference → resolve to branch/commit via `gh pr view`. If resolution fails, ask for a SHA or branch.
-   - Spec file, commit, or branch → use directly.
+1. **Argument explicite**
+   L'utilisateur a-t-il passé une PR, un SHA de commit, une branche ou un fichier de spec dans ce message ?
+   - Référence de PR → résolvez vers la branche/le commit via `gh pr view`. Si la résolution échoue, demandez un SHA ou une branche.
+   - Fichier de spec, commit ou branche → utilisez directement.
 
-2. **Recent conversation**
-   Do the last few messages reveal what change the user wants reviewed? Look for spec paths, commit refs, branches, PRs, or descriptions of a change. Use the same routing as above.
+2. **Conversation récente**
+   Les derniers messages révèlent-ils quel changement l'utilisateur veut faire revoir ? Cherchez des chemins de spec, des références de commit, des branches, des PR, ou des descriptions d'un changement. Utilisez le même routage que ci-dessus.
 
-3. **Sprint tracking**
-   Check for a sprint status file (`*sprint-status*`) in `{implementation_artifacts}` or `{planning_artifacts}`. If found, scan for stories with status `review`:
-   - Exactly one → suggest it and confirm with the user.
-   - Multiple → present as numbered options.
-   - None → fall through.
+3. **Suivi de sprint**
+   Vérifiez la présence d'un fichier de statut de sprint (`*sprint-status*`) dans `{implementation_artifacts}` ou `{planning_artifacts}`. Si trouvé, scannez les stories au statut `review` :
+   - Exactement une → suggérez-la et confirmez avec l'utilisateur.
+   - Plusieurs → présentez-les sous forme d'options numérotées.
+   - Aucune → passez à la suite.
 
-4. **Current git state**
-   Check current branch and HEAD. Confirm: "I see HEAD is `<short-sha>` on `<branch>` — is this the change you want to review?"
+4. **État git courant**
+   Vérifiez la branche courante et HEAD. Confirmez : "I see HEAD is `<short-sha>` on `<branch>` — is this the change you want to review?"
 
-5. **Ask**
-   If none of the above identified a change, ask:
-   - What changed and why?
-   - Which commit, branch, or PR should I look at?
-   - Do you have a spec, bug report, or anything else that explains what this change is supposed to do?
+5. **Demander**
+   Si aucune des étapes ci-dessus n'a identifié un changement, demandez :
+   - Qu'est-ce qui a changé et pourquoi ?
+   - Quel commit, branche ou PR dois-je examiner ?
+   - Avez-vous une spec, un rapport de bug, ou autre chose qui explique ce que ce changement est censé faire ?
 
-   If after 3 exchanges you still can't identify a change, HALT.
+   Si après 3 échanges vous ne pouvez toujours pas identifier un changement, ARRÊTEZ.
 
-Never ask extra questions beyond what the cascade prescribes. If a step above already identified the change, skip the remaining steps.
+Ne posez jamais de questions supplémentaires au-delà de ce que la cascade prescrit. Si une étape ci-dessus a déjà identifié le changement, sautez les étapes restantes.
 
-## ENRICH
+## ENRICHIR
 
-Once a change is identified from any source above, fill in the complementary artifact:
+Une fois qu'un changement est identifié depuis n'importe quelle source ci-dessus, complétez l'artefact complémentaire :
 
-- If you have a spec, look for `baseline_commit` in its frontmatter to determine the diff baseline.
-- If you have a commit or branch, check `{implementation_artifacts}` for a spec whose `baseline_commit` is an ancestor of that commit/branch (i.e., the spec describes work done on top of that baseline).
-- If you found both a spec and a commit/branch, use both.
+- Si vous avez une spec, recherchez `baseline_commit` dans son frontmatter pour déterminer la baseline du diff.
+- Si vous avez un commit ou une branche, vérifiez `{implementation_artifacts}` pour une spec dont le `baseline_commit` est un ancêtre de ce commit/cette branche (c'est-à-dire que la spec décrit un travail réalisé par-dessus cette baseline).
+- Si vous avez trouvé à la fois une spec et un commit/une branche, utilisez les deux.
 
-## DETERMINE WHAT YOU HAVE
+## DÉTERMINER CE QUE VOUS AVEZ
 
-Set `change_type` to match how the user referred to the change — `PR`, `commit`, `branch`, or their own words (e.g. `auth refactor`). Default to `change` if ambiguous.
+Définissez `change_type` pour correspondre à la façon dont l'utilisateur a fait référence au changement — `PR`, `commit`, `branch`, ou ses propres mots (par exemple `auth refactor`). Par défaut `change` si ambigu.
 
-Set `review_mode` — pick the first match:
+Définissez `review_mode` — choisissez la première correspondance :
 
-1. **`full-trail`** — ENRICH found a spec with a `## Suggested Review Order` section. Intent source: spec's Intent section.
-2. **`spec-only`** — ENRICH found a spec but it has no Suggested Review Order. Intent source: spec's Intent section.
-3. **`bare-commit`** — no spec found. Intent source: commit message. If the commit message is terse (under 10 words), scan the diff for the primary change pattern and draft a one-sentence intent. Flag it as `[inferred]` in the output so the user can correct it.
+1. **`full-trail`** — ENRICHIR a trouvé une spec avec une section `## Suggested Review Order`. Source d'intent : section Intent de la spec.
+2. **`spec-only`** — ENRICHIR a trouvé une spec mais elle n'a pas de Suggested Review Order. Source d'intent : section Intent de la spec.
+3. **`bare-commit`** — aucune spec trouvée. Source d'intent : message de commit. Si le message de commit est laconique (moins de 10 mots), scannez le diff pour le motif principal du changement et rédigez une intent d'une phrase. Marquez-la `[inferred]` dans la sortie pour que l'utilisateur puisse corriger.
 
-## PRODUCE ORIENTATION
+## PRODUIRE L'ORIENTATION
 
-### Intent Summary
+### Résumé d'Intent
 
-- If intent comes from a spec's Intent section, display it verbatim regardless of length — it's already written to be concise.
-- For other sources (commit messages, bug reports, user description): if ≤200 tokens, display verbatim. If longer, distill to ≤200 tokens. Link to the full source when one exists (e.g. a file path or URL).
-- Format: `> **Intent:** {summary}`
+- Si l'intent provient de la section Intent d'une spec, affichez-la verbatim quelle que soit sa longueur — elle est déjà rédigée pour être concise.
+- Pour les autres sources (messages de commit, rapports de bugs, description utilisateur) : si ≤200 tokens, affichez verbatim. Si plus long, condensez à ≤200 tokens. Liez à la source complète quand elle existe (par exemple un chemin de fichier ou une URL).
+- Format : `> **Intent:** {summary}`
 
-### Surface Area Stats
+### Statistiques de Surface
 
-Best-effort stats derived from the diff. Try these baselines in order:
+Statistiques au mieux dérivées du diff. Essayez ces baselines dans l'ordre :
 
-1. `baseline_commit` from the spec's frontmatter.
-2. Branch merge-base against `main` (or the default branch).
-3. `HEAD~1..HEAD` (latest commit only — tell the user).
-4. If git is unavailable or all of the above fail, skip stats and note: "Could not compute stats."
+1. `baseline_commit` du frontmatter de la spec.
+2. Merge-base de la branche par rapport à `main` (ou la branche par défaut).
+3. `HEAD~1..HEAD` (dernier commit uniquement — informez l'utilisateur).
+4. Si git est indisponible ou que tout ce qui précède échoue, sautez les statistiques et notez : "Could not compute stats."
 
-Use `git diff --stat` and `git diff --numstat` for file-level counts, and scan the full diff content for the richer metrics.
+Utilisez `git diff --stat` et `git diff --numstat` pour les comptages au niveau fichier, et scannez le contenu complet du diff pour les métriques plus riches.
 
-Display as:
+Affichez sous forme :
 
 ```
 N files changed · M modules touched · ~L lines of logic · B boundary crossings · P new public interfaces
 ```
 
-- **Files changed**: count from `git diff --stat`.
-- **Modules touched**: distinct top-level directories with changes (from `--stat` file paths).
-- **Lines of logic**: added/modified lines excluding blanks, imports, formatting. Scan diff content; `~` because approximate.
-- **Boundary crossings**: changes spanning more than one top-level module. `0` if single module.
-- **New public interfaces**: new exports, endpoints, public methods found in the diff. `0` if none.
+- **Files changed** : comptage depuis `git diff --stat`.
+- **Modules touched** : répertoires de premier niveau distincts avec des changements (depuis les chemins de fichiers `--stat`).
+- **Lines of logic** : lignes ajoutées/modifiées hors lignes vides, imports, formatage. Scannez le contenu du diff ; `~` car approximatif.
+- **Boundary crossings** : changements s'étendant sur plus d'un module de premier niveau. `0` si module unique.
+- **New public interfaces** : nouveaux exports, endpoints, méthodes publiques trouvés dans le diff. `0` si aucun.
 
-Omit any metric you cannot compute rather than guessing.
+Omettez toute métrique que vous ne pouvez pas calculer plutôt que de la deviner.
 
-### Present
+### Présenter
 
 ```
 [Orientation] → Walkthrough → Detail Pass → Testing
@@ -96,10 +96,10 @@ Omit any metric you cannot compute rather than guessing.
 {stats line}
 ```
 
-## FALLBACK TRAIL GENERATION
+## GÉNÉRATION DE PISTE DE REPLI
 
-If review mode is not `full-trail`, read fully and follow `./generate-trail.md` to build one from the diff. Then return here and continue to NEXT. If trail generation fails (e.g., git unavailable), the original review mode is preserved — step-02 handles this with its non-trail path.
+Si le mode de revue n'est pas `full-trail`, lisez intégralement et suivez `./generate-trail.md` pour en construire une à partir du diff. Puis revenez ici et continuez vers SUITE. Si la génération de piste échoue (par exemple, git indisponible), le mode de revue d'origine est préservé — step-02 gère cela avec son chemin sans piste.
 
-## NEXT
+## SUITE
 
-Read fully and follow `./step-02-walkthrough.md`
+Lisez intégralement et suivez `./step-02-walkthrough.md`

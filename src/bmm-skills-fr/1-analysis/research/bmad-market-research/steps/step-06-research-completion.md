@@ -1,475 +1,484 @@
-# Étude de Marché Étape 6 : Finalisation de la Recherche
+# Market Research Étape 6 : Complétion de la recherche
 
-## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (LIRE EN PREMIER) :
 
-- 🛑 NE JAMAIS générer de contenu sans vérification par recherche sur le web
-- 📖 CRITIQUE : Lisez TOUJOURS le fichier d'étape en entier avant d'entreprendre la moindre action — une compréhension partielle mène à des décisions incomplètes
-- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que l'ensemble du fichier est lu et compris avant de poursuivre
-- ✅ Naviguez sur le web pour vérifier et compléter vos connaissances avec des faits actuels
-- 📋 VOUS ÊTES UN STRATÈGE EN ÉTUDE DE MARCHÉ, pas un générateur de contenu
-- 💬 CONCENTREZ-VOUS sur les recommandations stratégiques et les insights actionnables
-- 🔍 RECHERCHE WEB REQUISE - vérifiez les faits actuels via des sources en ligne
-- ✅ VOUS DEVEZ TOUJOURS EFFECTUER LA SORTIE ORALE dans votre style de communication d'Agent avec la `{communication_language}` configurée
+- 🛑 NE JAMAIS générer de contenu sans vérification par recherche web
+
+- 📖 CRITIQUE : TOUJOURS lire le fichier d'étape complet avant toute action — une compréhension partielle mène à des décisions incomplètes
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que le fichier entier est lu et compris avant de procéder
+- ✅ Faire des recherches web pour vérifier et compléter vos connaissances avec des faits actuels
+- 📋 VOUS ÊTES UN STRATÈGE EN RECHERCHE DE MARCHÉ, pas un générateur de contenu
+- 💬 SE CONCENTRER sur les recommandations stratégiques et insights actionnables
+- 🔍 RECHERCHE WEB REQUISE — vérifier les faits actuels par rapport à des sources en direct
+- ✅ VOUS DEVEZ TOUJOURS PARLER LA SORTIE dans le style de communication de votre Agent avec la configuration `{communication_language}`
 
 ## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Montrez votre analyse des recherches web avant de présenter les conclusions
-- ⚠️ Présentez l'option de complétion [C] après la génération du contenu final
-- 💾 Ne sauvegardez QUE lorsque l'utilisateur choisit C (Compléter)
-- 📖 Mettez à jour le frontmatter `stepsCompleted: [1, 2, 3, 4, 5, 6]` avant de finaliser le flux
-- 🚫 INTERDICTION de compléter le flux tant que C n'est pas sélectionné
-- 📚 GÉNÉREZ LA STRUCTURE COMPLÈTE DU DOCUMENT avec l'introduction, la table des matières (TOC) et le résumé
+- 🎯 Montrer l'analyse de recherche web avant de présenter les résultats
+- ⚠️ Présenter l'option [C] complete après la génération du contenu de complétion
+- 💾 Sauvegarder UNIQUEMENT lorsque l'utilisateur choisit C (Complete)
+- 📖 Mettre à jour le frontmatter `stepsCompleted: [1, 2, 3, 4, 5, 6]` avant de terminer le workflow
+- 🚫 INTERDIT de terminer le workflow tant que C n'est pas sélectionné
+- 📚 GÉNÉRER LA STRUCTURE COMPLÈTE DU DOCUMENT avec intro, TOC et résumé
 
-## LIMITES DU CONTEXTE :
+## LIMITES DE CONTEXTE :
 
-- Le document actuel et le frontmatter des étapes précédentes sont disponibles
-- **Sujet de recherche = "{{research_topic}}"** - analyse globale du marché
-- **Objectifs de recherche = "{{research_goals}}"** - atteints grâce à une étude de marché exhaustive
-- Toutes les sections de l'étude de marché ont été complétées (comportement client, points de douleur, décisions, analyse concurrentielle)
-- Les capacités de recherche sur le web avec vérification des sources sont activées
-- Il s'agit de l'étape de synthèse finale pour produire le document complet d'étude de marché
+- Le document courant et le frontmatter des étapes précédentes sont disponibles
+- **Sujet de recherche = "{{research_topic}}"** — analyse complète du marché
+- **Objectifs de recherche = "{{research_goals}}"** — atteints par une recherche de marché exhaustive
+- Toutes les sections de recherche de marché ont été complétées (comportement client, points de douleur, décisions, analyse concurrentielle)
+- Les capacités de recherche web avec vérification des sources sont activées
+- Il s'agit de l'étape de synthèse finale produisant le document complet de recherche de marché
 
 ## VOTRE TÂCHE :
 
-Produisez un document d'étude de marché complet et faisant autorité sur **{{research_topic}}** avec une introduction narrative convaincante, une table des matières (TOC) détaillée, et un résumé exécutif basé sur la recherche exhaustive réalisée.
+Produire un document de recherche de marché complet et faisant autorité sur **{{research_topic}}** avec une introduction narrative captivante, une table des matières détaillée et un résumé exécutif basé sur une recherche de marché exhaustive.
 
-## SÉQUENCE DE FINALISATION DE L'ÉTUDE DE MARCHÉ :
+## SÉQUENCE DE COMPLÉTION DE LA RECHERCHE DE MARCHÉ :
 
-### 1. Commencer la Synthèse Stratégique
+### 1. Commencer la synthèse stratégique
 
-Commencez par l'approche de synthèse stratégique :
-"Maintenant, je vais finaliser notre étude de marché avec **une synthèse stratégique et des recommandations** .
+Commencer avec l'approche de synthèse stratégique :
+"Maintenant, je vais compléter notre recherche de marché avec **synthèse stratégique et recommandations** .
 
-**Focus de la Synthèse Stratégique :**
+**Focus de la synthèse stratégique :**
 
-- Enseignements (insights) intégrés issus de l'analyse du marché, des clients et de la concurrence
-- Recommandations stratégiques basées sur les résultats de la recherche
+- Insights intégrés issus de l'analyse du marché, des clients et concurrentielle
+- Recommandations stratégiques basées sur les conclusions de recherche
 - Stratégies d'entrée ou d'expansion sur le marché
-- Évaluation des risques et approches d'atténuation (mitigation)
+- Évaluation des risques et approches d'atténuation
 - Prochaines étapes actionnables et conseils d'implémentation
 
-**Laissez-moi chercher des insights stratégiques actuels et des meilleures pratiques.**"
+**Permettez-moi de rechercher les insights stratégiques actuels et les bonnes pratiques.**"
 
-### 2. Recherche Web pour les Stratégies d'Entrée sur le Marché
+### 2. Recherche web pour les stratégies d'entrée sur le marché
 
-Recherche de stratégies de marché courantes :
-Recherche web : "stratégies entrée marché meilleures pratiques"
+Rechercher les stratégies de marché actuelles :
+Rechercher sur le web : "market entry strategies best practices"
 
-**Focus Stratégique :**
+**Focus stratégique :**
 
-- Chronologie et approches d'entrée sur le marché
-- Stratégies de mise sur le marché (Go-to-market) et cadres de travail
-- Positionnement sur le marché et tactiques de différenciation
-- Stratégies d'acquisition client et de croissance
+- Calendrier et approches d'entrée sur le marché
+- Stratégies et cadres go-to-market
+- Tactiques de positionnement et différenciation sur le marché
+- Stratégies d'acquisition et de croissance des clients
 
-### 3. Recherche Web pour l'Évaluation des Risques
+### 3. Recherche web pour l'évaluation des risques
 
-Recherche d'approches actuelles concernant les risques :
-Recherche web : "étude marché risques évaluation cadres"
+Rechercher les approches actuelles de risque :
+Rechercher sur le web : "market research risk assessment frameworks"
 
-**Focus sur les Risques :**
+**Focus sur les risques :**
 
-- Gestion des risques du marché et des incertitudes
+- Risques de marché et gestion de l'incertitude
 - Menaces concurrentielles et stratégies d'atténuation
-- Risques de conformité et de réglementation
-- Considérations sur la volatilité économique et celles des marchés
+- Risques réglementaires et de conformité
+- Considérations économiques et de volatilité du marché
 
-### 4. Générer le Document Complet de l'Étude de Marché
+### 4. Générer le document complet de recherche de marché
 
-Préparez un document d'étude de marché exhaustif avec une structure complète :
+Préparer le document complet de recherche de marché avec la structure complète :
 
-#### Structure du Document Complète :
+#### Structure complète du document :
 
 ```markdown
-# [Titre Attrayant] : Étude de Marché Exhaustive sur {{research_topic}}
+# [Titre captivant] : Recherche de marché complète sur {{research_topic}}
 
-## Résumé Exécutif
+## Résumé exécutif
 
-[Vue d'ensemble concise et convaincante des constatations clés sur le marché et des implications stratégiques]
+[Bref aperçu captivant des principales conclusions de marché et implications stratégiques]
 
-## Table des Matières
+## Table des matières
 
-- Introduction à l'Étude de Marché et Méthodologie
-- Analyse du Marché {{research_topic}} et Dynamiques
-- Enseignements sur les Clients et Analyse des Comportements
-- Paysage Concurrentiel et Positionnement
-- Recommandations Stratégiques pour le Marché
-- Stratégies d'Entrée sur le Marché et de Croissance
-- Évaluation des Risques et Atténuation (Mitigation)
-- Feuille de Route d'Implémentation et Métriques de Réussite
-- Perspectives d'Avenir du Marché et Opportunités
-- Méthodologie de Recherche et Documentation des Sources
-- Annexes de l'Étude et Ressources Supplémentaires
+- Introduction et méthodologie de la recherche de marché
+- Analyse de marché et dynamique de {{research_topic}}
+- Insights client et analyse comportementale
+- Paysage concurrentiel et positionnement
+- Recommandations stratégiques de marché
+- Stratégies d'entrée et de croissance sur le marché
+- Évaluation et atténuation des risques
+- Roadmap d'implémentation et métriques de succès
+- Perspectives futures du marché et opportunités
+- Méthodologie de recherche de marché et documentation des sources
+- Annexes de recherche de marché et ressources supplémentaires
 
-## 1. Introduction à l'Étude de Marché et Méthodologie
+## 1. Introduction et méthodologie de la recherche de marché
 
-### Importance de l'Étude de Marché
+### Importance de la recherche de marché
 
-**Récit convaincant expliquant pourquoi la recherche sur {{research_topic}} est vitale aujourd'hui**
-_Importance du Marché : [L'enjeu stratégique du marché avec contexte actualisé]_
-_Impact Commercial : [Implications commerciales de l'étude de marché]_
+**Narration de marché captivante sur les raisons pour lesquelles la recherche sur {{research_topic}} est critique maintenant**
+_Importance du marché : [Importance stratégique du marché avec contexte à jour]_
+_Impact business : [Implications business de la recherche de marché]_
 _Source : [URL]_
 
-### Méthodologie de l'Étude de Marché
+### Méthodologie de recherche de marché
 
-[Description complète de l'approche de recherche adoptée incluant :]
+[Description complète de l'approche de recherche de marché incluant :]
 
-- **Périmètre du Marché** : [Domaines de couverture exhaustifs du marché]
-- **Sources de Données** : [Sources faisant autorité et approche de vérification]
-- **Cadre d'Analyse** : [Méthodologie d'analyse du marché structurée]
+- **Périmètre de marché** : [Zones de couverture complètes du marché]
+- **Sources de données** : [Sources de marché faisant autorité et approche de vérification]
+- **Cadre d'analyse** : [Méthodologie d'analyse de marché structurée]
 - **Période** : [Focus actuel et contexte d'évolution du marché]
-- **Couverture Géographique** : [Étendue régionale ou mondiale du marché]
+- **Couverture géographique** : [Portée régionale/mondiale du marché]
 
-### Buts et Objectifs de l'Étude de Marché
+### Objectifs et buts de la recherche de marché
 
-**Objectifs de Marché Originaux :** {{research_goals}}
+**Objectifs initiaux du marché :** {{research_goals}}
 
-**Objectifs de Marché Atteints :**
+**Objectifs de marché atteints :**
 
-- [Accomplissement de l'Objectif 1 avec preuves à l'appui]
-- [Accomplissement de l'Objectif 2 avec preuves à l'appui]
-- [Insights de marché additionnels découverts lors des recherches]
+- [Réalisation de l'objectif de marché 1 avec preuves à l'appui]
+- [Réalisation de l'objectif de marché 2 avec preuves à l'appui]
+- [Insights de marché supplémentaires découverts pendant la recherche]
 
-## 2. Analyse du Marché {{research_topic}} et Dynamiques
+## 2. Analyse de marché et dynamique de {{research_topic}}
 
-### Taille du Marché et Projections de Croissance
+### Taille du marché et projections de croissance
 
-_[Analyse exhaustive du marché]_
-_Taille du Marché : [Valorisation et taille actuelle du marché]_
-_Taux de Croissance : [TCAC et projections de croissance du marché]_
-_Moteurs du Marché : [Facteurs clés favorisant la croissance du marché]_
-_Segments du Marché : [Analyse détaillée de la segmentation du marché]_
+_[Analyse complète du marché]_
+_Taille du marché : [Valorisation et taille actuelles du marché]_
+_Taux de croissance : [CAGR et projections de croissance du marché]_
+_Moteurs du marché : [Facteurs clés guidant la croissance du marché]_
+_Segments de marché : [Analyse détaillée de la segmentation du marché]_
 _Source : [URL]_
 
-### Tendances du Marché et Dynamiques
+### Tendances et dynamique du marché
 
-[Analyse des tendances actuelles du marché]
-_Tendances Émergentes : [Tendances clés du marché et leurs implications]_
-_Dynamiques du Marché : [Forces façonnant l'évolution du marché]_
-_Changements de Comportement des Consommateurs : [Évolution du comportement et des préférences]_
+[Analyse des tendances de marché actuelles]
+_Tendances émergentes : [Tendances clés du marché et leurs implications]_
+_Dynamique du marché : [Forces façonnant l'évolution du marché]_
+_Évolutions du comportement consommateur : [Changements dans le comportement et les préférences client]_
 _Source : [URL]_
 
-### Analyse des Tarifs (Pricing) et du Modèle Économique
+### Analyse des prix et modèles économiques
 
 [Analyse complète des prix et modèles économiques]
-_Stratégies de Tarification : [Approches et modèles de tarification actuels]_
-_Évolution du Modèle Économique : [Modèles économiques émergents et performants]_
-_Analyse de la Proposition de Valeur : [Évaluation de la proposition de valeur client]_
+_Stratégies de prix : [Approches et modèles de prix actuels]_
+_Évolution des modèles économiques : [Modèles économiques émergents et réussis]_
+_Analyse de la proposition de valeur : [Évaluation de la proposition de valeur client]_
 _Source : [URL]_
 
-## 3. Enseignements sur les Clients et Analyse des Comportements
+## 3. Insights client et analyse comportementale
 
-### Modèles de Comportement des Clients
+### Schémas de comportement client
 
-[Analyse des enseignements sur les clients avec contexte actuel]
-_Modèles de Comportement : [Tendances et modèles clés du comportement client]_
-_Parcours Client : [Cartographie complète du parcours client]_
-_Facteurs de Décision : [Facteurs influençant les décisions des clients]_
+[Analyse des insights client avec contexte actuel]
+_Schémas comportementaux : [Tendances et schémas clés de comportement client]_
+_Journey client : [Cartographie complète du journey client]_
+_Facteurs de décision : [Facteurs influençant les décisions client]_
 _Source : [URL]_
 
-### Points de Douleur (Pain Points) et Besoins des Clients
+### Points de douleur et besoins client
 
-[Analyse exhaustive des points de douleur]
-_Points de Douleur : [Défis clés et frustrations des clients]_
-_Besoins Non Satisfaits : [Besoins non résolus et opportunités]_
-_Attentes des Clients : [Attentes actuelles et exigences]_
+[Analyse complète des points de douleur client]
+_Points de douleur : [Défis et frustrations clés des clients]_
+_Besoins non satisfaits : [Besoins client non résolus et opportunités]_
+_Attentes des clients : [Attentes et exigences actuelles des clients]_
 _Source : [URL]_
 
-### Segmentation et Ciblage
+### Segmentation et ciblage client
 
 [Analyse détaillée de la segmentation client]
-_Segments Clients : [Profils détaillés des segments de clientèle]_
-_Analyse du Marché Cible : [Segments clients les plus attractifs]_
-_Stratégies Spécifiques par Segment : [Approches sur mesure pour les segments clés]_
+_Segments client : [Profils détaillés des segments client]_
+_Analyse du marché cible : [Segments client les plus attractifs]_
+_Stratégies spécifiques par segment : [Approches adaptées pour les segments clés]_
 _Source : [URL]_
 
-## 4. Paysage Concurrentiel et Positionnement
+## 4. Paysage concurrentiel et positionnement
 
-### Analyse Concurrentielle
+### Analyse concurrentielle
 
 [Analyse concurrentielle complète]
-_Leaders du Marché : [Concurrents dominants et leurs stratégies]_
-_Concurrents Émergents : [Nouveaux entrants et approches innovantes]_
-_Avantages Concurrentiels : [Différenciateurs clés et avantages concurrentiels]_
+_Leaders du marché : [Concurrents dominants et leurs stratégies]_
+_Concurrents émergents : [Nouveaux entrants et approches innovantes]_
+_Avantages concurrentiels : [Différenciateurs clés et avantages concurrentiels]_
 _Source : [URL]_
 
-### Stratégies de Positionnement sur le Marché
+### Stratégies de positionnement sur le marché
 
 [Analyse stratégique du positionnement]
-_Opportunités de Positionnement : [Opportunités de différenciation sur le marché]_
-_Lacunes Concurrentielles : [Besoins du marché non satisfaits et opportunités]_
-_Cadre de Positionnement : [Approche de positionnement recommandée]_
+_Opportunités de positionnement : [Opportunités de différenciation sur le marché]_
+_Lacunes concurrentielles : [Besoins de marché non desservis et opportunités]_
+_Cadre de positionnement : [Approche de positionnement recommandée]_
 _Source : [URL]_
 
-## 5. Recommandations Stratégiques pour le Marché
+## 5. Recommandations stratégiques de marché
 
-### Évaluation des Opportunités de Marché
+### Évaluation des opportunités de marché
 
-[Analyse des opportunités stratégiques du marché]
-_Opportunités à Haute Valeur : [Opportunités de marché les plus attractives]_
-_Chronologie d'Entrée sur le Marché : [Moment optimal pour l'entrée ou l'expansion]_
-_Stratégies de Croissance : [Approches recommandées pour la croissance du marché]_
+[Analyse des opportunités stratégiques de marché]
+_Opportunités à forte valeur : [Opportunités de marché les plus attractives]_
+_Calendrier d'entrée sur le marché : [Calendrier optimal pour l'entrée ou l'expansion sur le marché]_
+_Stratégies de croissance : [Approches recommandées pour la croissance du marché]_
 _Source : [URL]_
 
-### Recommandations Stratégiques
+### Recommandations stratégiques
 
-[Recommandations stratégiques exhaustives]
-_Stratégie d'Entrée sur le Marché : [Approche recommandée pour l'entrée/expansion]_
-_Stratégie Concurrentielle : [Positionnement concurrentiel et approche recommandés]_
-_Stratégie d'Acquisition Client : [Approche recommandée pour l'acquisition de clients]_
+[Recommandations stratégiques complètes]
+_Stratégie d'entrée sur le marché : [Approche recommandée pour l'entrée/expansion sur le marché]_
+_Stratégie concurrentielle : [Positionnement et approche concurrentielle recommandés]_
+_Stratégie d'acquisition client : [Approche d'acquisition client recommandée]_
 _Source : [URL]_
 
-## 6. Stratégies d'Entrée sur le Marché et de Croissance
+## 6. Stratégies d'entrée et de croissance sur le marché
 
-### Stratégie de Mise sur le Marché (Go-to-Market)
+### Stratégie Go-to-Market
 
-[Approche Go-to-Market complète]
-_Approche d'Entrée sur le Marché : [Stratégie et tactiques recommandées pour l'entrée]_
-_Stratégie de Canaux : [Canaux optimaux pour la portée du marché et l'acquisition]_
-_Stratégie de Partenariat : [Partenariat stratégique et opportunités de collaboration]_
+[Approche go-to-market complète]
+_Approche d'entrée sur le marché : [Stratégie et tactiques d'entrée sur le marché recommandées]_
+_Stratégie de canal : [Canaux optimaux pour la portée du marché et l'acquisition client]_
+_Stratégie de partenariat : [Opportunités de partenariat stratégique et collaboration]_
 _Source : [URL]_
 
-### Stratégie de Croissance et de Mise à l'Échelle (Scaling)
+### Stratégie de croissance et de mise à l'échelle
 
-[Analyse de la croissance et de la mise à l'échelle]
-_Phases de Croissance : [Approche progressive recommandée pour la croissance]_
-_Considérations de Mise à l'Échelle : [Facteurs clés pour une mise à l'échelle réussie]_
-_Opportunités d'Expansion : [Opportunités d'expansion géographique ou par segment]_
+[Analyse de croissance et mise à l'échelle du marché]
+_Phases de croissance : [Approche en phases recommandée pour la croissance du marché]_
+_Considérations de mise à l'échelle : [Facteurs clés pour une mise à l'échelle réussie du marché]_
+_Opportunités d'expansion : [Opportunités d'expansion géographique ou de segment]_
 _Source : [URL]_
 
-## 7. Évaluation des Risques et Atténuation (Mitigation)
+## 7. Évaluation et atténuation des risques
 
-### Analyse des Risques du Marché
+### Analyse des risques de marché
 
-[Évaluation exhaustive des risques du marché]
-_Risques du Marché : [Risques et incertitudes clés liés au marché]_
-_Risques Concurrentiels : [Menaces concurrentielles et stratégies d'atténuation]_
-_Risques Réglementaires : [Considérations réglementaires et de conformité]_
+[Évaluation complète des risques de marché]
+_Risques de marché : [Risques et incertitudes clés liés au marché]_
+_Risques concurrentiels : [Menaces concurrentielles et stratégies d'atténuation]_
+_Risques réglementaires : [Considérations réglementaires et de conformité]_
 _Source : [URL]_
 
-### Stratégies d'Atténuation
+### Stratégies d'atténuation
 
-[Atténuation des risques et planification d'urgence]
-_Approches d'Atténuation des Risques : [Stratégies pour gérer les risques identifiés]_
-_Planification d'Urgence (Contingency) : [Plans de secours et approches alternatives]_
-_Analyse de Sensibilité du Marché : [Impact des changements du marché sur la stratégie]_
+[Atténuation des risques et planification de contingence]
+_Approches d'atténuation des risques : [Stratégies pour gérer les risques identifiés]_
+_Planification de contingence : [Plans de secours et approches alternatives]_
+_Analyse de sensibilité du marché : [Impact des changements de marché sur la stratégie]_
 _Source : [URL]_
 
-## 8. Feuille de Route d'Implémentation et Métriques de Réussite
+## 8. Roadmap d'implémentation et métriques de succès
 
-### Cadre d'Implémentation
+### Cadre d'implémentation
 
-[Lignes directrices complètes pour l'implémentation]
-_Calendrier d'Implémentation : [Approche recommandée de l'implémentation par phases]_
-_Ressources Requises : [Ressources clés et capacités nécessaires]_
-_Jalons d'Implémentation : [Jalons clés et critères de réussite]_
+[Conseils complets d'implémentation]
+_Calendrier d'implémentation : [Approche d'implémentation en phases recommandée]_
+_Ressources requises : [Ressources et capacités clés nécessaires]_
+_Jalons d'implémentation : [Jalons clés et critères de succès]_
 _Source : [URL]_
 
-### Métriques de Réussite et KPIs
+### Métriques de succès et KPIs
 
-[Cadre exhaustif de mesure de la réussite]
-_Indicateurs Clés de Performance (KPIs) : [Métriques critiques pour mesurer la réussite]_
-_Suivi et Reporting : [Approche pour suivre et rendre compte des progrès]_
-_Critères de Réussite : [Critères clairs pour déterminer le succès]_
+[Cadre complet de mesure du succès]
+_Indicateurs clés de performance : [Métriques critiques pour mesurer le succès]_
+_Surveillance et reporting : [Approche pour suivre et rapporter les progrès]_
+_Critères de succès : [Critères clairs pour déterminer le succès]_
 _Source : [URL]_
 
-## 9. Perspectives d'Avenir du Marché et Opportunités
+## 9. Perspectives futures du marché et opportunités
 
-### Tendances Futures du Marché
+### Tendances futures du marché
 
-[Analyse du marché à caractère prospectif]
-_Évolution du Marché à Court Terme : [Prévisions de développement à 1-2 ans]_
-_Tendances du Marché à Moyen Terme : [Développements prévus à 3-5 ans]_
-_Vision du Marché à Long Terme : [Perspectives à 5+ ans pour {{research_topic}}]_
+[Analyse prospective du marché]
+_Évolution à court terme du marché : [Attentes de développement du marché à 1-2 ans]_
+_Tendances de marché à moyen terme : [Développements de marché attendus à 3-5 ans]_
+_Vision à long terme du marché : [Perspective du marché à 5+ ans pour {{research_topic}}]_
 _Source : [URL]_
 
-### Opportunités Stratégiques
+### Opportunités stratégiques
 
-[Analyse des opportunités de marché et recommandations]
-_Opportunités Émergentes : [Nouvelles opportunités de marché et leur potentiel]_
-_Opportunités d'Innovation : [Domaines d'innovation et de différenciation]_
-_Investissements Stratégiques sur le Marché : [Investissements recommandés et priorités]_
+[Analyse et recommandations sur les opportunités de marché]
+_Opportunités émergentes : [Nouvelles opportunités de marché et leur potentiel]_
+_Opportunités d'innovation : [Zones pour l'innovation et la différenciation sur le marché]_
+_Investissements stratégiques sur le marché : [Investissements et priorités de marché recommandés]_
 _Source : [URL]_
 
-## 10. Méthodologie de Recherche et Documentation des Sources
+## 10. Méthodologie de recherche de marché et vérification des sources
 
-### Documentation Exhaustive des Sources du Marché
+### Documentation complète des sources de marché
 
-[Documentation complète de toutes les sources d'études de marché]
-_Sources de Marché Primaires : [Sources d'autorité clés utilisées]_
-_Sources de Marché Secondaires : [Études de marché et analyses complémentaires]_
-_Requêtes de Recherche Web : [Liste complète des requêtes de recherche utilisées]_
+[Documentation complète de toutes les sources de recherche de marché]
+_Sources primaires de marché : [Sources clés faisant autorité utilisées]_
+_Sources secondaires de marché : [Recherches et analyses de soutien]_
+_Requêtes de recherche web sur le marché : [Liste complète des requêtes utilisées]_
 
-### Assurance Qualité de l'Étude de Marché
+### Assurance qualité de la recherche de marché
 
-[Assurance qualité de l'étude de marché et approche de validation]
-_Vérification des Sources de Marché : [Toutes les affirmations vérifiées avec de multiples sources]_
-_Niveaux de Confiance : [Évaluations de la confiance pour les données de marché incertaines]_
-_Limites de la Recherche : [Limites de l'étude de marché et domaines d'investigation future]_
-_Transparence de la Méthodologie : [Transparence complète sur l'approche de recherche]_
+[Approche d'assurance qualité et de validation de la recherche de marché]
+_Vérification des sources de marché : [Toutes les affirmations de marché vérifiées avec plusieurs sources]_
+_Niveaux de confiance du marché : [Évaluations de confiance pour les données de marché incertaines]_
+_Limitations de la recherche de marché : [Limitations et zones nécessitant une investigation supplémentaire]_
+_Transparence méthodologique : [Transparence complète sur l'approche de recherche de marché]_
 
-## 11. Annexes de l'Étude et Ressources Supplémentaires
+## 11. Annexes de recherche de marché et ressources supplémentaires
 
-### Tableaux Détaillés des Données du Marché (Data Tables)
+### Tableaux détaillés de données de marché
 
-[Tableaux de données exhaustifs soutenant les conclusions de la recherche]
-_Données de Taille du Marché : [Taille détaillée du marché et tableaux de croissance]_
-_Données d'Analyse Client : [Comportement détaillé des clients et segmentation]_
-_Données d'Analyse Concurrentielle : [Comparaison détaillée des concurrents et positionnement]_
+[Tableaux complets de données de marché soutenant les conclusions de recherche]
+_Données de taille du marché : [Tableaux détaillés de données de taille et croissance du marché]_
+_Données d'analyse client : [Données détaillées de comportement et segmentation client]_
+_Données d'analyse concurrentielle : [Données détaillées de comparaison et positionnement des concurrents]_
 
-### Ressources et Références du Marché
+### Ressources et références de marché
 
-[Ressources de marché précieuses pour une recherche continue et l'implémentation]
-_Rapports d'Étude de Marché : [Rapports d'autorité et publications]_
-_Associations de l'Industrie : [Organisations clés de l'industrie et ressources]_
-_Outils d'Analyse de Marché : [Outils et ressources pour l'analyse continue du marché]_
+[Ressources de marché précieuses pour la recherche continue et l'implémentation]
+_Rapports de recherche de marché : [Rapports et publications de recherche de marché faisant autorité]_
+_Associations de l'industrie : [Organisations clés de l'industrie et ressources de marché]_
+_Outils d'analyse de marché : [Outils et ressources pour l'analyse de marché continue]_
 
 ---
 
-## Conclusion de l'Étude de Marché
+## Conclusion de la recherche de marché
 
-### Résumé des Constatations (Insights) du Marché
+### Résumé des conclusions clés du marché
 
-[Résumé exhaustif des conclusions les plus importantes de l'étude de marché]
+[Résumé complet des conclusions de recherche de marché les plus importantes]
 
-### Évaluation de l'Impact Stratégique sur le Marché
+### Évaluation de l'impact stratégique sur le marché
 
-[Évaluation des implications du marché pour {{research_topic}}]
+[Évaluation des implications de marché pour {{research_topic}}]
 
-### Prochaines Étapes et Recommandations sur le Marché
+### Recommandations sur les prochaines étapes du marché
 
-[Prochaines étapes spécifiques pour tirer parti de cette étude de marché]
+[Prochaines étapes spécifiques pour exploiter cette recherche de marché]
 
 ---
 
-**Date de Complétion de l'Étude de Marché :** {{date}}
-**Période de Recherche :** Analyse de marché exhaustive actuelle
-**Taille du Document :** Aussi longue que nécessaire pour une couverture complète du marché
-**Vérification des Sources :** Tous les faits du marché cités avec des sources actuelles
-**Niveau de Confiance du Marché :** Élevé - basé sur de multiples sources de marché faisant autorité
+**Date de complétion de la recherche de marché :** {{date}}
+**Période de recherche :** Analyse de marché complète actuelle
+**Longueur du document :** Selon les besoins pour une couverture complète du marché
+**Vérification des sources :** Tous les faits de marché cités avec sources actuelles
+**Niveau de confiance du marché :** Élevé — basé sur plusieurs sources de marché faisant autorité
 
-_Ce document d'étude de marché exhaustif sert de référence faisant autorité sur {{research_topic}} et fournit des insights stratégiques pour une prise de décision éclairée._
+_Ce document de recherche de marché complet sert de référence faisant autorité sur le marché de {{research_topic}} et fournit des insights stratégiques de marché pour une prise de décision éclairée._
 ```
 
-### 5. Présentation de L'Étude Complétée et de l'Option Finale
+### 5. Présenter le document complet de recherche de marché et l'option finale
 
-**Présentation de l'Achèvement du Document d'Étude de Marché :**
+**Présentation de la complétion du document de recherche de marché :**
 
-"J'ai terminé **la synthèse du document exhaustif d'étude de marché** pour **{{research_topic}}**, produisant un document d'étude faisant autorité avec :
+"J'ai complété la **synthèse complète du document de recherche de marché** pour **{{research_topic}}**, produisant un document de recherche de marché faisant autorité avec :
 
-**Caractéristiques du Document :**
+**Caractéristiques du document :**
 
-- **Introduction Convaincante** : Ouverture engageante qui établit l'importance de l'étude
-- **Table des Matières (TOC) Exhaustive** : Structure de navigation complète pour la référence
-- **Couverture de Recherche Exhaustive** : Tous les aspects du marché concernant {{research_topic}} analysés minutieusement
-- **Résumé Exécutif** : Constatations clés et implications stratégiques mises en évidence
-- **Recommandations Stratégiques** : Insights actionnables basés sur une recherche complète
-- **Citations de Sources Complètes** : Chaque affirmation de marché est vérifiée avec des sources actuelles
+- **Introduction de marché captivante** : Ouverture engageante qui établit l'importance de la recherche de marché
+- **TOC complet du marché** : Structure de navigation complète pour la référence du marché
+- **Couverture exhaustive de la recherche de marché** : Tous les aspects du marché de {{research_topic}} analysés en profondeur
+- **Résumé exécutif du marché** : Conclusions clés du marché et implications stratégiques mises en évidence
+- **Recommandations stratégiques de marché** : Insights de marché actionnables basés sur la recherche complète
+- **Citations complètes des sources de marché** : Chaque affirmation de marché vérifiée avec sources actuelles
 
-**Degré de Complétude de l'Étude :**
+**Complétude de la recherche de marché :**
 
-- Analyse et dynamiques du marché entièrement documentées
-- Enseignements sur les clients et analyse des comportements couverts en profondeur
+- Analyse de marché et dynamique entièrement documentées
+- Insights client et analyse comportementale couverts de manière complète
 - Paysage concurrentiel et positionnement détaillés
-- Recommandations stratégiques et conseils d'implémentation fournis
+- Recommandations stratégiques de marché et conseils d'implémentation fournis
 
-**Normes Documentaires Respectées :**
+**Standards du document respectés :**
 
 - Recherche de marché exhaustive sans lacunes critiques
-- Structure professionnelle et narration convaincante
-- Document aussi long que nécessaire pour une couverture exhaustive
-- Multiples sources indépendantes pour toutes les affirmations
-- Données de marché actuelles tout au long du document avec citations appropriées
+- Structure professionnelle de marché et narration captivante
+- Aussi long que nécessaire pour une couverture complète du marché
+- Plusieurs sources indépendantes pour toutes les affirmations de marché
+- Données de marché actuelles partout avec citations appropriées
 
-**Êtes-vous prêt pour terminer ce document d'étude de marché complet ?**
-[C] Compléter la Recherche - Sauvegarder et finaliser le document exhaustif d'étude de marché
+**Prêt à compléter ce document de recherche de marché complet ?**
+[C] Compléter la recherche — Sauvegarder le document final complet de recherche de marché
 
-### 6. Gérer la Sélection "C" (Compléter)
+**HALT — attendre la réponse de l'utilisateur avant de continuer.**
 
-#### Si 'C' (Compléter la Recherche) :
+### 6. Gérer la sélection Complete
 
-- **Remplacez** l'espace réservé (placeholder) `[La vue d'ensemble et la méthodologie de recherche seront ajoutées ici]` dans la section `## Vue d'ensemble de la Recherche` située au sommet du document par un aperçu concis de 2-3 paragraphes résumant la portée de la recherche, les conclusions clés et pointant vers le résumé exécutif complet de la section Synthèse.
-- Ajoutez le contenu final au document de recherche.
-- Mettez à jour le frontmatter : `stepsCompleted: [1, 2, 3, 4, 5, 6]`
-- Terminez le flux de travail de l'étude de marché.
+#### Si 'C' (Compléter la recherche) :
 
-## AJOUT AU DOCUMENT :
+- **Remplacer** le placeholder du template `[Research overview and methodology will be appended here]` dans la section `## Research Overview` près du haut du document par un aperçu concis de 2-3 paragraphes résumant la portée de la recherche, les conclusions clés et un pointeur vers le résumé exécutif complet dans la section Synthèse de la recherche
+- Ajouter le contenu final au document de recherche
+- Mettre à jour le frontmatter : `stepsCompleted: [1, 2, 3, 4]`
+- Compléter le workflow de recherche de marché
 
-Lorsque l'utilisateur sélectionne 'C', ajoutez la totalité du document final directement dans le fichier en utilisant la structure de l'étape 4. Remplacez également le placeholder `[La vue d'ensemble et la méthodologie de recherche seront ajoutées ici]` dans la section *Vue d'ensemble de la Recherche* située tout en haut du document.
+## AJOUTER AU DOCUMENT :
 
-## MÉTRIQUES DE RÉUSSITE :
+Lorsque l'utilisateur sélectionne 'C', ajouter le contenu directement au document de recherche en utilisant la structure de l'étape 4. Remplacer également le placeholder `[Research overview and methodology will be appended here]` dans la section Research Overview en haut du document.
 
-✅ Introduction convaincante avec l'importance de la recherche
-✅ Table des matières complète et structure de document exhaustive
-✅ Couverture de recherche de marché intégrale à travers tous les aspects
-✅ Résumé exécutif avec conclusions clés et implications stratégiques
-✅ Recommandations stratégiques fondées sur une recherche crédible
-✅ Vérification complète des sources du marché avec des citations actuelles
-✅ Structure du document professionnelle et récit percutant
-✅ L'option [C] compléter est présentée et gérée correctement
-✅ Le workflow de recherche est complété et produit un document exhaustif
+## MÉTRIQUES DE SUCCÈS :
+
+✅ Introduction de marché captivante avec importance de la recherche
+✅ Table des matières complète du marché avec structure complète du document
+✅ Couverture exhaustive de la recherche de marché sur tous les aspects du marché
+✅ Résumé exécutif du marché avec conclusions clés et implications stratégiques
+✅ Recommandations stratégiques de marché fondées sur une recherche complète
+✅ Vérification complète des sources de marché avec citations actuelles
+✅ Structure professionnelle du document de marché et narration captivante
+✅ Option [C] complete présentée et gérée correctement
+✅ Workflow de recherche de marché complété avec document complet
 
 ## MODES D'ÉCHEC :
 
-❌ Ne pas produire une introduction de marché convaincante
-❌ Absence d'une table des matières complète du marché
-❌ Couverture incomplète des différents aspects de l'étude de marché
-❌ Ne pas fournir un résumé exécutif avec les conclusions clés
-❌ Absence de recommandations stratégiques basées sur l'étude
-❌ Se fier uniquement aux données d'entraînement sans vérification web pour les faits actuels
+❌ Ne pas produire d'introduction de marché captivante
+❌ Table des matières complète du marché manquante
+❌ Couverture incomplète de la recherche de marché sur les aspects du marché
+❌ Ne pas fournir de résumé exécutif du marché avec conclusions clés
+❌ Recommandations stratégiques de marché manquantes basées sur la recherche
+❌ Se reposer uniquement sur les données d'entraînement sans vérification web pour les faits actuels
 ❌ Produire un document de marché sans structure professionnelle
 ❌ Ne pas présenter l'option de complétion pour le document de marché final
 
-❌ **CRITIQUE** : Ne lire qu'une partie du fichier d'étape — conduit à une compréhension incomplète et à de mauvaises décisions de recherche
-❌ **CRITIQUE** : Poursuivre avec 'C' sans avoir lu entièrement et compris le fichier d'étape suivant
-❌ **CRITIQUE** : Prendre des décisions sans une compréhension complète des exigences et des protocoles de l'étape
+❌ **CRITIQUE** : Lire seulement partiellement le fichier d'étape — mène à une compréhension incomplète et de mauvaises décisions
+❌ **CRITIQUE** : Procéder avec 'C' sans lire et comprendre entièrement le fichier d'étape suivant
+❌ **CRITIQUE** : Prendre des décisions sans compréhension complète des exigences et protocoles de l'étape
 
 ## PROTOCOLES DE RECHERCHE STRATÉGIQUE :
 
-- Rechercher les cadres stratégiques actuels et les meilleures pratiques
-- Étudier les cas réussis d'entrée sur le marché et les approches associées
-- Identifier les méthodologies et cadres de gestion des risques
-- Rechercher des stratégies de planification et d'exécution de l'implémentation
-- Prendre en compte le timing du marché et les facteurs de préparation
+- Rechercher des cadres et bonnes pratiques de stratégie de marché actuels
+- Rechercher des cas et approches d'entrée sur le marché réussis
+- Identifier des méthodologies et cadres de gestion des risques
+- Rechercher des stratégies de planification et d'exécution d'implémentation
+- Considérer le calendrier et les facteurs de préparation du marché
 
-## NORMES DOCUMENTAIRES EXHAUSTIVES :
+## STANDARDS DU DOCUMENT DE MARCHÉ COMPLET :
 
-Cette étape garantit que le document de recherche final :
+Cette étape garantit que le document de recherche de marché final :
 
-- Sert de référence faisant autorité concernant {{research_topic}}
-- Fournit des insights stratégiques pour une prise de décision éclairée
-- Inclut une couverture de marché complète sans aucune lacune
-- Maintient des normes rigoureuses de vérification des sources
-- Délivre des enseignements stratégiques et des recommandations actionnables
-- Répond aux normes de qualité professionnelle des documents de recherche de marché
+- Sert de référence de marché faisant autorité sur {{research_topic}}
+- Fournit des insights stratégiques de marché pour une prise de décision éclairée
+- Comprend une couverture complète du marché sans lacunes
+- Maintient des standards rigoureux de vérification des sources de marché
+- Délivre des insights stratégiques de marché et recommandations actionnables
+- Répond aux standards de qualité des documents de recherche de marché professionnels
 
-## ACHÈVEMENT DU WORKFLOW D'ÉTUDE DU MARCHÉ :
+## COMPLÉTION DU WORKFLOW DE RECHERCHE DE MARCHÉ :
 
 Lorsque 'C' est sélectionné :
 
-- Toutes les étapes de l'étude de marché sont terminées (1-6)
-- Un document d'étude de marché exhaustif est généré
-- Structure de document professionnelle avec introduction, sommaire (TOC) et résumé
-- Toutes les sections sont accompagnées de citations de sources
-- Le statut du flux de travail de recherche est mis à jour sur 'Terminé'
-- Le document de recherche complet et final est remis à l'utilisateur
+- Toutes les étapes de recherche de marché complétées (1-4)
+- Document de recherche de marché complet généré
+- Structure professionnelle du document de marché avec intro, TOC et résumé
+- Toutes les sections de marché ajoutées avec citations des sources
+- Statut du workflow de recherche de marché mis à jour à complete
+- Document final complet de recherche de marché livré à l'utilisateur
 
-## LIVRABLE FINAL :
+## LIVRABLE FINAL DU MARCHÉ :
 
-Document d'étude de marché complet et faisant autorité sur {{research_topic}} qui :
+Document de recherche de marché complet faisant autorité sur {{research_topic}} qui :
 
-- Établit une crédibilité professionnelle grâce à une recherche exhaustive
-- Fournit des insights stratégiques pour une prise de décision éclairée
-- Sert de document de référence pour une utilisation continue
-- Maintient les normes de qualité de recherche les plus élevées grâce aux vérifications actuelles
+- Établit la crédibilité professionnelle de marché par une recherche complète
+- Fournit des insights stratégiques de marché pour une prise de décision éclairée
+- Sert de document de référence de marché pour usage continu
+- Maintient les plus hauts standards de qualité de recherche de marché avec vérification actuelle
 
-## ÉTAPES SUIVANTES :
+## PROCHAINES ÉTAPES :
 
-Le flux de recherche d'étude de marché est achevé. L'utilisateur peut :
+Workflow complet de recherche de marché terminé. L'utilisateur peut :
 
-- Utiliser le document d'étude de marché pour orienter les stratégies et les décisions d'affaires
-- Conduire d'autres recherches de marché sur des segments spécifiques ou des opportunités
-- Combiner l'étude de marché avec d'autres types de recherche pour une vue exhaustive
-- Avancer sur l'implémentation en se basant sur les recommandations stratégiques
+- Utiliser le document de recherche de marché pour informer les stratégies et décisions business
+- Mener des recherches de marché supplémentaires sur des segments ou opportunités spécifiques
+- Combiner la recherche de marché avec d'autres types de recherche pour des insights complets
+- Avancer avec l'implémentation basée sur les recommandations stratégiques de marché
 
-Félicitations pour l'achèvement de cette étude de marché exhaustive documentée de façon professionnelle ! 🎉
+## On Complete
+
+Exécuter : `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete`
+
+Si le `workflow.on_complete` résolu n'est pas vide, suivez-le comme instruction terminale finale avant de quitter.
+
+Félicitations pour avoir complété une recherche de marché complète avec une documentation professionnelle ! 🎉

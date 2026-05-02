@@ -60,12 +60,12 @@ class ManifestGenerator {
     this.allInstalledFiles = installedFiles;
 
     if (!Object.prototype.hasOwnProperty.call(options, 'ides')) {
-      throw new Error('ManifestGenerator requires `options.ides` to be provided – installer should supply the selected IDEs array.');
+      throw new Error('ManifestGenerator requiert que `options.ides` soit fourni – l\'installateur doit fournir le tableau des IDEs sélectionnés.');
     }
 
     const resolvedIdes = options.ides ?? [];
     if (!Array.isArray(resolvedIdes)) {
-      throw new TypeError('ManifestGenerator expected `options.ides` to be an array.');
+      throw new TypeError('ManifestGenerator attendait que `options.ides` soit un tableau.');
     }
 
     // Filter out any undefined/null values from IDE list
@@ -161,7 +161,7 @@ class ManifestGenerator {
           this.skillClaimedDirs.add(dir);
 
           if (debug) {
-            console.log(`[DEBUG] collectSkills: claimed skill "${skillMeta.name}" as ${canonicalId} at ${dir}`);
+            console.log(`[DEBUG] collectSkills : skill réclamé "${skillMeta.name}" en tant que ${canonicalId} dans ${dir}`);
           }
         }
 
@@ -179,7 +179,7 @@ class ManifestGenerator {
     }
 
     if (debug) {
-      console.log(`[DEBUG] collectSkills: total skills found: ${this.skills.length}, claimed dirs: ${this.skillClaimedDirs.size}`);
+      console.log(`[DEBUG] collectSkills : total des skills trouvés : ${this.skills.length}, répertoires réclamés : ${this.skillClaimedDirs.size}`);
     }
   }
 
@@ -194,7 +194,7 @@ class ManifestGenerator {
    */
   async parseSkillMd(skillMdPath, dir, dirName, debug = false) {
     if (!(await fs.pathExists(skillMdPath))) {
-      if (debug) console.log(`[DEBUG] parseSkillMd: "${dir}" is missing SKILL.md — skipping`);
+      if (debug) console.log(`[DEBUG] parseSkillMd : SKILL.md manquant dans "${dir}" — ignoré`);
       return null;
     }
 
@@ -214,22 +214,22 @@ class ManifestGenerator {
           !skillMeta.name ||
           !skillMeta.description
         ) {
-          if (debug) console.log(`[DEBUG] parseSkillMd: SKILL.md in "${dir}" is missing name or description (or wrong type) — skipping`);
+          if (debug) console.log(`[DEBUG] parseSkillMd : SKILL.md dans "${dir}" n'a pas de name ou description (ou type incorrect) — ignoré`);
           return null;
         }
 
         if (skillMeta.name !== dirName) {
-          console.error(`Error: SKILL.md name "${skillMeta.name}" does not match directory name "${dirName}" — skipping`);
+          console.error(`Erreur : le nom de SKILL.md "${skillMeta.name}" ne correspond pas au nom du répertoire "${dirName}" — ignoré`);
           return null;
         }
 
         return skillMeta;
       }
 
-      if (debug) console.log(`[DEBUG] parseSkillMd: SKILL.md in "${dir}" has no frontmatter — skipping`);
+      if (debug) console.log(`[DEBUG] parseSkillMd : SKILL.md dans "${dir}" n'a pas de frontmatter — ignoré`);
       return null;
     } catch (error) {
-      if (debug) console.log(`[DEBUG] parseSkillMd: failed to parse SKILL.md in "${dir}": ${error.message} — skipping`);
+      if (debug) console.log(`[DEBUG] parseSkillMd : échec de l'analyse de SKILL.md dans "${dir}" : ${error.message} — ignoré`);
       return null;
     }
   }
@@ -250,8 +250,8 @@ class ManifestGenerator {
         // Warn rather than silently skip so missing agent rosters don't vanish
         // from config.toml without notice.
         console.warn(
-          `[warn] collectAgentsFromModuleYaml: could not locate module.yaml for '${moduleName}'. ` +
-            `Agents declared by this module will not be written to config.toml.`,
+          `[avertissement] collectAgentsFromModuleYaml : impossible de localiser module.yaml pour '${moduleName}'. ` +
+            `Les agents déclarés par ce module ne seront pas écrits dans config.toml.`,
         );
         continue;
       }
@@ -260,7 +260,7 @@ class ManifestGenerator {
       try {
         moduleDef = yaml.parse(await fs.readFile(moduleYamlPath, 'utf8'));
       } catch (error) {
-        if (debug) console.log(`[DEBUG] collectAgentsFromModuleYaml: failed to parse ${moduleYamlPath}: ${error.message}`);
+        if (debug) console.log(`[DEBUG] collectAgentsFromModuleYaml : échec de l'analyse de ${moduleYamlPath} : ${error.message}`);
         continue;
       }
 
@@ -281,13 +281,13 @@ class ManifestGenerator {
 
       if (debug) {
         console.log(
-          `[DEBUG] collectAgentsFromModuleYaml: ${moduleName} contributed ${moduleDef.agents.length} agents from ${moduleYamlPath}`,
+          `[DEBUG] collectAgentsFromModuleYaml : ${moduleName} a contribué ${moduleDef.agents.length} agents depuis ${moduleYamlPath}`,
         );
       }
     }
 
     if (debug) {
-      console.log(`[DEBUG] collectAgentsFromModuleYaml: total agents found: ${this.agents.length}`);
+      console.log(`[DEBUG] collectAgentsFromModuleYaml : total des agents trouvés : ${this.agents.length}`);
     }
   }
 
@@ -442,8 +442,8 @@ class ManifestGenerator {
       const moduleYamlPath = await resolveInstalledModuleYaml(moduleName);
       if (!moduleYamlPath) {
         console.warn(
-          `[warn] writeCentralConfig: could not locate module.yaml for '${moduleName}'. ` +
-            `Answers from this module will default to team scope — user-scoped keys may mis-file into config.toml.`,
+          `[avertissement] writeCentralConfig : impossible de localiser module.yaml pour '${moduleName}'. ` +
+            `Les réponses de ce module seront par défaut en portée équipe — les clés à portée utilisateur pourraient mal se ranger dans config.toml.`,
         );
         continue;
       }
@@ -459,8 +459,8 @@ class ManifestGenerator {
         }
       } catch (error) {
         console.warn(
-          `[warn] writeCentralConfig: could not parse module.yaml for '${moduleName}' (${error.message}). ` +
-            `Answers from this module will default to team scope — user-scoped keys may mis-file into config.toml.`,
+          `[avertissement] writeCentralConfig : impossible d'analyser module.yaml pour '${moduleName}' (${error.message}). ` +
+            `Les réponses de ce module seront par défaut en portée équipe — les clés à portée utilisateur pourraient mal se ranger dans config.toml.`,
         );
       }
     }
@@ -496,29 +496,30 @@ class ManifestGenerator {
 
     const teamHeader = [
       '# ─────────────────────────────────────────────────────────────────',
-      '# Installer-managed. Regenerated on every install — treat as read-only.',
+      '# Géré par l\'installateur. Régénéré à chaque installation — à traiter en lecture seule.',
       '#',
-      '# Direct edits to this file will be overwritten on the next install.',
-      '# To change an install answer durably, re-run the installer (your prior',
-      '# answers are remembered as defaults). To pin a value regardless of',
-      '# install answers, or to add custom agents / override descriptors, use:',
-      '#   _bmad/custom/config.toml       (team, committed)',
-      '#   _bmad/custom/config.user.toml  (personal, gitignored)',
-      '# Those files are never touched by the installer.',
+      '# Les modifications directes de ce fichier seront écrasées à la prochaine installation.',
+      '# Pour modifier durablement une réponse d\'installation, relancez l\'installateur (vos',
+      '# réponses précédentes sont mémorisées comme valeurs par défaut). Pour épingler une',
+      '# valeur indépendamment des réponses d\'installation, ou pour ajouter des agents',
+      '# personnalisés / surcharger des descripteurs, utilisez :',
+      '#   _bmad/custom/config.toml       (équipe, committé)',
+      '#   _bmad/custom/config.user.toml  (personnel, gitignored)',
+      '# Ces fichiers ne sont jamais touchés par l\'installateur.',
       '# ─────────────────────────────────────────────────────────────────',
       '',
     ];
 
     const userHeader = [
       '# ─────────────────────────────────────────────────────────────────',
-      '# Installer-managed. Regenerated on every install — treat as read-only.',
-      '# Holds install answers scoped to YOU personally.',
+      '# Géré par l\'installateur. Régénéré à chaque installation — à traiter en lecture seule.',
+      '# Contient les réponses d\'installation à portée VOUS personnellement.',
       '#',
-      '# Direct edits to this file will be overwritten on the next install.',
-      '# To change an answer durably, re-run the installer (your prior answers',
-      '# are remembered as defaults). For pinned overrides or custom sections',
-      '# the installer does not know about, use _bmad/custom/config.user.toml',
-      '# — it is never touched by the installer.',
+      '# Les modifications directes de ce fichier seront écrasées à la prochaine installation.',
+      '# Pour modifier durablement une réponse, relancez l\'installateur (vos réponses',
+      '# précédentes sont mémorisées comme valeurs par défaut). Pour des surcharges',
+      '# épinglées ou des sections personnalisées que l\'installateur ne connaît pas,',
+      '# utilisez _bmad/custom/config.user.toml — il n\'est jamais touché par l\'installateur.',
       '# ─────────────────────────────────────────────────────────────────',
       '',
     ];
@@ -594,7 +595,7 @@ class ManifestGenerator {
           }
         }
       } catch (error) {
-        console.warn(`[warn] writeCentralConfig: could not read prior config.toml to preserve agents: ${error.message}`);
+        console.warn(`[avertissement] writeCentralConfig : impossible de lire le config.toml précédent pour préserver les agents : ${error.message}`);
       }
     }
 
@@ -631,22 +632,22 @@ class ManifestGenerator {
       {
         file: path.join(customDir, 'config.toml'),
         header: [
-          '# Team / enterprise overrides for _bmad/config.toml.',
-          '# Committed to the repo — applies to every developer on the project.',
-          '# Tables deep-merge over base config; keyed entries merge by key.',
-          '# Example: override an agent descriptor, or add a new agent.',
+          '# Surcharges équipe / entreprise pour _bmad/config.toml.',
+          '# Committé dans le dépôt — s\'applique à chaque développeur du projet.',
+          '# Les tables fusionnent en profondeur sur la config de base ; les entrées indexées fusionnent par clé.',
+          '# Exemple : surcharger un descripteur d\'agent, ou ajouter un nouvel agent.',
           '#',
           '# [agents.bmad-agent-pm]',
-          '# description = "Prefers short, bulleted PRDs over narrative drafts."',
+          '# description = "Préfère des PRDs courts et à puces plutôt que des brouillons narratifs."',
           '',
         ],
       },
       {
         file: path.join(customDir, 'config.user.toml'),
         header: [
-          '# Personal overrides for _bmad/config.toml.',
-          '# NOT committed (gitignored) — applies only to your local install.',
-          '# Wins over both base config and team overrides.',
+          '# Surcharges personnelles pour _bmad/config.toml.',
+          '# NON committé (gitignored) — s\'applique uniquement à votre installation locale.',
+          '# Prévaut sur la config de base et les surcharges équipe.',
           '',
         ],
       },
@@ -767,7 +768,7 @@ class ManifestGenerator {
         }
       }
     } catch (error) {
-      await prompts.log.warn(`Could not scan for installed modules: ${error.message}`);
+      await prompts.log.warn(`Impossible de scanner les modules installés : ${error.message}`);
     }
 
     return modules;

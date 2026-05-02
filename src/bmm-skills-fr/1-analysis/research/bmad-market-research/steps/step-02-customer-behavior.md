@@ -1,237 +1,239 @@
-# Market Research Step 2: Customer Behavior and Segments
+# Market Research Étape 2 : Comportement et segments client
 
-## MANDATORY EXECUTION RULES (READ FIRST):
+## RÈGLES D'EXÉCUTION OBLIGATOIRES (LIRE EN PREMIER) :
 
-- 🛑 NEVER generate content without web search verification
-- ✅ Search the web to verify and supplement your knowledge with current facts
-- 📋 YOU ARE A CUSTOMER BEHAVIOR ANALYST, not content generator
-- 💬 FOCUS on customer behavior patterns and demographic analysis
-- 🔍 WEB SEARCH REQUIRED - verify current facts against live sources
-- 📝 WRITE CONTENT IMMEDIATELY TO DOCUMENT
-- 📖 CRITICAL: ALWAYS read the complete step file before taking any action - partial understanding leads to incomplete research
-- 🔄 CRITICAL: When loading next step with 'C', ensure the entire file is read and understood before proceeding
-- ✅ YOU MUST ALWAYS SPEAK OUTPUT In your Agent communication style with the config `{communication_language}`
+- 🛑 NE JAMAIS générer de contenu sans vérification par recherche web
+- ✅ Faire des recherches web pour vérifier et compléter vos connaissances avec des faits actuels
+- 📋 VOUS ÊTES UN ANALYSTE EN COMPORTEMENT CLIENT, pas un générateur de contenu
+- 💬 SE CONCENTRER sur les schémas de comportement client et l'analyse démographique
+- 🔍 RECHERCHE WEB REQUISE — vérifier les faits actuels par rapport à des sources en direct
+- 📝 ÉCRIRE LE CONTENU IMMÉDIATEMENT DANS LE DOCUMENT
+- 📖 CRITIQUE : TOUJOURS lire le fichier d'étape complet avant toute action — une compréhension partielle mène à une recherche incomplète
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que le fichier entier est lu et compris avant de procéder
+- ✅ VOUS DEVEZ TOUJOURS PARLER LA SORTIE dans le style de communication de votre Agent avec la configuration `{communication_language}`
 
-## EXECUTION PROTOCOLS:
+## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Show web search analysis before presenting findings
-- ⚠️ Present [C] continue option after customer behavior content generation
-- 📝 WRITE CUSTOMER BEHAVIOR ANALYSIS TO DOCUMENT IMMEDIATELY
-- 💾 ONLY proceed when user chooses C (Continue)
-- 📖 Update frontmatter `stepsCompleted: [1, 2]` before loading next step
-- 🚫 FORBIDDEN to load next step until C is selected
+- 🎯 Montrer l'analyse de recherche web avant de présenter les résultats
+- ⚠️ Présenter l'option [C] continue après la génération du contenu sur le comportement client
+- 📝 ÉCRIRE L'ANALYSE DU COMPORTEMENT CLIENT DANS LE DOCUMENT IMMÉDIATEMENT
+- 💾 Procéder UNIQUEMENT lorsque l'utilisateur choisit C (Continue)
+- 📖 Mettre à jour le frontmatter `stepsCompleted: [1, 2]` avant de charger l'étape suivante
+- 🚫 INTERDIT de charger l'étape suivante tant que C n'est pas sélectionné
 
-## CONTEXT BOUNDARIES:
+## LIMITES DE CONTEXTE :
 
-- Current document and frontmatter from step-01 are available
-- Focus on customer behavior patterns and demographic analysis
-- Web search capabilities with source verification are enabled
-- Previous step confirmed research scope and goals
-- **Research topic = "{{research_topic}}"** - established from initial discussion
-- **Research goals = "{{research_goals}}"** - established from initial discussion
+- Le document courant et le frontmatter de step-01 sont disponibles
+- Se concentrer sur les schémas de comportement client et l'analyse démographique
+- Les capacités de recherche web avec vérification des sources sont activées
+- L'étape précédente a confirmé la portée et les objectifs de la recherche
+- **Sujet de recherche = "{{research_topic}}"** — établi à partir de la discussion initiale
+- **Objectifs de recherche = "{{research_goals}}"** — établis à partir de la discussion initiale
 
-## YOUR TASK:
+## VOTRE TÂCHE :
 
-Conduct customer behavior and segment analysis with emphasis on patterns and demographics.
+Mener une analyse du comportement et des segments client en mettant l'accent sur les schémas et la démographie.
 
-## CUSTOMER BEHAVIOR ANALYSIS SEQUENCE:
+## SÉQUENCE D'ANALYSE DU COMPORTEMENT CLIENT :
 
-### 1. Begin Customer Behavior Analysis
+### 1. Commencer l'analyse du comportement client
 
-**UTILIZE SUBPROCESSES AND SUBAGENTS**: Use research subagents, subprocesses or parallel processing if available to thoroughly analyze different customer behavior areas simultaneously and thoroughly.
+**UTILISER LES SOUS-PROCESSUS ET SOUS-AGENTS** : Utiliser les sous-agents de recherche, sous-processus ou traitement parallèle si disponibles pour analyser en profondeur différentes zones de comportement client simultanément et de manière approfondie.
 
-Start with customer behavior research approach:
-"Now I'll conduct **customer behavior analysis** for **{{research_topic}}** to understand customer patterns.
+Commencer avec l'approche de recherche sur le comportement client :
+"Maintenant, je vais mener une **analyse du comportement client** pour **{{research_topic}}** afin de comprendre les schémas client.
 
-**Customer Behavior Focus:**
+**Focus du comportement client :**
 
-- Customer behavior patterns and preferences
-- Demographic profiles and segmentation
-- Psychographic characteristics and values
-- Behavior drivers and influences
-- Customer interaction patterns and engagement
+- Schémas et préférences de comportement client
+- Profils démographiques et segmentation
+- Caractéristiques psychographiques et valeurs
+- Moteurs et influences du comportement
+- Schémas d'interaction et d'engagement client
 
-**Let me search for current customer behavior insights.**"
+**Permettez-moi de rechercher les insights actuels sur le comportement client.**"
 
-### 2. Parallel Customer Behavior Research Execution
+### 2. Exécution de la recherche parallèle sur le comportement client
 
-**Execute multiple web searches simultaneously:**
+**Exécuter plusieurs recherches web simultanément :**
 
-Search the web: "{{research_topic}} customer behavior patterns"
-Search the web: "{{research_topic}} customer demographics"
-Search the web: "{{research_topic}} psychographic profiles"
-Search the web: "{{research_topic}} customer behavior drivers"
+Rechercher sur le web : "{{research_topic}} customer behavior patterns"
+Rechercher sur le web : "{{research_topic}} customer demographics"
+Rechercher sur le web : "{{research_topic}} psychographic profiles"
+Rechercher sur le web : "{{research_topic}} customer behavior drivers"
 
-**Analysis approach:**
+**Approche d'analyse :**
 
-- Look for customer behavior studies and research reports
-- Search for demographic segmentation and analysis
-- Research psychographic profiling and value systems
-- Analyze behavior drivers and influencing factors
-- Study customer interaction and engagement patterns
+- Chercher les études et rapports de recherche sur le comportement client
+- Chercher la segmentation et l'analyse démographique
+- Rechercher le profilage psychographique et les systèmes de valeurs
+- Analyser les moteurs du comportement et les facteurs d'influence
+- Étudier les schémas d'interaction et d'engagement client
 
-### 3. Analyze and Aggregate Results
+### 3. Analyser et agréger les résultats
 
-**Collect and analyze findings from all parallel searches:**
+**Collecter et analyser les conclusions de toutes les recherches parallèles :**
 
-"After executing comprehensive parallel web searches, let me analyze and aggregate customer behavior findings:
+"Après avoir exécuté des recherches web parallèles complètes, permettez-moi d'analyser et d'agréger les conclusions sur le comportement client :
 
-**Research Coverage:**
+**Couverture de la recherche :**
 
-- Customer behavior patterns and preferences
-- Demographic profiles and segmentation
-- Psychographic characteristics and values
-- Behavior drivers and influences
-- Customer interaction patterns and engagement
+- Schémas et préférences de comportement client
+- Profils démographiques et segmentation
+- Caractéristiques psychographiques et valeurs
+- Moteurs et influences du comportement
+- Schémas d'interaction et d'engagement client
 
-**Cross-Behavior Analysis:**
-[Identify patterns connecting demographics, psychographics, and behaviors]
+**Analyse inter-comportementale :**
+[Identifier les schémas reliant la démographie, la psychographie et les comportements]
 
-**Quality Assessment:**
-[Overall confidence levels and research gaps identified]"
+**Évaluation de la qualité :**
+[Niveaux de confiance globaux et lacunes de recherche identifiées]"
 
-### 4. Generate Customer Behavior Content
+### 4. Générer le contenu sur le comportement client
 
-**WRITE IMMEDIATELY TO DOCUMENT**
+**ÉCRIRE IMMÉDIATEMENT DANS LE DOCUMENT**
 
-Prepare customer behavior analysis with web search citations:
+Préparer l'analyse du comportement client avec citations de recherche web :
 
-#### Content Structure:
+#### Structure du contenu :
 
-When saving to document, append these Level 2 and Level 3 sections:
+Lors de la sauvegarde dans le document, ajouter ces sections de niveau 2 et niveau 3 :
 
 ```markdown
-## Customer Behavior and Segments
+## Comportement et segments client
 
-### Customer Behavior Patterns
+### Schémas de comportement client
 
-[Customer behavior patterns analysis with source citations]
-_Behavior Drivers: [Key motivations and patterns from web search]_
-_Interaction Preferences: [Customer engagement and interaction patterns]_
-_Decision Habits: [How customers typically make decisions]_
-_Source: [URL]_
+[Analyse des schémas de comportement client avec citations des sources]
+_Moteurs du comportement : [Motivations clés et schémas issus de la recherche web]_
+_Préférences d'interaction : [Schémas d'engagement et d'interaction client]_
+_Habitudes de décision : [Comment les clients prennent généralement leurs décisions]_
+_Source : [URL]_
 
-### Demographic Segmentation
+### Segmentation démographique
 
-[Demographic analysis with source citations]
-_Age Demographics: [Age groups and preferences]_
-_Income Levels: [Income segments and purchasing behavior]_
-_Geographic Distribution: [Regional/city differences]_
-_Education Levels: [Education impact on behavior]_
-_Source: [URL]_
+[Analyse démographique avec citations des sources]
+_Démographie par âge : [Groupes d'âge et préférences]_
+_Niveaux de revenu : [Segments de revenu et comportement d'achat]_
+_Distribution géographique : [Différences régionales/villes]_
+_Niveaux d'éducation : [Impact de l'éducation sur le comportement]_
+_Source : [URL]_
 
-### Psychographic Profiles
+### Profils psychographiques
 
-[Psychographic analysis with source citations]
-_Values and Beliefs: [Core values driving customer behavior]_
-_Lifestyle Preferences: [Lifestyle choices and behaviors]_
-_Attitudes and Opinions: [Customer attitudes toward products/services]_
-_Personality Traits: [Personality influences on behavior]_
-_Source: [URL]_
+[Analyse psychographique avec citations des sources]
+_Valeurs et croyances : [Valeurs fondamentales guidant le comportement client]_
+_Préférences de style de vie : [Choix de mode de vie et comportements]_
+_Attitudes et opinions : [Attitudes des clients envers les produits/services]_
+_Traits de personnalité : [Influences de la personnalité sur le comportement]_
+_Source : [URL]_
 
-### Customer Segment Profiles
+### Profils des segments client
 
-[Detailed customer segment profiles with source citations]
-_Segment 1: [Detailed profile including demographics, psychographics, behavior]_
-_Segment 2: [Detailed profile including demographics, psychographics, behavior]_
-_Segment 3: [Detailed profile including demographics, psychographics, behavior]_
-_Source: [URL]_
+[Profils détaillés des segments client avec citations des sources]
+_Segment 1 : [Profil détaillé incluant démographie, psychographie, comportement]_
+_Segment 2 : [Profil détaillé incluant démographie, psychographie, comportement]_
+_Segment 3 : [Profil détaillé incluant démographie, psychographie, comportement]_
+_Source : [URL]_
 
-### Behavior Drivers and Influences
+### Moteurs et influences du comportement
 
-[Behavior drivers analysis with source citations]
-_Emotional Drivers: [Emotional factors influencing behavior]_
-_Rational Drivers: [Logical decision factors]_
-_Social Influences: [Social and peer influences]_
-_Economic Influences: [Economic factors affecting behavior]_
-_Source: [URL]_
+[Analyse des moteurs du comportement avec citations des sources]
+_Moteurs émotionnels : [Facteurs émotionnels influençant le comportement]_
+_Moteurs rationnels : [Facteurs de décision logiques]_
+_Influences sociales : [Influences sociales et des pairs]_
+_Influences économiques : [Facteurs économiques affectant le comportement]_
+_Source : [URL]_
 
-### Customer Interaction Patterns
+### Schémas d'interaction client
 
-[Customer interaction analysis with source citations]
-_Research and Discovery: [How customers find and research options]_
-_Purchase Decision Process: [Steps in purchase decision making]_
-_Post-Purchase Behavior: [After-purchase engagement patterns]_
-_Loyalty and Retention: [Factors driving customer loyalty]_
-_Source: [URL]_
+[Analyse des interactions client avec citations des sources]
+_Recherche et découverte : [Comment les clients trouvent et recherchent les options]_
+_Processus de décision d'achat : [Étapes de la prise de décision d'achat]_
+_Comportement post-achat : [Schémas d'engagement post-achat]_
+_Fidélité et rétention : [Facteurs guidant la fidélité client]_
+_Source : [URL]_
 ```
 
-### 5. Present Analysis and Continue Option
+### 5. Présenter l'analyse et l'option de continuation
 
-**Show analysis and present continue option:**
+**Montrer l'analyse et présenter l'option de continuation :**
 
-"I've completed **customer behavior analysis** for {{research_topic}}, focusing on customer patterns.
+"J'ai complété l'**analyse du comportement client** pour {{research_topic}}, en mettant l'accent sur les schémas client.
 
-**Key Customer Behavior Findings:**
+**Conclusions clés sur le comportement client :**
 
-- Customer behavior patterns clearly identified with drivers
-- Demographic segmentation thoroughly analyzed
-- Psychographic profiles mapped and documented
-- Customer interaction patterns captured
-- Multiple sources verified for critical insights
+- Schémas de comportement client clairement identifiés avec leurs moteurs
+- Segmentation démographique analysée en profondeur
+- Profils psychographiques cartographiés et documentés
+- Schémas d'interaction client capturés
+- Plusieurs sources vérifiées pour les insights critiques
 
-**Ready to proceed to customer pain points?**
-[C] Continue - Save this to document and proceed to pain points analysis
+**Prêt à passer aux points de douleur client ?**
+[C] Continuer — Sauvegarder ceci dans le document et procéder à l'analyse des points de douleur
 
-### 6. Handle Continue Selection
+**HALT — attendre la réponse de l'utilisateur avant de continuer.**
 
-#### If 'C' (Continue):
+### 6. Gérer la sélection Continue
 
-- **CONTENT ALREADY WRITTEN TO DOCUMENT**
-- Update frontmatter: `stepsCompleted: [1, 2]`
-- Load: `{project-root}/_bmad/bmm/workflows/1-analysis/research/market-steps/step-03-customer-pain-points.md`
+#### Si 'C' (Continue) :
 
-## APPEND TO DOCUMENT:
+- **CONTENU DÉJÀ ÉCRIT DANS LE DOCUMENT**
+- Mettre à jour le frontmatter : `stepsCompleted: [1, 2]`
+- Charger : `./step-03-customer-pain-points.md`
 
-Content is already written to document when generated in step 4. No additional append needed.
+## AJOUTER AU DOCUMENT :
 
-## SUCCESS METRICS:
+Le contenu est déjà écrit dans le document lors de sa génération à l'étape 4. Aucun ajout supplémentaire nécessaire.
 
-✅ Customer behavior patterns identified with current citations
-✅ Demographic segmentation thoroughly analyzed
-✅ Psychographic profiles clearly documented
-✅ Customer interaction patterns captured
-✅ Multiple sources verified for critical insights
-✅ Content written immediately to document
-✅ [C] continue option presented and handled correctly
-✅ Proper routing to next step (customer pain points)
-✅ Research goals alignment maintained
+## MÉTRIQUES DE SUCCÈS :
 
-## FAILURE MODES:
+✅ Schémas de comportement client identifiés avec citations actuelles
+✅ Segmentation démographique analysée en profondeur
+✅ Profils psychographiques clairement documentés
+✅ Schémas d'interaction client capturés
+✅ Plusieurs sources vérifiées pour les insights critiques
+✅ Contenu écrit immédiatement dans le document
+✅ Option [C] continue présentée et gérée correctement
+✅ Routage approprié vers l'étape suivante (points de douleur client)
+✅ Alignement avec les objectifs de recherche maintenu
 
-❌ Relying solely on training data without web verification for current facts
+## MODES D'ÉCHEC :
 
-❌ Missing critical customer behavior patterns
-❌ Incomplete demographic segmentation analysis
-❌ Missing psychographic profile documentation
-❌ Not writing content immediately to document
-❌ Not presenting [C] continue option after content generation
-❌ Not routing to customer pain points analysis step
-❌ **CRITICAL**: Reading only partial step file - leads to incomplete understanding and poor research decisions
-❌ **CRITICAL**: Proceeding with 'C' without fully reading and understanding the next step file
-❌ **CRITICAL**: Making decisions without complete understanding of step requirements and protocols
+❌ Se reposer uniquement sur les données d'entraînement sans vérification web pour les faits actuels
 
-## CUSTOMER BEHAVIOR RESEARCH PROTOCOLS:
+❌ Schémas critiques de comportement client manquants
+❌ Analyse de segmentation démographique incomplète
+❌ Documentation des profils psychographiques manquante
+❌ Ne pas écrire le contenu immédiatement dans le document
+❌ Ne pas présenter l'option [C] continue après la génération du contenu
+❌ Ne pas router vers l'étape d'analyse des points de douleur client
+❌ **CRITIQUE** : Lire seulement partiellement le fichier d'étape — mène à une compréhension incomplète et de mauvaises décisions de recherche
+❌ **CRITIQUE** : Procéder avec 'C' sans lire et comprendre entièrement le fichier d'étape suivant
+❌ **CRITIQUE** : Prendre des décisions sans compréhension complète des exigences et protocoles de l'étape
 
-- Research customer behavior studies and market research
-- Use demographic data from authoritative sources
-- Research psychographic profiling and value systems
-- Analyze customer interaction and engagement patterns
-- Focus on current behavior data and trends
-- Present conflicting information when sources disagree
-- Apply confidence levels appropriately
+## PROTOCOLES DE RECHERCHE SUR LE COMPORTEMENT CLIENT :
 
-## BEHAVIOR ANALYSIS STANDARDS:
+- Rechercher des études de comportement client et de la recherche marketing
+- Utiliser les données démographiques de sources faisant autorité
+- Rechercher le profilage psychographique et les systèmes de valeurs
+- Analyser les schémas d'interaction et d'engagement client
+- Se concentrer sur les données et tendances comportementales actuelles
+- Présenter les informations contradictoires lorsque les sources divergent
+- Appliquer les niveaux de confiance de manière appropriée
 
-- Always cite URLs for web search results
-- Use authoritative customer research sources
-- Note data currency and potential limitations
-- Present multiple perspectives when sources conflict
-- Apply confidence levels to uncertain data
-- Focus on actionable customer insights
+## STANDARDS D'ANALYSE COMPORTEMENTALE :
 
-## NEXT STEP:
+- Toujours citer les URLs pour les résultats de recherche web
+- Utiliser des sources de recherche client faisant autorité
+- Noter l'actualité des données et les limitations potentielles
+- Présenter plusieurs perspectives lorsque les sources sont en conflit
+- Appliquer les niveaux de confiance aux données incertaines
+- Se concentrer sur les insights client actionnables
 
-After user selects 'C', load `{project-root}/_bmad/bmm/workflows/1-analysis/research/market-steps/step-03-customer-pain-points.md` to analyze customer pain points, challenges, and unmet needs for {{research_topic}}.
+## ÉTAPE SUIVANTE :
 
-Remember: Always write research content to document immediately and emphasize current customer data with rigorous source verification!
+Après que l'utilisateur sélectionne 'C', charger `./step-03-customer-pain-points.md` pour analyser les points de douleur, défis et besoins non satisfaits du client pour {{research_topic}}.
+
+Rappel : Toujours écrire le contenu de la recherche dans le document immédiatement et mettre l'accent sur les données client actuelles avec une vérification rigoureuse des sources !

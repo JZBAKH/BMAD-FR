@@ -19,7 +19,7 @@ const MARKETPLACE_REF = 'main';
  */
 function quoteShellRef(ref) {
   if (typeof ref !== 'string' || !/^[\w.\-+/]+$/.test(ref)) {
-    throw new Error(`Unsafe ref name: ${JSON.stringify(ref)}`);
+    throw new Error(`Nom de ref non sécurisé : ${JSON.stringify(ref)}`);
   }
   return `"${ref}"`;
 }
@@ -208,7 +208,7 @@ class CommunityModuleManager {
   async cloneModule(moduleCode, options = {}) {
     const moduleInfo = await this.getModuleByCode(moduleCode);
     if (!moduleInfo) {
-      throw new Error(`Community module '${moduleCode}' not found in the registry`);
+      throw new Error(`Module communautaire '${moduleCode}' introuvable dans le registre`);
     }
 
     const cacheDir = this.getCacheDir();
@@ -241,19 +241,19 @@ class CommunityModuleManager {
     if (planEntry.channel !== 'stable') {
       bypassedCurator = true;
       if (!silent) {
-        const approvedLabel = approvedTag || approvedSha || 'curator-approved version';
+        const approvedLabel = approvedTag || approvedSha || 'version approuvée par le curateur';
         await prompts.log.warn(
-          `WARNING: Installing '${moduleCode}' from ${
+          `AVERTISSEMENT : L'installation de '${moduleCode}' depuis ${
             planEntry.channel === 'pinned' ? `tag ${planEntry.pin}` : 'main HEAD'
-          } bypasses the curator-approved ${approvedLabel}. Proceed only if you trust this source.`,
+          } contourne la ${approvedLabel} approuvée par le curateur. Ne procédez que si vous faites confiance à cette source.`,
         );
         if (!options.channelOptions?.acceptBypass) {
           const proceed = await prompts.confirm({
-            message: `Continue installing '${moduleCode}' with curator bypass?`,
+            message: `Continuer l'installation de '${moduleCode}' avec contournement du curateur ?`,
             default: false,
           });
           if (!proceed) {
-            throw new Error(`Install of community module '${moduleCode}' cancelled by user.`);
+            throw new Error(`Installation du module communautaire '${moduleCode}' annulée par l'utilisateur.`);
           }
         }
       }
@@ -268,7 +268,7 @@ class CommunityModuleManager {
       // to main on every re-install). Stable + approvedSha is handled below
       // by the curator-SHA checkout logic.
       const fetchSpinner = await createSpinner();
-      fetchSpinner.start(`Checking ${moduleInfo.displayName}...`);
+      fetchSpinner.start(`Vérification de ${moduleInfo.displayName}...`);
       try {
         const currentRef = execSync('git rev-parse HEAD', { cwd: moduleCacheDir, stdio: 'pipe' }).toString().trim();
         execSync('git fetch origin --depth 1', {
@@ -296,9 +296,9 @@ class CommunityModuleManager {
         }
         const newRef = execSync('git rev-parse HEAD', { cwd: moduleCacheDir, stdio: 'pipe' }).toString().trim();
         if (currentRef !== newRef) needsDependencyInstall = true;
-        fetchSpinner.stop(`Verified ${moduleInfo.displayName}`);
+        fetchSpinner.stop(`${moduleInfo.displayName} vérifié`);
       } catch {
-        fetchSpinner.error(`Fetch failed, re-downloading ${moduleInfo.displayName}`);
+        fetchSpinner.error(`Téléchargement échoué, retéléchargement de ${moduleInfo.displayName}`);
         await fs.remove(moduleCacheDir);
         wasNewClone = true;
       }
@@ -308,7 +308,7 @@ class CommunityModuleManager {
 
     if (wasNewClone) {
       const fetchSpinner = await createSpinner();
-      fetchSpinner.start(`Fetching ${moduleInfo.displayName}...`);
+      fetchSpinner.start(`Téléchargement de ${moduleInfo.displayName}...`);
       try {
         if (planEntry.channel === 'pinned') {
           execSync(`git clone --depth 1 --branch ${quoteShellRef(planEntry.pin)} "${moduleInfo.url}" "${moduleCacheDir}"`, {
@@ -321,11 +321,11 @@ class CommunityModuleManager {
             env: { ...process.env, GIT_TERMINAL_PROMPT: '0' },
           });
         }
-        fetchSpinner.stop(`Fetched ${moduleInfo.displayName}`);
+        fetchSpinner.stop(`${moduleInfo.displayName} téléchargé`);
         needsDependencyInstall = true;
       } catch (error) {
-        fetchSpinner.error(`Failed to fetch ${moduleInfo.displayName}`);
-        throw new Error(`Failed to clone community module '${moduleCode}': ${error.message}`);
+        fetchSpinner.error(`Échec du téléchargement de ${moduleInfo.displayName}`);
+        throw new Error(`Échec du clonage du module communautaire '${moduleCode}' : ${error.message}`);
       }
     }
 
@@ -349,16 +349,16 @@ class CommunityModuleManager {
         } catch {
           await fs.remove(moduleCacheDir);
           throw new Error(
-            `Community module '${moduleCode}' could not be pinned to its approved commit (${approvedSha}). ` +
-              `Installation refused for security. The module registry entry may need updating, ` +
-              `or use --next=${moduleCode} / --pin ${moduleCode}=<tag> to explicitly bypass.`,
+            `Le module communautaire '${moduleCode}' n'a pas pu être épinglé à son commit approuvé (${approvedSha}). ` +
+              `Installation refusée pour des raisons de sécurité. L'entrée du module dans le registre peut nécessiter une mise à jour, ` +
+              `ou utilisez --next=${moduleCode} / --pin ${moduleCode}=<tag> pour contourner explicitement.`,
           );
         }
       }
     } else if (planEntry.channel === 'stable' && !approvedSha) {
       // Registry data gap: tag or SHA missing. Warn but proceed at HEAD (pre-existing behavior).
       if (!silent) {
-        await prompts.log.warn(`Community module '${moduleCode}' has no curator-approved SHA in the registry; installing from main HEAD.`);
+        await prompts.log.warn(`Le module communautaire '${moduleCode}' n'a pas de SHA approuvé par le curateur dans le registre ; installation depuis main HEAD.`);
       }
     } else if (planEntry.channel === 'pinned') {
       // We cloned the tag directly above (via --branch), but ensure HEAD matches.
@@ -397,16 +397,16 @@ class CommunityModuleManager {
     const packageJsonPath = path.join(moduleCacheDir, 'package.json');
     if ((needsDependencyInstall || wasNewClone) && (await fs.pathExists(packageJsonPath))) {
       const installSpinner = await createSpinner();
-      installSpinner.start(`Installing dependencies for ${moduleInfo.displayName}...`);
+      installSpinner.start(`Installation des dépendances pour ${moduleInfo.displayName}...`);
       try {
         execSync('npm install --omit=dev --no-audit --no-fund --no-progress --legacy-peer-deps', {
           cwd: moduleCacheDir,
           stdio: ['ignore', 'pipe', 'pipe'],
           timeout: 120_000,
         });
-        installSpinner.stop(`Installed dependencies for ${moduleInfo.displayName}`);
+        installSpinner.stop(`Dépendances installées pour ${moduleInfo.displayName}`);
       } catch (error) {
-        installSpinner.error(`Failed to install dependencies for ${moduleInfo.displayName}`);
+        installSpinner.error(`Échec de l'installation des dépendances pour ${moduleInfo.displayName}`);
         if (!silent) await prompts.log.warn(`  ${error.message}`);
       }
     }
@@ -452,8 +452,8 @@ class CommunityModuleManager {
     const selection = this._selectPluginForModule(plugins, moduleInfo);
     if (!selection) {
       await this._safeWarn(
-        `Community module '${moduleInfo.code}' ships marketplace.json but no plugin entry matches the registry code. ` +
-          `Falling back to legacy install path.`,
+        `Le module communautaire '${moduleInfo.code}' fournit marketplace.json mais aucune entrée de plugin ne correspond au code du registre. ` +
+          `Retour au chemin d'installation hérité.`,
       );
       return;
     }
@@ -463,8 +463,8 @@ class CommunityModuleManager {
       // code or the module_definition hint. Most likely correct, but worth surfacing
       // in case marketplace.json is misconfigured and we'd install the wrong plugin.
       await this._safeWarn(
-        `Community module '${moduleInfo.code}' picked the only plugin in marketplace.json ('${selection.plugin?.name}') ` +
-          `because no name or module_definition match was found. Verify marketplace.json if the install looks wrong.`,
+        `Le module communautaire '${moduleInfo.code}' a sélectionné le seul plugin dans marketplace.json ('${selection.plugin?.name}') ` +
+          `car aucune correspondance par nom ou module_definition n'a été trouvée. Vérifiez marketplace.json si l'installation semble incorrecte.`,
       );
     }
 
@@ -478,7 +478,7 @@ class CommunityModuleManager {
       // Honor the silent-fallthrough contract — warn and let the legacy
       // findModuleSource path handle the install.
       await this._safeWarn(
-        `PluginResolver failed for community module '${moduleInfo.code}': ${error.message}. ` + `Falling back to legacy install path.`,
+        `PluginResolver a échoué pour le module communautaire '${moduleInfo.code}' : ${error.message}. ` + `Retour au chemin d'installation hérité.`,
       );
       return;
     }
