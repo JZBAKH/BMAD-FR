@@ -1,6 +1,6 @@
 ---
 name: bmad-generate-project-context
-description: 'Create project-context.md with AI rules. Use when the user says "generate project context" or "create project context"'
+description: 'Créer project-context.md avec les règles IA. À utiliser lorsque l''utilisateur dit « générer le contexte du projet » ou « créer le contexte du projet »'
 ---
 
 # Workflow Generate Project Context

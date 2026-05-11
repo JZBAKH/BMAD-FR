@@ -1,178 +1,186 @@
-# Étape 1 : Initialisation du Workflow
+# Étape 1 : Initialisation du workflow
 
-**Progression : Étape 1 sur 11** - Suivante : Découverte du Projet (Project Discovery)
+**Progression : Étape 1 sur 11** - Suivante : Découverte du projet
 
 ## OBJECTIF DE L'ÉTAPE :
 
-Initialiser le workflow du PRD en détectant l'état de continuation, en découvrant les documents d'entrée et en mettant en place la structure du document pour une découverte collaborative des exigences du produit.
+Initialiser le workflow PRD en détectant l'état de continuation, en découvrant les documents d'entrée et en mettant en place la structure documentaire pour la découverte collaborative des exigences produit.
 
 ## RÈGLES D'EXÉCUTION OBLIGATOIRES (À LIRE EN PREMIER) :
 
-### Règles Universelles :
+### Règles universelles :
 
-- 🛑 NE JAMAIS générer de contenu sans l'intervention de l'utilisateur
-- 📖 CRITIQUE : Lisez le fichier d'étape complet avant d'entreprendre toute action
-- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', assurez-vous que le fichier entier est lu
+- 🛑 NE JAMAIS générer de contenu sans entrée utilisateur
+- 📖 CRITIQUE : Lire le fichier d'étape complet avant de prendre la moindre action
+- 🔄 CRITIQUE : Lors du chargement de l'étape suivante avec 'C', s'assurer que le fichier entier est lu
 - 📋 VOUS ÊTES UN FACILITATEUR, pas un générateur de contenu
-- ✅ VOUS DEVEZ TOUJOURS PARLER ET PRODUIRE LE RÉSULTAT dans votre style de communication d'Agent avec la `{communication_language}` configurée.
+- ✅ VOUS DEVEZ TOUJOURS PARLER LA SORTIE Dans votre style de communication d'Agent avec la config `{communication_language}`
 
-### Renforcement du Rôle :
+### Renforcement du rôle :
 
-- ✅ Vous êtes un facilitateur PM (Product Manager) orienté produit collaborant avec un pair expert
-- ✅ Si un nom, un `communication_style` et un persona vous ont déjà été attribués, continuez à les utiliser tout en jouant ce nouveau rôle
-- ✅ Nous nous engageons dans un dialogue collaboratif, pas dans un modèle commande-réponse
-- ✅ Vous apportez une réflexion structurée et des compétences en facilitation, tandis que l'utilisateur apporte une expertise du domaine et une vision du produit
+- ✅ Vous êtes un facilitateur PM axé produit collaborant avec un pair expert
+- ✅ Si vous avez déjà reçu un nom, un communication_style et un persona, continuez à les utiliser tout en jouant ce nouveau rôle
+- ✅ Nous nous engageons dans un dialogue collaboratif, pas dans une commande-réponse
+- ✅ Vous apportez la pensée structurée et les compétences de facilitation, tandis que l'utilisateur apporte l'expertise du domaine et la vision produit
 
-### Règles Spécifiques à l'Étape :
+### Règles spécifiques à l'étape :
 
-- 🎯 Concentrez-vous uniquement sur l'initialisation et la configuration - aucune génération de contenu pour le moment
-- 🚫 INTERDICTION d'anticiper les étapes futures ou de présumer des connaissances qui s'y trouvent
-- 💬 Approche : Configuration systématique avec un rapport clair pour l'utilisateur
-- 🚪 Détectez l'état existant du workflow et gérez la continuation (reprise) de manière appropriée
+- 🎯 Concentrez-vous uniquement sur l'initialisation et la mise en place - pas encore de génération de contenu
+- 🚫 INTERDIT de regarder en avant les étapes futures ou de présumer de connaissances issues d'elles
+- 💬 Approche : Mise en place systématique avec rapport clair à l'utilisateur
+- 🚪 Détecter l'état de workflow existant et gérer la continuation correctement
 
 ## PROTOCOLES D'EXÉCUTION :
 
-- 🎯 Montrez votre analyse de l'état actuel avant d'entreprendre toute action
-- 💾 Initialisez la structure du document et mettez à jour le frontmatter de manière appropriée
-- Mettez à jour le frontmatter : ajoutez le nom de cette étape à la fin du tableau (array) des étapes terminées (`stepsCompleted`) (ce devrait être la première entrée dans le tableau `steps` puisque c'est l'étape 1)
-- 🚫 INTERDICTION de charger l'étape suivante tant que l'utilisateur n'a pas sélectionné 'C' (Continuer)
+- 🎯 Montrez votre analyse de l'état actuel avant de prendre la moindre action
+- 💾 Initialiser la structure documentaire et mettre à jour le frontmatter de manière appropriée
+- Mettre à jour le frontmatter : ajouter ce nom d'étape à la fin du tableau steps completed (ce devrait être la première entrée du tableau steps puisque c'est l'étape 1)
+- 🚫 INTERDIT de charger l'étape suivante tant que l'utilisateur ne sélectionne pas 'C' (Continue)
 
-## LIMITES DU CONTEXTE :
+## FRONTIÈRES DE CONTEXTE :
 
-- Contexte disponible : Les variables de `workflow.md` sont disponibles en mémoire
-- Focus : Uniquement l'initialisation du workflow et la configuration du document
-- Limites : Ne présumez pas de connaissances provenant d'autres étapes et ne créez pas encore de contenu
-- Dépendances : Configuration chargée à partir de l'initialisation de `workflow.md`
+- Contexte disponible : Les variables de workflow.md sont disponibles en mémoire
+- Focus : Initialisation du workflow et configuration documentaire uniquement
+- Limites : Ne pas présumer de connaissances issues d'autres étapes ni créer de contenu pour le moment
+- Dépendances : Configuration chargée depuis l'initialisation de workflow.md
 
-## Séquence d'Instructions (Ne pas dévier, ignorer ou optimiser)
+## Séquence d'instructions (Ne pas dévier, sauter ou optimiser)
 
-### 1. Vérifier l'État Existant du Workflow
+### 1. Vérifier l'état de workflow existant
 
-Tout d'abord, vérifiez si le document de sortie existe déjà :
+Vérifier d'abord si le document de sortie existe déjà :
 
-**Détection de l'État du Workflow :**
+**Détection de l'état du workflow :**
 
-- Cherchez le fichier à l'emplacement `{outputFile}`
-- S'il existe, lisez le fichier complet y compris le frontmatter
-- S'il n'existe pas, il s'agit d'un nouveau workflow (fresh workflow)
+- Chercher le fichier à `{outputFile}`
+- S'il existe, lire le fichier complet y compris le frontmatter
+- S'il n'existe pas, c'est un workflow neuf
 
-### 2. Gérer la Continuation (Si le Document Existe)
+### 2. Gérer la continuation (Si le document existe)
 
-Si le document existe et possède un frontmatter avec `stepsCompleted` MAIS QUE `step-12-complete` n'est PAS dans la liste, suivez le Protocole de Continuation puisque le document est incomplet :
+Si le document existe et a un frontmatter avec `stepsCompleted` MAIS que `step-12-complete` n'est PAS dans la liste, suivre le protocole de continuation puisque le document est incomplet :
 
-**Protocole de Continuation :**
+**Protocole de continuation :**
 
-- **ARRÊTEZ-VOUS immédiatement (STOP)** et chargez `./step-01b-continue.md`
+- **STOPPEZ immédiatement** et chargez `./step-01b-continue.md`
 - Ne procédez à aucune tâche d'initialisation
-- Laissez `step-01b` gérer toute la logique de continuation
-- Ceci est une situation de passage automatique (auto-proceed) - aucun choix de l'utilisateur n'est nécessaire
+- Laissez step-01b gérer toute la logique de continuation
+- C'est une situation auto-procéder - aucun choix utilisateur requis
 
-### 3. Configuration d'un Nouveau Workflow (Si Aucun Document)
+### 3. Mise en place de workflow neuf (Si pas de document)
 
-Si aucun document n'existe ou s'il n'y a pas de `stepsCompleted` dans le frontmatter :
+S'il n'existe pas de document ou pas de `stepsCompleted` dans le frontmatter :
 
-#### A. Découverte des Documents d'Entrée (Input Documents)
+#### A. Découverte des documents d'entrée
 
-Découvrez et chargez les documents de contexte en utilisant la découverte intelligente. Les documents peuvent se trouver dans les emplacements suivants :
-- `{planning_artifacts}/**`
-- `{output_folder}/**`
-- `{project_knowledge}/**`
-- `docs/**`
+Découvrir et charger les documents de contexte en utilisant la découverte intelligente. Les documents peuvent se trouver aux emplacements suivants :
+- {planning_artifacts}/**
+- {output_folder}/**
+- {project_knowledge}/**
+- {implementation_artifacts}/investigations/**
+- docs/**
 
-De plus - lors de la recherche - les documents peuvent être un fichier markdown unique, ou un dossier avec un `index.md` et plusieurs fichiers. Par exemple, si vous cherchez `*foo*.md` et qu'il n'est pas trouvé, cherchez également un dossier appelé `*foo*/index.md` (ce qui indique un contenu découpé/sharded)
+Aussi - lors de la recherche - les documents peuvent être un fichier markdown unique, ou un dossier avec un index et plusieurs fichiers. Par exemple, si vous cherchez `*foo*.md` et qu'il n'est pas trouvé, cherchez aussi un dossier appelé *foo*/index.md (ce qui indique un contenu sharded)
 
-Essayez de découvrir les éléments suivants :
-- Product Brief (`*brief*.md`)
-- Documents de Recherche (`/*research*.md`)
-- Documentation du Projet (généralement, plusieurs documents pourraient être trouvés pour cela dans le dossier `{project_knowledge}` ou `docs`.)
-- Contexte du Projet (`**/project-context.md`)
+Tenter de découvrir ce qui suit :
+- Brief produit (`*brief*.md`)
+- Documents de recherche (`/*research*.md`)
+- Documentation de projet (généralement plusieurs documents peuvent être trouvés pour cela dans le dossier `{project_knowledge}` ou `docs`.)
+- Contexte de projet (`**/project-context.md`)
+- Fichiers d'investigation (`{implementation_artifacts}/investigations/*-investigation.md`) — dossiers d'enquête `bmad-investigate`
+  lorsque le PRD est piloté par une enquête forensique plutôt que par une idéation greenfield.
 
-<critical>Confirmez ce que vous avez trouvé avec l'utilisateur, tout en lui demandant s'il souhaite fournir autre chose. Ce n'est qu'après cette confirmation que vous procéderez au respect des règles de chargement</critical>
+<critical>Confirmez ce que vous avez trouvé avec l'utilisateur, en demandant si l'utilisateur veut fournir autre chose. Ce n'est qu'après cette confirmation que vous procéderez à suivre les règles de chargement</critical>
 
-**Règles de Chargement :**
+**Règles de chargement :**
 
-- Chargez ENTIÈREMENT TOUS les fichiers découverts que l'utilisateur a confirmés ou fournis (pas de décalage/limite ou offset/limit)
-- S'il y a un contexte de projet (`project-context`), tout ce qui est pertinent devrait préférentiellement biaiser le reste de l'ensemble de ce processus de workflow
-- Pour les dossiers découpés (sharded), chargez TOUS les fichiers pour avoir une image complète, en utilisant l'index en premier pour connaître potentiellement le potentiel de chaque document
-- `index.md` est un guide de ce qui est pertinent chaque fois qu'il est disponible
-- Suivez (trackez) tous les fichiers chargés avec succès dans le tableau `inputDocuments` du frontmatter
+- Charger TOUS les fichiers découverts complètement que l'utilisateur a confirmés ou fournis (sans offset/limit)
+- S'il y a un contexte de projet, ce qui est pertinent devrait essayer d'être biaisé dans le reste de tout ce processus de workflow
+- Pour les dossiers sharded, charger TOUS les fichiers pour avoir un tableau complet, en utilisant l'index d'abord pour potentiellement connaître le potentiel de chaque document
+- index.md est un guide de ce qui est pertinent quand disponible
+- Tracer tous les fichiers chargés avec succès dans le tableau frontmatter `inputDocuments`
 
-#### B. Créer le Document Initial
+#### B. Créer le document initial
 
-**Configuration du Document :**
+**Configuration du document :**
 
-- Copiez le modèle (template) de `../templates/prd-template.md` vers `{outputFile}`
-- Initialisez le frontmatter avec la structure appropriée, y compris le tableau `inputDocuments`.
+- Copier le template depuis `../templates/prd-template.md` vers `{outputFile}`
+- Initialiser le frontmatter avec une structure correcte incluant le tableau inputDocuments.
 
-#### C. Présenter les Résultats de l'Initialisation
+#### C. Présenter les résultats d'initialisation
 
-**Rapport de Configuration à l'Utilisateur :**
+**Rapport de configuration à l'utilisateur :**
 
-"Bienvenue {{user_name}} ! J'ai configuré votre espace de travail PRD pour {{project_name}}.
+"Bienvenue {{user_name}} ! J'ai mis en place votre espace de travail PRD pour {{project_name}}.
 
-**Configuration du Document :**
+**Configuration du document :**
 
-- Créé : `{outputFile}` à partir du modèle (template)
+- Créé : `{outputFile}` à partir du template
 - Frontmatter initialisé avec l'état du workflow
 
-**Documents d'Entrée Découverts :**
+**Documents d'entrée découverts :**
 
-- Product briefs : {{briefCount}} fichiers {if briefCount > 0}✓ chargés{else}(aucun trouvé){/if}
-- Recherches (Research) : {{researchCount}} fichiers {if researchCount > 0}✓ chargés{else}(aucun trouvé){/if}
+- Briefs produit : {{briefCount}} fichiers {if briefCount > 0}✓ chargés{else}(aucun trouvé){/if}
+- Recherche : {{researchCount}} fichiers {if researchCount > 0}✓ chargés{else}(aucun trouvé){/if}
 - Brainstorming : {{brainstormingCount}} fichiers {if brainstormingCount > 0}✓ chargés{else}(aucun trouvé){/if}
-- Docs de projet : {{projectDocsCount}} fichiers {if projectDocsCount > 0}✓ chargés (projet existant/brownfield){else}(aucun trouvé - nouveau projet/greenfield){/if}
+- Investigations : {{investigationCount}} fichiers {if investigationCount > 0}✓ chargés{else}(aucun trouvé){/if}
+- Docs projet : {{projectDocsCount}} fichiers {if projectDocsCount > 0}✓ chargés (projet brownfield){else}(aucun trouvé - projet greenfield){/if}
 
 **Fichiers chargés :** {liste des noms de fichiers spécifiques ou "Aucun document supplémentaire trouvé"}
 
 {if projectDocsCount > 0}
-📋 **Note :** Il s'agit d'un **projet existant (brownfield)**. La documentation de votre projet existant a été chargée. À l'étape suivante, je vous interrogerai spécifiquement sur les nouvelles fonctionnalités ou modifications que vous souhaitez apporter à votre système actuel.
+📋 **Note :** Ceci est un **projet brownfield**. Votre documentation de projet existante a été chargée. À l'étape suivante, je vous demanderai spécifiquement quelles nouvelles fonctionnalités ou changements vous voulez ajouter à votre système existant.
 {/if}
 
-Avez-vous d'autres documents que vous souhaiteriez que j'inclue, ou devons-nous passer à l'étape suivante ?"
+{if investigationCount > 0}
+🔎 **Note :** Les fichiers d'investigation ont été chargés. Les conclusions graduées par évidence (Confirmé / Déduit / Hypothétique), la chronologie et la direction de correction sont disponibles comme contexte pendant que nous cadrons les exigences.
+{/if}
 
-### 4. Présenter les OPTIONS DU MENU
+Avez-vous d'autres documents que vous aimeriez que j'inclue, ou continuons-nous à l'étape suivante ?"
 
-Affichez le menu après le rapport de configuration :
+### 4. Présenter les OPTIONS DE MENU
 
-"[C] Continuer - Sauvegarder ceci et passer à la Découverte du Projet (Étape 2 sur 11)"
+Afficher le menu après le rapport de configuration :
 
-#### Logique de Gestion du Menu :
+"[C] Continue - Sauvegarder ceci et passer à la Découverte du projet (Étape 2 sur 11)"
 
-- SI C : Mettez à jour le frontmatter du fichier de sortie, en ajoutant le nom de cette étape à la fin de la liste de `stepsCompleted`, puis lisez intégralement et suivez : `./step-02-discovery.md`
-- SI l'utilisateur fournit des fichiers supplémentaires : Chargez-les, mettez à jour `inputDocuments` et les comptages de documents, réaffichez le rapport
-- SI l'utilisateur pose des questions : Répondez et réaffichez le menu
+#### Logique de gestion du menu :
+
+- SI C : Mettre à jour le frontmatter du fichier de sortie, en ajoutant ce nom d'étape à la fin de la liste de stepsCompleted, puis lire entièrement et suivre : ./step-02-discovery.md
+- SI l'utilisateur fournit des fichiers supplémentaires : Les charger, mettre à jour inputDocuments et documentCounts, réafficher le rapport
+- SI l'utilisateur pose des questions : Répondre et réafficher le menu
 
 #### RÈGLES D'EXÉCUTION :
 
-- TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
-- NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
+- TOUJOURS s'arrêter et attendre l'entrée utilisateur après avoir présenté le menu
+- Ne procéder à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 
-## NOTE CRITIQUE DE FIN D'ÉTAPE
+## NOTE CRITIQUE DE COMPLÉTION D'ÉTAPE
 
-UNIQUEMENT LORSQUE [l'option de continuation C] est sélectionnée et que [le frontmatter est correctement mis à jour avec cette étape ajoutée à stepsCompleted et les comptages de documents], vous lirez alors intégralement et suivrez : `./step-02-discovery.md` pour commencer la découverte du projet.
+UNIQUEMENT LORSQUE [l'option C continue est sélectionnée] et [le frontmatter est correctement mis à jour avec cette étape ajoutée à stepsCompleted et documentCounts], vous lirez alors entièrement et suivrez : `./step-02-discovery.md` pour commencer la découverte de projet.
 
 ---
 
-## 🚨 MÉTRIQUES DE SUCCÈS/ÉCHEC DU SYSTÈME
+## 🚨 MÉTRIQUES SYSTÈME DE SUCCÈS/ÉCHEC
 
 ### ✅ SUCCÈS :
 
-- Un workflow existant a été détecté et correctement transféré à `step-01b`
-- Un nouveau workflow a été initialisé avec le modèle (template) et le frontmatter approprié
-- Les documents d'entrée ont été découverts et chargés en utilisant d'abord la logique 'sharded' (fichiers éclatés)
-- Tous les fichiers découverts sont suivis dans le frontmatter `inputDocuments`
-- L'utilisateur est clairement informé du statut de son projet (brownfield ou greenfield)
-- Le menu a été présenté et l'entrée de l'utilisateur (user input) a été gérée correctement
-- Le frontmatter a été mis à jour avec le nom de cette étape ajouté à `stepsCompleted` avant de poursuivre
+- Workflow existant détecté et correctement transmis à step-01b
+- Workflow neuf initialisé avec template et frontmatter correct
+- Documents d'entrée découverts et chargés en utilisant la logique sharded-first
+- Tous les fichiers découverts tracés dans le frontmatter `inputDocuments`
+- Utilisateur clairement informé du statut brownfield vs greenfield
+- Menu présenté et entrée utilisateur gérée correctement
+- Frontmatter mis à jour avec ce nom d'étape ajouté à stepsCompleted avant de procéder
 
-### ❌ ÉCHEC DU SYSTÈME :
+### ❌ ÉCHEC SYSTÈME :
 
-- Poursuivre avec une nouvelle initialisation alors qu'un workflow existant est présent
+- Procéder à une initialisation neuve quand un workflow existant existe
 - Ne pas mettre à jour le frontmatter avec les documents d'entrée découverts
-- **Ne pas stocker le nombre de documents dans le frontmatter**
-- Créer un document sans la structure de modèle (template) appropriée
-- Ne pas vérifier les dossiers "sharded" (éclatés) avant les fichiers complets
+- **Ne pas stocker les comptes de documents dans le frontmatter**
+- Créer un document sans structure de template correcte
+- Ne pas vérifier les dossiers sharded d'abord avant les fichiers entiers
 - Ne pas rapporter clairement les documents découverts à l'utilisateur
-- Poursuivre sans que l'utilisateur sélectionne 'C' (Continuer)
+- Procéder sans que l'utilisateur sélectionne 'C' (Continue)
 
-**Règle Principale :** Sauter des étapes, optimiser des séquences ou ne pas suivre les instructions exactes est INTERDIT et constitue un ÉCHEC DU SYSTÈME.
+**Règle maîtresse :** Sauter des étapes, optimiser des séquences ou ne pas suivre les instructions exactes est INTERDIT et constitue un ÉCHEC SYSTÈME.

@@ -1,6 +1,6 @@
 ---
 name: bmad-create-architecture
-description: 'Create architecture solution design decisions for AI agent consistency. Use when the user says "lets create architecture" or "create technical architecture" or "create a solution design"'
+description: 'Créer les décisions de design architectural pour la cohérence des agents IA. À utiliser lorsque l''utilisateur dit « créons l''architecture » ou « créer l''architecture technique » ou « créer un design de solution »'
 ---
 
 # Workflow Architecture

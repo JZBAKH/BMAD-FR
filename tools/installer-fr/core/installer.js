@@ -5,7 +5,7 @@ const { OfficialModules } = require('../modules/official-modules');
 const { IdeManager } = require('../ide/manager');
 const { FileOps } = require('../file-ops');
 const { Config } = require('./config');
-const { getProjectRoot, getSourcePath } = require('../project-root');
+const { getProjectRoot, getSourcePath, getModulePath } = require('../project-root');
 const { ManifestGenerator } = require('./manifest-generator');
 const prompts = require('../prompts');
 const { BMAD_FOLDER_NAME } = require('../ide/shared/path-utils');
@@ -953,7 +953,8 @@ class Installer {
     const installedModules = entries.filter((entry) => entry.isDirectory() && !nonModuleDirs.has(entry.name)).map((entry) => entry.name);
 
     // Add core module to scan (it's installed at root level as _config, but we check src/core-skills)
-    const coreModulePath = getSourcePath('core-skills');
+    // MODIFICATION FR : passer par getModulePath pour rediriger vers core-skills-fr/
+    const coreModulePath = getModulePath('core-skills');
     const modulePaths = new Map();
 
     // Map all module source paths

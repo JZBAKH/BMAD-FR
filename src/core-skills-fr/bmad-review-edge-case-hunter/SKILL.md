@@ -1,6 +1,6 @@
 ---
 name: bmad-review-edge-case-hunter
-description: 'Walk every branching path and boundary condition in content, report only unhandled edge cases. Orthogonal to adversarial review - method-driven not attitude-driven. Use when you need exhaustive edge-case analysis of code, specs, or diffs.'
+description: 'Parcourir chaque chemin de branchement et condition limite du contenu, ne signaler que les cas limites non gérés. Orthogonal à la revue adversarial — pilotée par la méthode et non l''attitude. À utiliser quand vous avez besoin d''une analyse exhaustive de cas limites de code, specs ou diffs.'
 ---
 
 # Edge Case Hunter Review

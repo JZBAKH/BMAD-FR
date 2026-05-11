@@ -1,0 +1,82 @@
+name: Rapport hebdomadaire des changements upstream
+
+# Génère chaque dimanche un fichier UPSTREAM-CHANGES-fr.md à la racine du
+# repo qui résume tout ce qui a changé upstream depuis la dernière fois,
+# avec :
+# - les nouveaux fichiers à importer + traduire
+# - les traductions FR potentiellement obsolètes
+# - les fichiers supprimés upstream
+# - un score de fraîcheur global de la traduction
+#
+# Le but : permettre à un mainteneur solo de partir 1 mois et de revenir
+# avec une checklist claire de ce qu'il y a à faire, sans avoir à fouiller
+# le git log.
+#
+# Complémentaire au workflow sync-upstream-en.yml (qui importe les EN
+# quotidiennement) et test-fr.yml (qui signale les régressions techniques).
+
+on:
+  schedule:
+    # Tous les dimanches à 07:00 UTC
+    - cron: '0 7 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout bmad-fr
+        uses: actions/checkout@v4
+        with:
+          ref: bmad-fr
+          fetch-depth: 0
+          token: ${{ secrets.PAT_WORKFLOW_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Add upstream remote and fetch
+        run: |
+          git remote add upstream https://github.com/bmad-code-org/BMAD-METHOD.git
+          git fetch upstream main --quiet
+
+      - name: Generate UPSTREAM-CHANGES-fr.md
+        run: node tools/generate-upstream-changes-report.mjs
+
+      - name: Commit and push if report changed
+        run: |
+          git config user.name "bmad-fr-sync[bot]"
+          git config user.email "bmad-fr-sync[bot]@users.noreply.github.com"
+          if git diff --quiet UPSTREAM-CHANGES-fr.md 2>/dev/null; then
+            echo "✅ Aucun changement dans le rapport — rien à commiter"
+            exit 0
+          fi
+          git add UPSTREAM-CHANGES-fr.md
+          DATE=$(date -u +%Y-%m-%d)
+          {
+            echo "chore(report): rapport hebdomadaire des changements upstream ($DATE)"
+            echo
+            echo "Rapport généré automatiquement par .github/workflows/upstream-changes-report.yml"
+            echo "Détaille les nouveaux fichiers upstream, traductions potentiellement obsolètes,"
+            echo "et fichiers supprimés upstream. Lecture rapide pour reprise du mainteneur."
+          } > /tmp/commit-msg.txt
+          git commit -F /tmp/commit-msg.txt
+          git push origin bmad-fr
+
+      - name: Render summary on run page
+        if: always()
+        run: |
+          if [ -f UPSTREAM-CHANGES-fr.md ]; then
+            head -30 UPSTREAM-CHANGES-fr.md >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "..." >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "[Voir le rapport complet sur GitHub](https://github.com/$GITHUB_REPOSITORY/blob/bmad-fr/UPSTREAM-CHANGES-fr.md)" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Rapport non généré" >> $GITHUB_STEP_SUMMARY
+          fi

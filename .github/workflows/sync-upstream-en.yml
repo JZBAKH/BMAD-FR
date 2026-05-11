@@ -107,14 +107,17 @@ jobs:
           git config user.email "bmad-fr-sync[bot]@users.noreply.github.com"
           git add -A
           DATE=$(date -u +%Y-%m-%d)
-          git commit -m "chore(sync): import upstream EN changes ($DATE)
-
-Auto-import via .github/workflows/sync-upstream-en.yml.
-
-Whitelist appliquée — seuls les chemins EN sont mis à jour.
-Les dossiers -fr (traductions) restent intacts.
-
-Co-Authored-By: bmad-fr-sync[bot] <noreply@github.com>"
+          {
+            echo "chore(sync): import upstream EN changes ($DATE)"
+            echo
+            echo "Auto-import via .github/workflows/sync-upstream-en.yml."
+            echo
+            echo "Whitelist appliquée — seuls les chemins EN sont mis à jour."
+            echo "Les dossiers -fr (traductions) restent intacts."
+            echo
+            echo "Co-Authored-By: bmad-fr-sync[bot] <noreply@github.com>"
+          } > /tmp/commit-msg.txt
+          git commit -F /tmp/commit-msg.txt
           git push origin bmad-fr
 
       - name: Summary

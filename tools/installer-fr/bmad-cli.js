@@ -37,12 +37,12 @@ async function checkForUpdate() {
     if (result && semver.gt(result, packageJson.version)) {
       const color = await prompts.getColor();
       const updateMsg = [
-        `You are using version ${packageJson.version} but ${result} is available.`,
+        `Vous utilisez la version ${packageJson.version} mais ${result} est disponible.`,
         '',
-        'To update, exit and first run:',
+        'Pour mettre à jour, sortez puis lancez :',
         `  npm cache clean --force && npx bmad-method@${tag} install`,
       ].join('\n');
-      await prompts.box(updateMsg, 'Update Available', {
+      await prompts.box(updateMsg, 'Mise à jour disponible', {
         rounded: true,
         formatBorder: color.yellow,
       });
@@ -81,7 +81,7 @@ for (const file of commandFiles) {
 }
 
 // Set up main program
-program.version(packageJson.version).description('BMAD Core CLI - Universal AI agent framework');
+program.version(packageJson.version).description('CLI BMAD Core — Framework universel d\'agents IA');
 
 // Register all commands
 for (const [name, cmd] of Object.entries(commands)) {

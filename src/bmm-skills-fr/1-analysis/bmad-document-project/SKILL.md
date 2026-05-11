@@ -1,6 +1,6 @@
 ---
 name: bmad-document-project
-description: 'Document brownfield projects for AI context. Use when the user says "document this project" or "generate project docs"'
+description: 'Documenter les projets existants (brownfield) pour le contexte IA. À utiliser lorsque l''utilisateur dit « documenter ce projet » ou « générer la documentation du projet »'
 ---
 
 # Workflow Document Project

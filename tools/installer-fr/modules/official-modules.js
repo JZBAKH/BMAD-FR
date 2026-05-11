@@ -110,19 +110,19 @@ class OfficialModules {
   async listAvailable() {
     const modules = [];
 
-    // Add built-in core module (directly under src/core-skills)
-    const corePath = getSourcePath('core-skills');
+    // Add built-in core module — MODIFICATION FR : redirect vers core-skills-fr
+    const corePath = getModulePath('core-skills');
     if (await fs.pathExists(corePath)) {
-      const coreInfo = await this.getModuleInfo(corePath, 'core', 'src/core-skills');
+      const coreInfo = await this.getModuleInfo(corePath, 'core', 'src/core-skills-fr');
       if (coreInfo) {
         modules.push(coreInfo);
       }
     }
 
-    // Add built-in bmm module (directly under src/bmm-skills)
-    const bmmPath = getSourcePath('bmm-skills');
+    // Add built-in bmm module — MODIFICATION FR : redirect vers bmm-skills-fr
+    const bmmPath = getModulePath('bmm-skills');
     if (await fs.pathExists(bmmPath)) {
-      const bmmInfo = await this.getModuleInfo(bmmPath, 'bmm', 'src/bmm-skills');
+      const bmmInfo = await this.getModuleInfo(bmmPath, 'bmm', 'src/bmm-skills-fr');
       if (bmmInfo) {
         modules.push(bmmInfo);
       }
@@ -209,17 +209,17 @@ class OfficialModules {
     }
     const projectRoot = getProjectRoot();
 
-    // Check for core module (directly under src/core-skills)
+    // Check for core module — MODIFICATION FR : redirect vers core-skills-fr
     if (moduleCode === 'core') {
-      const corePath = getSourcePath('core-skills');
+      const corePath = getModulePath('core-skills');
       if (await fs.pathExists(corePath)) {
         return corePath;
       }
     }
 
-    // Check for built-in bmm module (directly under src/bmm-skills)
+    // Check for built-in bmm module — MODIFICATION FR : redirect vers bmm-skills-fr
     if (moduleCode === 'bmm') {
-      const bmmPath = getSourcePath('bmm-skills');
+      const bmmPath = getModulePath('bmm-skills');
       if (await fs.pathExists(bmmPath)) {
         return bmmPath;
       }
@@ -590,10 +590,10 @@ class OfficialModules {
     const projectRoot = path.dirname(bmadDir);
     const emptyResult = { createdDirs: [], movedDirs: [], createdWdsFolders: [] };
 
-    // Special handling for core module - it's in src/core-skills not src/modules
+    // Special handling for core module — MODIFICATION FR : redirect vers core-skills-fr
     let sourcePath;
     if (moduleName === 'core') {
-      sourcePath = getSourcePath('core-skills');
+      sourcePath = getModulePath('core-skills');
     } else {
       sourcePath = await this.findModuleSource(moduleName, { silent: true });
       if (!sourcePath) {
@@ -932,7 +932,8 @@ class OfficialModules {
    * user's prior answer silently disappears on the next install/quick-update.
    */
   async _hoistCoreKeysFromLegacyModuleConfigs() {
-    const coreSchemaPath = path.join(getSourcePath(), 'core-skills', 'module.yaml');
+    // MODIFICATION FR : passer par getModulePath pour rediriger vers core-skills-fr
+    const coreSchemaPath = path.join(getModulePath('core-skills'), 'module.yaml');
     if (!(await fs.pathExists(coreSchemaPath))) return;
 
     let coreSchema;

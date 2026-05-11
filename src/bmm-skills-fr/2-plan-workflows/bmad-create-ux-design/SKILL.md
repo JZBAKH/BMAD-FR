@@ -1,6 +1,6 @@
 ---
 name: bmad-create-ux-design
-description: 'Plan UX patterns and design specifications. Use when the user says "lets create UX design" or "create UX specifications" or "help me plan the UX"'
+description: 'Planifier les patterns UX et les spécifications de design. À utiliser lorsque l''utilisateur dit « créons un design UX » ou « créer des spécifications UX » ou « aide-moi à planifier l''UX »'
 ---
 
 # Workflow Create UX Design

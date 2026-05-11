@@ -1,37 +1,40 @@
 {
-  "generatedAt": "2026-04-30 13:25:50 UTC",
+  "generatedAt": "2026-05-11 01:29:18 UTC",
   "missingModules": [
+    "bmm",
+    "core",
+    "utility",
     "bmc",
     "cis",
     "bmb"
   ],
   "reports": [
     {
-      "module": "bmm",
+      "module": "bmm-skills",
       "frModuleExists": true,
-      "originalFileCount": 330,
-      "presentInFr": 330,
-      "translated": 289,
-      "untranslated": 6,
+      "originalFileCount": 200,
+      "presentInFr": 200,
+      "translated": 199,
+      "untranslated": 1,
       "missing": 0,
-      "indeterminate": 35
+      "indeterminate": 0
     },
     {
-      "module": "core",
+      "module": "core-skills",
       "frModuleExists": true,
-      "originalFileCount": 75,
-      "presentInFr": 75,
-      "translated": 64,
+      "originalFileCount": 31,
+      "presentInFr": 31,
+      "translated": 31,
       "untranslated": 0,
       "missing": 0,
-      "indeterminate": 11
+      "indeterminate": 0
     },
     {
-      "module": "utility",
-      "frModuleExists": true,
-      "originalFileCount": 2,
-      "presentInFr": 2,
-      "translated": 2,
+      "module": "scripts",
+      "frModuleExists": false,
+      "originalFileCount": 0,
+      "presentInFr": 0,
+      "translated": 0,
       "untranslated": 0,
       "missing": 0,
       "indeterminate": 0

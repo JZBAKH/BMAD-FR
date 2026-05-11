@@ -24,7 +24,7 @@
   },
   "license": "MIT",
   "author": "Jason Zbakh (Fork of the original BMad by Brian Madison)",
-  "main": "tools/cli/bmad-cli.js",
+  "main": "tools/installer-fr/bmad-cli.js",
   "bin": {
     "bmad-fr": "tools/bmad-npx-wrapper.js",
     "bmad-method-fr": "tools/bmad-npx-wrapper.js"
