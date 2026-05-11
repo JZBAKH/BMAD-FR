@@ -39,8 +39,7 @@ on_complete = ""
 # to enforce a different structure (e.g. regulated-industry, investor-deck).
 brief_template = "assets/brief-template.md"
 
-# Run folder location. The brief, optional addendum, and optional distillate
-# all land inside `{output_dir}/{output_folder_name}/`.
+# Run folder location. The brief and optional addendum land inside `{output_dir}/{output_folder_name}/`.
 output_dir = "{planning_artifacts}/briefs"
 output_folder_name = "brief-{project_name}-{date}"
 
@@ -64,3 +63,32 @@ doc_standards = [
   "skill:bmad-editorial-review-structure",
   "skill:bmad-editorial-review-prose",
 ]
+
+# External-source registry. Natural-language directives describing knowledge
+# bases, MCP tools, or internal systems the LLM may consult during the workflow
+# when a relevant need surfaces. The LLM does NOT query these preemptively —
+# it consults them on demand (during Discovery, validation, drafting, etc.).
+# Each entry names the tool, the conditions for using it, and any fields the
+# tool needs. If a named MCP tool is unavailable at runtime, the LLM falls
+# back to standard behavior and notes the gap. Empty by default.
+#
+# Examples (set in team/user override TOML):
+#   "When researching internal product context, consult corp:kb_search (database='product-docs') before web search."
+#   "For voice-of-customer signal during Discovery, query corp:feedback_search with project={project_name}."
+#   "When validating domain-compliance claims for a healthcare brief, cross-check against corp:hipaa_reference."
+external_sources = []
+
+# External-handoff routing. Natural-language directives the LLM applies at
+# Finalize to route outputs beyond local files (Confluence, Notion, Google
+# Drive, ticket systems, etc.). Each entry names the MCP tool, the destination,
+# and the fields the tool needs. Handoffs run after the artifact is polished
+# and before the final user-facing message. URLs or IDs returned by the
+# destination are captured and surfaced to the user. If a named tool is
+# unavailable at runtime, the handoff is skipped and flagged in the JSON
+# status; local files always exist regardless. Fires automatically — users
+# can opt out in their prompt for a specific run. Empty by default.
+#
+# Examples (set in team/user override TOML):
+#   "After finalize, upload brief.md and addendum.md to Confluence via corp:confluence_upload (space_key='PROD', parent_page='Product Briefs', label='brief', author={user_name})."
+#   "Post a ready-for-review ping to Slack via corp:slack_post (channel='#product', text='New brief: '+{confluence_url})."
+external_handoffs = []
