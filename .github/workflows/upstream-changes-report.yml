@@ -40,10 +40,11 @@ jobs:
         with:
           node-version: 24
 
-      - name: Add upstream remote and fetch
-        run: |
-          git remote add upstream https://github.com/bmad-code-org/BMAD-METHOD.git
-          git fetch upstream main --quiet
+      # On compare origin/main (miroir upstream maintenu par sync-main.yml)
+      # avec bmad-fr. Le checkout fetch-depth: 0 ci-dessus inclut déjà
+      # origin/main, donc pas besoin de remote upstream supplémentaire.
+      - name: Fetch origin/main (à jour via sync-main.yml)
+        run: git fetch origin main --quiet
 
       - name: Generate UPSTREAM-CHANGES-fr.md
         run: node tools/generate-upstream-changes-report.mjs

@@ -1,8 +1,14 @@
 #!/usr/bin/env node
 /**
  * Génère UPSTREAM-CHANGES-fr.md : un rapport hebdomadaire qui résume
- * tout ce qui a changé entre upstream/main et bmad-fr sur les chemins
+ * tout ce qui a changé entre `origin/main` (miroir upstream maintenu par
+ * sync-main.yml) et `bmad-fr` (branche de travail FR) sur les chemins
  * surveillés (bmm-skills/, core-skills/, scripts/, tools/installer/).
+ *
+ * Pourquoi origin/main plutôt qu'origin/main : sync-main.yml fait
+ * déjà le miroir 2× par jour. En comparant à origin/main on évite un
+ * fetch upstream supplémentaire et on reste sur ce que GitHub a déjà
+ * vu (cohérent avec l'UI de comparaison GitHub).
  *
  * Vue d'ensemble :
  * - Nouveaux fichiers upstream sans équivalent FR (à traduire en priorité)
@@ -61,9 +67,9 @@ function getLastReportDate() {
 }
 
 function classifyChanges() {
-  // Liste tous les fichiers changés entre bmad-fr et upstream/main dans les chemins surveillés
+  // Liste tous les fichiers changés entre bmad-fr et origin/main dans les chemins surveillés
   const pathArgs = WATCHED_PATHS.join(' ');
-  const diffOutput = git(`diff --name-status upstream/main bmad-fr -- ${pathArgs}`);
+  const diffOutput = git(`diff --name-status origin/main bmad-fr -- ${pathArgs}`);
 
   const newOnUpstream = []; // Présents upstream, absents bmad-fr → nouveaux skills/fichiers
   const modifiedOnUpstream = []; // Présents dans les 2, contenus différents
@@ -76,10 +82,10 @@ function classifyChanges() {
     if (!path) continue;
 
     if (status === 'A') {
-      // Existe dans bmad-fr, pas dans upstream/main → on a un fichier qui n'est plus upstream
+      // Existe dans bmad-fr, pas dans origin/main → on a un fichier qui n'est plus upstream
       removedFromUpstream.push(path);
     } else if (status === 'D') {
-      // Existe dans upstream/main, pas dans bmad-fr → nouveau upstream
+      // Existe dans origin/main, pas dans bmad-fr → nouveau upstream
       newOnUpstream.push(path);
     } else if (status === 'M' || status === 'T') {
       modifiedOnUpstream.push(path);
@@ -114,7 +120,7 @@ function calculateFreshness(newOnUpstream, staleFrFiles) {
   // Compte total de fichiers EN dans la whitelist
   let totalEnFiles = 0;
   try {
-    const allFiles = git(`ls-tree -r --name-only upstream/main -- ${WATCHED_PATHS.join(' ')}`);
+    const allFiles = git(`ls-tree -r --name-only origin/main -- ${WATCHED_PATHS.join(' ')}`);
     totalEnFiles = allFiles.split('\n').filter(Boolean).length;
   } catch {
     totalEnFiles = 1;
@@ -129,7 +135,7 @@ function calculateFreshness(newOnUpstream, staleFrFiles) {
 function buildReport() {
   const date = new Date().toISOString().slice(0, 10);
   const lastReport = getLastReportDate();
-  const upstreamSha = git('rev-parse upstream/main');
+  const upstreamSha = git('rev-parse origin/main');
   const localSha = git('rev-parse bmad-fr');
 
   const { newOnUpstream, modifiedOnUpstream, removedFromUpstream } = classifyChanges();
@@ -150,7 +156,7 @@ function buildReport() {
   }
   lines.push('## 📊 Vue d\'ensemble');
   lines.push('');
-  lines.push(`- **upstream/main** : \`${upstreamSha.slice(0, 8)}\``);
+  lines.push(`- **origin/main** : \`${upstreamSha.slice(0, 8)}\``);
   lines.push(`- **bmad-fr** : \`${localSha.slice(0, 8)}\``);
   lines.push(`- **Fraîcheur de la traduction** : ${freshPercent.toFixed(1)}% (${totalEnFiles - outOfSyncCount}/${totalEnFiles} fichiers à jour)`);
   lines.push('');
@@ -222,7 +228,7 @@ function buildReport() {
   lines.push('');
   lines.push('1. Lire la **fraîcheur** en haut — si > 95%, rien d\'urgent.');
   lines.push('2. Pour les **nouveaux fichiers** : le sync auto les importera dans `bmm-skills/`. Toi tu les traduis vers `bmm-skills-fr/`.');
-  lines.push('3. Pour les **traductions obsolètes** : compare avec `git diff upstream/main..bmad-fr -- <chemin EN>` pour voir ce qui a changé, puis adapter la version FR.');
+  lines.push('3. Pour les **traductions obsolètes** : compare avec `git diff origin/main..bmad-fr -- <chemin EN>` pour voir ce qui a changé, puis adapter la version FR.');
   lines.push('4. Pour les **fichiers supprimés upstream** : décide cas par cas.');
   lines.push('');
   lines.push('Le `test-fr.yml` continue de tourner en parallèle — si un test casse à cause d\'un changement upstream, tu reçois un email automatique de GitHub.');
@@ -234,11 +240,11 @@ function buildReport() {
 function main() {
   console.log('Génération du rapport upstream changes…');
   try {
-    // S'assurer qu'on a upstream/main à jour
+    // S'assurer qu'on a origin/main à jour
     try {
-      git('fetch upstream main --quiet');
+      git('fetch origin main --quiet');
     } catch {
-      console.warn('Avertissement : impossible de fetch upstream. Le rapport utilise l\'état local.');
+      console.warn('Avertissement : impossible de fetch origin/main. Le rapport utilise l\'état local.');
     }
 
     const report = buildReport();
