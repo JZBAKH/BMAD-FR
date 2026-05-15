@@ -1,54 +1,19 @@
 # 🔄 Rapport hebdomadaire — Changements upstream à traiter
 
-_Rapport généré le 2026-05-14 par `.github/workflows/upstream-changes-report.yml`._
-
-_Précédent rapport : 2026-05-11_
+_Rapport généré le 2026-05-15 par `.github/workflows/upstream-changes-report.yml`._
 
 ## 📊 Vue d'ensemble
 
 - **origin/main** : `5090cfb0`
-- **bmad-fr** : `27ecc303`
-- **Fraîcheur de la traduction** : 92.2% (249/270 fichiers à jour)
+- **bmad-fr** : `eeaaeed5`
+- **Fraîcheur de la traduction** : 100.0% (270/270 fichiers à jour)
 
 | Catégorie | Nombre |
 |---|---|
-| 🆕 Nouveaux fichiers upstream à importer/traduire | **10** |
-| 🔄 Traductions FR potentiellement obsolètes | **11** |
+| 🆕 Nouveaux fichiers upstream à importer/traduire | **0** |
+| 🔄 Traductions FR potentiellement obsolètes | **0** |
 | 🗑️ Fichiers supprimés upstream (orphelins côté fork) | **52** |
 | ❓ EN modifié mais sans équivalent FR identifiable | 0 |
-
-## 🆕 Nouveaux fichiers upstream (à importer + traduire)
-
-Ces fichiers existent dans upstream mais pas dans le fork. À importer via le
-workflow `sync-upstream-en.yml` (auto quotidien) puis à traduire manuellement.
-
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/SKILL.md` → traduire dans `src/bmm-skills-fr/2-plan-workflows/bmad-prd/SKILL.md`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/assets/headless-schemas.md` → traduire dans `src/bmm-skills-fr/2-plan-workflows/bmad-prd/assets/headless-schemas.md`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/assets/prd-template.md` → traduire dans `src/bmm-skills-fr/2-plan-workflows/bmad-prd/assets/prd-template.md`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/assets/prd-validation-checklist.md` → traduire dans `src/bmm-skills-fr/2-plan-workflows/bmad-prd/assets/prd-validation-checklist.md`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/assets/validation-report-template.html` → traduire dans `src/bmm-skills-fr/2-plan-workflows/bmad-prd/assets/validation-report-template.html`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/customize.toml` → traduire dans `src/bmm-skills-fr/2-plan-workflows/bmad-prd/customize.toml`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/references/facilitation-guide.md` → traduire dans `src/bmm-skills-fr/2-plan-workflows/bmad-prd/references/facilitation-guide.md`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/references/headless.md` → traduire dans `src/bmm-skills-fr/2-plan-workflows/bmad-prd/references/headless.md`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/references/validation-render.md` → traduire dans `src/bmm-skills-fr/2-plan-workflows/bmad-prd/references/validation-render.md`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/scripts/render-validation-html.py` → traduire dans `src/bmm-skills-fr/2-plan-workflows/bmad-prd/scripts/render-validation-html.py`
-
-## 🔄 Traductions FR potentiellement obsolètes
-
-Ces fichiers EN ont été modifiés upstream. La version FR existe mais peut
-avoir besoin d'être mise à jour.
-
-- [ ] `src/bmm-skills/1-analysis/bmad-product-brief/SKILL.md` → `src/bmm-skills-fr/1-analysis/bmad-product-brief/SKILL.md`
-- [ ] `src/bmm-skills/1-analysis/bmad-product-brief/customize.toml` → `src/bmm-skills-fr/1-analysis/bmad-product-brief/customize.toml`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-agent-pm/customize.toml` → `src/bmm-skills-fr/2-plan-workflows/bmad-agent-pm/customize.toml`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-create-prd/SKILL.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-create-prd/SKILL.md`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-edit-prd/SKILL.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-edit-prd/SKILL.md`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-validate-prd/SKILL.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-validate-prd/SKILL.md`
-- [ ] `src/bmm-skills/module-help.csv` → `src/bmm-skills-fr/module-help.csv`
-- [ ] `src/core-skills/bmad-customize/SKILL.md` → `src/core-skills-fr/bmad-customize/SKILL.md`
-- [ ] `src/core-skills/bmad-help/SKILL.md` → `src/core-skills-fr/bmad-help/SKILL.md`
-- [ ] `tools/installer/modules/external-manager.js` → `tools/installer-fr/modules/external-manager.js`
-- [ ] `tools/installer/modules/registry-fallback.yaml` → `tools/installer-fr/modules/registry-fallback.yaml`
 
 ## 🗑️ Fichiers supprimés upstream
 

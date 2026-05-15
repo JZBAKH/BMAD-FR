@@ -1,8 +1,10 @@
-name: Rapport hebdomadaire des changements upstream
+name: Rapport des changements upstream (bi-quotidien)
 
-# Génère chaque dimanche un fichier UPSTREAM-CHANGES-fr.md à la racine du
-# repo qui résume tout ce qui a changé upstream depuis la dernière fois,
-# avec :
+# Génère 2× par jour (07:00 et 19:00 UTC, soit 1h après chaque sync-main)
+# un fichier UPSTREAM-CHANGES-fr.md à la racine du repo qui résume
+# l'ÉCART CUMULATIF entre origin/main (miroir upstream) et bmad-fr.
+#
+# Le rapport contient :
 # - les nouveaux fichiers à importer + traduire
 # - les traductions FR potentiellement obsolètes
 # - les fichiers supprimés upstream
@@ -17,8 +19,12 @@ name: Rapport hebdomadaire des changements upstream
 
 on:
   schedule:
-    # Tous les dimanches à 07:00 UTC
-    - cron: '0 7 * * 0'
+    # Tourne 1h après chaque sync-main.yml (qui s'exécute à 06h et 18h UTC).
+    # Garantit que origin/main vient d'être rafraîchi depuis upstream et
+    # que le rapport reflète bien le décalage CUMULATIF entre origin/main
+    # actuel et bmad-fr (toutes différences accumulées, pas juste les
+    # 12 dernières heures).
+    - cron: '0 7,19 * * *'
   workflow_dispatch:
 
 permissions:
