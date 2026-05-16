@@ -1,11 +1,11 @@
 # 🔄 Rapport hebdomadaire — Changements upstream à traiter
 
-_Rapport généré le 2026-05-15 par `.github/workflows/upstream-changes-report.yml`._
+_Rapport généré le 2026-05-16 par `.github/workflows/upstream-changes-report.yml`._
 
 ## 📊 Vue d'ensemble
 
 - **origin/main** : `5090cfb0`
-- **bmad-fr** : `eeaaeed5`
+- **bmad-fr** : `17bb6e0f`
 - **Fraîcheur de la traduction** : 100.0% (270/270 fichiers à jour)
 
 | Catégorie | Nombre |
