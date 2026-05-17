@@ -560,15 +560,16 @@ class Installer {
   }
 
   /**
-   * Sync src/scripts/* → _bmad/scripts/ so shared Python scripts
+   * Sync src/scripts-fr/* → _bmad/scripts/ so shared Python scripts
    * (e.g. resolve_customization.py) are available at install time.
-   * Wipes the destination first so files removed or renamed in source
-   * don't linger and get recorded as installed. Also seeds
-   * _bmad/custom/.gitignore on fresh installs so *.user.toml overrides
+   * Uses scripts-fr/ (translated) so messages affichés à l'utilisateur
+   * apparaissent en français. Wipes the destination first so files removed
+   * or renamed in source don't linger and get recorded as installed. Also
+   * seeds _bmad/custom/.gitignore on fresh installs so *.user.toml overrides
    * stay out of version control.
    */
   async _installSharedScripts(paths) {
-    const srcScriptsDir = path.join(paths.srcDir, 'src', 'scripts');
+    const srcScriptsDir = path.join(paths.srcDir, 'src', 'scripts-fr');
     if (!(await fs.pathExists(srcScriptsDir))) {
       throw new Error(`Répertoire source des scripts partagés introuvable : ${srcScriptsDir}`);
     }

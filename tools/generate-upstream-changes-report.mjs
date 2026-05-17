@@ -39,6 +39,7 @@ const WATCHED_PATHS = [
 const EN_TO_FR_MAP = [
   ['src/bmm-skills/', 'src/bmm-skills-fr/'],
   ['src/core-skills/', 'src/core-skills-fr/'],
+  ['src/scripts/', 'src/scripts-fr/'],
   ['tools/installer/', 'tools/installer-fr/'],
 ];
 
