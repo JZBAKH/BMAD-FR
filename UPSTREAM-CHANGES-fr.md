@@ -5,7 +5,7 @@ _Rapport généré le 2026-05-17 par `.github/workflows/upstream-changes-report.
 ## 📊 Vue d'ensemble
 
 - **origin/main** : `71136bc6`
-- **bmad-fr** : `a1ec2816`
+- **bmad-fr** : `0fef0df3`
 - **Fraîcheur de la traduction** : 95.5% (256/268 fichiers à jour)
 
 | Catégorie | Nombre |
