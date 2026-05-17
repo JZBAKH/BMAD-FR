@@ -1,4 +1,14 @@
-name: Veille upstream BMAD-METHOD
+name: Veille upstream BMAD-METHOD (archive mensuelle)
+
+# Génère le 1er de chaque mois (07h UTC) un snapshot des changements upstream
+# et l'ajoute en tête du fichier HISTORIQUE-UPSTREAM-fr.md à la racine du repo.
+#
+# Différence avec upstream-changes-report.yml (biquotidien) :
+#   - Le biquotidien écrase son rapport à chaque exécution → vue de l'instant courant.
+#   - Celui-ci accumule des snapshots mensuels → archive historique consultable.
+#
+# Pas d'issue créée, pas de notification email. Tout reste dans le fichier
+# HISTORIQUE-UPSTREAM-fr.md visible directement dans le repo.
 
 on:
   schedule:
@@ -7,17 +17,18 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  issues: write
+  contents: write
 
 jobs:
   watch:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout bmad-fr
         uses: actions/checkout@v4
         with:
+          ref: bmad-fr
           fetch-depth: 0
+          token: ${{ secrets.PAT_WORKFLOW_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -26,65 +37,45 @@ jobs:
 
       - name: Add upstream remote and fetch
         run: |
-          git remote add upstream https://github.com/bmad-code-org/BMAD-METHOD.git
+          git remote add upstream https://github.com/bmad-code-org/BMAD-METHOD.git 2>/dev/null || true
           git fetch upstream main --quiet
 
-      - name: Generate upstream sync report
-        id: report
+      - name: Generate monthly upstream report
+        run: node tools/upstream-sync-report.mjs
+
+      - name: Append report to HISTORIQUE-UPSTREAM-fr.md
+        run: node tools/append-upstream-history.mjs
+
+      - name: Commit and push if history changed
         run: |
-          node tools/upstream-sync-report.mjs > /tmp/report-output.txt
-          cat /tmp/report-output.txt
-          if grep -q "NOTHING_NEW=true" /tmp/report-output.txt; then
-            echo "nothing_new=true" >> $GITHUB_OUTPUT
-          else
-            echo "nothing_new=false" >> $GITHUB_OUTPUT
-            new_modules=$(grep '^NEW_MODULES=' /tmp/report-output.txt | cut -d= -f2)
-            new_files=$(grep '^NEW_FILES=' /tmp/report-output.txt | cut -d= -f2)
-            echo "new_modules=$new_modules" >> $GITHUB_OUTPUT
-            echo "new_files=$new_files" >> $GITHUB_OUTPUT
+          git config user.name "bmad-fr-sync[bot]"
+          git config user.email "bmad-fr-sync[bot]@users.noreply.github.com"
+          if git diff --quiet HISTORIQUE-UPSTREAM-fr.md 2>/dev/null; then
+            echo "✅ Aucune nouveauté upstream ce mois — rien à archiver"
+            exit 0
           fi
-
-      # Upload the report as a downloadable artifact regardless of whether
-      # the issue creation step succeeds. This guarantees that the user
-      # always has access to the report even if GITHUB_TOKEN doesn't have
-      # `issues: write` permission at the repo level.
-      - name: Upload report as artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: upstream-sync-report
-          path: upstream-sync-report.md
-          retention-days: 90
-
-      # The label/issue creation steps require the repo's "Workflow
-      # permissions" setting to be set to "Read and write permissions"
-      # (Settings → Actions → General → Workflow permissions). When the
-      # default read-only setting is used, these steps would fail and
-      # mask the actual report. We use `continue-on-error: true` so the
-      # workflow as a whole is still green and the report artifact is
-      # always available.
-      - name: Ensure labels exist
-        if: steps.report.outputs.nothing_new == 'false'
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh label create upstream-sync --color BFD4F2 --description "Tracks new upstream content to translate" --force
-          gh label create translation --color 0E8A16 --description "Related to BMAD-FR translation work" --force
-
-      - name: Create tracking issue
-        if: steps.report.outputs.nothing_new == 'false'
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
+          git add HISTORIQUE-UPSTREAM-fr.md
           DATE=$(date -u +%Y-%m-%d)
-          TITLE="Veille upstream du $DATE — ${{ steps.report.outputs.new_modules }} module(s), ${{ steps.report.outputs.new_files }} fichier(s)"
-          gh issue create \
-            --title "$TITLE" \
-            --body-file upstream-sync-report.md \
-            --label "upstream-sync,translation"
+          {
+            echo "chore(history): snapshot upstream mensuel ($DATE)"
+            echo
+            echo "Snapshot des changements upstream au $DATE, ajouté en tête de"
+            echo "HISTORIQUE-UPSTREAM-fr.md. Généré automatiquement par"
+            echo ".github/workflows/upstream-sync-watch.yml."
+          } > /tmp/commit-msg.txt
+          git commit -F /tmp/commit-msg.txt
+          git push origin bmad-fr
 
-      - name: Report (no new content)
-        if: steps.report.outputs.nothing_new == 'true'
-        run: echo "No new upstream content to track. Skipping issue creation."
+      - name: Render summary on run page
+        if: always()
+        run: |
+          if [ -f HISTORIQUE-UPSTREAM-fr.md ]; then
+            echo "## Aperçu de l'historique mis à jour" >> $GITHUB_STEP_SUMMARY
+            echo '```markdown' >> $GITHUB_STEP_SUMMARY
+            head -60 HISTORIQUE-UPSTREAM-fr.md >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "[Voir le fichier complet sur GitHub](https://github.com/$GITHUB_REPOSITORY/blob/bmad-fr/HISTORIQUE-UPSTREAM-fr.md)" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "ℹ️ Aucun historique généré (pas de nouveauté upstream ce mois)." >> $GITHUB_STEP_SUMMARY
+          fi
