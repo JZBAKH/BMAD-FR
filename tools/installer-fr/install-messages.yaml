@@ -1,32 +1,47 @@
-# BMAD Installer Messages
-# These messages are displayed during installation
-# Edit this file to change what users see during the install process
+# Messages de l'installeur BMAD-FR
+# Ces messages s'affichent durant l'installation.
+# Éditez ce fichier pour changer ce que voit l'utilisateur pendant l'installation.
 
-# Display at the START of installation (after logo, before prompts)
+# Affiché au DÉBUT de l'installation (après le logo, avant les questions)
 startMessage: |
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  Agile AI-Driven Development. Powered by BMad Core and a growing module ecosystem.
-  Install official and community modules during setup to customize your experience.
+  BMAD-FR — Bâtir Méthodiquement une Architecture Durable.
+  Fork francophone communautaire non officiel de BMAD-METHOD.
 
-  🌟 100% free. 100% open source. Always.
-     No paywalls. No gated content. Knowledge shared, not sold.
+  Développement piloté par agents IA, méthode agile. Propulsé par BMad Core
+  et un écosystème de modules en croissance. Installation de modules officiels
+  et communautaires pendant la configuration pour personnaliser ton expérience.
 
-  🌐 CONNECT:
-    Website:   https://bmadcode.com/
-    Discord:   https://discord.gg/gk8jAdXWmj
-    YouTube:   https://www.youtube.com/@BMadCode
-    X:         https://x.com/BMadCode
-    Facebook:  https://facebook.com/@BMadCode
+  🌟 100% gratuit. 100% open source. Toujours.
+     Pas de paywalls. Pas de contenu verrouillé. Le savoir partagé, pas vendu.
 
-  ⭐ SUPPORT THE PROJECT:
-    Star us:   https://github.com/bmad-code-org/BMAD-METHOD/
-    Donate:    https://buymeacoffee.com/bmad
-    Corporate sponsorship and speaking inquiries: contact@bmadcode.com
+  🇫🇷 FORK FRANÇAIS (ce projet) :
+    Dépôt :      https://github.com/JZBAKH/BMAD-FR
+    Mainteneur : @JZBAKH
 
-  Docs, blog, and latest updates: https://bmadcode.com/
+  🌐 PROJET ORIGINAL (BMAD-METHOD) :
+    Dépôt :    https://github.com/bmad-code-org/BMAD-METHOD/
+    Site :     https://bmadcode.com/
+    Discord :  https://discord.gg/gk8jAdXWmj
+    YouTube :  https://www.youtube.com/@BMadCode
+    X :        https://x.com/BMadCode
+    Facebook : https://facebook.com/@BMadCode
+
+  ⭐ SOUTENIR LE PROJET ORIGINAL (en priorité — c'est leur travail) :
+    Donner une étoile : https://github.com/bmad-code-org/BMAD-METHOD/
+    Faire un don :      https://buymeacoffee.com/bmad
+    Sponsoring entreprise et conférences : contact@bmadcode.com
+
+  💛 SOUTENIR LE FORK FRANÇAIS (si ce travail de traduction vous aide aussi) :
+    Donner une étoile : https://github.com/JZBAKH/BMAD-FR
+    Signaler un bug, proposer une amélioration ou contribuer :
+                        https://github.com/JZBAKH/BMAD-FR/issues
+
+  Docs, blog et dernières actualités : https://bmadcode.com/
 
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-# No end message - install summary and next steps are rendered by the installer
+# Pas de message de fin — le récap d'install et les étapes suivantes sont
+# rendus directement par l'installeur.
 endMessage: ""

@@ -130,12 +130,14 @@ class UI {
       await prompts.log.warn(warning);
     }
 
-    // When the user launched the installer from a prerelease (npx bmad-method@next),
-    // mirror that intent for external modules: seed the global channel to 'next' so
-    // the module picker's version labels resolve from main HEAD (matching what
-    // actually gets installed) and the interactive channel gate skips — the user
-    // already declared "next" intent by typing @next. Explicit channel flags
-    // override this seed.
+    // When the installer's own version is a prerelease (e.g. 0.0.1-alpha for
+    // BMAD-FR), seed the global channel to 'next' for external modules so the
+    // module picker resolves labels from main HEAD. We deliberately SKIP the
+    // user-facing "Lancé depuis une préversion..." log line here: BMAD-FR is
+    // permanently on a prerelease version tag and showing this notice on every
+    // install would be confusing for end users. The behavior is preserved;
+    // only the cosmetic log line is suppressed. Explicit channel flags
+    // (--all-stable, --pin, --channel) still override this default.
     if (
       semver.prerelease(installerPackageJson.version) !== null &&
       !channelOptions.global &&
@@ -143,9 +145,6 @@ class UI {
       channelOptions.pins.size === 0
     ) {
       channelOptions.global = 'next';
-      await prompts.log.info(
-        'Lancé depuis une préversion — installation de tous les modules externes depuis main HEAD (canal next). Utilisez --all-stable ou --pin pour outrepasser.',
-      );
     }
 
     // Get directory from options or prompt
