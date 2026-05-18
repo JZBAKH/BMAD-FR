@@ -1,18 +1,20 @@
 # 🔄 Rapport hebdomadaire — Changements upstream à traiter
 
-_Rapport généré le 2026-05-17 par `.github/workflows/upstream-changes-report.yml`._
+_Rapport généré le 2026-05-18 par `.github/workflows/upstream-changes-report.yml`._
+
+_Précédent rapport : 2026-05-17_
 
 ## 📊 Vue d'ensemble
 
-- **origin/main** : `71136bc6`
-- **bmad-fr** : `0fef0df3`
-- **Fraîcheur de la traduction** : 95.5% (256/268 fichiers à jour)
+- **origin/main** : `0eae7c43`
+- **bmad-fr** : `34b13730`
+- **Fraîcheur de la traduction** : 92.8% (246/265 fichiers à jour)
 
 | Catégorie | Nombre |
 |---|---|
 | 🆕 Nouveaux fichiers upstream à importer/traduire | **1** |
-| 🔄 Traductions FR potentiellement obsolètes | **11** |
-| 🗑️ Fichiers supprimés upstream (orphelins côté fork) | **3** |
+| 🔄 Traductions FR potentiellement obsolètes | **18** |
+| 🗑️ Fichiers supprimés upstream (orphelins côté fork) | **6** |
 | ❓ EN modifié mais sans équivalent FR identifiable | 0 |
 
 ## 🆕 Nouveaux fichiers upstream (à importer + traduire)
@@ -36,6 +38,13 @@ avoir besoin d'être mise à jour.
 - [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/assets/validation-report-template.html` → `src/bmm-skills-fr/2-plan-workflows/bmad-prd/assets/validation-report-template.html`
 - [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/customize.toml` → `src/bmm-skills-fr/2-plan-workflows/bmad-prd/customize.toml`
 - [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/references/headless.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-prd/references/headless.md`
+- [ ] `src/bmm-skills/module.yaml` → `src/bmm-skills-fr/module.yaml`
+- [ ] `src/core-skills/module.yaml` → `src/core-skills-fr/module.yaml`
+- [ ] `tools/installer/core/installer.js` → `tools/installer-fr/core/installer.js`
+- [ ] `tools/installer/core/manifest.js` → `tools/installer-fr/core/manifest.js`
+- [ ] `tools/installer/modules/channel-plan.js` → `tools/installer-fr/modules/channel-plan.js`
+- [ ] `tools/installer/modules/external-manager.js` → `tools/installer-fr/modules/external-manager.js`
+- [ ] `tools/installer/modules/official-modules.js` → `tools/installer-fr/modules/official-modules.js`
 - [ ] `tools/installer/prompts.js` → `tools/installer-fr/prompts.js`
 - [ ] `tools/installer/ui.js` → `tools/installer-fr/ui.js`
 
@@ -47,6 +56,9 @@ garder (si toujours pertinent) ou supprimer (si obsolète).
 - [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/references/facilitation-guide.md`
 - [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/references/validation-render.md`
 - [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/scripts/render-validation-html.py`
+- [ ] `tools/installer/modules/community-manager.js`
+- [ ] `tools/installer/modules/registry-client.js`
+- [ ] `tools/installer/modules/registry-fallback.yaml`
 
 ---
 
