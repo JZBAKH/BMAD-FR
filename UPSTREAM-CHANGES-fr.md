@@ -2,18 +2,16 @@
 
 _Rapport généré le 2026-05-18 par `.github/workflows/upstream-changes-report.yml`._
 
-_Précédent rapport : 2026-05-17_
-
 ## 📊 Vue d'ensemble
 
-- **origin/main** : `0eae7c43`
-- **bmad-fr** : `34b13730`
-- **Fraîcheur de la traduction** : 92.8% (246/265 fichiers à jour)
+- **origin/main** : `1da6bf80`
+- **bmad-fr** : `90267ad9`
+- **Fraîcheur de la traduction** : 92.5% (245/265 fichiers à jour)
 
 | Catégorie | Nombre |
 |---|---|
 | 🆕 Nouveaux fichiers upstream à importer/traduire | **1** |
-| 🔄 Traductions FR potentiellement obsolètes | **18** |
+| 🔄 Traductions FR potentiellement obsolètes | **19** |
 | 🗑️ Fichiers supprimés upstream (orphelins côté fork) | **6** |
 | ❓ EN modifié mais sans équivalent FR identifiable | 0 |
 
@@ -42,6 +40,7 @@ avoir besoin d'être mise à jour.
 - [ ] `src/core-skills/module.yaml` → `src/core-skills-fr/module.yaml`
 - [ ] `tools/installer/core/installer.js` → `tools/installer-fr/core/installer.js`
 - [ ] `tools/installer/core/manifest.js` → `tools/installer-fr/core/manifest.js`
+- [ ] `tools/installer/ide/_config-driven.js` → `tools/installer-fr/ide/_config-driven.js`
 - [ ] `tools/installer/modules/channel-plan.js` → `tools/installer-fr/modules/channel-plan.js`
 - [ ] `tools/installer/modules/external-manager.js` → `tools/installer-fr/modules/external-manager.js`
 - [ ] `tools/installer/modules/official-modules.js` → `tools/installer-fr/modules/official-modules.js`
