@@ -2,12 +2,10 @@
 
 _Rapport généré le 2026-05-19 par `.github/workflows/upstream-changes-report.yml`._
 
-_Précédent rapport : 2026-05-18_
-
 ## 📊 Vue d'ensemble
 
 - **origin/main** : `1da6bf80`
-- **bmad-fr** : `1bcd87dd`
+- **bmad-fr** : `9d17aec3`
 - **Fraîcheur de la traduction** : 92.5% (245/265 fichiers à jour)
 
 | Catégorie | Nombre |
