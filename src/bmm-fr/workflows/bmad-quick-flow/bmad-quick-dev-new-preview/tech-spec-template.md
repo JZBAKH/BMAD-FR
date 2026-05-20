@@ -25,6 +25,7 @@ context: [] # optionnel : max 3 standards/docs au niveau du projet. PAS de fichi
 **Toujours :** RÈGLES_INVARIANTES
 
 **Demander d'abord :** DÉCISIONS_NÉCESSITANT_UNE_APPROBATION_HUMAINE
+
 <!-- Agent : si l'un de ces éléments se déclenche pendant l'exécution, ARRÊTEZ-VOUS et demandez à l'utilisateur avant de continuer. -->
 
 **Jamais :** NON_OBJECTIFS_ET_APPROCHES_INTERDITES
@@ -33,10 +34,10 @@ context: [] # optionnel : max 3 standards/docs au niveau du projet. PAS de fichi
 
 <!-- Si aucun scénario d'I/O significatif n'existe, SUPPRIMER TOUTE CETTE SECTION. Ne pas écrire "N/A" ou "Aucun". -->
 
-| Scénario | Entrée / État | Sortie Attendue / Comportement | Gestion d'Erreur |
-|----------|---------------|-------------------------------|------------------|
-| HAPPY_PATH | ENTRÉE | RÉSULTAT | N/A |
-| CAS_D_ERREUR | ENTRÉE | RÉSULTAT | GESTION_ERREUR |
+| Scénario     | Entrée / État | Sortie Attendue / Comportement | Gestion d'Erreur |
+| ------------ | ------------- | ------------------------------ | ---------------- |
+| HAPPY_PATH   | ENTRÉE        | RÉSULTAT                       | N/A              |
+| CAS_D_ERREUR | ENTRÉE        | RÉSULTAT                       | GESTION_ERREUR   |
 
 </frozen-after-approval>
 
@@ -54,9 +55,11 @@ context: [] # optionnel : max 3 standards/docs au niveau du projet. PAS de fichi
 <!-- Les AC couvrent les comportements au niveau système non capturés par la matrice I/O. Ne pas dupliquer les scénarios I/O ici. -->
 
 **Exécution :**
+
 - [ ] `FICHIER` -- ACTION -- RAISON
 
 **Critères d'Acceptation (AC) :**
+
 - Étant donné PRÉCONDITION, quand ACTION, alors RÉSULTAT_ATTENDU
 
 ## Journal des Changements de Spécification (Spec Change Log)
@@ -79,7 +82,9 @@ RAISONNEMENT_DESIGN_ET_EXEMPLES
 <!-- Comment l'agent confirme son propre travail. Préférer les commandes CLI. Quand aucun contrôle CLI ne s'applique, indiquer ce qu'il faut inspecter manuellement. -->
 
 **Commandes :**
+
 - `COMMANDE` -- attendu : CRITÈRES_DE_RÉUSSITE
 
 **Contrôles manuels (si pas de CLI) :**
-- QUOI_INSPECTER_ET_ÉTAT_ATTENDU
+
+- QUOI*INSPECTER_ET*ÉTAT_ATTENDU

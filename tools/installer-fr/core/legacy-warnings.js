@@ -137,7 +137,7 @@ async function warnPreNativeSkillsLegacy({ projectRoot, existingVersion } = {}) 
     }
   } else if (versionTriggered) {
     await prompts.log.message(
-      '  Aucun répertoire obsolète détecté, mais si votre outil IA affiche des commandes BMAD en double après l\'installation, vérifiez la présence d\'anciennes entrées `bmad-*` dans les répertoires spécifiques aux outils (ex. .claude/commands, .cursor/commands).',
+      "  Aucun répertoire obsolète détecté, mais si votre outil IA affiche des commandes BMAD en double après l'installation, vérifiez la présence d'anciennes entrées `bmad-*` dans les répertoires spécifiques aux outils (ex. .claude/commands, .cursor/commands).",
     );
   }
 }

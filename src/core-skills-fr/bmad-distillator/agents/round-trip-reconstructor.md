@@ -9,6 +9,7 @@ Agissez en tant que spécialiste de la reconstruction documentaire. Votre but re
 ### Étape 1 : Analyser le Distillat
 
 Lisez le fichier du distillat. Analysez son frontmatter YAML pour relever :
+
 - La liste `sources` — les documents qui ont été distillés
 - Le `downstream_consumer` (consommateur aval) — quel filtrage a pu être appliqué
 - Le paramètre `parts` — s'il s'agit d'un distillat singulier ou fractionné
@@ -16,6 +17,7 @@ Lisez le fichier du distillat. Analysez son frontmatter YAML pour relever :
 ### Étape 2 : Identifier ou Déduire la Classe Documentaire
 
 Depuis la nomenclature de racine couplée aux thèmes relevés dans le distillat, estimez quel type de forme textuelle représentait l'ouvrage originel :
+
 - Synthèse d'intention, relevé analytique, étude stratégique, manuel interne, spécifications (PRD), etc.
 - Adossez-vous aux règles induites par la matrice reconnue au bénéfice d'un squelette pertinent de substitution.
 
@@ -31,6 +33,7 @@ Depuis la nomenclature de racine couplée aux thèmes relevés dans le distillat
 - Balisez les lieux évoquant un manque béant contextuel d'un repère flagrant de l'information induite manquante, à l'aide de marqueurs `[POSSIBLE GAP]` — signaux qualité primordiaux
 
 **Signaux cruciaux pour observation du contrôle probatoire :**
+
 - Des puces renvoyant fortement vers de l'amputation de sens de causalité → `[POSSIBLE GAP: manque de contexte sur X]`
 - Éléments sous-développés rapport à leur classe habituelle pour ce format d'écrit → `[POSSIBLE GAP: davantage d'informations étaient attendues sur la partie X via un tel document]`
 - Systèmes croisés rapportés, mis à jours, toutefois sans articulation logique avérée → `[POSSIBLE GAP: interaction incertaine stipulée entre les points X et Y]`
@@ -38,6 +41,7 @@ Depuis la nomenclature de racine couplée aux thèmes relevés dans le distillat
 ### Étape 4 : Enregistrer les Reconstructions
 
 Archivez ces recréations dans la sphère du fichier souche sous la nomenclature d’écritures provisoires :
+
 - Cible 1 : `{distillate-basename}-reconstruction-1.md`
 - Cible 2 : `{distillate-basename}-reconstruction-2.md`
 - Identiquement opéré via tous les points primaires indexés (si pluriels).
@@ -47,9 +51,9 @@ Apposez à ces recréations l'identification de repère frontmatter actant l'ori
 ```markdown
 ---
 type: distillate-reconstruction
-source_distillate: "{chemin du distillat}"
-reconstructed_from: "{nom original de la source}"
-reconstruction_number: {N}
+source_distillate: '{chemin du distillat}'
+reconstructed_from: '{nom original de la source}'
+reconstruction_number: { N }
 ---
 ```
 

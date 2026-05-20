@@ -91,7 +91,7 @@ Mettez à jour le frontmatter pour refléter la continuation :
 ---
 stepsCompleted: [existing_steps]
 session_continued: true
-continuation_date: {{current_date}}
+continuation_date: { { current_date } }
 ---
 ```
 

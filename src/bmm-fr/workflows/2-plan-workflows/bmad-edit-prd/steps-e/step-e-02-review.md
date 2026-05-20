@@ -5,7 +5,7 @@ description: 'Révision et Analyse Approfondies - Examiner minutieusement le PRD
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
 nextStepFile: './step-e-03-edit.md'
 prdFile: '{prd_file_path}'
-validationReport: '{validation_report_path}'  # Si fourni
+validationReport: '{validation_report_path}' # Si fourni
 prdPurpose: '{project-root}/_bmad/bmm/workflows/2-plan-workflows/create-prd/data/prd-purpose.md'
 ---
 
@@ -68,12 +68,14 @@ Examiner minutieusement le PRD existant, analyser les conclusions du rapport de 
 "Effectuer une révision approfondie du PRD et planifier les modifications :
 
 **Contexte issu de l'étape e-01 :**
+
 - Exigences de modification de l'utilisateur : {user_requirements}
 - Format du PRD : {BMAD/legacy}
 - Rapport de validation fourni : {oui/non}
 - Mode de conversion : {restructuration/ciblé/les deux} (si legacy)
 
 **SI un rapport de validation est fourni :**
+
 1. Extraire toutes les conclusions du rapport de validation.
 2. Mapper les conclusions à des sections spécifiques du PRD.
 3. Hiérarchiser par sévérité : Critique > Avertissement > Informationnel.
@@ -81,6 +83,7 @@ Examiner minutieusement le PRD existant, analyser les conclusions du rapport de 
 5. Pour les objectifs manuels d'édition de l'utilisateur : identifier où les appliquer dans le PRD.
 
 **SI aucun rapport de validation n'est fourni :**
+
 1. Lire l'intégralité du PRD minutieusement.
 2. Analyser par rapport aux standards BMAD (issus de prd-purpose.md).
 3. Identifier les problèmes dans :
@@ -93,6 +96,7 @@ Examiner minutieusement le PRD existant, analyser les conclusions du rapport de 
 4. Mapper les objectifs d'édition de l'utilisateur à des sections spécifiques.
 
 **Sortie :**
+
 - Analyse section par section.
 - Modifications spécifiques nécessaires pour chaque section.
 - Liste d'actions hiérarchisée.
@@ -101,6 +105,7 @@ Examiner minutieusement le PRD existant, analyser les conclusions du rapport de 
 Retourner le plan de modification détaillé avec décomposition par section."
 
 **Dégradation gracieuse (si l'outil Task est indisponible) :**
+
 - Lire manuellement les sections du PRD.
 - Analyser manuellement les conclusions du rapport de validation (si fourni).
 - Construire le plan de modification section par section.
@@ -111,6 +116,7 @@ Retourner le plan de modification détaillé avec décomposition par section."
 **Organiser par section du PRD :**
 
 **Pour chaque section (dans l'ordre) :**
+
 - **État Actuel :** Brève description de ce qui existe.
 - **Problèmes Identifiés :** [Liste issue du rapport de validation ou de l'analyse manuelle]
 - **Modifications Nécessaires :** [Changements spécifiques requis]
@@ -118,6 +124,7 @@ Retourner le plan de modification détaillé avec décomposition par section."
 - **Exigences Utilisateur Satisfaites :** [Quels objectifs d'édition de l'utilisateur concernent cette section]
 
 **Inclure :**
+
 - Sections à ajouter (si manquantes).
 - Sections à mettre à jour (si présentes mais nécessitant du travail).
 - Contenu à supprimer (si incorrect/fuite).
@@ -128,12 +135,14 @@ Retourner le plan de modification détaillé avec décomposition par section."
 **Sections de résumé :**
 
 **Modifications par Type :**
+
 - **Ajouts :** {count} sections à ajouter.
 - **Mises à jour :** {count} sections à mettre à jour.
 - **Suppressions :** {count} éléments à supprimer.
 - **Restructuration :** {oui/non} si une conversion de format est nécessaire.
 
 **Répartition par Priorité :**
+
 - **Critique :** {count} modifications (doivent être corrigées).
 - **Haute :** {count} modifications (importantes).
 - **Moyenne :** {count} modifications (souhaitables).
@@ -164,6 +173,7 @@ Affichez :
 {Présentez la décomposition section par section}
 
 **Par Priorité :**
+
 - Critique : {count} éléments
 - Haute : {count} éléments
 - Moyenne : {count} éléments
@@ -171,6 +181,7 @@ Affichez :
 **Effort Estimé :** {effort level}
 
 **Questions :**
+
 1. Ce plan de modification correspond-il à ce que vous aviez en tête ?
 2. Y a-t-il des sections que je devrais ajouter/supprimer/re-prioriser ?
 3. Avez-vous des inquiétudes avant que je procède aux modifications ?
@@ -182,11 +193,13 @@ Affichez :
 Attendez que l'utilisateur examine et fournisse ses commentaires.
 
 **Si l'utilisateur souhaite des ajustements :**
+
 - Discutez des modifications demandées.
 - Révisez le plan de modification en conséquence.
 - Présentez-le à nouveau pour confirmation.
 
 **Si l'utilisateur approuve :**
+
 - Note : "Plan de modification approuvé. Passage à l'étape d'édition."
 - Continuez vers l'étape 6.
 

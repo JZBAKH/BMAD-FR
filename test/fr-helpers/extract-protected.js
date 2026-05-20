@@ -42,20 +42,44 @@ const XML_OPEN_TAG_RE = /<([a-zA-Z][a-zA-Z0-9_-]*)\b/g;
 // observed in the source tree. Keeping them as a hard-coded list because they are
 // part of the protected vocabulary, not derived from the file content.
 const PROTECTED_TRIGGER_CODES = new Set([
-  'BP', 'RS', 'CB', 'CP', 'VP', 'EP', 'CE', 'IR', 'CC', 'CA',
-  'SP', 'CS', 'DS', 'CR', 'QA', 'CU', 'DP', 'WD', 'US', 'MG', 'ER',
-  'BSP', 'BH', 'ID', 'SD', 'AR', 'ECH', 'DG', 'PM', 'QS', 'QD',
+  'BP',
+  'RS',
+  'CB',
+  'CP',
+  'VP',
+  'EP',
+  'CE',
+  'IR',
+  'CC',
+  'CA',
+  'SP',
+  'CS',
+  'DS',
+  'CR',
+  'QA',
+  'CU',
+  'DP',
+  'WD',
+  'US',
+  'MG',
+  'ER',
+  'BSP',
+  'BH',
+  'ID',
+  'SD',
+  'AR',
+  'ECH',
+  'DG',
+  'PM',
+  'QS',
+  'QD',
 ]);
 
 // Agent display names from GLOSSAIRE §1 (Identifiants & Noms d'Agents).
 // Note: "Amelia" was deliberately francised to "Amélie" by the project owner — both
 // are accepted by tests. See language-fr/02-agent-names-intact.js.
-const PROTECTED_AGENT_NAMES = new Set([
-  'Mary', 'Winston', 'John', 'Bob', 'Sally', 'Paige', 'Barry',
-]);
-const TOLERATED_AGENT_FRANCISATIONS = new Map([
-  ['Amelia', 'Amélie'],
-]);
+const PROTECTED_AGENT_NAMES = new Set(['Mary', 'Winston', 'John', 'Bob', 'Sally', 'Paige', 'Barry']);
+const TOLERATED_AGENT_FRANCISATIONS = new Map([['Amelia', 'Amélie']]);
 
 /**
  * @param {string} text
@@ -128,10 +152,7 @@ function extractXmlTagNames(text) {
 function extractTriggerCodesPresent(text) {
   const out = new Set();
   for (const code of PROTECTED_TRIGGER_CODES) {
-    const re = new RegExp(
-      `\\[${code}\\]|\\b${code}\\s+or\\s+fuzzy\\s+match\\s+on\\b|trigger:\\s*${code}\\b`,
-      'g',
-    );
+    const re = new RegExp(`\\[${code}\\]|\\b${code}\\s+or\\s+fuzzy\\s+match\\s+on\\b|trigger:\\s*${code}\\b`, 'g');
     if (re.test(text)) out.add(code);
   }
   return out;

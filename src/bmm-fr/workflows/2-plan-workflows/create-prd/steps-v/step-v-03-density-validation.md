@@ -1,6 +1,6 @@
 ---
 name: 'step-v-03-density-validation'
-description: 'Contrôle de la Densité d''Information - Scanner les anti-modèles qui violent les principes de densité d''information'
+description: "Contrôle de la Densité d'Information - Scanner les anti-modèles qui violent les principes de densité d'information"
 
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
 nextStepFile: './step-v-04-brief-coverage-validation.md'
@@ -78,6 +78,7 @@ Retourner les résultats structurés avec les comptes et les exemples."
 Si l'outil Task est indisponible, effectuez l'analyse directement :
 
 **Scanner pour les modèles de remplissage conversationnel :**
+
 - "Le système permettra aux utilisateurs de..."
 - "Il est important de noter que..."
 - "Afin de"
@@ -86,6 +87,7 @@ Si l'outil Task est indisponible, effectuez l'analyse directement :
 - Comptez les occurrences et notez les numéros de ligne.
 
 **Scanner pour les expressions verbeuses :**
+
 - "En raison du fait que" (utilisez "parce que")
 - "Dans l'éventualité de" (utilisez "si")
 - "À ce moment précis" (utilisez "maintenant")
@@ -93,6 +95,7 @@ Si l'outil Task est indisponible, effectuez l'analyse directement :
 - Comptez les occurrences et notez les numéros de ligne.
 
 **Scanner pour les expressions redondantes :**
+
 - "Plans futurs" (juste "plans")
 - "Histoire passée" (juste "histoire")
 - "Absolument essentiel" (juste "essentiel")
@@ -102,12 +105,14 @@ Si l'outil Task est indisponible, effectuez l'analyse directement :
 ### 3. Classifier la sévérité
 
 **Calculer le total des violations :**
+
 - Nombre de remplissages conversationnels.
 - Nombre d'expressions verbeuses.
 - Nombre d'expressions redondantes.
 - Total = somme de toutes les catégories.
 
 **Déterminer la sévérité :**
+
 - **Critique :** Total > 10 violations.
 - **Avertissement :** Total 5-10 violations.
 - **Réussite :** Total < 5 violations.

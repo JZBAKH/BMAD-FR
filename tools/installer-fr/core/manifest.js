@@ -111,7 +111,7 @@ class Manifest {
           ides: manifestData.ides || [],
         };
       } catch (error) {
-        await prompts.log.error(`Échec de la lecture du manifeste YAML : ${error.message}`);
+        await prompts.log.error(`Impossible de lire le manifeste YAML : ${error.message}`);
       }
     }
 
@@ -132,7 +132,7 @@ class Manifest {
         const content = await fs.readFile(yamlPath, 'utf8');
         return yaml.parse(content);
       } catch (error) {
-        await prompts.log.error(`Échec de la lecture du manifeste YAML : ${error.message}`);
+        await prompts.log.error(`Impossible de lire le manifeste YAML : ${error.message}`);
       }
     }
 
@@ -307,28 +307,6 @@ class Manifest {
         repoUrl: moduleInfo.url || null,
         channel: externalResolution?.channel || null,
         sha: externalResolution?.sha || null,
-      };
-    }
-
-    // Check if this is a community module
-    const { CommunityModuleManager } = require('../modules/community-manager');
-    const communityMgr = new CommunityModuleManager();
-    const communityInfo = await communityMgr.getModuleByCode(moduleName);
-    if (communityInfo) {
-      const communityResolution = communityMgr.getResolution(moduleName);
-      const versionInfo = await resolveModuleVersion(moduleName, {
-        moduleSourcePath,
-        fallbackVersion: communityInfo.version,
-      });
-      return {
-        version: communityResolution?.version || versionInfo.version || communityInfo.version,
-        source: 'community',
-        npmPackage: communityInfo.npmPackage || null,
-        repoUrl: communityInfo.url || null,
-        channel: communityResolution?.channel || null,
-        sha: communityResolution?.sha || null,
-        registryApprovedTag: communityResolution?.registryApprovedTag || null,
-        registryApprovedSha: communityResolution?.registryApprovedSha || null,
       };
     }
 

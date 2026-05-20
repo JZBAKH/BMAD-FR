@@ -1,5 +1,5 @@
 ---
-title: "Enquête de code"
+title: 'Enquête de code'
 description: Comment bmad-investigate traite chaque problème comme une scène d'enquête, classe les preuves et produit un dossier structuré sur lequel les ingénieurs peuvent agir
 sidebar:
   order: 6
@@ -40,7 +40,7 @@ Chaque constatation dans une enquête appartient à l'une de trois catégories.
 - **Déduit.** Découle logiquement de preuves confirmées ; la chaîne de raisonnement est explicite. Si une étape de la
   chaîne est fausse, la déduction est fausse, et on peut voir précisément quelle étape.
 - **Hypothétique.** Plausible mais non confirmé. Énonce quelle preuve confirmerait ou réfuterait, et déclare d'avance ce
-  qui le clôturerait. Les hypothèses sont explicitement *non factuelles*.
+  qui le clôturerait. Les hypothèses sont explicitement _non factuelles_.
 
 Le classement n'est pas une posture d'humilité. Il rend le dossier lisible. Un lecteur peut parcourir la section
 Confirmé pour savoir ce qui est vrai, la section Déduit pour savoir ce qui en découle, et la section Hypothétique pour
@@ -52,7 +52,7 @@ L'enquête ne part jamais d'une théorie. Elle part d'une seule preuve confirmé
 preuve peut être un message d'erreur précis, une trame de pile, ou une entrée de log horodatée.
 
 C'est l'inverse de la manière dont les enquêtes se déroulent souvent : quelqu'un a une intuition, construit une théorie,
-puis cherche les preuves qui la soutiennent. L'intuition peut être correcte ; la *méthode* est fragile parce qu'elle
+puis cherche les preuves qui la soutiennent. L'intuition peut être correcte ; la _méthode_ est fragile parce qu'elle
 fait du biais de confirmation[^2] le comportement par défaut.
 
 Une tête de pont est un fait sur lequel vous pouvez revenir quand le raisonnement devient flou. Si une déduction vous
@@ -79,7 +79,7 @@ réfuter avec une preuve citée. L'abandonner discrètement quand elle devient g
 ## Remettre en question la prémisse
 
 La description du problème par l'utilisateur est une hypothèse, pas un fait. « Le cache est cassé » est quelque chose
-que l'utilisateur *croit*. Avant que le skill ne construise une enquête autour, les affirmations techniques sont
+que l'utilisateur _croit_. Avant que le skill ne construise une enquête autour, les affirmations techniques sont
 vérifiées de manière indépendante. Si la preuve contredit la prémisse, le rapport le dit directement.
 
 C'est l'instinct de l'enquêteur : le récit du témoin est une donnée, pas la vérité. Parfois le bug rapporté est réel
@@ -148,10 +148,15 @@ une invite vide.
 
 ## Glossaire
 
-[^1]: **Verrouillage narratif** : phénomène cognitif par lequel un raisonnement adopte la première explication plausible
-et l'enrichit progressivement, devenant de plus en plus difficile à abandonner même face à des preuves contraires.
-[^2]: **Biais de confirmation** : tendance cognitive à rechercher, interpréter et favoriser les informations qui
-confirment des croyances préexistantes, tout en ignorant ou minimisant celles qui les contredisent.
-[^3]: **Passage de frontière** : transition entre deux zones d'exécution distinctes (langage, processus, machine,
-client/serveur, code/configuration). Les frontières concentrent les bugs car chaque côté suppose que l'autre s'est
-comporté comme documenté.
+[^1]:
+    **Verrouillage narratif** : phénomène cognitif par lequel un raisonnement adopte la première explication plausible
+    et l'enrichit progressivement, devenant de plus en plus difficile à abandonner même face à des preuves contraires.
+
+[^2]:
+    **Biais de confirmation** : tendance cognitive à rechercher, interpréter et favoriser les informations qui
+    confirment des croyances préexistantes, tout en ignorant ou minimisant celles qui les contredisent.
+
+[^3]:
+    **Passage de frontière** : transition entre deux zones d'exécution distinctes (langage, processus, machine,
+    client/serveur, code/configuration). Les frontières concentrent les bugs car chaque côté suppose que l'autre s'est
+    comporté comme documenté.

@@ -1,12 +1,11 @@
 ---
 name: bmad-index-docs
-description: 'Génère ou met à jour un index.md référençant tous les documents du dossier. À utiliser si l''utilisateur demande de créer ou mettre à jour un index de tous les fichiers dans un dossier spécifique'
+description: "Génère ou met à jour un index.md référençant tous les documents du dossier. À utiliser si l'utilisateur demande de créer ou mettre à jour un index de tous les fichiers dans un dossier spécifique"
 ---
 
 # Index Docs
 
 **Objectif :** Générer ou mettre à jour un index.md pour référencer tous les documents dans un dossier cible.
-
 
 ## EXECUTION
 
@@ -25,7 +24,6 @@ description: 'Génère ou met à jour un index.md référençant tous les docume
 ### Step 4 : Créer/Mettre à Jour l'Index
 
 - Écrire ou mettre à jour index.md avec des listes de fichiers organisées
-
 
 ## OUTPUT FORMAT
 
@@ -49,12 +47,10 @@ description: 'Génère ou met à jour un index.md référençant tous les docume
 - **[file3.ext](./another-folder/file3.ext)** - Brief description
 ```
 
-
 ## HALT CONDITIONS
 
 - HALT si le répertoire cible n'existe pas ou est inaccessible
 - HALT si l'utilisateur n'a pas les permissions d'écriture pour créer index.md
-
 
 ## VALIDATION
 

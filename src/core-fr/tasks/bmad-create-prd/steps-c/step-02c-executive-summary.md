@@ -56,6 +56,7 @@ Rédiger la section Résumé Exécutif (Executive Summary) en regroupant toutes 
 ### 1. Synthétiser le Contexte Disponible
 
 Examinez tout le contexte disponible avant la rédaction :
+
 - La Classification (étape 2) : type de projet, domaine, complexité, contexte (greenfield/brownfield)
 - La vision conceptuelle et le différenciateur clé (étape 2b) : ce qui fait la différence, l'insight fondamental
 - Les documents de référence initiaux (product briefs, recherche, brainstorming, docs de l'architecture/du projet)
@@ -63,6 +64,7 @@ Examinez tout le contexte disponible avant la rédaction :
 ### 2. Rédiger le Contenu du Résumé Exécutif
 
 Préparez la rubrique du Résumé Exécutif en la calquant strictement sur l'architecture ci-dessous. Appliquez les normes de qualité d'un PRD :
+
 - Densité d'informations élevée — chaque phrase pèse son poids
 - Zéro remplissage (fluff) — ni circonlocutions, ni verbiage sans fond
 - Précision et aspect exploitable (actionable) — des déclarations brutes et non équivoques
@@ -77,6 +79,7 @@ Restituez l'esquisse de cette rédaction à l'entité humaine :
 Exposez la totalité de cette tranche en observant rigoureusement l'arborescence requise dans le modèle "Structure du Contenu" (Content Structure) positionné un peu plus bas.
 
 Autorisez formellement l'utilisateur à :
+
 - Réclamer des amendements dans toute sous-section
 - Rajouter des données oubliées
 - Lisser ou durcir le registre sémantique / les points de focalisation
@@ -91,12 +94,14 @@ Dévoilez le contenu du résumé exécutif pour sa propre relecture, puis affich
 Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers les Critères de Succès (Étape 3 sur 13)"
 
 #### Logique de Gestion du Menu :
+
 - SI A : Invoquez la compétence `bmad-advanced-elicitation` avec le contenu actuel du résumé exécutif, traitez le contenu enrichi qui en revient, demandez à l'utilisateur s'il accepte les améliorations ; si oui, mettez à jour le contenu puis réaffichez le menu, si non, conservez le contenu d'origine puis réaffichez le menu.
 - SI P : Invoquez la compétence `bmad-party-mode` avec le contenu actuel du résumé exécutif, traitez les améliorations collaboratives, demandez à l'utilisateur s'il accepte les changements ; si oui, mettez à jour le contenu puis réaffichez le menu, si non, conservez le contenu d'origine puis réaffichez le menu.
 - SI C : Ajoutez (append) le contenu final à `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-03-success.md`
 - SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
 #### RÈGLES D'EXÉCUTION :
+
 - TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
 - NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 - Après l'exécution d'autres options du menu, retournez à ce menu
@@ -120,6 +125,7 @@ Lorsque l'utilisateur sélectionne 'C', ajoutez (append) la structure de contenu
 ```
 
 Où :
+
 - `{vision_alignment_content}` — La vision d'ensemble, le public ciblé et la problématique à résoudre. Résumé dense et sans appel extrait de la découverte visionnaire de la phase 2b.
 - `{product_differentiator_content}` — Les atouts irrésistibles, cette perspicacité (core insight) unique qui repousse la concurrence (hérité de la phase 2b).
 - `{project_classification_content}` — Catégorie de la base du projet, son secteur métier/domaine, la matrice de complexité et de contextualisation (greenfield/brownfield). Recueilli à l'étape 2.

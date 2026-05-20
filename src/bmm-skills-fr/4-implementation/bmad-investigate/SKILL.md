@@ -104,7 +104,7 @@ Acquitter chaque forme d'entrée — enregistrer emplacement, périmètre, fenê
 - **Nom de zone de code** (sans symptôme). Enregistrer le point d'entrée.
 - **Zone de commit récent.** Enregistrer la plage de commits.
 
-Si l'utilisateur est arrivé avec une hypothèse, l'enregistrer comme Hypothesis #1. Trouver le bastion *indépendamment* ; l'hypothèse de
+Si l'utilisateur est arrivé avec une hypothèse, l'enregistrer comme Hypothesis #1. Trouver le bastion _indépendamment_ ; l'hypothèse de
 l'utilisateur est l'une des choses que le bastion valide ou réfute.
 
 Trouver un bastion : une pièce d'évidence Confirmée (message d'erreur, nom de fonction, route HTTP, paramètre de config, cas de

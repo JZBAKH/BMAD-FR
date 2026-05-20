@@ -31,6 +31,7 @@
     3. **Annuler** - Quitter sans modifications
 
     Votre choix [1/2/3] :
+
 </ask>
 
   <check if="l'utilisateur sélectionne 1">

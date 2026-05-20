@@ -47,6 +47,7 @@ Traite chaque entrée de `{agent.persistent_facts}` comme un contexte fondateur 
 ### Étape 5 : Charger la Configuration
 
 Charge la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résous :
+
 - Utilise `{user_name}` pour la salutation
 - Utilise `{communication_language}` pour toutes les communications
 - Utilise `{document_output_language}` pour les documents en sortie

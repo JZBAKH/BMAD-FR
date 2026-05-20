@@ -22,6 +22,7 @@
 ### Axe 1 — Cohérence terminologique cross-fichiers
 
 **Vérifié :**
+
 - Application stricte du dictionnaire métier `GLOSSAIRE.md §4` (Senior Implementation Engineer, Strategic Business Analyst, etc.) → test `09-glossary-terms.js` : **PASS**.
 - Préservation des identifiants système (BMAD, BMad, Skill, Module, Workflow, Agent, Sidecar) → tests `01`, `02`, `04` : **PASS**.
 - Variables `{var}`, `{{var}}`, codes triggers (BP, RS, …), valeurs YAML `true`/`false` intactes → tests `01`, `03`, `06`, `07` : **PASS**.
@@ -32,19 +33,20 @@
 
 **Identifiés et traités cette session :**
 
-| Cible | Statut avant | Action | Statut après |
-|---|---|---|---|
-| `src/bmm-fr/core/skills/bmad-distillator/SKILL.md` Stade 3 | Français incompréhensible (« estampille liminaire », « trajectoires localisées au regard du socle ») | Réécriture intégrale | ✅ Lisible |
-| `src/bmm-fr/core/skills/bmad-distillator/SKILL.md` Stade 4 | Français incompréhensible (« navette opératoire », « purgation achevée ») | Sub-agent traducteur | ✅ Lisible |
-| `src/core-fr/skills/bmad-distillator/SKILL.md` (les deux Stades) | Français incompréhensible (synchronisé avec bmm-fr) | Réécriture intégrale | ✅ Lisible |
-| `tools/schema/agent.js` | Messages Zod en anglais | Sub-agent traducteur | ✅ Traduit (~23 messages) |
-| `tools/validate-agent-schema.js` | Console.* en anglais | Sub-agent traducteur | ✅ Traduit (~11 messages) |
-| `tools/validate-doc-links.js` | Console.* en anglais (Summary, Files scanned, …) | Direct | ✅ Traduit |
-| `tools/validate-file-refs.js` | Console.* en anglais (Summary, Broken references, …) | Direct | ✅ Traduit |
-| `AGENTS.md` (racine) | En anglais | Direct | ✅ Traduit + mention fork |
-| `package.json` description | « Bâtir Méthodiquement une Architecture Durable » | Ajout mention fork communautaire | ✅ « … — Fork communautaire francophone non officiel de BMAD-METHOD » |
+| Cible                                                            | Statut avant                                                                                         | Action                           | Statut après                                                          |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------- | --------------------------------------------------------------------- |
+| `src/bmm-fr/core/skills/bmad-distillator/SKILL.md` Stade 3       | Français incompréhensible (« estampille liminaire », « trajectoires localisées au regard du socle ») | Réécriture intégrale             | ✅ Lisible                                                            |
+| `src/bmm-fr/core/skills/bmad-distillator/SKILL.md` Stade 4       | Français incompréhensible (« navette opératoire », « purgation achevée »)                            | Sub-agent traducteur             | ✅ Lisible                                                            |
+| `src/core-fr/skills/bmad-distillator/SKILL.md` (les deux Stades) | Français incompréhensible (synchronisé avec bmm-fr)                                                  | Réécriture intégrale             | ✅ Lisible                                                            |
+| `tools/schema/agent.js`                                          | Messages Zod en anglais                                                                              | Sub-agent traducteur             | ✅ Traduit (~23 messages)                                             |
+| `tools/validate-agent-schema.js`                                 | Console.\* en anglais                                                                                | Sub-agent traducteur             | ✅ Traduit (~11 messages)                                             |
+| `tools/validate-doc-links.js`                                    | Console.\* en anglais (Summary, Files scanned, …)                                                    | Direct                           | ✅ Traduit                                                            |
+| `tools/validate-file-refs.js`                                    | Console.\* en anglais (Summary, Broken references, …)                                                | Direct                           | ✅ Traduit                                                            |
+| `AGENTS.md` (racine)                                             | En anglais                                                                                           | Direct                           | ✅ Traduit + mention fork                                             |
+| `package.json` description                                       | « Bâtir Méthodiquement une Architecture Durable »                                                    | Ajout mention fork communautaire | ✅ « … — Fork communautaire francophone non officiel de BMAD-METHOD » |
 
 **Volontairement laissés en anglais (contrat avec l'upstream)** :
+
 - `SECURITY.md`, `TRADEMARK.md`, `CONTRIBUTING.md` — contrats légaux et procédures de contribution amont.
 - `CONTRIBUTORS.md`, `CHANGELOG.md` — créditation et suivi de l'amont (mis à jour à chaque sync).
 
@@ -60,10 +62,10 @@ Les autres fichiers échantillonnés présentent un français correct, fluide et
 
 **Après cette session :**
 
-| # | Test | Périmètre |
-|---|---|---|
-| 12 | `12-cli-no-english-strings.js` | **ÉTENDU** — couvre désormais `tools/cli/`, `tools/schema/`, `tools/validate-*.js` (48 fichiers scannés vs ~30 avant) |
-| 13 | `13-root-md-files-fr.js` | **NOUVEAU** — vérifie que `README.md`, `GLOSSAIRE.md`, `AGENTS.md`, `AUDIT-FINAL.md` sont en français ; signale par avertissement toute traduction accidentelle des fichiers volontairement EN |
+| #   | Test                           | Périmètre                                                                                                                                                                                      |
+| --- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 12  | `12-cli-no-english-strings.js` | **ÉTENDU** — couvre désormais `tools/cli/`, `tools/schema/`, `tools/validate-*.js` (48 fichiers scannés vs ~30 avant)                                                                          |
+| 13  | `13-root-md-files-fr.js`       | **NOUVEAU** — vérifie que `README.md`, `GLOSSAIRE.md`, `AGENTS.md`, `AUDIT-FINAL.md` sont en français ; signale par avertissement toute traduction accidentelle des fichiers volontairement EN |
 
 **L'extension du test 12 a immédiatement détecté une régression** : une chaîne anglaise rescapée dans `tools/validate-doc-links.js:369` (« File not found anywhere - may need to remove link ») — corrigée dans la foulée. C'est exactement le rôle d'un filet anti-régression.
 
@@ -80,6 +82,7 @@ npm run test:fr        →  PASS
 ```
 
 **Avertissements (16) — tous attendus :**
+
 - 10 fichiers exclus par liste blanche (`market-steps/` mort code, CSV techniques, squelettes XML)
 - 6 avertissements fonctionnels documentés
 
@@ -100,6 +103,7 @@ npm run test:fr        →  PASS
 ### 3.3 — Triplication de GLOSSAIRE.md
 
 Le `GLOSSAIRE.md` existe en 3 emplacements :
+
 - **Racine** : référence canonique pour les contributeurs humains.
 - **`src/bmm-fr/workflows/GLOSSAIRE.md`** : copie consultée par les agents IA à l'exécution.
 - **(à venir lors d'un sync)** : `src/core-fr/` aurait besoin du même.
@@ -121,6 +125,7 @@ Les deux emplacements sont synchronisés cette session (exception Amélie + agen
 ✅ **Le fork est prêt pour ouverture publique communautaire.**
 
 **Critères vérifiés :**
+
 - Couverture de traduction utile à ~100 %
 - Aucun test en échec (1649/1649 PASS)
 - Documentation racine en français
@@ -130,6 +135,7 @@ Les deux emplacements sont synchronisés cette session (exception Amélie + agen
 - README mentionne explicitement la version originale anglaise
 
 **Recommandation suite à publication :**
+
 - Surveiller les issues créées par `.github/workflows/upstream-sync-watch.yml` chaque 1er du mois.
 - Lancer `npm run test:fr` à chaque PR (déjà câblé dans `.github/workflows/test-fr.yml`).
 - En cas de divergence avec l'amont sur un identifiant (nouveau code trigger, nouvelle balise XML), mettre à jour `GLOSSAIRE.md` AVANT de toucher au contenu traduit.

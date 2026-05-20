@@ -24,9 +24,9 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
 
 ### Fichiers d'Entrée
 
-| Entrée | Chemin | Stratégie de Chargement |
-|-------|------|---------------|
-| État du sprint | `{sprint_status_file}` | FULL_LOAD |
+| Entrée         | Chemin                 | Stratégie de Chargement |
+| -------------- | ---------------------- | ----------------------- |
+| État du sprint | `{sprint_status_file}` | FULL_LOAD               |
 
 ### Contexte
 

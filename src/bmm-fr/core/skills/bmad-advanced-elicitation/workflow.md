@@ -61,7 +61,6 @@ Lorsqu'invoqué depuis un autre prompt ou processus :
 
 #### Format d'Affichage
 
-
 ```
 
 **Options d'Élicitation Avancée**

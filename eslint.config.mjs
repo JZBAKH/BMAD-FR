@@ -27,6 +27,7 @@ export default [
       '.agentvibes/**',
       '.kiro/**',
       '.roo/**',
+      '.github/workflows/**',
       'test-project-install/**',
       'sample-project/**',
       'tools/template-test-generator/test-scenarios/**',

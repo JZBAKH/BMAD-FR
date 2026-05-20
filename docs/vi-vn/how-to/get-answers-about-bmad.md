@@ -1,8 +1,8 @@
 ---
-title: "Cách tìm câu trả lời về BMad"
+title: 'Cách tìm câu trả lời về BMad'
 description: Sử dụng LLM để tự nhanh chóng trả lời các câu hỏi về BMad
 sidebar:
-        order: 4
+  order: 4
 ---
 
 Hãy dùng trợ giúp tích hợp sẵn của BMad, tài liệu nguồn, hoặc cộng đồng để tìm câu trả lời, theo thứ tự từ nhanh nhất đến đầy đủ nhất.
@@ -46,36 +46,36 @@ Nếu AI của bạn không đọc được file cục bộ như ChatGPT hoặc 
 
 Nếu cả BMad-Help lẫn mã nguồn vẫn chưa trả lời được câu hỏi của bạn, lúc này bạn đã có một câu hỏi rõ hơn nhiều để đem đi hỏi cộng đồng.
 
-| Kênh | Dùng cho |
-| --- | --- |
-| `help-requests` forum | Câu hỏi |
+| Kênh                    | Dùng cho                     |
+| ----------------------- | ---------------------------- |
+| `help-requests` forum   | Câu hỏi                      |
 | `#suggestions-feedback` | Ý tưởng và đề xuất tính năng |
 
 **Discord:** [discord.gg/gk8jAdXWmj](https://discord.gg/gk8jAdXWmj)
 
 **GitHub Issues:** [github.com/bmad-code-org/BMAD-METHOD/issues](https://github.com/bmad-code-org/BMAD-METHOD/issues)
 
-*Chính bạn,*
-        *đang mắc kẹt*
-             *trong hàng đợi -*
-                      *đợi*
-                              *ai?*
+_Chính bạn,_
+_đang mắc kẹt_
+_trong hàng đợi -_
+_đợi_
+_ai?_
 
-*Mã nguồn*
-        *nằm ngay đó,*
-                *rõ như ban ngày!*
+_Mã nguồn_
+_nằm ngay đó,_
+_rõ như ban ngày!_
 
-*Hãy trỏ*
-        *cho máy của bạn.*
-                    *Thả nó đi.*
+_Hãy trỏ_
+_cho máy của bạn._
+_Thả nó đi._
 
-*Nó đọc.*
-        *Nó nói.*
-                *Cứ hỏi -*
+_Nó đọc._
+_Nó nói._
+_Cứ hỏi -_
 
-*Sao phải chờ*
-        *đến ngày mai*
-                *khi bạn đã có*
-                        *ngày hôm nay?*
+_Sao phải chờ_
+_đến ngày mai_
+_khi bạn đã có_
+_ngày hôm nay?_
 
-*- Claude*
+_- Claude_

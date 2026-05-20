@@ -22,4 +22,3 @@
 - [ ] `src/bmm-skills-fr/2-plan-workflows/bmad-prd/references/validate.md` (source : `src/bmm-skills/2-plan-workflows/bmad-prd/references/validate.md`)
 
 ---
-

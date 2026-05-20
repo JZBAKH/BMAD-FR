@@ -1,5 +1,5 @@
 ---
-title: "Jak získat odpovědi o BMad"
+title: 'Jak získat odpovědi o BMad'
 description: Použijte LLM k rychlému zodpovězení vašich otázek o BMad
 sidebar:
   order: 4
@@ -10,6 +10,7 @@ sidebar:
 **Nejrychlejší způsob, jak získat odpovědi o BMad, je skill `bmad-help`.** Tento inteligentní průvodce zodpoví více než 80 % všech otázek a je vám k dispozici přímo ve vašem IDE při práci.
 
 BMad-Help je víc než vyhledávací nástroj — umí:
+
 - **Prozkoumat váš projekt** a zjistit, co už bylo dokončeno
 - **Rozumět přirozenému jazyku** — ptejte se běžnou řečí
 - **Přizpůsobit se nainstalovaným modulům** — zobrazí relevantní možnosti
@@ -38,6 +39,7 @@ bmad-help Show me what's been done so far
 ```
 
 BMad-Help odpoví:
+
 - Co je doporučeno pro vaši situaci
 - Jaký je první povinný úkol
 - Jak vypadá zbytek procesu
@@ -45,6 +47,7 @@ BMad-Help odpoví:
 ## Kdy použít tohoto průvodce
 
 Použijte tuto sekci, když:
+
 - Chcete pochopit architekturu nebo interní fungování BMad
 - Potřebujete odpovědi mimo to, co BMad-Help nabízí
 - Zkoumáte BMad před instalací
@@ -54,11 +57,11 @@ Použijte tuto sekci, když:
 
 ### 1. Vyberte si zdroj
 
-| Zdroj                | Nejlepší pro                              | Příklady                     |
-| -------------------- | ----------------------------------------- | ---------------------------- |
+| Zdroj                | Nejlepší pro                                 | Příklady                   |
+| -------------------- | -------------------------------------------- | -------------------------- |
 | **Složka `_bmad`**   | Jak BMad funguje — agenti, workflow, prompty | „Co dělá PM agent?“        |
-| **Celý GitHub repo** | Historie, instalátor, architektura        | „Co se změnilo ve v6?“      |
-| **`llms-full.txt`**  | Rychlý přehled z dokumentace              | „Vysvětli čtyři fáze BMad“  |
+| **Celý GitHub repo** | Historie, instalátor, architektura           | „Co se změnilo ve v6?“     |
+| **`llms-full.txt`**  | Rychlý přehled z dokumentace                 | „Vysvětli čtyři fáze BMad“ |
 
 Složka `_bmad` se vytvoří při instalaci BMad. Pokud ji ještě nemáte, naklonujte si repo.
 
@@ -98,12 +101,12 @@ Přímé odpovědi o BMad — jak agenti fungují, co dělají workflow, proč j
 
 Zkusili jste přístup přes LLM a stále potřebujete pomoc? Nyní máte mnohem lepší otázku k položení.
 
-| Kanál                     | Použijte pro                                |
-| ------------------------- | ------------------------------------------- |
-| `#bmad-method-help`       | Rychlé otázky (chat v reálném čase)         |
-| `help-requests` fórum     | Detailní otázky (vyhledatelné, trvalé)      |
-| `#suggestions-feedback`   | Nápady a požadavky na funkce                |
-| `#report-bugs-and-issues` | Hlášení chyb                                |
+| Kanál                     | Použijte pro                           |
+| ------------------------- | -------------------------------------- |
+| `#bmad-method-help`       | Rychlé otázky (chat v reálném čase)    |
+| `help-requests` fórum     | Detailní otázky (vyhledatelné, trvalé) |
+| `#suggestions-feedback`   | Nápady a požadavky na funkce           |
+| `#report-bugs-and-issues` | Hlášení chyb                           |
 
 **Discord:** [discord.gg/gk8jAdXWmj](https://discord.gg/gk8jAdXWmj)
 

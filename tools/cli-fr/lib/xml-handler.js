@@ -44,7 +44,7 @@ class XmlHandler {
    * @returns {Object} Parsed activation block
    */
   async loadActivationTemplate() {
-    console.error('Échec du chargement du template d\'activation :', error);
+    console.error("Échec du chargement du template d'activation :", error);
   }
 
   /**
@@ -78,7 +78,7 @@ class XmlHandler {
       // Get the activation template
       const activationBlock = await this.loadActivationTemplate();
       if (!activationBlock) {
-        console.warn('Impossible de charger le template d\'activation');
+        console.warn("Impossible de charger le template d'activation");
         return agentContent;
       }
 
@@ -119,7 +119,7 @@ class XmlHandler {
       // Reconstruct the full content
       return beforeXml + modifiedXml + afterXml;
     } catch (error) {
-      console.error('Erreur lors de l\'injection de l\'activation :', error);
+      console.error("Erreur lors de l'injection de l'activation :", error);
       return agentContent;
     }
   }
@@ -128,7 +128,7 @@ class XmlHandler {
    * TODO: DELETE THIS METHOD
    */
   injectActivationSimple(agentContent, metadata = {}) {
-    console.error('Erreur lors de l\'injection simple :', error);
+    console.error("Erreur lors de l'injection simple :", error);
   }
 
   /**
@@ -159,7 +159,7 @@ class XmlHandler {
 
       return xml;
     } catch (error) {
-      console.error('Erreur lors de la construction de l\'agent depuis YAML :', error);
+      console.error("Erreur lors de la construction de l'agent depuis YAML :", error);
       throw error;
     }
   }

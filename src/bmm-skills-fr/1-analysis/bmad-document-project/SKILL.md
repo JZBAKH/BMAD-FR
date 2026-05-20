@@ -1,6 +1,6 @@
 ---
 name: bmad-document-project
-description: 'Documenter les projets existants (brownfield) pour le contexte IA. À utiliser lorsque l''utilisateur dit « documenter ce projet » ou « générer la documentation du projet »'
+description: "Documenter les projets existants (brownfield) pour le contexte IA. À utiliser lorsque l'utilisateur dit « documenter ce projet » ou « générer la documentation du projet »"
 ---
 
 # Workflow Document Project
@@ -41,6 +41,7 @@ Traiter chaque entrée dans `{workflow.persistent_facts}` comme contexte fondame
 ### Step 4 : Charger la Configuration
 
 Charger la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résoudre :
+
 - Utiliser `{user_name}` pour la salutation
 - Utiliser `{communication_language}` pour toutes les communications
 - Utiliser `{document_output_language}` pour les documents de sortie

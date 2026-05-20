@@ -51,7 +51,6 @@ Si la spec est une story d'epic et que `{sprint_status}` existe : trouvez la cl�
    - **Déterminez la stratégie de contexte.** En utilisant l'intention et la liste d'artefacts, déduisez si le travail actuel est une story d'un epic. Ne vous fiez pas aux patterns de noms de fichiers ou aux regex — raisonnez sur l'intention, la liste et tout contenu de fichier d'epics ensemble.
 
      **A) Chemin de story d'epic** — si l'intention est clairement une story d'epic :
-
      1. Identifiez le numéro d'epic `{epic_num}` et (s'il est présent) le numéro de story `{story_num}`. Si vous ne pouvez pas identifier un numéro d'epic, utilisez le chemin B.
 
      2. **Vérifiez l'existence d'un contexte d'epic en cache valide.** Recherchez `{implementation_artifacts}/epic-<N>-context.md` (où `<N>` est le numéro d'epic). Un fichier est **valide** quand il existe, est non vide, commence par `# Epic <N> Context:` (avec le numéro d'epic correct), et qu'aucun fichier dans `{planning_artifacts}` n'est plus récent.
@@ -76,6 +75,7 @@ Si la spec est une story d'epic et que `{sprint_status}` existe : trouvez la cl�
        - **Epics** (`*epic*`) — décomposition des fonctionnalités en stories implémentables
        - **Product Brief** (`*brief*`) — vision et portée du projet
      - Scannez la liste pour les fichiers correspondant à ces patterns. Si certains semblent pertinents pour l'intention actuelle, chargez-les sélectivement — vous n'avez pas besoin de tous, mais vous avez besoin des bonnes contraintes et exigences plutôt que de deviner uniquement à partir du code.
+
 2. Clarifier l'intention. Ne fantasmez pas, ne laissez pas de questions ouvertes. Si vous devez poser des questions, posez-les sous forme de liste numérotée. Lorsque l'humain répond, vérifiez que chaque question numérotée a reçu une réponse. Si certaines ont été ignorées, HALT et redemandez uniquement les questions manquantes avant de procéder. Continuez la boucle jusqu'à ce que l'intention soit suffisamment claire pour implémenter.
 3. Vérification de l'intégrité du contrôle de version. L'arbre de travail est-il propre ? La branche actuelle a-t-elle un sens pour cette intention — en tenant compte de son nom et de l'historique récent ? Si l'arbre est sale ou si la branche est un mismatch évident, HALT et demandez à l'humain avant de procéder. Si le contrôle de version n'est pas disponible, sautez cette vérification.
 4. Vérification multi-objectif (voir SCOPE STANDARD). Si l'intention échoue aux critères d'objectif unique :
@@ -93,7 +93,6 @@ Si la spec est une story d'epic et que `{sprint_status}` existe : trouvez la cl�
    **EARLY EXIT** → `./step-oneshot.md`
 
    **b) Plan-code-review** — tout le reste. En cas d'incertitude sur le fait que le rayon d'impact est vraiment zéro, choisissez ce chemin.
-
 
 ## SUIVANT
 

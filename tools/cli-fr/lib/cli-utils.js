@@ -114,7 +114,7 @@ const CLIUtils = {
    */
   async displayComplete(message) {
     const color = await prompts.getColor();
-    await prompts.box(`\u2728 ${message}`, 'Termin\u00e9', {
+    await prompts.box(`\u2728 ${message}`, 'Termin\u00E9', {
       rounded: true,
       formatBorder: color.green,
     });

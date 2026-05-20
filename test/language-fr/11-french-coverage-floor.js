@@ -29,10 +29,12 @@ function run() {
   for (const root of FR_ROOTS) {
     const fullRoot = path.join(REPO_ROOT, root);
     if (!fs.existsSync(fullRoot)) continue;
-    candidates.push(...walk(fullRoot, {
-      extensions: ['.md', '.yaml', '.yml', '.csv', '.txt'],
-      base: REPO_ROOT,
-    }));
+    candidates.push(
+      ...walk(fullRoot, {
+        extensions: ['.md', '.yaml', '.yml', '.csv', '.txt'],
+        base: REPO_ROOT,
+      }),
+    );
   }
 
   if (candidates.length === 0) {
@@ -71,12 +73,17 @@ function run() {
 
   runner.test(`tous les fichiers scorés ont un score ≥ ${FRENCH_THRESHOLD}`, () => {
     if (failures.length === 0) return;
-    const lines = failures.slice(0, 20).map((f) => {
-      const s = f.score;
-      return `  • ${f.path} (score=${s.score}, accents=${s.accents}, fr=${s.frWords}, en=${s.enWords})`;
-    }).join('\n');
+    const lines = failures
+      .slice(0, 20)
+      .map((f) => {
+        const s = f.score;
+        return `  • ${f.path} (score=${s.score}, accents=${s.accents}, fr=${s.frWords}, en=${s.enWords})`;
+      })
+      .join('\n');
     const more = failures.length > 20 ? `\n  • ... et ${failures.length - 20} autre(s)` : '';
-    throw new Error(`${failures.length} fichier(s) en-dessous du seuil :\n${lines}${more}\n\nSi un fichier est légitimement non traduit (mort code, données techniques),\najoutez-le à test/fr-helpers/translation-exceptions.json sous "${TEST_NAME}".`);
+    throw new Error(
+      `${failures.length} fichier(s) en-dessous du seuil :\n${lines}${more}\n\nSi un fichier est légitimement non traduit (mort code, données techniques),\najoutez-le à test/fr-helpers/translation-exceptions.json sous "${TEST_NAME}".`,
+    );
   });
 }
 

@@ -1,5 +1,5 @@
 ---
-title: "Agent có tên riêng (Named Agents)"
+title: 'Agent có tên riêng (Named Agents)'
 description: Vì sao các agent của BMad có tên, persona và bề mặt tùy chỉnh riêng, và điều đó mở khóa điều gì so với cách tiếp cận dựa trên menu hoặc prompt trống
 sidebar:
   order: 1
@@ -13,11 +13,11 @@ Trang này giải thích điều gì thực sự đang diễn ra và vì sao BMa
 
 Mô hình agent của BMad đứng trên ba primitive kết hợp với nhau:
 
-| Thành phần nền (primitive) | Nó cung cấp gì | Nó nằm ở đâu |
-|---|---|---|
-| **Skill** | Năng lực, tức một việc rời rạc mà assistant có thể làm như brainstorming, viết PRD hay triển khai story | `.claude/skills/{skill-name}/SKILL.md` hoặc vị trí tương đương theo IDE |
-| **Named agent** | Tính liên tục của persona, tức một danh tính dễ nhận ra bọc quanh một nhóm skill có cùng giọng điệu, nguyên tắc và dấu hiệu nhận biết | Các skill có thư mục bắt đầu bằng `bmad-agent-*` |
-| **Customization** | Khả năng biến nó thành của riêng bạn: override để đổi hành vi của agent, thêm tích hợp MCP, thay template, chồng convention của tổ chức | `_bmad/custom/{skill-name}.toml` cho team và `.user.toml` cho cá nhân |
+| Thành phần nền (primitive) | Nó cung cấp gì                                                                                                                          | Nó nằm ở đâu                                                            |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| **Skill**                  | Năng lực, tức một việc rời rạc mà assistant có thể làm như brainstorming, viết PRD hay triển khai story                                 | `.claude/skills/{skill-name}/SKILL.md` hoặc vị trí tương đương theo IDE |
+| **Named agent**            | Tính liên tục của persona, tức một danh tính dễ nhận ra bọc quanh một nhóm skill có cùng giọng điệu, nguyên tắc và dấu hiệu nhận biết   | Các skill có thư mục bắt đầu bằng `bmad-agent-*`                        |
+| **Customization**          | Khả năng biến nó thành của riêng bạn: override để đổi hành vi của agent, thêm tích hợp MCP, thay template, chồng convention của tổ chức | `_bmad/custom/{skill-name}.toml` cho team và `.user.toml` cho cá nhân   |
 
 Chỉ cần bỏ đi một chân là trải nghiệm sẽ sụp:
 
@@ -29,14 +29,14 @@ Chỉ cần bỏ đi một chân là trải nghiệm sẽ sụp:
 
 BMad hiện có sáu named agent, mỗi agent gắn với một phase trong BMad Method:
 
-| Agent | Phase | Module |
-|---|---|---|
-| 📊 **Mary**, Chuyên viên phân tích nghiệp vụ (Business Analyst) | Analysis | market research, brainstorming, product briefs, PRFAQs |
-| 📚 **Paige**, Technical Writer | Analysis | project documentation, diagrams, doc validation |
-| 📋 **John**, Quản lý sản phẩm (Product Manager) | Planning | PRD creation, epic/story breakdown, implementation readiness |
-| 🎨 **Sally**, Nhà thiết kế UX (UX Designer) | Planning | UX design specifications |
-| 🏗️ **Winston**, Kiến trúc sư hệ thống (System Architect) | Solutioning | technical architecture, alignment checks |
-| 💻 **Amelia**, Kỹ sư cấp cao (Senior Engineer) | Implementation | story execution, quick-dev, code review, sprint planning |
+| Agent                                                           | Phase          | Module                                                       |
+| --------------------------------------------------------------- | -------------- | ------------------------------------------------------------ |
+| 📊 **Mary**, Chuyên viên phân tích nghiệp vụ (Business Analyst) | Analysis       | market research, brainstorming, product briefs, PRFAQs       |
+| 📚 **Paige**, Technical Writer                                  | Analysis       | project documentation, diagrams, doc validation              |
+| 📋 **John**, Quản lý sản phẩm (Product Manager)                 | Planning       | PRD creation, epic/story breakdown, implementation readiness |
+| 🎨 **Sally**, Nhà thiết kế UX (UX Designer)                     | Planning       | UX design specifications                                     |
+| 🏗️ **Winston**, Kiến trúc sư hệ thống (System Architect)        | Solutioning    | technical architecture, alignment checks                     |
+| 💻 **Amelia**, Kỹ sư cấp cao (Senior Engineer)                  | Implementation | story execution, quick-dev, code review, sprint planning     |
 
 Mỗi agent có một danh tính hardcode gồm tên, chức danh, domain, và một lớp có thể tùy chỉnh gồm vai trò, nguyên tắc, phong cách giao tiếp, icon và menu. Bạn có thể viết lại nguyên tắc của Mary hoặc thêm menu item cho cô ấy, nhưng bạn không thể đổi tên cô ấy. Đó là chủ ý thiết kế. Nhận diện thương hiệu của agent phải sống sót qua lớp tùy chỉnh để câu "hey Mary" luôn kích hoạt đúng analyst, bất kể team đã nắn hành vi của cô ấy theo cách nào.
 
@@ -79,7 +79,7 @@ Mỗi agent đi kèm một `customize.toml` với mặc định hợp lý. Team 
 
 Ví dụ cụ thể: một team commit một file yêu cầu Amelia luôn dùng Context7 MCP tool khi tra tài liệu thư viện, và fallback sang Linear nếu story không xuất hiện trong danh sách epic cục bộ. Từ đó mọi dev workflow mà Amelia dispatch như `dev-story`, `quick-dev`, `create-story`, `code-review` đều tự động thừa hưởng hành vi này mà không cần sửa source hay lặp lại cấu hình từng workflow.
 
-Ngoài ra còn có một bề mặt tùy chỉnh thứ hai cho các mối quan tâm *xuyên suốt*: `_bmad/config.toml`, `_bmad/config.user.toml`, `_bmad/custom/config.toml` và `_bmad/custom/config.user.toml`. Đây là nơi **agent roster** sống, tức các descriptor gọn nhẹ mà những skill như `bmad-party-mode`, `bmad-retrospective` và `bmad-advanced-elicitation` dùng để biết ai có mặt và phải nhập vai họ thế nào. Bạn có thể rebrand một agent cho cả tổ chức bằng team override, hoặc thêm những giọng hư cấu như Kirk, Spock hay một persona chuyên gia domain qua `.user.toml`, tất cả mà không cần đụng vào thư mục skill. File per-skill quyết định Mary *hành xử* như thế nào khi cô ấy kích hoạt; cấu hình trung tâm quyết định các skill khác *nhìn thấy* cô ấy ra sao khi quan sát toàn bộ đội hình.
+Ngoài ra còn có một bề mặt tùy chỉnh thứ hai cho các mối quan tâm _xuyên suốt_: `_bmad/config.toml`, `_bmad/config.user.toml`, `_bmad/custom/config.toml` và `_bmad/custom/config.user.toml`. Đây là nơi **agent roster** sống, tức các descriptor gọn nhẹ mà những skill như `bmad-party-mode`, `bmad-retrospective` và `bmad-advanced-elicitation` dùng để biết ai có mặt và phải nhập vai họ thế nào. Bạn có thể rebrand một agent cho cả tổ chức bằng team override, hoặc thêm những giọng hư cấu như Kirk, Spock hay một persona chuyên gia domain qua `.user.toml`, tất cả mà không cần đụng vào thư mục skill. File per-skill quyết định Mary _hành xử_ như thế nào khi cô ấy kích hoạt; cấu hình trung tâm quyết định các skill khác _nhìn thấy_ cô ấy ra sao khi quan sát toàn bộ đội hình.
 
 Để xem toàn bộ bề mặt tùy chỉnh và ví dụ thực tế:
 
@@ -91,4 +91,4 @@ Ngoài ra còn có một bề mặt tùy chỉnh thứ hai cho các mối quan t
 
 Hầu hết các trợ lý AI (AI assistant) ngày nay hoặc là menu, hoặc là prompt, và cả hai đều chuyển phần gánh nặng nhận thức sang người dùng. Agent có tên riêng kết hợp với skill có thể tùy chỉnh cho phép bạn trò chuyện với một đồng đội đã hiểu công việc, đồng thời cho phép tổ chức của bạn nắn đồng đội đó theo nhu cầu mà không cần fork.
 
-Lần tới khi bạn gõ "Hey Mary, brainstorm với tôi nhé" và cô ấy chỉ việc bắt tay vào làm, hãy để ý thứ đã *không* xảy ra. Không có slash command. Không có menu phải điều hướng. Không có lời nhắc gượng gạo về những gì cô ấy có thể làm. Chính sự vắng mặt đó mới là thiết kế.
+Lần tới khi bạn gõ "Hey Mary, brainstorm với tôi nhé" và cô ấy chỉ việc bắt tay vào làm, hãy để ý thứ đã _không_ xảy ra. Không có slash command. Không có menu phải điều hướng. Không có lời nhắc gượng gạo về những gì cô ấy có thể làm. Chính sự vắng mặt đó mới là thiết kế.

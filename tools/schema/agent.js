@@ -191,7 +191,7 @@ function agentSchema(options = {}) {
           ctx.addIssue({
             code: 'custom',
             path: ['agent', 'conversational_knowledge'],
-            message: 'Il est recommandé d\'inclure conversational_knowledge lorsque discussion est true',
+            message: "Il est recommandé d'inclure conversational_knowledge lorsque discussion est true",
           });
         }
       })

@@ -1,5 +1,5 @@
 ---
-title: "快速开发新预览"
+title: '快速开发新预览'
 description: 在不牺牲输出质量检查点的情况下减少人机交互的摩擦
 sidebar:
   order: 2

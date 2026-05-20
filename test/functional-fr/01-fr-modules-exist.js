@@ -51,8 +51,7 @@ function run() {
   runner.test('src/core-fr/skills/ contient au moins un skill', () => {
     const dir = 'src/core-fr/skills';
     runner.assert(exists(dir), `dossier ${dir} manquant`);
-    const subdirs = fs.readdirSync(path.join(REPO_ROOT, dir), { withFileTypes: true })
-      .filter((d) => d.isDirectory());
+    const subdirs = fs.readdirSync(path.join(REPO_ROOT, dir), { withFileTypes: true }).filter((d) => d.isDirectory());
     runner.assert(subdirs.length > 0, `aucun skill trouvé dans ${dir}`);
   });
 

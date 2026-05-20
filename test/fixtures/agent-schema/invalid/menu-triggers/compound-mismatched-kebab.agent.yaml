@@ -2,7 +2,7 @@
 # Expected: FAIL
 # Error code: custom
 # Error path: agent.menu[0].trigger
-# Error message: agent.menu[].trigger compound format error: invalid compound trigger format
+# Error message: agent.menu[].trigger erreur de format composé : format de trigger composé invalide
 
 agent:
   metadata:

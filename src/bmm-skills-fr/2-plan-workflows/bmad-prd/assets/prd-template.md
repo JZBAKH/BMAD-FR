@@ -1,158 +1,199 @@
-# Template de PRD — Un menu, pas un squelette
+# Modèle de PRD
 
-C'est un menu de sections parmi lesquelles le facilitateur choisit selon ce dont le produit, les enjeux, l'audience, et les entrées existantes ont réellement besoin. Les projets hobby utilisent l'épine dorsale essentielle et s'arrêtent. Les initiatives d'entreprise, les soumissions réglementées, et les lancements grand public ajoutent des clusters depuis le menu adapt-in ci-dessous. **N'inclus jamais une section juste parce qu'elle apparaît ici.** Abandonne, réordonne, renomme, combine — peu importe ce dont le PRD a besoin.
-
----
-
-## Épine dorsale essentielle *(presque toujours présente)*
+## Colonne vertébrale essentielle _(presque toujours présente)_
 
 ```markdown
 ---
-title: {Product Name}
-created: {YYYY-MM-DD}
-updated: {YYYY-MM-DD}
+title: { Product Name }
+created: { YYYY-MM-DD }
+updated: { YYYY-MM-DD }
 ---
 
-# PRD: {Product Name}
-*Working title — confirm.*
+# PRD : {Product Name}
 
-## 0. Document Purpose
-[1 paragraph: who this PRD is for (PM, stakeholders, downstream workflow owners), how it's structured (Glossary-anchored vocabulary, features grouped with FRs nested, assumptions tagged inline and indexed). If UX work or other inputs already exist, name them here and reference where they live — this PRD builds on them, it does not duplicate.]
+_Titre de travail — à confirmer._
+
+## 0. Objectif du document
+
+[1 paragraphe : à qui ce PRD est destiné (PM, parties prenantes, responsables de workflows en aval), comment il est structuré (vocabulaire ancré dans le Glossaire, fonctionnalités regroupées avec les FR imbriquées, hypothèses étiquetées en ligne et indexées). Si des travaux UX ou d'autres éléments existent déjà, les nommer ici et indiquer où ils se trouvent — ce PRD s'appuie sur eux, il ne les duplique pas.]
 
 ## 1. Vision
-[2-3 paragraphs: what this is, what it does for the user, why it matters. Compelling enough to stand alone.]
 
-## 2. Target User
+[2-3 paragraphes : ce que c'est, ce que ça fait pour l'utilisateur, pourquoi c'est important. Suffisamment convaincant pour se suffire à lui-même.]
 
-### 2.1 Primary Persona
-[Vivid but tight. Who they are, how this product fits their context.]
+## 2. Utilisateur cible
+
+### 2.1 Persona principal
+
+[Vivant mais concis. Qui ils sont, comment ce produit s'intègre dans leur contexte.]
 
 ### 2.2 Jobs To Be Done
-[Bulleted. Emotional, social, functional, contextual — whichever apply. Even "this is for me as the builder" is a valid persona for a hobby project.]
 
-### 2.3 Non-Users (v1) *(add when the audience boundary is non-obvious)*
-[Who this is explicitly not for in v1.]
+[En puces. Émotionnels, sociaux, fonctionnels, contextuels — selon ce qui s'applique. Même « c'est pour moi en tant que créateur » est un Persona valide pour un projet hobby.]
 
-### 2.4 Key User Journeys
-*Named flows the product enables — one line each, numbered globally as UJ-1 through UJ-N for downstream traceability. Detailed flow design (steps, screens, edge flows) is the job of the UX workflow, not this PRD. Features in §4 may reference journeys by ID inline ("realizes UJ-3").*
+### 2.3 Non-utilisateurs (v1) _(à ajouter quand la frontière du public n'est pas évidente)_
 
-- **UJ-1** — [Named flow, one line: who does what, to what end.]
-- **UJ-2** — ...
+[Pour qui ce produit n'est explicitement pas conçu en v1.]
 
-[For hobby/utility projects, 1-3 journeys may be enough. For complex multi-feature products (onboarding, checkout, multi-step approvals), expand. For libraries/CLIs with minimal flow, reduce to a single line or collapse into §2.2 JTBD.]
+### 2.4 Parcours utilisateurs clés
 
-## 3. Glossary
-*Downstream workflows and readers must use these terms exactly.*
+_Récits à Persona nommés que le produit rend possibles. Numérotés globalement de UJ-1 à UJ-N. Les FR référencent les parcours par ID en ligne (« réalise UJ-3 ») ; les SM peuvent également faire des références croisées. Si un document UX existe déjà, reproduire ses IDs UJ ici et pointer vers la source._
 
-- **Term** — Definition. Relationships to other Glossary terms. Cardinality where relevant.
-- **Term** — ...
+**Forme par défaut :** une scène nommée avec l'état d'entrée, le chemin, le climax et la résolution. Chaque étape impose une précision que l'équipe laisserait autrement implicite — hypothèses d'authentification, ordre des écrans, ce qui indique à l'utilisateur que la valeur a été délivrée. Lu ensemble comme un court récit ; l'exemple ci-dessous montre la forme.
 
-[Every domain noun the rest of the document uses. Defined once. No synonyms anywhere else in the PRD.]
+- **UJ-1. {Titre en une ligne — Persona réalisant l'action.}**
+  - **Persona + contexte :** une ligne, suffisamment ancré pour expliquer le _pourquoi_.
+  - **État d'entrée :** authentifié ? quelle surface ? venant d'où ?
+  - **Chemin :** 3-5 étapes concrètes — appuis, écrans, décisions.
+  - **Climax :** le moment où la valeur est délivrée et comment l'utilisateur le sait.
+  - **Résolution :** l'état dans lequel ils se trouvent, quelle est la suite.
+  - **Cas limite** *(optionnel)* : un vrai mode d'échec et ce que fait l'utilisateur ensuite.
 
-## 4. Features
-*Each subsection is a coherent feature: behavioral description first, FRs nested under it, optional feature-specific NFRs and notes. FRs are numbered globally (FR-1 through FR-N) so downstream artifacts have stable references even if features get reorganized. Reference user journeys by ID inline ("realizes UJ-2") where the chain matters.*
+  _Développé, cela donne :_
 
-### 4.1 {Feature Name}
-**Description:** [Behavioral narrative — how this feature works, who uses it, the user experience, edge cases. Use Glossary terms exactly. Embed inline `[ASSUMPTION: ...]` tags where you inferred without confirmation.]
+  > **UJ-3. Priya vérifie les dégâts du trajet avant même d'être rentrée chez elle.**
+  > Priya, qui vit avec un seul revenu et un nouveau bébé, termine ses courses et monte dans la voiture. Déjà authentifiée via la biométrie lors d'une session précédente. Elle ouvre l'application, appuie sur le bouton caméra FAB et scanne le reçu. L'application effectue l'OCR du total et affiche un overlay sur un seul écran : ce trajet 84,20 $, plafond hebdomadaire 250 $, 172,10 $ restants, trois jours restants dans la semaine. Elle ferme l'application et rentre chez elle. **Cas limite :** si elle a scanné un reçu plus tôt dans la journée, l'application demande si cela remplace ou s'ajoute à ce trajet avant de le comptabiliser dans le plafond.
 
-**Functional Requirements:**
-- **FR-1** — [Actor] can [capability] [under conditions / with measurement].
-- **FR-2** — ...
+- **UJ-2. ...**
 
-**Feature-specific NFRs:** *(only if any apply uniquely to this feature)*
-- Performance / security / accessibility / etc. specific to this feature.
+**Cadran de portée :**
 
-**Notes:** *(optional — open questions specific to this feature, `[NOTE FOR PM]` callouts)*
+- **Plus léger** — hobby/solo, bibliothèque/CLI, ou quand le UJ est essentiellement un JTBD reformulé : une seule phrase suffit (`{Persona}, {context}, {what they do and why}.`).
+- **Plus lourd** — authentification, transfert multi-appareils, navigation complexe, ou tout ce qui alimente l'UX/architecture en aval : ajouter un Flux numéroté, une liste de cas limites, et une correspondance capacité → FR (`Le système doit {capability}. → FR-N`).
 
-### 4.2 {Feature Name}
+## 3. Glossaire
+
+_Les workflows en aval et les lecteurs doivent utiliser ces termes exactement. Les FR, UJ et SM utilisent les termes du Glossaire mot pour mot ; l'introduction d'un synonyme n'importe où dans le PRD est une violation de discipline. Si le §4 introduit un nouveau nom de domaine, l'ajouter au Glossaire dans la même passe._
+
+- **Terme** — Définition. Relations avec les autres termes du Glossaire. Cardinalité si pertinente.
+- **Terme** — ...
+
+[Chaque nom de domaine utilisé dans le reste du document. Défini une seule fois. Aucun synonyme ailleurs dans le PRD.]
+
+## 4. Fonctionnalités
+
+_Chaque sous-section est une fonctionnalité cohérente : description comportementale en premier, FR imbriquées dessous, NFR et notes optionnelles spécifiques à la fonctionnalité. Les FR sont numérotées globalement (FR-1 à FR-N) pour que les artefacts en aval aient des références stables même si les fonctionnalités sont réorganisées. Référencer les parcours utilisateurs par ID en ligne (« réalise UJ-2 ») quand la chaîne est importante._
+
+### 4.1 {Nom de la fonctionnalité}
+
+**Description :** [Récit comportemental — comment cette fonctionnalité fonctionne, qui l'utilise, l'expérience utilisateur, les cas limites. Réalise UJ-X, UJ-Y. Utiliser les termes du Glossaire exactement. Intégrer des étiquettes `[HYPOTHÈSE : ...]` en ligne là où vous avez inféré sans confirmation.]
+
+**Exigences fonctionnelles :**
+
+#### FR-1 : {Nom court de la capacité}
+
+[Acteur] peut [capacité] [dans quelles conditions]. Réalise UJ-X.
+
+**Conséquences (testables) :**
+
+- {Condition testable spécifique, ex. « Le système renvoie HTTP 429 quand le débit de requêtes dépasse 100/s par marchand. »}
+- {Autre condition testable.}
+
+**Hors périmètre :** _(optionnel — ce que cette FR ne couvre explicitement PAS)_
+
+- {bound}
+
+#### FR-2 : ...
+
+**NFR spécifiques à la fonctionnalité :** _(uniquement si certaines s'appliquent uniquement à cette fonctionnalité)_
+
+- Performance / sécurité / accessibilité / etc. spécifiques à cette fonctionnalité.
+
+**Notes :** _(optionnel — questions ouvertes spécifiques à cette fonctionnalité, appels `[NOTE POUR LE PM]`)_
+
+### 4.2 {Nom de la fonctionnalité}
+
 ...
 
-## 5. Non-Goals (Explicit)
-[Bulleted. What this product is *not* and what it will *not* do in v1. Does outsized work for downstream readers and workflows — prevents the "let me also add this nearby thing" failure mode at every level (epic, ticket, code). Inline `[NON-GOAL for MVP]` callouts within §4 Features cover deferred items within features; this section captures the broader "we are not building X / we are not becoming Y" statements.]
+## 5. Non-objectifs (Explicites)
 
-## 6. MVP Scope
+[En puces. Ce que ce produit n'est _pas_ et ce qu'il ne fera _pas_ en v1. Apporte un travail considérable pour les lecteurs et workflows en aval — évite le mode d'échec « ajoutons aussi cette chose voisine » à chaque niveau (thème, ticket, code). Les appels `[NON-OBJECTIF pour le MVP]` en ligne dans le §4 Fonctionnalités couvrent les éléments différés au sein des fonctionnalités ; cette section capture les déclarations plus larges « nous ne construisons pas X / nous ne devenons pas Y ».]
 
-### 6.1 In Scope
-[Bulleted, crisp.]
+## 6. Périmètre MVP
 
-### 6.2 Out of Scope for MVP
-[Bulleted. Each item with a one-line reason if the reason matters. Mark items deferred to v2/v3 explicitly. Add `[NOTE FOR PM]` callouts where a deferred item is emotionally load-bearing — flags it for revisit if timeline permits.]
+### 6.1 Dans le périmètre
 
-## 7. Success Metrics
+[En puces, concis.]
 
-**Primary**
-- Metric — definition, target.
+### 6.2 Hors périmètre pour le MVP
 
-**Secondary**
-- Metric — definition, target.
+[En puces. Chaque élément avec une raison en une ligne si la raison est importante. Marquer explicitement les éléments différés à v2/v3. Ajouter des appels `[NOTE POUR LE PM]` là où un élément différé est émotionnellement structurant — les signale pour révision si le calendrier le permet.]
 
-**Counter-metrics (do not optimize)**
-- Metric — why this should *not* be optimized.
+## 7. Métriques de succès
 
-[Length scales with stakes. Hobby/utility PRD: a single sentence may be enough ("Success: I use this weekly and don't abandon it after a month"). Public launch / enterprise: full quantitative breakdown with measurement methods. Counter-metrics are as load-bearing as primary metrics — they prevent the architect from optimizing the wrong thing and the dev from gaming the wrong target.]
+_Chaque SM fait une référence croisée aux FR qu'il valide. Les contre-métriques contrebalancent des métriques primaires ou secondaires spécifiques._
 
-## 8. Open Questions
-[Numbered. Things still unknown — they become future tickets or follow-up research, not silent gaps.]
+**Primaires**
 
-## 9. Assumptions Index
-*Every `[ASSUMPTION]` from the document, surfaced for explicit confirmation:*
-- Inline assumption from §X.Y — short description.
+- **SM-1** : Métrique — définition, cible. Valide FR-X, FR-Y.
+
+**Secondaires**
+
+- **SM-2** : Métrique — définition, cible. Valide FR-Z.
+
+**Contre-métriques (ne pas optimiser)**
+
+- **SM-C1** : Métrique — pourquoi celle-ci ne doit _pas_ être optimisée. Contrebalance SM-1.
+
+[La longueur varie selon les enjeux. PRD hobby/utilitaire : une seule phrase peut suffire (« Succès : je l'utilise chaque semaine et ne l'abandonne pas au bout d'un mois »). Lancement public / entreprise : décomposition quantitative complète avec les méthodes de mesure. Les contre-métriques sont aussi structurantes que les métriques primaires — elles empêchent l'architecte d'optimiser la mauvaise chose et le développeur de cibler le mauvais objectif.]
+
+## 8. Questions ouvertes
+
+[Numérotées. Les choses encore inconnues — elles deviennent des tickets futurs ou des recherches de suivi, pas des lacunes silencieuses.]
+
+## 9. Index des hypothèses
+
+_Chaque `[HYPOTHÈSE]` du document, mise en évidence pour confirmation explicite :_
+
+- Hypothèse en ligne du §X.Y — courte description.
 - ...
 ```
 
 ---
 
-## Menu adapt-in *(ajoute les clusters que le produit appelle)*
+## Menu Adapt-In _(ajouter les ensembles que le produit requiert)_
 
-### Qualité et forme transversales *(la plupart des PRD non triviaux)*
-- **Cross-Cutting NFRs** — exigences non fonctionnelles à l'échelle système non liées à une seule fonctionnalité (performance, sécurité, fiabilité, observabilité). À ajouter quand les attributs de qualité à l'échelle système sont significatifs.
-- **Constraints and Guardrails** — Safety, Privacy, Cost. Sous-section par cluster. À ajouter quand l'un de ceux-ci est une vraie préoccupation.
-- **Why Now** — à ajouter quand le timing est porteur (un changement de marché, un catalyseur technologique, une échéance réglementaire). À abandonner quand le timing est incident.
+### Qualité transversale et forme _(la plupart des PRD non triviaux)_
 
-### Produits grand public / marqués
-- **Aesthetic and Tone** — références visuelles, anti-références, voix/ton pour tout texte généré par le produit.
-- **Information Architecture** — surfaces de premier niveau, navigation, écrans.
-- **Monetization** — gratuit vs. payant, hypothèses de tarification, politique publicitaire.
-- **Platform** — web, mobile, PWA, native, v1 vs. v2+.
+- **NFR transversaux** — exigences non fonctionnelles à l'échelle du système non liées à une seule fonctionnalité (performance, sécurité, fiabilité, observabilité). À ajouter quand les attributs de qualité système sont significatifs.
+- **Contraintes et garde-fous** — Sécurité, Confidentialité, Coût. Sous-section par ensemble. À ajouter quand l'un de ces points est une vraie préoccupation.
+- **Pourquoi maintenant** — à ajouter quand le calendrier est structurant (un changement de marché, un levier technologique, une échéance réglementaire). À supprimer quand le calendrier est accessoire.
+
+### Produits grand public / de marque
+
+- **Esthétique et Ton** — références visuelles, anti-références, voix/ton pour tout texte généré par le produit.
+- **Architecture de l'information** — surfaces de premier niveau, navigation, écrans.
+- **Monétisation** — gratuit vs. payant, hypothèses de prix, politique publicitaire.
+- **Plateforme** — web, mobile, PWA, natif, v1 vs. v2+.
 
 ### Initiatives d'entreprise
-- **Stakeholders and Approvals** — qui doit signer, à quelle étape.
-- **Risk and Mitigations** — registre de risques opérationnels, sécurité, business, réputationnels.
-- **ROI / Business Case** — bénéfice quantifié, coût, période de retour sur investissement.
-- **Operational Requirements** — SLAs, RTO/RPO, palier de support, attentes d'astreinte.
-- **Integration and Dependencies** — SSO, systèmes d'entreprise existants, sources de données, consommateurs en aval.
-- **Rollout and Change Management** — plan de déploiement phasé, formation, communication interne.
-- **Data Governance** — résidence, souveraineté, classification, rétention.
-- **Audit Trail / Decision Provenance** — exigences de documentation formelle pour les environnements réglementés.
+
+- **Parties prenantes et Approbations** — qui doit valider, à quelle étape.
+- **Risques et Atténuations** — registre des risques opérationnels, sécurité, métier, réputation.
+- **ROI / Dossier métier** — bénéfice quantifié, coût, période de retour sur investissement.
+- **Exigences opérationnelles** — SLAs, RTO/RPO, niveau de support, astreintes.
+- **Intégration et Dépendances** — SSO, systèmes d'entreprise existants, sources de données, consommateurs en aval.
+- **Déploiement et Conduite du changement** — plan de déploiement progressif, formation, communication interne.
+- **Gouvernance des données** — résidence, souveraineté, classification, rétention.
+- **Piste d'audit / Provenance des décisions** — exigences de documentation formelle pour les environnements réglementés.
 
 ### Domaines réglementés
-- **Compliance and Regulatory** — HIPAA, PCI-DSS, GDPR, SOX, SOC 2, Section 508 / WCAG 2.1 AA, FedRAMP, etc. — selon ce qui s'applique. Si un item nécessite de la profondeur, ajoute un callout `[NOTE FOR PM]` pour revisiter ou déplacer vers un addendum.
 
-### Produits pour développeurs (bibliothèques, APIs, CLIs, SDKs)
-- **API Contracts / Public Surface** — formes d'endpoints, politique de breaking changes.
-- **Versioning and Deprecation Policy**.
-- **Performance Budgets** — latence, débit, usage de ressources.
-- **Language / Runtime Targets and Dependency Policy**.
+- **Conformité et Réglementaire** — HIPAA, PCI-DSS, RGPD, SOX, SOC 2, Section 508 / WCAG 2.1 AA, FedRAMP, etc. — selon ce qui s'applique. Si un élément nécessite plus de profondeur, ajouter un appel `[NOTE POUR LE PM]` pour le revoir ou le déplacer dans un addendum.
+
+### Produits développeurs (bibliothèques, APIs, CLIs, SDKs)
+
+- **Contrats d'API / Surface publique** — formes des endpoints, politique de changement incompatible.
+- **Politique de versionnement et de dépréciation**.
+- **Budgets de performance** — latence, débit, utilisation des ressources.
+- **Cibles de langage / runtime et Politique de dépendances**.
 
 ### Embarqué / matériel
-- **Hardware Constraints** — mémoire, énergie, facteur de forme.
-- **Deployment and Update Mechanism** — OTA, manuel, basé sur image.
-- **Environmental and Reliability Requirements**.
 
-### Tout-inclus à petit scope *(à utiliser quand le scope vaut 1-2 stories et que l'utilisateur veut un artefact capturé unique — choisi pendant le Right-skill check dans Discovery)*
-- **Stories** — specs au niveau story listées en ligne à la fin du document. Chaque story : *"As a [persona], I can [action] [under conditions]. Acceptance: [testable criteria]."* Numérotées Story-1, Story-2, ... pour référence. Associe avec un §1 Vision très léger, §2 Target User (souvent juste JTBD + un UJ), §3 Glossary (poignée de termes), §4 Features (souvent une seule feature), §6 MVP Scope (in/out très serré). Le doc entier tient sur une page ou deux et capture l'intention + les stories implémentables au même endroit. Si l'utilisateur ne veut pas du tout l'artefact capturé, `bmad-quick-dev` est le meilleur chemin — ce cluster est uniquement pour « je veux un doc *et* les stories ».
+- **Contraintes matérielles** — mémoire, alimentation, facteur de forme.
+- **Mécanisme de déploiement et de mise à jour** — OTA, manuel, basé sur une image.
+- **Exigences environnementales et de fiabilité**.
 
----
+### Petite portée tout-inclus _(à utiliser quand la portée représente 1-2 stories et que l'utilisateur veut un seul artefact capturé — choisi lors de la vérification Right-skill en Discovery)_
 
-## Notes pour le facilitateur
-
-- **L'épine dorsale essentielle est le plancher, pas le plafond.** Un PRD hobby peut garder les dix sections courtes. Un PRD d'entreprise superpose plusieurs clusters depuis le menu adapt-in.
-- **§3 Glossary avant §4 Features.** La mécanique n'introduit jamais un nouveau nom commun de domaine sans l'ajouter au Glossary dans la même passe. Persona, JTBD, et Journeys peuvent utiliser des termes du Glossary avant que §3 ne les définisse formellement — le contexte est inférable ; le Glossary sert d'ancrage en aval.
-- **§2.4 Key User Journeys sont brefs.** Une ligne chacun. Numérotés globalement (UJ-1 à UJ-N) afin que architecture, epics, stories, et tickets puissent les référencer par ID stable. Le design détaillé de flux se passe dans le workflow UX — pas ici.
-- **§4 Features pattern à toute échelle.** Description → FRs imbriquées → NFRs optionnelles → notes optionnelles. PRD hobby : un court paragraphe et trois FRs par feature. Feature d'entreprise : description multi-paragraphes, quinze FRs, plusieurs NFRs spécifiques à la feature, questions ouvertes. Même forme, profondeur différente.
-- **Les callouts `[ASSUMPTION]`, `[NON-GOAL]`, `[v2 — out of MVP]`, `[NOTE FOR PM]` sont de première classe.** Ils signalent aux lecteurs en aval et à la prochaine session de travail. Chaque `[ASSUMPTION]` atterrit dans §9 Assumptions Index.
-- **Quand UX est *entrée* du PRD** (journeys déjà conçus ailleurs) : §2.4 nomme les journeys par ID et pointe vers le doc UX existant. Référence, ne duplique pas.
-- **Quand UX est *sortie* du PRD** (pas encore de travail UX — `bmad-create-ux-design` en aval le produira) : §2.4 capture l'intention du PM sur quels journeys existent ; UX les élabore en flux détaillés en aval.
-- **§7 Success Metrics s'échelonne avec les enjeux** mais est toujours présent. Les contre-métriques comptent autant que les métriques primaires — elles façonnent ce qu'il ne faut PAS optimiser.
-- **Option tout-inclus à petit scope.** Quand le scope est vraiment 1-2 stories et que l'utilisateur veut un artefact unique au lieu de lancer un workflow `bmad-create-story` séparé, ajoute le cluster adapt-in *Stories* : §1-§6 légères plus §Stories en ligne à la fin. Le doc entier tient sur une page ou deux. C'est une forme de PRD valide pour du travail minuscule — ne t'en excuse pas.
-- **Adapte la numérotation des sections.** L'épine dorsale utilise 0-9 ; les ajouts adapt-in s'insèrent où ils se lisent le mieux (par ex. Aesthetic & Tone avant §3 si le branding est fondamental, Compliance après §5 Non-Goals, Constraints & Guardrails entre Features et Non-Goals, Stories tout à la fin après Assumptions Index).
+- **Stories** — spécifications au niveau story listées en ligne à la fin du document. Chaque story : _« En tant que [Persona], je peux [action] [dans quelles conditions]. Acceptation : [critères testables]. »_ Numérotées Story-1, Story-2, ... pour référence. À associer à un §1 Vision très allégé, §2 Utilisateur cible (souvent juste JTBD + un UJ), §3 Glossaire (quelques termes), §4 Fonctionnalités (souvent une seule fonctionnalité), §6 Périmètre MVP (entrée/sortie très serrée). Le document entier tient en une ou deux pages et capture l'intention + les stories implémentables en un seul endroit. Si l'utilisateur ne veut pas du tout d'artefact capturé, `bmad-quick-dev` est la meilleure voie — cet ensemble est uniquement pour « je veux un document _et_ les stories ».

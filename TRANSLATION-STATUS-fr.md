@@ -4,11 +4,11 @@ _Généré automatiquement le 2026-04-30 13:25:50 UTC par `tools/audit-translati
 
 ## Résumé global
 
-| Module | Présence | Traduction effective | Manquants | Statut |
-|---|---|---|---|---|
-| `bmm` | 330/330 (100.0%) | 98.0% | 0 | ✅ Complet |
-| `core` | 75/75 (100.0%) | 100.0% | 0 | ✅ Complet |
-| `utility` | 2/2 (100.0%) | 100.0% | 0 | ✅ Complet |
+| Module    | Présence         | Traduction effective | Manquants | Statut     |
+| --------- | ---------------- | -------------------- | --------- | ---------- |
+| `bmm`     | 330/330 (100.0%) | 98.0%                | 0         | ✅ Complet |
+| `core`    | 75/75 (100.0%)   | 100.0%               | 0         | ✅ Complet |
+| `utility` | 2/2 (100.0%)     | 100.0%               | 0         | ✅ Complet |
 
 ## Modules upstream non importés
 

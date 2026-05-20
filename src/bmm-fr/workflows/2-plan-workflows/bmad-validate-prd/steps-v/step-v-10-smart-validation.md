@@ -63,6 +63,7 @@ Valider que les Exigences Fonctionnelles (RF) respectent les critères de qualit
 ### 1. Extraire toutes les Exigences Fonctionnelles
 
 Depuis la section Exigences Fonctionnelles du PRD, extraire :
+
 - Toutes les RF avec leurs numéros de RF (RF-001, RF-002, etc.)
 - Décompte total des RF
 
@@ -77,36 +78,43 @@ Depuis la section Exigences Fonctionnelles du PRD, extraire :
 **Pour chaque RF, donner une note sur les critères SMART (échelle de 1 à 5) :**
 
 **Spécifique (1-5) :**
+
 - 5 : Claire, sans ambiguïté, bien définie
 - 3 : Assez claire mais pourrait être plus spécifique
 - 1 : Vague, ambiguë, peu claire
 
 **Mesurable (1-5) :**
+
 - 5 : Métriques quantifiables, testable
 - 3 : Partiellement mesurable
 - 1 : Non mesurable, subjective
 
 **Atteignable (1-5) :**
+
 - 5 : Réaliste, réalisable avec les contraintes
 - 3 : Probablement réalisable mais incertain
 - 1 : Irréaliste, techniquement infaisable
 
 **Pertinent (1-5) :**
+
 - 5 : Clairement aligné avec les besoins utilisateurs et les objectifs métier
 - 3 : Assez pertinent mais connexion peu claire
 - 1 : Non pertinent, ne s'aligne pas avec les objectifs
 
 **Traçable (1-5) :**
+
 - 5 : Remonte clairement à un parcours utilisateur ou un objectif métier
 - 3 : Partiellement traçable
 - 1 : Exigence orpheline, pas de source claire
 
 **Pour chaque RF avec un score < 3 dans n'importe quelle catégorie :**
+
 - Fournir des suggestions d'amélioration spécifiques
 
 Retourner le tableau de notation avec tous les scores des RF et les suggestions d'amélioration pour les RF à faible score."
 
 **Dégradation élégante (si pas d'outil Task) :**
+
 - Noter manuellement chaque RF selon les critères SMART
 - Relever les RF ayant des scores faibles
 - Fournir des suggestions d'amélioration
@@ -114,6 +122,7 @@ Retourner le tableau de notation avec tous les scores des RF et les suggestions 
 ### 3. Construire le tableau de notation
 
 Pour chaque RF :
+
 - Numéro de RF
 - Score Spécifique (1-5)
 - Score Mesurable (1-5)
@@ -124,6 +133,7 @@ Pour chaque RF :
 - Signalement si une catégorie < 3
 
 **Calculer la qualité globale des RF :**
+
 - Pourcentage de RF avec tous les scores ≥ 3
 - Pourcentage de RF avec tous les scores ≥ 4
 - Score moyen sur l'ensemble des RF et des catégories
@@ -145,10 +155,11 @@ Ajouter au rapport de validation :
 
 ### Tableau de notation
 
-| RF # | Spécifique | Mesurable | Atteignable | Pertinent | Traçable | Moyenne | Alerte |
-|------|------------|-----------|-------------|-----------|----------|---------|--------|
-| RF-001 | {s1} | {m1} | {a1} | {r1} | {t1} | {avg1} | {X si <3} |
-| RF-002 | {s2} | {m2} | {a2} | {r2} | {t2} | {avg2} | {X si <3} |
+| RF #   | Spécifique | Mesurable | Atteignable | Pertinent | Traçable | Moyenne | Alerte    |
+| ------ | ---------- | --------- | ----------- | --------- | -------- | ------- | --------- |
+| RF-001 | {s1}       | {m1}      | {a1}        | {r1}      | {t1}     | {avg1}  | {X si <3} |
+| RF-002 | {s2}       | {m2}      | {a2}        | {r2}      | {t2}     | {avg2}  | {X si <3} |
+
 [Continuer pour toutes les RF]
 
 **Légende :** 1=Médiocre, 3=Acceptable, 5=Excellent

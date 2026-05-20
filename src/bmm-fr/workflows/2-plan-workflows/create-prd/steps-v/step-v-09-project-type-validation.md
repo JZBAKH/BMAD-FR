@@ -67,6 +67,7 @@ Chargez et lisez le fichier complet à l'adresse suivante :
 `{projectTypesData}` (../data/project-types.csv)
 
 Ce CSV contient :
+
 - Les signaux de détection pour chaque type de projet.
 - Les sections requises pour chaque type de projet.
 - Les sections à ignorer/exclues pour chaque type de projet.
@@ -77,9 +78,11 @@ Internalisez ces données - elles déterminent quelles sections doivent être pr
 ### 2. Extraire la classification du type de projet
 
 Depuis le frontmatter du PRD, extrayez :
+
 - `classification.projectType` - de quel type de projet s'agit-il ?
 
 **Types de projets courants :**
+
 - api_backend
 - web_app
 - mobile_app
@@ -104,6 +107,7 @@ Celles-ci DOIVENT être présentes dans le PRD.
 Celles-ci NE DOIVENT PAS être présentes dans le PRD.
 
 **Exemples de correspondances issues du CSV :**
+
 - api_backend : Requises=[endpoint_specs, auth_model, data_schemas], Ignorer=[ux_ui, visual_design]
 - mobile_app : Requises=[platform_reqs, device_permissions, offline_mode], Ignorer=[desktop_features, cli_commands]
 - cli_tool : Requises=[command_structure, output_formats, config_schema], Ignorer=[visual_design, ux_principles, touch_interactions]
@@ -114,34 +118,42 @@ Celles-ci NE DOIVENT PAS être présentes dans le PRD.
 **Sur la base du type de projet, déterminez :**
 
 **api_backend :**
+
 - Requises : Specs des points de terminaison (endpoints), Modèle d'authentification, Schémas de données, Versionnage d'API.
 - Exclues : Sections UX/UI, sections spécifiques au mobile.
 
 **web_app :**
+
 - Requises : Parcours Utilisateurs, Exigences UX/UI, Design Responsif.
 - Exclues : Aucune typiquement.
 
 **mobile_app :**
+
 - Requises : UX Mobile, Spécificités de la plateforme (iOS/Android), Mode hors ligne.
 - Exclues : Sections spécifiques au desktop.
 
 **desktop_app :**
+
 - Requises : UX Desktop, Spécificités de la plateforme (Windows/Mac/Linux).
 - Exclues : Sections spécifiques au mobile.
 
 **data_pipeline :**
+
 - Requises : Sources de données, Transformation des données, Sorties de données (sinks), Gestion des erreurs.
 - Exclues : Sections UX/UI.
 
 **ml_system :**
+
 - Requises : Exigences du modèle, Données d'entraînement, Exigences d'inférence, Performance du modèle.
 - Exclues : Sections UX/UI (sauf si UI ML).
 
 **library_sdk :**
+
 - Requises : Surface de l'API, Exemples d'utilisation, Guide d'intégration.
 - Exclues : Sections UX/UI, sections de déploiement.
 
 **infrastructure :**
+
 - Requises : Composants d'infrastructure, Déploiement, Surveillance, Mise à l'échelle.
 - Exclues : Exigences de fonctionnalités (c'est de l'infrastructure, pas du produit).
 
@@ -158,12 +170,14 @@ Pour chacune : Est-elle présente dans le PRD ? Est-elle documentée de manière
 Pour chacune : Est-elle absente du PRD ? (Elle ne devrait pas être présente)
 
 Construire un tableau de conformité montrant :
+
 - Sections requises : [Présente/Manquante/Incomplète]
 - Sections exclues : [Absente/Présente] (Présente = violation)
 
 Retourner le tableau de conformité avec les résultats."
 
 **Dégradation gracieuse (si pas d'outil Task) :**
+
 - Vérifier manuellement le PRD pour les sections requises.
 - Vérifier manuellement le PRD pour les sections exclues.
 - Construire le tableau de conformité.
@@ -171,14 +185,17 @@ Retourner le tableau de conformité avec les résultats."
 ### 5. Construire le tableau de conformité
 
 **Vérification des sections requises :**
+
 - Pour chaque section requise : Présente / Manquante / Incomplète.
 - Compte : Sections requises présentes vs total requis.
 
 **Vérification des sections exclues :**
+
 - Pour chaque section exclue : Absente / Présente (violation).
 - Compte : Sections exclues présentes (violations).
 
 **Score total de conformité :**
+
 - Requises : {présente}/{total}
 - Violations d'exclusion : {count}
 

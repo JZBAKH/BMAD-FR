@@ -13,19 +13,19 @@ Spusťte jakýkoli základní nástroj zadáním jeho názvu skillu (např. `bma
 
 ## Přehled
 
-| Nástroj | Typ | Účel |
-| --- | --- | --- |
-| [`bmad-help`](#bmad-help) | Task | Kontextové poradenství, co dělat dál |
-| [`bmad-brainstorming`](#bmad-brainstorming) | Workflow | Facilitace interaktivních brainstormingových sezení |
-| [`bmad-party-mode`](#bmad-party-mode) | Workflow | Orchestrace skupinových diskuzí více agentů |
-| [`bmad-distillator`](#bmad-distillator) | Task | Bezeztrátová LLM-optimalizovaná komprese dokumentů |
-| [`bmad-advanced-elicitation`](#bmad-advanced-elicitation) | Task | Iterativní zdokonalování LLM výstupu |
-| [`bmad-review-adversarial-general`](#bmad-review-adversarial-general) | Task | Cynická revize hledající chybějící a chybné |
-| [`bmad-review-edge-case-hunter`](#bmad-review-edge-case-hunter) | Task | Vyčerpávající analýza větvících cest pro neošetřené hraniční případy |
-| [`bmad-editorial-review-prose`](#bmad-editorial-review-prose) | Task | Klinická jazyková korektura pro komunikační srozumitelnost |
-| [`bmad-editorial-review-structure`](#bmad-editorial-review-structure) | Task | Strukturální editace — škrty, sloučení a reorganizace |
-| [`bmad-shard-doc`](#bmad-shard-doc) | Task | Rozdělení velkých markdown souborů do organizovaných sekcí |
-| [`bmad-index-docs`](#bmad-index-docs) | Task | Generování nebo aktualizace indexu dokumentů ve složce |
+| Nástroj                                                               | Typ      | Účel                                                                 |
+| --------------------------------------------------------------------- | -------- | -------------------------------------------------------------------- |
+| [`bmad-help`](#bmad-help)                                             | Task     | Kontextové poradenství, co dělat dál                                 |
+| [`bmad-brainstorming`](#bmad-brainstorming)                           | Workflow | Facilitace interaktivních brainstormingových sezení                  |
+| [`bmad-party-mode`](#bmad-party-mode)                                 | Workflow | Orchestrace skupinových diskuzí více agentů                          |
+| [`bmad-distillator`](#bmad-distillator)                               | Task     | Bezeztrátová LLM-optimalizovaná komprese dokumentů                   |
+| [`bmad-advanced-elicitation`](#bmad-advanced-elicitation)             | Task     | Iterativní zdokonalování LLM výstupu                                 |
+| [`bmad-review-adversarial-general`](#bmad-review-adversarial-general) | Task     | Cynická revize hledající chybějící a chybné                          |
+| [`bmad-review-edge-case-hunter`](#bmad-review-edge-case-hunter)       | Task     | Vyčerpávající analýza větvících cest pro neošetřené hraniční případy |
+| [`bmad-editorial-review-prose`](#bmad-editorial-review-prose)         | Task     | Klinická jazyková korektura pro komunikační srozumitelnost           |
+| [`bmad-editorial-review-structure`](#bmad-editorial-review-structure) | Task     | Strukturální editace — škrty, sloučení a reorganizace                |
+| [`bmad-shard-doc`](#bmad-shard-doc)                                   | Task     | Rozdělení velkých markdown souborů do organizovaných sekcí           |
+| [`bmad-index-docs`](#bmad-index-docs)                                 | Task     | Generování nebo aktualizace indexu dokumentů ve složce               |
 
 ## bmad-help
 

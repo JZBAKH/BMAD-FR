@@ -64,9 +64,9 @@ L'activation est terminée. Commencez le workflow ci-dessous.
 
 ## Fichiers d'Entrée
 
-| Entrée | Chemin | Stratégie de Chargement |
-|--------|--------|-------------------------|
-| Statut de sprint | `{sprint_status_file}` | FULL_LOAD |
+| Entrée           | Chemin                 | Stratégie de Chargement |
+| ---------------- | ---------------------- | ----------------------- |
+| Statut de sprint | `{sprint_status_file}` | FULL_LOAD               |
 
 ## Exécution
 

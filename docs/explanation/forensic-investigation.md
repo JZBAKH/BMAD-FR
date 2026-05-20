@@ -1,5 +1,5 @@
 ---
-title: "Forensic Investigation"
+title: 'Forensic Investigation'
 description: How bmad-investigate treats every issue like a crime scene, grades evidence, and produces a structured case file engineers can act on
 sidebar:
   order: 6
@@ -37,7 +37,7 @@ Every finding in an investigation is one of three things.
 - **Deduced.** Logically follows from confirmed evidence; the reasoning chain is shown. If a step in the chain is wrong,
   the deduction is wrong, and you can see exactly which step.
 - **Hypothesized.** Plausible but unconfirmed. States what evidence would confirm or refute, and declares upfront what
-  would close it. Hypotheses are explicitly *not facts*.
+  would close it. Hypotheses are explicitly _not facts_.
 
 The grading is not about being humble. It's about making the case file readable. A reader can scan the Confirmed section
 to know what is true, the Deduced section to know what follows, and the Hypothesized section to know what is still open.
@@ -49,7 +49,7 @@ Investigation never starts from a theory. It starts from one piece of confirmed 
 evidence might be a specific error message, a stack frame, or a timestamped log entry.
 
 This is the opposite of how investigations often go. Someone has a hunch, builds a theory, and then hunts for evidence
-that supports it. The hunch can be right; the *method* is fragile because it makes confirmation bias the default.
+that supports it. The hunch can be right; the _method_ is fragile because it makes confirmation bias the default.
 
 A stronghold is a fact you can return to when reasoning gets murky. If a deduction takes you somewhere strange, you can
 walk it back to the stronghold and try a different branch. Without one, you don't know which step to undo.
@@ -73,7 +73,7 @@ with cited evidence. Quietly dropping it when it becomes inconvenient is no long
 
 ## Challenge the Premise
 
-The user's description of the problem is a hypothesis, not a fact. "The cache is broken" is something a user *believes*.
+The user's description of the problem is a hypothesis, not a fact. "The cache is broken" is something a user _believes_.
 Before the skill builds an investigation around it, the technical claims are verified independently. If the evidence
 contradicts the premise, the report says so directly.
 

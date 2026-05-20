@@ -79,7 +79,6 @@ story_key: '' # set at runtime when discovered from sprint status
 
 Présentez un résumé avant de poursuivre : statistiques du diff (fichiers changés, lignes ajoutées/supprimées), `{review_mode}`, et documents de spec/contexte chargés (le cas échéant). HALT et attendez la confirmation de l'utilisateur pour poursuivre.
 
-
 ## SUITE
 
 Lisez intégralement et suivez `./step-02-review.md`

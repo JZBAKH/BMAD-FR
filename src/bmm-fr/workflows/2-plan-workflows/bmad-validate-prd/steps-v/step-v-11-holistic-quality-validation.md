@@ -72,6 +72,7 @@ Invoquer la compétence `bmad-advanced-elicitation`
 **Évaluer le PRD selon ces perspectives :**
 
 **1. Flux et Cohérence du Document :**
+
 - Lire l'intégralité du PRD
 - Évaluer le flux narratif - raconte-t-il une histoire cohérente ?
 - Vérifier les transitions entre les sections
@@ -81,18 +82,21 @@ Invoquer la compétence `bmad-advanced-elicitation`
 **2. Efficacité pour le Double Public :**
 
 **Pour les Humains :**
+
 - Adapté aux décideurs : Les dirigeants peuvent-ils comprendre rapidement la vision et les buts ?
 - Clarté pour les développeurs : Les développeurs ont-ils des exigences claires pour construire ?
 - Clarté pour les designers : Les designers comprennent-ils les besoins utilisateurs et les flux ?
 - Prise de décision des parties prenantes : Les parties prenantes peuvent-elles prendre des décisions éclairées ?
 
 **Pour les LLM :**
+
 - Structure lisible par machine : Le PRD est-il structuré pour la consommation par des LLM ?
 - Préparation au design UX : Un LLM peut-il générer des designs UX à partir de ceci ?
 - Préparation à l'architecture : Un LLM peut-il générer l'architecture à partir de ceci ?
 - Préparation aux Epics/Stories : Un LLM peut-il décomposer cela en epics et stories ?
 
 **3. Conformité aux Principes du PRD BMAD :**
+
 - Densité d'information : Chaque phrase apporte-t-elle de la valeur ?
 - Mesurabilité : Les exigences sont-elles testables ?
 - Traçabilité : Les exigences remontent-elles à leurs sources ?
@@ -103,6 +107,7 @@ Invoquer la compétence `bmad-advanced-elicitation`
 
 **4. Note de Qualité Globale :**
 Noter le PRD sur une échelle de 5 points :
+
 - Excellent (5/5) : Exemplaire, prêt pour une utilisation en production
 - Bon (4/5) : Solide avec des améliorations mineures nécessaires
 - Adéquat (3/5) : Acceptable mais nécessite un affinement
@@ -115,6 +120,7 @@ Identifier les 3 améliorations les plus percutantes pour faire de ce PRD un exc
 Retourner l'évaluation complète avec toutes les perspectives, la note, et le top 3 des améliorations."
 
 **Dégradation élégante (si pas d'outil Task ou Élicitation Avancée indisponible) :**
+
 - Effectuer l'évaluation holistique directement dans le contexte actuel
 - Lire le PRD complet
 - Évaluer le flux du document, la cohérence, les transitions
@@ -128,22 +134,26 @@ Retourner l'évaluation complète avec toutes les perspectives, la note, et le t
 **Compiler les conclusions de l'évaluation multi-perspective :**
 
 **Flux et Cohérence du Document :**
+
 - Évaluation globale : [Excellent/Bon/Adéquat/Nécessite du travail/Problématique]
 - Points forts : [liste]
 - Points faibles : [liste]
 
 **Efficacité pour le Double Public :**
+
 - Pour les Humains : [évaluation]
 - Pour les LLM : [évaluation]
 - Score global du double public : [1-5]
 
 **Conformité aux Principes BMAD :**
+
 - Principes respectés : [nombre]/7
 - Principes posant problème : [liste]
 
 **Note de Qualité Globale :** [1-5 avec libellé]
 
 **Top 3 des Améliorations :**
+
 1. [Amélioration 1]
 2. [Amélioration 2]
 3. [Amélioration 3]
@@ -168,12 +178,14 @@ Ajouter au rapport de validation :
 ### Efficacité pour le double public
 
 **Pour les humains :**
+
 - Adapté aux décideurs : [évaluation]
 - Clarté pour les développeurs : [évaluation]
 - Clarté pour les designers : [évaluation]
 - Prise de décision des parties prenantes : [évaluation]
 
 **Pour les LLM :**
+
 - Structure lisible par machine : [évaluation]
 - Préparation au design UX : [évaluation]
 - Préparation à l'architecture : [évaluation]
@@ -183,15 +195,15 @@ Ajouter au rapport de validation :
 
 ### Conformité aux principes du PRD BMAD
 
-| Principe | Statut | Notes |
-|----------|--------|-------|
-| Densité d'information | [Respecté/Partiel/Non respecté] | {notes} |
-| Mesurabilité | [Respecté/Partiel/Non respecté] | {notes} |
-| Traçabilité | [Respecté/Partiel/Non respecté] | {notes} |
+| Principe                | Statut                          | Notes   |
+| ----------------------- | ------------------------------- | ------- |
+| Densité d'information   | [Respecté/Partiel/Non respecté] | {notes} |
+| Mesurabilité            | [Respecté/Partiel/Non respecté] | {notes} |
+| Traçabilité             | [Respecté/Partiel/Non respecté] | {notes} |
 | Connaissance du domaine | [Respecté/Partiel/Non respecté] | {notes} |
-| Zéro Anti-pattern | [Respecté/Partiel/Non respecté] | {notes} |
-| Double public | [Respecté/Partiel/Non respecté] | {notes} |
-| Format Markdown | [Respecté/Partiel/Non respecté] | {notes} |
+| Zéro Anti-pattern       | [Respecté/Partiel/Non respecté] | {notes} |
+| Double public           | [Respecté/Partiel/Non respecté] | {notes} |
+| Format Markdown         | [Respecté/Partiel/Non respecté] | {notes} |
 
 **Principes respectés :** {count}/7
 
@@ -200,6 +212,7 @@ Ajouter au rapport de validation :
 **Note :** {rating}/5 - {label}
 
 **Échelle :**
+
 - 5/5 - Excellent : Exemplaire, prêt pour une utilisation en production
 - 4/5 - Bon : Solide avec des améliorations mineures nécessaires
 - 3/5 - Adéquat : Acceptable mais nécessite un affinement

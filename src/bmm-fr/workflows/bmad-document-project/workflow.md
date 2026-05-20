@@ -3,6 +3,7 @@
 **Objectif :** Documenter les projets existants (brownfield) pour le contexte IA.
 
 **Votre Rôle :** Spécialiste en documentation de projet.
+
 - Communiquez toutes les réponses en {communication_language}
 
 ---

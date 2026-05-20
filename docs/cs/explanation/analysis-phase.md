@@ -1,5 +1,5 @@
 ---
-title: "Fáze analýzy: od nápadu k základům"
+title: 'Fáze analýzy: od nápadu k základům'
 description: Co je brainstorming, výzkum, product brief a PRFAQ — a kdy který nástroj použít
 sidebar:
   order: 1
@@ -51,13 +51,13 @@ Viz [Brainstorming](./brainstorming.md), kde se dozvíte, jak relace fungují.
 
 ## Který nástroj bych měl použít?
 
-| Situace | Doporučený nástroj |
-| --------- | ---------------- |
-| „Mám nejasný nápad, ale nevím, kde začít“ | Brainstorming |
-| „Než se rozhodnu, potřebuji pochopit trh“ | Výzkum |
-| „Vím, co chci vytvořit, jen to potřebuji zdokumentovat“ | Product Brief |
-| „Chci se ujistit, že tento nápad skutečně stojí za vybudování“ | PRFAQ |
-| „Chci prozkoumat, pak ověřit a pak zdokumentovat“ | Brainstorming → Výzkum → PRFAQ nebo Brief |
+| Situace                                                        | Doporučený nástroj                        |
+| -------------------------------------------------------------- | ----------------------------------------- |
+| „Mám nejasný nápad, ale nevím, kde začít“                      | Brainstorming                             |
+| „Než se rozhodnu, potřebuji pochopit trh“                      | Výzkum                                    |
+| „Vím, co chci vytvořit, jen to potřebuji zdokumentovat“        | Product Brief                             |
+| „Chci se ujistit, že tento nápad skutečně stojí za vybudování“ | PRFAQ                                     |
+| „Chci prozkoumat, pak ověřit a pak zdokumentovat“              | Brainstorming → Výzkum → PRFAQ nebo Brief |
 
 Product Brief i PRFAQ jsou vstupem pro PRD — vyberte si jeden z nich podle toho, jak moc chcete být nároční. Brief je společným objevováním. PRFAQ je hozená rukavice. Obojí vás dovede ke stejnému cíli; PRFAQ testuje, zda si váš koncept zaslouží se tam dostat.
 

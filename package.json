@@ -14,13 +14,13 @@
     "français",
     "french"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JZBAKH/BMAD-FR.git"
-  },
   "homepage": "https://github.com/JZBAKH/BMAD-FR#readme",
   "bugs": {
     "url": "https://github.com/JZBAKH/BMAD-FR/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JZBAKH/BMAD-FR.git"
   },
   "license": "MIT",
   "author": "Jason Zbakh (Fork of the original BMad by Brian Madison)",
@@ -30,6 +30,7 @@
     "bmad-method-fr": "tools/bmad-npx-wrapper.js"
   },
   "scripts": {
+    "audit:translation": "node tools/audit-translation-coverage.mjs",
     "bmad:install": "node tools/cli/bmad-cli.js install",
     "bmad:uninstall": "node tools/cli/bmad-cli.js uninstall",
     "docs:build": "node tools/build-docs.mjs",
@@ -37,10 +38,6 @@
     "docs:fix-links": "node tools/fix-doc-links.js",
     "docs:preview": "astro preview --root website",
     "docs:validate-links": "node tools/validate-doc-links.js",
-    "audit:translation": "node tools/audit-translation-coverage.mjs",
-    "test:fr": "npm run test:fr:functional && npm run test:fr:language",
-    "test:fr:functional": "node test/functional-fr/run-all.js",
-    "test:fr:language": "node test/language-fr/run-all.js",
     "format:check": "prettier --check \"**/*.{js,cjs,mjs,json,yaml}\"",
     "format:fix": "prettier --write \"**/*.{js,cjs,mjs,json,yaml}\"",
     "format:fix:staged": "prettier --write",
@@ -53,6 +50,9 @@
     "rebundle": "node tools/cli/bundlers/bundle-web.js rebundle",
     "test": "npm run test:schemas && npm run test:refs && npm run test:install && npm run validate:schemas && npm run lint && npm run lint:md && npm run format:check",
     "test:coverage": "c8 --reporter=text --reporter=html npm run test:schemas",
+    "test:fr": "npm run test:fr:functional && npm run test:fr:language",
+    "test:fr:functional": "node test/functional-fr/run-all.js",
+    "test:fr:language": "node test/language-fr/run-all.js",
     "test:install": "node test/test-installation-components.js",
     "test:refs": "node test/test-file-refs-csv.js",
     "test:schemas": "node test/test-agent-schema.js",

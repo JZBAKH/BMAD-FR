@@ -85,18 +85,19 @@ c) **Si l'utilisateur a des questions :**
 
 a) Mettez à jour le frontmatter de `{wipFile}` :
 
-   ```yaml
-   ---
-   # ... valeurs existantes ...
-   status: 'ready-for-dev'
-   stepsCompleted: [1, 2, 3, 4]
-   ---
-   ```
+```yaml
+---
+# ... valeurs existantes ...
+status: 'ready-for-dev'
+stepsCompleted: [1, 2, 3, 4]
+---
+```
 
 b) **Renommez le fichier WIP avec le nom de fichier final :**
-   - En utilisant le `slug` extrait dans la Section 1.
-   - Renommez `{wipFile}` → `{implementation_artifacts}/tech-spec-{slug}.md`.
-   - Stockez ceci comme `finalFile` pour l'utiliser dans les menus ci-dessous.
+
+- En utilisant le `slug` extrait dans la Section 1.
+- Renommez `{wipFile}` → `{implementation_artifacts}/tech-spec-{slug}.md`.
+- Stockez ceci comme `finalFile` pour l'utiliser dans les menus ci-dessous.
 
 ### 4. Présenter le Menu Final
 
@@ -149,19 +150,17 @@ b) **ARRÊTEZ-VOUS et attendez la sélection de l'utilisateur.**
 #### Processus de Revue Adversaire [R] :
 
 1. **Invoquer la Compétence Revue Adversaire** :
-       > Avec le `{finalFile}` construit, invoquez la compétence `bmad-review-adversarial-general`. Si possible, utilisez l'asymétrie d'information : invoquez la compétence dans un sous-agent ou processus séparé avec un accès en lecture au projet, mais sans autre contexte que le `{finalFile}`.
-       > Passez `{finalFile}` comme contenu à réviser. La compétence doit renvoyer une liste de conclusions.
 
-    2. **Traiter les Conclusions** :
-       > Capturez les conclusions du retour de la compétence.
-       > **Si zéro conclusion** : ARRÊTEZ-VOUS — c'est suspect. Ré-analysez ou demandez conseil à l'utilisateur.
-       > Évaluez la sévérité (Critique, Haute, Moyenne, Basse) et la validité (réelle, bruit, indécis).
-       > NE PAS exclure de conclusions basées sur la sévérité ou la validité à moins d'une demande explicite.
-       > Ordonnez les conclusions par sévérité.
-       > Numérotez les conclusions ordonnées (F1, F2, F3, etc.).
-       > Si un outil de type TodoWrite est disponible, transformez chaque conclusion en TODO, incluez l'ID, la sévérité, la validité et la description dans le TODO ; sinon, présentez les conclusions sous forme de tableau avec les colonnes : ID, Sévérité, Validité, Description.
+   > Avec le `{finalFile}` construit, invoquez la compétence `bmad-review-adversarial-general`. Si possible, utilisez l'asymétrie d'information : invoquez la compétence dans un sous-agent ou processus séparé avec un accès en lecture au projet, mais sans autre contexte que le `{finalFile}`.
+   > Passez `{finalFile}` comme contenu à réviser. La compétence doit renvoyer une liste de conclusions. 2. **Traiter les Conclusions** :
 
-    3. Revenez ici et réaffichez le menu.
+   > Capturez les conclusions du retour de la compétence.
+   > **Si zéro conclusion** : ARRÊTEZ-VOUS — c'est suspect. Ré-analysez ou demandez conseil à l'utilisateur.
+   > Évaluez la sévérité (Critique, Haute, Moyenne, Basse) et la validité (réelle, bruit, indécis).
+   > NE PAS exclure de conclusions basées sur la sévérité ou la validité à moins d'une demande explicite.
+   > Ordonnez les conclusions par sévérité.
+   > Numérotez les conclusions ordonnées (F1, F2, F3, etc.).
+   > Si un outil de type TodoWrite est disponible, transformez chaque conclusion en TODO, incluez l'ID, la sévérité, la validité et la description dans le TODO ; sinon, présentez les conclusions sous forme de tableau avec les colonnes : ID, Sévérité, Validité, Description. 3. Revenez ici et réaffichez le menu.
 
 ### 5. Quitter le Workflow
 

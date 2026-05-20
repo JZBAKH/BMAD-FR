@@ -1,5 +1,5 @@
 ---
-title: "Projets existants"
+title: 'Projets existants'
 description: Comment utiliser la méthode BMad sur des bases de code existantes
 sidebar:
   order: 6
@@ -10,10 +10,11 @@ Utilisez la méthode BMad efficacement lorsque vous travaillez sur des projets e
 Ce guide couvre le flux de travail essentiel pour l'intégration à des projets existants avec la méthode BMad.
 
 :::note[Prérequis]
+
 - méthode BMad installée (`npx bmad-method install`)
 - Une base de code existante sur laquelle vous souhaitez travailler
 - Accès à un IDE IA (Claude Code ou Cursor)
-:::
+  :::
 
 ## Étape 1 : Nettoyer les artefacts de planification terminés
 
@@ -36,6 +37,7 @@ bmad-generate-project-context
 ```
 
 Cela analyse votre base de code pour identifier :
+
 - La pile technologique et les versions
 - Les patterns d'organisation du code
 - Les conventions de nommage
@@ -79,10 +81,10 @@ BMad-Help s'exécute également **automatiquement à la fin de chaque workflow**
 
 Vous avez deux options principales selon l'ampleur des modifications :
 
-| Portée                                    | Approche recommandée                                                                                                                    |
-| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| **Petites mises à jour ou ajouts**        | Exécutez `bmad-quick-dev` pour clarifier l'intention, planifier, implémenter et réviser dans un seul workflow. La méthode BMad complète en quatre phases est probablement excessive. |
-| **Modifications ou ajouts majeurs**       | Commencez avec la méthode BMad, en appliquant autant ou aussi peu de rigueur que nécessaire.                                            |
+| Portée                              | Approche recommandée                                                                                                                                                                 |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Petites mises à jour ou ajouts**  | Exécutez `bmad-quick-dev` pour clarifier l'intention, planifier, implémenter et réviser dans un seul workflow. La méthode BMad complète en quatre phases est probablement excessive. |
+| **Modifications ou ajouts majeurs** | Commencez avec la méthode BMad, en appliquant autant ou aussi peu de rigueur que nécessaire.                                                                                         |
 
 ### Pendant la création du PRD
 
@@ -119,4 +121,5 @@ Soyez particulièrement attentif ici pour éviter de réinventer la roue ou de p
 ## Glossaire
 
 [^1]: PRD (Product Requirements Document) : document de référence qui décrit les objectifs du produit, les besoins utilisateurs, les fonctionnalités attendues, les contraintes et les critères de succès, afin d'aligner les équipes sur ce qui doit être construit et pourquoi.
+
 [^2]: UX (User Experience) : expérience utilisateur, englobant l'ensemble des interactions et perceptions d'un utilisateur face à un produit. Le design UX vise à créer des interfaces intuitives, efficaces et agréables en tenant compte des besoins, comportements et contexte d'utilisation.

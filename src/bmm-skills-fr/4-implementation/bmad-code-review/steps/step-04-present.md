@@ -55,6 +55,7 @@ Si des constats `patch` existent (y compris ceux résolus depuis l'étape 4), HA
 Si `{spec_file}` est défini, présentez les trois options :
 
 > **Comment voulez-vous traiter les `<P>` constats `patch` ?**
+>
 > 1. **Appliquer chaque patch** — corrigez-les tous maintenant, sans confirmation par constat. Les items defer et decision-needed ne sont pas touchés.
 > 2. **Laisser comme action items** — ils sont déjà dans le fichier de story
 > 3. **Parcourir chaque patch** — afficher les détails de chacun avant de décider
@@ -62,6 +63,7 @@ Si `{spec_file}` est défini, présentez les trois options :
 Si `{spec_file}` n'est **pas** défini, présentez uniquement les options 1 et 2 (omettez « Laisser comme action items » — les constats n'ont pas été écrits dans un fichier) :
 
 > **Comment voulez-vous traiter les `<P>` constats `patch` ?**
+>
 > 1. **Appliquer chaque patch** — corrigez-les tous maintenant, sans confirmation par constat. Les items defer et decision-needed ne sont pas touchés.
 > 2. **Parcourir chaque patch** — afficher les détails de chacun avant de décider
 
@@ -119,6 +121,7 @@ Si le fichier `{sprint_status}` n'existe pas, notez que le statut de la story a 
 Présentez à l'utilisateur les options de suite :
 
 > **Que voulez-vous faire ensuite ?**
+>
 > 1. **Démarrer la story suivante** — exécuter `dev-story` pour prendre en charge la prochaine story `ready-for-dev`
 > 2. **Relancer la revue de code** — traiter les constats et revoir à nouveau
 > 3. **Terminé** — terminer le workflow

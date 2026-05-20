@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * Ajoute le rapport `upstream-sync-report.md` (généré par `upstream-sync-report.mjs`)
  * en tête du fichier `HISTORIQUE-UPSTREAM-fr.md`.
@@ -52,7 +51,7 @@ function adaptReport(content) {
   // 2. Couper à partir de la section "Méthode recommandée" (peut être de
   //    n'importe quel niveau dans le rapport d'origine)
   const methodIdx = lines.findIndex((l) => /^#{2,4} Méthode recommandée/.test(l));
-  if (methodIdx >= 0) {
+  if (methodIdx !== -1) {
     let cutAt = methodIdx;
     for (let i = methodIdx - 1; i >= 0; i--) {
       if (lines[i] === '---') {
@@ -89,7 +88,7 @@ function adaptReport(content) {
   lines = compressed;
 
   // 5. Retirer les lignes vides à la fin
-  while (lines.length && lines[lines.length - 1].trim() === '') {
+  while (lines.length > 0 && lines.at(-1).trim() === '') {
     lines.pop();
   }
 
@@ -107,7 +106,7 @@ async function main() {
   // Si le rapport indique "aucune nouveauté", on n'enregistre rien (évite de
   // polluer l'historique avec des entrées vides chaque mois).
   if (rawReport.includes('🎉 **Aucune nouveauté upstream à traiter.**')) {
-    console.log('🎉 Aucune nouveauté upstream — rien à ajouter à l\'historique.');
+    console.log("🎉 Aucune nouveauté upstream — rien à ajouter à l'historique.");
     // Cleanup du rapport temporaire pour ne pas le laisser traîner
     await unlink(REPORT_PATH).catch(() => {});
     process.exit(0);
@@ -121,7 +120,7 @@ async function main() {
     // Strip header pour le ré-écrire à neuf (gère les futures évolutions du header)
     const sep = '---\n\n';
     const sepIdx = existing.indexOf(sep);
-    if (existing.startsWith('# Historique mensuel') && sepIdx >= 0) {
+    if (existing.startsWith('# Historique mensuel') && sepIdx !== -1) {
       existingBody = existing.slice(sepIdx + sep.length);
     } else {
       // Fichier existant sans header attendu — on le préfixe quand même
@@ -140,7 +139,7 @@ async function main() {
   console.log(`✅ Rapport ajouté en tête de ${HISTORY_PATH}`);
 }
 
-main().catch((err) => {
-  console.error(err);
+main().catch((error) => {
+  console.error(error);
   process.exit(1);
 });

@@ -19,6 +19,7 @@ git pull origin bmad-fr                     # récupérer les commits récents (
 Puis **lire le fichier `UPSTREAM-CHANGES-fr.md`** à la racine. Ce fichier est régénéré automatiquement 2× par jour (07h et 19h UTC, après chaque sync-main).
 
 Extraire :
+
 - **Score de fraîcheur** (en haut)
 - Nombre de fichiers dans chaque catégorie : 🆕 nouveaux, 🔄 obsolètes, 🗑️ supprimés upstream
 
@@ -26,12 +27,12 @@ Extraire :
 
 ## 🚦 Phase 2 — Décision selon la fraîcheur
 
-| Fraîcheur | Décision | Action |
-|---|---|---|
-| **100%** | Synchronisé | Continuer le travail normal sans inquiétude |
-| **95-99%** | Acceptable | Mentionner au user les éléments dérivés, mais ne pas bloquer son travail |
+| Fraîcheur  | Décision       | Action                                                                         |
+| ---------- | -------------- | ------------------------------------------------------------------------------ |
+| **100%**   | Synchronisé    | Continuer le travail normal sans inquiétude                                    |
+| **95-99%** | Acceptable     | Mentionner au user les éléments dérivés, mais ne pas bloquer son travail       |
 | **80-94%** | Dérive modérée | **Proposer au user une session de mise à jour** avant de continuer son travail |
-| **< 80%** | Dérive forte | **Recommander fortement la mise à jour** — risque de casse |
+| **< 80%**  | Dérive forte   | **Recommander fortement la mise à jour** — risque de casse                     |
 
 ---
 
@@ -42,6 +43,7 @@ Procédure stricte, dans l'ordre :
 ### 3.1 — Priorisation des actions
 
 Traiter dans cet ordre :
+
 1. **🆕 Nouveaux fichiers upstream** — importer + traduire (impact utilisateur le plus élevé)
 2. **🔄 Traductions FR potentiellement obsolètes** — réaligner sur la nouvelle version EN
 3. **🗑️ Fichiers supprimés upstream** — décider cas par cas (supprimer si refactor confirmé)
@@ -64,6 +66,7 @@ git rm src/<module>-fr/<path-en>
 ### 3.3 — Triple vérification (obligatoire pour traductions)
 
 Pour chaque lot traduit par sub-agent traducteur :
+
 1. **Traducteur** (sub-agent 1) : lit l'EN, applique GLOSSAIRE-fr.md, traduit
 2. **Vérificateur** (sub-agent 2, indépendant) : audit critique
 3. **Corrections** : appliquer les défauts critiques détectés
@@ -150,12 +153,12 @@ tools/
 
 ### Workflows GitHub Actions actifs
 
-| Workflow | Fréquence | Rôle |
-|---|---|---|
-| `sync-main.yml` | 06h00 + 18h00 UTC | Miroir upstream → main |
-| `upstream-changes-report.yml` | 07h00 + 19h00 UTC | Rapport cumulatif `UPSTREAM-CHANGES-fr.md` |
-| `test-fr.yml` | Sur chaque push | Tests linguistiques + fonctionnels CI |
-| `upstream-sync-watch.yml` | 1er du mois 07h UTC | Notification mensuelle gros changements |
+| Workflow                      | Fréquence           | Rôle                                       |
+| ----------------------------- | ------------------- | ------------------------------------------ |
+| `sync-main.yml`               | 06h00 + 18h00 UTC   | Miroir upstream → main                     |
+| `upstream-changes-report.yml` | 07h00 + 19h00 UTC   | Rapport cumulatif `UPSTREAM-CHANGES-fr.md` |
+| `test-fr.yml`                 | Sur chaque push     | Tests linguistiques + fonctionnels CI      |
+| `upstream-sync-watch.yml`     | 1er du mois 07h UTC | Notification mensuelle gros changements    |
 
 ---
 

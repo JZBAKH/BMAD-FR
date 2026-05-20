@@ -93,6 +93,7 @@ d) **Construisez un modèle mental :**
 a) **Maintenant, posez des questions de clarification — mais faites-les ÉCLAIRÉES par ce que vous avez trouvé :**
 
 Au lieu de questions génériques comme "Quel est le périmètre ?", posez des questions spécifiques comme :
+
 - "Le `AuthService` gère la validation dans le contrôleur — la nouvelle donnée doit-elle suivre ce pattern ou être déplacée vers un validateur dédié ?"
 - "Le composant `NavigationSidebar` utilise un état local pour le bouton 'réduire' — devons-nous rester sur cette approche ou passer par le store global ?"
 - "Le document sur les epics mentionne X — est-ce lié ?"

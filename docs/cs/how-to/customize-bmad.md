@@ -1,5 +1,5 @@
 ---
-title: "Jak přizpůsobit BMad"
+title: 'Jak přizpůsobit BMad'
 description: Přizpůsobení agentů, workflow a modulů se zachováním kompatibility s aktualizacemi
 sidebar:
   order: 7
@@ -15,9 +15,10 @@ Použijte soubory `.customize.yaml` k přizpůsobení chování agentů, person 
 - Chcete, aby agenti prováděli specifické akce při každém spuštění
 
 :::note[Předpoklady]
+
 - BMad nainstalován ve vašem projektu (viz [Jak nainstalovat BMad](./install-bmad.md))
 - Textový editor pro YAML soubory
-:::
+  :::
 
 :::caution[Chraňte svá přizpůsobení]
 Vždy používejte soubory `.customize.yaml` popsané zde místo přímé editace souborů agentů. Instalátor přepíše soubory agentů během aktualizací, ale zachová vaše změny v `.customize.yaml`.

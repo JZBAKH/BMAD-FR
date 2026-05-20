@@ -3,6 +3,7 @@
 **Objectif :** Effectuer une revue de code contradictoire pour identifier des problèmes spécifiques.
 
 **Votre Rôle :** Réviseur de Code Contradictoire.
+
 - VOUS ÊTES UN RÉVISEUR DE CODE CONTRADICTOIRE - Trouvez ce qui ne va pas ou ce qui manque !
 - Communiquez toutes les réponses en {communication_language} et le langage DOIT être adapté au niveau {user_skill_level}.
 - Générez tous les documents en {document_output_language}.
@@ -34,11 +35,11 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
 
 ### Fichiers d'Entrée (Input Files)
 
-| Entrée | Description | Modèle de chemin (Path Pattern) | Stratégie de chargement |
-|-------|-------------|------------------|---------------|
-| architecture | Architecture système pour le contexte de revue | whole: `{planning_artifacts}/*architecture*.md`, sharded: `{planning_artifacts}/*architecture*/*.md` | FULL_LOAD |
-| ux_design | Spécification de design UX (si revue d'UI) | whole: `{planning_artifacts}/*ux*.md`, sharded: `{planning_artifacts}/*ux*/*.md` | FULL_LOAD |
-| epics | Epic contenant la story à réviser | whole: `{planning_artifacts}/*epic*.md`, sharded_index: `{planning_artifacts}/*epic*/index.md`, sharded_single: `{planning_artifacts}/*epic*/epic-{{epic_num}}.md` | SELECTIVE_LOAD |
+| Entrée       | Description                                    | Modèle de chemin (Path Pattern)                                                                                                                                    | Stratégie de chargement |
+| ------------ | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
+| architecture | Architecture système pour le contexte de revue | whole: `{planning_artifacts}/*architecture*.md`, sharded: `{planning_artifacts}/*architecture*/*.md`                                                               | FULL_LOAD               |
+| ux_design    | Spécification de design UX (si revue d'UI)     | whole: `{planning_artifacts}/*ux*.md`, sharded: `{planning_artifacts}/*ux*/*.md`                                                                                   | FULL_LOAD               |
+| epics        | Epic contenant la story à réviser              | whole: `{planning_artifacts}/*epic*.md`, sharded_index: `{planning_artifacts}/*epic*/index.md`, sharded_single: `{planning_artifacts}/*epic*/epic-{{epic_num}}.md` | SELECTIVE_LOAD          |
 
 ### Contexte
 
@@ -57,24 +58,23 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
   <action>Analyser les sections : Story, Critères d'Acceptation, Tâches/Sous-tâches, Registre de l'Agent de Dév → Liste des Fichiers, Journal des Changements</action>
 
   <!-- Discover actual changes via git -->
-  <action>Vérifier si un dépôt git est détecté dans le répertoire actuel</action>
-  <check if="un dépôt git existe">
-    <action>Exécuter `git status --porcelain` pour trouver les modifications non commitées</action>
-    <action>Exécuter `git diff --name-only` pour voir les fichiers modifiés</action>
-    <action>Exécuter `git diff --cached --name-only` pour voir les fichiers indexés (staged)</action>
-    <action>Compiler la liste des fichiers réellement modifiés à partir de la sortie git</action>
-  </check>
+
+<action>Vérifier si un dépôt git est détecté dans le répertoire actuel</action>
+<check if="un dépôt git existe">
+<action>Exécuter `git status --porcelain` pour trouver les modifications non commitées</action>
+<action>Exécuter `git diff --name-only` pour voir les fichiers modifiés</action>
+<action>Exécuter `git diff --cached --name-only` pour voir les fichiers indexés (staged)</action>
+<action>Compiler la liste des fichiers réellement modifiés à partir de la sortie git</action>
+</check>
 
   <!-- Cross-reference story File List vs git reality -->
-  <action>Comparer la Liste des Fichiers du Registre de l'Agent de Dév de la story avec les modifications git réelles</action>
-  <action>Noter les écarts :
-    - Fichiers dans git mais absents de la Liste des Fichiers de la story
-    - Fichiers dans la Liste des Fichiers de la story mais sans modifications git
-    - Absence de documentation sur ce qui a été réellement modifié
-  </action>
 
-  <action>Lire entièrement et suivre `./discover-inputs.md` pour charger tous les fichiers d'entrée</action>
-  <action>Charger {project_context} pour les standards de codage (si existe)</action>
+<action>Comparer la Liste des Fichiers du Registre de l'Agent de Dév de la story avec les modifications git réelles</action>
+<action>Noter les écarts : - Fichiers dans git mais absents de la Liste des Fichiers de la story - Fichiers dans la Liste des Fichiers de la story mais sans modifications git - Absence de documentation sur ce qui a été réellement modifié
+</action>
+
+<action>Lire entièrement et suivre `./discover-inputs.md` pour charger tous les fichiers d'entrée</action>
+<action>Charger {project_context} pour les standards de codage (si existe)</action>
 </step>
 
 <step n="2" goal="Construire le plan d'attaque de la revue">
@@ -82,51 +82,36 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
   <action>Extraire TOUTES les Tâches/Sous-tâches avec leur statut d'achèvement ([x] vs [ ])</action>
   <action>À partir du Registre de l'Agent de Dév → Liste des Fichiers, compiler la liste des changements revendiqués</action>
 
-  <action>Créer un plan de revue :
-    1. **Validation des CA** : Vérifier que chaque CA est réellement implémenté
-    2. **Audit des Tâches** : Vérifier que chaque tâche [x] est vraiment faite
-    3. **Qualité du Code** : Sécurité, performance, maintenabilité
-    4. **Qualité des Tests** : Vrais tests vs faux-semblants
-  </action>
+<action>Créer un plan de revue : 1. **Validation des CA** : Vérifier que chaque CA est réellement implémenté 2. **Audit des Tâches** : Vérifier que chaque tâche [x] est vraiment faite 3. **Qualité du Code** : Sécurité, performance, maintenabilité 4. **Qualité des Tests** : Vrais tests vs faux-semblants
+</action>
 </step>
 
 <step n="3" goal="Exécuter la revue contradictoire">
   <critical>VALIDEZ CHAQUE REVENDICATION - Vérifiez la réalité git vs les affirmations de la story</critical>
 
   <!-- Git vs Story Discrepancies -->
-  <action>Réviser les écarts git vs Liste des Fichiers de la story :
-    1. **Fichiers modifiés mais absents de la liste de la story** → Constat MOYEN (documentation incomplète)
-    2. **La story liste des fichiers mais aucune modif git** → Constat HAUT (fausses déclarations)
-    3. **Modifications non commitées non documentées** → Constat MOYEN (problème de transparence)
-  </action>
+
+<action>Réviser les écarts git vs Liste des Fichiers de la story : 1. **Fichiers modifiés mais absents de la liste de la story** → Constat MOYEN (documentation incomplète) 2. **La story liste des fichiers mais aucune modif git** → Constat HAUT (fausses déclarations) 3. **Modifications non commitées non documentées** → Constat MOYEN (problème de transparence)
+</action>
 
   <!-- Use combined file list: story File List + git discovered files -->
-  <action>Créer une liste exhaustive de fichiers à réviser à partir de la liste de la story et des modifications git</action>
+
+<action>Créer une liste exhaustive de fichiers à réviser à partir de la liste de la story et des modifications git</action>
 
   <!-- AC Validation -->
-  <action>Pour CHAQUE Critère d'Acceptation :
-    1. Lire l'exigence du CA
-    2. Rechercher des preuves dans les fichiers d'implémentation
-    3. Déterminer : IMPLÉMENTÉ, PARTIEL ou MANQUANT
-    4. Si MANQUANT/PARTIEL → Constat de sévérité HAUTE
-  </action>
+
+<action>Pour CHAQUE Critère d'Acceptation : 1. Lire l'exigence du CA 2. Rechercher des preuves dans les fichiers d'implémentation 3. Déterminer : IMPLÉMENTÉ, PARTIEL ou MANQUANT 4. Si MANQUANT/PARTIEL → Constat de sévérité HAUTE
+</action>
 
   <!-- Task Completion Audit -->
-  <action>Pour CHAQUE tâche marquée [x] :
-    1. Lire la description de la tâche
-    2. Rechercher des preuves dans les fichiers qu'elle a réellement été faite
-    3. **CRITIQUE** : Si marqué [x] mais NON FAIT → Constat CRITIQUE
-    4. Enregistrer la preuve spécifique (fichier:ligne)
-  </action>
+
+<action>Pour CHAQUE tâche marquée [x] : 1. Lire la description de la tâche 2. Rechercher des preuves dans les fichiers qu'elle a réellement été faite 3. **CRITIQUE** : Si marqué [x] mais NON FAIT → Constat CRITIQUE 4. Enregistrer la preuve spécifique (fichier:ligne)
+</action>
 
   <!-- Code Quality Deep Dive -->
-  <action>Pour CHAQUE fichier de la liste exhaustive de revue :
-    1. **Sécurité** : Rechercher les risques d'injection, validations manquantes, problèmes d'authentification
-    2. **Performance** : Requêtes N+1, boucles inefficaces, absence de mise en cache
-    3. **Gestion d'erreurs** : try/catch manquants, messages d'erreur pauvres
-    4. **Qualité du Code** : Fonctions complexes, nombres magiques, mauvais nommage
-    5. **Qualité des Tests** : Les tests sont-ils de vraies assertions ou des coquilles vides ?
-  </action>
+
+<action>Pour CHAQUE fichier de la liste exhaustive de revue : 1. **Sécurité** : Rechercher les risques d'injection, validations manquantes, problèmes d'authentification 2. **Performance** : Requêtes N+1, boucles inefficaces, absence de mise en cache 3. **Gestion d'erreurs** : try/catch manquants, messages d'erreur pauvres 4. **Qualité du Code** : Fonctions complexes, nombres magiques, mauvais nommage 5. **Qualité des Tests** : Les tests sont-ils de vraies assertions ou des coquilles vides ?
+</action>
 
   <check if="total_issues_found == 0">
     <action>Double-vérifier en réexaminant le code pour :
@@ -144,7 +129,7 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
   <action>Définir {{fixed_count}} = 0</action>
   <action>Définir {{action_count}} = 0</action>
 
-  <output>**🔥 CONSTATS DE REVUE DE CODE, {user_name} !**
+<output>**🔥 CONSTATS DE REVUE DE CODE, {user_name} !**
 
     **Story :** {{story_file}}
     **Écarts Git vs Story :** {{git_discrepancy_count}} trouvés
@@ -167,9 +152,10 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
     - Améliorations de style de code
     - Lacunes de documentation
     - Qualité des messages de commit git
+
   </output>
 
-  <ask>Que dois-je faire avec ces problèmes ?
+<ask>Que dois-je faire avec ces problèmes ?
 
     1. **Les corriger automatiquement** - Je mettrai à jour le code et les tests
     2. **Créer des actions à faire** - Ajouter aux Tâches/Sous-tâches de la story pour plus tard
@@ -241,19 +227,21 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
     <check if="story key not found in sprint status">
       <output>⚠️ Fichier de story mis à jour, mais la synchronisation du sprint-status a échoué : {{story_key}} non trouvé dans sprint-status.yaml</output>
     </check>
+
   </check>
 
   <check if="{{current_sprint_status}} == 'no-sprint-tracking'">
     <output>ℹ️ Statut de la story mis à jour (pas de suivi de sprint configuré)</output>
   </check>
 
-  <output>**✅ Revue terminée !**
+<output>**✅ Revue terminée !**
 
     **Statut de la Story :** {{new_status}}
     **Problèmes corrigés :** {{fixed_count}}
     **Actions créées :** {{action_count}}
 
     {{#if new_status == "done"}}Revue de code terminée !{{else}}Traitez les actions à faire et continuez le développement.{{/if}}
+
   </output>
 </step>
 

@@ -58,29 +58,34 @@ Optimiser l'intégralité du document PRD pour la fluidité, la cohérence et un
 Passez en revue l'ensemble du document en gardant à l'esprit les principes fondateurs du PRD :
 
 **Densité de l'Information :**
+
 - Y a-t-il des phrases verbeuses pouvant être condensées ?
 - Le "remplissage" conversationnel est-il présent ?
 - Les phrases peuvent-elles être plus directes et concises ?
 
 **Fluidité et Cohérence :**
+
 - Les transitions entre les sections sont-elles naturelles ?
 - Y a-t-il des changements de sujet brusques ou choquants ?
 - Le document raconte-t-il une histoire cohérente ?
 - La progression est-elle logique pour les lecteurs ?
 
 **Détection des Duplications :**
+
 - Des idées sont-elles répétées à travers les sections ?
 - La même information est-elle énoncée plusieurs fois ?
 - Le contenu redondant peut-il être consolidé ?
 - Y a-t-il des déclarations contradictoires ?
 
 **Structure des Niveaux de Titres :**
+
 - Les sections principales utilisent-elles toutes les en-têtes de niveau 2 (##) ?
 - La hiérarchie est-elle cohérente (##, ###, ####) ?
 - Les sections peuvent-elles être facilement extraites ou référencées ?
 - Les en-têtes sont-ils descriptifs et clairs ?
 
 **Lisibilité :**
+
 - Les phrases sont-elles claires et concises ?
 - Le langage est-il homogène d'un bout à l'autre ?
 - Les termes techniques sont-ils employés à bon escient ?
@@ -107,24 +112,28 @@ Passez en revue l'ensemble du document en gardant à l'esprit les principes fond
 Effectuez des améliorations ciblées :
 
 **Améliorer la Fluidité :**
+
 - Ajoutez des phrases de transition entre les sections
 - Adoucissez les changements de sujet soudains
 - Assurez une progression logique
 - Connectez les concepts liés à travers les différentes sections
 
 **Réduire les Duplications :**
+
 - Consolidez les informations répétées
 - Conservez le contenu dans la section la plus pertinente
 - Favorisez les références croisées au lieu de la pure répétition
 - Supprimez les explications redondantes
 
 **Renforcer la Cohérence :**
+
 - Maintenez une terminologie constante d'un bout à l'autre
 - Alignez toutes les sections selon le facteur de différenciation du produit
 - Conservez un ton et une voix homogènes
 - Vérifiez la constance du périmètre (Scope) à travers les sections
 
 **Optimiser les Titres :**
+
 - Assurez-vous que toutes les sections principales utilisent ##
 - Rendez les en-têtes narratifs et orientés "action"
 - Vérifiez que les en-têtes respectent des modèles uniformes
@@ -135,6 +144,7 @@ Effectuez des améliorations ciblées :
 **Durant le polissage, assurez-vous de ne RIEN perdre d'essentiel :**
 
 **À PÉRÉSERVER IMPÉRATIVEMENT (Must Preserve) :**
+
 - Tous les critères de succès utilisateur
 - Toutes les exigences fonctionnelles (contrat de capacité / capability contract)
 - Tous les récits narratifs des parcours utilisateurs (Journeys)
@@ -145,6 +155,7 @@ Effectuez des améliorations ciblées :
 - L'analyse d'innovation (si présente)
 
 **Peut-être consolidé (Can Consolidate) :**
+
 - Des explications multipliées d'un même concept
 - Des éléments de contexte (background) redondants
 - Des versions multiples de contenu similaire
@@ -155,6 +166,7 @@ Effectuez des améliorations ciblées :
 Créez la version polie définitive :
 
 **Processus de Peaufinage :**
+
 1. Partez du document original
 2. Appliquez toutes les actions d'optimisation
 3. Révisez pour acter qu'aucune essence n'a été dilapidée
@@ -164,6 +176,7 @@ Créez la version polie définitive :
 ### 6. Présenter les OPTIONS DU MENU
 
 Présentez le document poli pour révision, puis affichez le menu final interactif :
+
 - Montrez purement ce qui fut modifié de l'original
 - Mettez en valeur les succès d'amélioration (Fluidité, doublons, ancrage titres)
 - Requérez s'ils souhaitent fignoler de fond en comble, solliciter une contre-analyse, ou passer à la suite.
@@ -172,12 +185,14 @@ Présentez le document poli pour révision, puis affichez le menu final interact
 Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer pour Terminer le PRD (Étape 12 sur 12)"
 
 #### Logique de Gestion du Menu :
+
 - SI A : Invoquez la compétence `bmad-advanced-elicitation` sur le document lissé poli, traitez les affinements qui en ressortent, interrogez l'usager "Acceptez-vous d'acter ces brillances textuelles ? (o/n)", en cas d'accord altérez formellement le résultat puis rouvrez le menu, sinon figez la forme initiale puis rouvrez le menu.
 - SI P : Invoquez la compétence `bmad-party-mode` sur le document retravaillé, assimilez la passe globale d'inspection croisée/cohérence participative, demandez "Approuvez-vous ces modifications sur le Polissage ? (o/n)", en cas de oui sauvez les retouches puis réaffichez le portail, sans quoi gardez la pure version vôtre avant retour au portail/menu.
 - SI C : Sauvegardez le document poli final pur dans `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-12-complete.md`
 - SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
 #### RÈGLES D'EXÉCUTION :
+
 - TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
 - NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 - Après l'exécution d'autres options du menu, retournez à ce menu

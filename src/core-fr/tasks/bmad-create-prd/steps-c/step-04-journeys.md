@@ -43,6 +43,7 @@ Analysez le product brief, les recherches, et les documents de brainstorming à 
 
 **Si des Personas Utilisateurs Existent dans les Documents d'Entrée :**
 Guidez l'utilisateur pour construire sur la base des personas existants :
+
 - Reconnaissez les personas trouvés dans son product brief
 - Extrayez les détails clés du persona et son histoire personnelle (backstory)
 - Tirez parti des informations (insights) existantes concernant ses besoins
@@ -52,6 +53,7 @@ Guidez l'utilisateur pour construire sur la base des personas existants :
 
 **Si Aucun Persona dans les Documents d'Entrée :**
 Commencez par une découverte exhaustive des types d'utilisateurs :
+
 - Guidez l'exploration de TOUTES les personnes qui interagissent avec le système
 - Considérez au-delà des utilisateurs primaires : administrateurs, modérateurs, personnel de support, consommateurs d'API, opérations internes
 - Demandez quels types d'utilisateurs devraient être cartographiés pour ce produit spécifique
@@ -65,12 +67,14 @@ Pour chaque type d'utilisateur, créez des parcours narratifs captivants qui rac
 
 **Si vous utilisez un Persona Existant issu des Documents d'Entrée :**
 Guidez la création du parcours narratif :
+
 - Utilisez l'histoire personnelle (backstory) existante du persona issue du brief
 - Explorez comment le produit change sa vie/sa situation
 - Élaborez un récit (narrative) de parcours : où les rencontrons-nous, comment le produit les aide-t-il à écrire leur prochain chapitre ?
 
 **Si vous créez un Nouveau Persona :**
 Guidez la création du persona avec un cadre narratif (story framework) :
+
 - Nom : nom réaliste et personnalité
 - Situation : Que se passe-t-il dans leur vie/travail qui crée ou engendre le besoin ?
 - Objectif : Que veulent-ils désespérément accomplir (ou obtenir) ?
@@ -80,6 +84,7 @@ Guidez la création du persona avec un cadre narratif (story framework) :
 **Cartographie de Parcours Basée sur une Histoire (Story-Based Journey Mapping) :**
 
 Guidez la création du parcours narratif en utilisant la structure classique d'une histoire :
+
 - **Scène d'Ouverture (Opening Scene)** : Où/comment les rencontrons-nous ? Quelle est leur douleur actuelle ?
 - **Action Ascendante (Rising Action)** : Quelles étapes franchissent-ils ? Que découvrent-ils ?
 - **Climax** : L'instant critique où le produit délivre (ou crée) la véritable valeur
@@ -90,6 +95,7 @@ Encouragez le format narratif renfermant des reliefs tangibles, l'arc émotionne
 ### 3. Guider l'Exploration du Parcours
 
 Pour chaque parcours scindé, facilitez l'exploration détaillée :
+
 - Que se passe-t-il de façon ponctuelle (étape par étape) à chaque embranchement micro ?
 - Que se passera-t-il si tout tourne mal/de travers ? Quel est le chemin de rattrapage/récupération face aux échecs (error recovery path) ?
 - Quelles informations nécessitent-ils de devoir scruter visuellement (ou entendre) ?
@@ -99,6 +105,7 @@ Pour chaque parcours scindé, facilitez l'exploration détaillée :
 ### 4. Connecter les Parcours aux Exigences (Requirements)
 
 Dans le sillage/traînée de chaque route narrative majeure établie ; annoncez expressément :
+
 - Que les chemins narratifs dégagent et révèlent d'emblée des nécessités vitales pures appelées ou catégorisées 'capacité' (fonctions informatiques, capacités réelles sous le moteur)
 - Aidez le concepteur à anticiper comment deux aventures ou voies diverses engendreraient en coulisses des configurations et boîtes fonctionnelles (feature sets) disparates
 - Fusionnez d'un raccord fort un besoin abstrait purement scénarisé par ceux-ci aux éléments concrets obligés d'exister en arrière plan (Onboarding en temps réel, matrices de tableaux de bord ou dashboards en direct, les envois massifs de notifications croisées...)
@@ -135,6 +142,7 @@ Lors de la sauvegarde finale (save), incrustez en suite du document ces balisage
 ### 7. Présenter les OPTIONS DU MENU
 
 Présentez le contenu du parcours utilisateur pour revue, puis affichez le menu :
+
 - Affichez les parcours utilisateurs cartographiés (en utilisant la structure de la section 6)
 - Soulignez (Mettez en valeur) la manière dont chaque parcours révèle de nouvelles capacités
 - Demandez s'il souhaite peaufiner le tout, s'adjuger des yeux ou avis tiers, ou poursuivre
@@ -143,12 +151,14 @@ Présentez le contenu du parcours utilisateur pour revue, puis affichez le menu 
 Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers les Exigences du Domaine (Étape 5 sur 11)"
 
 #### Logique de Gestion du Menu :
+
 - SI A : Invoquez la compétence `bmad-advanced-elicitation` avec le contenu du parcours actuel, traitez les idées/découvertes améliorées qui en reviennent, demandez à l'utilisateur : "Accepter ces améliorations pour les parcours utilisateurs ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
 - SI P : Invoquez la compétence `bmad-party-mode` avec les parcours actuels, traitez les ajouts et les améliorations collaboratifs sur les parcours, demandez à l'utilisateur : "Accepter ces changements dans les parcours utilisateurs ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
 - SI C : Ajoutez (append) le contenu final à `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-05-domain.md`
 - SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
 #### RÈGLES D'EXÉCUTION :
+
 - TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
 - NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 - Après l'exécution d'autres options du menu, retournez à ce menu

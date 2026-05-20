@@ -66,12 +66,14 @@ Analyser le PRD legacy par rapport aux standards BMAD, identifier les lacunes, p
 **Charger le PRD et prd-purpose.md**
 
 **Pour chaque section du PRD BMAD, analysez :**
+
 1. Le PRD contient-il cette section ? (Résumé Analytique, Critères de Succès, Périmètre du Produit, Parcours Utilisateurs, Exigences Fonctionnelles, Exigences Non Fonctionnelles)
 2. Si présente : Est-elle complète et bien structurée ?
 3. Si manquante : Quel contenu existant pourrait migrer vers cette section ?
 4. Effort pour créer/compléter : Minimal / Modéré / Significatif
 
 **Identifier :**
+
 - Sections de base présentes : {count}/6
 - Lacunes de contenu dans chaque section.
 - Effort global de conversion : Rapide / Modéré / Substantiel
@@ -80,6 +82,7 @@ Analyser le PRD legacy par rapport aux standards BMAD, identifier les lacunes, p
 Retourner l'évaluation de conversion avec l'analyse des lacunes et l'estimation de l'effort."
 
 **Dégradation gracieuse (si l'outil Task est indisponible) :**
+
 - Vérifier manuellement chaque section BMAD dans le PRD.
 - Noter ce qui est présent et ce qui manque.
 - Estimer l'effort de conversion.
@@ -90,36 +93,43 @@ Retourner l'évaluation de conversion avec l'analyse des lacunes et l'estimation
 **Pour chaque section de base BMAD :**
 
 **Résumé Analytique :**
+
 - Présent : [Oui/Non/Partiel]
 - Lacune : [ce qui est manquant ou incomplet]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
 **Critères de Succès :**
+
 - Présent : [Oui/Non/Partiel]
 - Lacune : [ce qui est manquant ou incomplet]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
 **Périmètre du Produit :**
+
 - Présent : [Oui/Non/Partiel]
 - Lacune : [ce qui est manquant ou incomplet]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
 **Parcours Utilisateurs :**
+
 - Présent : [Oui/Non/Partiel]
 - Lacune : [ce qui est manquant ou incomplet]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
 **Exigences Fonctionnelles :**
+
 - Présent : [Oui/Non/Partiel]
 - Lacune : [ce qui est manquant ou incomplet]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
 **Exigences Non Fonctionnelles :**
+
 - Présent : [Oui/Non/Partiel]
 - Lacune : [ce qui est manquant ou incomplet]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
 **Évaluation Globale :**
+
 - Sections présentes : {count}/6
 - Effort total de conversion : [Rapide/Modéré/Substantiel]
 - Recommandé : [Restructuration complète / Améliorations ciblées]
@@ -131,8 +141,9 @@ Affichez :
 "**Évaluation de la Conversion du PRD Legacy**
 
 **Structure actuelle du PRD :**
+
 - Sections de base présentes : {count}/6
-{Listez quelles sections sont présentes/manquantes}
+  {Listez quelles sections sont présentes/manquantes}
 
 **Analyse des lacunes :**
 

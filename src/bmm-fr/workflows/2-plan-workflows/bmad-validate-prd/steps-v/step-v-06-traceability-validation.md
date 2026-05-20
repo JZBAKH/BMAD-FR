@@ -71,12 +71,14 @@ Valider que la chaîne de traçabilité Résumé Opérationnel → Critères de 
 5. Extraire le Périmètre du Produit (éléments inclus)
 
 **Valider les chaînes :**
+
 - Résumé Opérationnel → Critères de Succès : La vision est-elle alignée avec le succès défini ?
 - Critères de Succès → Parcours Utilisateurs : Les critères de succès sont-ils soutenus par des parcours utilisateurs ?
 - Parcours Utilisateurs → Exigences Fonctionnelles : Chaque RF remonte-t-elle à un parcours utilisateur ?
 - Périmètre → RF : Les RF du périmètre MVP sont-elles alignées avec les éléments inclus ?
 
 **Identifier les orphelins :**
+
 - RF non traçables à un parcours utilisateur ou un objectif métier
 - Critères de succès non soutenus par des parcours utilisateurs
 - Parcours utilisateurs sans RF de soutien
@@ -90,6 +92,7 @@ Retourner les conclusions structurées avec le statut de la chaîne et la liste 
 Si l'outil Task est indisponible, effectuer l'analyse directement :
 
 **Étape 1 : Extraire les éléments clés**
+
 - Résumé Opérationnel : Noter la vision, les buts, les objectifs
 - Critères de Succès : Lister tous les critères
 - Parcours Utilisateurs : Lister les types d'utilisateurs et leurs flux
@@ -97,25 +100,30 @@ Si l'outil Task est indisponible, effectuer l'analyse directement :
 - Périmètre du Produit : Lister les éléments inclus
 
 **Étape 2 : Valider Résumé Opérationnel → Critères de Succès**
+
 - Le Résumé Opérationnel mentionne-t-il les dimensions du succès ?
 - Les Critères de Succès sont-ils alignés avec la vision ?
 - Noter tout désalignement
 
 **Étape 3 : Valider Critères de Succès → Parcours Utilisateurs**
+
 - Pour chaque critère de succès, y a-t-il un parcours utilisateur qui l'atteint ?
 - Noter les critères de succès sans parcours de soutien
 
 **Étape 4 : Valider Parcours Utilisateurs → RF**
+
 - Pour chaque parcours utilisateur/flux, y a-t-il des RF qui le permettent ?
 - Lister les RF sans origine claire dans un parcours utilisateur
 - Noter les RF orphelines (exigences sans source traçable)
 
 **Étape 5 : Valider Périmètre → Alignement des RF**
+
 - Le périmètre MVP est-il aligné avec les RF essentielles ?
 - Les éléments inclus sont-ils soutenus par des RF ?
 - Noter les désalignements
 
 **Étape 6 : Construire la matrice de traçabilité**
+
 - Associer chaque RF à sa source (parcours ou objectif métier)
 - Noter les RF orphelines
 - Identifier les chaînes rompues
@@ -123,12 +131,14 @@ Si l'outil Task est indisponible, effectuer l'analyse directement :
 ### 3. Décompte des problèmes de traçabilité
 
 **Chaînes rompues :**
+
 - Lacunes Résumé Opérationnel → Critères de Succès : nombre
 - Lacunes Critères de Succès → Parcours Utilisateurs : nombre
 - Lacunes Parcours Utilisateurs → RF : nombre
 - Désalignements Périmètre → RF : nombre
 
 **Éléments orphelins :**
+
 - RF orphelines (pas de source traçable) : nombre
 - Critères de succès non soutenus : nombre
 - Parcours utilisateurs sans RF : nombre

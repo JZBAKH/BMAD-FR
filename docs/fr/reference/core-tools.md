@@ -14,7 +14,7 @@ Exécutez n'importe quel outil principal en tapant son nom de compétence (par e
 ## Vue d'ensemble
 
 | Outil                                                                 | Type     | Objectif                                                                     |
-|-----------------------------------------------------------------------|----------|------------------------------------------------------------------------------|
+| --------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------- |
 | [`bmad-help`](#bmad-help)                                             | Tâche    | Obtenir des conseils contextuels sur la prochaine étape                      |
 | [`bmad-brainstorming`](#bmad-brainstorming)                           | Workflow | Faciliter des sessions de brainstorming interactives                         |
 | [`bmad-party-mode`](#bmad-party-mode)                                 | Workflow | Orchestrer des discussions de groupe multi-agents                            |
@@ -295,4 +295,3 @@ Exécutez à la fois `bmad-review-adversarial-general` et `bmad-review-edge-case
 ## Glossaire
 
 [^1]: Path-tracing : méthode d'analyse qui suit systématiquement tous les chemins d'exécution possibles dans un programme pour identifier les cas non gérés.
-

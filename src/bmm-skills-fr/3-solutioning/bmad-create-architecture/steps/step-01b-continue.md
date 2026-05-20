@@ -162,6 +162,7 @@ Une fois que l'utilisateur a fait son choix :
 Une fois que l'utilisateur a sélectionné son option de poursuite, chargez le fichier d'étape approprié en fonction de son choix. Le fichier d'étape gérera le travail détaillé à partir de ce point.
 
 Fichiers d'étape valides à charger :
+
 - `./step-02-context.md`
 - `./step-03-starter.md`
 - `./step-04-decisions.md`

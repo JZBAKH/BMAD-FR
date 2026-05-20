@@ -1,6 +1,6 @@
 ---
 name: bmad-editorial-review-structure
-description: 'Éditeur structurel qui propose des coupes, des réorganisations et des simplifications tout en préservant la compréhension. À utiliser quand l''utilisateur demande une revue structurelle ou une revue éditoriale de structure'
+description: "Éditeur structurel qui propose des coupes, des réorganisations et des simplifications tout en préservant la compréhension. À utiliser quand l'utilisateur demande une revue structurelle ou une revue éditoriale de structure"
 ---
 
 # Revue Éditoriale - Structure
@@ -12,6 +12,7 @@ description: 'Éditeur structurel qui propose des coupes, des réorganisations e
 > **OUTREPASSEMENT DU GUIDE DE STYLE :** Si une entrée style_guide est fournie, elle outrepasse TOUS les principes génériques de cette tâche (y compris human-reader-principles, llm-reader-principles, priorités spécifiques au reader_type, sélection des structure-models, et la base Microsoft Writing Style Guide). La SEULE exception est CONTENT IS SACROSANCT -- ne changez jamais ce que disent les idées, seulement comment elles sont exprimées. Quand le guide de style entre en conflit avec cette tâche, le guide de style l'emporte.
 
 **Entrées :**
+
 - **content** (requis) -- Document à examiner (markdown, texte brut, ou contenu structuré)
 - **style_guide** (optionnel) -- Guide de style spécifique au projet. Quand fourni, outrepasse tous les principes génériques de cette tâche (sauf CONTENT IS SACROSANCT). Le guide de style est l'autorité finale sur le ton, la structure, et les choix de langage.
 - **purpose** (optionnel) -- Objectif prévu du document (par ex. 'tutoriel quickstart', 'référence API', 'aperçu conceptuel')
@@ -60,30 +61,40 @@ Quand reader_type='llm', optimisez pour la PRÉCISION et la NON-AMBIGUÏTÉ :
 ## Modèles de Structure
 
 ### Tutoriel/Guide (Linéaire)
+
 **Applicabilité :** Tutoriels, guides détaillés, articles how-to, marches à suivre
+
 - Prérequis : Mise en place/Contexte DOIT précéder l'action
 - Séquence : Les étapes doivent suivre un ordre strict de dépendance chronologique ou logique
 - Orienté objectif : « Définition du Terminé » claire à la fin
 
 ### Référence/Base de Données
+
 **Applicabilité :** Docs API, glossaires, références de configuration, aide-mémoires
+
 - Accès aléatoire : Aucun flux narratif requis ; l'utilisateur saute à un élément spécifique
 - MECE : Les sujets sont Mutuellement Exclusifs et Collectivement Exhaustifs
 - Schéma cohérent : Chaque élément suit une structure identique (par ex. Signature à Params à Returns)
 
 ### Explication (Conceptuelle)
+
 **Applicabilité :** Plongées approfondies, vues d'ensemble d'architecture, guides conceptuels, livres blancs, contexte projet
+
 - Abstrait à concret : Définition à Contexte à Implémentation/Exemple
 - Échafaudage : Idées complexes construites sur des fondations établies
 
 ### Définition de Prompt/Tâche (Fonctionnelle)
+
 **Applicabilité :** Tâches BMAD, prompts, instructions système, définitions XML
+
 - Méta d'abord : Entrées, contraintes d'usage, et contexte définis avant les instructions
 - Séparation des préoccupations : Instructions (logique) séparées des Données (contenu)
 - Pas-à-pas : Le flux d'exécution doit être explicite et ordonné
 
 ### Stratégique/Contexte (Pyramide)
+
 **Applicabilité :** PRDs, rapports de recherche, propositions, registres de décisions
+
 - Top-down : Conclusion/Statut/Recommandation commence le document
 - Groupement : Contexte de support groupé logiquement en dessous du titre
 - Ordre : Information la plus critique en premier
@@ -150,6 +161,7 @@ Utilisez le format de sortie suivant :
 
 ```markdown
 ## Document Summary
+
 - **Purpose:** [inferred or provided purpose]
 - **Audience:** [inferred or provided audience]
 - **Reader type:** [selected reader type]
@@ -159,6 +171,7 @@ Utilisez le format de sortie suivant :
 ## Recommendations
 
 ### 1. [CUT/MERGE/MOVE/CONDENSE/QUESTION/PRESERVE] - [Section or element name]
+
 **Rationale:** [One sentence explanation]
 **Impact:** ~[X] words
 **Comprehension note:** [If applicable, note impact on reader understanding]
@@ -166,6 +179,7 @@ Utilisez le format de sortie suivant :
 ### 2. ...
 
 ## Summary
+
 - **Total recommendations:** [N]
 - **Estimated reduction:** [X] words ([Y]% of original)
 - **Meets length target:** [Yes/No/No target specified]

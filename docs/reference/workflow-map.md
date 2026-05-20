@@ -1,5 +1,5 @@
 ---
-title: "Workflow Map"
+title: 'Workflow Map'
 description: Visual reference for BMad Method workflow phases and outputs
 sidebar:
   order: 1
@@ -34,7 +34,7 @@ Explore the problem space and validate ideas before committing to planning. [**L
 it**](../explanation/analysis-phase.md).
 
 | Workflow                                                                  | Purpose                                                                    | Produces                  |
-|---------------------------------------------------------------------------|----------------------------------------------------------------------------|---------------------------|
+| ------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------- |
 | `bmad-brainstorming`                                                      | Brainstorm Project Ideas with guided facilitation of a brainstorming coach | `brainstorming-report.md` |
 | `bmad-domain-research`, `bmad-market-research`, `bmad-technical-research` | Validate market, technical, or domain assumptions                          | Research findings         |
 | `bmad-product-brief`                                                      | Capture strategic vision — best when your concept is clear                 | `product-brief.md`        |
@@ -44,10 +44,10 @@ it**](../explanation/analysis-phase.md).
 
 Define what to build and for whom.
 
-| Workflow                | Purpose                                                                             | Produces                                          |
-|-------------------------|-------------------------------------------------------------------------------------|---------------------------------------------------|
+| Workflow                | Purpose                                                                               | Produces                                                                                              |
+| ----------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | `bmad-prd`              | Create, update, or validate a PRD — facilitated discovery, three intents in one skill | Create/Update: `prd.md`, `addendum.md`, `decision-log.md`; Validate: `validation-report.html` + `.md` |
-| `bmad-create-ux-design` | Design user experience (when UX matters)                                            | `ux-spec.md`                                      |
+| `bmad-create-ux-design` | Design user experience (when UX matters)                                              | `ux-spec.md`                                                                                          |
 
 :::tip[Three intents in one skill]
 `bmad-prd` handles the full PRD lifecycle. State your intent when invoking or the skill will ask:
@@ -55,7 +55,7 @@ Define what to build and for whom.
 - **Create** — new PRD from scratch via coached discovery; produces `prd.md`, `addendum.md`, and `decision-log.md`
 - **Update** — reconcile an existing PRD with a change signal, surfacing conflicts before applying changes
 - **Validate** — critique a PRD against a configurable checklist and produce a structured HTML findings report
-:::
+  :::
 
 :::tip[Upstream: `bmad-product-brief`]
 `bmad-product-brief` (Phase 1) produces a `product-brief.md` that `bmad-prd` can source-extract during Discovery, reducing re-explanation and keeping the two documents aligned. Neither skill requires the other — start with `bmad-prd` directly if you already know what you're building.
@@ -66,7 +66,7 @@ Define what to build and for whom.
 Decide how to build it and break work into stories.
 
 | Workflow                              | Purpose                                    | Produces                    |
-|---------------------------------------|--------------------------------------------|-----------------------------|
+| ------------------------------------- | ------------------------------------------ | --------------------------- |
 | `bmad-create-architecture`            | Make technical decisions explicit          | `architecture.md` with ADRs |
 | `bmad-create-epics-and-stories`       | Break requirements into implementable work | Epic files with stories     |
 | `bmad-check-implementation-readiness` | Gate check before implementation           | PASS/CONCERNS/FAIL decision |
@@ -75,23 +75,23 @@ Decide how to build it and break work into stories.
 
 Build it, one story at a time. Coming soon, full phase 4 automation!
 
-| Workflow               | Purpose                                                                       | Produces                                             |
-|------------------------|-------------------------------------------------------------------------------|------------------------------------------------------|
-| `bmad-sprint-planning` | Initialize tracking (once per project to sequence the dev cycle)              | `sprint-status.yaml`                                 |
-| `bmad-create-story`    | Prepare next story for implementation                                         | `story-[slug].md`                                    |
-| `bmad-dev-story`       | Implement the story                                                           | Working code + tests                                 |
-| `bmad-code-review`     | Validate implementation quality                                               | Approved or changes requested                        |
-| `bmad-correct-course`  | Handle significant mid-sprint changes                                         | Updated plan or re-routing                           |
-| `bmad-sprint-status`   | Track sprint progress and story status                                        | Sprint status update                                 |
-| `bmad-retrospective`   | Review after epic completion                                                  | Lessons learned                                      |
-| `bmad-investigate`     | Forensic case investigation with evidence-graded findings, calibrated to the input | `{slug}-investigation.md` |
+| Workflow               | Purpose                                                                            | Produces                      |
+| ---------------------- | ---------------------------------------------------------------------------------- | ----------------------------- |
+| `bmad-sprint-planning` | Initialize tracking (once per project to sequence the dev cycle)                   | `sprint-status.yaml`          |
+| `bmad-create-story`    | Prepare next story for implementation                                              | `story-[slug].md`             |
+| `bmad-dev-story`       | Implement the story                                                                | Working code + tests          |
+| `bmad-code-review`     | Validate implementation quality                                                    | Approved or changes requested |
+| `bmad-correct-course`  | Handle significant mid-sprint changes                                              | Updated plan or re-routing    |
+| `bmad-sprint-status`   | Track sprint progress and story status                                             | Sprint status update          |
+| `bmad-retrospective`   | Review after epic completion                                                       | Lessons learned               |
+| `bmad-investigate`     | Forensic case investigation with evidence-graded findings, calibrated to the input | `{slug}-investigation.md`     |
 
 ## Quick Flow (Parallel Track)
 
 Skip phases 1-3 for small, well-understood work.
 
 | Workflow         | Purpose                                                                   | Produces           |
-|------------------|---------------------------------------------------------------------------|--------------------|
+| ---------------- | ------------------------------------------------------------------------- | ------------------ |
 | `bmad-quick-dev` | Unified quick flow — clarify intent, plan, implement, review, and present | `spec-*.md` + code |
 
 ## Context Management

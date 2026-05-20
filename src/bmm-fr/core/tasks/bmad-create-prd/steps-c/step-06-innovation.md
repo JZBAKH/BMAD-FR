@@ -78,6 +78,7 @@ Faites correspondre les descriptions de l'utilisateur avec les `innovation_signa
 ### 3. Examen/Filtre Initial de l'Innovation
 
 Posez des questions ciblées pour découvrir l'innovation :
+
 - Guidez l'exploration de ce qui rend le produit innovant
 - Cherchez à savoir s'ils remettent en question (challengent) les hypothèses existantes
 - Posez des questions sur les combinaisons novatrices de technologies/approches
@@ -89,6 +90,7 @@ Posez des questions ciblées pour découvrir l'innovation :
 Si des signaux d'innovation sont détectés, explorez-les en profondeur :
 
 #### Questions de Découverte de l'Innovation :
+
 - Qu'est-ce qui le rend unique par rapport aux solutions existantes ?
 - Quelle hypothèse de base remettez-vous en question ?
 - Comment allons-nous valider que cela fonctionne ?
@@ -132,6 +134,7 @@ Lors de la sauvegarde locale (save), ajoutez au document ces balisages exacts de
 ### 6. Présenter les OPTIONS DU MENU (Uniquement si une Innovation est Détectée)
 
 Présentez le contenu sur l'innovation à l'utilisateur pour révision (review), puis affichez le menu :
+
 - Affichez les aspects innovants identifiés (en utilisant la structure de la section 5)
 - Soulignez (Mettez en valeur) la différenciation par rapport aux solutions existantes
 - Demandez s'ils souhaitent peaufiner, élargir ses horizons par un regard neuf ou verrouiller l'étape
@@ -140,12 +143,14 @@ Présentez le contenu sur l'innovation à l'utilisateur pour révision (review),
 Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers l'Analyse du Type de Projet (Étape 7 sur 11)"
 
 #### Logique de Gestion du Menu :
+
 - SI A : Invoquez la compétence `bmad-advanced-elicitation` avec le contenu actuel sur l'innovation, traitez les idées/découvertes améliorées qui en reviennent, demandez à l'utilisateur : "Accepter ces améliorations pour l'analyse de l'innovation ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
 - SI P : Invoquez la compétence `bmad-party-mode` avec le contenu actuel sur l'innovation, traitez l'exploration collaborative et les idées (ideation), demandez à l'utilisateur : "Accepter ces changements pour l'analyse de l'innovation ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
 - SI C : Ajoutez (append) le contenu final à `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-07-project-type.md`
 - SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
 #### RÈGLES D'EXÉCUTION :
+
 - TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
 - NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 - Après l'exécution d'autres options du menu, retournez à ce menu
@@ -153,6 +158,7 @@ Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation)
 ## AUCUNE INNOVATION DÉTECTÉE :
 
 Si aucun signal d'innovation véritable n'est trouvé après l'exploration :
+
 - Reconnaissez qu'aucun signal d'innovation clair n'a été trouvé
 - Notez que c'est tout à fait acceptable - de nombreux produits performants sont d'excellentes exécutions de concepts existants
 - Demandez s'ils souhaitent essayer de trouver des angles novateurs ou s'il faut continuer
@@ -160,10 +166,12 @@ Si aucun signal d'innovation véritable n'est trouvé après l'exploration :
 Affichez : "**Sélectionnez :** [A] Élicitation Avancée - Essayons de trouver des angles innovants [C] Continuer - Sauter la section innovation et passer à l'Analyse du Type de Projet (Étape 7 sur 11)"
 
 ### Logique de Gestion du Menu :
+
 - SI A : Procédez à la génération de contenu malgré tout (pour trouver l'angle mort), puis retournez au menu
 - SI C : Sautez (Skip) cette étape, puis lisez intégralement et suivez : `./step-07-project-type.md`
 
 ### RÈGLES D'EXÉCUTION :
+
 - TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
 - NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 

@@ -77,6 +77,7 @@ Rechercher sur le web : "importance et signification de {{research_topic}}"
 ### 3. Synthétiser Toutes les Sections de Recherche
 
 **Intégration Section par Section :**
+
 - Combiner l'analyse de l'industrie de l'étape 02.
 - Intégrer le focus réglementaire de l'étape 03.
 - Incorporer les tendances techniques de l'étape 04.
@@ -95,12 +96,14 @@ Rechercher sur le web : "importance et signification de {{research_topic}}"
 [2 à 3 paragraphes résumant les découvertes les plus critiques et les implications stratégiques pour {{research_topic}} sur la base d'une recherche actuelle et complète]
 
 **Principales Découvertes :**
+
 - [Dynamique de marché la plus significative]
 - [Considérations réglementaires critiques]
 - [Tendances technologiques importantes]
 - [Implications stratégiques]
 
 **Recommandations Stratégiques :**
+
 - [Top 3 à 5 recommandations actionnables basées sur la recherche]
 
 ## Table des Matières
@@ -119,11 +122,13 @@ Rechercher sur le web : "importance et signification de {{research_topic}}"
 ## 1. Introduction et Méthodologie de la Recherche
 
 ### Importance de la Recherche
+
 [Récit convaincant expliquant pourquoi la recherche sur {{research_topic}} est critique en ce moment]
 _Pourquoi cette recherche compte aujourd'hui : [Importance stratégique avec le contexte actuel]_
 _Source : [URL]_
 
 ### Méthodologie de Recherche
+
 [Description complète de l'approche de recherche incluant :]
 
 - **Périmètre de recherche** : [Domaines de couverture complets]
@@ -133,9 +138,11 @@ _Source : [URL]_
 - **Couverture géographique** : [Portée régionale/mondiale]
 
 ### Objectifs de la Recherche
+
 **Objectifs initiaux :** {{research_goals}}
 
 **Objectifs atteints :**
+
 - [Réalisation de l'objectif 1 avec preuves à l'appui]
 - [Réalisation de l'objectif 2 avec preuves à l'appui]
 - [Insights supplémentaires découverts lors de la recherche]
@@ -143,6 +150,7 @@ _Source : [URL]_
 ## 2. Aperçu de l'Industrie et Dynamique du Marché de {{research_topic}}
 
 ### Taille du Marché et Projections de Croissance
+
 [Analyse de marché complète synthétisée à partir de l'étape 02 avec des données actuelles]
 _Taille du marché : [Valorisation actuelle du marché]_
 _Taux de croissance : [CAGR et projections]_
@@ -150,6 +158,7 @@ _Moteurs du marché : [Facteurs clés de croissance]_
 _Source : [URL]_
 
 ### Structure de l'Industrie et Chaîne de Valeur
+
 [Analyse complète de la structure de l'industrie]
 _Composants de la chaîne de valeur : [Décomposition détaillée]_
 _Segments de l'industrie : [Analyse de la segmentation du marché]_
@@ -159,6 +168,7 @@ _Source : [URL]_
 ## 3. Paysage Technologique et Tendances de l'Innovation
 
 ### Adoption Actuelle de la Technologie
+
 [Analyse des tendances techniques issue de l'étape 04 avec le contexte actuel]
 _Technologies émergentes : [Technologies clés affectant {{research_topic}}]_
 _Modèles d'adoption : [Taux et modèles d'adoption technologique]_
@@ -166,6 +176,7 @@ _Moteurs de l'innovation : [Facteurs stimulant le changement technologique]_
 _Source : [URL]_
 
 ### Impact de la Transformation Digitale
+
 [Analyse complète de l'impact de la technologie sur {{research_topic}}]
 _Tendances de la transformation : [Principaux modèles de transformation digitale]_
 _Opportunités de rupture : [Opportunités basées sur la technologie]_
@@ -175,6 +186,7 @@ _Source : [URL]_
 ## 4. Cadre Réglementaire et Exigences de Conformité
 
 ### Paysage Réglementaire Actuel
+
 [Analyse réglementaire issue de l'étape 03 avec mises à jour actuelles]
 _Réglementations clés : [Exigences réglementaires critiques]_
 _Normes de conformité : [Normes industrielles et meilleures pratiques]_
@@ -182,6 +194,7 @@ _Changements récents : [Mises à jour réglementaires actuelles et implications
 _Source : [URL]_
 
 ### Considérations sur les Risques et la Conformité
+
 [Évaluation complète des risques]
 _Risques de conformité : [Principaux risques réglementaires et de conformité]_
 _Stratégies d'atténuation des risques : [Approches pour gérer les risques réglementaires]_
@@ -191,6 +204,7 @@ _Source : [URL]_
 ## 5. Paysage Concurrentiel et Analyse de l'Écosystème
 
 ### Positionnement sur le Marché et Acteurs Clés
+
 [Analyse concurrentielle avec le positionnement actuel sur le marché]
 _Leaders du marché : [Acteurs dominants et stratégies]_
 _Concurrents émergents : [Nouveaux entrants et approches innovantes]_
@@ -198,6 +212,7 @@ _Dynamique concurrentielle : [Modèles et tendances de la concurrence sur le mar
 _Source : [URL]_
 
 ### Paysage de l'Écosystème et des Partenariats
+
 [Analyse complète de l'écosystème]
 _Acteurs de l'écosystème : [Parties prenantes clés et relations]_
 _Opportunités de partenariat : [Potentiel de collaboration stratégique]_
@@ -207,6 +222,7 @@ _Source : [URL]_
 ## 6. Insights Stratégiques et Opportunités du Domaine
 
 ### Synthèse Transversale
+
 [Insights stratégiques issus de l'intégration de toutes les sections de recherche]
 _Convergence Marché-Technologie : [Comment les forces du marché et de la technologie interagissent]_
 _Alignement Réglementaire-Stratégique : [Comment l'environnement réglementaire façonne la stratégie]_
@@ -214,6 +230,7 @@ _Opportunités de positionnement concurrentiel : [Avantages stratégiques basés
 _Source : [URL]_
 
 ### Opportunités Stratégiques
+
 [Opportunités à forte valeur identifiées grâce à une recherche complète]
 _Opportunités de marché : [Opportunités spécifiques d'entrée ou d'expansion sur le marché]_
 _Opportunités technologiques : [Opportunités d'adoption technologique ou d'innovation]_
@@ -223,6 +240,7 @@ _Source : [URL]_
 ## 7. Considérations d'Implémentation et Évaluation des Risques
 
 ### Cadre d'Implémentation
+
 [Conseils d'implémentation pratiques basés sur les découvertes de la recherche]
 _Calendrier d'implémentation : [Approche par étapes recommandée]_
 _Besoins en ressources : [Ressources et capacités clés nécessaires]_
@@ -230,6 +248,7 @@ _Facteurs de succès : [Facteurs critiques de succès pour l'implémentation]_
 _Source : [URL]_
 
 ### Gestion des Risques et Atténuation
+
 [Évaluation complète des risques et stratégies d'atténuation]
 _Risques d'implémentation : [Principaux risques et approches d'atténuation]_
 _Risques de marché : [Risques liés au marché et plans de contingence]_
@@ -239,6 +258,7 @@ _Source : [URL]_
 ## 8. Perspectives Futures et Planification Stratégique
 
 ### Tendances Futures et Projections
+
 [Analyse prospective basée sur une recherche complète]
 _Perspectives à court terme : [Projections et implications à 1-2 ans]_
 _Tendances à moyen terme : [Développements attendus à 3-5 ans]_
@@ -246,6 +266,7 @@ _Vision stratégique à long terme : [Perspectives stratégiques à 5+ ans pour 
 _Source : [URL]_
 
 ### Recommandations Stratégiques
+
 [Recommandations stratégiques complètes]
 _Actions immédiates : [Actions prioritaires pour les 6 prochains mois]_
 _Initiatives stratégiques : [Initiatives stratégiques clés pour les 1-2 ans]_
@@ -255,12 +276,14 @@ _Source : [URL]_
 ## 9. Méthodologie de Recherche et Vérification des Sources
 
 ### Documentation Complète des Sources
+
 [Documentation de toutes les sources de recherche]
 _Sources primaires : [Sources faisant autorité clés utilisées]_
 _Sources secondaires : [Recherches et analyses de soutien]_
 _Requêtes de recherche web : [Liste complète des requêtes de recherche utilisées]_
 
 ### Assurance Qualité de la Recherche
+
 [Approche d'assurance qualité et de validation]
 _Vérification des sources : [Toutes les affirmations factuelles vérifiées par plusieurs sources]_
 _Niveaux de confiance : [Évaluations de la confiance pour les données incertaines]_
@@ -270,12 +293,14 @@ _Transparence méthodologique : [Transparence complète sur l'approche de recher
 ## 10. Annexes et Ressources Complémentaires
 
 ### Tableaux de Données Détaillés
+
 [Tableaux de données complets soutenant les découvertes de la recherche]
 _Tableaux de données de marché : [Données détaillées sur la taille, la croissance et la segmentation du marché]_
 _Données sur l'adoption technologique : [Données détaillées sur l'adoption technologique et les tendances]_
 _Tableaux de référence réglementaire : [Données complètes sur les exigences réglementaires et la conformité]_
 
 ### Ressources Additionnelles
+
 [Ressources précieuses pour la poursuite de la recherche et de l'implémentation]
 _Associations industrielles : [Organisations industrielles clés et ressources]_
 _Organismes de recherche : [Institutions de recherche faisant autorité et rapports]_
@@ -287,12 +312,15 @@ _Réseaux professionnels : [Communautés industrielles et sources de connaissanc
 ## Conclusion de la Recherche
 
 ### Résumé des Principales Découvertes
+
 [Résumé complet des découvertes les plus importantes de la recherche]
 
 ### Évaluation de l'Impact Stratégique
+
 [Évaluation des implications stratégiques pour {{research_topic}}]
 
 ### Recommandations pour les Prochaines Étapes
+
 [Étapes spécifiques pour exploiter cette recherche]
 
 ---
@@ -313,6 +341,7 @@ _Ce document de recherche complet sert de référence faisant autorité sur {{re
 "J'ai terminé la **synthèse du document de recherche complet** pour **{{research_topic}}**, produisant un document de recherche faisant autorité avec :
 
 **Caractéristiques du Document :**
+
 - **Introduction narrative convaincante** : Ouverture engageante établissant l'importance de la recherche.
 - **Table des matières complète** : Structure de navigation totale pour une référence facile.
 - **Couverture de recherche exhaustive** : Tous les aspects de {{research_topic}} analysés en profondeur.
@@ -321,6 +350,7 @@ _Ce document de recherche complet sert de référence faisant autorité sur {{re
 - **Citations complètes des sources** : Chaque affirmation factuelle vérifiée par des sources.
 
 **Complétude de la Recherche :**
+
 - Analyse de l'industrie et dynamique du marché entièrement documentées.
 - Paysage technologique et tendances de l'innovation couverts de manière exhaustive.
 - Cadre réglementaire et exigences de conformité détaillés.
@@ -328,6 +358,7 @@ _Ce document de recherche complet sert de référence faisant autorité sur {{re
 - Insights stratégiques et conseils d'implémentation fournis.
 
 **Normes du document respectées :**
+
 - Recherche exhaustive sans lacunes critiques.
 - Structure professionnelle et récit convaincant.
 - Longueur adaptée pour une couverture complète.
@@ -380,6 +411,7 @@ Lorsque l'utilisateur sélectionne 'C', ajoutez le document de recherche exhaust
 ## NORMES DU DOCUMENT COMPLET :
 
 Cette étape garantit que le document de recherche final :
+
 - Sert de référence faisant autorité sur {{research_topic}}.
 - Fournit un récit convaincant et une structure professionnelle.
 - Inclut une couverture complète sans lacunes.
@@ -390,6 +422,7 @@ Cette étape garantit que le document de recherche final :
 ## FIN DU WORKFLOW DE RECHERCHE DE DOMAINE :
 
 Lorsque 'C' est sélectionné :
+
 - Toutes les étapes de recherche de domaine terminées (1-5).
 - Document de recherche de domaine complet généré.
 - Structure professionnelle avec intro, table des matières et résumé.
@@ -400,6 +433,7 @@ Lorsque 'C' est sélectionné :
 ## LIVRABLE FINAL :
 
 Document de recherche complet et faisant autorité sur {{research_topic}} qui :
+
 - Établit une crédibilité professionnelle par une recherche exhaustive.
 - Fournit des insights stratégiques pour une prise de décision éclairée.
 - Sert de document de référence pour une utilisation continue.

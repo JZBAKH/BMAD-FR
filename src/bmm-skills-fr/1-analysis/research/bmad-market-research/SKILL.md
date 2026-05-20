@@ -1,6 +1,6 @@
 ---
 name: bmad-market-research
-description: 'Mène une étude de marché sur la concurrence et les clients. À utiliser lorsque l''utilisateur dit qu''il a besoin d''une étude de marché'
+description: "Mène une étude de marché sur la concurrence et les clients. À utiliser lorsque l'utilisateur dit qu'il a besoin d'une étude de marché"
 ---
 
 # Workflow d'étude de marché
@@ -45,6 +45,7 @@ Traiter chaque entrée dans `{workflow.persistent_facts}` comme un contexte fond
 ### Étape 4 : Charger la configuration
 
 Charger la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résoudre :
+
 - Utiliser `{user_name}` pour le salut
 - Utiliser `{communication_language}` pour toutes les communications
 - Utiliser `{document_output_language}` pour les documents de sortie
@@ -68,6 +69,7 @@ L'activation est terminée. Commencer le workflow ci-dessous.
 **Quel sujet, problème ou domaine souhaitez-vous étudier ?**
 
 Par exemple :
+
 - 'Le marché du véhicule électrique en Europe'
 - 'Le marché des alternatives alimentaires d''origine végétale'
 - 'Les solutions de paiement mobile en Asie du Sud-Est'
@@ -76,6 +78,7 @@ Par exemple :
 ### Clarification du sujet
 
 Sur la base du sujet de l'utilisateur, clarifier brièvement :
+
 1. **Sujet principal** : "Qu'est-ce qui vous intéresse exactement à propos de [sujet] ?"
 2. **Objectifs de recherche** : "Que souhaitez-vous accomplir avec cette recherche ?"
 3. **Périmètre** : "Devons-nous nous concentrer largement ou plonger en profondeur dans des aspects spécifiques ?"

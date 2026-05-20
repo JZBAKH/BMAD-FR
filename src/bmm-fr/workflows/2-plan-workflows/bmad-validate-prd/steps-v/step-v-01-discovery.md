@@ -1,6 +1,6 @@
 ---
 name: 'step-v-01-discovery'
-description: 'Découverte et confirmation des documents - Gérer la validation dans un contexte nouveau, confirmer le chemin du cahier des charges produit (PRD), découvrir les documents d''entrée'
+description: "Découverte et confirmation des documents - Gérer la validation dans un contexte nouveau, confirmer le chemin du cahier des charges produit (PRD), découvrir les documents d'entrée"
 
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
 nextStepFile: './step-v-02-format-detection.md'
@@ -66,22 +66,27 @@ Ce fichier contient la philosophie BMAD du cahier des charges produit (PRD), les
 ### 2. Découvrir le cahier des charges produit (PRD) à valider
 
 **Si le chemin du cahier des charges produit (PRD) est fourni en paramètre d'invocation :**
+
 - Utiliser le chemin fourni
 
 **Si aucun chemin de cahier des charges produit (PRD) n'est fourni, découverte automatique :**
+
 - Rechercher dans `{planning_artifacts}` les fichiers correspondant à `*prd*.md`
 - Vérifier également les cahiers des charges produit (PRD) shardés : `{planning_artifacts}/*prd*/*.md`
 
 **Si exactement UN cahier des charges produit (PRD) est trouvé :**
+
 - L'utiliser automatiquement
 - Informer l'utilisateur : "Cahier des charges produit (PRD) trouvé : {discovered_path} — utilisé pour la validation."
 
 **Si PLUSIEURS cahiers des charges produit (PRD) sont trouvés :**
+
 - Lister tous les cahiers des charges produit (PRD) découverts avec des options numérotées
 - "J'ai trouvé plusieurs cahiers des charges produit (PRD). Lequel souhaitez-vous valider ?"
 - Attendre la sélection de l'utilisateur
 
 **Si AUCUN cahier des charges produit (PRD) n'est trouvé :**
+
 - "Je n'ai trouvé aucun fichier de cahier des charges produit (PRD) dans {planning_artifacts}. Veuillez fournir le chemin du fichier de cahier des charges produit (PRD) que vous souhaitez valider."
 - Attendre que l'utilisateur fournisse le chemin du cahier des charges produit (PRD).
 
@@ -112,6 +117,7 @@ Pour chaque document listé dans `inputDocuments` :
 - Noter tout document qui ne se charge pas
 
 **Construire la liste des documents d'entrée chargés :**
+
 - Brief produit (s'il est présent)
 - Documents de recherche (s'ils sont présents)
 - Autres supports de référence (s'ils sont présents)
@@ -125,6 +131,7 @@ Pour chaque document listé dans `inputDocuments` :
 **Y a-t-il des documents de référence supplémentaires que vous souhaiteriez que j'inclue dans cette validation ?**
 
 Cela pourrait inclure :
+
 - Des documents supplémentaires de recherche ou de contexte
 - De la documentation projet non référencée dans le frontmatter
 - Des documents de standards ou de conformité
@@ -139,6 +146,7 @@ Veuillez fournir les chemins de tout document supplémentaire, ou taper 'aucun' 
 Créer le rapport de validation à : `{validationReportPath}`
 
 **Initialiser avec le frontmatter :**
+
 ```yaml
 ---
 validationTarget: '{prd_path}'
@@ -150,6 +158,7 @@ validationStatus: IN_PROGRESS
 ```
 
 **Contenu initial :**
+
 ```markdown
 # Rapport de validation du cahier des charges produit (PRD)
 
@@ -172,6 +181,7 @@ validationStatus: IN_PROGRESS
 **Cahier des charges produit (PRD) à valider :** {prd_path}
 
 **Documents d'entrée chargés :**
+
 - Cahier des charges produit (PRD) : {prd_name} ✓
 - Brief produit : {count} {if count > 0}✓{else}(aucun trouvé){/if}
 - Recherche : {count} {if count > 0}✓{else}(aucun trouvé){/if}

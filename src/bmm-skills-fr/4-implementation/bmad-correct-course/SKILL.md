@@ -70,14 +70,14 @@ L'activation est terminée. Commencez le workflow ci-dessous.
 
 ## Fichiers d'entrée
 
-| Entrée | Chemin | Stratégie de chargement |
-|-------|------|---------------|
-| PRD | `{planning_artifacts}/*prd*.md` (entier) ou `{planning_artifacts}/*prd*/*.md` (fragmenté) | FULL_LOAD |
-| Thèmes (Epics) | `{planning_artifacts}/*epic*.md` (entier) ou `{planning_artifacts}/*epic*/*.md` (fragmenté) | FULL_LOAD |
-| Architecture | `{planning_artifacts}/*architecture*.md` (entier) ou `{planning_artifacts}/*architecture*/*.md` (fragmenté) | FULL_LOAD |
-| Conception UX | `{planning_artifacts}/*ux*.md` (entier) ou `{planning_artifacts}/*ux*/*.md` (fragmenté) | FULL_LOAD |
-| Spec | `{planning_artifacts}/*spec-*.md` (entier) | FULL_LOAD |
-| Document Project | `{project_knowledge}/index.md` (fragmenté) | INDEX_GUIDED |
+| Entrée           | Chemin                                                                                                      | Stratégie de chargement |
+| ---------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------- |
+| PRD              | `{planning_artifacts}/*prd*.md` (entier) ou `{planning_artifacts}/*prd*/*.md` (fragmenté)                   | FULL_LOAD               |
+| Thèmes (Epics)   | `{planning_artifacts}/*epic*.md` (entier) ou `{planning_artifacts}/*epic*/*.md` (fragmenté)                 | FULL_LOAD               |
+| Architecture     | `{planning_artifacts}/*architecture*.md` (entier) ou `{planning_artifacts}/*architecture*/*.md` (fragmenté) | FULL_LOAD               |
+| Conception UX    | `{planning_artifacts}/*ux*.md` (entier) ou `{planning_artifacts}/*ux*/*.md` (fragmenté)                     | FULL_LOAD               |
+| Spec             | `{planning_artifacts}/*spec-*.md` (entier)                                                                  | FULL_LOAD               |
+| Document Project | `{project_knowledge}/index.md` (fragmenté)                                                                  | INDEX_GUIDED            |
 
 ## Exécution
 

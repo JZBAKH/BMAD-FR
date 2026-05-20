@@ -11,6 +11,7 @@
 Utilisez `resources/brief-template.md` comme guide — adaptez la structure pour qu'elle corresponde à l'histoire du produit.
 
 **Principes de rédaction :**
+
 - **Audience exécutive** — persuasif, clair, concis. 1 à 2 pages.
 - **Commencez par le problème** — faites ressentir la douleur au lecteur avant de présenter la solution.
 - **Concret plutôt qu'abstrait** — exemples spécifiques, scénarios réels, résultats mesurables.
@@ -20,12 +21,13 @@ Utilisez `resources/brief-template.md` comme guide — adaptez la structure pour
 **Créez le document de sortie à :** `{planning_artifacts}/product-brief-{project_name}.md`
 
 Incluez le frontmatter YAML :
+
 ```yaml
 ---
-title: "Brief Produit : {project_name}"
-status: "draft"
-created: "{timestamp}"
-updated: "{timestamp}"
+title: 'Brief Produit : {project_name}'
+status: 'draft'
+created: '{timestamp}'
+updated: '{timestamp}'
 inputs: [liste des fichiers d'entrée utilisés]
 ---
 ```
@@ -46,11 +48,12 @@ Avant de montrer le projet à l'utilisateur, soumettez-le à plusieurs prismes d
    - Pour une place de marché (marketplace) : "Analyse des effets de réseau et du problème de l'œuf et de la poule".
    - Pour l'entreprise (B2B) : "Revue des achats et de la gestion du changement organisationnel".
    - **Lorsque le domaine n'est pas clair, par défaut :** "Revue des risques de mise sur le marché (GTM) et de lancement" — examine la distribution, la tarification et l'acquisition des premiers clients. Presque toujours utile, souvent négligé.
-   Décrivez le prisme, effectuez la revue vous-même en ligne (inline).
+     Décrivez le prisme, effectuez la revue vous-même en ligne (inline).
 
 ### Dégradation Nominale (Graceful Degradation)
 
 Si les sous-agents sont indisponibles :
+
 - Effectuez les trois passes de revue vous-même, séquentiellement.
 - Appliquez chaque prisme délibérément — ne les mélangez pas en une revue générique.
 - La qualité de la revue importe plus que le parallélisme.

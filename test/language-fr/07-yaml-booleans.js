@@ -39,9 +39,9 @@ function run() {
       const content = fs.readFileSync(path.join(REPO_ROOT, relPath), 'utf8');
       const lines = content.split(/\r?\n/);
       const offending = [];
-      for (let i = 0; i < lines.length; i++) {
-        if (FORBIDDEN_RE.test(lines[i])) {
-          offending.push(`ligne ${i + 1} : ${lines[i].trim()}`);
+      for (const [i, line] of lines.entries()) {
+        if (FORBIDDEN_RE.test(line)) {
+          offending.push(`ligne ${i + 1} : ${line.trim()}`);
         }
       }
       if (offending.length > 0) {

@@ -33,10 +33,12 @@ function run() {
   for (const root of FR_ROOTS) {
     const fullRoot = path.join(REPO_ROOT, root);
     if (!fs.existsSync(fullRoot)) continue;
-    candidates.push(...walk(fullRoot, {
-      extensions: ['.md', '.txt', '.yaml'],
-      base: REPO_ROOT,
-    }));
+    candidates.push(
+      ...walk(fullRoot, {
+        extensions: ['.md', '.txt', '.yaml'],
+        base: REPO_ROOT,
+      }),
+    );
   }
 
   let pairsTested = 0;
@@ -55,10 +57,7 @@ function run() {
       if (enCount === 0) continue;
       runner.test(`${frRel} : type="${value}" présent ${enCount} fois`, () => {
         const frCount = countTypeAttribute(frText, value);
-        runner.assert(
-          frCount === enCount,
-          `type="${value}" : ${frCount} dans le FR vs ${enCount} attendus`,
-        );
+        runner.assert(frCount === enCount, `type="${value}" : ${frCount} dans le FR vs ${enCount} attendus`);
       });
     }
   }

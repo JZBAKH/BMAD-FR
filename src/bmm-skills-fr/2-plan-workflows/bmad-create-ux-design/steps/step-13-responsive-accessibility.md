@@ -57,16 +57,19 @@ Définir la stratégie de design réactif et les exigences d'accessibilité pour
 **Questions de design réactif :**
 
 **Stratégie Bureau (Desktop) :**
+
 - Comment devrions-nous utiliser l'espace supplémentaire de l'écran ?
 - Mises en page multi-colonnes, navigation latérale ou densité de contenu ?
 - Quelles fonctionnalités spécifiques au bureau pouvons-nous inclure ?
 
 **Stratégie Tablette :**
+
 - Devrions-nous utiliser des mises en page simplifiées ou des interfaces optimisées pour le tactile ?
 - Comment les gestes et les interactions tactiles fonctionnent-ils sur les tablettes ?
 - Quelle est la densité d'information optimale pour les écrans de tablettes ?
 
 **Stratégie Mobile :**
+
 - Navigation basse (bottom nav) ou menu burger ?
 - Comment les mises en page se réduisent-elles sur les petits écrans ?
 - Quelle est l'information la plus critique à afficher en priorité pour le mobile (mobile-first) ?"
@@ -78,11 +81,13 @@ Définir quand et comment les mises en page changent :
 Nous devons définir les tailles d'écran (points de rupture) où la mise en page s'adapte.
 
 **Points de rupture courants :**
+
 - Mobile : 320px - 767px
 - Tablette : 768px - 1023px
 - Bureau : 1024px+
 
 **Pour {{project_name}}, devrions-nous :**
+
 - Utiliser des points de rupture standard ou personnalisés ?
 - Se concentrer sur un design mobile-first ou desktop-first ?
 - Avoir des points de rupture spécifiques pour vos cas d'utilisation clés ?"
@@ -94,14 +99,17 @@ Définir les exigences d'accessibilité et le niveau de conformité :
 De quel niveau de conformité WCAG {{project_name}} a-t-il besoin ?
 
 **Niveaux WCAG :**
+
 - **Niveau A (Basique)** - Accessibilité essentielle pour la conformité légale.
 - **Niveau AA (Recommandé)** - Norme de l'industrie pour une bonne UX.
 - **Niveau AAA (Le plus haut)** - Accessibilité exceptionnelle (rarement nécessaire).
 
 **Sur la base de votre produit :**
+
 - [Recommandation basée sur la base d'utilisateurs, les exigences légales, etc.]
 
 **Considérations clés sur l'accessibilité :**
+
 - Ratios de contraste des couleurs (4.5:1 pour le texte normal).
 - Support de la navigation au clavier.
 - Compatibilité avec les lecteurs d'écran.
@@ -114,17 +122,20 @@ Planifier comment garantir le design réactif et l'accessibilité :
 "**Stratégie de Test :**
 
 **Tests Réactifs :**
+
 - Tests sur des téléphones/tablettes réels.
 - Tests sur navigateurs Chrome, Firefox, Safari, Edge.
 - Tests de performance réseau sur appareils réels.
 
 **Tests d'Accessibilité :**
+
 - Outils de test d'accessibilité automatisés.
 - Tests avec lecteurs d'écran (VoiceOver, NVDA, JAWS).
 - Tests de navigation au clavier uniquement.
 - Tests de simulation de daltonisme.
 
 **Tests Utilisateurs :**
+
 - Inclure des utilisateurs en situation de handicap dans les tests.
 - Tester avec diverses technologies d'assistance.
 - Valider avec les appareils cibles réels."
@@ -135,12 +146,14 @@ Créer des directives spécifiques pour les développeurs :
 "**Directives d'implémentation :**
 
 **Développement Réactif :**
+
 - Utiliser des unités relatives (rem, %, vw, vh) plutôt que des pixels fixes.
 - Implémenter des requêtes média (media queries) mobile-first.
 - Tester les cibles tactiles et les zones de gestes.
 - Optimiser les images et les ressources pour différents appareils.
 
 **Développement pour l'Accessibilité :**
+
 - Structure HTML sémantique.
 - Labels et rôles ARIA.
 - Implémentation de la navigation au clavier.
@@ -159,18 +172,23 @@ Lors de l'enregistrement dans le document, ajoutez ces sections de niveau 2 (##)
 ## Design Réactif & Accessibilité
 
 ### Stratégie Réactive
+
 [Stratégie réactive basée sur la conversation]
 
 ### Stratégie des Points de Rupture
+
 [Stratégie des points de rupture basée sur la conversation]
 
 ### Stratégie d'Accessibilité
+
 [Stratégie d'accessibilité basée sur la conversation]
 
 ### Stratégie de Test
+
 [Stratégie de test basée sur la conversation]
 
 ### Directives d'Implémentation
+
 [Directives d'implémentation basées sur la conversation]
 ```
 

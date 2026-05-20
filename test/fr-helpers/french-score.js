@@ -11,8 +11,10 @@
  */
 
 const FR_ACCENT_RE = /[éèêëàâäîïôöùûüçœÉÈÊËÀÂÄÎÏÔÖÙÛÜÇŒ]/g;
-const FR_WORD_RE = /\b(le|la|les|des|du|de|un|une|et|ou|dans|pour|avec|est|sont|être|avoir|vous|nous|ce|cette|ces|qui|que|dont|si|car|mais|aussi|plus|tous|toute|votre|notre|sur|sous|chaque|cas|donc|alors|peut|doit|comme|leur|leurs|aux|au|en|par|son|sa|ses|mon|ma|mes|ton|ta|tes|ne|pas|non|oui)\b/gi;
-const EN_WORD_RE = /\b(the|of|and|to|with|is|are|you|this|that|for|from|on|in|by|will|have|has|been|but|not|or|if|as|at|be|can|should|must|when|where|each|step|next|then|do|does|did|all|some|any|no|yes|because|so|either|while|until|after|before|during)\b/gi;
+const FR_WORD_RE =
+  /\b(le|la|les|des|du|de|un|une|et|ou|dans|pour|avec|est|sont|être|avoir|vous|nous|ce|cette|ces|qui|que|dont|si|car|mais|aussi|plus|tous|toute|votre|notre|sur|sous|chaque|cas|donc|alors|peut|doit|comme|leur|leurs|aux|au|en|par|son|sa|ses|mon|ma|mes|ton|ta|tes|ne|pas|non|oui)\b/gi;
+const EN_WORD_RE =
+  /\b(the|of|and|to|with|is|are|you|this|that|for|from|on|in|by|will|have|has|been|but|not|or|if|as|at|be|can|should|must|when|where|each|step|next|then|do|does|did|all|some|any|no|yes|because|so|either|while|until|after|before|during)\b/gi;
 
 const FRENCH_THRESHOLD = 0.05; // tuned on observed translated files
 
@@ -54,8 +56,8 @@ function isTooShortToScore(text) {
   // Strip frontmatter, code blocks, and yaml-key-only lines, then check leftover length
   let stripped = text;
   stripped = stripped.replace(/^---[\s\S]*?---/m, '');
-  stripped = stripped.replace(/```[\s\S]*?```/g, '');
-  stripped = stripped.replace(/^[a-zA-Z_][\w-]*:\s*$/gm, ''); // pure YAML keys
+  stripped = stripped.replaceAll(/```[\s\S]*?```/g, '');
+  stripped = stripped.replaceAll(/^[a-zA-Z_][\w-]*:\s*$/gm, ''); // pure YAML keys
   return stripped.trim().length < 50;
 }
 

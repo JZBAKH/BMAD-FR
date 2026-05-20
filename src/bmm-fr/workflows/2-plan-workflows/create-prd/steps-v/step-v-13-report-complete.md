@@ -1,6 +1,6 @@
 ---
 name: 'step-v-13-report-complete'
-description: 'Rapport de Validation Terminé - Finaliser le rapport, synthétiser les résultats, présenter à l''utilisateur, proposer les prochaines étapes'
+description: "Rapport de Validation Terminé - Finaliser le rapport, synthétiser les résultats, présenter à l'utilisateur, proposer les prochaines étapes"
 
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
 validationReportPath: '{validation_report_path}'
@@ -64,6 +64,7 @@ Finaliser le rapport de validation, synthétiser tous les résultats des étapes
 Lisez l'intégralité du rapport de validation depuis {validationReportPath}.
 
 Extrayez tous les résultats de :
+
 - Détection de Format (Étape 2)
 - Analyse de Parité (Étape 2B, si applicable)
 - Densité d'Information (Étape 3)
@@ -86,9 +87,23 @@ Mettez à jour le frontmatter du rapport de validation :
 validationTarget: '{prd_path}'
 validationDate: '{current_date}'
 inputDocuments: [liste de documents]
-validationStepsCompleted: ['step-v-01-discovery', 'step-v-02-format-detection', 'step-v-03-density-validation', 'step-v-04-brief-coverage-validation', 'step-v-05-measurability-validation', 'step-v-06-traceability-validation', 'step-v-07-implementation-leakage-validation', 'step-v-08-domain-compliance-validation', 'step-v-09-project-type-validation', 'step-v-10-smart-validation', 'step-v-11-holistic-quality-validation', 'step-v-12-completeness-validation']
+validationStepsCompleted:
+  [
+    'step-v-01-discovery',
+    'step-v-02-format-detection',
+    'step-v-03-density-validation',
+    'step-v-04-brief-coverage-validation',
+    'step-v-05-measurability-validation',
+    'step-v-06-traceability-validation',
+    'step-v-07-implementation-leakage-validation',
+    'step-v-08-domain-compliance-validation',
+    'step-v-09-project-type-validation',
+    'step-v-10-smart-validation',
+    'step-v-11-holistic-quality-validation',
+    'step-v-12-completeness-validation',
+  ]
 validationStatus: COMPLETE
-holisticQualityRating: '{note de l''étape 11}'
+holisticQualityRating: "{note de l'étape 11}"
 overallStatus: '{Réussite/Avertissement/Critique basé sur tous les résultats}'
 ---
 ```
@@ -96,12 +111,14 @@ overallStatus: '{Réussite/Avertissement/Critique basé sur tous les résultats}
 ### 3. Créer un Résumé des Résultats
 
 **État Global :**
+
 - Déterminez-le à partir de tous les résultats de validation.
 - **Réussite :** Tous les contrôles critiques passent, les avertissements mineurs sont acceptables.
 - **Avertissement :** Quelques problèmes trouvés mais le PRD est utilisable.
 - **Critique :** Problèmes majeurs empêchant le PRD d'être adapté à son usage.
 
 **Tableau des Résultats Rapides :**
+
 - Format : [classification]
 - Densité d'Information : [sévérité]
 - Mesurabilité : [sévérité]
@@ -145,12 +162,14 @@ Affichez :
 **Qualité Holistique :** {rating}/5 - {label}
 
 **Top 3 des Améliorations :**
+
 1. {Amélioration 1}
 2. {Amélioration 2}
 3. {Amélioration 3}
 
 **Recommandation :**
 {Basé sur l'état global :
+
 - Réussite : "Le PRD est en bonne forme. Traitez les améliorations mineures pour le rendre excellent."
 - Avertissement : "Le PRD est utilisable mais présente des problèmes qui devraient être traités. Examinez les avertissements et améliorez là où c'est nécessaire."
 - Critique : "Le PRD présente des problèmes importants qui devraient être corrigés avant utilisation. Concentrez-vous sur les problèmes critiques ci-dessus."}

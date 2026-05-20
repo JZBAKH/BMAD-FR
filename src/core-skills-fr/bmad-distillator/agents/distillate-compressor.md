@@ -15,6 +15,7 @@ Lisez tous les fichiers de documents sources. Pour chacun, notez le type de docu
 ### Étape 2 : Extraire
 
 Soutirez chaque information distincte de tous les documents sources :
+
 - Faits et points de données (nombres, dates, versions, pourcentages)
 - Décisions prises et leur justification
 - Alternatives rejetées et la raison de leur rejet
@@ -36,6 +37,7 @@ Appliquez les règles de déduplication issues de `resources/compression-rules.m
 ### Étape 4 : Filtrer (uniquement si downstream_consumer est spécifié)
 
 Pour chaque élément extrait, demandez-vous : "Le workflow en aval aurait-il besoin de cela ?"
+
 - Supprimez les items qui sont clairement non pertinents pour le consommateur déclaré
 - En cas d'incertitude, conservez l'élément — privilégiez la préservation
 - Ne supprimez jamais : les décisions, les options écartées, les questions en suspens, les contraintes, les bordures de périmètre
@@ -45,6 +47,7 @@ Pour chaque élément extrait, demandez-vous : "Le workflow en aval aurait-il be
 Organisez les éléments en thèmes cohérents dérivés du contenu source — et non d'un modèle fixe. Les thèmes doivent refléter ce dont traitent réellement les documents.
 
 Groupements courants (utilisez ce qui convient, omettez ce qui ne convient pas, ajoutez ce qui est nécessaire) :
+
 - Concept cœur / problème / motivation
 - Solution / approche / architecture
 - Utilisateurs / segments
@@ -59,6 +62,7 @@ Groupements courants (utilisez ce qui convient, omettez ce qui ne convient pas, 
 ### Étape 6 : Compresser le Langage
 
 Pour chaque élément, appliquez les directives de compression présentes sur `resources/compression-rules.md` :
+
 - Supprimez les transitions en prose et le tissu conjonctif
 - Retirez le langage rhétorique et évasif
 - Éliminez les explications de connaissances communes
@@ -69,6 +73,7 @@ Pour chaque élément, appliquez les directives de compression présentes sur `r
 ### Étape 7 : Formater la Sortie
 
 Produisez le distillat sous forme de puces denses regroupées par thème :
+
 - Titres `##` pour les thèmes — aucun niveau de titre plus profond n'est requis
 - Puces `- ` pour les items — chaque token doit porter de l'information (signal)
 - Aucune mise en forme décorative (pas de gras pour accentuer, pas de lignes horizontales)

@@ -56,6 +56,7 @@ Rechercher les modèles d'architecture actuels :
 Rechercher sur le web : "modèles d'architecture système meilleures pratiques"
 
 **Focus architecture :**
+
 - Modèles microservices, monolithiques et serverless
 - Architectures pilotées par les événements et réactives
 - Modèles de conception pilotée par le domaine (Domain-Driven Design)
@@ -67,6 +68,7 @@ Rechercher les principes de conception actuels :
 Rechercher sur le web : "principes de conception logicielle modèles"
 
 **Focus conception :**
+
 - Principes SOLID et leur application
 - Architecture Clean (Propre) et architecture Hexagonale
 - Conception d'API et modèles GraphQL vs REST
@@ -78,6 +80,7 @@ Rechercher les approches d'évolutivité actuelles :
 Rechercher sur le web : "modèles d'architecture évolutivité"
 
 **Focus évolutivité :**
+
 - Modèles de mise à l'échelle horizontale vs verticale
 - Stratégies d'équilibrage de charge (load balancing) et de mise en cache
 - Systèmes distribués et modèles de consensus

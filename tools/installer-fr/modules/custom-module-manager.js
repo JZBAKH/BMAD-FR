@@ -365,7 +365,7 @@ class CustomModuleManager {
   async cloneRepo(sourceInput, options = {}) {
     const parsed = this.parseSource(sourceInput);
     if (!parsed.isValid) throw new Error(parsed.error);
-    if (parsed.type === 'local') throw new Error('cloneRepo n\'accepte pas les chemins locaux');
+    if (parsed.type === 'local') throw new Error("cloneRepo n'accepte pas les chemins locaux");
 
     const cacheDir = this.getCacheDir();
     const repoCacheDir = path.join(cacheDir, ...parsed.cacheKey.split('/'));

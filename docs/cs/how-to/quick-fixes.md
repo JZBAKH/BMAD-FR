@@ -1,5 +1,5 @@
 ---
-title: "Rychlé opravy"
+title: 'Rychlé opravy'
 description: Jak provádět rychlé opravy a ad-hoc změny
 sidebar:
   order: 5
@@ -15,9 +15,10 @@ Použijte **Quick Dev** pro opravy chyb, refaktoringy nebo malé cílené změny
 - Aktualizace závislostí
 
 :::note[Předpoklady]
+
 - BMad Method nainstalován (`npx bmad-method install`)
 - AI-powered IDE (Claude Code, Cursor nebo podobné)
-:::
+  :::
 
 ## Kroky
 

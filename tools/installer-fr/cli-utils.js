@@ -30,8 +30,7 @@ const CLIUtils = {
     const logoLines = termWidth >= 95 ? logoWide : logoNarrow;
     const logo = logoLines.map((line) => color.blue(line)).join('\n');
     const tagline = color.white(
-      '    Bâtir Méthodiquement une Architecture Durable\n' +
-        '    Fork francophone non officiel — © BMad Code (projet original)',
+      '    Bâtir Méthodiquement une Architecture Durable\n' + '    Fork francophone non officiel — © BMad Code (projet original)',
     );
 
     await prompts.box(`${logo}\n${tagline}`, '', {

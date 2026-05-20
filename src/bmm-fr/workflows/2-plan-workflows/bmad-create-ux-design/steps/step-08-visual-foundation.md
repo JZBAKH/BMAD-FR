@@ -70,12 +70,14 @@ Cela vous aidera à prendre une décision éclairée sur la direction visuelle d
 
 Établir les fondations typographiques :
 "**Questions sur la typographie :**
+
 - Quel devrait être le ton général ? (Professionnel, amical, moderne, classique ?)
 - Quelle quantité de texte les utilisateurs liront-ils ? (Titres uniquement ? Contenu formel long ?)
 - Des exigences d'accessibilité pour les tailles de police ou le contraste ?
 - Des polices de marque que nous devons impérativement utiliser ?
 
 **Stratégie Typographique :**
+
 - Choix des polices primaires et secondaires.
 - Établissement de l'échelle typographique (h1, h2, h3, corps, etc.).
 - Définition des hauteurs de ligne (line-height) et des rapports d'espacement.
@@ -85,12 +87,14 @@ Cela vous aidera à prendre une décision éclairée sur la direction visuelle d
 
 Définir les fondations structurelles :
 "**Fondations de l'espacement et du layout :**
+
 - Comment la mise en page générale devrait-elle être ressentie ? (Dense et efficace ? Aérée et spacieuse ?)
 - Quelle unité d'espacement devrions-nous utiliser ? (Base de 4px, 8px, 12px ?)
 - Quelle quantité d'espace blanc doit-il y avoir entre les éléments ?
 - Devrions-nous utiliser un système de grille ? Si oui, quelle structure de colonnes ?"
 
 **Principes de Mise en Page :**
+
 - [Principe 1 basé sur le type de produit]
 - [Principe 2 basé sur les besoins des utilisateurs]
 - [Principe 3 basé sur les exigences de plateforme]"
@@ -101,16 +105,19 @@ Synthétiser toutes les décisions visuelles :
 "**Stratégie des Fondations Visuelles :**
 
 **Système de Couleurs :**
+
 - [Stratégie de couleurs basée sur la charte ou les thèmes générés]
 - Mapping sémantique des couleurs (primaire, secondaire, succès, avertissement, erreur, etc.)
 - Conformité de l'accessibilité (ratios de contraste)
 
 **Système Typographique :**
+
 - [Stratégie typographique basée sur les besoins en contenu et le ton]
 - Échelle et hiérarchie typographique
 - Justification de l'association des polices (font pairing)
 
 **Espacement & Layout :**
+
 - [Stratégie d'espacement basée sur la densité du contenu et la plateforme]
 - Approche du système de grille
 - Relations d'espacement des composants
@@ -129,15 +136,19 @@ Lors de l'enregistrement dans le document, ajoutez ces sections de niveau 2 (##)
 ## Fondations du Design Visuel
 
 ### Système de Couleurs
+
 [Stratégie du système de couleurs selon la conversation]
 
 ### Système Typographique
+
 [Stratégie du système typographique selon la conversation]
 
 ### Fondations de l'Espacement & du Layout
+
 [Fondations de l'espacement et de la mise en page selon la conversation]
 
 ### Considérations d'Accessibilité
+
 [Considérations sur l'accessibilité selon la conversation]
 ```
 

@@ -13,19 +13,19 @@ Chạy bất kỳ công cụ cốt lõi nào bằng cách gõ tên skill của n
 
 ## Tổng Quan
 
-| Công cụ | Loại | Mục đích |
-| --- | --- | --- |
-| [`bmad-help`](#bmad-help) | Tác vụ | Nhận hướng dẫn có ngữ cảnh về việc nên làm gì tiếp theo |
-| [`bmad-brainstorming`](#bmad-brainstorming) | Quy trình | Tổ chức các phiên brainstorming có tương tác |
-| [`bmad-party-mode`](#bmad-party-mode) | Quy trình | Điều phối thảo luận nhóm nhiều agent |
-| [`bmad-distillator`](#bmad-distillator) | Tác vụ | Nén tài liệu tối ưu cho LLM mà không mất thông tin |
-| [`bmad-advanced-elicitation`](#bmad-advanced-elicitation) | Tác vụ | Đẩy đầu ra của LLM qua các vòng tinh luyện lặp |
-| [`bmad-review-adversarial-general`](#bmad-review-adversarial-general) | Tác vụ | Rà soát hoài nghi để tìm chỗ thiếu và chỗ sai |
-| [`bmad-review-edge-case-hunter`](#bmad-review-edge-case-hunter) | Tác vụ | Phân tích toàn bộ nhánh rẽ để tìm trường hợp biên chưa được xử lý |
-| [`bmad-editorial-review-prose`](#bmad-editorial-review-prose) | Tác vụ | Biên tập câu chữ nhằm tăng độ rõ ràng khi giao tiếp |
-| [`bmad-editorial-review-structure`](#bmad-editorial-review-structure) | Tác vụ | Biên tập cấu trúc — cắt, gộp và tổ chức lại |
-| [`bmad-shard-doc`](#bmad-shard-doc) | Tác vụ | Tách file markdown lớn thành các phần có tổ chức |
-| [`bmad-index-docs`](#bmad-index-docs) | Tác vụ | Tạo hoặc cập nhật mục lục cho toàn bộ tài liệu trong một thư mục |
+| Công cụ                                                               | Loại      | Mục đích                                                          |
+| --------------------------------------------------------------------- | --------- | ----------------------------------------------------------------- |
+| [`bmad-help`](#bmad-help)                                             | Tác vụ    | Nhận hướng dẫn có ngữ cảnh về việc nên làm gì tiếp theo           |
+| [`bmad-brainstorming`](#bmad-brainstorming)                           | Quy trình | Tổ chức các phiên brainstorming có tương tác                      |
+| [`bmad-party-mode`](#bmad-party-mode)                                 | Quy trình | Điều phối thảo luận nhóm nhiều agent                              |
+| [`bmad-distillator`](#bmad-distillator)                               | Tác vụ    | Nén tài liệu tối ưu cho LLM mà không mất thông tin                |
+| [`bmad-advanced-elicitation`](#bmad-advanced-elicitation)             | Tác vụ    | Đẩy đầu ra của LLM qua các vòng tinh luyện lặp                    |
+| [`bmad-review-adversarial-general`](#bmad-review-adversarial-general) | Tác vụ    | Rà soát hoài nghi để tìm chỗ thiếu và chỗ sai                     |
+| [`bmad-review-edge-case-hunter`](#bmad-review-edge-case-hunter)       | Tác vụ    | Phân tích toàn bộ nhánh rẽ để tìm trường hợp biên chưa được xử lý |
+| [`bmad-editorial-review-prose`](#bmad-editorial-review-prose)         | Tác vụ    | Biên tập câu chữ nhằm tăng độ rõ ràng khi giao tiếp               |
+| [`bmad-editorial-review-structure`](#bmad-editorial-review-structure) | Tác vụ    | Biên tập cấu trúc — cắt, gộp và tổ chức lại                       |
+| [`bmad-shard-doc`](#bmad-shard-doc)                                   | Tác vụ    | Tách file markdown lớn thành các phần có tổ chức                  |
+| [`bmad-index-docs`](#bmad-index-docs)                                 | Tác vụ    | Tạo hoặc cập nhật mục lục cho toàn bộ tài liệu trong một thư mục  |
 
 ## bmad-help
 
@@ -113,14 +113,14 @@ Chạy bất kỳ công cụ cốt lõi nào bằng cách gõ tên skill của n
 1. **Analyze** — Đọc tài liệu nguồn, nhận diện mật độ thông tin và cấu trúc
 2. **Compress** — Chuyển văn xuôi thành dạng bullet dày đặc, bỏ trang trí không cần thiết
 3. **Verify** — Kiểm tra tính đầy đủ để đảm bảo mọi thông tin gốc còn nguyên
-4. **Validate** *(tùy chọn)* — Tái dựng hai chiều để chứng minh nén không mất mát
+4. **Validate** _(tùy chọn)_ — Tái dựng hai chiều để chứng minh nén không mất mát
 
 **Đầu vào:**
 
-- `source_documents` *(bắt buộc)* — Đường dẫn file, thư mục hoặc mẫu glob
-- `downstream_consumer` *(tùy chọn)* — Thành phần sẽ dùng đầu ra này, ví dụ "PRD creation"
-- `token_budget` *(tùy chọn)* — Kích thước mục tiêu gần đúng
-- `--validate` *(cờ)* — Chạy kiểm tra tái dựng hai chiều
+- `source_documents` _(bắt buộc)_ — Đường dẫn file, thư mục hoặc mẫu glob
+- `downstream_consumer` _(tùy chọn)_ — Thành phần sẽ dùng đầu ra này, ví dụ "PRD creation"
+- `token_budget` _(tùy chọn)_ — Kích thước mục tiêu gần đúng
+- `--validate` _(cờ)_ — Chạy kiểm tra tái dựng hai chiều
 
 **Đầu ra:** Một hoặc nhiều file markdown distillate kèm báo cáo tỷ lệ nén, ví dụ `3.2:1`
 
@@ -165,8 +165,8 @@ Chạy bất kỳ công cụ cốt lõi nào bằng cách gõ tên skill của n
 
 **Đầu vào:**
 
-- `content` *(bắt buộc)* — Diff, spec, story, tài liệu hoặc bất kỳ artifact nào
-- `also_consider` *(tùy chọn)* — Các vùng bổ sung cần để ý
+- `content` _(bắt buộc)_ — Diff, spec, story, tài liệu hoặc bất kỳ artifact nào
+- `also_consider` _(tùy chọn)_ — Các vùng bổ sung cần để ý
 
 **Đầu ra:** Danh sách markdown gồm 10+ phát hiện kèm mô tả
 
@@ -189,8 +189,8 @@ Chạy bất kỳ công cụ cốt lõi nào bằng cách gõ tên skill của n
 
 **Đầu vào:**
 
-- `content` *(bắt buộc)* — Diff, toàn file hoặc function
-- `also_consider` *(tùy chọn)* — Các vùng bổ sung cần lưu ý
+- `content` _(bắt buộc)_ — Diff, toàn file hoặc function
+- `also_consider` _(tùy chọn)_ — Các vùng bổ sung cần lưu ý
 
 **Đầu ra:** Mảng JSON các phát hiện, mỗi phát hiện có `location`, `trigger_condition`, `guard_snippet` và `potential_consequence`
 
@@ -217,9 +217,9 @@ Hãy chạy cả `bmad-review-adversarial-general` và `bmad-review-edge-case-hu
 
 **Đầu vào:**
 
-- `content` *(bắt buộc)* — Markdown, văn bản thường hoặc XML
-- `style_guide` *(tùy chọn)* — Style guide riêng của dự án
-- `reader_type` *(tùy chọn)* — `humans` mặc định cho độ rõ và nhịp đọc, hoặc `llm` cho độ chính xác và nhất quán
+- `content` _(bắt buộc)_ — Markdown, văn bản thường hoặc XML
+- `style_guide` _(tùy chọn)_ — Style guide riêng của dự án
+- `reader_type` _(tùy chọn)_ — `humans` mặc định cho độ rõ và nhịp đọc, hoặc `llm` cho độ chính xác và nhất quán
 
 **Đầu ra:** Bảng markdown ba cột: Original Text | Revised Text | Changes
 
@@ -242,11 +242,11 @@ Hãy chạy cả `bmad-review-adversarial-general` và `bmad-review-edge-case-hu
 
 **Đầu vào:**
 
-- `content` *(bắt buộc)* — Tài liệu cần review
-- `purpose` *(tùy chọn)* — Mục đích mong muốn, ví dụ "quickstart tutorial"
-- `target_audience` *(tùy chọn)* — Ai sẽ đọc tài liệu này
-- `reader_type` *(tùy chọn)* — `humans` hoặc `llm`
-- `length_target` *(tùy chọn)* — Mục tiêu rút gọn, ví dụ "ngắn hơn 30%"
+- `content` _(bắt buộc)_ — Tài liệu cần review
+- `purpose` _(tùy chọn)_ — Mục đích mong muốn, ví dụ "quickstart tutorial"
+- `target_audience` _(tùy chọn)_ — Ai sẽ đọc tài liệu này
+- `reader_type` _(tùy chọn)_ — `humans` hoặc `llm`
+- `length_target` _(tùy chọn)_ — Mục tiêu rút gọn, ví dụ "ngắn hơn 30%"
 
 **Đầu ra:** Tóm tắt tài liệu, danh sách khuyến nghị ưu tiên và ước tính mức giảm
 

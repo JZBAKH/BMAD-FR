@@ -1,5 +1,5 @@
 ---
-title: "Průvodce dělením dokumentů"
+title: 'Průvodce dělením dokumentů'
 description: Rozdělení velkých markdown souborů na menší organizované soubory pro lepší správu kontextu
 sidebar:
   order: 9

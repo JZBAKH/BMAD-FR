@@ -22,28 +22,28 @@ Nécessite [Node.js](https://nodejs.org) v20+ et `npx` (inclus avec npm).
 
 ### Options d'installation
 
-| Option | Description | Exemple |
-|------|-------------|---------|
-| `--directory <chemin>` | Répertoire d'installation | `--directory ~/projects/myapp` |
-| `--modules <modules>` | IDs de modules séparés par des virgules | `--modules bmm,bmb` |
-| `--tools <outils>` | IDs d'outils/IDE séparés par des virgules (utilisez `none` pour ignorer) | `--tools claude-code,cursor` ou `--tools none` |
-| `--action <type>` | Action pour les installations existantes : `install` (par défaut), `update`, ou `quick-update` | `--action quick-update` |
+| Option                 | Description                                                                                    | Exemple                                        |
+| ---------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| `--directory <chemin>` | Répertoire d'installation                                                                      | `--directory ~/projects/myapp`                 |
+| `--modules <modules>`  | IDs de modules séparés par des virgules                                                        | `--modules bmm,bmb`                            |
+| `--tools <outils>`     | IDs d'outils/IDE séparés par des virgules (utilisez `none` pour ignorer)                       | `--tools claude-code,cursor` ou `--tools none` |
+| `--action <type>`      | Action pour les installations existantes : `install` (par défaut), `update`, ou `quick-update` | `--action quick-update`                        |
 
 ### Configuration principale
 
-| Option | Description | Par défaut |
-|------|-------------|---------|
-| `--user-name <nom>` | Nom à utiliser par les agents | Nom d'utilisateur système |
-| `--communication-language <langue>` | Langue de communication des agents | Anglais |
-| `--document-output-language <langue>` | Langue de sortie des documents | Anglais |
-| `--output-folder <chemin>` | Chemin du dossier de sortie (voir les règles de résolution ci-dessous) | `_bmad-output` |
+| Option                                | Description                                                            | Par défaut                |
+| ------------------------------------- | ---------------------------------------------------------------------- | ------------------------- |
+| `--user-name <nom>`                   | Nom à utiliser par les agents                                          | Nom d'utilisateur système |
+| `--communication-language <langue>`   | Langue de communication des agents                                     | Anglais                   |
+| `--document-output-language <langue>` | Langue de sortie des documents                                         | Anglais                   |
+| `--output-folder <chemin>`            | Chemin du dossier de sortie (voir les règles de résolution ci-dessous) | `_bmad-output`            |
 
 #### Résolution du chemin du dossier de sortie
 
 La valeur passée à `--output-folder` (ou saisie de manière interactive) est résolue selon ces règles :
 
 | Type d'entrée                 | Exemple                    | Résolu comme                                                 |
-|-------------------------------|----------------------------|--------------------------------------------------------------|
+| ----------------------------- | -------------------------- | ------------------------------------------------------------ |
 | Chemin relatif (par défaut)   | `_bmad-output`             | `<racine-du-projet>/_bmad-output`                            |
 | Chemin relatif avec traversée | `../../shared-outputs`     | Chemin absolu normalisé — ex. `/Users/me/shared-outputs`     |
 | Chemin absolu                 | `/Users/me/shared-outputs` | Utilisé tel quel — la racine du projet n'est **pas** ajoutée |
@@ -52,10 +52,10 @@ Le chemin résolu est ce que les agents et les workflows vont utiliser lors de l
 
 ### Autres options
 
-| Option | Description |
-|------|-------------|
-| `-y, --yes` | Accepter tous les paramètres par défaut et ignorer les invites |
-| `-d, --debug` | Activer la sortie de débogage pour la génération du manifeste |
+| Option        | Description                                                    |
+| ------------- | -------------------------------------------------------------- |
+| `-y, --yes`   | Accepter tous les paramètres par défaut et ignorer les invites |
+| `-d, --debug` | Activer la sortie de débogage pour la génération du manifeste  |
 
 ## IDs de modules
 
@@ -76,12 +76,12 @@ Exécutez `npx bmad-method install` de manière interactive une fois pour voir l
 
 ## Modes d'installation
 
-| Mode | Description | Exemple |
-|------|-------------|---------|
-| Entièrement non-interactif | Fournir toutes les options pour ignorer toutes les invites | `npx bmad-method install --directory . --modules bmm --tools claude-code --yes` |
-| Semi-interactif | Fournir certains options ; BMad demande les autres | `npx bmad-method install --directory . --modules bmm` |
-| Paramètres par défaut uniquement | Accepter tous les paramètres par défaut avec `-y` | `npx bmad-method install --yes` |
-| Sans outils | Ignorer la configuration des outils/IDE | `npx bmad-method install --modules bmm --tools none` |
+| Mode                             | Description                                                | Exemple                                                                         |
+| -------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Entièrement non-interactif       | Fournir toutes les options pour ignorer toutes les invites | `npx bmad-method install --directory . --modules bmm --tools claude-code --yes` |
+| Semi-interactif                  | Fournir certains options ; BMad demande les autres         | `npx bmad-method install --directory . --modules bmm`                           |
+| Paramètres par défaut uniquement | Accepter tous les paramètres par défaut avec `-y`          | `npx bmad-method install --yes`                                                 |
+| Sans outils                      | Ignorer la configuration des outils/IDE                    | `npx bmad-method install --modules bmm --tools none`                            |
 
 ## Exemples
 
@@ -135,17 +135,19 @@ BMad valide toutes les options fournis :
 - **Action** — Doit être l'une des suivantes : `install`, `update`, `quick-update`
 
 Les valeurs invalides entraîneront soit :
+
 1. L’affichage d’un message d'erreur suivi d’un exit (pour les options critiques comme le répertoire)
 2. Un avertissement puis la continuation de l’installation (pour les éléments optionnels)
 3. Un retour aux invites interactives (pour les valeurs requises manquantes)
 
 :::tip[Bonnes pratiques]
+
 - Utilisez des chemins absolus pour `--directory` pour éviter toute ambiguïté
 - Utilisez un chemin absolu pour `--output-folder` lorsque vous souhaitez que les artefacts soient écrits en dehors de l'arborescence du projet (ex. un répertoire de sorties partagé dans un monorepo)
 - Testez les options localement avant de les utiliser dans des pipelines CI/CD
 - Combinez avec `-y` pour des installations vraiment sans surveillance
 - Utilisez `--debug` si vous rencontrez des problèmes lors de l'installation
-:::
+  :::
 
 ## Résolution des problèmes
 

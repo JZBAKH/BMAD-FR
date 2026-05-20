@@ -70,6 +70,7 @@ Traiter chaque entrée dans `{workflow.persistent_facts}` comme un contexte fond
 ### Étape 4 : Charger la configuration
 
 Charger la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résoudre :
+
 - Utiliser `{user_name}` pour le salut
 - Utiliser `{communication_language}` pour toutes les communications
 - Utiliser `{document_output_language}` pour les documents de sortie

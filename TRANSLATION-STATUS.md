@@ -4,11 +4,11 @@ _Généré automatiquement le 2026-05-14 17:11:29 UTC par `tools/audit-translati
 
 ## Résumé global
 
-| Module | Présence | Traduction effective | Manquants | Statut |
-|---|---|---|---|---|
-| `bmm-skills` | 200/200 (100.0%) | 99.5% | 0 | ✅ Complet |
-| `core-skills` | 31/31 (100.0%) | 100.0% | 0 | ✅ Complet |
-| `scripts` | 0/0 | — | 0 | ❌ Module `-fr` absent |
+| Module        | Présence         | Traduction effective | Manquants | Statut                 |
+| ------------- | ---------------- | -------------------- | --------- | ---------------------- |
+| `bmm-skills`  | 200/200 (100.0%) | 99.5%                | 0         | ✅ Complet             |
+| `core-skills` | 31/31 (100.0%)   | 100.0%               | 0         | ✅ Complet             |
+| `scripts`     | 0/0              | —                    | 0         | ❌ Module `-fr` absent |
 
 ## Modules upstream non importés
 

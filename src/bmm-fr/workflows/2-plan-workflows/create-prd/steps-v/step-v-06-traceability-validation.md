@@ -71,12 +71,14 @@ Valider que la chaîne de traçabilité depuis le Résumé Analytique → Critè
 5. Extraire le Périmètre du Produit (éléments inclus).
 
 **Valider les chaînes :**
+
 - Résumé Analytique → Critères de Succès : La vision est-elle alignée avec le succès défini ?
 - Critères de Succès → Parcours Utilisateurs : Les critères de succès sont-ils soutenus par des parcours utilisateurs ?
 - Parcours Utilisateurs → Exigences Fonctionnelles : Chaque EF remonte-t-elle à un parcours utilisateur ?
 - Périmètre → EF : Les EF du périmètre MVP sont-elles alignées avec les éléments inclus ?
 
 **Identifier les éléments orphelins :**
+
 - EF non traçables à un parcours utilisateur ou un objectif commercial.
 - Critères de succès non soutenus par des parcours utilisateurs.
 - Parcours utilisateurs sans EF de soutien.
@@ -90,6 +92,7 @@ Retourner les résultats structurés avec l'état de la chaîne et la liste des 
 Si l'outil Task est indisponible, effectuez l'analyse directement :
 
 **Étape 1 : Extraire les éléments clés**
+
 - Résumé Analytique : Notez la vision, les buts, les objectifs.
 - Critères de Succès : Listez tous les critères.
 - Parcours Utilisateurs : Listez les types d'utilisateurs et leurs flux.
@@ -97,25 +100,30 @@ Si l'outil Task est indisponible, effectuez l'analyse directement :
 - Périmètre du Produit : Listez les éléments inclus.
 
 **Étape 2 : Valider Résumé Analytique → Critères de Succès**
+
 - Le Résumé Analytique mentionne-t-il les dimensions du succès ?
 - Les Critères de Succès sont-ils alignés avec la vision ?
 - Notez tout désalignement.
 
 **Étape 3 : Valider Critères de Succès → Parcours Utilisateurs**
+
 - Pour chaque critère de succès, existe-t-il un parcours utilisateur qui permet de l'atteindre ?
 - Notez les critères de succès sans parcours de soutien.
 
 **Étape 4 : Valider Parcours Utilisateurs → EF**
+
 - Pour chaque parcours/flux utilisateur, existe-t-il des EF qui l'activent ?
 - Listez les EF sans origine claire dans un parcours utilisateur.
 - Notez les EF orphelines (exigences sans source traçable).
 
 **Étape 5 : Valider l'alignement Périmètre → EF**
+
 - Le périmètre MVP est-il aligné avec les EF essentielles ?
 - Les éléments inclus sont-ils soutenus par des EF ?
 - Notez les désalignements.
 
 **Étape 6 : Construire la matrice de traçabilité**
+
 - Mapper chaque EF à sa source (parcours ou objectif commercial).
 - Notez les EF orphelines.
 - Identifiez les chaînes brisées.
@@ -123,12 +131,14 @@ Si l'outil Task est indisponible, effectuez l'analyse directement :
 ### 3. Comptabiliser les problèmes de traçabilité
 
 **Chaînes brisées :**
+
 - Résumé Analytique → Lacunes Critères de Succès : nombre
 - Critères de Succès → Lacunes Parcours Utilisateurs : nombre
 - Parcours Utilisateurs → Lacunes EF : nombre
 - Périmètre → Désalignements EF : nombre
 
 **Éléments orphelins :**
+
 - EF orphelines (pas de source traçable) : nombre
 - Critères de succès non soutenus : nombre
 - Parcours utilisateurs sans EF : nombre

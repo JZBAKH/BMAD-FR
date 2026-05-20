@@ -11,6 +11,7 @@
 ## CONFIGURATION
 
 Chargez la config depuis `{project-root}/_bmad/bmm/config.yaml` et résolvez :
+
 - `project_name`, `output_folder`, `planning_artifacts`, `user_name`
 - `{communication_language}`, `document_output_language`, `user_skill_level`
 - `date` comme valeur générée par le système
@@ -22,6 +23,7 @@ Chargez la config depuis `{project-root}/_bmad/bmm/config.yaml` et résolvez :
 **Quelle technologie, outil ou domaine technique souhaitez-vous explorer ?**
 
 Par exemple :
+
 - 'React vs Vue pour des applications à grande échelle'
 - 'Architectures API GraphQL vs REST'
 - 'Options de déploiement Serverless pour Node.js'
@@ -30,6 +32,7 @@ Par exemple :
 ### Clarification du Sujet
 
 Sur la base du sujet de l'utilisateur, clarifiez brièvement :
+
 1. **Technologie Centrale** : "Quel aspect spécifique de [technologie] vous intéresse le plus ?"
 2. **Objectifs de Recherche** : "Qu'espérez-vous accomplir avec cette recherche ?"
 3. **Périmètre** : "Devons-nous nous concentrer largement ou approfondir des aspects spécifiques ?"

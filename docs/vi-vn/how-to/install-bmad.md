@@ -1,5 +1,5 @@
 ---
-title: "Cách cài đặt BMad"
+title: 'Cách cài đặt BMad'
 description: Hướng dẫn từng bước để cài đặt BMad vào dự án của bạn
 sidebar:
   order: 1
@@ -16,10 +16,11 @@ Nếu bạn muốn dùng trình cài đặt không tương tác và cung cấp t
 - Cập nhật bản cài đặt BMad hiện tại
 
 :::note[Điều kiện tiên quyết]
+
 - **Node.js** 20+ (bắt buộc cho trình cài đặt)
 - **Git** (khuyến nghị)
 - **Công cụ AI** (Claude Code, Cursor, hoặc tương tự)
-:::
+  :::
 
 ## Các bước thực hiện
 
@@ -31,6 +32,7 @@ npx bmad-method install
 
 :::tip[Muốn dùng bản prerelease mới nhất?]
 Sử dụng dist-tag `next`:
+
 ```bash
 npx bmad-method@next install
 ```
@@ -40,9 +42,11 @@ Cách này giúp bạn nhận các thay đổi mới sớm hơn, đổi lại kh
 
 :::tip[Bản rất mới]
 Để cài đặt trực tiếp từ nhánh `main` mới nhất (có thể không ổn định):
+
 ```bash
 npx github:bmad-code-org/BMAD-METHOD install
 ```
+
 :::
 
 ### 2. Chọn vị trí cài đặt
@@ -99,11 +103,13 @@ du-an-cua-ban/
 Chạy `bmad-help` để xác minh mọi thứ hoạt động và xem bạn nên làm gì tiếp theo.
 
 **BMad-Help là công cụ hướng dẫn thông minh** sẽ:
+
 - Xác nhận bản cài đặt hoạt động đúng
 - Hiển thị những gì có sẵn dựa trên module đã cài
 - Đề xuất bước đầu tiên của bạn
 
 Bạn cũng có thể hỏi nó:
+
 ```text
 bmad-help Tôi vừa cài xong, giờ nên làm gì đầu tiên?
 bmad-help Tôi có những lựa chọn nào cho một dự án SaaS?

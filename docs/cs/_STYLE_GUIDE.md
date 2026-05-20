@@ -1,5 +1,5 @@
 ---
-title: "Průvodce stylem dokumentace"
+title: 'Průvodce stylem dokumentace'
 description: Projektově specifické konvence dokumentace založené na stylu Google a struktuře Diataxis
 ---
 
@@ -7,17 +7,17 @@ Tento projekt se řídí [Google Developer Documentation Style Guide](https://de
 
 ## Projektově specifická pravidla
 
-| Pravidlo                               | Specifikace                              |
-| -------------------------------------- | ---------------------------------------- |
-| Žádné horizontální čáry (`---`)        | Narušují plynulost čtení                 |
-| Žádné nadpisy `####`                   | Místo toho použijte tučný text nebo admonitions |
-| Žádné sekce „Souvisejí“ nebo „Další:“ | Navigaci zajišťuje postranní panel       |
-| Žádné hluboce vnořené seznamy          | Místo toho rozdělejte do sekcí           |
-| Žádné bloky kódu pro nekód             | Pro příklady dialogů použijte admonitions |
-| Žádné tučné odstavce pro upozornění    | Místo toho použijte admonitions          |
-| Max 1–2 admonitions na sekci           | Tutoriály povolují 3–4 na hlavní sekci   |
-| Buňky tabulek / položky seznamů        | Max 1–2 věty                             |
-| Rozpočet nadpisů                       | 8–12 `##` na dokument; 2–3 `###` na sekci |
+| Pravidlo                              | Specifikace                                     |
+| ------------------------------------- | ----------------------------------------------- |
+| Žádné horizontální čáry (`---`)       | Narušují plynulost čtení                        |
+| Žádné nadpisy `####`                  | Místo toho použijte tučný text nebo admonitions |
+| Žádné sekce „Souvisejí“ nebo „Další:“ | Navigaci zajišťuje postranní panel              |
+| Žádné hluboce vnořené seznamy         | Místo toho rozdělejte do sekcí                  |
+| Žádné bloky kódu pro nekód            | Pro příklady dialogů použijte admonitions       |
+| Žádné tučné odstavce pro upozornění   | Místo toho použijte admonitions                 |
+| Max 1–2 admonitions na sekci          | Tutoriály povolují 3–4 na hlavní sekci          |
+| Buňky tabulek / položky seznamů       | Max 1–2 věty                                    |
+| Rozpočet nadpisů                      | 8–12 `##` na dokument; 2–3 `###` na sekci       |
 
 ## Admonitions (syntaxe Starlight)
 
@@ -41,31 +41,31 @@ Pouze kritická varování — ztráta dat, bezpečnostní problémy
 
 ### Standardní použití
 
-| Admonition               | Použití pro                   |
-| ------------------------ | ----------------------------- |
-| `:::note[Předpoklady]`  | Závislosti před začátkem      |
-| `:::tip[Rychlá cesta]`  | TL;DR shrnutí na začátku dokumentu |
-| `:::caution[Důležité]`  | Kritická upozornění           |
-| `:::note[Příklad]`      | Příklady příkazů/odpovědí     |
+| Admonition             | Použití pro                        |
+| ---------------------- | ---------------------------------- |
+| `:::note[Předpoklady]` | Závislosti před začátkem           |
+| `:::tip[Rychlá cesta]` | TL;DR shrnutí na začátku dokumentu |
+| `:::caution[Důležité]` | Kritická upozornění                |
+| `:::note[Příklad]`     | Příklady příkazů/odpovědí          |
 
 ## Standardní formáty tabulek
 
 **Fáze:**
 
 ```md
-| Fáze | Název    | Co se děje                                   |
-| ---- | -------- | -------------------------------------------- |
-| 1    | Analýza  | Brainstorming, průzkum *(volitelné)*         |
-| 2    | Plánování | Požadavky — PRD nebo specifikace *(povinné)* |
+| Fáze | Název     | Co se děje                                   |
+| ---- | --------- | -------------------------------------------- |
+| 1    | Analýza   | Brainstorming, průzkum _(volitelné)_         |
+| 2    | Plánování | Požadavky — PRD nebo specifikace _(povinné)_ |
 ```
 
 **Skills:**
 
 ```md
-| Skill                | Agent   | Účel                                 |
-| -------------------- | ------- | ------------------------------------ |
+| Skill                | Agent    | Účel                                |
+| -------------------- | -------- | ----------------------------------- |
 | `bmad-brainstorming` | Analytik | Brainstorming nového projektu       |
-| `bmad-create-prd`    | PM      | Vytvoření dokumentu požadavků (PRD) |
+| `bmad-create-prd`    | PM       | Vytvoření dokumentu požadavků (PRD) |
 ```
 
 ## Bloky struktury složek
@@ -144,13 +144,13 @@ váš-projekt/
 
 ### Typy
 
-| Typ               | Příklad                       |
-| ----------------- | ----------------------------- |
-| **Úvodní stránka** | `core-concepts/index.md`     |
-| **Koncept**       | `what-are-agents.md`          |
-| **Funkce**        | `quick-dev.md`                |
-| **Filosofie**     | `why-solutioning-matters.md`  |
-| **FAQ**           | `established-projects-faq.md` |
+| Typ                | Příklad                       |
+| ------------------ | ----------------------------- |
+| **Úvodní stránka** | `core-concepts/index.md`      |
+| **Koncept**        | `what-are-agents.md`          |
+| **Funkce**         | `quick-dev.md`                |
+| **Filosofie**      | `why-solutioning-matters.md`  |
+| **FAQ**            | `established-projects-faq.md` |
 
 ### Obecná šablona
 
@@ -220,14 +220,14 @@ váš-projekt/
 
 ### Typy
 
-| Typ               | Příklad               |
-| ----------------- | --------------------- |
-| **Úvodní stránka** | `workflows/index.md` |
-| **Katalog**       | `agents/index.md`     |
+| Typ                  | Příklad               |
+| -------------------- | --------------------- |
+| **Úvodní stránka**   | `workflows/index.md`  |
+| **Katalog**          | `agents/index.md`     |
 | **Hloubkový pohled** | `document-project.md` |
-| **Konfigurace**   | `core-tasks.md`       |
-| **Slovníček**     | `glossary/index.md`   |
-| **Komplexní**     | `bmgd-workflows.md`   |
+| **Konfigurace**      | `core-tasks.md`       |
+| **Slovníček**        | `glossary/index.md`   |
+| **Komplexní**        | `bmgd-workflows.md`   |
 
 ### Úvodní stránky reference
 
@@ -306,19 +306,19 @@ Starlight generuje navigaci „Na této stránce“ z nadpisů na pravé straně
 ```md
 ## Název kategorie
 
-| Termín       | Definice                                                                                    |
-| ------------ | ------------------------------------------------------------------------------------------- |
+| Termín       | Definice                                                                                      |
+| ------------ | --------------------------------------------------------------------------------------------- |
 | **Agent**    | Specializovaná AI persona s konkrétní odborností, která provází uživatele pracovními postupy. |
-| **Workflow** | Vícekrokový řízený proces, který orchestruje aktivity AI agentů k vytvoření výstupů.        |
+| **Workflow** | Vícekrokový řízený proces, který orchestruje aktivity AI agentů k vytvoření výstupů.          |
 ```
 
 ### Pravidla definic
 
-| Správně                        | Špatně                                       |
-| ------------------------------ | -------------------------------------------- |
+| Správně                         | Špatně                                         |
+| ------------------------------- | ---------------------------------------------- |
 | Začněte tím, co to JE nebo DĚLÁ | Nezačínejte „Toto je...“ nebo „[Termín] je...“ |
-| Držte se 1–2 vět              | Nepište víceodstavcová vysvětlení            |
-| Tučný název termínu v buňce   | Nepoužívejte prostý text pro termíny         |
+| Držte se 1–2 vět                | Nepište víceodstavcová vysvětlení              |
+| Tučný název termínu v buňce     | Nepoužívejte prostý text pro termíny           |
 
 ### Kontextové značky
 

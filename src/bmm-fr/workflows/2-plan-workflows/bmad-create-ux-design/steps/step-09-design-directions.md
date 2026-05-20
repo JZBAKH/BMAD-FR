@@ -53,6 +53,7 @@ Générer des maquettes de direction de design complètes montrant différentes 
 
 Créer des explorations visuelles diverses :
 "Je vais générer 6 à 8 variations de direction de design explorant :
+
 - Différentes approches de mise en page et de hiérarchie de l'information.
 - Divers modèles d'interaction et poids visuels.
 - Des applications alternatives de couleurs issues de nos fondations.
@@ -69,6 +70,7 @@ Générer une exploration visuelle interactive :
 Je crée une vitrine complète de directions de design en HTML à l'adresse `{planning_artifacts}/ux-design-directions.html`.
 
 **Ce que vous y trouverez :**
+
 - 6 à 8 variations de maquettes en plein écran.
 - États interactifs et effets de survol (hover).
 - Outils de comparaison côte à côte.
@@ -97,12 +99,14 @@ Aider l'utilisateur à choisir ou combiner des éléments :
 "Après avoir exploré toutes les directions de design :
 
 **Quelle approche résonne le plus en vous ?**
+
 - Choisir une direction favorite telle quelle.
 - Combiner des éléments de plusieurs directions.
 - Demander des modifications sur n'importe quelle direction.
 - Utiliser une direction comme base et itérer.
 
 **Dites-moi :**
+
 - Quelle mise en page semble la plus intuitive pour vos utilisateurs ?
 - Quel poids visuel correspond à la personnalité de votre marque ?
 - Quel style d'interaction soutient votre expérience centrale ?
@@ -132,15 +136,19 @@ Lors de l'enregistrement dans le document, ajoutez ces sections de niveau 2 (##)
 ## Décision sur la Direction de Design
 
 ### Directions de Design Explorées
+
 [Résumé des directions de design explorées selon la conversation]
 
 ### Direction Choisie
+
 [Direction de design choisie selon la conversation]
 
 ### Justification du Design
+
 [Justification du choix de direction de design selon la conversation]
 
 ### Approche d'Implémentation
+
 [Approche d'implémentation basée sur la direction choisie]
 ```
 

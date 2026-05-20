@@ -1,6 +1,6 @@
 ---
 name: 'step-v-12-completeness-validation'
-description: 'Contrôle de l''Exhaustivité - Dernier contrôle exhaustif complet avant la génération du rapport'
+description: "Contrôle de l'Exhaustivité - Dernier contrôle exhaustif complet avant la génération du rapport"
 
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
 nextStepFile: './step-v-13-report-complete.md'
@@ -68,11 +68,13 @@ Dernier contrôle exhaustif de l'intégralité - valider qu'aucune variable de m
 "Effectuer la validation de l'exhaustivité sur ce PRD - contrôle final :
 
 **1. Exhaustivité du modèle :**
+
 - Scanner le PRD pour toute variable de modèle restante.
 - Rechercher : {variable}, {{variable}}, {placeholder}, [placeholder], etc.
 - Lister tout élément trouvé avec les numéros de ligne.
 
 **2. Exhaustivité du contenu :**
+
 - Résumé Analytique : Contient l'énoncé de vision ? ({contenu clé})
 - Critères de Succès : Tous les critères sont mesurables ? ({métriques présentes})
 - Périmètre du Produit : Éléments inclus et hors périmètre définis ? ({les deux présents})
@@ -83,12 +85,14 @@ Dernier contrôle exhaustif de l'intégralité - valider qu'aucune variable de m
 Pour chaque section : Le contenu requis est-il présent ? (Oui/Non/Partiel)
 
 **3. Exhaustivité spécifique aux sections :**
+
 - Critères de Succès : Chacun a une méthode de mesure spécifique ?
 - Parcours Utilisateurs : Couvrent tous les types d'utilisateurs ?
 - Exigences Fonctionnelles : Couvrent le périmètre MVP ?
 - Exigences Non Fonctionnelles : Chacune a des critères spécifiques ?
 
 **4. Exhaustivité du frontmatter :**
+
 - stepsCompleted : Rempli ?
 - classification : Présent (domain, projectType) ?
 - inputDocuments : Suivi ?
@@ -97,6 +101,7 @@ Pour chaque section : Le contenu requis est-il présent ? (Oui/Non/Partiel)
 Retourner la matrice d'exhaustivité avec l'état de chaque vérification."
 
 **Dégradation gracieuse (si l'outil Task est indisponible) :**
+
 - Scanner manuellement les variables de modèle.
 - Vérifier manuellement chaque section pour le contenu requis.
 - Vérifier manuellement les champs du frontmatter.
@@ -105,10 +110,12 @@ Retourner la matrice d'exhaustivité avec l'état de chaque vérification."
 ### 2. Construire la matrice d'exhaustivité
 
 **Exhaustivité du modèle :**
+
 - Variables de modèle trouvées : nombre
 - Lister si des variables sont trouvées.
 
 **Exhaustivité du contenu par section :**
+
 - Résumé Analytique : Complet / Incomplet / Manquant
 - Critères de Succès : Complet / Incomplet / Manquant
 - Périmètre du Produit : Complet / Incomplet / Manquant
@@ -118,18 +125,21 @@ Retourner la matrice d'exhaustivité avec l'état de chaque vérification."
 - Autres sections : [Lister l'exhaustivité]
 
 **Exhaustivité spécifique aux sections :**
+
 - Critères de succès mesurables : Tous / Certains / Aucun
 - Parcours couvrant tous les utilisateurs : Oui / Partiel / Non
 - EF couvrant le périmètre MVP : Oui / Partiel / Non
 - ENF ayant des critères spécifiques : Tous / Certains / Aucun
 
 **Exhaustivité du frontmatter :**
+
 - stepsCompleted : Présent / Manquant
 - classification : Présent / Manquant
 - inputDocuments : Présent / Manquant
 - date : Présent / Manquant
 
 **Exhaustivité globale :**
+
 - Sections complètes : X/Y
 - Lacunes critiques : [liste le cas échéant]
 

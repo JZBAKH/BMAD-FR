@@ -88,8 +88,6 @@ UX Design complet. Invoquer le skill `bmad-help`.
 
 Féliciter l'utilisateur pour l'achèvement de l'UX que vous avez tous deux complété ensemble.
 
-
-
 ## MÉTRIQUES DE SUCCÈS :
 
 ✅ La spécification UX design contient toutes les sections requises

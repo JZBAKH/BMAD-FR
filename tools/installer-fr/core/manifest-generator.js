@@ -60,7 +60,9 @@ class ManifestGenerator {
     this.allInstalledFiles = installedFiles;
 
     if (!Object.prototype.hasOwnProperty.call(options, 'ides')) {
-      throw new Error('ManifestGenerator requiert que `options.ides` soit fourni – l\'installateur doit fournir le tableau des IDEs sélectionnés.');
+      throw new Error(
+        "ManifestGenerator requiert que `options.ides` soit fourni – l'installateur doit fournir le tableau des IDEs sélectionnés.",
+      );
     }
 
     const resolvedIdes = options.ides ?? [];
@@ -179,7 +181,9 @@ class ManifestGenerator {
     }
 
     if (debug) {
-      console.log(`[DEBUG] collectSkills : total des skills trouvés : ${this.skills.length}, répertoires réclamés : ${this.skillClaimedDirs.size}`);
+      console.log(
+        `[DEBUG] collectSkills : total des skills trouvés : ${this.skills.length}, répertoires réclamés : ${this.skillClaimedDirs.size}`,
+      );
     }
   }
 
@@ -214,7 +218,8 @@ class ManifestGenerator {
           !skillMeta.name ||
           !skillMeta.description
         ) {
-          if (debug) console.log(`[DEBUG] parseSkillMd : SKILL.md dans "${dir}" n'a pas de name ou description (ou type incorrect) — ignoré`);
+          if (debug)
+            console.log(`[DEBUG] parseSkillMd : SKILL.md dans "${dir}" n'a pas de name ou description (ou type incorrect) — ignoré`);
           return null;
         }
 
@@ -496,30 +501,30 @@ class ManifestGenerator {
 
     const teamHeader = [
       '# ─────────────────────────────────────────────────────────────────',
-      '# Géré par l\'installateur. Régénéré à chaque installation — à traiter en lecture seule.',
+      "# Géré par l'installateur. Régénéré à chaque installation — à traiter en lecture seule.",
       '#',
       '# Les modifications directes de ce fichier seront écrasées à la prochaine installation.',
-      '# Pour modifier durablement une réponse d\'installation, relancez l\'installateur (vos',
+      "# Pour modifier durablement une réponse d'installation, relancez l'installateur (vos",
       '# réponses précédentes sont mémorisées comme valeurs par défaut). Pour épingler une',
-      '# valeur indépendamment des réponses d\'installation, ou pour ajouter des agents',
+      "# valeur indépendamment des réponses d'installation, ou pour ajouter des agents",
       '# personnalisés / surcharger des descripteurs, utilisez :',
       '#   _bmad/custom/config.toml       (équipe, committé)',
       '#   _bmad/custom/config.user.toml  (personnel, gitignored)',
-      '# Ces fichiers ne sont jamais touchés par l\'installateur.',
+      "# Ces fichiers ne sont jamais touchés par l'installateur.",
       '# ─────────────────────────────────────────────────────────────────',
       '',
     ];
 
     const userHeader = [
       '# ─────────────────────────────────────────────────────────────────',
-      '# Géré par l\'installateur. Régénéré à chaque installation — à traiter en lecture seule.',
-      '# Contient les réponses d\'installation à portée VOUS personnellement.',
+      "# Géré par l'installateur. Régénéré à chaque installation — à traiter en lecture seule.",
+      "# Contient les réponses d'installation à portée VOUS personnellement.",
       '#',
       '# Les modifications directes de ce fichier seront écrasées à la prochaine installation.',
-      '# Pour modifier durablement une réponse, relancez l\'installateur (vos réponses',
+      "# Pour modifier durablement une réponse, relancez l'installateur (vos réponses",
       '# précédentes sont mémorisées comme valeurs par défaut). Pour des surcharges',
-      '# épinglées ou des sections personnalisées que l\'installateur ne connaît pas,',
-      '# utilisez _bmad/custom/config.user.toml — il n\'est jamais touché par l\'installateur.',
+      "# épinglées ou des sections personnalisées que l'installateur ne connaît pas,",
+      "# utilisez _bmad/custom/config.user.toml — il n'est jamais touché par l'installateur.",
       '# ─────────────────────────────────────────────────────────────────',
       '',
     ];
@@ -595,7 +600,9 @@ class ManifestGenerator {
           }
         }
       } catch (error) {
-        console.warn(`[avertissement] writeCentralConfig : impossible de lire le config.toml précédent pour préserver les agents : ${error.message}`);
+        console.warn(
+          `[avertissement] writeCentralConfig : impossible de lire le config.toml précédent pour préserver les agents : ${error.message}`,
+        );
       }
     }
 
@@ -633,9 +640,9 @@ class ManifestGenerator {
         file: path.join(customDir, 'config.toml'),
         header: [
           '# Surcharges équipe / entreprise pour _bmad/config.toml.',
-          '# Committé dans le dépôt — s\'applique à chaque développeur du projet.',
+          "# Committé dans le dépôt — s'applique à chaque développeur du projet.",
           '# Les tables fusionnent en profondeur sur la config de base ; les entrées indexées fusionnent par clé.',
-          '# Exemple : surcharger un descripteur d\'agent, ou ajouter un nouvel agent.',
+          "# Exemple : surcharger un descripteur d'agent, ou ajouter un nouvel agent.",
           '#',
           '# [agents.bmad-agent-pm]',
           '# description = "Préfère des PRDs courts et à puces plutôt que des brouillons narratifs."',
@@ -646,7 +653,7 @@ class ManifestGenerator {
         file: path.join(customDir, 'config.user.toml'),
         header: [
           '# Surcharges personnelles pour _bmad/config.toml.',
-          '# NON committé (gitignored) — s\'applique uniquement à votre installation locale.',
+          "# NON committé (gitignored) — s'applique uniquement à votre installation locale.",
           '# Prévaut sur la config de base et les surcharges équipe.',
           '',
         ],

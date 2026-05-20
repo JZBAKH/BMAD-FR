@@ -2,20 +2,18 @@
 
 _Rapport généré le 2026-05-20 par `.github/workflows/upstream-changes-report.yml`._
 
-_Précédent rapport : 2026-05-19_
-
 ## 📊 Vue d'ensemble
 
 - **origin/main** : `1da6bf80`
-- **bmad-fr** : `88ef8612`
+- **bmad-fr** : `baeddf24`
 - **Fraîcheur de la traduction** : 92.5% (245/265 fichiers à jour)
 
-| Catégorie | Nombre |
-|---|---|
-| 🆕 Nouveaux fichiers upstream à importer/traduire | **1** |
-| 🔄 Traductions FR potentiellement obsolètes | **19** |
-| 🗑️ Fichiers supprimés upstream (orphelins côté fork) | **6** |
-| ❓ EN modifié mais sans équivalent FR identifiable | 0 |
+| Catégorie                                            | Nombre |
+| ---------------------------------------------------- | ------ |
+| 🆕 Nouveaux fichiers upstream à importer/traduire    | **1**  |
+| 🔄 Traductions FR potentiellement obsolètes          | **19** |
+| 🗑️ Fichiers supprimés upstream (orphelins côté fork) | **6**  |
+| ❓ EN modifié mais sans équivalent FR identifiable   | 0      |
 
 ## 🆕 Nouveaux fichiers upstream (à importer + traduire)
 

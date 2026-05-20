@@ -13,19 +13,19 @@ Run any core tool by typing its skill name (e.g., `bmad-help`) in your IDE. No a
 
 ## Overview
 
-| Tool | Type | Purpose |
-| --- | --- | --- |
-| [`bmad-help`](#bmad-help) | Task | Get context-aware guidance on what to do next |
-| [`bmad-brainstorming`](#bmad-brainstorming) | Workflow | Facilitate interactive brainstorming sessions |
-| [`bmad-party-mode`](#bmad-party-mode) | Workflow | Orchestrate multi-agent group discussions |
-| [`bmad-distillator`](#bmad-distillator) | Task | Lossless LLM-optimized compression of documents |
-| [`bmad-advanced-elicitation`](#bmad-advanced-elicitation) | Task | Push LLM output through iterative refinement methods |
-| [`bmad-review-adversarial-general`](#bmad-review-adversarial-general) | Task | Cynical review that finds what's missing and what's wrong |
-| [`bmad-review-edge-case-hunter`](#bmad-review-edge-case-hunter) | Task | Exhaustive branching-path analysis for unhandled edge cases |
-| [`bmad-editorial-review-prose`](#bmad-editorial-review-prose) | Task | Clinical copy-editing for communication clarity |
-| [`bmad-editorial-review-structure`](#bmad-editorial-review-structure) | Task | Structural editing — cuts, merges, and reorganization |
-| [`bmad-shard-doc`](#bmad-shard-doc) | Task | Split large markdown files into organized sections |
-| [`bmad-index-docs`](#bmad-index-docs) | Task | Generate or update an index of all docs in a folder |
+| Tool                                                                  | Type     | Purpose                                                     |
+| --------------------------------------------------------------------- | -------- | ----------------------------------------------------------- |
+| [`bmad-help`](#bmad-help)                                             | Task     | Get context-aware guidance on what to do next               |
+| [`bmad-brainstorming`](#bmad-brainstorming)                           | Workflow | Facilitate interactive brainstorming sessions               |
+| [`bmad-party-mode`](#bmad-party-mode)                                 | Workflow | Orchestrate multi-agent group discussions                   |
+| [`bmad-distillator`](#bmad-distillator)                               | Task     | Lossless LLM-optimized compression of documents             |
+| [`bmad-advanced-elicitation`](#bmad-advanced-elicitation)             | Task     | Push LLM output through iterative refinement methods        |
+| [`bmad-review-adversarial-general`](#bmad-review-adversarial-general) | Task     | Cynical review that finds what's missing and what's wrong   |
+| [`bmad-review-edge-case-hunter`](#bmad-review-edge-case-hunter)       | Task     | Exhaustive branching-path analysis for unhandled edge cases |
+| [`bmad-editorial-review-prose`](#bmad-editorial-review-prose)         | Task     | Clinical copy-editing for communication clarity             |
+| [`bmad-editorial-review-structure`](#bmad-editorial-review-structure) | Task     | Structural editing — cuts, merges, and reorganization       |
+| [`bmad-shard-doc`](#bmad-shard-doc)                                   | Task     | Split large markdown files into organized sections          |
+| [`bmad-index-docs`](#bmad-index-docs)                                 | Task     | Generate or update an index of all docs in a folder         |
 
 ## bmad-help
 

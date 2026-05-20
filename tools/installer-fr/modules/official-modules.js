@@ -110,19 +110,19 @@ class OfficialModules {
   async listAvailable() {
     const modules = [];
 
-    // Add built-in core module — MODIFICATION FR : redirect vers core-skills-fr
-    const corePath = getModulePath('core-skills');
+    // Add built-in core module (directly under src/core-skills)
+    const corePath = getSourcePath('core-skills');
     if (await fs.pathExists(corePath)) {
-      const coreInfo = await this.getModuleInfo(corePath, 'core', 'src/core-skills-fr');
+      const coreInfo = await this.getModuleInfo(corePath, 'core', 'src/core-skills');
       if (coreInfo) {
         modules.push(coreInfo);
       }
     }
 
-    // Add built-in bmm module — MODIFICATION FR : redirect vers bmm-skills-fr
-    const bmmPath = getModulePath('bmm-skills');
+    // Add built-in bmm module (directly under src/bmm-skills)
+    const bmmPath = getSourcePath('bmm-skills');
     if (await fs.pathExists(bmmPath)) {
-      const bmmInfo = await this.getModuleInfo(bmmPath, 'bmm', 'src/bmm-skills-fr');
+      const bmmInfo = await this.getModuleInfo(bmmPath, 'bmm', 'src/bmm-skills');
       if (bmmInfo) {
         modules.push(bmmInfo);
       }
@@ -168,7 +168,7 @@ class OfficialModules {
         .split('-')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' '),
-      description: 'Module BMAD',
+      description: 'BMAD Module',
       version: '5.0.0',
       source: sourceDescription,
     };
@@ -189,7 +189,7 @@ class OfficialModules {
       moduleInfo.dependencies = config.dependencies || [];
       moduleInfo.defaultSelected = config.default_selected === undefined ? false : config.default_selected;
     } catch (error) {
-      await prompts.log.warn(`Échec de la lecture de la configuration pour ${defaultName} : ${error.message}`);
+      await prompts.log.warn(`Échec de lecture de la configuration pour ${defaultName} : ${error.message}`);
     }
 
     return moduleInfo;
@@ -209,17 +209,17 @@ class OfficialModules {
     }
     const projectRoot = getProjectRoot();
 
-    // Check for core module — MODIFICATION FR : redirect vers core-skills-fr
+    // Check for core module (directly under src/core-skills)
     if (moduleCode === 'core') {
-      const corePath = getModulePath('core-skills');
+      const corePath = getSourcePath('core-skills');
       if (await fs.pathExists(corePath)) {
         return corePath;
       }
     }
 
-    // Check for built-in bmm module — MODIFICATION FR : redirect vers bmm-skills-fr
+    // Check for built-in bmm module (directly under src/bmm-skills)
     if (moduleCode === 'bmm') {
-      const bmmPath = getModulePath('bmm-skills');
+      const bmmPath = getSourcePath('bmm-skills');
       if (await fs.pathExists(bmmPath)) {
         return bmmPath;
       }
@@ -229,14 +229,6 @@ class OfficialModules {
     const externalSource = await this.externalModuleManager.findExternalModuleSource(moduleCode, options);
     if (externalSource) {
       return externalSource;
-    }
-
-    // Check community modules (pass channelOptions for --next/--pin overrides)
-    const { CommunityModuleManager } = require('./community-manager');
-    const communityMgr = new CommunityModuleManager();
-    const communitySource = await communityMgr.findModuleSource(moduleCode, options);
-    if (communitySource) {
-      return communitySource;
     }
 
     // Check custom modules (from user-provided URLs, already cloned to cache)
@@ -269,21 +261,6 @@ class OfficialModules {
       return this.installFromResolution(resolved, bmadDir, fileTrackingCallback, options);
     }
 
-    // Community modules whose cloned repo ships marketplace.json get the same
-    // skill-level install treatment as custom-source installs. If the in-process
-    // cache wasn't populated (e.g. caller skipped the pre-clone phase), fall
-    // back to resolving directly from `~/.bmad/cache/community-modules/<name>/`
-    // so we don't silently regress to the legacy half-install path.
-    const { CommunityModuleManager } = require('./community-manager');
-    const communityMgr = new CommunityModuleManager();
-    let communityResolved = communityMgr.getPluginResolution(moduleName);
-    if (!communityResolved) {
-      communityResolved = await communityMgr.resolveFromCache(moduleName);
-    }
-    if (communityResolved) {
-      return this.installFromResolution(communityResolved, bmadDir, fileTrackingCallback, options);
-    }
-
     const sourcePath = await this.findModuleSource(moduleName, {
       silent: options.silent,
       channelOptions: options.channelOptions,
@@ -292,7 +269,7 @@ class OfficialModules {
 
     if (!sourcePath) {
       throw new Error(
-        `La source pour le module '${moduleName}' n'est pas disponible. Il sera conservé mais ne peut pas être mis à jour sans ses fichiers source.`,
+        `La source du module '${moduleName}' n'est pas disponible. Il sera conservé mais ne peut pas être mis à jour sans ses fichiers source.`,
       );
     }
 
@@ -310,14 +287,9 @@ class OfficialModules {
     const manifestObj = new Manifest();
     const versionInfo = await manifestObj.getModuleVersionInfo(moduleName, bmadDir, sourcePath);
 
-    // Pick up channel resolution recorded by whichever manager did the clone.
-    const externalResolution = this.externalModuleManager.getResolution(moduleName);
-    let communityResolution = null;
-    if (!externalResolution) {
-      const { CommunityModuleManager } = require('./community-manager');
-      communityResolution = new CommunityModuleManager().getResolution(moduleName);
-    }
-    const resolution = externalResolution || communityResolution;
+    // Pick up channel resolution recorded by the external manager (the only
+    // manager that does pre-clone resolution now that community is retired).
+    const resolution = this.externalModuleManager.getResolution(moduleName);
 
     await manifestObj.addModule(bmadDir, moduleName, {
       version: resolution?.version || versionInfo.version,
@@ -326,8 +298,6 @@ class OfficialModules {
       repoUrl: versionInfo.repoUrl,
       channel: resolution?.channel,
       sha: resolution?.sha,
-      registryApprovedTag: communityResolution?.registryApprovedTag,
-      registryApprovedSha: communityResolution?.registryApprovedSha,
     });
 
     return { success: true, module: moduleName, path: targetPath, versionInfo };
@@ -375,27 +345,19 @@ class OfficialModules {
       await this.createModuleDirectories(resolved.code, bmadDir, options);
     }
 
-    // Update manifest. For community installs we honor the channel resolved by
-    // CommunityModuleManager (stable/next/pinned) and propagate the registry's
-    // approved tag/sha. For custom-source installs we derive channel from the
+    // Update manifest. For custom-source installs we derive channel from the
     // cloneRef (present → pinned, absent → next; local paths have no channel).
     const { Manifest } = require('../core/manifest');
     const manifestObj = new Manifest();
 
     const hasGitClone = !!resolved.repoUrl;
-    const isCommunity = resolved.communitySource === true;
     const manifestEntry = {
-      version: resolved.communityVersion || resolved.cloneRef || (hasGitClone ? 'main' : resolved.version || null),
-      source: isCommunity ? 'community' : 'custom',
+      version: resolved.cloneRef || (hasGitClone ? 'main' : resolved.version || null),
+      source: 'custom',
       npmPackage: null,
       repoUrl: resolved.repoUrl || null,
     };
-    if (isCommunity) {
-      if (resolved.communityChannel) manifestEntry.channel = resolved.communityChannel;
-      if (resolved.cloneSha) manifestEntry.sha = resolved.cloneSha;
-      if (resolved.registryApprovedTag) manifestEntry.registryApprovedTag = resolved.registryApprovedTag;
-      if (resolved.registryApprovedSha) manifestEntry.registryApprovedSha = resolved.registryApprovedSha;
-    } else if (hasGitClone) {
+    if (hasGitClone) {
       manifestEntry.channel = resolved.cloneRef ? 'pinned' : 'next';
       if (resolved.cloneSha) manifestEntry.sha = resolved.cloneSha;
       if (resolved.rawInput) manifestEntry.rawSource = resolved.rawInput;
@@ -408,11 +370,10 @@ class OfficialModules {
       module: resolved.code,
       path: targetPath,
       // Mirror the manifestEntry.version precedence above so downstream summary
-      // lines show the same string we just wrote to disk (community installs
-      // use the registry-approved tag via `communityVersion`; custom git-backed
+      // lines show the same string we just wrote to disk (custom git-backed
       // installs show the cloned ref or 'main').
       versionInfo: {
-        version: resolved.communityVersion || resolved.cloneRef || (hasGitClone ? 'main' : resolved.version || ''),
+        version: resolved.cloneRef || (hasGitClone ? 'main' : resolved.version || ''),
       },
     };
   }
@@ -427,7 +388,7 @@ class OfficialModules {
     const targetPath = path.join(bmadDir, moduleName);
 
     if (!sourcePath) {
-      throw new Error(`Module '${moduleName}' introuvable dans les emplacements source`);
+      throw new Error(`Module '${moduleName}' introuvable dans tous les emplacements source`);
     }
 
     if (!(await fs.pathExists(targetPath))) {
@@ -500,7 +461,7 @@ class OfficialModules {
         const config = yaml.parse(configContent);
         Object.assign(moduleInfo, config);
       } catch (error) {
-        await prompts.log.warn(`Échec de la lecture de la configuration du module installé : ${error.message}`);
+        await prompts.log.warn(`Échec de lecture de la configuration du module installé : ${error.message}`);
       }
     }
 
@@ -557,7 +518,7 @@ class OfficialModules {
         // Check for localskip="true" in the agent tag
         const agentMatch = content.match(/<agent[^>]*\slocalskip="true"[^>]*>/);
         if (agentMatch) {
-          await prompts.log.message(`  Agent web-only ignoré : ${path.basename(file)}`);
+          await prompts.log.message(`  Ignoré (agent web uniquement) : ${path.basename(file)}`);
           continue; // Skip this agent
         }
       }
@@ -590,10 +551,10 @@ class OfficialModules {
     const projectRoot = path.dirname(bmadDir);
     const emptyResult = { createdDirs: [], movedDirs: [], createdWdsFolders: [] };
 
-    // Special handling for core module — MODIFICATION FR : redirect vers core-skills-fr
+    // Special handling for core module - it's in src/core-skills not src/modules
     let sourcePath;
     if (moduleName === 'core') {
-      sourcePath = getModulePath('core-skills');
+      sourcePath = getSourcePath('core-skills');
     } else {
       sourcePath = await this.findModuleSource(moduleName, { silent: true });
       if (!sourcePath) {
@@ -654,7 +615,7 @@ class OfficialModules {
       const normalizedRoot = path.normalize(projectRoot);
       if (!normalizedPath.startsWith(normalizedRoot + path.sep) && normalizedPath !== normalizedRoot) {
         const color = await prompts.getColor();
-        await prompts.log.warn(color.yellow(`Le chemin ${configKey} sort de la racine du projet, ignoré : ${dirPath}`));
+        await prompts.log.warn(color.yellow(`${configKey} : le chemin sort de la racine du projet, ignoré : ${dirPath}`));
         continue;
       }
 
@@ -687,7 +648,7 @@ class OfficialModules {
               const color = await prompts.getColor();
               await prompts.log.warn(
                 color.yellow(
-                  `${configKey} : impossible de déplacer entre des chemins parent/enfant (${oldDirPath} / ${dirPath}), création d'un nouveau répertoire à la place`,
+                  `${configKey} : impossible de déplacer entre chemins parent/enfant (${oldDirPath} / ${dirPath}), création d'un nouveau répertoire à la place`,
                 ),
               );
               oldFullPath = null;
@@ -932,8 +893,7 @@ class OfficialModules {
    * user's prior answer silently disappears on the next install/quick-update.
    */
   async _hoistCoreKeysFromLegacyModuleConfigs() {
-    // MODIFICATION FR : passer par getModulePath pour rediriger vers core-skills-fr
-    const coreSchemaPath = path.join(getModulePath('core-skills'), 'module.yaml');
+    const coreSchemaPath = path.join(getSourcePath(), 'core-skills', 'module.yaml');
     if (!(await fs.pathExists(coreSchemaPath))) return;
 
     let coreSchema;
@@ -1002,7 +962,7 @@ class OfficialModules {
         const moduleConfig = yaml.parse(content);
         if (!moduleConfig) continue;
 
-        const displayName = moduleConfig.header || `Module ${moduleName.toUpperCase()}`;
+        const displayName = moduleConfig.header || `${moduleName.toUpperCase()} Module`;
         const configKeys = Object.keys(moduleConfig).filter((key) => key !== 'prompt');
         const questionKeys = configKeys.filter((key) => {
           if (metadataFields.has(key)) return false;
@@ -1022,7 +982,7 @@ class OfficialModules {
           hasFieldsWithoutDefaults,
         });
       } catch (error) {
-        await prompts.log.warn(`Impossible de lire le schéma pour le module « ${moduleName} » : ${error.message}`);
+        await prompts.log.warn(`Impossible de lire le schéma du module "${moduleName}" : ${error.message}`);
       }
     }
 
@@ -1072,7 +1032,7 @@ class OfficialModules {
         const configMode = await prompts.select({
           message: 'Configuration des modules',
           choices: [
-            { name: 'Configuration express', value: 'express', hint: 'accepter toutes les valeurs par défaut (recommandé)' },
+            { name: 'Installation rapide', value: 'express', hint: 'accepter toutes les valeurs par défaut (recommandé)' },
             { name: 'Personnaliser', value: 'customize', hint: 'choisir les modules à configurer' },
           ],
           default: 'express',
@@ -1082,11 +1042,11 @@ class OfficialModules {
           const choices = customizableModules.map((m) => ({
             name: `${m.displayName} (${m.questionCount} option${m.questionCount === 1 ? '' : 's'})`,
             value: m.moduleName,
-            hint: m.hasFieldsWithoutDefaults ? 'contient des champs sans valeurs par défaut' : undefined,
+            hint: m.hasFieldsWithoutDefaults ? 'contient des champs sans valeur par défaut' : undefined,
             checked: m.hasFieldsWithoutDefaults,
           }));
           const selected = await prompts.multiselect({
-            message: 'Sélectionnez les modules à personnaliser :',
+            message: 'Sélectionner les modules à personnaliser :',
             choices,
             required: false,
           });
@@ -1134,7 +1094,9 @@ class OfficialModules {
             }
           }
         } finally {
-          configSpinner.stop(customizeModules.length > 0 ? 'Valeurs par défaut des modules appliquées' : 'Configuration des modules terminée');
+          configSpinner.stop(
+            customizeModules.length > 0 ? 'Valeurs par défaut des modules appliquées' : 'Configuration des modules terminée',
+          );
         }
       }
 
@@ -1220,7 +1182,7 @@ class OfficialModules {
 
     // If module has no config keys at all, handle it specially
     if (hasNoConfig && moduleConfig.subheader) {
-      const moduleDisplayName = moduleConfig.header || `Module ${moduleName.toUpperCase()}`;
+      const moduleDisplayName = moduleConfig.header || `${moduleName.toUpperCase()} Module`;
       await prompts.log.step(moduleDisplayName);
       await prompts.log.message(`  \u2713 ${moduleConfig.subheader}`);
       return false; // No new fields
@@ -1276,7 +1238,7 @@ class OfficialModules {
       }
 
       // Show "no config" message for modules with no new questions (that have config keys)
-      await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} d\u00e9j\u00e0 \u00e0 jour`);
+      await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} d\u00E9j\u00E0 \u00E0 jour`);
       return false; // No new fields
     }
 
@@ -1307,7 +1269,7 @@ class OfficialModules {
         for (const q of questions) {
           allAnswers[q.name] = typeof q.default === 'function' ? q.default({}) : q.default;
         }
-        await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} configur\u00e9 avec les valeurs par d\u00e9faut`);
+        await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} configur\u00E9 avec les valeurs par d\u00E9faut`);
       } else if (questions.length > 0) {
         // Only show header if we actually have questions
         await CLIUtils.displayModuleConfigHeader(moduleName, moduleConfig.header, moduleConfig.subheader);
@@ -1318,7 +1280,7 @@ class OfficialModules {
         Object.assign(allAnswers, promptedAnswers);
       } else if (newStaticKeys.length > 0) {
         // Only static fields, no questions - show no config message
-        await prompts.log.message(`  \u2713 Configuration du module ${moduleName.toUpperCase()} mise \u00e0 jour`);
+        await prompts.log.message(`  \u2713 Configuration du module ${moduleName.toUpperCase()} mise à jour`);
       }
 
       // Store all answers for cross-referencing
@@ -1528,7 +1490,7 @@ class OfficialModules {
 
     // If there are questions to ask, prompt for accepting defaults vs customizing
     if (questions.length > 0) {
-      const moduleDisplayName = moduleConfig.header || `Module ${moduleName.toUpperCase()}`;
+      const moduleDisplayName = moduleConfig.header || `${moduleName.toUpperCase()} Module`;
 
       // Skip prompts mode: use all defaults without asking
       if (this.skipPrompts) {
@@ -1566,7 +1528,7 @@ class OfficialModules {
           const questionsWithoutDefaults = questions.filter((q) => q.default === undefined || q.default === null || q.default === '');
 
           if (questionsWithoutDefaults.length > 0) {
-            await prompts.log.message(`  Questions requises pour ${moduleName.toUpperCase()}...`);
+            await prompts.log.message(`  Questions obligatoires pour ${moduleName.toUpperCase()}...`);
             const promptedAnswers = await prompts.prompt(questionsWithoutDefaults);
             Object.assign(allAnswers, promptedAnswers);
           }
@@ -1683,7 +1645,7 @@ class OfficialModules {
       // No longer display completion boxes - keep output clean
     } else {
       // No questions for this module - show completion message with header if available
-      const moduleDisplayName = moduleConfig.header || `Module ${moduleName.toUpperCase()}`;
+      const moduleDisplayName = moduleConfig.header || `${moduleName.toUpperCase()} Module`;
 
       // Check if this module has NO configuration keys at all (like CIS)
       // Filter out metadata fields and only count actual config objects
@@ -1697,11 +1659,11 @@ class OfficialModules {
           if (moduleConfig.subheader) {
             await prompts.log.message(`  \u2713 ${moduleConfig.subheader}`);
           } else {
-            await prompts.log.message(`  \u2713 Aucune configuration personnalis\u00e9e requise`);
+            await prompts.log.message(`  \u2713 Aucune configuration personnalisée requise`);
           }
         } else {
           // Module has config but just no questions to ask
-          await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} configur\u00e9`);
+          await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} configuré`);
         }
       }
     }
@@ -2065,7 +2027,7 @@ class OfficialModules {
     if (questionType === 'input') {
       question.validate = (input) => {
         if (!input && item.required) {
-          return 'Ce champ est requis';
+          return 'Ce champ est obligatoire';
         }
         // Validate against regex pattern if provided
         if (input && item.regex) {

@@ -53,6 +53,7 @@ Rechercher les stratégies d'adoption actuelles :
 Rechercher sur le web : "stratégies d'adoption technologique migration"
 
 **Focus adoption :**
+
 - Modèles et approches de migration technologique
 - Adoption progressive vs stratégies de type "Big Bang"
 - Approches de modernisation de systèmes hérités (legacy)
@@ -64,6 +65,7 @@ Rechercher les pratiques de développement actuelles :
 Rechercher sur le web : "flux de travail de développement logiciel outillage"
 
 **Focus flux de travail :**
+
 - Pipelines CI/CD et outils d'automatisation
 - Qualité du code et processus de revue de code
 - Stratégies et frameworks de test
@@ -75,6 +77,7 @@ Rechercher les pratiques opérationnelles actuelles :
 Rechercher sur le web : "DevOps opérations meilleures pratiques"
 
 **Focus opérations :**
+
 - Pratiques de surveillance (monitoring) et d'observabilité
 - Analyse de réponse aux incidents et reprise après sinistre
 - Infrastructure as Code (IaC) et automatisation
@@ -216,6 +219,7 @@ Lorsque l'utilisateur sélectionne 'C', ajoutez le contenu directement au docume
 ## TERMINAISON DU WORKFLOW DE RECHERCHE TECHNIQUE :
 
 Lorsque 'C' est sélectionné :
+
 - Étape de recherche sur l'implémentation terminée.
 - Contenu ajouté au document de recherche avec citations des sources.
 - Frontmatter mis à jour avec stepsCompleted : [1, 2, 3, 4, 5].

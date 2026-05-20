@@ -72,9 +72,9 @@ L'activation est terminée. Commencez le workflow ci-dessous.
 
 ## Fichiers d'Entrée
 
-| Entrée | Chemin | Stratégie de Chargement |
-|--------|--------|-------------------------|
-| Epics | `{planning_artifacts}/*epic*.md` (entier) ou `{planning_artifacts}/*epic*/*.md` (fragmenté) | FULL_LOAD |
+| Entrée | Chemin                                                                                      | Stratégie de Chargement |
+| ------ | ------------------------------------------------------------------------------------------- | ----------------------- |
+| Epics  | `{planning_artifacts}/*epic*.md` (entier) ou `{planning_artifacts}/*epic*/*.md` (fragmenté) | FULL_LOAD               |
 
 ## Exécution
 

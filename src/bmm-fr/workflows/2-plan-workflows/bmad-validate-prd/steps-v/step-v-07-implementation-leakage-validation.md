@@ -65,6 +65,7 @@ S'assurer que les Exigences Fonctionnelles et les Exigences Non-Fonctionnelles n
 "Effectuer la validation de la fuite d'implémentation sur ce PRD :
 
 **Rechercher :**
+
 1. Noms de technologies (React, Vue, Angular, PostgreSQL, MongoDB, AWS, GCP, Azure, Docker, Kubernetes, etc.)
 2. Noms de bibliothèques (Redux, axios, lodash, Express, Django, Rails, Spring, etc.)
 3. Structures de données (JSON, XML, CSV) sauf si pertinent pour la capacité
@@ -72,6 +73,7 @@ S'assurer que les Exigences Fonctionnelles et les Exigences Non-Fonctionnelles n
 5. Noms de protocoles (HTTP, REST, GraphQL, WebSockets) - vérifier si pertinent pour la capacité
 
 **Pour chaque terme trouvé :**
+
 - Est-ce pertinent pour la capacité ? (ex: 'Les consommateurs d'API peuvent accéder...' - API est une capacité)
 - Ou est-ce un détail d'implémentation ? (ex: 'Composant React pour...' - implémentation)
 
@@ -107,6 +109,7 @@ Redux, Zustand, axios, fetch, lodash, jQuery, etc.
 JSON, XML, YAML, CSV (sauf si pertinent pour la capacité)
 
 **Pour chaque terme trouvé dans les RF/RNF :**
+
 - Déterminer s'il est pertinent pour la capacité ou s'il s'agit d'une fuite d'implémentation
 - Exemple : "Les consommateurs d'API peuvent accéder aux données via des points de terminaison REST" - API/REST est une capacité
 - Exemple : "Les composants React récupèrent les données en utilisant Redux" - fuite d'implémentation
@@ -116,6 +119,7 @@ JSON, XML, YAML, CSV (sauf si pertinent pour la capacité)
 ### 3. Décompte des fuites d'implémentation
 
 **Par catégorie :**
+
 - Fuite de framework frontend : nombre
 - Fuite de framework backend : nombre
 - Fuite de base de données : nombre

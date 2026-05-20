@@ -10,6 +10,9 @@
 let _clack = null;
 let _clackCore = null;
 let _picocolors = null;
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
 
 /**
  * Lazy-load @clack/prompts (ESM module)
@@ -50,7 +53,7 @@ async function getPicocolors() {
  * @param {string} [message='Operation cancelled'] - Message to display
  * @returns {boolean} True if cancelled
  */
-async function handleCancel(value, message = 'Operation cancelled') {
+async function handleCancel(value, message = 'Opération annulée') {
   const clack = await getClack();
   if (clack.isCancel(value)) {
     clack.cancel(message);
@@ -269,7 +272,7 @@ async function autocompleteMultiselect(options) {
     filter: filterFn,
     validate: () => {
       if (options.required && prompt.selectedValues.length === 0) {
-        return 'Please select at least one item';
+        return 'Veuillez sélectionner au moins un élément';
       }
     },
     initialValue: [...new Set([...(options.initialValues || []), ...(options.lockedValues || [])])],
@@ -281,7 +284,7 @@ async function autocompleteMultiselect(options) {
       const title = `${color.gray(clack.S_BAR)}\n${clack.symbol(this.state)}  ${options.message}\n`;
 
       const userInput = this.userInput;
-      const placeholder = options.placeholder || 'Type to search...';
+      const placeholder = options.placeholder || 'Saisir pour rechercher...';
       const hasPlaceholder = userInput === '' && placeholder !== undefined;
 
       // Show placeholder or user input with cursor
@@ -292,7 +295,7 @@ async function autocompleteMultiselect(options) {
       const matchCount =
         this.filteredOptions.length === allOptions.length
           ? ''
-          : color.dim(` (${this.filteredOptions.length} match${this.filteredOptions.length === 1 ? '' : 'es'})`);
+          : color.dim(` (${this.filteredOptions.length} correspondance${this.filteredOptions.length === 1 ? '' : 's'})`);
 
       // Render option with checkbox
       const renderOption = (opt, isHighlighted) => {
@@ -304,7 +307,7 @@ async function autocompleteMultiselect(options) {
         let checkbox;
         if (isLocked) {
           checkbox = color.green(clack.S_CHECKBOX_SELECTED);
-          const lockHint = color.dim(' (always installed)');
+          const lockHint = color.dim(' (toujours installé)');
           return isHighlighted ? `${checkbox} ${label}${lockHint}` : `${checkbox} ${color.dim(label)}${lockHint}`;
         }
         checkbox = isSelected ? color.green(clack.S_CHECKBOX_SELECTED) : color.dim(clack.S_CHECKBOX_INACTIVE);
@@ -313,7 +316,7 @@ async function autocompleteMultiselect(options) {
 
       switch (this.state) {
         case 'submit': {
-          return `${title}${color.gray(clack.S_BAR)}  ${color.dim(`${this.selectedValues.length} items selected`)}`;
+          return `${title}${color.gray(clack.S_BAR)}  ${color.dim(`${this.selectedValues.length} élément(s) sélectionné(s)`)}`;
         }
 
         case 'cancel': {
@@ -322,9 +325,9 @@ async function autocompleteMultiselect(options) {
 
         default: {
           // Always show "SPACE:" regardless of isNavigating state
-          const hints = [`${color.dim('↑/↓')} to navigate`, `${color.dim('TAB/SPACE:')} select`, `${color.dim('ENTER:')} confirm`];
+          const hints = [`${color.dim('↑/↓')} naviguer`, `${color.dim('TAB/ESPACE:')} sélectionner`, `${color.dim('ENTRÉE:')} confirmer`];
 
-          const noMatchesLine = this.filteredOptions.length === 0 && userInput ? [`${bar}  ${color.yellow('No matches found')}`] : [];
+          const noMatchesLine = this.filteredOptions.length === 0 && userInput ? [`${bar}  ${color.yellow('Aucun résultat trouvé')}`] : [];
 
           const errorLine = this.state === 'error' ? [`${bar}  ${color.yellow(this.error)}`] : [];
 
@@ -542,7 +545,7 @@ const log = {
  * Display cancellation message
  * @param {string} [message='Operation cancelled'] - The cancellation message
  */
-async function cancel(message = 'Operation cancelled') {
+async function cancel(message = 'Opération annulée') {
   const clack = await getClack();
   clack.cancel(message);
 }
@@ -571,6 +574,151 @@ async function box(content, title, options) {
 async function autocomplete(options) {
   const clack = await getClack();
   const result = await clack.autocomplete(options);
+  await handleCancel(result);
+  return result;
+}
+
+function hasPathSeparator(value) {
+  return value.endsWith('/') || value.endsWith('\\');
+}
+
+function expandHome(input) {
+  if (!input) return input;
+  if (input === '~') return os.homedir();
+  if (input.startsWith('~/') || input.startsWith('~\\')) {
+    return path.join(os.homedir(), input.slice(2));
+  }
+  return input;
+}
+
+function toDirectoryOption(value, label = value, synthetic = false) {
+  return { value, label, synthetic };
+}
+
+function isExistingDirectory(value) {
+  try {
+    return fs.existsSync(value) && fs.statSync(value).isDirectory();
+  } catch {
+    return false;
+  }
+}
+
+function listDirectoryOptions(input, options) {
+  const cwd = options.cwd || process.cwd();
+  const rawInput = input.trim();
+  const expandedInput = expandHome(rawInput);
+  const trailingSep = hasPathSeparator(rawInput) || hasPathSeparator(expandedInput);
+  const resolvedInput = expandedInput ? path.resolve(cwd, expandedInput) : cwd;
+  const browseDir = expandedInput && !trailingSep && !isExistingDirectory(resolvedInput) ? path.dirname(resolvedInput) : resolvedInput;
+  const prefix = expandedInput && browseDir !== resolvedInput ? path.basename(resolvedInput).toLowerCase() : '';
+  const results = [];
+
+  if (!trailingSep && isExistingDirectory(resolvedInput)) {
+    results.push(toDirectoryOption(resolvedInput, `. (utiliser ce dossier)`));
+  }
+
+  if (isExistingDirectory(browseDir)) {
+    try {
+      for (const entry of fs.readdirSync(browseDir, { withFileTypes: true })) {
+        if (!entry.isDirectory()) continue;
+        if (prefix && !entry.name.toLowerCase().startsWith(prefix)) continue;
+        const fullPath = path.join(browseDir, entry.name);
+        if (!results.some((option) => option.value === fullPath)) {
+          results.push(toDirectoryOption(fullPath));
+        }
+      }
+    } catch {
+      // Skip unreadable directories; validation still reports path issues.
+    }
+  }
+
+  const validation = options.validate?.(rawInput);
+  const hasMatchingOption = results.some((option) => option.value === resolvedInput);
+  if (expandedInput && !validation && !hasMatchingOption) {
+    results.unshift(toDirectoryOption(resolvedInput, `Créer/utiliser : ${resolvedInput}`, true));
+  }
+
+  return results;
+}
+
+/**
+ * Directory prompt with autocomplete candidates and create-directory support.
+ * Uses @clack/core directly so typed paths that do not exist yet can still be
+ * submitted when validation allows creating them.
+ * @param {Object} options - Prompt options
+ * @param {string} options.message - Prompt message
+ * @param {string} [options.default] - Default directory
+ * @param {string} [options.placeholder] - Placeholder text
+ * @param {Function} [options.validate] - Sync validation function
+ * @returns {Promise<string>} Selected or typed directory path
+ */
+async function directory(options) {
+  const core = await getClackCore();
+  const color = await getPicocolors();
+  const tabCompletion = {
+    prefix: '',
+    index: -1,
+    options: [],
+    lastValue: '',
+  };
+
+  let prompt;
+  prompt = new core.AutocompletePrompt({
+    initialValue: options.default,
+    options: () => listDirectoryOptions(prompt?.userInput || '', options),
+    filter: () => true,
+    validate: (value) => options.validate?.(value ?? prompt.userInput),
+    render() {
+      const title = `${color.gray('◆')}  ${options.message}`;
+      const bar = color.gray('│');
+      const barEnd = color.gray('└');
+      const userInput = this.userInput;
+      const placeholder = options.placeholder || options.default;
+      const inputDisplay = userInput ? this.userInputWithCursor : `${color.inverse(color.hidden('_'))}${color.dim(placeholder || '')}`;
+      const errorLine = this.state === 'error' ? [`${color.yellow('│')}  ${color.yellow(this.error)}`] : [];
+
+      switch (this.state) {
+        case 'submit': {
+          return `${color.gray('◇')}  ${options.message}\n${bar}  ${color.dim(this.value || '')}`;
+        }
+        case 'cancel': {
+          return `${color.gray('◇')}  ${options.message}\n${bar}  ${color.strikethrough(color.dim(userInput || ''))}`;
+        }
+        default: {
+          return [title, `${bar}  ${inputDisplay}`, ...errorLine, barEnd].join('\n');
+        }
+      }
+    },
+  });
+
+  const hasSetUserInput = typeof prompt._setUserInput === 'function';
+  const hasClearUserInput = typeof prompt._clearUserInput === 'function';
+
+  prompt.on('key', (_, key) => {
+    if (key?.name !== 'tab') return;
+    if (!hasSetUserInput) return; // @clack/core API surface changed — skip Tab silently.
+    const currentInput = prompt.userInput;
+    const isContinuingCycle = tabCompletion.lastValue && currentInput === tabCompletion.lastValue;
+    const completionOptions = isContinuingCycle ? tabCompletion.options : prompt.filteredOptions.filter((option) => !option.synthetic);
+    if (completionOptions.length === 0) return;
+
+    if (isContinuingCycle) {
+      tabCompletion.index = (tabCompletion.index + 1) % completionOptions.length;
+    } else {
+      tabCompletion.prefix = currentInput;
+      tabCompletion.options = completionOptions;
+      tabCompletion.index = 0;
+    }
+
+    const focusedOption = completionOptions[tabCompletion.index];
+    if (!focusedOption) return;
+    const completedValue = focusedOption.value;
+    tabCompletion.lastValue = completedValue;
+    if (hasClearUserInput) prompt._clearUserInput();
+    prompt._setUserInput(completedValue, true);
+  });
+
+  const result = await prompt.prompt();
   await handleCancel(result);
   return result;
 }
@@ -694,6 +842,7 @@ module.exports = {
   multiselect,
   autocompleteMultiselect,
   autocomplete,
+  directory,
   confirm,
   text,
   password,

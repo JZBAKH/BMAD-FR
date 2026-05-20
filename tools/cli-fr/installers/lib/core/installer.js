@@ -381,31 +381,31 @@ class Installer {
     // Tool selection will be collected after we determine if it's a reinstall/update/new install
 
     const spinner = await prompts.spinner();
-    spinner.start('Préparation de l\'installation...');
+    spinner.start("Préparation de l'installation...");
 
     try {
       // Create a project directory if it doesn't exist (user already confirmed)
       if (!(await fs.pathExists(projectDir))) {
-        spinner.message('Création du dossier d\'installation...');
+        spinner.message("Création du dossier d'installation...");
         try {
           // fs.ensureDir handles platform-specific directory creation
           // It will recursively create all necessary parent directories
           await fs.ensureDir(projectDir);
         } catch (error) {
-          spinner.error('Échec de la création du dossier d\'installation');
+          spinner.error("Échec de la création du dossier d'installation");
           await prompts.log.error(`Erreur : ${error.message}`);
           // More detailed error for common issues
           if (error.code === 'EACCES') {
             await prompts.log.error('Permission refusée. Vérifiez les permissions du dossier parent.');
           } else if (error.code === 'ENOSPC') {
-            await prompts.log.error('Plus d\'espace disponible sur le disque.');
+            await prompts.log.error("Plus d'espace disponible sur le disque.");
           }
           throw new Error(`Impossible de créer le dossier : ${projectDir}`);
         }
       }
 
       // Check existing installation
-      spinner.message('Vérification d\'une installation existante...');
+      spinner.message("Vérification d'une installation existante...");
       const existingInstall = await this.detector.detect(bmadDir);
 
       if (existingInstall.installed && !config.force && !config._quickUpdate) {
@@ -786,7 +786,7 @@ class Installer {
               }
               await prompts.log.success(`  ${idesToRemove.length} IDE supprimé(s)`);
             } else {
-              await prompts.log.message('  Suppression de l\'IDE annulée');
+              await prompts.log.message("  Suppression de l'IDE annulée");
               // Add IDEs back to selection and restore their saved configurations
               if (!config.ides) config.ides = [];
               const savedIdeConfigs = await this.ideConfigManager.loadAllIdeConfigs(bmadDir);
@@ -798,7 +798,7 @@ class Installer {
               }
             }
 
-            spinner.start('Préparation de l\'installation...');
+            spinner.start("Préparation de l'installation...");
           }
         }
       }
@@ -808,13 +808,13 @@ class Installer {
       const addResult = (step, status, detail = '') => results.push({ step, status, detail });
 
       if (spinner.isSpinning) {
-        spinner.message('Préparation de l\'installation...');
+        spinner.message("Préparation de l'installation...");
       } else {
-        spinner.start('Préparation de l\'installation...');
+        spinner.start("Préparation de l'installation...");
       }
 
       // Create bmad directory structure
-      spinner.message('Création de l\'arborescence de dossiers...');
+      spinner.message("Création de l'arborescence de dossiers...");
       await this.createDirectoryStructure(bmadDir);
 
       // Cache custom modules if any
@@ -1154,9 +1154,9 @@ class Installer {
           });
 
           // Merge help catalogs
-          message('Génération du catalogue d\'aide...');
+          message("Génération du catalogue d'aide...");
           await this.mergeModuleHelpCatalogs(bmadDir);
-          addResult('Catalogue d\'aide', 'ok');
+          addResult("Catalogue d'aide", 'ok');
 
           return 'Configurations générées';
         },
@@ -1171,15 +1171,15 @@ class Installer {
       const color = await prompts.getColor();
       if (dirResults.movedDirs.length > 0) {
         const lines = dirResults.movedDirs.map((d) => `  ${d}`).join('\n');
-        await prompts.log.message(color.cyan(`Dossiers d\u00e9plac\u00e9s :\n${lines}`));
+        await prompts.log.message(color.cyan(`Dossiers d\u00E9plac\u00E9s :\n${lines}`));
       }
       if (dirResults.createdDirs.length > 0) {
         const lines = dirResults.createdDirs.map((d) => `  ${d}`).join('\n');
-        await prompts.log.message(color.yellow(`Dossiers cr\u00e9\u00e9s :\n${lines}`));
+        await prompts.log.message(color.yellow(`Dossiers cr\u00E9\u00E9s :\n${lines}`));
       }
       if (dirResults.createdWdsFolders.length > 0) {
         const lines = dirResults.createdWdsFolders.map((f) => color.dim(`  \u2713 ${f}/`)).join('\n');
-        await prompts.log.message(color.cyan(`Arborescence WDS cr\u00e9\u00e9e :\n${lines}`));
+        await prompts.log.message(color.cyan(`Arborescence WDS cr\u00E9\u00E9e :\n${lines}`));
       }
 
       // Now run configuration generation
@@ -1208,7 +1208,7 @@ class Installer {
                 ideSpinner.message(`Configuration de ${ide}...`);
               } else {
                 if (ideSpinner.isSpinning) {
-                  ideSpinner.stop('Prêt pour la configuration de l\'IDE');
+                  ideSpinner.stop("Prêt pour la configuration de l'IDE");
                 }
               }
 
@@ -1262,7 +1262,7 @@ class Installer {
         ((config._customFiles && config._customFiles.length > 0) || (config._modifiedFiles && config._modifiedFiles.length > 0))
       ) {
         postIdeTasks.push({
-          title: 'Finalisation de l\'installation',
+          title: "Finalisation de l'installation",
           task: async (message) => {
             let customFiles = [];
             let modifiedFiles = [];
@@ -1342,9 +1342,9 @@ class Installer {
     } catch (error) {
       try {
         if (spinner.isSpinning) {
-          spinner.error('Échec de l\'installation');
+          spinner.error("Échec de l'installation");
         } else {
-          await prompts.log.error('Échec de l\'installation');
+          await prompts.log.error("Échec de l'installation");
         }
       } catch {
         // Ensure the original error is never swallowed by a logging failure
@@ -1407,7 +1407,7 @@ class Installer {
     }
 
     if ((context.ides || []).length === 0) {
-      lines.push(`  ${color.green('\u2713')}  Aucun IDE s\u00e9lectionn\u00e9 ${color.dim('(install\u00e9 uniquement dans _bmad)')}`);
+      lines.push(`  ${color.green('\u2713')}  Aucun IDE s\u00E9lectionn\u00E9 ${color.dim('(install\u00E9 uniquement dans _bmad)')}`);
     }
 
     // Context and warnings
@@ -1443,7 +1443,7 @@ class Installer {
    */
   async update(config) {
     const spinner = await prompts.spinner();
-    spinner.start('Vérification de l\'installation...');
+    spinner.start("Vérification de l'installation...");
 
     try {
       const projectDir = path.resolve(config.directory);
@@ -2761,7 +2761,7 @@ class Installer {
   async promptUpdateAction() {
     const action = await prompts.select({
       message: 'Que souhaitez-vous faire ?',
-      choices: [{ name: 'Mettre à jour l\'installation existante', value: 'update' }],
+      choices: [{ name: "Mettre à jour l'installation existante", value: 'update' }],
     });
     return { action };
   }
@@ -2773,8 +2773,8 @@ class Installer {
    */
   async handleLegacyV4Migration(_projectDir, _legacyV4) {
     await prompts.note(
-      'Dossier .bmad-method trouvé provenant d\'une installation BMAD v4.\n\n' +
-        'Avant de poursuivre l\'installation, nous recommandons de :\n' +
+      "Dossier .bmad-method trouvé provenant d'une installation BMAD v4.\n\n" +
+        "Avant de poursuivre l'installation, nous recommandons de :\n" +
         '  1. Supprimer le dossier .bmad-method, OU\n' +
         '  2. Le sauvegarder en le renommant (par exemple, bmad-method-backup)\n\n' +
         'Si votre installation v4 a configuré des règles ou des commandes, vous devriez aussi les supprimer.',
@@ -2787,10 +2787,10 @@ class Installer {
         {
           name: 'Quitter et nettoyer manuellement (recommandé)',
           value: 'exit',
-          hint: 'Quitter l\'installation',
+          hint: "Quitter l'installation",
         },
         {
-          name: 'Poursuivre l\'installation malgré tout',
+          name: "Poursuivre l'installation malgré tout",
           value: 'continue',
           hint: 'Continuer',
         },
@@ -2799,13 +2799,13 @@ class Installer {
     });
 
     if (proceed === 'exit') {
-      await prompts.log.info('Veuillez supprimer le dossier .bmad-method et toutes les règles/commandes v4, puis relancez l\'installateur.');
+      await prompts.log.info("Veuillez supprimer le dossier .bmad-method et toutes les règles/commandes v4, puis relancez l'installateur.");
       // Allow event loop to flush pending I/O before exit
       setImmediate(() => process.exit(0));
       return;
     }
 
-    await prompts.log.warn('Poursuite de l\'installation malgré le dossier v4 existant');
+    await prompts.log.warn("Poursuite de l'installation malgré le dossier v4 existant");
   }
 
   /**
@@ -3053,7 +3053,7 @@ class Installer {
 
       const choices = [
         {
-          name: 'Conserver l\'installation (ne sera pas traité)',
+          name: "Conserver l'installation (ne sera pas traité)",
           value: 'keep',
           hint: 'Conserver',
         },
@@ -3090,7 +3090,7 @@ class Installer {
               }
               const expandedPath = path.resolve(input.trim());
               if (!fs.pathExistsSync(expandedPath)) {
-                return 'Le chemin n\'existe pas';
+                return "Le chemin n'existe pas";
               }
               // Check if it looks like a valid module
               const moduleYamlPath = path.join(expandedPath, 'module.yaml');

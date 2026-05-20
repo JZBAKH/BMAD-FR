@@ -34,8 +34,7 @@ function run() {
   for (const root of FR_ROOTS) {
     const fullRoot = path.join(REPO_ROOT, root);
     if (!fs.existsSync(fullRoot)) continue;
-    const found = walk(fullRoot, { extensions: ['.md'], base: REPO_ROOT })
-      .filter((p) => p.endsWith('SKILL.md'));
+    const found = walk(fullRoot, { extensions: ['.md'], base: REPO_ROOT }).filter((p) => p.endsWith('SKILL.md'));
     skillFiles.push(...found);
   }
 

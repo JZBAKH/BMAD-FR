@@ -65,6 +65,7 @@ Valider que toutes les Exigences Fonctionnelles (RF) et les Exigences Non-Foncti
 "Effectuer la validation de la mesurabilité sur ce PRD :
 
 **Exigences Fonctionnelles (RF) :**
+
 1. Extraire toutes les RF de la section Exigences Fonctionnelles
 2. Vérifier chaque RF pour :
    - Conformité au format '[Acteur] peut [capacité]'
@@ -74,6 +75,7 @@ Valider que toutes les Exigences Fonctionnelles (RF) et les Exigences Non-Foncti
 3. Documenter les violations avec les numéros de ligne
 
 **Exigences Non-Fonctionnelles (RNF) :**
+
 1. Extraire toutes les RNF de la section Exigences Non-Fonctionnelles
 2. Vérifier chaque RNF pour :
    - Métriques spécifiques avec méthodes de mesure
@@ -92,19 +94,23 @@ Si l'outil Task est indisponible, effectuer l'analyse directement :
 Extraire toutes les RF et vérifier chacune pour :
 
 **Conformité au format :**
+
 - Suit-elle le modèle "[Acteur] peut [capacité]" ?
 - L'acteur est-il clairement défini ?
 - La capacité est-elle exploitable et testable ?
 
 **Aucun adjectif subjectif :**
+
 - Rechercher : facile, rapide, simple, intuitif, convivial (user-friendly), réactif, prompt, efficace (sans métriques)
 - Noter les numéros de ligne
 
 **Aucun quantificateur vague :**
+
 - Rechercher : plusieurs, divers, certains, beaucoup, peu, variés, un certain nombre de
 - Noter les numéros de ligne
 
 **Aucun détail d'implémentation :**
+
 - Rechercher : React, Vue, Angular, PostgreSQL, MongoDB, AWS, Docker, Kubernetes, Redux, etc.
 - Sauf si pertinent pour la capacité (ex: "Les consommateurs d'API peuvent accéder...")
 - Noter les numéros de ligne
@@ -114,10 +120,12 @@ Extraire toutes les RF et vérifier chacune pour :
 Extraire toutes les RNF et vérifier chacune pour :
 
 **Métriques spécifiques :**
+
 - Y a-t-il un critère mesurable ? (ex: "temps de réponse < 200ms", pas "réponse rapide")
 - Cela peut-il être mesuré ou testé ?
 
 **Conformité au modèle :**
+
 - Critère défini ?
 - Métrique spécifiée ?
 - Méthode de mesure incluse ?
@@ -126,6 +134,7 @@ Extraire toutes les RNF et vérifier chacune pour :
 ### 3. Décompte des Violations
 
 **Violations RF :**
+
 - Violations de format : nombre
 - Adjectifs subjectifs : nombre
 - Quantificateurs vagues : nombre
@@ -133,6 +142,7 @@ Extraire toutes les RNF et vérifier chacune pour :
 - Total des violations RF : somme
 
 **Violations RNF :**
+
 - Métriques manquantes : nombre
 - Modèle incomplet : nombre
 - Contexte manquant : nombre

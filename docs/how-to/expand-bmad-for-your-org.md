@@ -12,23 +12,23 @@ BMad's customization surface lets an organization reshape behavior without editi
 - BMad installed in your project (see [How to Install BMad](./install-bmad.md))
 - Familiarity with the customization model (see [How to Customize BMad](./customize-bmad.md))
 - Python 3.11+ on PATH (for the resolver — stdlib only, no `pip install`)
-:::
+  :::
 
 :::tip[Applying these recipes]
-The **per-skill recipes** below (Recipes 1–4) can be applied by running the `bmad-customize` skill and describing the intent — it will pick the right surface, author the override file, and verify the merge. Recipe 5 (central-config overrides to the agent roster) is out of scope for v1 of the skill and remains hand-authored. The recipes here are the source of truth for *what* to override; `bmad-customize` handles the *how* for the agent/workflow surface.
+The **per-skill recipes** below (Recipes 1–4) can be applied by running the `bmad-customize` skill and describing the intent — it will pick the right surface, author the override file, and verify the merge. Recipe 5 (central-config overrides to the agent roster) is out of scope for v1 of the skill and remains hand-authored. The recipes here are the source of truth for _what_ to override; `bmad-customize` handles the _how_ for the agent/workflow surface.
 :::
 
 ## The Three-Layer Mental Model
 
 Before picking a recipe, know where your override lands:
 
-| Layer | Where overrides live | Scope |
-|---|---|---|
-| **Agent** (e.g. Amelia, Mary, John) | `[agent]` section of `_bmad/custom/bmad-agent-{role}.toml` | Travels with the persona into **every workflow the agent dispatches** |
-| **Workflow** (e.g. product-brief, create-prd) | `[workflow]` section of `_bmad/custom/{workflow-name}.toml` | Applies only to that workflow's run |
-| **Central config** | `[agents.*]`, `[core]`, `[modules.*]` in `_bmad/custom/config.toml` | Agent roster (who's available for party-mode, retrospective, elicitation), install-time settings pinned org-wide |
+| Layer                                         | Where overrides live                                                | Scope                                                                                                            |
+| --------------------------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **Agent** (e.g. Amelia, Mary, John)           | `[agent]` section of `_bmad/custom/bmad-agent-{role}.toml`          | Travels with the persona into **every workflow the agent dispatches**                                            |
+| **Workflow** (e.g. product-brief, create-prd) | `[workflow]` section of `_bmad/custom/{workflow-name}.toml`         | Applies only to that workflow's run                                                                              |
+| **Central config**                            | `[agents.*]`, `[core]`, `[modules.*]` in `_bmad/custom/config.toml` | Agent roster (who's available for party-mode, retrospective, elicitation), install-time settings pinned org-wide |
 
-Rule of thumb: if the rule should apply everywhere an engineer does dev work, customize the **dev agent**. If it applies only when someone writes a product brief, customize the **product-brief workflow**. If it changes *who's in the room* (rename an agent, add a custom voice, enforce a shared artifact path), edit **central config**.
+Rule of thumb: if the rule should apply everywhere an engineer does dev work, customize the **dev agent**. If it applies only when someone writes a product brief, customize the **product-brief workflow**. If it changes _who's in the room_ (rename an agent, add a custom voice, enforce a shared artifact path), edit **central config**.
 
 ## Recipe 1: Shape an Agent Across Every Workflow It Dispatches
 
@@ -52,12 +52,13 @@ persistent_facts = [
 **Why this works:** Two sentences reshape every dev workflow in the org, with no per-workflow duplication and no source changes. Every new engineer who pulls the repo inherits the conventions automatically.
 
 **Team file vs personal file:**
+
 - `bmad-agent-dev.toml`: committed to git; applies to the whole team
 - `bmad-agent-dev.user.toml`: gitignored; personal preferences layered on top
 
 ## Recipe 2: Enforce Organizational Conventions Inside a Specific Workflow
 
-**Use case:** Shape the *content* of a workflow's output so it meets compliance, audit, or downstream-consumer requirements.
+**Use case:** Shape the _content_ of a workflow's output so it meets compliance, audit, or downstream-consumer requirements.
 
 **Example: every product brief must include compliance fields, and the agent knows about the org's publishing conventions.**
 
@@ -115,6 +116,7 @@ and ask the user to publish manually.
 **Why `on_complete` and not `activation_steps_append`:** `on_complete` runs exactly once, at the terminal stage, after the workflow's main output is written. That's the right moment to publish artifacts. `activation_steps_append` runs every activation, before the workflow does its work.
 
 **Tradeoffs:**
+
 - **Confluence publication is non-destructive** and always runs on completion
 - **Jira epic creation is visible to the whole team** and kicks off sprint-planning signals, so gate it on user confirmation
 - **Graceful fallback:** if MCP tools fail, hand off to the user rather than silently dropping the output
@@ -135,13 +137,14 @@ brief_template = "{project-root}/docs/enterprise/brief-template.md"
 **How it works:** The workflow's `customize.toml` ships with `brief_template = "resources/brief-template.md"` (bare path, resolves from skill root). Your override points at a file under `{project-root}`, so the agent reads your template in Stage 4 instead of the shipped one.
 
 **Template authoring tips:**
+
 - Keep templates in `{project-root}/docs/` or `{project-root}/_bmad/custom/templates/` so they version alongside the override file
 - Use the same structural conventions as the shipped template (section headings, frontmatter); the agent adapts to what's there
 - For multi-org repos, use `.user.toml` to let individual teams point at their own templates without touching the committed team file
 
 ## Recipe 5: Customize the Agent Roster
 
-**Use case:** Change *who's in the room* for roster-driven skills like `bmad-party-mode`, `bmad-retrospective`, and `bmad-advanced-elicitation`, without editing any source or forking. Three common variants follow.
+**Use case:** Change _who's in the room_ for roster-driven skills like `bmad-party-mode`, `bmad-retrospective`, and `bmad-advanced-elicitation`, without editing any source or forking. Three common variants follow.
 
 ### 5a. Rebrand a BMad Agent Org-Wide
 
@@ -197,13 +200,14 @@ document_output_language = "English"
 
 Personal settings like `user_name`, `communication_language`, or `user_skill_level` stay under each developer's own `_bmad/config.user.toml`. The team file shouldn't touch those.
 
-**Why central config vs per-agent customize.toml:** Per-agent files shape how *one* agent behaves when it activates. Central config shapes what roster consumers *see when they look at the field:* which agents exist, what they're called, what team they belong to, and the shared install settings the whole repo agrees on. Two surfaces, different jobs.
+**Why central config vs per-agent customize.toml:** Per-agent files shape how _one_ agent behaves when it activates. Central config shapes what roster consumers _see when they look at the field:_ which agents exist, what they're called, what team they belong to, and the shared install settings the whole repo agrees on. Two surfaces, different jobs.
 
 ## Reinforce Global Rules in Your IDE's Session File
 
 BMad customizations load when a skill is activated. Many IDE tools also load a global instruction file at the **start of every session**, before any skill runs (`CLAUDE.md`, `AGENTS.md`, `.cursor/rules/`, `.github/copilot-instructions.md`, etc). For rules that should hold even outside BMad skills, restate the critical ones there too.
 
 **When to double up:**
+
 - A rule is important enough that a plain chat conversation (no skill active) should still follow it
 - You want belt-and-suspenders enforcement because training-data defaults might otherwise pull the model off-course
 - The rule is concise enough to repeat without bloating the session file
@@ -218,12 +222,12 @@ before relying on training-data knowledge. -->
 
 One sentence, loaded every session. It pairs with the `bmad-agent-dev.toml` customization so the rule applies both inside Amelia's workflows and during ad-hoc chats with the assistant. Each layer owns its own scope:
 
-| Layer | Scope | Use for |
-|---|---|---|
-| IDE session file (`CLAUDE.md` / `AGENTS.md`) | Every session, before any skill activates | Short, universal rules that should survive outside BMad |
-| BMad agent customization | Every workflow the agent dispatches | Agent-persona-specific behavior |
-| BMad workflow customization | One workflow run | Workflow-specific output shape, publishing hooks, templates |
-| BMad central config | Agent roster + shared install settings | Who's in the room and what shared paths the team uses |
+| Layer                                        | Scope                                     | Use for                                                     |
+| -------------------------------------------- | ----------------------------------------- | ----------------------------------------------------------- |
+| IDE session file (`CLAUDE.md` / `AGENTS.md`) | Every session, before any skill activates | Short, universal rules that should survive outside BMad     |
+| BMad agent customization                     | Every workflow the agent dispatches       | Agent-persona-specific behavior                             |
+| BMad workflow customization                  | One workflow run                          | Workflow-specific output shape, publishing hooks, templates |
+| BMad central config                          | Agent roster + shared install settings    | Who's in the room and what shared paths the team uses       |
 
 Keep the IDE file **succinct**. A dozen well-chosen lines are more effective than a sprawling list. Models read it every turn, and noise crowds out signal.
 

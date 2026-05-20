@@ -30,14 +30,14 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
 
 ### Fichiers d'Entrée (Input Files)
 
-| Entrée | Chemin | Stratégie de chargement |
-|-------|------|---------------|
-| PRD | `{planning_artifacts}/*prd*.md` (entier) ou `{planning_artifacts}/*prd*/*.md` (partitionné) | FULL_LOAD |
-| Epics | `{planning_artifacts}/*epic*.md` (entier) ou `{planning_artifacts}/*epic*/*.md` (partitionné) | FULL_LOAD |
-| Architecture | `{planning_artifacts}/*architecture*.md` (entier) ou `{planning_artifacts}/*architecture*/*.md` (partitionné) | FULL_LOAD |
-| UX Design | `{planning_artifacts}/*ux*.md` (entier) ou `{planning_artifacts}/*ux*/*.md` (partitionné) | FULL_LOAD |
-| Tech Spec | `{planning_artifacts}/*tech-spec*.md` (entier) | FULL_LOAD |
-| Document Project | `{project_knowledge}/index.md` (partitionné) | INDEX_GUIDED |
+| Entrée           | Chemin                                                                                                        | Stratégie de chargement |
+| ---------------- | ------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| PRD              | `{planning_artifacts}/*prd*.md` (entier) ou `{planning_artifacts}/*prd*/*.md` (partitionné)                   | FULL_LOAD               |
+| Epics            | `{planning_artifacts}/*epic*.md` (entier) ou `{planning_artifacts}/*epic*/*.md` (partitionné)                 | FULL_LOAD               |
+| Architecture     | `{planning_artifacts}/*architecture*.md` (entier) ou `{planning_artifacts}/*architecture*/*.md` (partitionné) | FULL_LOAD               |
+| UX Design        | `{planning_artifacts}/*ux*.md` (entier) ou `{planning_artifacts}/*ux*/*.md` (partitionné)                     | FULL_LOAD               |
+| Tech Spec        | `{planning_artifacts}/*tech-spec*.md` (entier)                                                                | FULL_LOAD               |
+| Document Project | `{project_knowledge}/index.md` (partitionné)                                                                  | INDEX_GUIDED            |
 
 ### Contexte
 

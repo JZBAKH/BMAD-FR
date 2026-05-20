@@ -1,6 +1,6 @@
 ---
 name: bmad-validate-prd
-description: 'DÉPRÉCIÉ — consolidé dans l''intention validate de bmad-prd - ce skill sera supprimé en v7 au profit de `bmad-prd`.'
+description: "DÉPRÉCIÉ — consolidé dans l'intention validate de bmad-prd - ce skill sera supprimé en v7 au profit de `bmad-prd`."
 ---
 
 # DÉPRÉCIÉ — redirige vers bmad-prd (intention validate)
@@ -18,7 +18,6 @@ Ce skill a été consolidé dans `bmad-prd`. Il est conservé comme un mince shi
    > Avis : `bmad-validate-prd` est déprécié et sera supprimé dans une future version. Il redirige désormais vers `bmad-prd` avec l'intention validate. Pour faire taire cet avis et accéder à la surface complète de personnalisation (`prd_template`, `validation_checklist`, `doc_standards`, `external_sources`, `external_handoffs`, `output_dir`, `output_folder_name`), migre `_bmad/custom/bmad-validate-prd.toml` vers `_bmad/custom/bmad-prd.toml` et invoque `bmad-prd` directement la prochaine fois. Les champs de personnalisation qui étaient dans cette version restent dans la nouvelle version et seront respectés s'ils sont présents dans `_bmad/custom/bmad-prd.toml`, mais la nouvelle version prend également en charge des champs additionnels dont tu peux profiter en migrant.
 
 4. Invoque `bmad-prd` avec le contexte suivant. Passe-les comme contexte d'activation afin que `bmad-prd` les honore au lieu de résoudre sa propre personnalisation depuis zéro :
-
    - **Intention :** `validate` — saute l'étape habituelle de détection d'intention de `bmad-prd`.
    - **Personnalisation héritée pré-résolue** — utilise celles-ci au lieu de résoudre depuis le propre `customize.toml` de `bmad-prd` pour les quatre champs hérités. Pour tout le reste (`prd_template`, `validation_checklist`, `validation_report_template`, `doc_standards`, `output_dir`, `output_folder_name`, `external_sources`, `external_handoffs`), utilise les valeurs par défaut et overrides propres à `bmad-prd` comme d'habitude :
      - `activation_steps_prepend` = la valeur résolue à l'étape 1

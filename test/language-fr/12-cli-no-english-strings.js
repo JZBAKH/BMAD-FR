@@ -75,14 +75,16 @@ const ENGLISH_MARKERS = [
 // Sentinelles internes ou identifiants à ignorer (matches qui ne sont pas
 // du contenu user-facing à traduire)
 const ALLOWED_SENTINELS = new Set([
-  'unknown',     // detector / manifest sentinel
-  'built-in',    // module source classification
-  'standalone',  // module source classification
-  'core',        // module identifier
-  'manual',      // version flag
-  'auto',        // version flag
-  'partial',     // installation state marker
-  'ok', 'error', 'warning',  // result statuses
+  'unknown', // detector / manifest sentinel
+  'built-in', // module source classification
+  'standalone', // module source classification
+  'core', // module identifier
+  'manual', // version flag
+  'auto', // version flag
+  'partial', // installation state marker
+  'ok',
+  'error',
+  'warning', // result statuses
 ]);
 
 // Substrings techniques qui désactivent la détection EN sur la ligne entière
@@ -95,9 +97,9 @@ const TECHNICAL_PASSTHROUGHS = [
   /Story Context XML/,
   /\bnpm\b|\bnpx\b|\bnode\b/,
   /\bbmad install\b|\bbmad uninstall\b|\bbmad-method\b/,
-  /\.(yaml|yml|json|md|csv|txt)\b/,  // file extensions
+  /\.(yaml|yml|json|md|csv|txt)\b/, // file extensions
   /_bmad|_config|_memory|_cfg/,
-  /\$\{[a-zA-Z_][^}]*\}/,            // template variable in same string
+  /\$\{[a-zA-Z_][^}]*\}/, // template variable in same string
 ];
 
 function detectLine(content, index) {
@@ -111,7 +113,7 @@ function isLikelyEnglishUserString(str) {
   // Strip out interpolated expressions ${...} and ${{...}} : their content
   // is JS code (variable names, function calls), not user-facing text.
   // This avoids false positives on identifiers like ${this.handlers.keys()}.
-  let cleaned = str.replace(/\$\{[^}]*\}/g, ' ');
+  let cleaned = str.replaceAll(/\$\{[^}]*\}/g, ' ');
 
   // Strip developer log markers like [DEBUG], [TRACE], [WARN], [INFO] which
   // are conventionally kept in English even in localised projects.
@@ -120,7 +122,7 @@ function isLikelyEnglishUserString(str) {
   // Strip technical passthroughs (BMAD, Skill, Module, file paths, etc.)
   // before applying English-marker detection.
   for (const re of TECHNICAL_PASSTHROUGHS) {
-    cleaned = cleaned.replace(new RegExp(re.source, 'g'), ' ');
+    cleaned = cleaned.replaceAll(new RegExp(re.source, 'g'), ' ');
   }
 
   if (cleaned.trim().length < 5) return false;
@@ -150,7 +152,7 @@ function collectFiles() {
   // tools/validate-*.js : fichiers individuels
   for (const abs of VALIDATE_FILES) {
     if (fs.existsSync(abs)) {
-      files.push(path.relative(REPO_ROOT, abs).replace(/\\/g, '/'));
+      files.push(path.relative(REPO_ROOT, abs).replaceAll('\\', '/'));
     }
   }
 
@@ -190,11 +192,14 @@ function run() {
 
   runner.test(`aucune chaîne anglaise détectée (${files.length} fichiers scannés)`, () => {
     if (offenders.length === 0) return;
-    const sample = offenders.slice(0, 15)
+    const sample = offenders
+      .slice(0, 15)
       .map((o) => `  • ${o.file}:${o.line} → "${o.string}"`)
       .join('\n');
     const more = offenders.length > 15 ? `\n  • ... et ${offenders.length - 15} autre(s)` : '';
-    throw new Error(`${offenders.length} chaîne(s) anglaise(s) détectée(s) :\n${sample}${more}\n\nSi un cas est un faux positif (terme technique légitime), ajoutez-le à TECHNICAL_PASSTHROUGHS ou ALLOWED_SENTINELS dans test/language-fr/12-cli-no-english-strings.js.`);
+    throw new Error(
+      `${offenders.length} chaîne(s) anglaise(s) détectée(s) :\n${sample}${more}\n\nSi un cas est un faux positif (terme technique légitime), ajoutez-le à TECHNICAL_PASSTHROUGHS ou ALLOWED_SENTINELS dans test/language-fr/12-cli-no-english-strings.js.`,
+    );
   });
 }
 

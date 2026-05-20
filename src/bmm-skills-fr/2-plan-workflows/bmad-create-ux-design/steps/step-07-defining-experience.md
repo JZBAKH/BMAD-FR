@@ -55,6 +55,7 @@ Concentrez-vous sur l'interaction centrale :
 "Chaque produit à succès possède une expérience déterminante - l'interaction centrale qui, si nous la réussissons, fait que tout le reste suit.
 
 **Pensez à ces exemples célèbres :**
+
 - Tinder : "Swiper pour matcher avec des gens"
 - Snapchat : "Partager des photos qui disparaissent"
 - Instagram : "Partager des moments parfaits avec des filtres"
@@ -69,12 +70,14 @@ Si nous devions réussir UNE chose parfaitement, quelle serait-elle ?"
 
 Comprendre comment les utilisateurs appréhendent la tâche principale :
 "**Questions sur le modèle mental de l'utilisateur :**
+
 - Comment les utilisateurs résolvent-ils actuellement ce problème ?
 - Quel modèle mental apportent-ils à cette tâche ?
 - Quelle est leur attente sur la façon dont cela devrait fonctionner ?
 - Où sont-ils susceptibles d'être confus ou frustrés ?
 
 **Solutions Actuelles :**
+
 - Qu'est-ce que les utilisateurs aiment/détestent dans les approches existantes ?
 - Quels raccourcis ou solutions de contournement utilisent-ils ?
 - Qu'est-ce qui rend les solutions actuelles magiques ou terribles ?"
@@ -83,6 +86,7 @@ Comprendre comment les utilisateurs appréhendent la tâche principale :
 
 Établir ce qui rend l'interaction centrale réussie :
 "**Critères de succès de l'expérience centrale :**
+
 - Qu'est-ce qui fait dire aux utilisateurs 'ça marche, tout simplement' ?
 - Quand se sentent-ils intelligents ou accomplis ?
 - Quel feedback leur indique qu'ils font ce qu'il faut ?
@@ -90,6 +94,7 @@ Comprendre comment les utilisateurs appréhendent la tâche principale :
 - Qu'est-ce qui devrait se produire automatiquement ?
 
 **Indicateurs de Succès :**
+
 - [Indicateur de succès 1]
 - [Indicateur de succès 2]
 - [Indicateur de succès 3]"
@@ -99,16 +104,19 @@ Comprendre comment les utilisateurs appréhendent la tâche principale :
 Déterminer si nous devons innover ou utiliser des modèles éprouvés :
 "**Analyse des Modèles :**
 En examinant votre expérience centrale, est-ce que cela :
+
 - Utilise des modèles UX établis que les utilisateurs comprennent déjà ?
 - Nécessite un design d'interaction novateur qui demande un apprentissage ?
 - Combine des modèles familiers de manière innovante ?
 
 **Si Novateur :**
+
 - Qu'est-ce qui différencie cela des approches existantes ?
 - Comment allons-nous apprendre ce nouveau modèle aux utilisateurs ?
 - Quelles métaphores familières pouvons-nous utiliser ?
 
 **Si Établi :**
+
 - Quels modèles éprouvés devrions-nous adopter ?
 - Comment pouvons-nous innover au sein de modèles familiers ?
 - Quelle est notre touche unique sur des interactions établies ?"
@@ -120,20 +128,24 @@ Décomposez l'interaction centrale en détails :
 Concevons le flux étape par étape pour [expérience déterminante] :
 
 **1. Initiation :**
+
 - Comment l'utilisateur commence-t-il cette action ?
 - Quels déclencheurs ou incitations l'invitent à commencer ?
 
 **2. Interaction :**
+
 - Que fait réellement l'utilisateur ?
 - Quels contrôles ou entrées utilise-t-il ?
 - Comment le système répond-il ?
 
 **3. Feedback :**
+
 - Qu'est-ce qui indique aux utilisateurs qu'ils réussissent ?
 - Comment savent-ils que cela fonctionne ?
 - Que se passe-t-il s'ils font une erreur ?
 
 **4. Finalisation :**
+
 - Comment les utilisateurs savent-ils qu'ils ont terminé ?
 - Quel est le résultat positif (outcome) ?
 - Quelle est la suite ?"
@@ -150,18 +162,23 @@ Lors de l'enregistrement dans le document, ajoutez ces sections de niveau 2 (##)
 ## 2. Expérience Utilisateur Centrale
 
 ### 2.1 Expérience Déterminante
+
 [Description de l'expérience déterminante selon la conversation]
 
 ### 2.2 Modèle Mental de l'Utilisateur
+
 [Analyse du modèle mental de l'utilisateur selon la conversation]
 
 ### 2.3 Critères de Succès
+
 [Critères de succès pour l'expérience centrale selon la conversation]
 
 ### 2.4 Modèles UX Novateurs
+
 [Analyse des modèles UX novateurs selon la conversation]
 
 ### 2.5 Mécanismes de l'Expérience
+
 [Mécanismes détaillés pour l'expérience centrale selon la conversation]
 ```
 

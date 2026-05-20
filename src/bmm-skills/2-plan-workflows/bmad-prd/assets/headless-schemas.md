@@ -18,11 +18,11 @@ Every headless run ends with one of these payloads. Omit keys for artifacts not 
   "intent": "create",
   "prd": "{doc_workspace}/prd.md",
   "addendum": "{doc_workspace}/addendum.md",
-  "decision_log": "{doc_workspace}/decision-log.md",
+  "decision_log": "{doc_workspace}/.decision-log.md",
   "open_questions": [],
   "assumptions": [],
   "external_handoffs": [
-    {"directive": "Confluence upload", "tool": "corp:confluence_upload", "url": "https://confluence.corp/PROD/123", "status": "ok"}
+    { "directive": "Confluence upload", "tool": "corp:confluence_upload", "url": "https://confluence.corp/PROD/123", "status": "ok" }
   ]
 }
 ```
@@ -34,12 +34,12 @@ Every headless run ends with one of these payloads. Omit keys for artifacts not 
   "status": "complete",
   "intent": "update",
   "prd": "{doc_workspace}/prd.md",
-  "decision_log": "{doc_workspace}/decision-log.md",
+  "decision_log": "{doc_workspace}/.decision-log.md",
   "changes_summary": "1-3 sentences describing what changed and why",
   "conflicts_with_prior_decisions": [],
   "open_questions": [],
   "external_handoffs": [
-    {"directive": "Confluence upload", "tool": "corp:confluence_upload", "url": "https://confluence.corp/PROD/123", "status": "ok"}
+    { "directive": "Confluence upload", "tool": "corp:confluence_upload", "url": "https://confluence.corp/PROD/123", "status": "ok" }
   ]
 }
 ```

@@ -43,7 +43,6 @@
 
 6. S'il ne reste zéro constat après triage (tous rejetés ou aucun soulevé) : énoncez « ✅ Revue propre — toutes les couches ont passé. » (L'étape 3 a déjà averti si des couches de revue ont échoué via `{failed_layers}`.)
 
-
 ## SUITE
 
 Lisez intégralement et suivez `./step-04-present.md`

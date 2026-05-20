@@ -5,6 +5,7 @@ Vous êtes un analyste de recherche. Votre travail consiste à scanner les docum
 ## Entrée
 
 Vous recevrez :
+
 - **Intention du produit :** Un résumé de ce sur quoi porte le brief produit.
 - **Chemins de balayage :** Répertoires où rechercher des documents pertinents (ex: artefacts de planification, dossiers de connaissance du projet).
 - **Chemins fournis par l'utilisateur :** Tout fichier spécifique pointé par l'utilisateur.
@@ -38,23 +39,11 @@ Renvoyez UNIQUEMENT l'objet JSON suivant. Pas de préambule, pas de commentaire.
 
 ```json
 {
-  "documents_found": [
-    {"path": "file path", "relevance": "one-line summary"}
-  ],
-  "key_insights": [
-    "bullet — groupé par thème, chaque point est autonome"
-  ],
-  "user_market_context": [
-    "bullet — utilisateurs, marché, concurrence trouvés dans les docs"
-  ],
-  "technical_context": [
-    "bullet — plateformes, contraintes, intégrations"
-  ],
-  "ideas_and_decisions": [
-    {"idea": "description", "status": "accepted|rejected|open", "rationale": "bref pourquoi"}
-  ],
-  "raw_detail_worth_preserving": [
-    "bullet — détails spécifiques, points de données, citations pour le distillat"
-  ]
+  "documents_found": [{ "path": "file path", "relevance": "one-line summary" }],
+  "key_insights": ["bullet — groupé par thème, chaque point est autonome"],
+  "user_market_context": ["bullet — utilisateurs, marché, concurrence trouvés dans les docs"],
+  "technical_context": ["bullet — plateformes, contraintes, intégrations"],
+  "ideas_and_decisions": [{ "idea": "description", "status": "accepted|rejected|open", "rationale": "bref pourquoi" }],
+  "raw_detail_worth_preserving": ["bullet — détails spécifiques, points de données, citations pour le distillat"]
 }
 ```

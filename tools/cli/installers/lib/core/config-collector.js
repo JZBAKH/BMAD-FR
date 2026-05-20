@@ -314,7 +314,9 @@ class ConfigCollector {
             }
           }
         } finally {
-          configSpinner.stop(customizeModules.length > 0 ? 'Valeurs par défaut des modules appliquées' : 'Configuration des modules terminée');
+          configSpinner.stop(
+            customizeModules.length > 0 ? 'Valeurs par défaut des modules appliquées' : 'Configuration des modules terminée',
+          );
         }
       }
 
@@ -475,7 +477,7 @@ class ConfigCollector {
       }
 
       // Show "no config" message for modules with no new questions (that have config keys)
-      await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} d\u00e9j\u00e0 \u00e0 jour`);
+      await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} d\u00E9j\u00E0 \u00E0 jour`);
       return false; // No new fields
     }
 
@@ -511,7 +513,7 @@ class ConfigCollector {
         Object.assign(allAnswers, promptedAnswers);
       } else if (newStaticKeys.length > 0) {
         // Only static fields, no questions - show no config message
-        await prompts.log.message(`  \u2713 Configuration du module ${moduleName.toUpperCase()} mise \u00e0 jour`);
+        await prompts.log.message(`  \u2713 Configuration du module ${moduleName.toUpperCase()} mise \u00E0 jour`);
       }
 
       // Store all answers for cross-referencing
@@ -899,11 +901,11 @@ class ConfigCollector {
           if (moduleConfig.subheader) {
             await prompts.log.message(`  \u2713 ${moduleConfig.subheader}`);
           } else {
-            await prompts.log.message(`  \u2713 Aucune configuration personnalis\u00e9e requise`);
+            await prompts.log.message(`  \u2713 Aucune configuration personnalis\u00E9e requise`);
           }
         } else {
           // Module has config but just no questions to ask
-          await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} configur\u00e9`);
+          await prompts.log.message(`  \u2713 Module ${moduleName.toUpperCase()} configur\u00E9`);
         }
       }
     }

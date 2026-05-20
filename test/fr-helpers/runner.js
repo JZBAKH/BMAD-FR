@@ -44,15 +44,15 @@ function test(name, fn) {
     fn();
     passedTests += 1;
     console.log(`  ${colors.green}✓${colors.reset} ${name}`);
-  } catch (err) {
-    failures.push({ section: sections[sections.length - 1], name, message: err.message, stack: err.stack });
+  } catch (error) {
+    failures.push({ section: sections.at(-1), name, message: error.message, stack: error.stack });
     console.log(`  ${colors.red}✗${colors.reset} ${name}`);
-    console.log(`    ${colors.red}${err.message}${colors.reset}`);
+    console.log(`    ${colors.red}${error.message}${colors.reset}`);
   }
 }
 
 function warn(message, context = {}) {
-  warnings.push({ message, context, section: sections[sections.length - 1] });
+  warnings.push({ message, context, section: sections.at(-1) });
   const ctx = Object.keys(context).length > 0 ? ' ' + colors.dim + JSON.stringify(context) + colors.reset : '';
   console.log(`  ${colors.yellow}⚠${colors.reset} ${message}${ctx}`);
 }
@@ -102,7 +102,9 @@ function summary() {
     console.log(`\n  ${colors.dim}(${warningCount} avertissement(s) — relancez avec VERBOSE_WARNINGS=1 pour le détail)${colors.reset}`);
   }
 
-  console.log(`\n${okIcon} ${failedCount === 0 ? colors.green + 'Tous les tests bloquants ont passé' : colors.red + failedCount + ' test(s) en échec'}${colors.reset}\n`);
+  console.log(
+    `\n${okIcon} ${failedCount === 0 ? colors.green + 'Tous les tests bloquants ont passé' : colors.red + failedCount + ' test(s) en échec'}${colors.reset}\n`,
+  );
 
   process.exit(failedCount === 0 ? 0 : 1);
 }
@@ -123,8 +125,8 @@ module.exports = {
       passed: passedTests,
       failed: failures.length,
       warned: warnings.length,
-      failures: failures.slice(),
-      warnings: warnings.slice(),
+      failures: [...failures],
+      warnings: [...warnings],
     };
   },
   reset() {

@@ -67,6 +67,7 @@ Charger et lire le fichier complet à l'adresse :
 `{domainComplexityData}` (../data/domain-complexity.csv)
 
 Ce CSV contient :
+
 - Les classifications de domaine et les niveaux de complexité (élevé/moyen/faible)
 - Les sections spéciales requises pour chaque domaine
 - Les préoccupations clés et les exigences pour les industries réglementées
@@ -76,6 +77,7 @@ Internaliser ces données - elles déterminent quels domaines nécessitent des s
 ### 2. Extraire la classification du domaine
 
 Depuis le frontmatter du PRD, extraire :
+
 - `classification.domain` - pour quel domaine ce PRD est-il conçu ?
 
 **Si aucune classification de domaine n'est trouvée :**
@@ -84,12 +86,14 @@ Traiter comme "général" (faible complexité) et passer à l'étape 4.
 ### 2. Déterminer la complexité du domaine
 
 **Domaines à faible complexité (sauter les vérifications détaillées) :**
+
 - Général
 - Applications grand public (e-commerce standard, social, productivité)
 - Sites web de contenu
 - Outils métier (standard)
 
 **Domaines à haute complexité (nécessitent des sections spéciales) :**
+
 - Santé / Healthtech
 - Fintech / Services financiers
 - GovTech / Secteur public
@@ -106,6 +110,7 @@ Traiter comme "général" (faible complexité) et passer à l'étape 4.
 Sur la base des exigences de {domain}, vérifier le PRD pour :
 
 **Santé :**
+
 - Section Exigences Cliniques
 - Parcours Réglementaire (FDA, HIPAA, etc.)
 - Mesures de Sécurité
@@ -113,6 +118,7 @@ Sur la base des exigences de {domain}, vérifier le PRD pour :
 - Considérations sur la sécurité des patients
 
 **Fintech :**
+
 - Matrice de Conformité (SOC2, PCI-DSS, RGPD, etc.)
 - Architecture de Sécurité
 - Exigences d'Audit
@@ -120,17 +126,20 @@ Sur la base des exigences de {domain}, vérifier le PRD pour :
 - Gestion des transactions financières
 
 **GovTech :**
+
 - Normes d'Accessibilité (WCAG 2.1 AA, Section 508)
 - Conformité de Passation de Marchés
 - Exigences d'Habilitation de Sécurité
 - Exigences de résidence des données
 
 **Autres domaines réglementés :**
+
 - Vérifier les sections réglementaires spécifiques au domaine
 - Exigences de conformité
 - Considérations spéciales
 
 Pour chaque section requise :
+
 - Est-elle présente dans le PRD ?
 - Est-elle documentée de manière adéquate ?
 - Noter toute lacune
@@ -138,6 +147,7 @@ Pour chaque section requise :
 Retourner la matrice de conformité avec l'évaluation de la présence/adéquation."
 
 **Dégradation élégante (si pas d'outil Task) :**
+
 - Vérifier manuellement les sections requises en fonction du domaine
 - Lister les sections présentes et les sections manquantes
 - Évaluer l'adéquation de la documentation
@@ -145,6 +155,7 @@ Retourner la matrice de conformité avec l'évaluation de la présence/adéquati
 ### 5. Pour les domaines à faible complexité : Sauter les vérifications détaillées
 
 Ajouter au rapport de validation :
+
 ```markdown
 ## Validation de la conformité du domaine
 
@@ -185,10 +196,11 @@ Ajouter au rapport de validation :
 
 ### Matrice de conformité
 
-| Exigence | Statut | Notes |
-|----------|--------|-------|
+| Exigence        | Statut                          | Notes   |
+| --------------- | ------------------------------- | ------- |
 | {Requirement 1} | [Respectée/Partielle/Manquante] | {Notes} |
 | {Requirement 2} | [Respectée/Partielle/Manquante] | {Notes} |
+
 [... continuer pour toutes les exigences]
 
 ### Résumé

@@ -6,6 +6,7 @@ Lorsqu'aucun diff n'est fourni (fichier complet ou fonction), traitez l'ensemble
 Ignorez le reste de la base de code, à moins que le contenu fourni ne référence explicitement des fonctions externes.
 
 **Entrées (Inputs) :**
+
 - **content** — Contenu à réviser : diff, fichier complet, ou fonction
 - **also_consider** (optionnel) — Domaines à garder à l'esprit pendant l'examen, en parallèle de l'analyse habituelle des cas extrêmes (edge-case analysis)
 
@@ -44,12 +45,14 @@ Ignorez le reste de la base de code, à moins que le contenu fourni ne référen
 Retournez UNIQUEMENT un tableau JSON (array) valide d'objets. Chaque objet devra très exactement loger ces quatre seuls repères sans autre greffe superflue :
 
 ```json
-[{
-  "location": "file:start-end (ou file:line quand ligne singulière, voire file:hunk où cette précision de ligne fuite)",
-  "trigger_condition": "votre qualification de relance d'1 ligne pure unie (max 15 mots francs)",
-  "guard_snippet": "votre parade expéditive d'esquisse comblant cette faille (ligne blindée au format chaine échappée sans newlines crues ni quotes fuyardes non échappées)",
-  "potential_consequence": "ce revers inopiné concret risqué en bout de course (max 15 mots)"
-}]
+[
+  {
+    "location": "file:start-end (ou file:line quand ligne singulière, voire file:hunk où cette précision de ligne fuite)",
+    "trigger_condition": "votre qualification de relance d'1 ligne pure unie (max 15 mots francs)",
+    "guard_snippet": "votre parade expéditive d'esquisse comblant cette faille (ligne blindée au format chaine échappée sans newlines crues ni quotes fuyardes non échappées)",
+    "potential_consequence": "ce revers inopiné concret risqué en bout de course (max 15 mots)"
+  }
+]
 ```
 
 Strictement aucune phraséologie adventice, zéro aparté descriptif formateur, aucune gangue (wrapper) à la sauce Markdown ! Un listing pur vide `[]` restera fondamentalement validable advenant nulle échappée pathologique ciblée en cours.

@@ -127,18 +127,23 @@ Lors de l'enregistrement dans le document, ajoutez ces sections de niveau 2 (##)
 ## Réponse Émotionnelle Souhaitée
 
 ### Objectifs Émotionnels Principaux
+
 [Objectifs émotionnels principaux selon la conversation]
 
 ### Cartographie du Parcours Émotionnel
+
 [Cartographie du parcours émotionnel selon la conversation]
 
 ### Micro-Émotions
+
 [Micro-émotions identifiées selon la conversation]
 
 ### Implications de Design
+
 [Implications de design UX pour les réponses émotionnelles selon la conversation]
 
 ### Principes de Design Émotionnel
+
 [Principes directeurs pour le design émotionnel selon la conversation]
 ```
 

@@ -10,7 +10,7 @@ const ui = new UI();
 
 module.exports = {
   command: 'status',
-  description: 'Afficher l\'état de l\'installation BMAD et les versions des modules',
+  description: "Afficher l'état de l'installation BMAD et les versions des modules",
   options: [],
   action: async (options) => {
     try {
@@ -32,7 +32,7 @@ module.exports = {
       const manifestData = await manifest._readRaw(bmadDir);
 
       if (!manifestData) {
-        await prompts.log.warn('Aucun manifeste d\'installation BMAD trouvé.');
+        await prompts.log.warn("Aucun manifeste d'installation BMAD trouvé.");
         await prompts.log.message('Exécutez "bmad install" pour configurer une nouvelle installation.');
         process.exit(0);
         return;

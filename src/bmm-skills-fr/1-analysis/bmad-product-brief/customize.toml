@@ -1,66 +1,99 @@
-# DO NOT EDIT -- overwritten on every update.
+# NE PAS MODIFIER — écrasé à chaque mise à jour.
 #
-# Workflow customization surface for bmad-product-brief.
+# Surface de personnalisation du workflow bmad-product-brief.
 #
-# Override files (not edited here):
-#   {project-root}/_bmad/custom/bmad-product-brief.toml         (team)
-#   {project-root}/_bmad/custom/bmad-product-brief.user.toml    (personal)
+# Fichiers de substitution (non modifiés ici) :
+#   {project-root}/_bmad/custom/bmad-product-brief.toml         (équipe)
+#   {project-root}/_bmad/custom/bmad-product-brief.user.toml    (personnel)
 
 [workflow]
 
-# --- Configurable below. Overrides merge per BMad structural rules: ---
-#   scalars: override wins • arrays: append
+# --- Configurable ci-dessous. Les substitutions fusionnent selon les règles structurelles BMad : ---
+#   scalaires : la substitution l'emporte • tableaux : ajout en fin de liste
 
-# Steps to run before the standard activation (config load, greet).
-# Use for pre-flight loads, compliance checks, etc.
+# Étapes à exécuter avant l'activation standard (chargement de la config, accueil).
+# Utiliser pour les chargements préalables, les vérifications de conformité, etc.
 activation_steps_prepend = []
 
-# Steps to run after greet but before the workflow begins.
-# Use for context-heavy setup that should happen once the user has been acknowledged.
+# Étapes à exécuter après l'accueil mais avant le début du workflow.
+# Utiliser pour les configurations lourdes en contexte qui doivent avoir lieu une fois l'utilisateur pris en charge.
 activation_steps_append = []
 
-# Persistent facts the workflow keeps in mind for the whole run
-# (standards, compliance constraints, stylistic guardrails).
-# Each entry is either a literal sentence, a skill prefixed with `skill:`, or a `file:`-prefixed path/glob
-# whose contents are loaded as facts.
-# Default is empty. Common opt-ins (set in your team/user override TOML):
-#   "file:{project-root}/_bmad-output/planning-artifacts/project-context.md"  # bmad-generate-project-context output
-#   "skill:acme-co:terms-and-conditions"                                      # a skill that contains some relevant info to the documents that may be generated
-#   "Elvis has left the building"                                             # generic agent instructions
-persistent_facts = []
+# Faits persistants que le workflow garde à l'esprit pour toute la durée de l'exécution
+# (normes, contraintes de conformité, garde-fous stylistiques).
+# Chaque entrée est soit une phrase littérale, soit une skill préfixée par `skill:`, soit un chemin/glob préfixé par `file:`
+# dont le contenu est chargé comme faits.
+#
+# Par défaut, charge project-context.md si bmad-generate-project-context en a produit un — cela donne
+# au facilitateur une connaissance persistante de la technologie, du domaine et des contraintes du projet sans
+# avoir à reposer la question. Exemples d'ajouts courants (à définir dans le TOML de substitution équipe/utilisateur) :
+#   "skill:acme-co:terms-and-conditions"                                      # une skill contenant des infos pertinentes
+#   "Elvis has left the building"                                             # instruction générique d'agent
+persistent_facts = [
+  "file:{project-root}/**/project-context.md",
+]
 
-# Executed when the workflow completes (after the user has been told the
-# brief is ready). Accepts either a string scalar (single instruction)
-# or an array of instructions executed in order. Empty for none.
+# Exécuté à la fin du workflow (après que l'utilisateur a été informé que le
+# brief est prêt). Accepte soit un scalaire chaîne (instruction unique)
+# soit un tableau d'instructions exécutées dans l'ordre. Vide pour aucune action.
 on_complete = ""
 
-# Default brief structure. Treated as a starting point — the LLM adapts it
-# to the product, purpose, and domain. Override the path in team/user TOML
-# to enforce a different structure (e.g. regulated-industry, investor-deck).
+# Structure par défaut du brief. Traitée comme point de départ — le LLM l'adapte
+# au produit, à l'objectif et au domaine. Substituer le chemin dans le TOML équipe/utilisateur
+# pour imposer une structure différente (ex : industrie réglementée, investor-deck).
 brief_template = "assets/brief-template.md"
 
-# Run folder location. The brief, optional addendum, and optional distillate
-# all land inside `{output_dir}/{output_folder_name}/`.
-output_dir = "{planning_artifacts}/briefs"
-output_folder_name = "brief-{project_name}-{date}"
+# Emplacement du dossier d'exécution. Le brief et l'addendum éventuel sont déposés dans `{brief_output_path}/{run_folder_pattern}/`.
+# La vérification de reprise analyse `{brief_output_path}` à la recherche d'exécutions précédentes non terminées.
+brief_output_path = "{planning_artifacts}/briefs"
+run_folder_pattern = "brief-{project_name}-{date}"
 
-# Document standards applied to human-consumed docs at finalize. Each entry is
-# a `skill:`, `file:`, or plain-text directive; the parent LLM applies the
-# findings before the user sees the draft. Encodes standards, not options.
+# Normes documentaires appliquées aux documents destinés à l'humain lors de la finalisation. Chaque entrée est
+# une directive `skill:`, `file:` ou en texte brut ; le LLM parent applique les
+# résultats avant que l'utilisateur voie le brouillon. Encode des normes, pas des options.
 #
-# Examples:
+# Exemples :
 #   "skill:bmad-editorial-review-prose"
 #   "file:{project-root}/_bmad/style-guides/company-voice.md"
 #   "Convert all dates to ISO 8601 format."
 #
-# Suggested order (broader passes first, narrower last):
-#   1. Structural (cuts, reorganization, section sizing)
-#   2. Content/voice/conventions (org standards, tone, terminology, compliance)
-#   3. Prose mechanics (grammar, clarity, typos)
+# Ordre suggéré (passes plus larges en premier, plus précises en dernier) :
+#   1. Structurel (coupes, réorganisation, dimensionnement des sections)
+#   2. Contenu/voix/conventions (normes de l'organisation, ton, terminologie, conformité)
+#   3. Mécanique rédactionnelle (grammaire, clarté, coquilles)
 #
-# Override the array in team/user TOML to add additional standards. Append-only:
-# base entries cannot be removed or replaced (resolver has no removal mechanism).
+# Substituer le tableau dans le TOML équipe/utilisateur pour ajouter des normes supplémentaires. Ajout uniquement :
+# les entrées de base ne peuvent pas être supprimées ni remplacées (le résolveur n'a pas de mécanisme de suppression).
 doc_standards = [
   "skill:bmad-editorial-review-structure",
   "skill:bmad-editorial-review-prose",
 ]
+
+# Registre de sources externes. Directives en langage naturel décrivant des bases de
+# connaissances, des outils MCP ou des systèmes internes que le LLM peut consulter au cours du workflow
+# lorsqu'un besoin pertinent se présente. Le LLM ne les interroge PAS de manière préemptive —
+# il les consulte à la demande (pendant la Découverte, la validation, la rédaction, etc.).
+# Chaque entrée nomme l'outil, les conditions de son utilisation et tous les champs que
+# l'outil requiert. Si un outil MCP nommé est indisponible au moment de l'exécution, le LLM se
+# rabat sur le comportement standard et signale l'écart. Vide par défaut.
+#
+# Exemples (à définir dans le TOML de substitution équipe/utilisateur) :
+#   "When researching internal product context, consult corp:kb_search (database='product-docs') before web search."
+#   "For voice-of-customer signal during Discovery, query corp:feedback_search with project={project_name}."
+#   "When validating domain-compliance claims for a healthcare brief, cross-check against corp:hipaa_reference."
+external_sources = []
+
+# Routage de remise externe. Directives en langage naturel que le LLM applique lors de la
+# Finalisation pour router les sorties au-delà des fichiers locaux (Confluence, Notion, Google
+# Drive, systèmes de tickets, etc.). Chaque entrée nomme l'outil MCP, la destination
+# et les champs requis par l'outil. Les remises s'exécutent après que l'artefact est finalisé
+# et avant le message final destiné à l'utilisateur. Les URL ou ID renvoyés par la
+# destination sont capturés et communiqués à l'utilisateur. Si un outil nommé est
+# indisponible au moment de l'exécution, la remise est ignorée et signalée dans le statut JSON ;
+# les fichiers locaux existent toujours quoi qu'il arrive. Se déclenche automatiquement — les utilisateurs
+# peuvent refuser dans leur prompt pour une exécution spécifique. Vide par défaut.
+#
+# Exemples (à définir dans le TOML de substitution équipe/utilisateur) :
+#   "After finalize, upload brief.md and addendum.md to Confluence via corp:confluence_upload (space_key='PROD', parent_page='Product Briefs', label='brief', author={user_name})."
+#   "Post a ready-for-review ping to Slack via corp:slack_post (channel='#product', text='New brief: '+{confluence_url})."
+external_handoffs = []

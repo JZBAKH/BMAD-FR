@@ -88,16 +88,20 @@ Générez un résumé en markdown :
 ## Tests Générés
 
 ### Tests API
+
 - [x] tests/api/endpoint.spec.ts - Validation du point de terminaison
 
 ### Tests E2E
+
 - [x] tests/e2e/feature.spec.ts - Workflow utilisateur
 
 ## Couverture
+
 - Points de terminaison API : 5/10 couverts
 - Fonctionnalités UI : 3/8 couvertes
 
 ## Prochaines Étapes
+
 - Exécuter les tests en CI
 - Ajouter plus de cas limites si nécessaire
 ```

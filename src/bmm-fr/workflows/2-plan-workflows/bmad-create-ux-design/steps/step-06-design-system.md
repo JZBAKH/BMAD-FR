@@ -57,18 +57,21 @@ Expliquer les différentes approches :
 **Approches de Système de Design :**
 
 **1. Système de Design Sur Mesure (Custom)**
+
 - Unicité visuelle complète.
 - Contrôle total sur chaque composant.
 - Investissement initial plus élevé.
 - Idéal pour les marques établies avec des besoins uniques.
 
 **2. Système Établi (Material Design, Ant Design, etc.)**
+
 - Développement rapide avec des modèles éprouvés.
 - Excellents réglages par défaut et accessibilité intégrée.
 - Moins de différenciation visuelle.
 - Idéal pour les startups ou les outils internes.
 
 **3. Système Thémable (MUI, Chakra UI, Tailwind UI)**
+
 - Personnalisable avec une base solide.
 - Flexibilité de marque avec des composants éprouvés.
 - Courbe d'apprentissage modérée.
@@ -82,6 +85,7 @@ Orienter la décision en fonction du contexte du projet :
 "**Considérons vos besoins spécifiques :**
 
 **D'après nos conversations précédentes :**
+
 - Plateforme : [plateforme issue de l'étape 3]
 - Délai : [déduit de la conversation utilisateur]
 - Taille de l'équipe : [déduit de la conversation utilisateur]
@@ -89,6 +93,7 @@ Orienter la décision en fonction du contexte du projet :
 - Contraintes techniques : [déduit de la conversation utilisateur]
 
 **Facteurs de décision :**
+
 - Besoin de rapidité vs besoin d'unicité.
 - Chartes de marque ou identité visuelle existante.
 - Expertise en design de l'équipe.
@@ -101,11 +106,13 @@ Approfondir les options pertinentes :
 "**Options recommandées selon vos besoins :**
 
 **Pour [Votre Type de Plateforme] :**
+
 - [Option 1] - [Bénéfice clé] - [Idéal pour tel scénario]
 - [Option 2] - [Bénéfice clé] - [Idéal pour tel scénario]
 - [Option 3] - [Bénéfice clé] - [Idéal pour tel scénario]
 
 **Considérations :**
+
 - Taille et qualité de la bibliothèque de composants.
 - Documentation et support de la communauté.
 - Capacités de personnalisation.
@@ -132,11 +139,13 @@ Confirmer et documenter la décision :
 "Sur la base de notre analyse, je recommande [Choix du Système de Design] pour {{project_name}}.
 
 **Justification :**
+
 - [Raison 1 basée sur les besoins du projet]
 - [Raison 2 basée sur les contraintes]
 - [Raison 3 basée sur les considérations d'équipe]
 
 **Prochaines étapes :**
+
 - Nous personnaliserons ce système pour qu'il corresponde à votre marque et à vos besoins.
 - Définition d'une stratégie pour les composants sur mesure nécessaires.
 - Établissement des jetons de design (design tokens) et des modèles.
@@ -155,15 +164,19 @@ Lors de l'enregistrement dans le document, ajoutez ces sections de niveau 2 (##)
 ## Fondation du Système de Design
 
 ### 1.1 Choix du Système de Design
+
 [Choix du système de design selon la conversation]
 
 ### Justification du Choix
+
 [Justification de la sélection du système selon la conversation]
 
 ### Approche d'Implémentation
+
 [Approche d'implémentation basée sur le système choisi]
 
 ### Stratégie de Personnalisation
+
 [Stratégie de personnalisation selon les besoins du projet]
 ```
 

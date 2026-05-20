@@ -1,6 +1,6 @@
 ---
 name: bmad-help
-description: 'Analyse l''état courant et la requête utilisateur pour répondre aux questions BMad ou recommander le(s) prochain(s) skill(s) à utiliser. À utiliser lorsque l''utilisateur demande de l''aide, bmad help, quoi faire ensuite, ou par quoi commencer dans BMad.'
+description: "Analyse l'état courant et la requête utilisateur pour répondre aux questions BMad ou recommander le(s) prochain(s) skill(s) à utiliser. À utiliser lorsque l'utilisateur demande de l'aide, bmad help, quoi faire ensuite, ou par quoi commencer dans BMad."
 ---
 
 # BMad Help
@@ -37,19 +37,23 @@ module,skill,display-name,menu-code,description,action,args,phase,preceded-by,fo
 ```
 
 **Phases** déterminent le flux de haut niveau :
+
 - `anytime` — disponible quel que soit l'état du workflow
 - Les phases numérotées (`1-analysis`, `2-planning`, etc.) s'enchaînent dans l'ordre ; le nommage varie selon le module
 
 **Séquençage** détermine l'ordre recommandé au sein des phases et entre elles (ce sont des suggestions douces, pas des barrières dures — voir `required` pour les barrières) :
+
 - `preceded-by` — Skills qui devraient idéalement être complétés avant celui-ci
 - `followed-by` — Skills qui devraient idéalement s'exécuter après celui-ci
 - Format : `skill-name` pour les Skills à action unique, `skill-name:action` pour les Skills à actions multiples
 
 **Barrières required** :
+
 - Les éléments avec `required=true` doivent être complétés avant que l'utilisateur puisse passer significativement aux phases ultérieures
 - Une phase sans aucun élément requis est entièrement optionnelle — la recommander mais être clair sur ce qui est réellement requis ensuite
 
 **Détection de complétion** :
+
 - Rechercher dans les chemins de sortie résolus les motifs `outputs`
 - Faire correspondre approximativement les fichiers trouvés aux lignes du catalogue
 - L'utilisateur peut également déclarer la complétion explicitement, ou cela peut être évident à partir de la conversation actuelle
@@ -59,6 +63,7 @@ module,skill,display-name,menu-code,description,action,args,phase,preceded-by,fo
 ## Format de Réponse
 
 Pour chaque élément recommandé, présenter :
+
 - `[menu-code]` **Nom d'affichage** — par ex., "[CP] Create PRD"
 - Nom du Skill entre backticks — par ex., `bmad-create-prd`
 - Pour les Skills à actions multiples : contexte d'invocation d'action — par ex., "tech-writer lets create a mermaid diagram!"

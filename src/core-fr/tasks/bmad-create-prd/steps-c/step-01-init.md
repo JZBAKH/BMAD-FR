@@ -74,6 +74,7 @@ Si aucun document n'existe ou s'il n'y a pas de `stepsCompleted` dans le frontma
 #### A. Découverte des Documents d'Entrée (Input Documents)
 
 Découvrez et chargez les documents de contexte en utilisant la découverte intelligente. Les documents peuvent se trouver dans les emplacements suivants :
+
 - `{planning_artifacts}/**`
 - `{output_folder}/**`
 - `{project_knowledge}/**`
@@ -82,6 +83,7 @@ Découvrez et chargez les documents de contexte en utilisant la découverte inte
 De plus - lors de la recherche - les documents peuvent être un fichier markdown unique, ou un dossier avec un `index.md` et plusieurs fichiers. Par exemple, si vous cherchez `*foo*.md` et qu'il n'est pas trouvé, cherchez également un dossier appelé `*foo*/index.md` (ce qui indique un contenu découpé/sharded)
 
 Essayez de découvrir les éléments suivants :
+
 - Product Brief (`*brief*.md`)
 - Documents de Recherche (`/*research*.md`)
 - Documentation du Projet (généralement, plusieurs documents pourraient être trouvés pour cela dans le dossier `{project_knowledge}` ou `docs`.)

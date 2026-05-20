@@ -1,6 +1,6 @@
 ---
 name: 'step-v-01-discovery'
-description: 'Découverte et Confirmation de Documents - Gérer la validation de contexte frais, confirmer le chemin du PRD, découvrir les documents d''entrée'
+description: "Découverte et Confirmation de Documents - Gérer la validation de contexte frais, confirmer le chemin du PRD, découvrir les documents d'entrée"
 
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
 nextStepFile: './step-v-02-format-detection.md'
@@ -66,22 +66,27 @@ Ce fichier contient la philosophie du PRD BMAD, les standards et les critères d
 ### 2. Découvrir le PRD à Valider
 
 **Si le chemin du PRD est fourni comme paramètre d'invocation :**
+
 - Utilisez le chemin fourni.
 
 **Si aucun chemin de PRD n'est fourni, effectuez une auto-découverte :**
+
 - Recherchez dans `{planning_artifacts}` les fichiers correspondant à `*prd*.md`.
 - Vérifiez également les PRD partitionnés (sharded) : `{planning_artifacts}/*prd*/*.md`.
 
 **Si exactement UN PRD est trouvé :**
+
 - Utilisez-le automatiquement.
 - Informez l'utilisateur : "PRD trouvé : {discovered_path} — utilisation pour la validation."
 
 **Si PLUSIEURS PRD sont trouvés :**
+
 - Listez tous les PRD découverts avec des options numérotées.
 - "J'ai trouvé plusieurs PRD. Lequel souhaiteriez-vous valider ?"
 - Attendez la sélection de l'utilisateur.
 
 **Si AUCUN PRD n'est trouvé :**
+
 - "Je n'ai trouvé aucun fichier PRD dans {planning_artifacts}. Veuillez fournir le chemin vers le fichier PRD que vous souhaitez valider."
 - Attendez que l'utilisateur fournisse le chemin du PRD.
 
@@ -112,6 +117,7 @@ Pour chaque document listé dans `inputDocuments` :
 - Notez tous les documents dont le chargement a échoué.
 
 **Construisez la liste des documents d'entrée chargés :**
+
 - Product Brief (si présent).
 - Documents de recherche (si présent).
 - Autres matériels de référence (si présent).
@@ -125,6 +131,7 @@ Pour chaque document listé dans `inputDocuments` :
 **Y a-t-il des documents de référence supplémentaires que vous aimeriez que j'inclue dans cette validation ?**
 
 Ceux-ci pourraient inclure :
+
 - Documents de recherche ou de contexte supplémentaires.
 - Documentation de projet non suivie dans le frontmatter.
 - Documents de normes ou de conformité.
@@ -139,6 +146,7 @@ Veuillez fournir les chemins vers tous les documents supplémentaires, ou tapez 
 Créez le rapport de validation à : `{validationReportPath}`
 
 **Initialisez avec le frontmatter :**
+
 ```yaml
 ---
 validationTarget: '{prd_path}'
@@ -150,6 +158,7 @@ validationStatus: IN_PROGRESS
 ```
 
 **Contenu initial :**
+
 ```markdown
 # Rapport de Validation du PRD
 
@@ -172,6 +181,7 @@ validationStatus: IN_PROGRESS
 **PRD à valider :** {prd_path}
 
 **Documents d'entrée chargés :**
+
 - PRD : {prd_name} ✓
 - Product Brief : {count} {if count > 0}✓{else}(aucun trouvé){/if}
 - Recherche : {count} {if count > 0}✓{else}(aucun trouvé){/if}

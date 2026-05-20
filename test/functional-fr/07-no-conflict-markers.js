@@ -31,10 +31,12 @@ function run() {
   for (const root of FR_ROOTS) {
     const fullRoot = path.join(REPO_ROOT, root);
     if (!fs.existsSync(fullRoot)) continue;
-    candidates.push(...walk(fullRoot, {
-      extensions: ['.md', '.yaml', '.yml', '.csv', '.txt', '.json'],
-      base: REPO_ROOT,
-    }));
+    candidates.push(
+      ...walk(fullRoot, {
+        extensions: ['.md', '.yaml', '.yml', '.csv', '.txt', '.json'],
+        base: REPO_ROOT,
+      }),
+    );
   }
   for (const f of REPO_LEVEL_FILES_TO_CHECK) {
     if (fs.existsSync(path.join(REPO_ROOT, f))) candidates.push(f);
@@ -54,7 +56,10 @@ function run() {
 
   runner.test(`aucun fichier ne contient <<<<<<< / ======= / >>>>>>> en début de ligne (${candidates.length} fichier(s) scanné(s))`, () => {
     if (offenders.length === 0) return;
-    const sample = offenders.slice(0, 20).map((f) => `  • ${f}`).join('\n');
+    const sample = offenders
+      .slice(0, 20)
+      .map((f) => `  • ${f}`)
+      .join('\n');
     const more = offenders.length > 20 ? `\n  • ... et ${offenders.length - 20} autre(s)` : '';
     throw new Error(`${offenders.length} fichier(s) avec marqueurs de conflit :\n${sample}${more}`);
   });

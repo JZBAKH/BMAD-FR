@@ -61,17 +61,20 @@ Présenter le résumé des modifications effectuées et proposer les étapes sui
 À partir de l'exécution des modifications de l'étape e-03, compilez :
 
 **Modifications effectuées :**
+
 - Sections ajoutées : {liste des noms}
 - Sections mises à jour : {liste des noms}
 - Contenu supprimé : {list}
 - Changements de structure : {description}
 
 **Détails de l'édition :**
+
 - Nombre total de sections impactées : {count}
 - Mode : {restructuration/ciblé/les deux}
 - Priorité traitée : {Critique/Haute/Moyenne/Basse}
 
 **État du PRD :**
+
 - Format : {Standard BMAD / Variante BMAD / Legacy (converti)}
 - Exhaustivité : {assessment}
 - Prêt pour : {cas d'utilisation en aval}
@@ -93,6 +96,7 @@ Affichez :
 **Format du PRD :** {format}
 
 **Le PRD est maintenant prêt pour :**
+
 - Les workflows en aval (Design UX, Architecture).
 - La validation pour garantir la qualité.
 - Utilisation en production.

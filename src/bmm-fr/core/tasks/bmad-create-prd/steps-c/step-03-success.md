@@ -45,6 +45,7 @@ Analysez le product brief, les recherches, et les documents de brainstorming à 
 
 **Si les Documents d'Entrée Contiennent des Critères de Succès :**
 Guidez l'utilisateur pour affiner les critères existants :
+
 - Reconnaissez ce qui est déjà documenté dans ses matériaux
 - Extrayez les thèmes clés de réussite du brief, de la recherche et du brainstorming
 - Aidez l'utilisateur à identifier les lacunes et les zones à approfondir
@@ -54,6 +55,7 @@ Guidez l'utilisateur pour affiner les critères existants :
 
 **Si Aucun Critère de Succès dans les Documents d'Entrée :**
 Commencez par une exploration du succès centrée sur l'utilisateur :
+
 - Guidez la conversation vers la définition de ce que "ça en vaut la peine" (worth it) signifie pour les utilisateurs
 - Posez des questions sur le moment où les utilisateurs réalisent que leur problème est résolu
 - Explorez les résultats spécifiques pour les utilisateurs et leurs états émotionnels
@@ -72,6 +74,7 @@ Commencez par une exploration du succès centrée sur l'utilisateur :
 ### 3. Définir le Succès Commercial (Business Success)
 
 Faites la transition vers les métriques métiers (business) :
+
 - Guidez la conversation vers le point de vue de l'entreprise vis-à-vis du succès
 - Sondez les échéances : À quoi ressemble le succès à 3 mois ? Le succès à 12 mois ?
 - Identifiez des métriques commerciales clés : revenus, croissance des utilisateurs, engagement, ou d'autres mesures ?
@@ -90,6 +93,7 @@ Forcez la spécificité pour les métriques commerciales :
 ### 5. Connexion avec l'Élément Différenciateur du Produit
 
 Reliez impérativement ces métriques de succès à ce qui rend le produit spécial :
+
 - Connectez les critères d'excellence au facteur de différenciation unique du produit
 - Assurez-vous que les métriques reflètent la proposition de valeur spécifique
 - Adaptez les paramètres d'appréciations aux contextes des domaines :
@@ -102,6 +106,7 @@ Reliez impérativement ces métriques de succès à ce qui rend le produit spéc
 ### 6. Négociation Intelligente du Périmètre (Scope Negotiation)
 
 Guidez la définition du périmètre (scope) à travers le prisme de la réussite (success lens) :
+
 - Aidez l'utilisateur à distinguer le MVP (doit fonctionner pour être utile) des phases de Croissance (pour être compétitif) et de la Vision (le grand rêve)
 - Orientez la conversation sur trois niveaux de périmètre (scopes) :
   1. Le MVP : Qu'est-ce qui est essentiel pour prouver le concept ?
@@ -163,12 +168,14 @@ Présentez le contenu des critères de succès à l'utilisateur pour révision (
 Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers la Cartographie du Parcours Utilisateur (Étape 4 sur 11)"
 
 #### Logique de Gestion du Menu :
+
 - SI A : Invoquez la compétence `bmad-advanced-elicitation` avec le contenu actuel des critères de succès, traitez les métriques de succès améliorées qui en reviennent, demandez à l'utilisateur : "Accepter ces améliorations aux critères de succès ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
 - SI P : Invoquez la compétence `bmad-party-mode` avec les critères de succès actuels, traitez les améliorations collaboratives des métriques et du périmètre (scope), demandez à l'utilisateur : "Accepter ces changements aux critères de succès ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
 - SI C : Ajoutez (append) le contenu final à `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-04-journeys.md`
 - SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
 #### RÈGLES D'EXÉCUTION :
+
 - TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
 - NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 - Après l'exécution d'autres options du menu, retournez à ce menu

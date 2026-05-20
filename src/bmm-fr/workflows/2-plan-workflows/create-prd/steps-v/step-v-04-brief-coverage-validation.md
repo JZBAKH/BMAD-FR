@@ -66,6 +66,7 @@ Vérifiez si un Product Brief a été chargé dans le `inputDocuments` de l'éta
 
 **SI aucun Product Brief n'est trouvé :**
 Ajoutez au rapport de validation :
+
 ```markdown
 ## Couverture du Product Brief
 
@@ -106,6 +107,7 @@ Retourner la matrice de couverture structurée avec les classifications."
 Si l'outil Task est indisponible, effectuez l'analyse directement :
 
 **Extraire du Product Brief :**
+
 - Vision : Qu'est-ce que ce produit ?
 - Utilisateurs : Pour qui est-il fait ?
 - Problème : Quel problème résout-il ?
@@ -114,6 +116,7 @@ Si l'outil Task est indisponible, effectuez l'analyse directement :
 - Différenciateurs : Qu'est-ce qui le rend unique ?
 
 **Pour chaque élément, rechercher dans le PRD :**
+
 - Scanner le Résumé Analytique pour la vision.
 - Vérifier les Parcours Utilisateurs ou les personas.
 - Rechercher l'énoncé du problème.
@@ -122,6 +125,7 @@ Si l'outil Task est indisponible, effectuez l'analyse directement :
 - Rechercher les différenciateurs.
 
 **Classifier la couverture :**
+
 - **Entièrement couverte :** Contenu présent et complet.
 - **Partiellement couverte :** Contenu présent mais incomplet.
 - **Non trouvée :** Contenu absent du PRD.
@@ -130,6 +134,7 @@ Si l'outil Task est indisponible, effectuez l'analyse directement :
 ### 4. Évaluer la couverture et la sévérité
 
 **Pour chaque écart (Partiellement couverte ou Non trouvée) :**
+
 - Est-ce Critique ? (Vision centrale, utilisateurs principaux, fonctionnalités majeures).
 - Est-ce Modéré ? (Fonctionnalités secondaires, certains objectifs).
 - Est-ce Informatif ? (Fonctionnalités "nice-to-have", détails mineurs).

@@ -254,7 +254,6 @@ Préparez le contenu à ajouter au document :
 {{development_tools_and_workflow}}
 
 **Note :** L'initialisation du projet à l'aide de cette commande devrait être la première story d'implémentation.
-
 ````
 
 ### 9. Présenter le Contenu et le Menu

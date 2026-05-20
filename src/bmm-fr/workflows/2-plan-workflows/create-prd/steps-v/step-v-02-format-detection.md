@@ -63,11 +63,13 @@ Détecter si le PRD suit le format BMAD et router de manière appropriée - clas
 Chargez le fichier PRD complet et extrayez :
 
 **Tous les titres de Niveau 2 (##) :**
+
 - Parcourez l'intégralité du document PRD.
 - Extrayez tous les titres de section ##.
 - Listez-les dans l'ordre.
 
 **Frontmatter du PRD :**
+
 - Extrayez classification.domain si présent.
 - Extrayez classification.projectType si présent.
 - Notez toute autre métadonnée pertinente.
@@ -84,6 +86,7 @@ Vérifiez si le PRD contient les sections clés suivantes du PRD BMAD :
 6. **Non-Functional Requirements** (Exigences Non Fonctionnelles) (ou : ## Exigences Non Fonctionnelles, ## ENF, ## Attributs de Qualité, ## Non-Functional Requirements)
 
 **Compter les correspondances :**
+
 - Combien de ces 6 sections clés sont présentes ?
 - Quelles sections spécifiques sont présentes ?
 - Lesquelles sont manquantes ?
@@ -93,15 +96,18 @@ Vérifiez si le PRD contient les sections clés suivantes du PRD BMAD :
 Sur la base du nombre de sections clés, classifiez :
 
 **Standard BMAD :**
+
 - 5-6 sections clés présentes.
 - Suit fidèlement la structure du PRD BMAD.
 
 **Variante BMAD :**
+
 - 3-4 sections clés présentes.
 - Suit généralement les modèles BMAD mais peut présenter des différences structurelles.
 - Certaines sections manquent mais le document est reconnaissable comme étant de style BMAD.
 
 **Non-Standard :**
+
 - Moins de 3 sections clés présentes.
 - Ne suit pas la structure du PRD BMAD.
 - Peut être un format complètement personnalisé, un format hérité ou provenant d'un autre framework.
@@ -117,6 +123,7 @@ Ajoutez au rapport de validation :
 [Listez tous les titres ## de Niveau 2 trouvés]
 
 **Sections Clés BMAD Présentes :**
+
 - Résumé Analytique : [Présent/Manquant]
 - Critères de Succès : [Présent/Manquant]
 - Périmètre du Produit : [Présent/Manquant]

@@ -62,6 +62,7 @@ Présentez à l'utilisateur des options pour le document original :
 > Que souhaitez-vous faire avec le document original `[nom-du-document-source]` ?
 >
 > Options :
+>
 > - `[d]` Supprimer - Retirer l'original (recommandé - les fragments (shards) peuvent toujours être recombinés)
 > - `[m]` Déplacer vers une archive - Transférer l'original vers un emplacement de sauvegarde/archivage
 > - `[k]` Conserver - Laisser l'original en place (NON recommandé - va à l'encontre du but du découpage)

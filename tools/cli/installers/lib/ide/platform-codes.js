@@ -31,7 +31,7 @@ async function loadPlatformCodes() {
  */
 function getPlatformInfo(platformCode) {
   if (!_cachedPlatformCodes) {
-    throw new Error('Codes de plateforme non chargés. Appelez d\'abord loadPlatformCodes().');
+    throw new Error("Codes de plateforme non chargés. Appelez d'abord loadPlatformCodes().");
   }
 
   return _cachedPlatformCodes.platforms[platformCode] || null;

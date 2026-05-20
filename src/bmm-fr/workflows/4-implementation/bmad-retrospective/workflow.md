@@ -3,6 +3,7 @@
 **Objectif :** Revue post-epic pour extraire les leçons et évaluer le succès.
 
 **Votre Rôle :** Scrum Master facilitant la rétrospective.
+
 - Aucune estimation de temps — ne mentionnez JAMAIS d'heures, de jours, de semaines, de mois ou TOUTE autre prédiction basée sur le temps. L'IA a fondamentalement changé la vitesse de développement.
 - Communiquez toutes les réponses en {communication_language} et le langage DOIT être adapté au niveau {user_skill_level}.
 - Générez tous les documents en {document_output_language}.
@@ -41,13 +42,13 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
 
 ### Fichiers d'Entrée (Input Files)
 
-| Entrée | Description | Modèle(s) de chemin | Stratégie de chargement |
-|-------|-------------|------------------|---------------|
-| epics | L'epic terminée pour la rétrospective | whole: `{planning_artifacts}/*epic*.md`, sharded_index: `{planning_artifacts}/*epic*/index.md`, sharded_single: `{planning_artifacts}/*epic*/epic-{{epic_num}}.md` | SELECTIVE_LOAD |
-| previous_retrospective | Rétrospective de l'epic précédente (optionnel) | `{implementation_artifacts}/**/epic-{{prev_epic_num}}-retro-*.md` | SELECTIVE_LOAD |
-| architecture | Architecture système pour le contexte | whole: `{planning_artifacts}/*architecture*.md`, sharded: `{planning_artifacts}/*architecture*/*.md` | FULL_LOAD |
-| prd | Exigences produit pour le contexte | whole: `{planning_artifacts}/*prd*.md`, sharded: `{planning_artifacts}/*prd*/*.md` | FULL_LOAD |
-| document_project | Documentation du projet existant (brownfield) (optionnel) | sharded: `{planning_artifacts}/*.md` | INDEX_GUIDED |
+| Entrée                 | Description                                               | Modèle(s) de chemin                                                                                                                                                | Stratégie de chargement |
+| ---------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
+| epics                  | L'epic terminée pour la rétrospective                     | whole: `{planning_artifacts}/*epic*.md`, sharded_index: `{planning_artifacts}/*epic*/index.md`, sharded_single: `{planning_artifacts}/*epic*/epic-{{epic_num}}.md` | SELECTIVE_LOAD          |
+| previous_retrospective | Rétrospective de l'epic précédente (optionnel)            | `{implementation_artifacts}/**/epic-{{prev_epic_num}}-retro-*.md`                                                                                                  | SELECTIVE_LOAD          |
+| architecture           | Architecture système pour le contexte                     | whole: `{planning_artifacts}/*architecture*.md`, sharded: `{planning_artifacts}/*architecture*/*.md`                                                               | FULL_LOAD               |
+| prd                    | Exigences produit pour le contexte                        | whole: `{planning_artifacts}/*prd*.md`, sharded: `{planning_artifacts}/*prd*/*.md`                                                                                 | FULL_LOAD               |
+| document_project       | Documentation du projet existant (brownfield) (optionnel) | sharded: `{planning_artifacts}/*.md`                                                                                                                               | INDEX_GUIDED            |
 
 ### Entrées Requises
 
@@ -205,7 +206,7 @@ Bob (Scrum Master) : "Avant de commencer la discussion d'équipe, laissez-moi pa
 Charlie (Senior Dev) : "Bonne idée - ces notes de dév contiennent toujours des pépites."
 </output>
 
-<action>Pour chaque story de l'epic {{epic_number}}, lire le fichier de story complet depuis {implementation_artifacts}/{{epic_number}}-{{story_num}}-*.md</action>
+<action>Pour chaque story de l'epic {{epic_number}}, lire le fichier de story complet depuis {implementation_artifacts}/{{epic_number}}-{{story_num}}-\*.md</action>
 
 <action>Extraire et analyser de chaque story :</action>
 
@@ -400,7 +401,7 @@ Alice (Product Owner) : "Bonne idée - cela nous aide à relier ce que nous avon
 <action>Tenter de charger l'epic suivante en utilisant la stratégie de chargement sélectif :</action>
 
 **Essayer d'abord la version partitionnée (sharded) (plus spécifique) :**
-<action>Vérifier si le fichier existe : {planning_artifacts}/epic*/epic-{{next_epic_num}}.md</action>
+<action>Vérifier si le fichier existe : {planning_artifacts}/epic\*/epic-{{next_epic_num}}.md</action>
 
 <check if="le fichier d'epic partitionné est trouvé">
   <action>Charger {planning_artifacts}/*epic*/epic-{{next_epic_num}}.md</action>
@@ -409,7 +410,7 @@ Alice (Product Owner) : "Bonne idée - cela nous aide à relier ce que nous avon
 
 **Repli sur le document entier :**
 <check if="l'epic partitionnée n'est pas trouvée">
-<action>Vérifier si le fichier existe : {planning_artifacts}/epic*.md</action>
+<action>Vérifier si le fichier existe : {planning_artifacts}/epic\*.md</action>
 
   <check if="le fichier d'epic complet est trouvé">
     <action>Charger le document d'epics complet</action>
@@ -475,7 +476,6 @@ Bob (Scrum Master) : "Pas de souci. Nous allons quand même faire une rétro app
 </check>
 
 </step>
-
 
 <step n="5" goal="Initialiser la rétrospective avec un contexte riche">
 
@@ -835,7 +835,6 @@ Bob (Scrum Master) : "{user_name}, est-ce que ce plan de préparation vous convi
 <action>ATTENDRE la validation finale de {user_name} sur le plan de préparation</action>
 
 </step>
-
 
 <step n="8" goal="Synthétiser les actions à entreprendre avec détection de changements significatifs">
 
@@ -1261,7 +1260,6 @@ Charlie (Senior Dev) : "Mieux vaut s'en rendre compte maintenant qu'après trois
 
 </step>
 
-
 <step n="10" goal="Clôture de la rétrospective avec célébration et engagement">
 
 <output>
@@ -1458,7 +1456,6 @@ Charlie (Senior Dev) : "C'est parti pour le travail de préparation."
 </output>
 
 </step>
-
 
 </workflow>
 

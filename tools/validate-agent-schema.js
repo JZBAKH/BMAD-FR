@@ -22,19 +22,19 @@ const { validateAgentFile } = require('./schema/agent.js');
  * @param {string} [customProjectRoot] - Optional project root to scan (for testing)
  */
 async function main(customProjectRoot) {
-  console.log('🔍 Recherche des fichiers d\'agents...\n');
+  console.log("🔍 Recherche des fichiers d'agents...\n");
 
   // Determine project root: use custom path if provided, otherwise default to repo root
   const project_root = customProjectRoot || path.join(__dirname, '..');
 
   // Find all agent files
-  const agentFiles = await glob('src/{core,bmm}/agents/**/*.agent.yaml', {
+  const agentFiles = await glob('src/{core,bmm,bmm-fr}/agents/**/*.agent.yaml', {
     cwd: project_root,
     absolute: true,
   });
 
   if (agentFiles.length === 0) {
-    console.log('❌ Aucun fichier d\'agent trouvé. Cela indique probablement une erreur de configuration.');
+    console.log("❌ Aucun fichier d'agent trouvé. Cela indique probablement une erreur de configuration.");
     console.log('   Fichiers *.agent.yaml attendus dans src/{core,modules/*}/agents/');
     process.exit(1);
   }

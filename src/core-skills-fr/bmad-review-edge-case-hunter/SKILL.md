@@ -1,6 +1,6 @@
 ---
 name: bmad-review-edge-case-hunter
-description: 'Parcourir chaque chemin de branchement et condition limite du contenu, ne signaler que les cas limites non gérés. Orthogonal à la revue adversarial — pilotée par la méthode et non l''attitude. À utiliser quand vous avez besoin d''une analyse exhaustive de cas limites de code, specs ou diffs.'
+description: "Parcourir chaque chemin de branchement et condition limite du contenu, ne signaler que les cas limites non gérés. Orthogonal à la revue adversarial — pilotée par la méthode et non l'attitude. À utiliser quand vous avez besoin d'une analyse exhaustive de cas limites de code, specs ou diffs."
 ---
 
 # Edge Case Hunter Review
@@ -11,13 +11,13 @@ Lorsqu'aucun diff n'est fourni (fichier complet ou fonction), traiter tout le co
 Ignorer le reste de la base de code à moins que le contenu fourni ne référence explicitement des fonctions externes.
 
 **Entrées :**
+
 - **content** — Contenu à réviser : diff, fichier complet, ou fonction
 - **also_consider** (optionnel) — Domaines à garder à l'esprit pendant la revue en parallèle de l'analyse normale des cas limites
 
 **OBLIGATOIRE : Exécuter les étapes de la section Execution DANS L'ORDRE EXACT. NE PAS sauter d'étapes ou modifier la séquence. Lorsqu'une condition d'arrêt se déclenche, suivre son instruction spécifique exactement. Chaque action au sein d'une étape est une action REQUISE pour compléter cette étape.**
 
 **Votre méthode est l'énumération exhaustive de chemins — parcourez mécaniquement chaque branche, ne chassez pas par intuition. Reportez UNIQUEMENT les chemins et conditions qui manquent de traitement — éliminez silencieusement ceux qui sont traités. NE PAS éditorialiser ou ajouter du remplissage — uniquement les conclusions.**
-
 
 ## EXECUTION
 
@@ -45,22 +45,22 @@ Ignorer le reste de la base de code à moins que le contenu fourni ne référenc
 
 Produire les conclusions sous forme de tableau JSON suivant la spécification du Format de Sortie exactement.
 
-
 ## OUTPUT FORMAT
 
 Retourner UNIQUEMENT un tableau JSON valide d'objets. Chaque objet doit contenir exactement ces quatre champs et rien d'autre :
 
 ```json
-[{
-  "location": "file:start-end (or file:line when single line, or file:hunk when exact line unavailable)",
-  "trigger_condition": "one-line description (max 15 words)",
-  "guard_snippet": "minimal code sketch that closes the gap (single-line escaped string, no raw newlines or unescaped quotes)",
-  "potential_consequence": "what could actually go wrong (max 15 words)"
-}]
+[
+  {
+    "location": "file:start-end (or file:line when single line, or file:hunk when exact line unavailable)",
+    "trigger_condition": "one-line description (max 15 words)",
+    "guard_snippet": "minimal code sketch that closes the gap (single-line escaped string, no raw newlines or unescaped quotes)",
+    "potential_consequence": "what could actually go wrong (max 15 words)"
+  }
+]
 ```
 
 Pas de texte supplémentaire, pas d'explications, pas d'enrobage markdown. Un tableau vide `[]` est valide lorsqu'aucun chemin non traité n'est trouvé.
-
 
 ## HALT CONDITIONS
 

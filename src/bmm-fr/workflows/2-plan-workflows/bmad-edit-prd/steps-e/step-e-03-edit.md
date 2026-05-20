@@ -61,6 +61,7 @@ Appliquer les modifications au PRD en suivant le plan de modification approuvé 
 ### 1. Récupérer le plan de modification approuvé
 
 Depuis l'étape e-02, récupérez :
+
 - **Modifications approuvées :** Liste section par section.
 - **Ordre de priorité :** Séquence pour appliquer les modifications.
 - **Exigences utilisateur :** Objectifs d'édition issus de l'étape e-01.
@@ -80,12 +81,14 @@ Affichez : "**Démarrage des modifications du PRD**
 "Exécuter les modifications du PRD pour {section_name} :
 
 **Contexte :**
+
 - Section à modifier : {section_name}
 - Contenu actuel : {existing content}
 - Modifications nécessaires : {specific changes from plan}
 - Standards PRD BMAD : Charger à partir de prd-purpose.md.
 
 **Tâches :**
+
 1. Lire la section actuelle du PRD.
 2. Appliquer les modifications spécifiées.
 3. Garantir la conformité aux principes du PRD BMAD :
@@ -98,6 +101,7 @@ Affichez : "**Démarrage des modifications du PRD**
 Appliquer les modifications et retourner la section mise à jour."
 
 **Dégradation gracieuse (si l'outil Task est indisponible) :**
+
 - Effectuer les modifications directement dans le contexte actuel.
 - Charger la section du PRD, appliquer les modifications, enregistrer.
 
@@ -106,16 +110,19 @@ Appliquer les modifications et retourner la section mise à jour."
 **Pour chaque section du plan approuvé (par ordre de priorité) :**
 
 **a) Charger la section actuelle**
+
 - Lire le contenu de la section actuelle du PRD.
 - Noter ce qui existe.
 
 **b) Appliquer les modifications selon le plan**
+
 - Ajouts : Créer de nouvelles sections avec un contenu approprié.
 - Mises à jour : Modifier le contenu existant selon le plan.
 - Suppressions : Supprimer le contenu spécifié.
 - Restructuration : Reformater le contenu selon le standard BMAD.
 
 **c) Mettre à jour le fichier PRD**
+
 - Appliquer les modifications au PRD.
 - Enregistrer le PRD mis à jour.
 - Vérifier que les modifications ont été appliquées correctement.
@@ -130,12 +137,14 @@ Modifications : {brief summary}
 **Si le mode de conversion est "Restructuration complète" ou "Les deux" :**
 
 **Pour la restructuration :**
+
 - Réorganiser le PRD selon la structure standard BMAD.
 - Assurer la présence d'en-têtes de niveau 2 (##) appropriés.
 - Réordonner les sections de manière logique.
 - Mettre à jour le frontmatter du PRD pour correspondre au format BMAD.
 
 **Suivre la structure du PRD BMAD :**
+
 1. Résumé Analytique (Executive Summary)
 2. Critères de Succès
 3. Périmètre du Produit (Product Scope)
@@ -157,7 +166,7 @@ Structure standard BMAD appliquée.
 ```yaml
 ---
 workflowType: 'prd'
-workflow: 'create'  # ou 'validate' ou 'edit'
+workflow: 'create' # ou 'validate' ou 'edit'
 classification:
   domain: '{domain}'
   projectType: '{project_type}'
@@ -178,16 +187,19 @@ editHistory:
 **Charger le PRD complet mis à jour.**
 
 **Vérifier :**
+
 - Toutes les modifications approuvées ont été appliquées correctement.
 - La structure du PRD est saine.
 - Pas de modifications involontaires.
 - Le frontmatter est exact.
 
 **Si des problèmes sont trouvés :**
+
 - Les corriger maintenant.
 - Noter les corrections effectuées.
 
 **Si l'utilisateur souhaite des ajustements :**
+
 - Accepter les commentaires et effectuer les ajustements.
 - Revérifier après les ajustements.
 
@@ -204,6 +216,7 @@ Affichez :
 {Brève liste à puces des principaux changements}
 
 **Le PRD est prêt pour :**
+
 - Utilisation dans les workflows en aval (UX, Architecture).
 - Validation (si pas encore validé).
 

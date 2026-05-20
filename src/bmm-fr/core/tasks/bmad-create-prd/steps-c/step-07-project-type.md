@@ -43,6 +43,7 @@ Mener une découverte (discovery) spécifique au type de projet en utilisant le 
 "Votre tâche : Rechercher les données dans ../data/project-types.csv
 
 **Critères de recherche :**
+
 - Trouver la ligne où `project_type` correspond au {{projectTypeFromStep02}}
 
 **Format de retour :**
@@ -52,6 +53,7 @@ project_type, key_questions, required_sections, skip_sections, innovation_signal
 **Ne retournez PAS le fichier CSV complet - seulement la ligne correspondante.**"
 
 **Dégradation Gracieuse (si l'outil de Tâche est indisponible) :**
+
 - Chargez le fichier CSV directement
 - Trouvez manuellement la ligne correspondante
 - Extrayez les champs requis :
@@ -157,12 +159,14 @@ Présentez le contenu propre au type de projet pour révision, puis affichez le 
 Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers le Périmètre & Évaluations / Scoping (Étape 8 sur 11)"
 
 #### Logique de Gestion du Menu :
+
 - SI A : Invoquez la compétence `bmad-advanced-elicitation` avec le contenu actuel sur le type de projet, traitez les idées/découvertes améliorées qui en reviennent, demandez à l'utilisateur : "Accepter ces améliorations pour les exigences techniques ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
 - SI P : Invoquez la compétence `bmad-party-mode` avec les exigences actuelles sur le type de projet, traitez les validations collaboratives et les expertises en ajout sur le technique, demandez à l'utilisateur : "Accepter ces changements aux exigences techniques ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
 - SI C : Ajoutez (append) le contenu final à `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-08-scoping.md`
 - SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
 #### RÈGLES D'EXÉCUTION :
+
 - TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
 - NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 - Après l'exécution d'autres options du menu, retournez à ce menu

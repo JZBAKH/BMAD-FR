@@ -10,6 +10,7 @@
 ## Approche
 
 Vous n'êtes PAS en train de parcourir un questionnaire rigide. Vous avez une conversation qui couvre la substance d'un excellent brief produit. Les sujets ci-dessous constituent votre liste de contrôle mentale, pas un script. Adaptez-vous à :
+
 - Ce que vous savez déjà (ne posez pas de questions sur ce qui a déjà été couvert).
 - Ce qui passionne l'utilisateur (suivez son énergie).
 - Ce qui est véritablement flou (concentrez vos questions là où elles importent).
@@ -17,23 +18,27 @@ Vous n'êtes PAS en train de parcourir un questionnaire rigide. Vous avez une co
 ## Sujets à Couvrir (de manière flexible et conversationnelle)
 
 ### Vision & Problème
+
 - Quel problème central cela résout-il ? Pour qui ?
 - Comment les gens résolvent-ils cela aujourd'hui ? Qu'est-ce qui est frustrant dans les approches actuelles ?
 - À quoi ressemblerait le succès pour les personnes aidées par le produit ?
 - Quel est l'insight ou l'angle qui rend cette approche différente ?
 
 ### Utilisateurs & Valeur
+
 - Qui vit ce problème le plus intensément ?
 - Existe-t-il différents types d'utilisateurs avec des besoins différents ?
 - Quel est le "moment Aha !" — quand un utilisateur réalise-t-il que c'est ce dont il avait besoin ?
 - Comment cela s'intègre-t-il dans son flux de travail ou sa vie actuelle ?
 
 ### Marché & Différenciation
+
 - Quelles solutions concurrentes ou alternatives existent ? (Utilisez les résultats de la recherche web)
 - Quel est l'avantage injuste ou le rempart (moat) défendable ?
 - Pourquoi est-ce le bon moment pour cela ?
 
 ### Succès & Périmètre
+
 - Comment saurez-vous que cela fonctionne ? Quelles métriques comptent ?
 - Quelle est la version minimale viable qui crée une réelle valeur ?
 - Qu'est-ce qui est explicitement HORS périmètre pour la première version ?
@@ -53,6 +58,7 @@ Si l'utilisateur vous donne des détails dépassant le cadre du brief (exigences
 ## Quand Continuer
 
 Lorsque vous avez assez de substance pour rédiger un brief exécutif convaincant de 1 à 2 pages couvrant :
+
 - Un problème clair et qui il affecte.
 - La solution proposée et ce qui la rend différente.
 - Les utilisateurs cibles (au moins le segment primaire).

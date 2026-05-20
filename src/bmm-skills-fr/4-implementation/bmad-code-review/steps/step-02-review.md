@@ -17,7 +17,6 @@ failed_layers: '' # set at runtime: comma-separated list of layers that failed o
 1. Si `{review_mode}` = `"no-spec"`, signalez à l'utilisateur : « Acceptance Auditor sauté — aucun fichier de spec fourni. »
 
 2. Lancez les subagents en parallèle sans contexte conversationnel. Si les subagents ne sont pas disponibles, générez des fichiers de prompt dans `{implementation_artifacts}` — un par rôle de relecteur ci-dessous — et HALT. Demandez à l'utilisateur d'exécuter chacun dans une session séparée (idéalement un LLM différent) et de coller en retour les constats. Lorsque les constats sont collés, reprenez à partir de ce point et passez à l'étape 3.
-
    - **Blind Hunter** — reçoit `{diff_output}` uniquement. Aucune spec, aucun document de contexte, aucun accès au projet. Invoquez via le skill `bmad-review-adversarial-general`.
 
    - **Edge Case Hunter** — reçoit `{diff_output}` et un accès en lecture au projet. Invoquez via le skill `bmad-review-edge-case-hunter`.
@@ -28,7 +27,6 @@ failed_layers: '' # set at runtime: comma-separated list of layers that failed o
 3. **Gestion des échecs de subagent** : Si un subagent échoue, expire ou retourne des résultats vides, ajoutez le nom de la couche à `{failed_layers}` (séparé par des virgules) et poursuivez avec les constats des couches restantes.
 
 4. Collectez tous les constats des couches terminées.
-
 
 ## SUITE
 

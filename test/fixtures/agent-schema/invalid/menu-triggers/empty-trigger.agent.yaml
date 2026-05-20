@@ -2,7 +2,7 @@
 # Expected: FAIL
 # Error code: custom
 # Error path: agent.menu[0].trigger
-# Error message: agent.menu[].trigger must be a non-empty string
+# Error message: agent.menu[].trigger doit être une chaîne non vide
 
 agent:
   metadata:

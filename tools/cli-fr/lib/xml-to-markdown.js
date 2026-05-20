@@ -3,7 +3,7 @@ const path = require('node:path');
 
 function convertXmlToMarkdown(xmlFilePath) {
   if (!xmlFilePath.endsWith('.xml')) {
-    throw new Error('Le fichier d\'entrée doit être un fichier XML');
+    throw new Error("Le fichier d'entrée doit être un fichier XML");
   }
 
   const xmlContent = fs.readFileSync(xmlFilePath, 'utf8');

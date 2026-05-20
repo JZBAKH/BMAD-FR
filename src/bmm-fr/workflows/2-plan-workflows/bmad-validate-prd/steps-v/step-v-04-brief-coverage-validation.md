@@ -1,6 +1,6 @@
 ---
 name: 'step-v-04-brief-coverage-validation'
-description: 'Vérification de la couverture du brief produit - Valider que le cahier des charges produit (PRD) couvre l''intégralité du contenu du brief produit (s''il a été utilisé en entrée)'
+description: "Vérification de la couverture du brief produit - Valider que le cahier des charges produit (PRD) couvre l'intégralité du contenu du brief produit (s'il a été utilisé en entrée)"
 
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
 nextStepFile: './step-v-05-measurability-validation.md'
@@ -66,6 +66,7 @@ Vérifier si un brief produit a été chargé dans les inputDocuments de l'étap
 
 **SI aucun brief produit n'est trouvé :**
 Ajouter au rapport de validation :
+
 ```markdown
 ## Couverture du brief produit
 
@@ -106,6 +107,7 @@ Retourner une carte de couverture structurée avec les classifications."
 Si l'outil Task est indisponible, effectuer l'analyse directement :
 
 **Extraire du brief produit :**
+
 - Vision : Quel est ce produit ?
 - Utilisateurs : À qui s'adresse-t-il ?
 - Problème : Quel problème résout-il ?
@@ -114,6 +116,7 @@ Si l'outil Task est indisponible, effectuer l'analyse directement :
 - Différenciateurs : Qu'est-ce qui le rend unique ?
 
 **Pour chaque élément, rechercher dans le cahier des charges produit (PRD) :**
+
 - Scanner le résumé exécutif pour la vision
 - Vérifier les parcours utilisateurs ou les personas utilisateurs
 - Rechercher l'énoncé du problème
@@ -122,6 +125,7 @@ Si l'outil Task est indisponible, effectuer l'analyse directement :
 - Rechercher les différenciateurs
 
 **Classifier la couverture :**
+
 - **Entièrement couvert :** Contenu présent et complet
 - **Partiellement couvert :** Contenu présent mais incomplet
 - **Non trouvé :** Contenu manquant dans le cahier des charges produit (PRD)
@@ -130,6 +134,7 @@ Si l'outil Task est indisponible, effectuer l'analyse directement :
 ### 4. Évaluer la couverture et la gravité
 
 **Pour chaque écart (Partiellement couvert ou Non trouvé) :**
+
 - Est-il Critique ? (Vision principale, utilisateurs primaires, fonctionnalités principales)
 - Est-il Modéré ? (Fonctionnalités secondaires, certains buts)
 - Est-il Informatif ? (Fonctionnalités souhaitables, détails mineurs)

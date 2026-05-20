@@ -9,14 +9,14 @@ BMad poskytuje dvě testovací cesty: vestavěného QA agenta pro rychlé genero
 
 ## Který byste měli použít?
 
-| Faktor | Quinn (vestavěný QA) | Modul TEA |
-| --- | --- | --- |
-| **Nejlepší pro** | Malé až střední projekty, rychlé pokrytí | Velké projekty, regulované nebo složité domény |
-| **Nastavení** | Nic k instalaci — součástí BMM | Instalace zvlášť přes `npx bmad-method install` |
-| **Přístup** | Generujte testy rychle, iterujte později | Nejprve plánujte, pak generujte s trasovatelností |
-| **Typy testů** | API a E2E testy | API, E2E, ATDD, NFR a další |
-| **Strategie** | Happy path + kritické hraniční případy | Prioritizace založená na riziku (P0–P3) |
-| **Počet workflow** | 1 (Automate) | 9 (design, ATDD, automate, review, trace a další) |
+| Faktor             | Quinn (vestavěný QA)                     | Modul TEA                                         |
+| ------------------ | ---------------------------------------- | ------------------------------------------------- |
+| **Nejlepší pro**   | Malé až střední projekty, rychlé pokrytí | Velké projekty, regulované nebo složité domény    |
+| **Nastavení**      | Nic k instalaci — součástí BMM           | Instalace zvlášť přes `npx bmad-method install`   |
+| **Přístup**        | Generujte testy rychle, iterujte později | Nejprve plánujte, pak generujte s trasovatelností |
+| **Typy testů**     | API a E2E testy                          | API, E2E, ATDD, NFR a další                       |
+| **Strategie**      | Happy path + kritické hraniční případy   | Prioritizace založená na riziku (P0–P3)           |
+| **Počet workflow** | 1 (Automate)                             | 9 (design, ATDD, automate, review, trace a další) |
 
 :::tip[Začněte s Quinnem]
 Většina projektů by měla začít s Quinnem. Pokud později budete potřebovat testovací strategii, quality gates nebo trasovatelnost požadavků, nainstalujte TEA vedle něj.
@@ -71,17 +71,17 @@ TEA je samostatný modul, který poskytuje expertního agenta (Murat) a devět s
 
 ### Co TEA poskytuje
 
-| Workflow | Účel |
-| --- | --- |
-| Test Design | Vytvoření komplexní testovací strategie vázané na požadavky |
-| ATDD | Acceptance-test-driven development s kritérii stakeholderů |
-| Automate | Generování testů s pokročilými vzory a utilitami |
-| Test Review | Validace kvality a pokrytí testů proti strategii |
-| Traceability | Mapování testů zpět na požadavky pro audit a compliance |
-| NFR Assessment | Hodnocení nefunkčních požadavků (výkon, bezpečnost) |
-| CI Setup | Konfigurace provádění testů v CI pipelines |
-| Framework Scaffolding | Nastavení testovací infrastruktury a struktury projektu |
-| Release Gate | Datově založená rozhodnutí go/no-go pro release |
+| Workflow              | Účel                                                        |
+| --------------------- | ----------------------------------------------------------- |
+| Test Design           | Vytvoření komplexní testovací strategie vázané na požadavky |
+| ATDD                  | Acceptance-test-driven development s kritérii stakeholderů  |
+| Automate              | Generování testů s pokročilými vzory a utilitami            |
+| Test Review           | Validace kvality a pokrytí testů proti strategii            |
+| Traceability          | Mapování testů zpět na požadavky pro audit a compliance     |
+| NFR Assessment        | Hodnocení nefunkčních požadavků (výkon, bezpečnost)         |
+| CI Setup              | Konfigurace provádění testů v CI pipelines                  |
+| Framework Scaffolding | Nastavení testovací infrastruktury a struktury projektu     |
+| Release Gate          | Datově založená rozhodnutí go/no-go pro release             |
 
 TEA také podporuje prioritizaci P0–P3 založenou na riziku a volitelné integrace s Playwright Utils a MCP nástroji.
 

@@ -1,6 +1,6 @@
 ---
 name: 'step-e-01-discovery'
-description: 'Découverte et Compréhension - Comprendre ce que l''utilisateur souhaite modifier et détecter le format du PRD'
+description: "Découverte et Compréhension - Comprendre ce que l'utilisateur souhaite modifier et détecter le format du PRD"
 
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
 altStepFile: './step-e-01b-legacy-conversion.md'
@@ -80,6 +80,7 @@ Veuillez fournir le chemin vers le fichier PRD que vous souhaitez modifier."
 ### 3. Valider l'existence du PRD et le charger
 
 Une fois le chemin du PRD fourni :
+
 - Vérifiez si le fichier PRD existe au chemin spécifié.
 - Si non trouvé : "Je ne trouve pas de PRD à ce chemin. Veuillez vérifier le chemin et réessayer."
 - Si trouvé : Chargez le fichier PRD complet, y compris le frontmatter.
@@ -103,22 +104,26 @@ J'ai trouvé un rapport de validation daté du {validation_date} dans le dossier
 Ce rapport contient les résultats des précédents contrôles de validation et peut nous aider à orienter nos modifications pour corriger les problèmes connus.
 
 **Souhaitez-vous :**
+
 - **[U] Utiliser le rapport de validation** - Le charger pour guider et hiérarchiser les modifications.
 - **[S] Ignorer** - Procéder à une découverte manuelle des modifications."
 
 **Attendez l'entrée de l'utilisateur.**
 
 **SI U (Utiliser le rapport de validation) :**
+
 - Chargez le fichier du rapport de validation.
 - Extrayez les conclusions, les problèmes et les suggestions d'amélioration.
 - Note : "Rapport de validation chargé - il sera utilisé pour guider les améliorations prioritaires."
 - Continuez vers l'étape 5.
 
 **SI S (Ignorer) ou si aucun rapport de validation n'est trouvé :**
+
 - Note : "Poursuite de la découverte manuelle des modifications."
 - Continuez vers l'étape 5.
 
 **Si aucun rapport de validation n'est trouvé :**
+
 - Note : "Aucun rapport de validation trouvé dans le dossier du PRD."
 - Continuez vers l'étape 5 sans demander à l'utilisateur.
 
@@ -133,11 +138,13 @@ Chemin du rapport de validation (ou tapez 'aucun') :"
 **Attendez l'entrée de l'utilisateur.**
 
 **Si un chemin de rapport de validation est fourni :**
+
 - Chargez le rapport de validation.
 - Extrayez les conclusions, la sévérité, les suggestions d'amélioration.
 - Note : "Rapport de validation chargé - il sera utilisé pour guider les améliorations prioritaires."
 
 **Si pas de rapport de validation :**
+
 - Note : "Poursuite de la découverte manuelle des modifications."
 - Continuez vers l'étape 6.
 
@@ -146,6 +153,7 @@ Chemin du rapport de validation (ou tapez 'aucun') :"
 "**Que souhaiteriez-vous modifier dans ce PRD ?**
 
 Veuillez décrire les changements que vous souhaitez effectuer. Par exemple :
+
 - Corriger des problèmes spécifiques (densité d'information, fuites d'implémentation, etc.).
 - Ajouter des sections ou du contenu manquants.
 - Améliorer la structure et le flux.
@@ -164,6 +172,7 @@ Analysez le PRD chargé :
 **Extraire tous les en-têtes de niveau 2 (##)** du PRD.
 
 **Vérifier la présence des sections de base du PRD BMAD :**
+
 1. Résumé Analytique (Executive Summary)
 2. Critères de Succès
 3. Périmètre du Produit (Product Scope)
@@ -172,6 +181,7 @@ Analysez le PRD chargé :
 6. Exigences Non Fonctionnelles
 
 **Classifier le format :**
+
 - **Standard BMAD :** 5 à 6 sections de base présentes.
 - **Variante BMAD :** 3 à 4 sections de base présentes, suit globalement les modèles BMAD.
 - **Legacy (Non-Standard) :** Moins de 3 sections de base, ne suit pas la structure BMAD.

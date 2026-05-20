@@ -10,10 +10,10 @@ Chaque distillat inclut un frontmatter YAML. Les chemins sources sont relatifs �
 ---
 type: bmad-distillate
 sources:
-  - "product-brief-example.md"
-  - "product-brief-example-discovery-notes.md"
-downstream_consumer: "création de PRD"
-created: "2026-03-13"
+  - 'product-brief-example.md'
+  - 'product-brief-example-discovery-notes.md'
+downstream_consumer: 'création de PRD'
+created: '2026-03-13'
 token_estimate: 1200
 parts: 1
 ---
@@ -24,6 +24,7 @@ parts: 1
 ### Du Paragraphe en Prose à la Puce Dense
 
 **Avant** (extrait de brief lisible par l'homme) :
+
 ```
 ## Ce Qui Rend Cela Différent
 
@@ -38,6 +39,7 @@ elle-même.
 ```
 
 **Après** (distillat) :
+
 ```
 ## Différenciation
 - Positionnement anti-fragmentation : BMAD = constante inter-plateformes à travers 40+ outils d'IA fragmentés; aucun concurrent ne fournit de couche méthodologique partagée
@@ -47,6 +49,7 @@ elle-même.
 ### Des Détails Techniques aux Faits Compressés
 
 **Avant** (extrait des notes de découverte) :
+
 ```
 ## Paysage Concurrentiel
 
@@ -66,6 +69,7 @@ elle-même.
 ```
 
 **Après** (distillat) :
+
 ```
 ## Paysage Concurrentiel
 - Aucun concurrent ne combine méthodologie structurée + marketplace de plugins (innovation / espace libre)
@@ -80,17 +84,20 @@ elle-même.
 Lorsque le même fait apparaît à la fois dans un brief et dans des notes de découverte :
 
 **Le brief stipule :**
+
 ```
 bmad-init doit toujours être inclus comme compétence de base dans chaque bundle
 ```
 
 **Les notes de découverte stipulent :**
+
 ```
 bmad-init doit toujours être inclus comme compétence de base dans chaque bundle/installation
 (résout le problème d'amorçage)
 ```
 
 **Le distillat conserve la version la plus riche en contexte :**
+
 ```
 - bmad-init : toujours inclus comme compétence de base dans chaque bundle (résout le problème d'amorçage)
 ```
@@ -98,6 +105,7 @@ bmad-init doit toujours être inclus comme compétence de base dans chaque bundl
 ### Compression des Décisions/Justifications
 
 **Avant :**
+
 ```
 Nous avons décidé de ne pas construire notre propre matrice de support de plateforme à l'avenir, choisissant
 plutôt de déléguer à l'écosystème Vercel skills CLI. La justification est que le maintien
@@ -106,6 +114,7 @@ de plus de 20 configurations de plateforme représente le plus grand fardeau de 
 ```
 
 **Après :**
+
 ```
 - Rejeté : propre matrice de support de plateforme. Raison : insoutenable avec 40+ plateformes; déléguer à l'écosystème Vercel CLI
 ```
@@ -118,26 +127,29 @@ Un distillat complet produit à partir d'un brief de produit et de ses notes de 
 ---
 type: bmad-distillate
 sources:
-  - "product-brief-bmad-next-gen-installer.md"
-  - "product-brief-bmad-next-gen-installer-discovery-notes.md"
-downstream_consumer: "création de PRD"
-created: "2026-03-13"
+  - 'product-brief-bmad-next-gen-installer.md'
+  - 'product-brief-bmad-next-gen-installer-discovery-notes.md'
+downstream_consumer: 'création de PRD'
+created: '2026-03-13'
 token_estimate: 1450
 parts: 1
 ---
 
 ## Concept Cœur
+
 - BMAD Next-Gen Installer : remplace l'interface CLI monolithique Node.js par une architecture de plugins axée sur les compétences pour distribuer la méthodologie BMAD sur plus de 40 plateformes d'IA
 - Trois couches : plugins autodescriptifs (bmad-manifest.json), installation inter-plateformes via Vercel skills CLI (MIT), enregistrement à l'exécution via la compétence bmad-init
 - Transforme BMAD d'une méthodologie réservée aux développeurs en une plateforme ouverte pour tout domaine (créatif, thérapeutique, éducatif, personnel)
 
 ## Problème
+
 - L'installateur actuel gère manuellement environ 20 configurations de plateforme; chaque modification de convention de plateforme nécessite une mise à jour, un test et une sortie de l'installateur — la plus lourde charge de maintenance pour l'équipe
 - Nécessite Node.js/npm — bloque les utilisateurs non techniques sur les plateformes basées sur l'interface utilisateur (Claude Co-Work, etc.)
 - Les manifestes CSV sont statiques, générés une seule fois lors de l'installation; pas d'analyse/enregistrement au moment de l'exécution
 - Insoutenable à 40+ plateformes; de nouveaux outils apparaissent chaque semaine
 
 ## Architecture de la Solution
+
 - Plugins : bundles de compétences avec le standard de plugin Anthropic comme format de base + bmad-manifest.json l'étendant pour les métadonnées spécifiques à BMAD (options d'installateur, capacités, intégration d'aide, ordonnancement des phases, dépendances)
 - Exemple de manifeste actuel : `{"module-code":"bmm","replaces-skill":"bmad-create-product-brief","capabilities":[{"name":"create-brief","menu-code":"CB","supports-headless":true,"phase-name":"1-analysis","after":["brainstorming"],"before":["create-prd"],"is-required":true}]}`
 - Vercel skills CLI gère la traduction de la plateforme; le schéma d'intégration (envelopper/dupliquer/appeler) relève d'une décision PRD
@@ -147,17 +159,20 @@ parts: 1
 - Le parcours non technique a une réelle friction : "copier dans le bon dossier" requiert de savoir où; instructions README par plateforme; la situation s'améliorera au fur et à mesure de l'évolution de l'écosystème low-code
 
 ## Différenciation
+
 - Anti-fragmentation : BMAD = constante inter-plateformes; aucun concurrent n'offre une couche méthodologique commune aux autres outils d'IA
 - Qualité via la curation : toutes les soumissions sont validées et contrôlées par des humains (BMad et l'équipe); 13,4% des compétences communautaires ont des vulnérabilités (Snyk 2026); la valeur du filtre qualité s'accroît quand l'écosystème fait plus de bruit
 - Agnosticité : aucun autre projet ne s'étire au-delà des flux de développeurs; le même système de plugin fait rouler chaque domaine via BMAD Builder (projet à part)
 
 ## Utilisateurs (classés par priorité v1)
+
 - Auteurs de modules (priorité majeure v1) : paqueter/tester/distribuer les plugins en indépendant sans changer l'installateur
 - Développeurs : installation en une commande sur l'une des 40+ plateformes par NPX
 - Utilisateurs non techniques : installation sans Node/Git/terminal; segment naissant incluant chefs de projet, designers, formateurs
 - Futurs créateurs de plugins : auteurs non dev sur BMAD Builder; désirant la distribution sans faire un installeur spécifique
 
 ## Critères de Succès
+
 - Zéro (ou quasiment zéro) code de répertoire de plateforme personnalisé; délégué à l'écosystème skills CLI
 - L'installation est confirmée sur toutes les top plateformes en volume; skills CLI gère la suite
 - Mode d'installation pour usagers non techniques est qualifié auprès desdits profils
@@ -167,11 +182,13 @@ parts: 1
 - Les utilisateurs actuels sur CLI profitent d'un manuel de route/transfert qualifié
 
 ## Périmètre
+
 - In : règles manifest, bmad-init, bmad-update, intégration Vercel CLI, installateur NPX, bundles zip, manuel de migration
 - Out : BMAD Builder, interface web de la marketplace, process de conversion des compétences (un requis à côté), installation one-click générique pour toute plateforme, la création de revenus (monétisation), le processus de contrôle et certification (la base du contrôle est requise technologiquement, le processus métier est autre)
 - Différé : association CI/CD, data télémétriques pour les auteurs, configuration entreprise non reliée au net, système de sûreté et signature sur zip bundles, imbrication complexe chez plateformes no-code
 
 ## Installateur Actuel (contexte de migration)
+
 - Point d'accès : `tools/cli/bmad-cli.js` (Commander.js) → `tools/cli/installers/lib/core/installer.js`
 - Plateformes : `platform-codes.yaml` (~20 plateformes avec leurs chemins désignés, archives, types de templates, flags requis)
 - Manifestes : Fichiers CSV (skill/workflow/agent-manifest.csv) agissent comme source du vrai (pas en JSON)
@@ -182,6 +199,7 @@ parts: 1
 - Cassure de modèle : les manifestes textuels stables CSV → sont mutés vers de l'interrogation continue via des structures JSON
 
 ## Vercel Skills CLI
+
 - `npx skills add <source>` — GitHub, GitLab, chemins en dur, git URL
 - 40+ agents; traçabilités par agents; des symlinks virtuels (fort suggéré) ou copies pures
 - Niveaux du réseau : localité/répertoire projet ou racine système généralisée
@@ -190,6 +208,7 @@ parts: 1
 - Auto-décisionnaire (silencieux) : flags `-y`, `--all` utiles en process CI/CD
 
 ## Paysage Concurrentiel
+
 - Aucun concurrent ne cumule la dimension de démarche structurée au marché de modules (Espace vide de concurrence)
 - Skills.sh (Vercel) : 83K traits, 18 robots, public technicien, un niveau d'activation flottant de 20%
 - SkillsMP : 400K compétences brutes pour simple recensement, 0 curation ou application
@@ -198,11 +217,13 @@ parts: 1
 - Financiarisation du contexte global : valorisation $7.84B (2025) vers $52.62B évaluée horizon 2030. Un standard édicté d'agent skills existant de moins d'un semestre gérant déjà +351K outils ; Les formats d'échanges (MCP, AAIF ou format A2A de la fondation d'entreprise Linux) vont devenir de réels ponts normalisateurs
 
 ## Alternatives Rejetées
+
 - Bâtir de toutes pièces et supporter tous les gabarits sur-mesure d'éditeurs (plus de 40 à ce jour et grandissant). Raison : charge ingérable de support pour les dev. Alternative actée vers Vercel CLI.
 - Le miracle "1-lic-Install" espéré des novices : trop frais coté marché; Prise en main étape par étape avec manuels pallient ça pour le moment.
 - Chronologie passée des sprints imaginés : une grande "remise à plat", sans s'enliser par l'historique de planification.
 
 ## Questions Ouvertes
+
 - Type d'accouplement via l'architecture Vercel : faut-il draper/l'imiter/le requérir ou s'imposer d'office en voisin ?
 - Principes mécaniques sur le bmad-update : calcul vectoriel du "diff" versus suppression franche ? Maintenir des altérations manuelles d'usager possible ?
 - Ponts des usagers natifs : ligne de code, action manuelle par une nouvelle installation ou interface passerelle temporaire ?
@@ -213,12 +234,14 @@ parts: 1
 - Outils offerts aux novices quantitifs écrivant un plugin ?
 
 ## Opportunités
+
 - Réseaux tiers de partage pour attester : chaque outil publié ramène BMAD au public suivant ce créateur.
 - Couplage CI/CD : exécutif bmad-init comme code one-liner de validation amène dépendance et confort absolu de la pipeline
 - Milieu associatif/scolaire : combo méthode hyper fixée + exécution souple non-technique cible le format d'amphis scolaires et pédagogie.
 - Croisement sans limites : mixer ce framework solide BMAD couplé aux expertises lointaines extérieures produit l'attirail "parfait" en situation unique.
 
 ## Risques
+
 - Muer les architectures liées à l'en-tête (manifest) pénalise des dev de modules post-publication qui décrocheront si de la rétrocompatibilité est entaillée
 - Mur de filtrage qui requerra sa procédure normée, et pas que de façade
 - Matrice de contrôle vertigineuse (+40 espaces) si toutefois Vercel ne tamponne pas tout par de subtiles faiblesses

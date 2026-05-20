@@ -22,40 +22,40 @@ Yêu cầu [Node.js](https://nodejs.org) v20+ và `npx` (đi kèm với npm).
 
 ### Tùy chọn cài đặt
 
-| Cờ | Mô tả | Ví dụ |
-|------|-------------|---------|
-| `--directory <path>` | Thư mục cài đặt | `--directory ~/projects/myapp` |
-| `--modules <modules>` | Danh sách ID module, cách nhau bởi dấu phẩy | `--modules bmm,bmb` |
-| `--tools <tools>` | Danh sách ID công cụ/IDE, cách nhau bởi dấu phẩy (dùng `none` để bỏ qua) | `--tools claude-code,cursor` hoặc `--tools none` |
-| `--action <type>` | Hành động cho bản cài đặt hiện có: `install` (mặc định), `update`, hoặc `quick-update` | `--action quick-update` |
-| `--custom-source <sources>` | Danh sách Git URL hoặc đường dẫn cục bộ cho module tùy chỉnh, cách nhau bởi dấu phẩy | `--custom-source /path/to/module` |
+| Cờ                          | Mô tả                                                                                  | Ví dụ                                            |
+| --------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| `--directory <path>`        | Thư mục cài đặt                                                                        | `--directory ~/projects/myapp`                   |
+| `--modules <modules>`       | Danh sách ID module, cách nhau bởi dấu phẩy                                            | `--modules bmm,bmb`                              |
+| `--tools <tools>`           | Danh sách ID công cụ/IDE, cách nhau bởi dấu phẩy (dùng `none` để bỏ qua)               | `--tools claude-code,cursor` hoặc `--tools none` |
+| `--action <type>`           | Hành động cho bản cài đặt hiện có: `install` (mặc định), `update`, hoặc `quick-update` | `--action quick-update`                          |
+| `--custom-source <sources>` | Danh sách Git URL hoặc đường dẫn cục bộ cho module tùy chỉnh, cách nhau bởi dấu phẩy   | `--custom-source /path/to/module`                |
 
 ### Cấu hình cốt lõi
 
-| Cờ | Mô tả | Mặc định |
-|------|-------------|---------|
-| `--user-name <name>` | Tên để agent sử dụng | Tên người dùng hệ thống |
-| `--communication-language <lang>` | Ngôn ngữ giao tiếp của agent | Tiếng Anh |
-| `--document-output-language <lang>` | Ngôn ngữ đầu ra tài liệu | Tiếng Anh |
-| `--output-folder <path>` | Đường dẫn thư mục output (xem quy tắc resolve bên dưới) | `_bmad-output` |
+| Cờ                                  | Mô tả                                                   | Mặc định                |
+| ----------------------------------- | ------------------------------------------------------- | ----------------------- |
+| `--user-name <name>`                | Tên để agent sử dụng                                    | Tên người dùng hệ thống |
+| `--communication-language <lang>`   | Ngôn ngữ giao tiếp của agent                            | Tiếng Anh               |
+| `--document-output-language <lang>` | Ngôn ngữ đầu ra tài liệu                                | Tiếng Anh               |
+| `--output-folder <path>`            | Đường dẫn thư mục output (xem quy tắc resolve bên dưới) | `_bmad-output`          |
 
 #### Quy tắc resolve đường dẫn output folder
 
 Giá trị truyền vào `--output-folder` (hoặc nhập ở chế độ tương tác) sẽ được resolve theo các quy tắc sau:
 
-| Loại đầu vào | Ví dụ | Được resolve thành |
-|------|-------------|---------|
-| Đường dẫn tương đối (mặc định) | `_bmad-output` | `<project-root>/_bmad-output` |
-| Đường dẫn tương đối có traversal | `../../shared-outputs` | Đường dẫn tuyệt đối đã được chuẩn hóa, ví dụ `/Users/me/shared-outputs` |
-| Đường dẫn tuyệt đối | `/Users/me/shared-outputs` | Giữ nguyên như đã nhập, **không** thêm project root vào trước |
+| Loại đầu vào                     | Ví dụ                      | Được resolve thành                                                      |
+| -------------------------------- | -------------------------- | ----------------------------------------------------------------------- |
+| Đường dẫn tương đối (mặc định)   | `_bmad-output`             | `<project-root>/_bmad-output`                                           |
+| Đường dẫn tương đối có traversal | `../../shared-outputs`     | Đường dẫn tuyệt đối đã được chuẩn hóa, ví dụ `/Users/me/shared-outputs` |
+| Đường dẫn tuyệt đối              | `/Users/me/shared-outputs` | Giữ nguyên như đã nhập, **không** thêm project root vào trước           |
 
 Đường dẫn sau khi resolve là đường dẫn mà agent và workflow sẽ dùng lúc runtime để ghi file đầu ra. Việc dùng đường dẫn tuyệt đối hoặc đường dẫn tương đối có traversal cho phép bạn chuyển toàn bộ artifact sinh ra sang một thư mục nằm ngoài cây dự án, hữu ích với thư mục dùng chung hoặc cấu trúc monorepo.
 
 ### Tùy chọn khác
 
-| Cờ | Mô tả |
-|------|-------------|
-| `-y, --yes` | Chấp nhận toàn bộ mặc định và bỏ qua prompt |
+| Cờ            | Mô tả                                       |
+| ------------- | ------------------------------------------- |
+| `-y, --yes`   | Chấp nhận toàn bộ mặc định và bỏ qua prompt |
 | `-d, --debug` | Bật output debug cho quá trình tạo manifest |
 
 ## ID module
@@ -77,13 +77,13 @@ Chạy `npx bmad-method install` một lần ở chế độ tương tác để 
 
 ## Các chế độ cài đặt
 
-| Chế độ | Mô tả | Ví dụ |
-|------|-------------|---------|
-| Hoàn toàn không tương tác | Cung cấp đầy đủ cờ để bỏ qua tất cả prompt | `npx bmad-method install --directory . --modules bmm --tools claude-code --yes` |
-| Bán tương tác | Cung cấp một số cờ, BMad hỏi thêm phần còn lại | `npx bmad-method install --directory . --modules bmm` |
-| Chỉ dùng mặc định | Chấp nhận tất cả giá trị mặc định với `-y` | `npx bmad-method install --yes` |
-| Chỉ dùng custom source | Chỉ cài core và module tùy chỉnh | `npx bmad-method install --directory . --custom-source /path/to/module --tools claude-code --yes` |
-| Không cấu hình công cụ | Bỏ qua cấu hình công cụ/IDE | `npx bmad-method install --modules bmm --tools none` |
+| Chế độ                    | Mô tả                                          | Ví dụ                                                                                             |
+| ------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Hoàn toàn không tương tác | Cung cấp đầy đủ cờ để bỏ qua tất cả prompt     | `npx bmad-method install --directory . --modules bmm --tools claude-code --yes`                   |
+| Bán tương tác             | Cung cấp một số cờ, BMad hỏi thêm phần còn lại | `npx bmad-method install --directory . --modules bmm`                                             |
+| Chỉ dùng mặc định         | Chấp nhận tất cả giá trị mặc định với `-y`     | `npx bmad-method install --yes`                                                                   |
+| Chỉ dùng custom source    | Chỉ cài core và module tùy chỉnh               | `npx bmad-method install --directory . --custom-source /path/to/module --tools claude-code --yes` |
+| Không cấu hình công cụ    | Bỏ qua cấu hình công cụ/IDE                    | `npx bmad-method install --modules bmm --tools none`                                              |
 
 ## Ví dụ
 
@@ -164,17 +164,19 @@ BMad sẽ kiểm tra tất cả các cờ được cung cấp:
 - **Action** - Phải là một trong: `install`, `update`, `quick-update`
 
 Giá trị không hợp lệ sẽ dẫn đến một trong các trường hợp sau:
+
 1. Hiện lỗi và thoát (với các tùy chọn quan trọng như directory)
 2. Hiện cảnh báo và bỏ qua (với mục tùy chọn)
 3. Quay lại hỏi interactive (với giá trị bắt buộc bị thiếu)
 
 :::tip[Thực hành tốt]
+
 - Dùng đường dẫn tuyệt đối cho `--directory` để tránh nhầm lẫn
 - Dùng đường dẫn tuyệt đối cho `--output-folder` khi bạn muốn ghi artifact ra ngoài cây dự án, ví dụ vào một thư mục output dùng chung trong monorepo
 - Thử nghiệm cờ ở máy local trước khi đưa vào pipeline CI/CD
 - Kết hợp với `-y` nếu bạn muốn cài đặt hoàn toàn không cần can thiệp
 - Dùng `--debug` nếu gặp vấn đề trong quá trình cài đặt
-:::
+  :::
 
 ## Khắc phục sự cố
 

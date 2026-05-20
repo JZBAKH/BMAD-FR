@@ -2,7 +2,7 @@
 # Expected: FAIL
 # Error code: custom
 # Error path: agent.menu[0]
-# Error message: agent.menu[] entries must include at least one command target field
+# Error message: agent.menu[] les entrées doivent inclure au moins un champ command target
 
 agent:
   metadata:

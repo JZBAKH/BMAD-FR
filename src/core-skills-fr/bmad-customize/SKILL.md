@@ -47,11 +47,13 @@ Lisez le `customize.toml` de la cible. Le bloc `[agent]` ou `[workflow]` de prem
 Si un override team ou user existe déjà, lisez-le d'abord et résumez ce qui est déjà overridé avant de composer.
 
 **Intention transversale — parcourez les deux surfaces avec l'utilisateur :**
+
 - Chaque workflow qu'un agent donné exécute → surface agent (par ex. `bmad-agent-pm.toml` avec `persistent_facts`, `principles`).
 - Un seul workflow → surface workflow (par ex. `bmad-create-prd.toml` avec `activation_steps_prepend`).
 - Plusieurs workflows spécifiques → plusieurs overrides workflow en séquence, pas un override agent.
 
 **Heuristique single-surface :**
+
 - Niveau workflow : swap de template, chemin de sortie, comportement spécifique à une étape, ou un scalaire nommé déjà exposé (`*_template`, `on_complete`). Chirurgical, fiable.
 - Niveau agent : persona, style de communication, faits à l'échelle de l'organisation, changements de menu, comportement qui doit s'appliquer à chaque workflow que l'agent dispatche.
 
@@ -64,6 +66,7 @@ Intention en dehors de la surface exposée (logique d'étape, ordonnancement, to
 Traduisez l'anglais courant en TOML contre les champs du `customize.toml` de la cible. Si un override existant a été lu, présentez le changement comme additif.
 
 Sémantique de merge :
+
 - **Scalaires** (`icon`, `role`, `*_template`, `on_complete`) — l'override gagne.
 - **Tableaux append** (`persistent_facts`, `activation_steps_prepend`/`append`, `principles`) — les entrées team/user s'ajoutent dans l'ordre.
 - **Tableaux clés de tables** (items de menu avec `code` ou `id`) — les clés correspondantes remplacent, les nouvelles clés s'ajoutent.
@@ -75,6 +78,7 @@ Les overrides sont parcimonieux : seulement les champs modifiés. Ne copiez jama
 ## Étape 5 : Placement team ou user
 
 Sous `{project-root}/_bmad/custom/` :
+
 - `{skill-name}.toml` — team, commité. Politiques, conventions org, conformité.
 - `{skill-name}.user.toml` — user, gitignoré. Ton personnel, faits privés, raccourcis.
 
@@ -86,14 +90,17 @@ Choix par défaut selon le caractère (politique → team, personnel → user), 
 2. Attendez un oui explicite.
 3. Écrivez. Créez `{project-root}/_bmad/custom/` si nécessaire.
 4. Vérifiez :
+
    ```
    python3 {project-root}/_bmad/scripts/resolve_customization.py --skill <install-path> --key <agent-or-workflow>
    ```
+
    Affichez la sortie mergée, pointez les champs modifiés.
 
    **Resolver manquant ou en échec :** lisez les couches qui existent — `<install-path>/customize.toml` (base), `{project-root}/_bmad/custom/{skill-name}.toml` (team), `{project-root}/_bmad/custom/{skill-name}.user.toml` (user) — appliquez base → team → user avec les mêmes règles de merge (les scalaires écrasent, les tables fusionnent en profondeur, les tableaux clés `code`/`id` mergent par clé, tous les autres tableaux s'ajoutent), décrivez comment les champs modifiés se résolvent.
 
    **La vérification montre que l'override n'a pas été pris en compte** (champ inchangé, conflit de merge, fichier non capté) : ré-entrez à l'étape 4 avec la sortie de vérification comme contexte. Habituellement mauvais nom de champ, mauvais mode de merge (scalaire vs tableau) ou mauvais scope.
+
 5. Résumez ce qui a changé, où le fichier vit, comment itérer. Rappelez à l'utilisateur de commiter les overrides team.
 
 ## Terminé quand

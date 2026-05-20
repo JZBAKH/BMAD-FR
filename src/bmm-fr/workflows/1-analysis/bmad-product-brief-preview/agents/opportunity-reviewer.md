@@ -25,20 +25,10 @@ Renvoyez UNIQUEMENT l'objet JSON suivant. Pas de préambule, pas de commentaire.
 
 ```json
 {
-  "untapped_value": [
-    {"opportunity": "problème adjacent ou proposition de valeur", "rationale": "pourquoi c'est important"}
-  ],
-  "positioning_opportunities": [
-    {"angle": "angle de marché ou récit", "impact": "comment cela renforce le brief"}
-  ],
-  "growth_and_scale": [
-    "bullet — effets de réseau, boucles virales, chemins d'expansion"
-  ],
-  "strategic_partnerships": [
-    {"partner_type": "qui", "value": "pourquoi cette alliance est importante"}
-  ],
-  "underemphasized_strengths": [
-    {"strength": "ce qui est sous-exploité", "suggestion": "comment le mettre en valeur"}
-  ]
+  "untapped_value": [{ "opportunity": "problème adjacent ou proposition de valeur", "rationale": "pourquoi c'est important" }],
+  "positioning_opportunities": [{ "angle": "angle de marché ou récit", "impact": "comment cela renforce le brief" }],
+  "growth_and_scale": ["bullet — effets de réseau, boucles virales, chemins d'expansion"],
+  "strategic_partnerships": [{ "partner_type": "qui", "value": "pourquoi cette alliance est importante" }],
+  "underemphasized_strengths": [{ "strength": "ce qui est sous-exploité", "suggestion": "comment le mettre en valeur" }]
 }
 ```

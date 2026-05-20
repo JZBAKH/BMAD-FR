@@ -1,7 +1,6 @@
 ---
 # Références de Fichiers
 outputFile: '{planning_artifacts}/product-brief-{{project_name}}-{{date}}.md'
-
 ---
 
 # Étape 5 : Définition du Périmètre MVP

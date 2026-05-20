@@ -25,10 +25,12 @@ function run() {
   for (const root of FR_ROOTS) {
     const fullRoot = path.join(REPO_ROOT, root);
     if (!fs.existsSync(fullRoot)) continue;
-    candidates.push(...walk(fullRoot, {
-      extensions: ['.md', '.yaml', '.yml', '.csv', '.txt'],
-      base: REPO_ROOT,
-    }));
+    candidates.push(
+      ...walk(fullRoot, {
+        extensions: ['.md', '.yaml', '.yml', '.csv', '.txt'],
+        base: REPO_ROOT,
+      }),
+    );
   }
 
   let pairsTested = 0;
@@ -51,10 +53,7 @@ function run() {
 
     for (const code of enCodes) {
       runner.test(`${frRel} : code "${code}" présent en contexte trigger`, () => {
-        runner.assert(
-          frCodes.has(code),
-          `"${code}" présent comme trigger dans EN mais absent du FR`,
-        );
+        runner.assert(frCodes.has(code), `"${code}" présent comme trigger dans EN mais absent du FR`);
       });
     }
   }

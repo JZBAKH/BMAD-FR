@@ -395,7 +395,7 @@ _Ce document d'étude de marché exhaustif sert de référence faisant autorité
 
 ## AJOUT AU DOCUMENT :
 
-Lorsque l'utilisateur sélectionne 'C', ajoutez la totalité du document final directement dans le fichier en utilisant la structure de l'étape 4. Remplacez également le placeholder `[La vue d'ensemble et la méthodologie de recherche seront ajoutées ici]` dans la section *Vue d'ensemble de la Recherche* située tout en haut du document.
+Lorsque l'utilisateur sélectionne 'C', ajoutez la totalité du document final directement dans le fichier en utilisant la structure de l'étape 4. Remplacez également le placeholder `[La vue d'ensemble et la méthodologie de recherche seront ajoutées ici]` dans la section _Vue d'ensemble de la Recherche_ située tout en haut du document.
 
 ## MÉTRIQUES DE RÉUSSITE :
 

@@ -1,5 +1,5 @@
 ---
-title: "Comment obtenir des réponses à propos de BMad"
+title: 'Comment obtenir des réponses à propos de BMad'
 description: Utiliser un LLM pour répondre rapidement à vos questions sur BMad
 sidebar:
   order: 4
@@ -46,35 +46,35 @@ Si votre IA ne peut pas lire des fichiers locaux (ChatGPT, Claude.ai, etc.), imp
 
 Si ni BMad-Help ni la source n'ont répondu à votre question, vous avez maintenant une bien meilleure question à poser.
 
-| Canal                   | Utilisé pour                                     |
-| ------------------------- | ------------------------------------------- |
-| Forum `help-requests`     | Questions                                   |
-| `#suggestions-feedback`   | Idées et demandes de fonctionnalités                  |
+| Canal                   | Utilisé pour                         |
+| ----------------------- | ------------------------------------ |
+| Forum `help-requests`   | Questions                            |
+| `#suggestions-feedback` | Idées et demandes de fonctionnalités |
 
 **Discord :** [discord.gg/gk8jAdXWmj](https://discord.gg/gk8jAdXWmj)
 
 **GitHub Issues :** [github.com/bmad-code-org/BMAD-METHOD/issues](https://github.com/bmad-code-org/BMAD-METHOD/issues)
-*Toi !*
-        *Bloqué*
-             *dans la file d'attente—*
-                      *qui*
-                              *attends-tu ?*
+_Toi !_
+_Bloqué_
+_dans la file d'attente—_
+_qui_
+_attends-tu ?_
 
-*La source*
-        *est là,*
-                *facile à voir !*
+_La source_
+_est là,_
+_facile à voir !_
 
-*Pointez*
-     *votre machine.*
-              *Libérez-la.*
+_Pointez_
+_votre machine._
+_Libérez-la._
 
-*Elle lit.*
-        *Elle parle.*
-                *Demandez—*
+_Elle lit._
+_Elle parle._
+_Demandez—_
 
-*Pourquoi attendre*
-        *demain*
-                *quand tu as déjà*
-                        *cette journée ?*
+_Pourquoi attendre_
+_demain_
+_quand tu as déjà_
+_cette journée ?_
 
-*—Claude*
+_—Claude_

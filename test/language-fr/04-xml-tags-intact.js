@@ -42,10 +42,12 @@ function run() {
   for (const root of FR_ROOTS) {
     const fullRoot = path.join(REPO_ROOT, root);
     if (!fs.existsSync(fullRoot)) continue;
-    candidates.push(...walk(fullRoot, {
-      extensions: ['.md', '.txt'],
-      base: REPO_ROOT,
-    }));
+    candidates.push(
+      ...walk(fullRoot, {
+        extensions: ['.md', '.txt'],
+        base: REPO_ROOT,
+      }),
+    );
   }
 
   let pairsTested = 0;
@@ -88,15 +90,12 @@ function run() {
         const enOpens = countOpen(enText, tag);
         const enCloses = countClose(enText, tag);
         const enSelfClosed = countSelfClosed(enText, tag);
-        const enBalanced = enCloses === 0 || (enOpens - enSelfClosed) === enCloses;
+        const enBalanced = enCloses === 0 || enOpens - enSelfClosed === enCloses;
         if (!enBalanced) continue;
 
         unbalanced.push(`<${tag}> : ${frOpens} ouvertures (dont ${frSelfClosed} self-closing) vs ${frCloses} fermetures`);
       }
-      runner.assert(
-        unbalanced.length === 0,
-        `balises non équilibrées :\n  ${unbalanced.join('\n  ')}`,
-      );
+      runner.assert(unbalanced.length === 0, `balises non équilibrées :\n  ${unbalanced.join('\n  ')}`);
     });
   }
 

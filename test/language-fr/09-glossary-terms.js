@@ -26,7 +26,7 @@ const GLOSSARY_PAIRS = [
   {
     en: /\bSenior Implementation Engineer\b/g,
     fr: [/Ingénieur(?:e)? d'Implémentation Senior/g, /Senior Implementation Engineer/g],
-    label: 'Senior Implementation Engineer → Ingénieur d\'Implémentation Senior',
+    label: "Senior Implementation Engineer → Ingénieur d'Implémentation Senior",
   },
   {
     en: /\bStrategic Business Analyst\b/g,
@@ -57,10 +57,12 @@ function run() {
   for (const root of FR_ROOTS) {
     const fullRoot = path.join(REPO_ROOT, root);
     if (!fs.existsSync(fullRoot)) continue;
-    candidates.push(...walk(fullRoot, {
-      extensions: ['.md', '.yaml', '.yml', '.csv', '.txt'],
-      base: REPO_ROOT,
-    }));
+    candidates.push(
+      ...walk(fullRoot, {
+        extensions: ['.md', '.yaml', '.yml', '.csv', '.txt'],
+        base: REPO_ROOT,
+      }),
+    );
   }
 
   let pairsTested = 0;
@@ -87,10 +89,7 @@ function run() {
           const m = frText.match(reFr);
           if (m) frCount += m.length;
         }
-        runner.assert(
-          frCount >= enCount,
-          `${frCount} occurrence(s) FR (toutes formes confondues) vs ${enCount} attendues`,
-        );
+        runner.assert(frCount >= enCount, `${frCount} occurrence(s) FR (toutes formes confondues) vs ${enCount} attendues`);
       });
     }
   }

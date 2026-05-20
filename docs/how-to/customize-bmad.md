@@ -8,7 +8,7 @@ sidebar:
 Tailor agent personas, inject domain context, add capabilities, and configure workflow behavior -- all without modifying installed files. Your customizations survive every update.
 
 :::tip[Don't want to hand-author TOML? Use `bmad-customize`]
-The `bmad-customize` skill is a guided authoring helper for the **per-skill agent/workflow override surface** described in this doc. It scans what's customizable in your installation, helps you choose the right surface (agent vs workflow) for your intent, writes the override file for you, and verifies the merge landed. Central-config overrides (`_bmad/custom/config.toml`) are out of scope for v1 — hand-author those per the Central Configuration section below. Run the skill whenever you want to make a per-skill change; this doc is the reference for *what* each surface exposes and how merging works.
+The `bmad-customize` skill is a guided authoring helper for the **per-skill agent/workflow override surface** described in this doc. It scans what's customizable in your installation, helps you choose the right surface (agent vs workflow) for your intent, writes the override file for you, and verifies the merge landed. Central-config overrides (`_bmad/custom/config.toml`) are out of scope for v1 — hand-author those per the Central Configuration section below. Run the skill whenever you want to make a per-skill change; this doc is the reference for _what_ each surface exposes and how merging works.
 :::
 
 ## When to Use This
@@ -24,7 +24,7 @@ The `bmad-customize` skill is a guided authoring helper for the **per-skill agen
 - BMad installed in your project (see [How to Install BMad](./install-bmad.md))
 - Python 3.11+ on your PATH (for the resolver script -- uses stdlib `tomllib`, no `pip install`, no `uv`, no virtualenv)
 - A text editor for TOML files
-:::
+  :::
 
 ## How It Works
 
@@ -44,12 +44,12 @@ The `_bmad/custom/` folder starts empty. Files only appear when someone actively
 
 The resolver applies four structural rules. Field names are never special-cased — behavior is determined purely by the value's shape:
 
-| Shape | Rule |
-|---|---|
-| Scalar (string, int, bool, float) | Override wins |
-| Table | Deep merge (recursively apply these rules) |
+| Shape                                                                                                                 | Rule                                                                        |
+| --------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Scalar (string, int, bool, float)                                                                                     | Override wins                                                               |
+| Table                                                                                                                 | Deep merge (recursively apply these rules)                                  |
 | Array of tables where every item shares the **same** identifier field (every item has `code`, or every item has `id`) | Merge by that key — matching keys **replace in place**, new keys **append** |
-| Any other array (scalars; tables with no identifier; arrays that mix `code` and `id` across items) | **Append** — base items first, then team items, then user items |
+| Any other array (scalars; tables with no identifier; arrays that mix `code` and `id` across items)                    | **Append** — base items first, then team items, then user items             |
 
 **No removal mechanism.** Overrides cannot delete base items. If you need to suppress a default menu item, override it by `code` with a no-op description or prompt. If you need to restructure an array more deeply, fork the skill.
 
@@ -357,14 +357,14 @@ The override wins over whatever each developer answered during their local insta
 
 ### When to Use Which Surface
 
-| Need | Use |
-|---|---|
-| Add MCP tool calls to every dev workflow | Per-skill: `_bmad/custom/bmad-agent-dev.toml` `persistent_facts` |
-| Add a menu item to an agent | Per-skill: `_bmad/custom/bmad-agent-{role}.toml` `[[agent.menu]]` |
-| Swap a workflow's output template | Per-skill: `_bmad/custom/{workflow}.toml` scalar override |
-| Rebrand an agent's public descriptor | **Central**: `_bmad/custom/config.toml` `[agents.<code>]` |
-| Add a custom or fictional agent to the roster | **Central**: `_bmad/custom/config.*.toml` new `[agents.<code>]` entry |
-| Pin team-enforced install settings | **Central**: `_bmad/custom/config.toml` `[modules.<code>]` or `[core]` |
+| Need                                          | Use                                                                    |
+| --------------------------------------------- | ---------------------------------------------------------------------- |
+| Add MCP tool calls to every dev workflow      | Per-skill: `_bmad/custom/bmad-agent-dev.toml` `persistent_facts`       |
+| Add a menu item to an agent                   | Per-skill: `_bmad/custom/bmad-agent-{role}.toml` `[[agent.menu]]`      |
+| Swap a workflow's output template             | Per-skill: `_bmad/custom/{workflow}.toml` scalar override              |
+| Rebrand an agent's public descriptor          | **Central**: `_bmad/custom/config.toml` `[agents.<code>]`              |
+| Add a custom or fictional agent to the roster | **Central**: `_bmad/custom/config.*.toml` new `[agents.<code>]` entry  |
+| Pin team-enforced install settings            | **Central**: `_bmad/custom/config.toml` `[modules.<code>]` or `[core]` |
 
 Use both surfaces in the same project as needed.
 
@@ -377,7 +377,7 @@ For enterprise-oriented recipes (shaping an agent across every workflow it dispa
 **Customization not appearing?**
 
 - Verify your file is in `_bmad/custom/` with the correct skill name
-- Check TOML syntax: strings must be quoted, table headers use `[section]`, array-of-tables use `[[section]]`, and any scalar or array keys for a table must appear *before* any of that table's `[[subtables]]` in the file
+- Check TOML syntax: strings must be quoted, table headers use `[section]`, array-of-tables use `[[section]]`, and any scalar or array keys for a table must appear _before_ any of that table's `[[subtables]]` in the file
 - For agents, customization lives under `[agent]` -- fields written below that header belong to `agent` until another table header begins
 - Remember `agent.name` and `agent.title` are read-only; overrides there have no effect
 

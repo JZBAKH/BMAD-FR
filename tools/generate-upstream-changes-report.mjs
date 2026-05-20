@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * Génère UPSTREAM-CHANGES-fr.md : un rapport hebdomadaire qui résume
  * tout ce qui a changé entre `origin/main` (miroir upstream maintenu par
@@ -28,12 +27,7 @@ const REPO_ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const OUTPUT_PATH = join(REPO_ROOT, 'UPSTREAM-CHANGES-fr.md');
 
 // Chemins surveillés (mêmes que sync-upstream-en.yml whitelist)
-const WATCHED_PATHS = [
-  'src/bmm-skills',
-  'src/core-skills',
-  'src/scripts',
-  'tools/installer',
-];
+const WATCHED_PATHS = ['src/bmm-skills', 'src/core-skills', 'src/scripts', 'tools/installer'];
 
 // Mapping EN → FR pour identifier les équivalents traduits
 const EN_TO_FR_MAP = [
@@ -82,14 +76,26 @@ function classifyChanges() {
     const path = parts[1];
     if (!path) continue;
 
-    if (status === 'A') {
-      // Existe dans bmad-fr, pas dans origin/main → on a un fichier qui n'est plus upstream
-      removedFromUpstream.push(path);
-    } else if (status === 'D') {
-      // Existe dans origin/main, pas dans bmad-fr → nouveau upstream
-      newOnUpstream.push(path);
-    } else if (status === 'M' || status === 'T') {
-      modifiedOnUpstream.push(path);
+    switch (status) {
+      case 'A': {
+        // Existe dans bmad-fr, pas dans origin/main → on a un fichier qui n'est plus upstream
+        removedFromUpstream.push(path);
+
+        break;
+      }
+      case 'D': {
+        // Existe dans origin/main, pas dans bmad-fr → nouveau upstream
+        newOnUpstream.push(path);
+
+        break;
+      }
+      case 'M':
+      case 'T': {
+        modifiedOnUpstream.push(path);
+
+        break;
+      }
+      // No default
     }
   }
 
@@ -141,46 +147,48 @@ function buildReport() {
 
   const { newOnUpstream, modifiedOnUpstream, removedFromUpstream } = classifyChanges();
   const { staleFrFiles, noFrEquivalent } = countFrStaleness(modifiedOnUpstream);
-  const { totalEnFiles, outOfSyncCount, freshPercent } = calculateFreshness(
-    newOnUpstream,
-    staleFrFiles,
-  );
+  const { totalEnFiles, outOfSyncCount, freshPercent } = calculateFreshness(newOnUpstream, staleFrFiles);
 
   const lines = [];
-  lines.push('# 🔄 Rapport hebdomadaire — Changements upstream à traiter');
-  lines.push('');
-  lines.push(`_Rapport généré le ${date} par \`.github/workflows/upstream-changes-report.yml\`._`);
-  lines.push('');
+  lines.push(
+    '# 🔄 Rapport hebdomadaire — Changements upstream à traiter',
+    '',
+    `_Rapport généré le ${date} par \`.github/workflows/upstream-changes-report.yml\`._`,
+    '',
+  );
   if (lastReport && lastReport !== date) {
-    lines.push(`_Précédent rapport : ${lastReport}_`);
-    lines.push('');
+    lines.push(`_Précédent rapport : ${lastReport}_`, '');
   }
-  lines.push('## 📊 Vue d\'ensemble');
-  lines.push('');
-  lines.push(`- **origin/main** : \`${upstreamSha.slice(0, 8)}\``);
-  lines.push(`- **bmad-fr** : \`${localSha.slice(0, 8)}\``);
-  lines.push(`- **Fraîcheur de la traduction** : ${freshPercent.toFixed(1)}% (${totalEnFiles - outOfSyncCount}/${totalEnFiles} fichiers à jour)`);
-  lines.push('');
-  lines.push('| Catégorie | Nombre |');
-  lines.push('|---|---|');
-  lines.push(`| 🆕 Nouveaux fichiers upstream à importer/traduire | **${newOnUpstream.length}** |`);
-  lines.push(`| 🔄 Traductions FR potentiellement obsolètes | **${staleFrFiles.length}** |`);
-  lines.push(`| 🗑️ Fichiers supprimés upstream (orphelins côté fork) | **${removedFromUpstream.length}** |`);
-  lines.push(`| ❓ EN modifié mais sans équivalent FR identifiable | ${noFrEquivalent.length} |`);
-  lines.push('');
+  lines.push("## 📊 Vue d'ensemble", '');
+  // eslint-disable-next-line unicorn/prefer-single-call
+  lines.push(
+    `- **origin/main** : \`${upstreamSha.slice(0, 8)}\``,
+    `- **bmad-fr** : \`${localSha.slice(0, 8)}\``,
+    `- **Fraîcheur de la traduction** : ${freshPercent.toFixed(1)}% (${totalEnFiles - outOfSyncCount}/${totalEnFiles} fichiers à jour)`,
+    '',
+  );
+  // eslint-disable-next-line unicorn/prefer-single-call
+  lines.push(
+    '| Catégorie | Nombre |',
+    '|---|---|',
+    `| 🆕 Nouveaux fichiers upstream à importer/traduire | **${newOnUpstream.length}** |`,
+    `| 🔄 Traductions FR potentiellement obsolètes | **${staleFrFiles.length}** |`,
+    `| 🗑️ Fichiers supprimés upstream (orphelins côté fork) | **${removedFromUpstream.length}** |`,
+    `| ❓ EN modifié mais sans équivalent FR identifiable | ${noFrEquivalent.length} |`,
+    '',
+  );
 
   if (newOnUpstream.length === 0 && staleFrFiles.length === 0 && removedFromUpstream.length === 0) {
-    lines.push('## ✅ Aucun changement à traiter');
-    lines.push('');
-    lines.push('Le fork est synchronisé avec upstream. Aucune action requise.');
-    lines.push('');
+    lines.push('## ✅ Aucun changement à traiter', '', 'Le fork est synchronisé avec upstream. Aucune action requise.', '');
   } else {
     if (newOnUpstream.length > 0) {
-      lines.push('## 🆕 Nouveaux fichiers upstream (à importer + traduire)');
-      lines.push('');
-      lines.push('Ces fichiers existent dans upstream mais pas dans le fork. À importer via le');
-      lines.push('workflow `sync-upstream-en.yml` (auto quotidien) puis à traduire manuellement.');
-      lines.push('');
+      lines.push(
+        '## 🆕 Nouveaux fichiers upstream (à importer + traduire)',
+        '',
+        'Ces fichiers existent dans upstream mais pas dans le fork. À importer via le',
+        'workflow `sync-upstream-en.yml` (auto quotidien) puis à traduire manuellement.',
+        '',
+      );
       for (const path of newOnUpstream.slice(0, 50)) {
         const frPath = getEquivalentFrPath(path);
         const target = frPath ? ` → traduire dans \`${frPath}\`` : '';
@@ -193,11 +201,13 @@ function buildReport() {
     }
 
     if (staleFrFiles.length > 0) {
-      lines.push('## 🔄 Traductions FR potentiellement obsolètes');
-      lines.push('');
-      lines.push('Ces fichiers EN ont été modifiés upstream. La version FR existe mais peut');
-      lines.push('avoir besoin d\'être mise à jour.');
-      lines.push('');
+      lines.push(
+        '## 🔄 Traductions FR potentiellement obsolètes',
+        '',
+        'Ces fichiers EN ont été modifiés upstream. La version FR existe mais peut',
+        "avoir besoin d'être mise à jour.",
+        '',
+      );
       for (const { enPath, frPath } of staleFrFiles.slice(0, 50)) {
         lines.push(`- [ ] \`${enPath}\` → \`${frPath}\``);
       }
@@ -208,11 +218,13 @@ function buildReport() {
     }
 
     if (removedFromUpstream.length > 0) {
-      lines.push('## 🗑️ Fichiers supprimés upstream');
-      lines.push('');
-      lines.push('Ces fichiers existent dans le fork mais ont été supprimés upstream. À évaluer :');
-      lines.push('garder (si toujours pertinent) ou supprimer (si obsolète).');
-      lines.push('');
+      lines.push(
+        '## 🗑️ Fichiers supprimés upstream',
+        '',
+        'Ces fichiers existent dans le fork mais ont été supprimés upstream. À évaluer :',
+        'garder (si toujours pertinent) ou supprimer (si obsolète).',
+        '',
+      );
       for (const path of removedFromUpstream.slice(0, 30)) {
         lines.push(`- [ ] \`${path}\``);
       }
@@ -223,17 +235,19 @@ function buildReport() {
     }
   }
 
-  lines.push('---');
-  lines.push('');
-  lines.push('### 💡 Comment utiliser ce rapport');
-  lines.push('');
-  lines.push('1. Lire la **fraîcheur** en haut — si > 95%, rien d\'urgent.');
-  lines.push('2. Pour les **nouveaux fichiers** : le sync auto les importera dans `bmm-skills/`. Toi tu les traduis vers `bmm-skills-fr/`.');
-  lines.push('3. Pour les **traductions obsolètes** : compare avec `git diff origin/main..bmad-fr -- <chemin EN>` pour voir ce qui a changé, puis adapter la version FR.');
-  lines.push('4. Pour les **fichiers supprimés upstream** : décide cas par cas.');
-  lines.push('');
-  lines.push('Le `test-fr.yml` continue de tourner en parallèle — si un test casse à cause d\'un changement upstream, tu reçois un email automatique de GitHub.');
-  lines.push('');
+  lines.push(
+    '---',
+    '',
+    '### 💡 Comment utiliser ce rapport',
+    '',
+    "1. Lire la **fraîcheur** en haut — si > 95%, rien d'urgent.",
+    '2. Pour les **nouveaux fichiers** : le sync auto les importera dans `bmm-skills/`. Toi tu les traduis vers `bmm-skills-fr/`.',
+    '3. Pour les **traductions obsolètes** : compare avec `git diff origin/main..bmad-fr -- <chemin EN>` pour voir ce qui a changé, puis adapter la version FR.',
+    '4. Pour les **fichiers supprimés upstream** : décide cas par cas.',
+    '',
+    "Le `test-fr.yml` continue de tourner en parallèle — si un test casse à cause d'un changement upstream, tu reçois un email automatique de GitHub.",
+    '',
+  );
 
   return lines.join('\n');
 }
@@ -245,14 +259,14 @@ function main() {
     try {
       git('fetch origin main --quiet');
     } catch {
-      console.warn('Avertissement : impossible de fetch origin/main. Le rapport utilise l\'état local.');
+      console.warn("Avertissement : impossible de fetch origin/main. Le rapport utilise l'état local.");
     }
 
     const report = buildReport();
     writeFileSync(OUTPUT_PATH, report, 'utf8');
     console.log(`✅ Rapport écrit dans ${OUTPUT_PATH}`);
-  } catch (err) {
-    console.error('❌ Erreur :', err.message);
+  } catch (error) {
+    console.error('❌ Erreur :', error.message);
     process.exit(1);
   }
 }

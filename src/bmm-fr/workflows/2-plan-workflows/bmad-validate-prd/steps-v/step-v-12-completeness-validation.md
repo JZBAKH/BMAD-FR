@@ -68,11 +68,13 @@ Vérification finale complète de l'exhaustivité - valider qu'aucune variable d
 "Effectuer la validation de l'exhaustivité sur ce PRD - vérification finale :
 
 **1. Exhaustivité du modèle :**
+
 - Analyser le PRD pour toute variable de modèle restante
 - Rechercher : {variable}, {{variable}}, {placeholder}, [placeholder], etc.
 - Lister tout élément trouvé avec les numéros de ligne
 
 **2. Exhaustivité du contenu :**
+
 - Résumé Opérationnel : Contient une déclaration de vision ? ({content key})
 - Critères de Succès : Tous les critères sont mesurables ? ({metrics present})
 - Périmètre du Produit : Périmètre inclus et exclu définis ? ({both present})
@@ -83,12 +85,14 @@ Vérification finale complète de l'exhaustivité - valider qu'aucune variable d
 Pour chaque section : Le contenu requis est-il présent ? (Oui/Non/Partiel)
 
 **3. Exhaustivité spécifique aux sections :**
+
 - Critères de Succès : Chacun a une méthode de mesure spécifique ?
 - Parcours Utilisateurs : Couvrent tous les types d'utilisateurs ?
 - Exigences Fonctionnelles : Couvrent le périmètre MVP ?
 - Exigences Non-Fonctionnelles : Chacune a des critères spécifiques ?
 
 **4. Exhaustivité du Frontmatter :**
+
 - stepsCompleted : Rempli ?
 - classification : Présente (domaine, type de projet) ?
 - inputDocuments : Suivis ?
@@ -97,6 +101,7 @@ Pour chaque section : Le contenu requis est-il présent ? (Oui/Non/Partiel)
 Retourner la matrice d'exhaustivité avec le statut pour chaque vérification."
 
 **Dégradation élégante (si pas d'outil Task) :**
+
 - Rechercher manuellement les variables de modèle
 - Vérifier manuellement chaque section pour le contenu requis
 - Vérifier manuellement les champs du frontmatter
@@ -105,10 +110,12 @@ Retourner la matrice d'exhaustivité avec le statut pour chaque vérification."
 ### 2. Construire la matrice d'exhaustivité
 
 **Exhaustivité du modèle :**
+
 - Variables de modèle trouvées : nombre
 - Lister si des variables sont trouvées
 
 **Exhaustivité du contenu par section :**
+
 - Résumé Opérationnel : Complet / Incomplet / Manquant
 - Critères de Succès : Complet / Incomplet / Manquant
 - Périmètre du Produit : Complet / Incomplet / Manquant
@@ -118,18 +125,21 @@ Retourner la matrice d'exhaustivité avec le statut pour chaque vérification."
 - Autres sections : [Lister l'exhaustivité]
 
 **Exhaustivité spécifique aux sections :**
+
 - Critères de succès mesurables : Tous / Certains / Aucun
 - Les parcours couvrent tous les utilisateurs : Oui / Partiel / Non
 - Les RF couvrent le périmètre MVP : Oui / Partiel / Non
 - Les RNF ont des critères spécifiques : Tous / Certains / Aucun
 
 **Exhaustivité du Frontmatter :**
+
 - stepsCompleted : Présent / Manquant
 - classification : Présent / Manquant
 - inputDocuments : Présent / Manquant
 - date : Présent / Manquant
 
 **Exhaustivité globale :**
+
 - Sections complètes : X/Y
 - Lacunes critiques : [liste si présentes]
 

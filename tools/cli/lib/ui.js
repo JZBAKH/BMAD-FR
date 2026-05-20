@@ -97,29 +97,29 @@ class UI {
     // Handle legacy .bmad or _cfg folder - these are very old (v4 or alpha)
     // Show version warning instead of offering conversion
     if (hasLegacyBmadFolder || hasLegacyCfg) {
-      await prompts.log.warn('INSTALLATION EXISTANTE D\u00c9TECT\u00c9E');
+      await prompts.log.warn('INSTALLATION EXISTANTE D\u00C9TECT\u00C9E');
       await prompts.note(
-        'Un dossier ".bmad"/"bmad" ou un dossier obsol\u00e8te "_cfg" a \u00e9t\u00e9 d\u00e9tect\u00e9 sous le dossier bmad -\n' +
-          'cette installation provient d\'une ancienne version de BMAD trop ancienne pour une mise \u00e0 niveau automatique,\n' +
+        'Un dossier ".bmad"/"bmad" ou un dossier obsol\u00E8te "_cfg" a \u00E9t\u00E9 d\u00E9tect\u00E9 sous le dossier bmad -\n' +
+          "cette installation provient d'une ancienne version de BMAD trop ancienne pour une mise \u00E0 niveau automatique,\n" +
           'une intervention manuelle est requise.\n\n' +
-          'Vous avez une version existante install\u00e9e (v4 ou alpha).\n' +
-          'Les installations existantes peuvent pr\u00e9senter des probl\u00e8mes de compatibilit\u00e9.\n\n' +
-          'Pour une meilleure exp\u00e9rience, nous recommandons fortement :\n' +
-          '  1. Supprimer le dossier d\'installation BMAD actuel (.bmad ou bmad)\n' +
+          'Vous avez une version existante install\u00E9e (v4 ou alpha).\n' +
+          'Les installations existantes peuvent pr\u00E9senter des probl\u00E8mes de compatibilit\u00E9.\n\n' +
+          'Pour une meilleure exp\u00E9rience, nous recommandons fortement :\n' +
+          "  1. Supprimer le dossier d'installation BMAD actuel (.bmad ou bmad)\n" +
           '  2. Effectuer une nouvelle installation\n\n' +
-          'Si vous ne souhaitez pas repartir de z\u00e9ro, vous pouvez tenter de poursuivre\n' +
-          '\u00e0 partir de ce point SI vous avez v\u00e9rifi\u00e9 que le dossier bmad est nomm\u00e9 _bmad, et qu\'il contient\n' +
-          'un dossier _config. Si votre dossier bmad contient un dossier nomm\u00e9 _cfg,\n' +
-          'vous devrez le renommer en _config, puis relancer l\'installateur.\n\n' +
-          'Avantages d\'une nouvelle installation :\n' +
-          '  \u2022 Configuration plus propre sans artefacts obsol\u00e8tes\n' +
-          '  \u2022 Toutes les nouvelles fonctionnalit\u00e9s correctement configur\u00e9es\n' +
+          'Si vous ne souhaitez pas repartir de z\u00E9ro, vous pouvez tenter de poursuivre\n' +
+          "\u00E0 partir de ce point SI vous avez v\u00E9rifi\u00E9 que le dossier bmad est nomm\u00E9 _bmad, et qu'il contient\n" +
+          'un dossier _config. Si votre dossier bmad contient un dossier nomm\u00E9 _cfg,\n' +
+          "vous devrez le renommer en _config, puis relancer l'installateur.\n\n" +
+          "Avantages d'une nouvelle installation :\n" +
+          '  \u2022 Configuration plus propre sans artefacts obsol\u00E8tes\n' +
+          '  \u2022 Toutes les nouvelles fonctionnalit\u00E9s correctement configur\u00E9es\n' +
           '  \u2022 Moins de conflits potentiels\n\n' +
-          'Si vous avez d\u00e9j\u00e0 produit des fichiers \u00e0 partir d\'une version alpha pr\u00e9c\u00e9dente, vous pouvez\n' +
-          'toujours conserver ces artefacts. Apr\u00e8s l\'installation, assurez-vous d\'avoir configur\u00e9 durant\n' +
-          'l\'installation les emplacements de fichiers appropri\u00e9s pour les artefacts selon le module\n' +
-          'que vous utilisez, ou d\u00e9placez les fichiers aux emplacements appropri\u00e9s.',
-        'Installation existante d\u00e9tect\u00e9e',
+          "Si vous avez d\u00E9j\u00E0 produit des fichiers \u00E0 partir d'une version alpha pr\u00E9c\u00E9dente, vous pouvez\n" +
+          "toujours conserver ces artefacts. Apr\u00E8s l'installation, assurez-vous d'avoir configur\u00E9 durant\n" +
+          "l'installation les emplacements de fichiers appropri\u00E9s pour les artefacts selon le module\n" +
+          'que vous utilisez, ou d\u00E9placez les fichiers aux emplacements appropri\u00E9s.',
+        'Installation existante d\u00E9tect\u00E9e',
       );
 
       const proceed = await prompts.select({
@@ -138,7 +138,10 @@ class UI {
       });
 
       if (proceed === 'cancel') {
-        await prompts.note('1. Supprimer le dossier bmad existant dans votre projet\n' + "2. Relancer 'bmad install'", 'Pour effectuer une nouvelle installation');
+        await prompts.note(
+          '1. Supprimer le dossier bmad existant dans votre projet\n' + "2. Relancer 'bmad install'",
+          'Pour effectuer une nouvelle installation',
+        );
         process.exit(0);
         return;
       }
@@ -217,7 +220,7 @@ class UI {
       }
 
       // Common actions
-      choices.push({ name: 'Modifier l\'installation BMAD', value: 'update' });
+      choices.push({ name: "Modifier l'installation BMAD", value: 'update' });
 
       // Check if action is provided via command-line
       if (options.action) {
@@ -360,7 +363,9 @@ class UI {
               const yaml = require('yaml');
               moduleMeta = yaml.parse(moduleYaml);
             } catch (error) {
-              await prompts.log.warn(`Chemin de contenu personnalisé ignoré : ${customPath} - échec de la lecture de module.yaml : ${error.message}`);
+              await prompts.log.warn(
+                `Chemin de contenu personnalisé ignoré : ${customPath} - échec de la lecture de module.yaml : ${error.message}`,
+              );
               continue;
             }
 
@@ -370,7 +375,9 @@ class UI {
             }
 
             if (!moduleMeta.code) {
-              await prompts.log.warn(`Chemin de contenu personnalisé ignoré : ${customPath} - le champ 'code' est manquant dans module.yaml`);
+              await prompts.log.warn(
+                `Chemin de contenu personnalisé ignoré : ${customPath} - le champ 'code' est manquant dans module.yaml`,
+              );
               continue;
             }
 
@@ -514,7 +521,9 @@ class UI {
           const yaml = require('yaml');
           moduleMeta = yaml.parse(moduleYaml);
         } catch (error) {
-          await prompts.log.warn(`Chemin de contenu personnalisé ignoré : ${customPath} - échec de la lecture de module.yaml : ${error.message}`);
+          await prompts.log.warn(
+            `Chemin de contenu personnalisé ignoré : ${customPath} - échec de la lecture de module.yaml : ${error.message}`,
+          );
           continue;
         }
 
@@ -675,7 +684,7 @@ class UI {
 
       if (selectedIdes.length === 0) {
         const confirmNoTools = await prompts.confirm({
-          message: 'Aucun outil sélectionné. Continuer sans installer d\'outil ?',
+          message: "Aucun outil sélectionné. Continuer sans installer d'outil ?",
           default: false,
         });
 
@@ -752,7 +761,7 @@ class UI {
     // ─────────────────────────────────────────────────────────────────────────────
     if (selectedIdes.length === 0) {
       const confirmNoTools = await prompts.confirm({
-        message: 'Aucun outil sélectionné. Continuer sans installer d\'outil ?',
+        message: "Aucun outil sélectionné. Continuer sans installer d'outil ?",
         default: false,
       });
 
@@ -865,7 +874,9 @@ class UI {
       }
       if (options.documentOutputLanguage) {
         coreConfig.document_output_language = options.documentOutputLanguage;
-        await prompts.log.info(`Utilisation de la langue de sortie des documents depuis la ligne de commande : ${options.documentOutputLanguage}`);
+        await prompts.log.info(
+          `Utilisation de la langue de sortie des documents depuis la ligne de commande : ${options.documentOutputLanguage}`,
+        );
       }
       if (options.outputFolder) {
         coreConfig.output_folder = options.outputFolder;
@@ -1136,7 +1147,7 @@ class UI {
   async promptForDirectory() {
     // Use sync validation because @clack/prompts doesn't support async validate
     const directory = await prompts.text({
-      message: 'Répertoire d\'installation :',
+      message: "Répertoire d'installation :",
       default: process.cwd(),
       placeholder: process.cwd(),
       validate: (input) => this.validateDirectorySync(input),
@@ -1395,7 +1406,9 @@ class UI {
         const separatorIndex = restOfPath.indexOf(path.sep);
         const username = separatorIndex === -1 ? restOfPath : restOfPath.slice(0, separatorIndex);
         if (username) {
-          throw new Error(`L'expansion du chemin pour ~${username} n'est pas prise en charge. Veuillez utiliser un chemin absolu ou ~${path.sep}`);
+          throw new Error(
+            `L'expansion du chemin pour ~${username} n'est pas prise en charge. Veuillez utiliser un chemin absolu ou ~${path.sep}`,
+          );
         }
       }
     }
@@ -1467,7 +1480,7 @@ class UI {
 
       // Check if path exists
       if (!fs.pathExistsSync(expandedPath)) {
-        return 'Le chemin n\'existe pas';
+        return "Le chemin n'existe pas";
       }
 
       // Check if it's a directory
@@ -1515,7 +1528,7 @@ class UI {
           message: 'Souhaitez-vous :',
           choices: [
             { name: 'Ajouter un autre module personnalisé', value: 'add' },
-            { name: 'Continuer avec l\'installation', value: 'continue' },
+            { name: "Continuer avec l'installation", value: 'continue' },
           ],
           default: 'continue',
         });
@@ -1644,7 +1657,10 @@ class UI {
         { name: 'Supprimer tous les modules personnalisés', value: 'remove' },
       );
     } else {
-      choices.push({ name: 'Ajouter de nouveaux modules personnalisés', value: 'add' }, { name: 'Annuler (pas de modules personnalisés)', value: 'cancel' });
+      choices.push(
+        { name: 'Ajouter de nouveaux modules personnalisés', value: 'add' },
+        { name: 'Annuler (pas de modules personnalisés)', value: 'cancel' },
+      );
     }
 
     const customAction = await prompts.select({
@@ -1673,7 +1689,7 @@ class UI {
         const choicesWithSkip = [
           ...selectChoices,
           {
-            name: '⚠ Aucun / J\'ai changé d\'avis - ne conserver aucun module personnalisé',
+            name: "⚠ Aucun / J'ai changé d'avis - ne conserver aucun module personnalisé",
             value: '__NONE__',
             checked: false,
           },
@@ -1712,7 +1728,7 @@ class UI {
 
       case 'remove': {
         // Remove all custom modules
-        await prompts.log.warn('Tous les modules personnalisés seront supprimés de l\'installation');
+        await prompts.log.warn("Tous les modules personnalisés seront supprimés de l'installation");
         break;
       }
 
@@ -1753,39 +1769,42 @@ class UI {
 
     let warningContent;
     if (installedVersion === 'unknown') {
-      warningContent = 'Impossible de d\u00e9tecter votre version BMAD install\u00e9e.\n' + 'Il semble s\'agir d\'une installation existante ou non prise en charge.';
+      warningContent =
+        'Impossible de d\u00E9tecter votre version BMAD install\u00E9e.\n' +
+        "Il semble s'agir d'une installation existante ou non prise en charge.";
     } else {
       warningContent =
-        `Vous effectuez la mise \u00e0 jour de ${installedVersion} vers ${currentVersion}.\n` + 'Vous avez une version existante install\u00e9e (v4 ou alpha).';
+        `Vous effectuez la mise \u00E0 jour de ${installedVersion} vers ${currentVersion}.\n` +
+        'Vous avez une version existante install\u00E9e (v4 ou alpha).';
     }
 
     warningContent +=
-      '\n\nPour une meilleure exp\u00e9rience, nous recommandons :\n' +
-      '  1. Supprimer le dossier d\'installation BMAD actuel\n' +
+      '\n\nPour une meilleure exp\u00E9rience, nous recommandons :\n' +
+      "  1. Supprimer le dossier d'installation BMAD actuel\n" +
       `     (le dossier "${bmadFolderName}/" dans votre projet)\n` +
       '  2. Effectuer une nouvelle installation\n\n' +
-      'Avantages d\'une nouvelle installation :\n' +
-      '  \u2022 Configuration plus propre sans artefacts obsol\u00e8tes\n' +
-      '  \u2022 Toutes les nouvelles fonctionnalit\u00e9s correctement configur\u00e9es\n' +
+      "Avantages d'une nouvelle installation :\n" +
+      '  \u2022 Configuration plus propre sans artefacts obsol\u00E8tes\n' +
+      '  \u2022 Toutes les nouvelles fonctionnalit\u00E9s correctement configur\u00E9es\n' +
       '  \u2022 Moins de conflits potentiels';
 
     await prompts.log.warn('AVERTISSEMENT DE VERSION');
     await prompts.note(warningContent, 'Avertissement de version');
 
     if (options.yes) {
-      await prompts.log.warn('Mode non interactif (--yes) : poursuite automatique de la mise \u00e0 jour existante');
+      await prompts.log.warn('Mode non interactif (--yes) : poursuite automatique de la mise \u00E0 jour existante');
       return true;
     }
 
     const proceed = await prompts.select({
-      message: 'Comment souhaitez-vous proc\u00e9der ?',
+      message: 'Comment souhaitez-vous proc\u00E9der ?',
       choices: [
         {
-          name: 'Poursuivre la mise \u00e0 jour malgr\u00e9 tout (peut pr\u00e9senter des probl\u00e8mes)',
+          name: 'Poursuivre la mise \u00E0 jour malgr\u00E9 tout (peut pr\u00E9senter des probl\u00E8mes)',
           value: 'proceed',
         },
         {
-          name: 'Annuler (recommand\u00e9 - effectuer une nouvelle installation \u00e0 la place)',
+          name: 'Annuler (recommand\u00E9 - effectuer une nouvelle installation \u00E0 la place)',
           value: 'cancel',
         },
       ],
@@ -1848,7 +1867,7 @@ class UI {
       return [];
     }
 
-    await prompts.log.info('Mises \u00e0 jour disponibles');
+    await prompts.log.info('Mises \u00E0 jour disponibles');
 
     const choices = availableUpdates.map((update) => ({
       name: `${update.name} (v${update.installedVersion} \u2192 v${update.latestVersion})`,
@@ -1858,11 +1877,11 @@ class UI {
 
     // Add "Update All" and "Cancel" options
     const action = await prompts.select({
-      message: 'Comment souhaitez-vous proc\u00e9der ?',
+      message: 'Comment souhaitez-vous proc\u00E9der ?',
       choices: [
-        { name: 'Mettre \u00e0 jour tous les modules disponibles', value: 'all' },
-        { name: 'S\u00e9lectionner les modules sp\u00e9cifiques \u00e0 mettre \u00e0 jour', value: 'select' },
-        { name: 'Ignorer les mises \u00e0 jour pour le moment', value: 'skip' },
+        { name: 'Mettre \u00E0 jour tous les modules disponibles', value: 'all' },
+        { name: 'S\u00E9lectionner les modules sp\u00E9cifiques \u00E0 mettre \u00E0 jour', value: 'select' },
+        { name: 'Ignorer les mises \u00E0 jour pour le moment', value: 'skip' },
       ],
       default: 'all',
     });

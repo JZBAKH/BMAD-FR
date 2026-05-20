@@ -48,7 +48,7 @@ Charger `index.md`, analyser la structure et la description de chaque document d
 2. Analyser la table des matières, les liens et les en-têtes de section.
 3. Analyser le but et l'objectif du workflow.
 4. Identifier quels documents liés/référencés sont probablement pertinents.
-   - *Exemple :* Si le workflow concerne l'authentification et que l'index affiche "Aperçu de l'Auth", "Configuration des Paiements", "Déploiement" -- chargez les documents d'authentification, considérez les documents de déploiement, ignorez les paiements.
+   - _Exemple :_ Si le workflow concerne l'authentification et que l'index affiche "Aperçu de l'Auth", "Configuration des Paiements", "Déploiement" -- chargez les documents d'authentification, considérez les documents de déploiement, ignorez les paiements.
 5. Charger tous les documents identifiés comme pertinents.
 6. Stocker le contenu combiné dans la variable : `{pattern_name_content}`.
 

@@ -7,6 +7,7 @@
 > **REMPLACEMENT PAR LE GUIDE DE STYLE (STYLE GUIDE OVERRIDE) :** Si une entrée style_guide est fournie, elle supplante TOUS les principes génériques de cette tâche (y compris les human-reader-principles, les llm-reader-principles, les priorités spécifiques au reader_type, la sélection des structure-models, et la base de référence du Microsoft Writing Style Guide). La SEULE exception est LE CONTENU EST SACRÉ — ne modifiez jamais le sens des idées, seulement la façon dont elles sont exprimées. En cas de conflit entre le guide de style et cette tâche, le guide de style l'emporte.
 
 **Entrées (Inputs) :**
+
 - **content** (requis) — Document à réviser (markdown, texte brut, ou contenu structuré)
 - **style_guide** (optionnel) — Guide de style spécifique au projet. Lorsqu'il est fourni, il annule et remplace tous les principes génériques de cette tâche (à l'exception de LE CONTENU EST SACRÉ). Le guide de style est l'autorité finale sur le ton, la structure et les choix linguistiques.
 - **purpose** (optionnel) — Objectif visé par le document (ex. 'quickstart tutorial', 'API reference', 'conceptual overview')
@@ -55,30 +56,40 @@ Lorsque reader_type='llm', l'unique consigne vaut pour : EXACTITUDE et RIGUEUR d
 ## Modèles Structurels (Structure Models)
 
 ### Tutoriel/Guide (Linéaire)
+
 **Domaine d'Application :** Tutoriels, guides approfondis, articles méthodologiques (how-to), pas-à-pas
+
 - Prérequis : Configuration/Contexte DOIT précéder l'action
 - Chronologie : Le déroulé répond scrupuleusement d'une hiérarchie temps ou cause logiquement irréfutable
 - Approche objectivée : Évidence formelle encadrant un état abouti (Definition of Done) en toute clôture
 
 ### Référence/Base de Données
+
 **Domaine d'Application :** Documentations API, lexiques, manuels paramétriques, aide-mémoires (cheat sheets)
+
 - Accès Aléatoire : Nullité du fil narratif requise ; saut opéré directement aux strates cibles
 - MECE : Thématiques obligatoirement jointes en Exclusivités Mutuelles - mais exhaustivement Co-Rassemblées (MECE)
 - Schéma Systémique Immuable : Même base pour mêmes rendus (ex: Ordre permanent appel > params > rendus)
 
 ### Explication (Conceptuelle)
+
 **Domaine d'Application :** Recherches intenses (Deep dive), présentations architecturales vastes, manuels conceptuels, whitepapers, vision globale du contexte
+
 - De la théorie à la démonstration ciblée (Abstract to Concrete)
 - Construction via fondation existante (Scaffolding): Intégrant de sombres réflexions sur socle acquis au préalable
 
 ### Enoncé de Tâche/Invite (Prompt/Functional)
+
 **Domaine d'Application :** Travaux BMAD dédiés, invites génératrices systémiques (prompts) ou délimitations par attributs XML
+
 - Préemption Meta (Meta-first) : Assises/Règles posées avant l'ordre formulé des instructions
 - Ségrégation Responsabilisée : La méthodologie (logique) est dissociée du socle des informations (data)
 - Directives par Étape : Process d'opérations immuables - catégoriques et organisées formellement
 
 ### Contextuel/Stratégique (Pyramide)
+
 **Domaine d'Application :** PRDs, recherches sectorielles compilées, offres ou choix structurels notifiés
+
 - Axe Descendant : Sommet hiérarchique posant le Statut ou Décision prioritairement actée
 - Répartition logique : Étayements solidifiant groupés subséquemment sous la partie titre majeur
 - Ordre Strict : L'irremplaçable vital accapare l'ultime primeur visuelle des regards
@@ -145,6 +156,7 @@ Appliquez le format de sortie suivant :
 
 ```markdown
 ## Résumé du Document (Document Summary)
+
 - **Objectif (Purpose) :** [objectif inféré ou fourni]
 - **Audience :** [audience inférée ou fournie]
 - **Reader type :** [type de lecteur sélectionné]
@@ -154,6 +166,7 @@ Appliquez le format de sortie suivant :
 ## Recommandations
 
 ### 1. [CUT/MERGE/MOVE/CONDENSE/QUESTION/PRESERVE] - [Section ou nom de l'élément]
+
 **Justificatif (Rationale) :** [Explication en une phrase]
 **Impact :** ~[X] mots
 **Note de compréhension :** [Si applicable, noter l'impact sur la compréhension du lecteur]
@@ -161,6 +174,7 @@ Appliquez le format de sortie suivant :
 ### 2. ...
 
 ## Résumé (Summary)
+
 - **Total des recommandations :** [N]
 - **Réduction estimée :** [X] mots ([Y]% de l'original)
 - **Atteint la cible de longueur :** [Oui/Non/Aucune cible spécifiée]

@@ -24,7 +24,6 @@
 - 📖 Mettez à jour le frontmatter du fichier de sortie, en ajoutant le nom de cette étape à la fin de la liste `stepsCompleted`
 - 🚫 INTERDICTION de charger l'étape suivante tant que C n'a pas été sélectionné
 
-
 ## LIMITES DU CONTEXTE :
 
 - Le document PRD complet, construit jusqu'à présent, est disponible pour examen (review)
@@ -41,6 +40,7 @@ Mener un exercice complet d'évaluation du périmètre (scoping) pour délimiter
 ### 1. Passer en revue l'État Actuel du PRD
 
 Analysez minutieusement tout ce qui a été documenté jusqu'à présent :
+
 - Présentez une synthèse claire de la vision établie, des critères de succès et des parcours (journeys)
 - Évaluez le domaine et les points fondamentaux de sa ligne d'innovation
 - Évaluez les implications globales de périmètre : Projet simple de MVP (Initial), moyen volume ou projet lourd et ultra-complexe ?
@@ -49,6 +49,7 @@ Analysez minutieusement tout ce qui a été documenté jusqu'à présent :
 ### 2. Définir la Stratégie MVP
 
 Pilotez intelligemment de profondes décisions de niveau macro au sein du corps du fameux MVP :
+
 - Explorez toutes les grandes palettes existantes sous-jacentes du MVP : Mode Résolution ciblée pur (Problem-solving), Experience MVP primordiale, infrastructure de socle lourd Plateforme (Platform MVP), ou focalisation abrupte sur le volume d'affaires instantané immédiat du produit sur son marché natif (Revenue MVP).
 - Lancez un questionnement redoutable, sans issue de fuite possible :
   - Quelle est la ligne de faille infranchissable ou minimum vital faisant lâcher au sujet ciblé la phrase libératrice : "Incroyable, cette épure technique répond parfaitement au drame que je subis" ?
@@ -61,6 +62,7 @@ Pilotez intelligemment de profondes décisions de niveau macro au sein du corps 
 Imposez la structure méthodologique mathématique impitoyable vis-à-vis du spectre d'implémentation du concept (Scope) :
 
 **Analyse des Incontournables (Must-Have) :**
+
 - Imposez et formez fermement leur capacité à trancher impitoyablement les attributs de niveau MVP : ce qui survit ou disparaît sans ménagement !
 - Balayez chacun de bout en bout (Journeys, critères de succès) à grand coup d'épreuve du feu :
   - Si l'on raye la pièce de cet échiquier de tête, notre prototype est-il un vain déchet avéré (Fail d'utilité) ?
@@ -69,6 +71,7 @@ Imposez la structure méthodologique mathématique impitoyable vis-à-vis du spe
 - Auditez vigoureusement les circuits (Parcours / Journeys) retenant leurs souffles sur l'aspect absolu minimal pour espérer naître sur les étalons MVP (Les Essentials de l'action).
 
 **Analyse des Bonus de Confort (Nice-to-Have) :**
+
 - Traquez le clinquant, le superficiel ou le simple perfectionnement superflu au lancement pur et reléguez les sans retour à des ères plus fructueuses (add-on plus tardifs) :
   - Outils brillants sublimant la trame globale, cependant dépourvus d'apport ou nécessité première et critique face au drame et à l'usage ciblé.
   - Franges segmentées complètes d'utilisateurs marginaux s'autorisant de patienter la relève en version 2 ou plus sans affect.
@@ -78,6 +81,7 @@ Imposez la structure méthodologique mathématique impitoyable vis-à-vis du spe
 ### 4. Feuille de Route de Fonctionnalités Progressives (Progressive Feature Roadmap)
 
 Érigez en un plan solide ce déploiement phasé :
+
 - Menez et répartissez par strates distinctes logiques les vagues de déploiement en cascade du développement total :
 - Bâtissez les structures : `Phase 1` (L'Avançée Pure du socle viable/MVP), `Phase 2` (Leviers colossaux et Expansion Croissante/Growth), `Phase 3` (Vision totale d'accomplissement/The Dream)
 - Exigez la solidité architecturale de chaque relais chronologique, ses dépendances techniques et ses liaisons de cause à effet logiques immuables avec d'abyssales prémices antécédentes indispensables.
@@ -165,6 +169,7 @@ Lors de la sauvegarde locale (save), ajoutez (append) au document ces balisages 
 ### 7. Présenter les OPTIONS DU MENU
 
 Présentez les décisions stratégiques liées au périmètre pour révision (review), puis affichez le menu :
+
 - Montrez le plan stratégique de périmètre (en utilisant la structure de l'étape 6)
 - Soulignez fermement les barrières/limites vitales du MVP ainsi que tout ce que la trajectoire tracée va dicter à terme.
 - Demandez aux cerveaux d'affiner leurs angles de vues au cutter, s'en remettre à une concertation (consult the group) ou se fier fermement au choix de s'avancer tel que c'est conçu l'instant même !
@@ -173,12 +178,14 @@ Présentez les décisions stratégiques liées au périmètre pour révision (re
 Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers les Exigences Fonctionnelles (Étape 9 sur 11)"
 
 #### Logique de Gestion du Menu :
+
 - SI A : Invoquez la compétence `bmad-advanced-elicitation` avec l'analyse actuelle du périmètre, traitez les idées/découvertes améliorées qui en reviennent, demandez à l'utilisateur : "Accepter ces améliorations au périmètre ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
 - SI P : Invoquez la compétence `bmad-party-mode` avec le contexte de périmètre actuel, traitez les validations collaboratives et les décisions d'expertise sur la feuille de route du MVP, demandez à l'utilisateur : "Accepter ces changements aux décisions de périmètre ? (o/n)", si oui mettez à jour le contenu avec les améliorations puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
 - SI C : Ajoutez (append) le contenu final à `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-09-functional.md`
 - SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
 #### RÈGLES D'EXÉCUTION :
+
 - TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
 - NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 - Après l'exécution d'autres options du menu, retournez à ce menu

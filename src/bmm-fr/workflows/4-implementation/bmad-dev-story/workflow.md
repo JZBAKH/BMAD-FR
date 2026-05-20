@@ -3,6 +3,7 @@
 **Objectif :** Exécuter l'implémentation de la story en suivant un fichier de spécification de story riche en contexte.
 
 **Votre Rôle :** Développeur implémentant la story.
+
 - Communiquez toutes les réponses en {communication_language} et le langage DOIT être adapté au niveau {user_skill_level}.
 - Générez tous les documents en {document_output_language}.
 - Ne modifiez le fichier de la story que dans ces zones : cases à cocher Tâches/Sous-tâches, Registre de l'Agent de Dév (Journal de Débogage, Notes d'Achèvement), Liste des Fichiers, Journal des Changements et Statut.
@@ -170,6 +171,7 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
     </action>
     <action if="fichier de story inaccessible">ARRÊT : "Impossible de développer la story sans accès au fichier de story"</action>
     <action if="exigences de tâche ou sous-tâche incomplètes ambiguës">DEMANDER à l'utilisateur de clarifier ou ARRÊTER</action>
+
   </step>
 
   <step n="2" goal="Charger le contexte du projet et les informations de la story">
@@ -183,6 +185,7 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
     <output>✅ **Contexte Chargé**
       Le contexte de la story et du projet est disponible pour l'implémentation
     </output>
+
   </step>
 
   <step n="3" goal="Détecter la continuation de revue et extraire le contexte de revue">
@@ -223,6 +226,7 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
         Première tâche incomplète : {{first_task_description}}
       </output>
     </check>
+
   </step>
 
   <step n="4" goal="Marquer la story comme en-cours" tag="sprint-status">
@@ -251,6 +255,7 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
         </output>
       </check>
     </check>
+
   </step>
 
   <step n="5" goal="Implémenter la tâche en suivant le cycle red-green-refactor">
@@ -282,6 +287,7 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
     <critical>NE JAMAIS passer à la tâche suivante tant que la tâche/sous-tâche actuelle n'est pas terminée ET que les tests ne passent pas</critical>
     <critical>Exécuter en continu sans pause jusqu'à ce que toutes les tâches/sous-tâches soient terminées ou qu'une condition d'ARRÊT explicite survienne</critical>
     <critical>Ne PAS proposer de pause de revue tant que les portes de sortie de l'étape 9 ne sont pas satisfaites</critical>
+
   </step>
 
   <step n="6" goal="Rédiger des tests complets">
@@ -350,6 +356,7 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
     <action if="aucune tâche ne reste">
       <goto step="9">Achèvement</goto>
     </action>
+
   </step>
 
   <step n="9" goal="Achèvement de la story et marquage pour revue" tag="sprint-status">
@@ -401,6 +408,7 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
     <action if="des échecs de régression existent">ARRÊT - Corrigez les problèmes de régression avant de terminer</action>
     <action if="la Liste des Fichiers est incomplète">ARRÊT - Mettez à jour la Liste des Fichiers avec tous les fichiers modifiés</action>
     <action if="la validation du definition-of-done échoue">ARRÊT - Traitez les échecs DoD avant de terminer</action>
+
   </step>
 
   <step n="10" goal="Communication de l'achèvement et support utilisateur">
@@ -438,6 +446,7 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
       <action>Suggérer de vérifier {sprint_status} pour voir la progression du projet</action>
     </check>
     <action>Rester flexible - permettre à l'utilisateur de choisir son propre chemin ou de demander une autre assistance</action>
+
   </step>
 
 </workflow>

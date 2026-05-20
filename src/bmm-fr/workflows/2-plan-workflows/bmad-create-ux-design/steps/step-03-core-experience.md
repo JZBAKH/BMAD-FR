@@ -124,18 +124,23 @@ Lors de l'enregistrement dans le document, ajoutez ces sections de niveau 2 (##)
 ## Expérience Utilisateur de Base
 
 ### Définition de l'Expérience
+
 [Définition de l'expérience de base selon la conversation]
 
 ### Stratégie de Plateforme
+
 [Exigences et décisions de plateforme selon la conversation]
 
 ### Interactions Fluides (Effortless)
+
 [Domaines d'interactions fluides identifiés selon la conversation]
 
 ### Moments Critiques de Succès
+
 [Moments critiques de succès définis selon la conversation]
 
 ### Principes d'Expérience
+
 [Principes directeurs pour les décisions UX selon la conversation]
 ```
 

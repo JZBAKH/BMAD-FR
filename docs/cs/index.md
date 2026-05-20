@@ -26,12 +26,12 @@ Nainstalujte BMad a použijte skill `bmad-help` — provede vás vším na zákl
 
 Tato dokumentace je organizována do čtyř sekcí podle toho, co chcete dělat:
 
-| Sekce               | Účel                                                                                                               |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **Tutoriály**        | Orientované na učení. Průvodci krok za krokem, kteří vás provedou tvorbou něčeho. Začněte zde, pokud jste noví.    |
-| **Praktické návody** | Orientované na úkoly. Praktičtí průvodci pro řešení konkrétních problémů. „Jak přizpůsobím agenta?“ najdete zde.  |
-| **Vysvětlení**       | Orientované na pochopení. Hluboké ponory do konceptů a architektury. Čtěte, když chcete vědět *proč*.             |
-| **Reference**        | Orientované na informace. Technické specifikace agentů, pracovních postupů a konfigurace.                          |
+| Sekce                | Účel                                                                                                             |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **Tutoriály**        | Orientované na učení. Průvodci krok za krokem, kteří vás provedou tvorbou něčeho. Začněte zde, pokud jste noví.  |
+| **Praktické návody** | Orientované na úkoly. Praktičtí průvodci pro řešení konkrétních problémů. „Jak přizpůsobím agenta?“ najdete zde. |
+| **Vysvětlení**       | Orientované na pochopení. Hluboké ponory do konceptů a architektury. Čtěte, když chcete vědět _proč_.            |
+| **Reference**        | Orientované na informace. Technické specifikace agentů, pracovních postupů a konfigurace.                        |
 
 ## Rozšíření a přizpůsobení
 

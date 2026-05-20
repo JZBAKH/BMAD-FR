@@ -1,5 +1,5 @@
 ---
-title: "Brainstorming"
+title: 'Brainstorming'
 description: Interaktivní kreativní sezení s využitím 60+ osvědčených technik ideace
 sidebar:
   order: 2

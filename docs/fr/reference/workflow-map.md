@@ -1,5 +1,5 @@
 ---
-title: "Carte des Workflows"
+title: 'Carte des Workflows'
 description: Référence visuelle des phases et des résultats des workflows de la méthode BMad
 sidebar:
   order: 1
@@ -35,7 +35,7 @@ Explorez l’espace problème et validez les idées avant de vous engager dans l
 chaque outil et quand l’utiliser**](../explanation/analysis-phase.md).
 
 | Workflow                                                                  | Objectif                                                                                 | Produit                   |
-|---------------------------------------------------------------------------|------------------------------------------------------------------------------------------|---------------------------|
+| ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------- |
 | `bmad-brainstorming`                                                      | Brainstormez des idées de projet avec l’accompagnement guidé d’un coach de brainstorming | `brainstorming-report.md` |
 | `bmad-domain-research`, `bmad-market-research`, `bmad-technical-research` | Validez les hypothèses de marché, techniques ou de domaine                               | Rapport de recherches     |
 | `bmad-product-brief`                                                      | Capturez la vision stratégique — idéal lorsque votre concept est clair                   | `product-brief.md`        |
@@ -46,7 +46,7 @@ chaque outil et quand l’utiliser**](../explanation/analysis-phase.md).
 Définissez ce qu'il faut construire et pour qui.
 
 | Workflow                | Objectif                                                | Produit      |
-|-------------------------|---------------------------------------------------------|--------------|
+| ----------------------- | ------------------------------------------------------- | ------------ |
 | `bmad-create-prd`       | Définissez les exigences (FRs/NFRs)[^1]                 | `PRD.md`[^2] |
 | `bmad-create-ux-design` | Concevez l'expérience utilisateur (lorsque l'UX compte) | `ux-spec.md` |
 
@@ -55,7 +55,7 @@ Définissez ce qu'il faut construire et pour qui.
 Décidez comment le construire et décomposez le travail en stories.
 
 | Workflow                              | Objectif                                          | Produit                         |
-|---------------------------------------|---------------------------------------------------|---------------------------------|
+| ------------------------------------- | ------------------------------------------------- | ------------------------------- |
 | `bmad-create-architecture`            | Rendez les décisions techniques explicites        | `architecture.md` avec ADRs[^3] |
 | `bmad-create-epics-and-stories`       | Décomposez les exigences en travail implémentable | Fichiers d'epic avec stories    |
 | `bmad-check-implementation-readiness` | Vérification avant implémentation                 | Décision Passe/Réserves/Échec   |
@@ -64,15 +64,15 @@ Décidez comment le construire et décomposez le travail en stories.
 
 Construisez, une story à la fois. Bientôt disponible : automatisation complète de la phase 4 !
 
-| Workflow               | Objectif                                                                            | Produit                                              |
-|------------------------|-------------------------------------------------------------------------------------|------------------------------------------------------|
-| `bmad-sprint-planning` | Initialisez le suivi (une fois par projet pour séquencer le cycle de développement) | `sprint-status.yaml`                                 |
-| `bmad-create-story`    | Préparez la story suivante pour implémentation                                      | `story-[slug].md`                                    |
-| `bmad-dev-story`       | Implémentez la story                                                                | Code fonctionnel + tests                             |
-| `bmad-code-review`     | Validez la qualité de l'implémentation                                              | Approuvé ou changements demandés                     |
-| `bmad-correct-course`  | Gérez les changements significatifs en cours de sprint                              | Plan mis à jour ou réorientation                     |
-| `bmad-sprint-status`   | Suivez la progression du sprint et le statut des stories                            | Mise à jour du statut du sprint                      |
-| `bmad-retrospective`   | Revue après complétion d'un epic                                                    | Leçons apprises                                      |
+| Workflow               | Objectif                                                                            | Produit                          |
+| ---------------------- | ----------------------------------------------------------------------------------- | -------------------------------- |
+| `bmad-sprint-planning` | Initialisez le suivi (une fois par projet pour séquencer le cycle de développement) | `sprint-status.yaml`             |
+| `bmad-create-story`    | Préparez la story suivante pour implémentation                                      | `story-[slug].md`                |
+| `bmad-dev-story`       | Implémentez la story                                                                | Code fonctionnel + tests         |
+| `bmad-code-review`     | Validez la qualité de l'implémentation                                              | Approuvé ou changements demandés |
+| `bmad-correct-course`  | Gérez les changements significatifs en cours de sprint                              | Plan mis à jour ou réorientation |
+| `bmad-sprint-status`   | Suivez la progression du sprint et le statut des stories                            | Mise à jour du statut du sprint  |
+| `bmad-retrospective`   | Revue après complétion d'un epic                                                    | Leçons apprises                  |
 | `bmad-investigate`     | Enquête de cas avec conclusions à preuves graduées, calibrée selon l'entrée         | `{slug}-investigation.md`        |
 
 ## Quick Dev (Parcours Parallèle)
@@ -80,7 +80,7 @@ Construisez, une story à la fois. Bientôt disponible : automatisation complèt
 Sautez les phases 1-3 pour les travaux de faible envergure et bien compris.
 
 | Workflow         | Objectif                                                                            | Produit            |
-|------------------|-------------------------------------------------------------------------------------|--------------------|
+| ---------------- | ----------------------------------------------------------------------------------- | ------------------ |
 | `bmad-quick-dev` | Flux rapide unifié — clarifie l'intention, planifie, implémente, révise et présente | `spec-*.md` + code |
 
 ## Gestion du Contexte
@@ -110,12 +110,17 @@ il peut également être généré pour capturer ce qui est important de conserv
 
 ## Glossaire
 
-[^1]: FR / NFR (Functional / Non-Functional Requirement) : exigences décrivant respectivement **ce que le système doit
-faire** (fonctionnalités, comportements attendus) et **comment il doit le faire** (contraintes de performance, sécurité,
-fiabilité, ergonomie, etc.).
-[^2]: PRD (Product Requirements Document) : document de référence qui décrit les objectifs du produit, les besoins
-utilisateurs, les fonctionnalités attendues, les contraintes et les critères de succès, afin d’aligner les équipes sur
-ce qui doit être construit et pourquoi.
-[^3]: ADR (Architecture Decision Record) : document qui consigne une décision d’architecture, son contexte, les options
-envisagées, le choix retenu et ses conséquences, afin d’assurer la traçabilité et la compréhension des décisions
-techniques dans le temps.
+[^1]:
+    FR / NFR (Functional / Non-Functional Requirement) : exigences décrivant respectivement **ce que le système doit
+    faire** (fonctionnalités, comportements attendus) et **comment il doit le faire** (contraintes de performance, sécurité,
+    fiabilité, ergonomie, etc.).
+
+[^2]:
+    PRD (Product Requirements Document) : document de référence qui décrit les objectifs du produit, les besoins
+    utilisateurs, les fonctionnalités attendues, les contraintes et les critères de succès, afin d’aligner les équipes sur
+    ce qui doit être construit et pourquoi.
+
+[^3]:
+    ADR (Architecture Decision Record) : document qui consigne une décision d’architecture, son contexte, les options
+    envisagées, le choix retenu et ses conséquences, afin d’assurer la traçabilité et la compréhension des décisions
+    techniques dans le temps.

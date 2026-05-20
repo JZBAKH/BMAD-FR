@@ -1,5 +1,5 @@
 ---
-title: "Pokročilá elicitace"
+title: 'Pokročilá elicitace'
 description: Přimějte LLM přehodnotit svou práci pomocí strukturovaných metod uvažování
 sidebar:
   order: 6

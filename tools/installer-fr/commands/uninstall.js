@@ -7,7 +7,7 @@ const installer = new Installer();
 
 module.exports = {
   command: 'uninstall',
-  description: 'Supprimer l\'installation BMAD du projet courant',
+  description: "Supprimer l'installation BMAD du projet courant",
   options: [
     ['-y, --yes', 'Supprimer tous les composants BMAD sans confirmation (préserve les artefacts utilisateur)'],
     ['--directory <path>', 'Répertoire du projet (par défaut : répertoire courant)'],
@@ -26,7 +26,7 @@ module.exports = {
         // Interactive: ask user which directory to uninstall from
         // select() handles cancellation internally (exits process)
         const dirChoice = await prompts.select({
-          message: 'D\'où voulez-vous désinstaller BMAD ?',
+          message: "D'où voulez-vous désinstaller BMAD ?",
           choices: [
             { value: 'cwd', name: `Répertoire courant (${process.cwd()})` },
             { value: 'other', name: 'Un autre répertoire...' },
@@ -62,10 +62,7 @@ module.exports = {
       }
 
       const existingInstall = await installer.getStatus(projectDir);
-      const version =
-        existingInstall.installed && existingInstall.version !== 'unknown'
-          ? existingInstall.version
-          : 'inconnue';
+      const version = existingInstall.installed && existingInstall.version !== 'unknown' ? existingInstall.version : 'inconnue';
       const modules = existingInstall.moduleIds.join(', ');
       const ides = existingInstall.ides.join(', ');
 
@@ -89,7 +86,11 @@ module.exports = {
               hint: 'Installation de base, agents, workflows, configuration',
             },
             { value: 'ide', label: 'Intégrations IDE', hint: ides || 'Aucun IDE configuré' },
-            { value: 'output', label: `Artefacts utilisateur (${outputFolder}/)`, hint: 'AVERTISSEMENT : contient vos produits de travail' },
+            {
+              value: 'output',
+              label: `Artefacts utilisateur (${outputFolder}/)`,
+              hint: 'AVERTISSEMENT : contient vos produits de travail',
+            },
           ],
           initialValues: ['modules', 'ide'],
           required: true,

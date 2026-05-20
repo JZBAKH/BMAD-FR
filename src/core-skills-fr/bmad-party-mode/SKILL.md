@@ -1,6 +1,6 @@
 ---
 name: bmad-party-mode
-description: 'Orchestre des discussions de groupe entre les agents BMAD installés, permettant des conversations multi-agents naturelles où chaque agent est un véritable subagent avec une réflexion indépendante. À utiliser quand l''utilisateur demande le party mode, veut plusieurs perspectives d''agents, une discussion de groupe, une table ronde, ou une conversation multi-agents sur son projet.'
+description: "Orchestre des discussions de groupe entre les agents BMAD installés, permettant des conversations multi-agents naturelles où chaque agent est un véritable subagent avec une réflexion indépendante. À utiliser quand l'utilisateur demande le party mode, veut plusieurs perspectives d'agents, une discussion de groupe, une table ronde, ou une conversation multi-agents sur son projet."
 ---
 
 # Party Mode
@@ -23,16 +23,17 @@ Party mode accepte des arguments optionnels lors de l'invocation :
 1. **Analyser les arguments** — vérifier les flags `--model` et `--solo` dans l'invocation de l'utilisateur.
 
 2. Charger la configuration depuis `{project-root}/_bmad/core/config.yaml` et résoudre :
-  - Utiliser `{user_name}` pour saluer
-  - Utiliser `{communication_language}` pour toutes les communications
+
+- Utiliser `{user_name}` pour saluer
+- Utiliser `{communication_language}` pour toutes les communications
 
 3. **Résoudre la liste des agents** en exécutant :
 
-    ```bash
-    python3 {project-root}/_bmad/scripts/resolve_config.py --project-root {project-root} --key agents
-    ```
+   ```bash
+   python3 {project-root}/_bmad/scripts/resolve_config.py --project-root {project-root} --key agents
+   ```
 
-    Le résolveur fusionne quatre couches dans l'ordre : `_bmad/config.toml` (base d'installation, scoped équipe), `_bmad/config.user.toml` (base d'installation, scoped utilisateur), `_bmad/custom/config.toml` (surcharges d'équipe), et `_bmad/custom/config.user.toml` (surcharges personnelles). Chaque entrée sous `agents` est indexée par le `code` de l'agent et porte `name`, `title`, `icon`, `description`, `module`, et `team`. Construire une liste interne des agents disponibles à partir de ces champs.
+   Le résolveur fusionne quatre couches dans l'ordre : `_bmad/config.toml` (base d'installation, scoped équipe), `_bmad/config.user.toml` (base d'installation, scoped utilisateur), `_bmad/custom/config.toml` (surcharges d'équipe), et `_bmad/custom/config.user.toml` (surcharges personnelles). Chaque entrée sous `agents` est indexée par le `code` de l'agent et porte `name`, `title`, `icon`, `description`, `module`, et `team`. Construire une liste interne des agents disponibles à partir de ces champs.
 
 4. **Charger le contexte du projet** — chercher `**/project-context.md`. Si trouvé, le conserver comme contexte d'arrière-plan qui est passé aux agents quand pertinent.
 
@@ -57,6 +58,7 @@ Choisir 2-4 agents dont l'expertise est la plus pertinente par rapport à ce que
 Pour chaque agent sélectionné, spawner un subagent en utilisant l'outil Agent. Chaque subagent reçoit :
 
 **Le prompt de l'agent** (construit à partir de l'entrée résolue de la liste) :
+
 ```
 Vous êtes {name} ({title}), un agent BMAD dans une discussion en table ronde collaborative.
 
@@ -101,14 +103,14 @@ Après que toutes les réponses des agents ont été présentées en intégralit
 
 L'utilisateur dirige ce qui se passe ensuite. Patterns courants :
 
-| L'utilisateur dit... | Vous faites... |
-|---|---|
-| Continue la discussion générale | Choisir de nouveaux agents, répéter la boucle |
-| « Winston, que penses-tu de ce que Sally a dit ? » | Spawner uniquement Winston avec la réponse de Sally comme contexte |
-| « Faites venir Amelia là-dessus » | Spawner Amelia avec un résumé de la discussion jusqu'ici |
-| « Je suis d'accord avec John, allons plus profond là-dessus » | Spawner John + 1-2 autres pour développer le point de John |
-| « Que penseraient Mary et Amelia de l'approche de Winston ? » | Spawner Mary et Amelia avec la réponse de Winston comme contexte |
-| Pose une question dirigée à tous | Retour à l'étape 1 avec tous les agents |
+| L'utilisateur dit...                                          | Vous faites...                                                     |
+| ------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Continue la discussion générale                               | Choisir de nouveaux agents, répéter la boucle                      |
+| « Winston, que penses-tu de ce que Sally a dit ? »            | Spawner uniquement Winston avec la réponse de Sally comme contexte |
+| « Faites venir Amelia là-dessus »                             | Spawner Amelia avec un résumé de la discussion jusqu'ici           |
+| « Je suis d'accord avec John, allons plus profond là-dessus » | Spawner John + 1-2 autres pour développer le point de John         |
+| « Que penseraient Mary et Amelia de l'approche de Winston ? » | Spawner Mary et Amelia avec la réponse de Winston comme contexte   |
+| Pose une question dirigée à tous                              | Retour à l'étape 1 avec tous les agents                            |
 
 L'insight clé : vous pouvez spawner toute combinaison à tout moment. Un agent, deux agents réagissant à un troisième, toute la liste — peu importe ce qui sert la conversation. Chaque spawn est peu coûteux et indépendant.
 

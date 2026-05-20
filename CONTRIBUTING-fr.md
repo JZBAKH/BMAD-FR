@@ -73,6 +73,7 @@ Format **[Conventional Commits](https://www.conventionalcommits.org/)** :
 **Scopes utiles** : `bmm-fr`, `core-fr`, `utility-fr`, `glossaire`, `audit`, `infra`
 
 Exemples :
+
 - `feat(bmm-fr): translate SKILL.md and workflow.md for bmad-create-product-brief`
 - `chore(core-fr): remove duplicate file copied by mistake from upstream`
 - `ci(infra): add monthly upstream-sync-watch action`
@@ -107,7 +108,7 @@ Exemples :
 - [ ] Les codes de menu (BP, RS, CB, etc.) sont intacts
 - [ ] Les balises XML (`<step>`, `<rules>`, etc.) ne sont pas traduites
 - [ ] Les variables (`{output_folder}`, `{{module}}`, etc.) sont intactes
-- [ ] Les blocs de code (```...```) ne sont pas traduits
+- [ ] Les blocs de code (`...`) ne sont pas traduits
 - [ ] Le message de commit suit la convention Conventional Commits
 
 ## Référence

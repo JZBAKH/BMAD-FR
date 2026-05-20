@@ -84,14 +84,17 @@ Identifiez les modèles qui pourraient s'appliquer à votre projet :
 En examinant ces applications inspirantes, j'identifie des modèles que nous pourrions adapter :
 
 **Modèles de Navigation :**
+
 - [Modèle 1] - pourrait fonctionner pour votre [cas d'utilisation spécifique]
 - [Modèle 2] - pourrait résoudre votre [défi spécifique]
 
 **Modèles d'Interaction :**
+
 - [Modèle 1] - excellent pour [votre objectif utilisateur]
 - [Modèle 2] - répond à [votre point de douleur utilisateur]
 
 **Modèles Visuels :**
+
 - [Modèle 1] - soutient votre [objectif émotionnel]
 - [Modèle 2] - s'aligne sur vos [exigences de plateforme]
 
@@ -115,14 +118,17 @@ Créez une stratégie claire pour utiliser cette inspiration :
 "**Stratégie d'inspiration de design :**
 
 **À adopter :**
+
 - [Modèle spécifique] - car il soutient [votre expérience de base].
 - [Modèle spécifique] - car il s'aligne sur [les besoins des utilisateurs].
 
 **À adapter :**
+
 - [Modèle spécifique] - à modifier pour [vos exigences uniques].
 - [Modèle spécifique] - à simplifier pour [le niveau de compétence de vos utilisateurs].
 
 **À éviter :**
+
 - [Anti-modèle spécifique] - entre en conflit avec [vos objectifs].
 - [Anti-modèle spécifique] - ne convient pas à [votre plateforme].
 
@@ -140,15 +146,19 @@ Lors de l'enregistrement dans le document, ajoutez ces sections de niveau 2 (##)
 ## Analyse des Modèles UX et Inspiration
 
 ### Analyse des Produits Inspirants
+
 [Analyse des produits inspirants selon la conversation]
 
 ### Modèles UX Transférables
+
 [Modèles transférables identifiés selon la conversation]
 
 ### Anti-Modèles à Éviter
+
 [Anti-modèles à éviter selon la conversation]
 
 ### Stratégie d'Inspiration de Design
+
 [Stratégie d'utilisation de l'inspiration selon la conversation]
 ```
 

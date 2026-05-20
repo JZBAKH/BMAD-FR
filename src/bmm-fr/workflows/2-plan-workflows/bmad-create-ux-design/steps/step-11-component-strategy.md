@@ -59,11 +59,13 @@ Passer en revue ce qui est disponible vs ce qui est nécessaire :
 
 **Composants nécessaires pour {{project_name}} :**
 En examinant nos parcours utilisateurs et notre direction de design, nous avons besoin de :
+
 - [Besoin en composant 1 issu de l'analyse des parcours]
 - [Besoin en composant 2 issu des exigences de design]
 - [Besoin en composant 3 issu de l'expérience centrale]
 
 **Analyse d'écart (Gap Analysis) :**
+
 - [Écart 1 - nécessaire mais non disponible]
 - [Écart 2 - nécessaire mais non disponible]"
 
@@ -108,14 +110,17 @@ Créer des spécifications détaillées pour chaque composant :
 "**Stratégie des Composants :**
 
 **Composants de fondation :** (issus du système de design)
+
 - [Composant de fondation 1]
 - [Composant de fondation 2]
 
 **Composants sur mesure :** (conçus lors de cette étape)
+
 - [Composant sur mesure 1 avec justification]
 - [Composant sur mesure 2 avec justification]
 
 **Approche d'implémentation :**
+
 - Construire les composants sur mesure en utilisant les jetons (tokens) du système de design.
 - Garantir la cohérence avec les modèles établis.
 - Suivre les meilleures pratiques d'accessibilité.
@@ -127,14 +132,17 @@ Définir comment et quand construire les composants :
 "**Feuille de route d'implémentation :**
 
 **Phase 1 - Composants de base :**
+
 - [Composant 1] - nécessaire pour [flux critique]
 - [Composant 2] - nécessaire pour [flux critique]
 
 **Phase 2 - Composants de soutien :**
+
 - [Composant 3] - améliore [l'expérience utilisateur]
 - [Composant 4] - soutient [le modèle de design]
 
 **Phase 3 - Composants d'optimisation :**
+
 - [Composant 5] - optimise [le parcours utilisateur]
 - [Composant 6] - ajoute [une fonctionnalité spéciale]
 
@@ -152,15 +160,19 @@ Lors de l'enregistrement dans le document, ajoutez ces sections de niveau 2 (##)
 ## Stratégie des Composants
 
 ### Composants du Système de Design
+
 [Analyse des composants disponibles du système de design selon la conversation]
 
 ### Composants sur Mesure
+
 [Spécifications des composants sur mesure selon la conversation]
 
 ### Stratégie d'Implémentation des Composants
+
 [Stratégie d'implémentation des composants selon la conversation]
 
 ### Feuille de Route d'Implémentation
+
 [Feuille de route d'implémentation basée sur la conversation]
 ```
 

@@ -13,17 +13,17 @@
 
 Le communiqué de presse est le cœur de Working Backwards. Il a une structure spécifique, et chaque partie gagne sa place en imposant un type différent de clarté :
 
-| Section | Ce qu'elle impose |
-|---------|-------------------|
-| **Headline** | Peux-tu dire ce qu'est ceci en une phrase qu'un client comprendrait ? |
-| **Sous-titre** | Qui en bénéficie et qu'est-ce qui change pour eux ? |
-| **Paragraphe d'ouverture** | Qu'annonces-tu, à qui s'adresse-t-il, et pourquoi devraient-ils s'en soucier ? |
-| **Paragraphe problème** | Peux-tu faire ressentir au lecteur la douleur du client sans mentionner ta solution ? |
-| **Paragraphe solution** | Qu'est-ce qui change pour le client ? (Pas : ce que tu as construit.) |
-| **Citation du leader** | Quelle est la vision au-delà de la liste des fonctionnalités ? |
-| **Comment ça fonctionne** | Peux-tu expliquer l'expérience du point de vue du client ? |
-| **Citation client** | Une vraie personne dirait-elle cela ? Est-ce que ça sonne humain ? |
-| **Pour commencer** | Le chemin vers la valeur est-il clair et concret ? |
+| Section                    | Ce qu'elle impose                                                                     |
+| -------------------------- | ------------------------------------------------------------------------------------- |
+| **Headline**               | Peux-tu dire ce qu'est ceci en une phrase qu'un client comprendrait ?                 |
+| **Sous-titre**             | Qui en bénéficie et qu'est-ce qui change pour eux ?                                   |
+| **Paragraphe d'ouverture** | Qu'annonces-tu, à qui s'adresse-t-il, et pourquoi devraient-ils s'en soucier ?        |
+| **Paragraphe problème**    | Peux-tu faire ressentir au lecteur la douleur du client sans mentionner ta solution ? |
+| **Paragraphe solution**    | Qu'est-ce qui change pour le client ? (Pas : ce que tu as construit.)                 |
+| **Citation du leader**     | Quelle est la vision au-delà de la liste des fonctionnalités ?                        |
+| **Comment ça fonctionne**  | Peux-tu expliquer l'expérience du point de vue du client ?                            |
+| **Citation client**        | Une vraie personne dirait-elle cela ? Est-ce que ça sonne humain ?                    |
+| **Pour commencer**         | Le chemin vers la valeur est-il clair et concret ?                                    |
 
 ## Approche de coaching
 

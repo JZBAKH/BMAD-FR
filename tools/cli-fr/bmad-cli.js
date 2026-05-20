@@ -40,7 +40,7 @@ async function checkForUpdate() {
       const updateMsg = [
         `Vous utilisez la version ${packageJson.version} mais ${result} est disponible.`,
         '',
-        'Pour mettre à jour, quittez et lancez d\'abord :',
+        "Pour mettre à jour, quittez et lancez d'abord :",
         `  npm cache clean --force && npx bmad-method@${tag} install`,
       ].join('\n');
       await prompts.box(updateMsg, 'Mise à jour disponible', {
@@ -82,7 +82,7 @@ for (const file of commandFiles) {
 }
 
 // Set up main program
-program.version(packageJson.version).description('CLI BMAD Core - Framework universel d\'agents IA');
+program.version(packageJson.version).description("CLI BMAD Core - Framework universel d'agents IA");
 
 // Register all commands
 for (const [name, cmd] of Object.entries(commands)) {

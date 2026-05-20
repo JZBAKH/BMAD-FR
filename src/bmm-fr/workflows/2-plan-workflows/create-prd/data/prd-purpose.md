@@ -7,6 +7,7 @@
 ## Qu'est-ce qu'un PRD BMAD ?
 
 Un document à double audience servant à :
+
 1. **Aux Product Managers et constructeurs humains** - Vision, stratégie, communication avec les parties prenantes.
 2. **À la consommation en aval par les LLM** - Design UX → Architecture → Epics → Agents IA de développement.
 
@@ -21,6 +22,7 @@ Chaque document successif devient plus adapté à l'IA et plus granulaire.
 Chaque phrase doit porter un poids informationnel. Les LLM consomment du contenu précis et dense de manière efficace.
 
 **Anti-Modèles (À Éliminer) :**
+
 - ❌ "Le système permettra aux utilisateurs de..." → ✅ "Les utilisateurs peuvent..."
 - ❌ "Il est important de noter que..." → ✅ Énoncez le fait directement.
 - ❌ "Afin de..." → ✅ "Pour..."
@@ -33,11 +35,13 @@ Chaque phrase doit porter un poids informationnel. Les LLM consomment du contenu
 ## La Chaîne de Traçabilité
 
 **Le PRD lance la chaîne :**
+
 ```
 Vision → Critères de Succès → Parcours Utilisateurs → Exigences Fonctionnelles → (futur : User Stories)
 ```
 
 **Dans le PRD, établissez :**
+
 - Alignement Vision → Critères de Succès
 - Couverture Critères de Succès → Parcours Utilisateurs
 - Mappage Parcours Utilisateurs → Exigences Fonctionnelles
@@ -68,18 +72,22 @@ Vision → Critères de Succès → Parcours Utilisateurs → Exigences Fonction
 ### Anti-Modèles d'EF
 
 **Adjectifs Subjectifs :**
+
 - ❌ "facile à utiliser", "intuitif", "convivial", "rapide", "réactif"
 - ✅ Utilisez des métriques : "termine la tâche en moins de 3 clics", "se charge en moins de 2 secondes"
 
 **Fuite d'Implémentation :**
+
 - ❌ Noms de technologies, bibliothèques spécifiques, détails d'implémentation.
 - ✅ Concentrez-vous sur la capacité et les résultats mesurables.
 
 **Quantificateurs Vagues :**
+
 - ❌ "plusieurs utilisateurs", "quelques options", "divers formats"
 - ✅ "jusqu'à 100 utilisateurs simultanés", "3 à 5 options", "formats PDF, DOCX, TXT"
 
 **Critères de Test Manquants :**
+
 - ❌ "Le système fournira des notifications."
 - ✅ "Le système enverra des notifications par e-mail dans les 30 secondes suivant l'événement déclencheur."
 
@@ -90,11 +98,13 @@ Vision → Critères de Succès → Parcours Utilisateurs → Exigences Fonction
 ### Les ENF Doivent Être Mesurables
 
 **Modèle :**
+
 ```
 "Le système doit [métrique] [condition] [méthode de mesure]"
 ```
 
 **Exemples :**
+
 - ✅ "Le système doit répondre aux requêtes API en moins de 200ms pour le 95e percentile, tel que mesuré par la surveillance APM."
 - ✅ "Le système doit maintenir une disponibilité de 99,9 % pendant les heures de bureau, telle que mesurée par le SLA du fournisseur cloud."
 - ✅ "Le système doit supporter 10 000 utilisateurs simultanés, tel que mesuré par les tests de charge."
@@ -102,10 +112,12 @@ Vision → Critères de Succès → Parcours Utilisateurs → Exigences Fonction
 ### Anti-Modèles d'ENF
 
 **Allégations Non Mesurables :**
+
 - ❌ "Le système doit être évolutif." → ✅ "Le système doit gérer une croissance de charge de 10x via une mise à l'échelle horizontale."
 - ❌ "Haute disponibilité requise." → ✅ "99,9 % de disponibilité telle que mesurée par le SLA du fournisseur cloud."
 
 **Manque de Contexte :**
+
 - ❌ "Temps de réponse inférieur à 1 seconde." → ✅ "Temps de réponse de l'API inférieur à 1 seconde pour le 95e percentile sous charge normale."
 
 ---
@@ -128,6 +140,7 @@ Certaines industries ont des exigences obligatoires qui doivent être présentes
 ## Structure du Document (Markdown, Lisible par l'Homme)
 
 ### Sections Requises
+
 1. **Résumé Analytique** - Vision, différenciateur, utilisateurs cibles.
 2. **Critères de Succès** - Résultats mesurables (SMART).
 3. **Périmètre du Produit** - Phases MVP, Croissance, Vision.
@@ -141,11 +154,13 @@ Certaines industries ont des exigences obligatoires qui doivent être présentes
 ### Formatage pour la Double Consommation
 
 **Pour les Humains :**
+
 - Langage clair et professionnel.
 - Flux logique de la vision vers les exigences.
 - Facile à réviser et à approuver pour les parties prenantes.
 
 **Pour les LLM :**
+
 - Titres de niveau 2 (##) pour toutes les sections principales (permet l'extraction).
 - Structure et modèles cohérents.
 - Langage précis et testable.
@@ -158,23 +173,27 @@ Certaines industries ont des exigences obligatoires qui doivent être présentes
 **Comment le PRD Nourrit les Artefacts Suivants :**
 
 **Design UX :**
+
 - Parcours utilisateurs → flux d'interaction
 - EF → exigences de conception
 - Critères de succès → métriques UX
 
 **Architecture :**
+
 - EF → capacités du système
 - ENF → décisions architecturales
 - Exigences de domaine → architecture de conformité
 - Exigences selon le type de projet → choix de plateforme
 
 **Epics & Stories (créés après l'architecture) :**
+
 - EF → user stories (1 EF peut potentiellement correspondre à 1-3 stories)
 - Critères d'acceptation → tests d'acceptation des stories
 - Priorité → séquençage des sprints
 - Traçabilité → les stories remontent à la vision
 
 **Agents IA de Développement :**
+
 - Exigences précises → clarté de l'implémentation
 - Critères de test → génération de tests automatisés
 - Exigences de domaine → application de la conformité

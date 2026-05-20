@@ -1,5 +1,5 @@
 ---
-title: "Jak upgradovat na v6"
+title: 'Jak upgradovat na v6'
 description: Migrace z BMad v4 na v6
 sidebar:
   order: 3
@@ -14,9 +14,10 @@ Použijte instalátor BMad pro upgrade z v4 na v6, který zahrnuje automatickou 
 - Máte existující plánovací artefakty k zachování
 
 :::note[Předpoklady]
+
 - Node.js 20+
 - Existující instalace BMad v4
-:::
+  :::
 
 ## Kroky
 

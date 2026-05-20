@@ -62,33 +62,39 @@ Analyser le PRD non-standard et identifier les lacunes pour atteindre la parité
 Pour chacune des 6 sections clés du PRD BMAD, analysez :
 
 **Résumé Analytique :**
+
 - Le PRD a-t-il une vision/vue d'ensemble ?
 - L'énoncé du problème est-il clair ?
 - Les utilisateurs cibles sont-ils identifiés ?
 - Écart : [Ce qui est manquant ou incomplet]
 
 **Critères de Succès :**
+
 - Des objectifs mesurables sont-ils définis ?
 - Le succès est-il clairement défini ?
 - Écart : [Ce qui est manquant ou incomplet]
 
 **Périmètre du Produit :**
+
 - Le périmètre est-il clairement défini ?
 - Les éléments inclus sont-ils listés ?
 - Les éléments hors périmètre sont-ils listés ?
 - Écart : [Ce qui est manquant ou incomplet]
 
 **Parcours Utilisateurs :**
+
 - Les types d'utilisateurs/personas sont-ils identifiés ?
 - Les flux utilisateurs sont-ils documentés ?
 - Écart : [Ce qui est manquant ou incomplet]
 
 **Exigences Fonctionnelles :**
+
 - Les fonctionnalités/capacités sont-elles listées ?
 - Les exigences sont-elles structurées ?
 - Écart : [Ce qui est manquant ou incomplet]
 
 **Exigences Non Fonctionnelles :**
+
 - Les attributs de qualité sont-ils définis ?
 - Les exigences de performance/sécurité/etc. sont-elles documentées ?
 - Écart : [Ce qui est manquant ou incomplet]
@@ -98,11 +104,13 @@ Pour chacune des 6 sections clés du PRD BMAD, analysez :
 Pour chaque section manquante ou incomplète, estimez :
 
 **Niveau d'effort :**
+
 - Minimal - La section existe mais nécessite des améliorations mineures.
 - Modéré - La section manque mais le contenu existe ailleurs dans le PRD.
 - Significatif - La section manque, nécessite la création de nouveau contenu.
 
 **Effort de parité total :**
+
 - Basé sur les estimations individuelles des sections.
 - Classification globale : Effort Rapide / Modéré / Substantiel.
 
@@ -116,31 +124,37 @@ Ajoutez au rapport de validation :
 ### Analyse des écarts section par section
 
 **Résumé Analytique :**
+
 - État : [Présent/Manquant/Incomplet]
 - Écart : [description spécifique de l'écart]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
 **Critères de Succès :**
+
 - État : [Présent/Manquant/Incomplet]
 - Écart : [description spécifique de l'écart]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
 **Périmètre du Produit :**
+
 - État : [Présent/Manquant/Incomplet]
 - Écart : [description spécifique de l'écart]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
 **Parcours Utilisateurs :**
+
 - État : [Présent/Manquant/Incomplet]
 - Écart : [description spécifique de l'écart]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
 **Exigences Fonctionnelles :**
+
 - État : [Présent/Manquant/Incomplet]
 - Écart : [description spécifique de l'écart]
 - Effort pour compléter : [Minimal/Modéré/Significatif]
 
 **Exigences Non Fonctionnelles :**
+
 - État : [Présent/Manquant/Incomplet]
 - Écart : [description spécifique de l'écart]
 - Effort pour compléter : [Minimal/Modéré/Significatif]

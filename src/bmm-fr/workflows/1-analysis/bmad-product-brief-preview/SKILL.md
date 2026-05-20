@@ -1,7 +1,7 @@
 ---
 name: bmad-product-brief-preview
 description: Créer ou mettre à jour des briefs produits via une découverte guidée ou autonome. À utiliser lorsque l'utilisateur demande de 'créer un brief produit', 'm'aider à créer un brief de projet' ou 'mettre à jour mon brief produit'.
-argument-hint: "[optionnel --create, --edit, --optimize, --distillate, --inputs, --headless] [idée de brief]"
+argument-hint: '[optionnel --create, --edit, --optimize, --distillate, --inputs, --headless] [idée de brief]'
 ---
 
 # Créer un Brief Produit
@@ -51,17 +51,20 @@ Vérifiez immédiatement le contexte d'activation :
 **Désambiguïsation multi-idées :** Si l'utilisateur présente plusieurs idées ou directions concurrentes, aidez-le à choisir un axe prioritaire pour cette session de brief. Notez que les autres peuvent faire l'objet de briefs séparés.
 
 **Si l'utilisateur fournit un brief existant** (chemin vers un fichier de brief produit, ou dit "mettre à jour" / "réviser" / "éditer") :
+
 - Lisez intégralement le brief existant.
 - Traitez-le comme une entrée riche — vous connaissez déjà le produit, la vision, le périmètre.
 - Demandez : "Qu'est-ce qui a changé ? Que voulez-vous mettre à jour ou améliorer ?"
 - Le reste du workflow se poursuit normalement — la découverte contextuelle peut intégrer de nouvelles recherches, l'élicitation se concentre sur les lacunes ou les changements, et la phase de rédaction/revue produit une version mise à jour.
 
 **Si l'utilisateur a déjà fourni du contexte** lors du lancement de la compétence (description, docs, "brain dump") :
+
 - Accusez réception de ce que vous avez reçu — mais **NE LISEZ PAS encore les fichiers de documents**. Notez leurs chemins pour que les sous-agents de l'Étape 2 les analysent de manière contextuelle. Vous devez d'abord comprendre l'intention du produit avant que tout document ne vaille la peine d'être lu.
 - À partir de la description ou du déchargement d'idées de l'utilisateur (pas des docs), résumez votre compréhension du produit/idée.
 - Demandez : "Avez-vous d'autres documents, recherches ou réflexions que je devrais examiner ? Autre chose à ajouter avant que je ne commence ?"
 
 **Si l'utilisateur n'a rien fourni au-delà du simple appel de la compétence :**
+
 - Demandez de quoi traite son idée de produit ou de projet
 - Demandez s'il dispose de documents existants, de recherches, de rapports de brainstorming, ou d'autres supports
 - Laissez-le faire son "brain dump" — capturez tout
@@ -74,15 +77,16 @@ Vérifiez immédiatement le contexte d'activation :
 
 ## Étapes
 
-| # | Étape | Objectif | Prompt |
-|---|-------|----------|--------|
-| 1 | Comprendre l'Intention | Savoir de quoi traite le brief | SKILL.md (ci-dessus) |
-| 2 | Découverte Contextuelle | Lancer des sous-agents pour analyser les artefacts et la recherche web | `prompts/contextual-discovery.md` |
-| 3 | Élicitation Guidée | Combler les lacunes par un questionnement intelligent | `prompts/guided-elicitation.md` |
-| 4 | Rédaction & Revue | Rédiger le brief, lancer des sous-agents de revue | `prompts/draft-and-review.md` |
-| 5 | Finalisation | Peaufiner, exporter, proposer le distillat | `prompts/finalize.md` |
+| #   | Étape                   | Objectif                                                               | Prompt                            |
+| --- | ----------------------- | ---------------------------------------------------------------------- | --------------------------------- |
+| 1   | Comprendre l'Intention  | Savoir de quoi traite le brief                                         | SKILL.md (ci-dessus)              |
+| 2   | Découverte Contextuelle | Lancer des sous-agents pour analyser les artefacts et la recherche web | `prompts/contextual-discovery.md` |
+| 3   | Élicitation Guidée      | Combler les lacunes par un questionnement intelligent                  | `prompts/guided-elicitation.md`   |
+| 4   | Rédaction & Revue       | Rédiger le brief, lancer des sous-agents de revue                      | `prompts/draft-and-review.md`     |
+| 5   | Finalisation            | Peaufiner, exporter, proposer le distillat                             | `prompts/finalize.md`             |
 
 ## Compétences Externes
 
 Ce workflow utilise :
+
 - `bmad-init` — Chargement de la configuration (module : bmm)

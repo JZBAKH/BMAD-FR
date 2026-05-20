@@ -1,6 +1,6 @@
 ---
 name: bmad-quick-dev
-description: 'Implémente toute intention utilisateur, exigence, story, correction de bug ou demande de changement en produisant des artefacts de code propres et fonctionnels qui suivent l''architecture, les patterns et les conventions existants du projet. À utiliser quand l''utilisateur veut construire, corriger, ajuster, refactoriser, ajouter ou modifier tout code, composant ou fonctionnalité.'
+description: "Implémente toute intention utilisateur, exigence, story, correction de bug ou demande de changement en produisant des artefacts de code propres et fonctionnels qui suivent l'architecture, les patterns et les conventions existants du projet. À utiliser quand l'utilisateur veut construire, corriger, ajuster, refactoriser, ajouter ou modifier tout code, composant ou fonctionnalité."
 ---
 
 # Workflow Quick Dev New Preview

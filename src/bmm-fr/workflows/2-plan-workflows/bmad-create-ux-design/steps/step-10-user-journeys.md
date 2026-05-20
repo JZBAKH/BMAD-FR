@@ -62,6 +62,7 @@ Ces parcours nous disent **qui** sont les utilisateurs et **pourquoi** ils entre
 
 **Parcours critiques pour lesquels concevoir des flux :**
 En examinant les parcours du PRD, je dois concevoir des flux d'interaction détaillés pour :
+
 - [Parcours critique 1 identifié à partir des récits du PRD]
 - [Parcours critique 2 identifié à partir des récits du PRD]
 - [Parcours critique 3 identifié à partir des récits du PRD]
@@ -76,6 +77,7 @@ Pour chaque parcours critique, concevoir un flux détaillé :
 "Concevons le flux permettant aux utilisateurs d'accomplir [objectif du parcours].
 
 **Questions de conception de flux :**
+
 - Comment les utilisateurs commencent-ils ce parcours ? (point d'entrée)
 - De quelles informations ont-ils besoin à chaque étape ?
 - Quelles décisions doivent-ils prendre ?
@@ -90,6 +92,7 @@ Visualiser chaque parcours avec des diagrammes Mermaid :
 "Je vais créer des diagrammes de flux détaillés pour chaque parcours montrant :
 
 **Flux [Nom du Parcours] :**
+
 - Points d'entrée et déclencheurs.
 - Points de décision et embranchements.
 - Chemins de succès et d'échec.
@@ -103,6 +106,7 @@ Chaque diagramme cartographiera l'expérience utilisateur complète, du début �
 Affiner les flux pour une expérience utilisateur optimale :
 "**Optimisation des flux :**
 Pour chaque parcours, assurons-nous de :
+
 - Minimiser les étapes vers la valeur (amener les utilisateurs au succès rapidement).
 - Réduire la charge cognitive à chaque point de décision.
 - Fournir des indicateurs de progression et des feedbacks clairs.
@@ -110,6 +114,7 @@ Pour chaque parcours, assurons-nous de :
 - Gérer les cas limites (edge cases) et la récupération d'erreur avec élégance.
 
 **Optimisations spécifiques :**
+
 - [Optimisation 1 pour l'efficacité du parcours]
 - [Optimisation 2 pour l'enchantement de l'utilisateur]
 - [Optimisation 3 pour la gestion des erreurs]"
@@ -121,14 +126,17 @@ Extraire les modèles réutilisables à travers les parcours :
 À travers ces flux, j'identifie des modèles communs que nous pouvons standardiser :
 
 **Modèles de Navigation :**
+
 - [Modèle de navigation 1]
 - [Modèle de navigation 2]
 
 **Modèles de Décision :**
+
 - [Modèle de décision 1]
 - [Modèle de décision 2]
 
 **Modèles de Feedback :**
+
 - [Modèle de feedback 1]
 - [Modèle de feedback 2]
 
@@ -146,15 +154,19 @@ Lors de l'enregistrement dans le document, ajoutez ces sections de niveau 2 (##)
 ## Flux des Parcours Utilisateurs
 
 ### [Nom du Parcours 1]
+
 [Description du parcours 1 et diagramme Mermaid]
 
 ### [Nom du Parcours 2]
+
 [Description du parcours 2 et diagramme Mermaid]
 
 ### Modèles de Parcours (Journey Patterns)
+
 [Modèles de parcours identifiés selon la conversation]
 
 ### Principes d'Optimisation des Flux
+
 [Principes d'optimisation des flux basés sur la conversation]
 ```
 

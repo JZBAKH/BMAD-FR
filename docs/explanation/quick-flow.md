@@ -1,5 +1,5 @@
 ---
-title: "Quick Flow"
+title: 'Quick Flow'
 description: Fast-track for small changes - skip the full methodology
 sidebar:
   order: 1

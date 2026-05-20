@@ -62,33 +62,39 @@ Analyser un cahier des charges produit (PRD) non-standard et identifier les éca
 Pour chacune des 6 sections fondamentales du cahier des charges produit (PRD) BMAD, analyser :
 
 **Résumé exécutif :**
+
 - Le cahier des charges produit (PRD) a-t-il une vision/un aperçu ?
 - L'énoncé du problème est-il clair ?
 - Les utilisateurs cibles sont-ils identifiés ?
 - Écart : [Ce qui manque ou est incomplet]
 
 **Critères de réussite :**
+
 - Des objectifs mesurables sont-ils définis ?
 - Le succès est-il clairement défini ?
 - Écart : [Ce qui manque ou est incomplet]
 
 **Périmètre du produit :**
+
 - Le périmètre est-il clairement défini ?
 - Les éléments inclus dans le périmètre sont-ils listés ?
 - Les éléments hors périmètre sont-ils listés ?
 - Écart : [Ce qui manque ou est incomplet]
 
 **Parcours utilisateurs :**
+
 - Les types d'utilisateurs/personas sont-ils identifiés ?
 - Les flux utilisateurs sont-ils documentés ?
 - Écart : [Ce qui manque ou est incomplet]
 
 **Exigences fonctionnelles :**
+
 - Les fonctionnalités/capacités sont-elles listées ?
 - Les exigences sont-elles structurées ?
 - Écart : [Ce qui manque ou est incomplet]
 
 **Exigences non-fonctionnelles :**
+
 - Les attributs de qualité sont-ils définis ?
 - Les exigences de performance/sécurité/etc. sont-elles documentées ?
 - Écart : [Ce qui manque ou est incomplet]
@@ -98,11 +104,13 @@ Pour chacune des 6 sections fondamentales du cahier des charges produit (PRD) BM
 Pour chaque section manquante ou incomplète, estimer :
 
 **Niveau d'effort :**
+
 - Minimal - La section existe mais nécessite des améliorations mineures
 - Modéré - La section est manquante mais le contenu existe ailleurs dans le cahier des charges produit (PRD)
 - Significatif - La section est manquante, requiert la création de nouveau contenu
 
 **Effort total de parité :**
+
 - Basé sur les estimations de chaque section
 - Classer globalement : effort Rapide / Modéré / Substantiel
 
@@ -116,31 +124,37 @@ Ajouter au rapport de validation :
 ### Analyse section par section des écarts
 
 **Résumé exécutif :**
+
 - Statut : [Présent/Manquant/Incomplet]
 - Écart : [description spécifique de l'écart]
 - Effort à fournir : [Minimal/Modéré/Significatif]
 
 **Critères de réussite :**
+
 - Statut : [Présent/Manquant/Incomplet]
 - Écart : [description spécifique de l'écart]
 - Effort à fournir : [Minimal/Modéré/Significatif]
 
 **Périmètre du produit :**
+
 - Statut : [Présent/Manquant/Incomplet]
 - Écart : [description spécifique de l'écart]
 - Effort à fournir : [Minimal/Modéré/Significatif]
 
 **Parcours utilisateurs :**
+
 - Statut : [Présent/Manquant/Incomplet]
 - Écart : [description spécifique de l'écart]
 - Effort à fournir : [Minimal/Modéré/Significatif]
 
 **Exigences fonctionnelles :**
+
 - Statut : [Présent/Manquant/Incomplet]
 - Écart : [description spécifique de l'écart]
 - Effort à fournir : [Minimal/Modéré/Significatif]
 
 **Exigences non-fonctionnelles :**
+
 - Statut : [Présent/Manquant/Incomplet]
 - Écart : [description spécifique de l'écart]
 - Effort à fournir : [Minimal/Modéré/Significatif]

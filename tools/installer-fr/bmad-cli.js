@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const { program } = require('commander');
 const path = require('node:path');
 const fs = require('node:fs');
@@ -81,7 +79,7 @@ for (const file of commandFiles) {
 }
 
 // Set up main program
-program.version(packageJson.version).description('CLI BMAD Core — Framework universel d\'agents IA');
+program.version(packageJson.version).description("CLI BMAD Core — Framework universel d'agents IA");
 
 // Register all commands
 for (const [name, cmd] of Object.entries(commands)) {

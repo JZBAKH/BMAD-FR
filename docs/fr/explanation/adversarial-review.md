@@ -1,5 +1,5 @@
 ---
-title: "Revue Contradictoire"
+title: 'Revue Contradictoire'
 description: Technique de raisonnement forcée qui empêche les revues paresseuses du style "ça à l'air bon"
 sidebar:
   order: 7
@@ -9,7 +9,7 @@ Forcez une analyse plus approfondie en exigeant que des problèmes soient trouv�
 
 ## Qu'est-ce que la Revue Contradictoire ?
 
-Une technique de revue où le réviseur *doit* trouver des problèmes. Pas de "ça a l'air bon" autorisé. Le réviseur adopte une posture cynique - suppose que des problèmes existent et les trouve.
+Une technique de revue où le réviseur _doit_ trouver des problèmes. Pas de "ça a l'air bon" autorisé. Le réviseur adopte une posture cynique - suppose que des problèmes existent et les trouve.
 
 Il ne s'agit pas d'être négatif. Il s'agit de forcer une analyse authentique au lieu d'un coup d'œil superficiel qui valide automatiquement ce qui a été soumis.
 
@@ -30,7 +30,7 @@ La revue contradictoire apparaît dans tous les workflows BMad - revue de code, 
 
 ## Filtrage Humain Requis
 
-Parce que l'IA est *instruite* de trouver des problèmes, elle trouvera des problèmes - même lorsqu'ils n'existent pas. Attendez-vous à des faux positifs : des détails présentés comme des problèmes, des malentendus sur l'intention, ou des préoccupations purement hallucinées[^3].
+Parce que l'IA est _instruite_ de trouver des problèmes, elle trouvera des problèmes - même lorsqu'ils n'existent pas. Attendez-vous à des faux positifs : des détails présentés comme des problèmes, des malentendus sur l'intention, ou des préoccupations purement hallucinées[^3].
 
 **C'est vous qui décidez ce qui est réel.** Examinez chaque constatation, ignorez le bruit, corrigez ce qui compte.
 
@@ -61,6 +61,9 @@ Supposez que des problèmes existent. Cherchez ce qui manque, pas seulement ce q
 ## Glossaire
 
 [^1]: **Biais de confirmation** : tendance cognitive à rechercher, interpréter et favoriser les informations qui confirment nos croyances préexistantes, tout en ignorant ou minimisant celles qui les contredisent.
+
 [^2]: **Asymétrie d'information** : situation où une partie dispose de plus ou de meilleures informations qu'une autre, conduisant potentiellement à des décisions ou jugements biaisés.
+
 [^3]: **Hallucination (IA)** : phénomène où un modèle d'IA génère des informations plausibles mais factuellement incorrectes ou inventées, présentées avec confiance comme si elles étaient vraies.
+
 [^4]: **Rendements décroissants** : principe selon lequel l'augmentation continue d'un investissement (temps, effort, ressources) finit par produire des bénéfices de plus en plus faibles proportionnellement.

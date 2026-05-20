@@ -1,14 +1,14 @@
-# Schémas JSON du mode Headless
+# Schémas JSON du Mode Headless
 
-Chaque exécution headless se termine par l'un de ces payloads. Omets les clés pour les artefacts non produits.
+Chaque exécution headless se termine par l'un de ces payloads. Omettre les clés pour les artefacts non produits.
 
 ## Champs communs
 
 - `status` — `"complete"`, `"blocked"`, ou `"partial"`
 - `intent` — `"create"`, `"update"`, ou `"validate"` (correspond à l'intention détectée)
-- `reason` — requis quand `status` est `"blocked"` ; explication d'une phrase
-- `assumptions` — tableau de valeurs inférées qui n'ont pas été directement confirmées par les entrées
-- `open_questions` — tableau d'items qui nécessitent une décision humaine avant que l'artefact puisse être considéré comme final
+- `reason` — requis lorsque `status` vaut `"blocked"` ; explication en une phrase
+- `assumptions` — tableau des valeurs inférées qui n'ont pas été directement confirmées par les entrées
+- `open_questions` — tableau des éléments nécessitant une décision humaine avant que l'artefact puisse être considéré comme final
 
 ## Create
 
@@ -18,11 +18,11 @@ Chaque exécution headless se termine par l'un de ces payloads. Omets les clés 
   "intent": "create",
   "prd": "{doc_workspace}/prd.md",
   "addendum": "{doc_workspace}/addendum.md",
-  "decision_log": "{doc_workspace}/decision-log.md",
+  "decision_log": "{doc_workspace}/.decision-log.md",
   "open_questions": [],
   "assumptions": [],
   "external_handoffs": [
-    {"directive": "Confluence upload", "tool": "corp:confluence_upload", "url": "https://confluence.corp/PROD/123", "status": "ok"}
+    { "directive": "Confluence upload", "tool": "corp:confluence_upload", "url": "https://confluence.corp/PROD/123", "status": "ok" }
   ]
 }
 ```
@@ -34,12 +34,12 @@ Chaque exécution headless se termine par l'un de ces payloads. Omets les clés 
   "status": "complete",
   "intent": "update",
   "prd": "{doc_workspace}/prd.md",
-  "decision_log": "{doc_workspace}/decision-log.md",
+  "decision_log": "{doc_workspace}/.decision-log.md",
   "changes_summary": "1-3 sentences describing what changed and why",
   "conflicts_with_prior_decisions": [],
   "open_questions": [],
   "external_handoffs": [
-    {"directive": "Confluence upload", "tool": "corp:confluence_upload", "url": "https://confluence.corp/PROD/123", "status": "ok"}
+    { "directive": "Confluence upload", "tool": "corp:confluence_upload", "url": "https://confluence.corp/PROD/123", "status": "ok" }
   ]
 }
 ```
@@ -61,7 +61,7 @@ Chaque exécution headless se termine par l'un de ces payloads. Omets les clés 
 }
 ```
 
-`validation_report` est toujours écrit pour l'intention Validate — le chemin ici est requis, non optionnel.
+`validation_report` est toujours écrit pour l'intention Validate — le chemin ici est obligatoire, non optionnel.
 
 ## Blocked
 
@@ -73,4 +73,4 @@ Chaque exécution headless se termine par l'un de ces payloads. Omets les clés 
 }
 ```
 
-Inclus toujours l'intention (meilleure supposition si pas certain) et un `reason` d'une phrase.
+Inclure toujours l'intention (au mieux estimée si incertaine) et un `reason` en une phrase.

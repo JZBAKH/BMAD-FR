@@ -1,13 +1,6 @@
 {
   "generatedAt": "2026-05-14 17:11:29 UTC",
-  "missingModules": [
-    "bmm",
-    "core",
-    "utility",
-    "bmc",
-    "cis",
-    "bmb"
-  ],
+  "missingModules": ["bmm", "core", "utility", "bmc", "cis", "bmb"],
   "reports": [
     {
       "module": "bmm-skills",

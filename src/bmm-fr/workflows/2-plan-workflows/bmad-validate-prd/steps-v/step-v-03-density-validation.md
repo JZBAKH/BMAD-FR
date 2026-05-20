@@ -1,6 +1,6 @@
 ---
 name: 'step-v-03-density-validation'
-description: 'Vérification de la densité de l''information - Scanner à la recherche d''anti-patterns qui violent les principes de densité de l''information'
+description: "Vérification de la densité de l'information - Scanner à la recherche d'anti-patterns qui violent les principes de densité de l'information"
 
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
 nextStepFile: './step-v-04-brief-coverage-validation.md'
@@ -78,6 +78,7 @@ Retourner des constats structurés avec les comptes et exemples."
 Si l'outil Task est indisponible, effectuer l'analyse directement :
 
 **Scanner les modèles de remplissage conversationnel :**
+
 - "The system will allow users to..."
 - "It is important to note that..."
 - "In order to"
@@ -86,6 +87,7 @@ Si l'outil Task est indisponible, effectuer l'analyse directement :
 - Compter les occurrences et noter les numéros de ligne
 
 **Scanner les phrases verbeuses :**
+
 - "Due to the fact that" (utiliser "because")
 - "In the event of" (utiliser "if")
 - "At this point in time" (utiliser "now")
@@ -93,6 +95,7 @@ Si l'outil Task est indisponible, effectuer l'analyse directement :
 - Compter les occurrences et noter les numéros de ligne
 
 **Scanner les phrases redondantes :**
+
 - "Future plans" (juste "plans")
 - "Past history" (juste "history")
 - "Absolutely essential" (juste "essential")
@@ -102,12 +105,14 @@ Si l'outil Task est indisponible, effectuer l'analyse directement :
 ### 3. Classifier la gravité
 
 **Calculer le total des violations :**
+
 - Compte du remplissage conversationnel
 - Compte des phrases verbeuses
 - Compte des phrases redondantes
 - Total = somme de toutes les catégories
 
 **Déterminer la gravité :**
+
 - **Critique :** Total > 10 violations
 - **Avertissement :** Total 5-10 violations
 - **Réussite :** Total < 5 violations

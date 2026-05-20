@@ -1,5 +1,5 @@
 ---
-title: "Quick Dev"
+title: 'Quick Dev'
 description: Snižte tření human-in-the-loop bez ztráty kontrolních bodů chránících kvalitu výstupu
 sidebar:
   order: 2

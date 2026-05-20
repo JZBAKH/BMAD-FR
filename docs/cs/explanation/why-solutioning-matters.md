@@ -1,5 +1,5 @@
 ---
-title: "Proč je solutioning důležitý"
+title: 'Proč je solutioning důležitý'
 description: Pochopení toho, proč je fáze solutioningu klíčová pro projekty s více epicy
 sidebar:
   order: 3
@@ -29,20 +29,21 @@ Explicitní dokumentací technických rozhodnutí všichni agenti implementují 
 
 ## Solutioning vs. plánování
 
-| Aspekt   | Plánování (Fáze 2)      | Solutioning (Fáze 3)             |
-| -------- | ----------------------- | --------------------------------- |
-| Otázka   | Co a proč?              | Jak? Pak jaké jednotky práce?     |
-| Výstup   | FR/NFR (požadavky)      | Architektura + epicy/stories      |
-| Agent    | PM                      | Architect → PM                    |
-| Publikum | Zainteresované strany   | Vývojáři                          |
-| Dokument | PRD (FR/NFR)            | Architektura + soubory epiců      |
-| Úroveň   | Obchodní logika        | Technický design + rozklad práce  |
+| Aspekt   | Plánování (Fáze 2)    | Solutioning (Fáze 3)             |
+| -------- | --------------------- | -------------------------------- |
+| Otázka   | Co a proč?            | Jak? Pak jaké jednotky práce?    |
+| Výstup   | FR/NFR (požadavky)    | Architektura + epicy/stories     |
+| Agent    | PM                    | Architect → PM                   |
+| Publikum | Zainteresované strany | Vývojáři                         |
+| Dokument | PRD (FR/NFR)          | Architektura + soubory epiců     |
+| Úroveň   | Obchodní logika       | Technický design + rozklad práce |
 
 ## Klíčový princip
 
 **Učiňte technická rozhodnutí explicitní a zdokumentovaná**, aby všichni agenti implementovali konzistentně.
 
 Toto zabraňuje:
+
 - Konfliktům stylu API (REST vs GraphQL)
 - Nekonzistencím v návrhu databáze
 - Neshodám v řízení stavu
@@ -51,12 +52,12 @@ Toto zabraňuje:
 
 ## Kdy je solutioning vyžadován
 
-| Cesta | Solutioning vyžadován? |
-|-------|----------------------|
-| Quick Flow | Ne — přeskočte úplně |
-| BMad Method Simple | Volitelný |
-| BMad Method Complex | Ano |
-| Enterprise | Ano |
+| Cesta               | Solutioning vyžadován? |
+| ------------------- | ---------------------- |
+| Quick Flow          | Ne — přeskočte úplně   |
+| BMad Method Simple  | Volitelný              |
+| BMad Method Complex | Ano                    |
+| Enterprise          | Ano                    |
 
 :::tip[Pravidlo palce]
 Pokud máte více epiců, které by mohly být implementovány různými agenty, potřebujete solutioning.

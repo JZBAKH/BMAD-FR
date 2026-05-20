@@ -21,14 +21,23 @@ const PROJECT_ROOT_REF = /\{project-root\}\/_bmad\/([a-z][a-z0-9-]*)\/([^\s"'`)]
 // Variables that may legitimately appear inside paths and that we should not
 // expand. If a reference contains one of these, we consider the path dynamic
 // and skip the existence check.
-const DYNAMIC_TOKENS = ['{{', '{output_folder}', '{communication_language}', '{user_name}', '{value}', '{project_name}', '{planning_artifacts}', '{implementation_artifacts}', '{project_knowledge}', '{directory_name}'];
+const DYNAMIC_TOKENS = [
+  '{{',
+  '{output_folder}',
+  '{communication_language}',
+  '{user_name}',
+  '{value}',
+  '{project_name}',
+  '{planning_artifacts}',
+  '{implementation_artifacts}',
+  '{project_knowledge}',
+  '{directory_name}',
+];
 
 // Files that are generated post-installation by the installer and therefore do
 // not exist in the source tree. References to these are intentional contracts,
 // not broken links.
-const POST_INSTALL_GENERATED = new Set([
-  'config.yaml',
-]);
+const POST_INSTALL_GENERATED = new Set(['config.yaml']);
 
 function isDynamic(rawPath) {
   return DYNAMIC_TOKENS.some((tok) => rawPath.includes(tok));
@@ -36,7 +45,10 @@ function isDynamic(rawPath) {
 
 function isPostInstallGenerated(subPath) {
   // E.g. "core/config.yaml" or "bmm/config.yaml"
-  const last = subPath.replace(/[#?].*$/, '').split('/').pop();
+  const last = subPath
+    .replace(/[#?].*$/, '')
+    .split('/')
+    .pop();
   return POST_INSTALL_GENERATED.has(last);
 }
 
@@ -61,10 +73,12 @@ function run() {
   for (const root of FR_ROOTS) {
     const fullRoot = path.join(REPO_ROOT, root);
     if (!fs.existsSync(fullRoot)) continue;
-    allTextFiles.push(...walk(fullRoot, {
-      extensions: ['.md', '.yaml', '.yml', '.csv', '.txt'],
-      base: REPO_ROOT,
-    }));
+    allTextFiles.push(
+      ...walk(fullRoot, {
+        extensions: ['.md', '.yaml', '.yml', '.csv', '.txt'],
+        base: REPO_ROOT,
+      }),
+    );
   }
 
   let totalRefs = 0;
@@ -114,19 +128,24 @@ function run() {
     }
   }
 
-  runner.info(`Refs analysées : ${totalRefs} | dynamiques : ${skippedDynamic} | post-install : ${skippedPostInstall} | déjà cassées upstream : ${skippedUpstreamAlsoBroken}`);
+  runner.info(
+    `Refs analysées : ${totalRefs} | dynamiques : ${skippedDynamic} | post-install : ${skippedPostInstall} | déjà cassées upstream : ${skippedUpstreamAlsoBroken}`,
+  );
 
   runner.test(`au moins une référence trouvée (audit non vide)`, () => {
-    runner.assert(totalRefs > 0, 'aucune référence {project-root}/_bmad/... trouvée — l\'audit est-il bien câblé ?');
+    runner.assert(totalRefs > 0, "aucune référence {project-root}/_bmad/... trouvée — l'audit est-il bien câblé ?");
   });
 
   runner.test(`aucune référence cassée par la traduction (${brokenRefs.length} cas)`, () => {
     if (brokenRefs.length === 0) return;
-    const sample = brokenRefs.slice(0, 10)
+    const sample = brokenRefs
+      .slice(0, 10)
       .map((b) => `  • ${b.source} → ${b.ref} (cherche ${b.expected})`)
       .join('\n');
     const more = brokenRefs.length > 10 ? `\n  • ... et ${brokenRefs.length - 10} autre(s)` : '';
-    throw new Error(`${brokenRefs.length} référence(s) cassée(s) qui pointent vers des fichiers existants côté upstream mais absents côté FR :\n${sample}${more}`);
+    throw new Error(
+      `${brokenRefs.length} référence(s) cassée(s) qui pointent vers des fichiers existants côté upstream mais absents côté FR :\n${sample}${more}`,
+    );
   });
 }
 

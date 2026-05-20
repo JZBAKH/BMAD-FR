@@ -56,6 +56,7 @@ Rechercher les stratégies de marché actuelles :
 Rechercher sur le web : "meilleures pratiques stratégies entrée marché"
 
 **Focus stratégique :**
+
 - Timing et approches d'entrée sur le marché.
 - Stratégies et cadres de mise sur le marché (Go-to-Market).
 - Tactiques de positionnement et de différenciation.
@@ -67,6 +68,7 @@ Rechercher les approches de risque actuelles :
 Rechercher sur le web : "cadres évaluation des risques étude de marché"
 
 **Focus sur les risques :**
+
 - Risques de marché et gestion de l'incertitude.
 - Menaces concurrentielles et stratégies d'atténuation.
 - Risques réglementaires et de conformité.
@@ -119,9 +121,11 @@ _Source : [URL]_
 - **Couverture géographique** : [Portée régionale ou mondiale]
 
 ### Objectifs de l'Étude de Marché
+
 **Objectifs initiaux :** {{research_goals}}
 
 **Objectifs atteints :**
+
 - [Réalisation de l'objectif 1 avec preuves à l'appui]
 - [Réalisation de l'objectif 2 avec preuves à l'appui]
 - [Insights additionnels découverts lors de la recherche]

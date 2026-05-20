@@ -1,6 +1,6 @@
 ---
 name: bmad-generate-project-context
-description: 'Créer project-context.md avec les règles IA. À utiliser lorsque l''utilisateur dit « générer le contexte du projet » ou « créer le contexte du projet »'
+description: "Créer project-context.md avec les règles IA. À utiliser lorsque l'utilisateur dit « générer le contexte du projet » ou « créer le contexte du projet »"
 ---
 
 # Workflow Generate Project Context
@@ -51,6 +51,7 @@ Traiter chaque entrée dans `{workflow.persistent_facts}` comme contexte fondame
 ### Step 4 : Charger la Configuration
 
 Charger la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résoudre :
+
 - Utiliser `{user_name}` pour la salutation
 - Utiliser `{communication_language}` pour toutes les communications
 - Utiliser `{document_output_language}` pour les documents de sortie

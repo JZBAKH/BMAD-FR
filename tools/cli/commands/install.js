@@ -11,19 +11,19 @@ module.exports = {
   description: 'Installer les agents et outils BMAD Core',
   options: [
     ['-d, --debug', 'Activer la sortie debug pour la génération du manifeste'],
-    ['--directory <path>', 'Répertoire d\'installation (par défaut : répertoire courant)'],
+    ['--directory <path>', "Répertoire d'installation (par défaut : répertoire courant)"],
     ['--modules <modules>', 'Liste d\'identifiants de modules à installer, séparés par des virgules (ex. : "bmm,bmb")'],
     [
       '--tools <tools>',
       'Liste d\'identifiants d\'outils/IDE à configurer, séparés par des virgules (ex. : "claude-code,cursor"). Utiliser "none" pour ignorer la configuration des outils.',
     ],
     ['--custom-content <paths>', 'Liste de chemins vers des modules/agents/workflows personnalisés, séparés par des virgules'],
-    ['--action <type>', 'Type d\'action pour les installations existantes : install, update, quick-update, ou compile-agents'],
+    ['--action <type>', "Type d'action pour les installations existantes : install, update, quick-update, ou compile-agents"],
     ['--user-name <name>', 'Nom utilisé par les agents (par défaut : nom utilisateur système)'],
     ['--communication-language <lang>', 'Langue de communication des agents (par défaut : English)'],
     ['--document-output-language <lang>', 'Langue de sortie des documents (par défaut : English)'],
     ['--output-folder <path>', 'Chemin du dossier de sortie relatif à la racine du projet (par défaut : _bmad-output)'],
-    ['-y, --yes', 'Accepter toutes les valeurs par défaut et ignorer les invites quand c\'est possible'],
+    ['-y, --yes', "Accepter toutes les valeurs par défaut et ignorer les invites quand c'est possible"],
   ],
   action: async (options) => {
     try {
@@ -45,7 +45,9 @@ module.exports = {
       if (config.actionType === 'quick-update') {
         const result = await installer.quickUpdate(config);
         await prompts.log.success('Mise à jour rapide terminée !');
-        await prompts.log.info(`${result.moduleCount} module(s) mis à jour avec préservation des paramètres (${result.modules.join(', ')})`);
+        await prompts.log.info(
+          `${result.moduleCount} module(s) mis à jour avec préservation des paramètres (${result.modules.join(', ')})`,
+        );
         process.exit(0);
       }
 

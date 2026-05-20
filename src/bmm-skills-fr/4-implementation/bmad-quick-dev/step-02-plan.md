@@ -41,7 +41,6 @@ HALT et demandez à l'humain : `[A] Approuver` | `[E] Éditer`
   - **Si le fichier existe :** Comparez le contenu à ce que vous avez écrit. S'il a changé depuis votre écriture, reconnaissez les éditions externes — affichez un bref résumé de ce qui a changé — et procédez avec la version mise à jour. Puis définissez le statut `ready-for-dev` dans `{spec_file}`. Tout ce qui est à l'intérieur de `<frozen-after-approval>` est maintenant verrouillé — seul l'humain peut le modifier. → Étape 3.
 - **E** : Appliquez les changements, puis revenez au CHECKPOINT 1.
 
-
 ## SUIVANT
 
 Lisez intégralement et suivez `./step-03-implement.md`

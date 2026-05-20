@@ -801,7 +801,9 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
       const bmadFiles = entries.filter((e) => typeof e === 'string' && e.startsWith('bmad'));
 
       if (bmadFiles.length > 0 && !options.silent) {
-        await prompts.log.warn(`${bmadFiles.length} fichier(s) BMAD obsolète(s) trouvé(s) dans ${expanded}. À supprimer manuellement : rm ${expanded}/bmad-*`);
+        await prompts.log.warn(
+          `${bmadFiles.length} fichier(s) BMAD obsolète(s) trouvé(s) dans ${expanded}. À supprimer manuellement : rm ${expanded}/bmad-*`,
+        );
       }
     } catch {
       // Errors reading global paths are silently ignored
@@ -920,7 +922,7 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
     try {
       config = yaml.parse(content) || {};
     } catch {
-      if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'analyser .kilocodemodes pour le nettoyage');
+      if (!options.silent) await prompts.log.warn("  Avertissement : impossible d'analyser .kilocodemodes pour le nettoyage");
       return;
     }
 
@@ -935,7 +937,7 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
         await fs.writeFile(kiloModesPath, yaml.stringify(config, { lineWidth: 0 }));
         if (!options.silent) await prompts.log.message(`  ${removedCount} mode(s) BMAD supprimé(s) de .kilocodemodes`);
       } catch {
-        if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'écrire .kilocodemodes lors du nettoyage');
+        if (!options.silent) await prompts.log.warn("  Avertissement : impossible d'écrire .kilocodemodes lors du nettoyage");
       }
     }
   }
@@ -957,7 +959,7 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
     try {
       config = yaml.parse(content) || {};
     } catch {
-      if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'analyser prompts.yml pour le nettoyage');
+      if (!options.silent) await prompts.log.warn("  Avertissement : impossible d'analyser prompts.yml pour le nettoyage");
       return;
     }
 
@@ -976,7 +978,7 @@ LOAD and execute from: {project-root}/{{bmadFolderName}}/{{path}}
         }
         if (!options.silent) await prompts.log.message(`  ${removedCount} entrée(s) BMAD supprimée(s) de prompts.yml`);
       } catch {
-        if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'écrire prompts.yml lors du nettoyage');
+        if (!options.silent) await prompts.log.warn("  Avertissement : impossible d'écrire prompts.yml lors du nettoyage");
       }
     }
   }

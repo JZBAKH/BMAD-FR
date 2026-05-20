@@ -2,7 +2,7 @@
 # Expected: FAIL
 # Error code: custom
 # Error path: agent.menu[0].trigger
-# Error message: agent.menu[].trigger must be kebab-case (lowercase words separated by hyphen)
+# Error message: agent.menu[].trigger doit être en kebab-case (mots en minuscules séparés par tiret)
 
 agent:
   metadata:

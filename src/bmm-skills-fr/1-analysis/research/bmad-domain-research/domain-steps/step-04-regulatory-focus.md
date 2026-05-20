@@ -56,6 +56,7 @@ Rechercher des informations réglementaires actuelles :
 Rechercher sur le web : "réglementations {{research_topic}} exigences conformité"
 
 **Focus réglementaire :**
+
 - Réglementations spécifiques applicables au domaine.
 - Cadres et normes de conformité.
 - Changements ou mises à jour réglementaires récents.
@@ -67,6 +68,7 @@ Rechercher les normes industrielles actuelles :
 Rechercher sur le web : "normes {{research_topic}} meilleures pratiques"
 
 **Focus sur les normes :**
+
 - Normes techniques spécifiques à l'industrie.
 - Meilleures pratiques et directives.
 - Exigences de certification.
@@ -78,6 +80,7 @@ Rechercher les réglementations actuelles sur la vie privée :
 Rechercher sur le web : "réglementations protection données {{research_topic}}RGPD"
 
 **Focus sur la vie privée :**
+
 - RGPD, CCPA et autres lois sur la protection des données.
 - Exigences de confidentialité spécifiques à l'industrie.
 - Normes de gouvernance et de sécurité des données.

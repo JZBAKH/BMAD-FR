@@ -1,6 +1,6 @@
 ---
 name: bmad-create-ux-design
-description: 'Planifier les patterns UX et les spécifications de design. À utiliser lorsque l''utilisateur dit « créons un design UX » ou « créer des spécifications UX » ou « aide-moi à planifier l''UX »'
+description: "Planifier les patterns UX et les spécifications de design. À utiliser lorsque l'utilisateur dit « créons un design UX » ou « créer des spécifications UX » ou « aide-moi à planifier l'UX »"
 ---
 
 # Workflow Create UX Design
@@ -48,6 +48,7 @@ Traiter chaque entrée dans `{workflow.persistent_facts}` comme contexte fondame
 ### Step 4 : Charger la Configuration
 
 Charger la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résoudre :
+
 - Utiliser `{user_name}` pour la salutation
 - Utiliser `{communication_language}` pour toutes les communications
 - Utiliser `{document_output_language}` pour les documents de sortie

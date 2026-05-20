@@ -16,7 +16,12 @@ function findProjectRoot(startPath = __dirname) {
       try {
         const pkg = fs.readJsonSync(packagePath);
         // MODIFICATION FR : Ajout de la détection bmad-fr et core-fr
-        if (pkg.name === 'bmad-method' || pkg.name === 'bmad-fr' || fs.existsSync(path.join(currentPath, 'src', 'core')) || fs.existsSync(path.join(currentPath, 'src', 'core-fr'))) {
+        if (
+          pkg.name === 'bmad-method' ||
+          pkg.name === 'bmad-fr' ||
+          fs.existsSync(path.join(currentPath, 'src', 'core')) ||
+          fs.existsSync(path.join(currentPath, 'src', 'core-fr'))
+        ) {
           return currentPath;
         }
       } catch {
@@ -25,7 +30,10 @@ function findProjectRoot(startPath = __dirname) {
     }
 
     // MODIFICATION FR : Marqueur des agents FR
-    if (fs.existsSync(path.join(currentPath, 'src', 'core', 'agents')) || fs.existsSync(path.join(currentPath, 'src', 'core-fr', 'agents'))) {
+    if (
+      fs.existsSync(path.join(currentPath, 'src', 'core', 'agents')) ||
+      fs.existsSync(path.join(currentPath, 'src', 'core-fr', 'agents'))
+    ) {
       return currentPath;
     }
 

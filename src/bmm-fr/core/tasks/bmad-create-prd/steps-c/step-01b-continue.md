@@ -66,27 +66,28 @@ Passez en revue le frontmatter pour comprendre :
 
 Utilisez la séquence ordonnée suivante pour déterminer l'étape suivante à partir de la dernière étape terminée :
 
-| Dernière Étape Terminée | Étape Suivante |
-|---|---|
-| step-01-init.md | step-02-discovery.md |
-| step-02-discovery.md | step-02b-vision.md |
-| step-02b-vision.md | step-02c-executive-summary.md |
-| step-02c-executive-summary.md | step-03-success.md |
-| step-03-success.md | step-04-journeys.md |
-| step-04-journeys.md | step-05-domain.md |
-| step-05-domain.md | step-06-innovation.md |
-| step-06-innovation.md | step-07-project-type.md |
-| step-07-project-type.md | step-08-scoping.md |
-| step-08-scoping.md | step-09-functional.md |
-| step-09-functional.md | step-10-nonfunctional.md |
-| step-10-nonfunctional.md | step-11-polish.md |
-| step-11-polish.md | step-12-complete.md |
+| Dernière Étape Terminée       | Étape Suivante                |
+| ----------------------------- | ----------------------------- |
+| step-01-init.md               | step-02-discovery.md          |
+| step-02-discovery.md          | step-02b-vision.md            |
+| step-02b-vision.md            | step-02c-executive-summary.md |
+| step-02c-executive-summary.md | step-03-success.md            |
+| step-03-success.md            | step-04-journeys.md           |
+| step-04-journeys.md           | step-05-domain.md             |
+| step-05-domain.md             | step-06-innovation.md         |
+| step-06-innovation.md         | step-07-project-type.md       |
+| step-07-project-type.md       | step-08-scoping.md            |
+| step-08-scoping.md            | step-09-functional.md         |
+| step-09-functional.md         | step-10-nonfunctional.md      |
+| step-10-nonfunctional.md      | step-11-polish.md             |
+| step-11-polish.md             | step-12-complete.md           |
 
 1. Récupérez le dernier élément du tableau `stepsCompleted`
 2. Cherchez-le dans le tableau ci-dessus pour trouver l'étape suivante
 3. C'est l'étape suivante à charger !
 
 **Exemple :**
+
 - Si `stepsCompleted = ["step-01-init.md", "step-02-discovery.md", "step-03-success.md"]`
 - Le dernier élément est `"step-03-success.md"`
 - Recherche dans le tableau → la prochaine étape est `./step-04-journeys.md`
@@ -112,11 +113,13 @@ Qu'est-ce qui vous serait le plus utile ?"
 "Bon retour {{user_name}} ! Je reprends notre collaboration sur le PRD pour {{project_name}}.
 
 **Progression Actuelle :**
+
 - Dernière étape terminée : {dernier nom de fichier d'étape du tableau stepsCompleted}
 - Prochaine étape : {étape suivante selon le tableau de recherche}
 - Documents de contexte disponibles : {len(inputDocuments)} fichiers
 
 **Statut du Document :**
+
 - Le document PRD actuel est prêt avec toutes les sections terminées
 - Prêt à continuer là où nous nous sommes arrêtés
 

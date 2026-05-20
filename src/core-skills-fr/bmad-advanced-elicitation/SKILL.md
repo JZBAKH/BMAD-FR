@@ -1,6 +1,6 @@
 ---
 name: bmad-advanced-elicitation
-description: 'Pousse le LLM à reconsidérer, raffiner, et améliorer sa sortie récente. À utiliser quand l''utilisateur demande une critique plus approfondie ou mentionne une méthode de critique connue plus profonde, par ex. socratique, premiers principes, pré-mortem, red team.'
+description: "Pousse le LLM à reconsidérer, raffiner, et améliorer sa sortie récente. À utiliser quand l'utilisateur demande une critique plus approfondie ou mentionne une méthode de critique connue plus profonde, par ex. socratique, premiers principes, pré-mortem, red team."
 ---
 
 # Élicitation Avancée

@@ -51,6 +51,7 @@ Traite chaque entrée de `{workflow.persistent_facts}` comme un contexte fondate
 ### Étape 4 : Charger la Configuration
 
 Charge la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résous :
+
 - Utilise `{user_name}` pour la salutation
 - Utilise `{communication_language}` pour toutes les communications
 - Utilise `{document_output_language}` pour les documents en sortie
@@ -72,10 +73,12 @@ L'activation est complète. Continuer ci-dessous.
 1. **Détection de reprise :** Vérifier si `{planning_artifacts}/prfaq-{project_name}.md` existe déjà. Si oui, lire uniquement les 20 premières lignes pour extraire le champ `stage` du frontmatter et proposer une reprise depuis l'étape suivante. Ne pas lire le document complet. Si l'utilisateur confirme, router directement vers le fichier de référence de cette étape.
 
 2. **Détection de mode :**
+
 - `--headless` / `-H` : Produit un premier brouillon de PRFAQ complet à partir des entrées fournies, sans interaction. Valide uniquement le schéma d'entrée (client, problème, enjeux, concept de solution présents et non vagues) — ne lis aucun fichier ou document référencé toi-même. Si des champs requis sont manquants ou trop vagues, retourne une erreur avec des indications spécifiques sur ce qui est nécessaire. Lance en parallèle les sous-agents artifact analyzer et web researcher (voir Recueil contextuel ci-dessous) pour traiter tous les matériaux référencés, puis crée le document de sortie à `{planning_artifacts}/prfaq-{project_name}.md` en utilisant `./assets/prfaq-template.md` et route vers `./references/press-release.md`.
 - Par défaut : Coaching interactif complet — le gauntlet.
 
 **Schéma d'entrée headless :**
+
 - **Requis :** customer (persona spécifique), problem (concret), stakes (pourquoi c'est important), solution (concept)
 - **Optionnel :** contexte concurrentiel, contraintes techniques, contexte d'équipe/d'organisation, marché cible, recherches existantes
 
@@ -100,6 +103,7 @@ Quand l'utilisateur est bloqué, propose des suggestions concrètes basées sur 
 **Détection du type de concept :** Tôt dans la conversation, identifie s'il s'agit d'un produit commercial, d'un outil interne, d'un projet open-source, ou d'une initiative communautaire/à but non lucratif. Stocke cela comme `{concept_type}` — cela calibre la génération des questions FAQ aux Étapes 3 et 4. Les concepts non commerciaux n'ont pas d'« unit economics » ni de « 100 premiers clients » — adapte le cadrage à la valeur stakeholder, aux chemins d'adoption et à la pérennité.
 
 **Essentiels à capturer avant de progresser :**
+
 - Qui est le client/utilisateur ? (persona spécifique, pas « tout le monde »)
 - Quel est son problème ? (concret et ressenti, pas abstrait)
 - Pourquoi est-ce important pour lui ? (enjeux et conséquences)
@@ -126,10 +130,10 @@ Quand l'utilisateur est bloqué, propose des suggestions concrètes basées sur 
 
 ## Étapes
 
-| # | Étape | Objectif | Emplacement |
-|---|-------|----------|-------------|
-| 1 | Ignition | Concept brut, mise en application de la pensée customer-first | SKILL.md (ci-dessus) |
-| 2 | Le Communiqué de Presse | Rédaction itérative avec coaching exigeant | `./references/press-release.md` |
-| 3 | Customer FAQ | Questions clients « avocat du diable » | `./references/customer-faq.md` |
-| 4 | Internal FAQ | Questions stakeholder sceptiques | `./references/internal-faq.md` |
-| 5 | Le Verdict | Synthèse, évaluation de solidité, sortie finale | `./references/verdict.md` |
+| #   | Étape                   | Objectif                                                      | Emplacement                     |
+| --- | ----------------------- | ------------------------------------------------------------- | ------------------------------- |
+| 1   | Ignition                | Concept brut, mise en application de la pensée customer-first | SKILL.md (ci-dessus)            |
+| 2   | Le Communiqué de Presse | Rédaction itérative avec coaching exigeant                    | `./references/press-release.md` |
+| 3   | Customer FAQ            | Questions clients « avocat du diable »                        | `./references/customer-faq.md`  |
+| 4   | Internal FAQ            | Questions stakeholder sceptiques                              | `./references/internal-faq.md`  |
+| 5   | Le Verdict              | Synthèse, évaluation de solidité, sortie finale               | `./references/verdict.md`       |

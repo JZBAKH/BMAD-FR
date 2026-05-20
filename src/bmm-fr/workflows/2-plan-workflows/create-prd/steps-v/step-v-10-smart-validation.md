@@ -63,6 +63,7 @@ Valider que les Exigences Fonctionnelles répondent aux critères de qualité SM
 ### 1. Extraire toutes les Exigences Fonctionnelles
 
 Depuis la section Exigences Fonctionnelles du PRD, extrayez :
+
 - Toutes les EF avec leurs numéros (EF-001, EF-002, etc.).
 - Comptez le nombre total d'EF.
 
@@ -77,36 +78,43 @@ Depuis la section Exigences Fonctionnelles du PRD, extrayez :
 **Pour chaque EF, notez sur les critères SMART (échelle de 1 à 5) :**
 
 **Spécificité (1-5) :**
+
 - 5 : Claire, sans ambiguïté, bien définie.
 - 3 : Assez claire mais pourrait être plus spécifique.
 - 1 : Vague, ambiguë, peu claire.
 
 **Mesurabilité (1-5) :**
+
 - 5 : Métriques quantifiables, testable.
 - 3 : Partiellement mesurable.
 - 1 : Non mesurable, subjectif.
 
 **Atteignabilité (1-5) :**
+
 - 5 : Réaliste, réalisable dans les limites des contraintes.
 - 3 : Probablement réalisable mais incertain.
 - 1 : Irréaliste, techniquement infaisable.
 
 **Pertinence (1-5) :**
+
 - 5 : Clairement alignée sur les besoins utilisateurs et les objectifs métier.
 - 3 : Quelque peu pertinente mais lien peu clair.
 - 1 : Non pertinente, ne s'aligne pas sur les objectifs.
 
 **Traçabilité (1-5) :**
+
 - 5 : Remonte clairement à un parcours utilisateur ou un objectif métier.
 - 3 : Partiellement traçable.
 - 1 : Exigence orpheline, pas de source claire.
 
 **Pour chaque EF avec un score < 3 dans n'importe quelle catégorie :**
+
 - Fournissez des suggestions d'amélioration spécifiques.
 
 Retourner le tableau de notation avec tous les scores d'EF et les suggestions d'amélioration pour les EF ayant des scores faibles."
 
 **Dégradation gracieuse (si l'outil Task est indisponible) :**
+
 - Noter manuellement chaque EF selon les critères SMART.
 - Repérer les EF avec des scores faibles.
 - Fournir des suggestions d'amélioration.
@@ -114,6 +122,7 @@ Retourner le tableau de notation avec tous les scores d'EF et les suggestions d'
 ### 3. Construire le tableau de notation
 
 Pour chaque EF :
+
 - Numéro de l'EF.
 - Score Spécifique (1-5).
 - Score Mesurable (1-5).
@@ -124,6 +133,7 @@ Pour chaque EF :
 - Signalement si une catégorie < 3.
 
 **Calculer la qualité globale des EF :**
+
 - Pourcentage d'EF avec tous les scores ≥ 3.
 - Pourcentage d'EF avec tous les scores ≥ 4.
 - Moyenne des scores sur l'ensemble des EF et des catégories.
@@ -145,10 +155,11 @@ Ajoutez au rapport de validation :
 
 ### Tableau de notation
 
-| EF # | Spécifique | Mesurable | Atteignable | Pertinent | Traçable | Moyenne | Signalement |
-|------|------------|-----------|-------------|-----------|----------|---------|-------------|
-| EF-001 | {s1} | {m1} | {a1} | {r1} | {t1} | {avg1} | {X si un score <3} |
-| EF-002 | {s2} | {m2} | {a2} | {r2} | {t2} | {avg2} | {X si un score <3} |
+| EF #   | Spécifique | Mesurable | Atteignable | Pertinent | Traçable | Moyenne | Signalement        |
+| ------ | ---------- | --------- | ----------- | --------- | -------- | ------- | ------------------ |
+| EF-001 | {s1}       | {m1}      | {a1}        | {r1}      | {t1}     | {avg1}  | {X si un score <3} |
+| EF-002 | {s2}       | {m2}      | {a2}        | {r2}      | {t2}     | {avg2}  | {X si un score <3} |
+
 [Continuer pour toutes les EF]
 
 **Légende :** 1=Médiocre, 3=Acceptable, 5=Excellent

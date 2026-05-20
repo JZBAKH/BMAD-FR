@@ -2,7 +2,7 @@
 # Expected: FAIL
 # Error code: custom
 # Error path: agent.menu[2].trigger
-# Error message: agent.menu[].trigger duplicates "help" within the same agent
+# Error message: agent.menu[].trigger duplique "help" au sein du même agent
 
 agent:
   metadata:

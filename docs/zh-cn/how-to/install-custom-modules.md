@@ -1,5 +1,5 @@
 ---
-title: "安装自定义和社区模块"
+title: '安装自定义和社区模块'
 description: 从社区注册表、Git 仓库或本地路径安装第三方模块
 sidebar:
   order: 3
@@ -65,14 +65,14 @@ Would you like to install from a custom source (Git URL or local path)?
 
 选择 **Yes**，然后提供来源：
 
-| 输入类型 | 示例 |
-| -------- | ---- |
-| HTTPS URL（任意主机） | `https://github.com/org/repo` |
-| HTTP URL（任意主机） | `http://host/org/repo` |
-| 带子目录的 HTTPS URL | `https://github.com/org/repo/tree/main/my-module` |
-| SSH URL | `git@github.com:org/repo.git` |
-| 本地路径 | `/Users/me/projects/my-module` |
-| 使用 ~ 的本地路径 | `~/projects/my-module` |
+| 输入类型              | 示例                                              |
+| --------------------- | ------------------------------------------------- |
+| HTTPS URL（任意主机） | `https://github.com/org/repo`                     |
+| HTTP URL（任意主机）  | `http://host/org/repo`                            |
+| 带子目录的 HTTPS URL  | `https://github.com/org/repo/tree/main/my-module` |
+| SSH URL               | `git@github.com:org/repo.git`                     |
+| 本地路径              | `/Users/me/projects/my-module`                    |
+| 使用 ~ 的本地路径     | `~/projects/my-module`                            |
 
 安装程序会克隆仓库（URL 来源）或直接从磁盘读取（本地路径），然后展示发现的模块供你选择。
 
@@ -109,10 +109,10 @@ npx bmad-method install \
 
 安装程序使用两种模式在来源中查找可安装的模块：
 
-| 模式 | 触发条件 | 行为 |
-| ---- | -------- | ---- |
-| 发现模式 | 来源包含 `.claude-plugin/marketplace.json` | 列出清单中的所有插件；你选择要安装哪些 |
-| 直接模式 | 未找到 marketplace.json | 扫描目录中的 skill（包含 `SKILL.md` 的子目录），作为单个模块解析 |
+| 模式     | 触发条件                                   | 行为                                                             |
+| -------- | ------------------------------------------ | ---------------------------------------------------------------- |
+| 发现模式 | 来源包含 `.claude-plugin/marketplace.json` | 列出清单中的所有插件；你选择要安装哪些                           |
+| 直接模式 | 未找到 marketplace.json                    | 扫描目录中的 skill（包含 `SKILL.md` 的子目录），作为单个模块解析 |
 
 发现模式适用于已发布的模块。直接模式适合本地开发时指向 skills 目录。
 

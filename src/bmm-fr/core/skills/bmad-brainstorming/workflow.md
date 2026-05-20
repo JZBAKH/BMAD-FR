@@ -43,7 +43,9 @@ Chargez la configuration depuis `{project-root}/_bmad/core/config.yaml` et réso
 - `brainstorming_session_output_file` = `{output_folder}/brainstorming/brainstorming-session-{{date}}-{{time}}.md` (évalué une seule fois au début du flux de travail)
 
 Toutes les étapes DOIVENT référencer `{brainstorming_session_output_file}` au lieu du modèle de chemin complet.
+
 - `context_file` = Chemin de fichier de contexte en option depuis l'invocation du flux de travail pour des conseils spécifiques au projet
+
 ---
 
 ## EXÉCUTION

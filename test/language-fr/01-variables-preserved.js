@@ -36,10 +36,12 @@ function run() {
   for (const root of FR_ROOTS) {
     const fullRoot = path.join(REPO_ROOT, root);
     if (!fs.existsSync(fullRoot)) continue;
-    candidateFiles.push(...walk(fullRoot, {
-      extensions: ['.md', '.yaml', '.yml', '.csv', '.txt'],
-      base: REPO_ROOT,
-    }));
+    candidateFiles.push(
+      ...walk(fullRoot, {
+        extensions: ['.md', '.yaml', '.yml', '.csv', '.txt'],
+        base: REPO_ROOT,
+      }),
+    );
   }
 
   let pairsTested = 0;

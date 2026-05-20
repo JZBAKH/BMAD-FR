@@ -24,16 +24,18 @@ function countOccurrences(text, name) {
 }
 
 function run() {
-  runner.section('02 — Noms d\'agents intacts (Amélie tolérée pour Amelia)');
+  runner.section("02 — Noms d'agents intacts (Amélie tolérée pour Amelia)");
 
   const candidates = [];
   for (const root of FR_ROOTS) {
     const fullRoot = path.join(REPO_ROOT, root);
     if (!fs.existsSync(fullRoot)) continue;
-    candidates.push(...walk(fullRoot, {
-      extensions: ['.md', '.yaml', '.yml', '.csv', '.txt'],
-      base: REPO_ROOT,
-    }));
+    candidates.push(
+      ...walk(fullRoot, {
+        extensions: ['.md', '.yaml', '.yml', '.csv', '.txt'],
+        base: REPO_ROOT,
+      }),
+    );
   }
 
   let pairsTested = 0;
@@ -53,10 +55,7 @@ function run() {
       if (enCount === 0) continue;
       runner.test(`${frRel} : "${name}" présent au moins ${enCount} fois`, () => {
         const frCount = countOccurrences(frText, name);
-        runner.assert(
-          frCount >= enCount,
-          `"${name}" : ${frCount} occurrence(s) côté FR vs ${enCount} attendues (l'original)`,
-        );
+        runner.assert(frCount >= enCount, `"${name}" : ${frCount} occurrence(s) côté FR vs ${enCount} attendues (l'original)`);
       });
     }
 
@@ -68,10 +67,7 @@ function run() {
         const frOrig = countOccurrences(frText, original);
         const frFranc = countOccurrences(frText, francised);
         const total = frOrig + frFranc;
-        runner.assert(
-          total >= enCount,
-          `${original}+${francised} cumulés = ${total} côté FR vs ${enCount} attendues`,
-        );
+        runner.assert(total >= enCount, `${original}+${francised} cumulés = ${total} côté FR vs ${enCount} attendues`);
       });
     }
   }
@@ -82,7 +78,7 @@ function run() {
 }
 
 if (require.main === module) {
-  runner.header('Lot 2 / 02 — Noms d\'agents');
+  runner.header("Lot 2 / 02 — Noms d'agents");
   run();
   runner.summary();
 }

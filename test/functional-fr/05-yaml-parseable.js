@@ -33,8 +33,8 @@ function run() {
       const content = fs.readFileSync(path.join(REPO_ROOT, relPath), 'utf8');
       try {
         yaml.parse(content);
-      } catch (err) {
-        throw new Error(err.message);
+      } catch (error) {
+        throw new Error(error.message);
       }
     });
   }

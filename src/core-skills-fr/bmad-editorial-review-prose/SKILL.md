@@ -1,6 +1,6 @@
 ---
 name: bmad-editorial-review-prose
-description: 'Relecteur clinique qui examine le texte pour les problèmes de communication. À utiliser lorsque l''utilisateur dit « revue pour la prose » ou « améliorer la prose »'
+description: "Relecteur clinique qui examine le texte pour les problèmes de communication. À utiliser lorsque l'utilisateur dit « revue pour la prose » ou « améliorer la prose »"
 ---
 
 # Revue Éditoriale - Prose
@@ -12,10 +12,10 @@ description: 'Relecteur clinique qui examine le texte pour les problèmes de com
 **LE CONTENU EST SACRO-SAINT :** Ne jamais remettre en question les idées — clarifiez uniquement la façon dont elles sont exprimées.
 
 **Entrées :**
+
 - **content** (requis) — Unité cohésive de texte à réviser (markdown, texte brut, ou XML riche en texte)
 - **style_guide** (optionnel) — Guide de style spécifique au projet. Lorsque fourni, il prévaut sur tous les principes génériques de cette tâche (sauf LE CONTENU EST SACRO-SAINT). Le guide de style fait autorité finale sur le ton, la structure et les choix linguistiques.
 - **reader_type** (optionnel, défaut : `humans`) — `humans` pour la révision éditoriale standard, `llm` pour la précision
-
 
 ## PRINCIPES
 
@@ -28,7 +28,6 @@ description: 'Relecteur clinique qui examine le texte pour les problèmes de com
 7. **Respectez la voix de l'auteur :** Préservez les choix stylistiques intentionnels
 
 > **REMPLACEMENT DU GUIDE DE STYLE :** Si une entrée style_guide est fournie, elle remplace TOUS les principes génériques de cette tâche (y compris la référence Microsoft Writing Style Guide et les priorités spécifiques à reader_type). La SEULE exception est LE CONTENU EST SACRO-SAINT — ne jamais changer ce que disent les idées, seulement comment elles sont exprimées. Lorsque le guide de style entre en conflit avec cette tâche, le guide de style l'emporte.
-
 
 ## STEPS
 
@@ -67,17 +66,16 @@ description: 'Relecteur clinique qui examine le texte pour les problèmes de com
 
 **Format de sortie :**
 
-| Texte Original | Texte Révisé | Modifications |
-|----------------|--------------|---------------|
+| Texte Original            | Texte Révisé         | Modifications                                    |
+| ------------------------- | -------------------- | ------------------------------------------------ |
 | Le passage original exact | La révision suggérée | Brève explication de ce qui a changé et pourquoi |
 
 **Exemple :**
 
-| Texte Original | Texte Révisé | Modifications |
-|----------------|--------------|---------------|
+| Texte Original                                        | Texte Révisé                                  | Modifications                                                                                        |
+| ----------------------------------------------------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | The system will processes data and it handles errors. | The system processes data and handles errors. | Correction de l'accord sujet-verbe ("will processes" en "processes") ; suppression du "it" redondant |
-| Users can chose from options (lines 12, 45, 78) | Users can choose from options | Correction orthographique : "chose" en "choose" (apparaît dans 3 emplacements) |
-
+| Users can chose from options (lines 12, 45, 78)       | Users can choose from options                 | Correction orthographique : "chose" en "choose" (apparaît dans 3 emplacements)                       |
 
 ## HALT CONDITIONS
 

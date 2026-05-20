@@ -28,6 +28,7 @@ context: [] # optional: `{project-root}/`-prefixed paths to project-wide standar
 **Always:** INVARIANT_RULES
 
 **Ask First:** DECISIONS_REQUIRING_HUMAN_APPROVAL
+
 <!-- Agent : si l'un de ces points se déclenche pendant l'exécution, HALT et demandez à l'utilisateur avant de poursuivre. -->
 
 **Never:** NON_GOALS_AND_FORBIDDEN_APPROACHES
@@ -36,10 +37,10 @@ context: [] # optional: `{project-root}/`-prefixed paths to project-wide standar
 
 <!-- S'il n'existe aucun scénario d'E/S significatif, SUPPRIMEZ TOUTE CETTE SECTION. N'écrivez pas « N/A » ni « None ». -->
 
-| Scenario | Input / State | Expected Output / Behavior | Error Handling |
-|----------|--------------|---------------------------|----------------|
-| HAPPY_PATH | INPUT | OUTCOME | N/A |
-| ERROR_CASE | INPUT | OUTCOME | ERROR_HANDLING |
+| Scenario   | Input / State | Expected Output / Behavior | Error Handling |
+| ---------- | ------------- | -------------------------- | -------------- |
+| HAPPY_PATH | INPUT         | OUTCOME                    | N/A            |
+| ERROR_CASE | INPUT         | OUTCOME                    | ERROR_HANDLING |
 
 </frozen-after-approval>
 
@@ -57,9 +58,11 @@ context: [] # optional: `{project-root}/`-prefixed paths to project-wide standar
 <!-- Les CA couvrent les comportements de niveau système non capturés par la matrice d'E/S. Ne dupliquez pas les scénarios d'E/S ici. -->
 
 **Execution:**
+
 - [ ] `FILE` -- ACTION -- RATIONALE
 
 **Acceptance Criteria:**
+
 - Given PRECONDITION, when ACTION, then EXPECTED_RESULT
 
 ## Spec Change Log
@@ -82,7 +85,9 @@ DESIGN_RATIONALE_AND_EXAMPLES
 <!-- Comment l'agent confirme son propre travail. Préférez les commandes CLI. Lorsqu'aucune vérification CLI ne s'applique, indiquez ce qu'il faut inspecter manuellement. -->
 
 **Commands:**
+
 - `COMMAND` -- expected: SUCCESS_CRITERIA
 
 **Manual checks (if no CLI):**
+
 - WHAT_TO_INSPECT_AND_EXPECTED_STATE

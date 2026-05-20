@@ -39,10 +39,13 @@ Ne documentez JAMAIS d'estimations de temps, de durées, de niveau d'effort ou d
   ````markdown
   ```javascript
   const example = 'code';
+  ```
+  ````
 
 ```
 
 ```
+
 - PAS de blocs de code indentés (ambigu)
 
 **Listes :**
@@ -96,8 +99,7 @@ flowchart TD
   Decision -->|Oui| Action1[Faire Ceci]
   Decision -->|Non| Action2[Faire Cela]
 ```
-
-```
+````
 
 ## Principes du Guide de Style (Synthèse)
 
@@ -112,107 +114,107 @@ Appliquez dans cette hiérarchie :
 
 **Orientation Tâches :**
 
-* Écrivez pour les OBJECTIFS des utilisateurs, pas pour des listes de fonctionnalités
-* Commencez par POURQUOI, puis COMMENT
-* Chaque document répond à : "Que puis-je accomplir ?"
+- Écrivez pour les OBJECTIFS des utilisateurs, pas pour des listes de fonctionnalités
+- Commencez par POURQUOI, puis COMMENT
+- Chaque document répond à : "Que puis-je accomplir ?"
 
 **Principes de Clarté :**
 
-* Voix active : "Cliquez sur le bouton" PAS "Le bouton doit être cliqué"
-* Présent de l'indicatif : "La fonction retourne" PAS "La fonction retournera"
-* Langage direct : "Utilisez X pour Y" PAS "X peut être utilisé pour Y"
-* Deuxième personne : "Vous configurez" PAS "Les utilisateurs configurent" ou "On configure"
+- Voix active : "Cliquez sur le bouton" PAS "Le bouton doit être cliqué"
+- Présent de l'indicatif : "La fonction retourne" PAS "La fonction retournera"
+- Langage direct : "Utilisez X pour Y" PAS "X peut être utilisé pour Y"
+- Deuxième personne : "Vous configurez" PAS "Les utilisateurs configurent" ou "On configure"
 
 **Structure :**
 
-* Une idée par phrase
-* Un sujet par paragraphe
-* Les en-têtes décrivent le contenu avec précision
-* Les exemples suivent les explications
+- Une idée par phrase
+- Un sujet par paragraphe
+- Les en-têtes décrivent le contenu avec précision
+- Les exemples suivent les explications
 
 **Accessibilité :**
 
-* Texte de lien descriptif : "Voir la référence de l'API" PAS "Cliquez ici"
-* Texte alternatif (Alt text) pour les diagrammes : Décrivez ce qu'il montre
-* Hiérarchie sémantique des en-têtes (ne sautez pas de niveaux)
-* Les tableaux ont des en-têtes
+- Texte de lien descriptif : "Voir la référence de l'API" PAS "Cliquez ici"
+- Texte alternatif (Alt text) pour les diagrammes : Décrivez ce qu'il montre
+- Hiérarchie sémantique des en-têtes (ne sautez pas de niveaux)
+- Les tableaux ont des en-têtes
 
 ## Documentation API/OpenAPI
 
 **Éléments Requis :**
 
-* Chemin de l'endpoint et méthode
-* Exigences d'authentification
-* Paramètres de requête (path, query, body) avec types
-* Exemple de requête (réaliste, fonctionnel)
-* Schéma de réponse avec types
-* Exemples de réponse (succès + erreurs courantes)
-* Codes d'erreur et significations
+- Chemin de l'endpoint et méthode
+- Exigences d'authentification
+- Paramètres de requête (path, query, body) avec types
+- Exemple de requête (réaliste, fonctionnel)
+- Schéma de réponse avec types
+- Exemples de réponse (succès + erreurs courantes)
+- Codes d'erreur et significations
 
 **Standards de Qualité :**
 
-* Conformité à la spécification OpenAPI 3.0+
-* Schémas complets (aucun champ manquant)
-* Exemples qui fonctionnent réellement
-* Messages d'erreur clairs
-* Schémas de sécurité documentés
+- Conformité à la spécification OpenAPI 3.0+
+- Schémas complets (aucun champ manquant)
+- Exemples qui fonctionnent réellement
+- Messages d'erreur clairs
+- Schémas de sécurité documentés
 
 ## Types de Documentation : Référence Rapide
 
 **README :**
 
-* Quoi (aperçu), Pourquoi (objectif), Comment (démarrage rapide)
-* Installation, Utilisation, Contribution, Licence
-* Moins de 500 lignes (lien vers la documentation détaillée)
-* Polissage final : inclure une Table des Matières (Table of Contents)
+- Quoi (aperçu), Pourquoi (objectif), Comment (démarrage rapide)
+- Installation, Utilisation, Contribution, Licence
+- Moins de 500 lignes (lien vers la documentation détaillée)
+- Polissage final : inclure une Table des Matières (Table of Contents)
 
 **Référence API :**
 
-* Couverture complète des endpoints
-* Exemples de requête/réponse
-* Détails d'authentification
-* Gestion des erreurs
-* Limites de taux (rate limits) si applicable
+- Couverture complète des endpoints
+- Exemples de requête/réponse
+- Détails d'authentification
+- Gestion des erreurs
+- Limites de taux (rate limits) si applicable
 
 **Guide Utilisateur :**
 
-* Sections basées sur les tâches (Comment...)
-* Instructions étape par étape
-* Captures d'écran/diagrammes là où c'est utile
-* Section de dépannage
+- Sections basées sur les tâches (Comment...)
+- Instructions étape par étape
+- Captures d'écran/diagrammes là où c'est utile
+- Section de dépannage
 
 **Documents d'Architecture :**
 
-* Diagramme de vue d'ensemble du système (Mermaid)
-* Descriptions des composants
-* Flux de données (Data flow)
-* Décisions technologiques (ADRs)
-* Architecture de déploiement
+- Diagramme de vue d'ensemble du système (Mermaid)
+- Descriptions des composants
+- Flux de données (Data flow)
+- Décisions technologiques (ADRs)
+- Architecture de déploiement
 
 **Guide Développeur :**
 
-* Exigences de configuration/environnement
-* Organisation du code
-* Workflow de développement
-* Approche de test
-* Lignes directrices de contribution
+- Exigences de configuration/environnement
+- Organisation du code
+- Workflow de développement
+- Approche de test
+- Lignes directrices de contribution
 
 ## Liste de Contrôle de Qualité
 
 Avant de finaliser TOUTE documentation :
 
-* [ ] Conforme à CommonMark (aucune violation)
-* [ ] AUCUNE estimation de temps nulle part (Règle Critique 2)
-* [ ] En-têtes dans la bonne hiérarchie
-* [ ] Tous les blocs de code ont des balises de langage
-* [ ] Les liens fonctionnent et ont un texte descriptif
-* [ ] Les diagrammes Mermaid s'affichent correctement
-* [ ] Voix active, présent de l'indicatif
-* [ ] Orienté tâches (répond à "comment dois-je...")
-* [ ] Les exemples sont concrets et fonctionnels
-* [ ] Standards d'accessibilité respectés
-* [ ] Orthographe/grammaire vérifiées
-* [ ] Se lit clairement au niveau de compétence ciblé
+- [ ] Conforme à CommonMark (aucune violation)
+- [ ] AUCUNE estimation de temps nulle part (Règle Critique 2)
+- [ ] En-têtes dans la bonne hiérarchie
+- [ ] Tous les blocs de code ont des balises de langage
+- [ ] Les liens fonctionnent et ont un texte descriptif
+- [ ] Les diagrammes Mermaid s'affichent correctement
+- [ ] Voix active, présent de l'indicatif
+- [ ] Orienté tâches (répond à "comment dois-je...")
+- [ ] Les exemples sont concrets et fonctionnels
+- [ ] Standards d'accessibilité respectés
+- [ ] Orthographe/grammaire vérifiées
+- [ ] Se lit clairement au niveau de compétence ciblé
 
 **Frontmatter :**
 Utilisez le frontmatter YAML quand c'est approprié, par exemple :
@@ -224,4 +226,8 @@ description: Brève description
 author: Nom de l'auteur
 date: AAAA-MM-JJ
 ---
+```
+
+```
+
 ```

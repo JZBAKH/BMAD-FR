@@ -7,7 +7,7 @@ const installer = new Installer();
 
 module.exports = {
   command: 'uninstall',
-  description: 'Supprimer l\'installation BMAD du projet courant',
+  description: "Supprimer l'installation BMAD du projet courant",
   options: [
     ['-y, --yes', 'Supprimer tous les composants BMAD sans invite (préserve les artefacts utilisateur)'],
     ['--directory <path>', 'Répertoire du projet (par défaut : répertoire courant)'],
@@ -103,7 +103,7 @@ module.exports = {
             '\n' +
             red('💀 Les configurations IDE et les modules devront être réinstallés.') +
             '\n' +
-            red('💀 Les artefacts utilisateur sont préservés sauf s\'ils sont explicitement sélectionnés.'),
+            red("💀 Les artefacts utilisateur sont préservés sauf s'ils sont explicitement sélectionnés."),
           '!! ACTION DESTRUCTIVE !!',
         );
 

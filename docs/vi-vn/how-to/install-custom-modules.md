@@ -65,14 +65,14 @@ Would you like to install from a custom source (Git URL or local path)?
 
 Chọn **Yes**, rồi nhập nguồn:
 
-| Loại đầu vào | Ví dụ |
-| --------------------- | ------------------------------------------------- |
-| HTTPS URL trên bất kỳ host nào | `https://github.com/org/repo` |
-| HTTP URL trên bất kỳ host nào | `http://host/org/repo` |
+| Loại đầu vào                      | Ví dụ                                             |
+| --------------------------------- | ------------------------------------------------- |
+| HTTPS URL trên bất kỳ host nào    | `https://github.com/org/repo`                     |
+| HTTP URL trên bất kỳ host nào     | `http://host/org/repo`                            |
 | HTTPS URL trỏ vào một thư mục con | `https://github.com/org/repo/tree/main/my-module` |
-| SSH URL | `git@github.com:org/repo.git` |
-| Đường dẫn cục bộ | `/Users/me/projects/my-module` |
-| Đường dẫn cục bộ dùng `~` | `~/projects/my-module` |
+| SSH URL                           | `git@github.com:org/repo.git`                     |
+| Đường dẫn cục bộ                  | `/Users/me/projects/my-module`                    |
+| Đường dẫn cục bộ dùng `~`         | `~/projects/my-module`                            |
 
 Với URL, trình cài đặt sẽ clone repository. Với đường dẫn cục bộ, nó sẽ đọc trực tiếp từ đĩa. Sau đó nó sẽ hiển thị các module tìm thấy để bạn chọn cài.
 
@@ -109,10 +109,10 @@ Bạn có thể truyền nhiều nguồn bằng cách ngăn cách chúng bằng 
 
 Trình cài đặt dùng hai chế độ để tìm module có thể cài trong một nguồn:
 
-| Chế độ | Điều kiện kích hoạt | Hành vi |
-| --------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Discovery | Nguồn chứa `.claude-plugin/marketplace.json` | Liệt kê toàn bộ plugin trong manifest để bạn chọn cái nào cần cài |
-| Direct | Không tìm thấy `marketplace.json` | Quét thư mục để tìm các skill, tức các thư mục con chứa `SKILL.md`, rồi coi toàn bộ như một module duy nhất |
+| Chế độ    | Điều kiện kích hoạt                          | Hành vi                                                                                                     |
+| --------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Discovery | Nguồn chứa `.claude-plugin/marketplace.json` | Liệt kê toàn bộ plugin trong manifest để bạn chọn cái nào cần cài                                           |
+| Direct    | Không tìm thấy `marketplace.json`            | Quét thư mục để tìm các skill, tức các thư mục con chứa `SKILL.md`, rồi coi toàn bộ như một module duy nhất |
 
 Discovery là chế độ phát hiện qua manifest. Direct là chế độ quét trực tiếp thư mục. Discovery phù hợp với module đã publish, còn Direct thuận tiện khi bạn đang trỏ vào một thư mục skills trong quá trình phát triển cục bộ.
 

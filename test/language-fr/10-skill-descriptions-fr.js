@@ -17,7 +17,8 @@ const { walk } = require('../fr-helpers/walk');
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const FR_ROOTS = ['src/bmm-fr', 'src/core-fr', 'src/utility-fr'];
 
-const FRENCH_INDICATORS_RE = /[éèêëàâäîïôöùûüçœÉÈÊËÀÂÄÎÏÔÖÙÛÜÇŒ]|\b(le|la|les|des|du|une|un|et|pour|avec|dans|sur|sous|chaque|cas|qui|que)\b/i;
+const FRENCH_INDICATORS_RE =
+  /[éèêëàâäîïôöùûüçœÉÈÊËÀÂÄÎÏÔÖÙÛÜÇŒ]|\b(le|la|les|des|du|une|un|et|pour|avec|dans|sur|sous|chaque|cas|qui|que)\b/i;
 
 function extractFrontmatter(content) {
   const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
@@ -36,8 +37,7 @@ function run() {
   for (const root of FR_ROOTS) {
     const fullRoot = path.join(REPO_ROOT, root);
     if (!fs.existsSync(fullRoot)) continue;
-    skillFiles.push(...walk(fullRoot, { extensions: ['.md'], base: REPO_ROOT })
-      .filter((p) => p.endsWith('SKILL.md')));
+    skillFiles.push(...walk(fullRoot, { extensions: ['.md'], base: REPO_ROOT }).filter((p) => p.endsWith('SKILL.md')));
   }
 
   if (skillFiles.length === 0) {

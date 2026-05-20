@@ -1,5 +1,5 @@
 ---
-title: "Checkpoint Preview"
+title: 'Checkpoint Preview'
 description: Revue assistée par LLM, avec intervention humaine, qui vous guide à travers une modification, de son objectif jusqu’aux détails
 sidebar:
   order: 4
@@ -37,7 +37,7 @@ C'est le moment « est-ce bien ce que je crois ? ». Avant de lire le moindre co
 
 ### 2. Visite guidée
 
-La modification est organisée par **préoccupation** — des intentions de conception cohérentes comme « validation des entrées » ou « contrat d'API » — et non par fichier. Chaque préoccupation fait l'objet d'une courte explication du *pourquoi* de cette approche, suivie d'arrêts cliquables `chemin:ligne` que le réviseur peut suivre dans le code.
+La modification est organisée par **préoccupation** — des intentions de conception cohérentes comme « validation des entrées » ou « contrat d'API » — et non par fichier. Chaque préoccupation fait l'objet d'une courte explication du _pourquoi_ de cette approche, suivie d'arrêts cliquables `chemin:ligne` que le réviseur peut suivre dans le code.
 
 C'est l'étape du jugement de conception. Le réviseur évalue si l'approche est adaptée au système, et non si le code est correct. Les préoccupations sont séquencées de haut en bas : l'intention de plus haut niveau en premier, puis l'implémentation de support. Le réviseur ne rencontre jamais une référence à quelque chose qu'il n'a pas encore vu.
 

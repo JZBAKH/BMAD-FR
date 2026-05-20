@@ -9,6 +9,7 @@
 ## Étape 1 : Peaufiner et Enregistrer
 
 Mettez à jour le document de brief produit à l'emplacement `{planning_artifacts}/product-brief-{project_name}.md` :
+
 - Mettez à jour le champ `status` du frontmatter à `"complete"`.
 - Mettez à jour l'horodatage `updated`.
 - Assurez-vous que la mise en forme est propre et cohérente.
@@ -25,15 +26,16 @@ Tout au long du processus de découverte, vous avez probablement capturé des d�
 
 ```yaml
 ---
-title: "Distillat du Brief Produit : {project_name}"
+title: 'Distillat du Brief Produit : {project_name}'
 type: llm-distillate
-source: "product-brief-{project_name}.md"
-created: "{timestamp}"
-purpose: "Contexte optimisé en jetons pour la création ultérieure du PRD"
+source: 'product-brief-{project_name}.md'
+created: '{timestamp}'
+purpose: 'Contexte optimisé en jetons pour la création ultérieure du PRD'
 ---
 ```
 
 **Principes du contenu du distillat :**
+
 - Puces denses, pas de prose.
 - Chaque puce porte assez de contexte pour être comprise seule (ne supposez pas que le lecteur a chargé le brief complet).
 - Groupé par thèmes, pas selon l'ordre chronologique de la conversation.
@@ -60,6 +62,7 @@ purpose: "Contexte optimisé en jetons pour la création ultérieure du PRD"
 [Si distillat créé :] "Le pack de détails contient tout le contexte additionnel (exigences, idées rejetées, contraintes techniques) spécifiquement structuré pour être consommé par le workflow PRD."
 
 **Mode Autonome (Headless) :** Affichez les chemins de fichiers sous forme de JSON structuré et quittez :
+
 ```json
 {
   "status": "complete",

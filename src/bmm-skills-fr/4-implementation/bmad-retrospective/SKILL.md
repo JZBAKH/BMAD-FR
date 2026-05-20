@@ -8,6 +8,7 @@ description: 'Revue post-thème pour extraire des leçons et évaluer le succès
 **Objectif :** Revue post-thème pour extraire des leçons et évaluer le succès.
 
 **Votre Rôle :** Développeur facilitant la rétrospective.
+
 - Pas d'estimations de temps — NE JAMAIS mentionner d'heures, de jours, de semaines, de mois ou TOUTE prédiction basée sur le temps. L'IA a fondamentalement changé la vitesse de développement.
 - Communiquez toutes les réponses en {communication_language} et le langage DOIT être adapté à {user_skill_level}
 - Générez tous les documents en {document_output_language}
@@ -81,13 +82,13 @@ L'activation est terminée. Commencez le workflow ci-dessous.
 
 ## Fichiers d'entrée
 
-| Entrée | Description | Pattern(s) de chemin | Stratégie de chargement |
-|-------|-------------|------------------|---------------|
-| epics | Le thème complété pour la rétrospective | entier : `{planning_artifacts}/*epic*.md`, sharded_index : `{planning_artifacts}/*epic*/index.md`, sharded_single : `{planning_artifacts}/*epic*/epic-{{epic_num}}.md` | SELECTIVE_LOAD |
-| previous_retrospective | Rétrospective du thème précédent (optionnel) | `{implementation_artifacts}/**/epic-{{prev_epic_num}}-retro-*.md` | SELECTIVE_LOAD |
-| architecture | Architecture système pour le contexte | entier : `{planning_artifacts}/*architecture*.md`, fragmenté : `{planning_artifacts}/*architecture*/*.md` | FULL_LOAD |
-| prd | Exigences produit pour le contexte | entier : `{planning_artifacts}/*prd*.md`, fragmenté : `{planning_artifacts}/*prd*/*.md` | FULL_LOAD |
-| document_project | Documentation de projet brownfield (optionnel) | fragmenté : `{planning_artifacts}/*.md` | INDEX_GUIDED |
+| Entrée                 | Description                                    | Pattern(s) de chemin                                                                                                                                                   | Stratégie de chargement |
+| ---------------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| epics                  | Le thème complété pour la rétrospective        | entier : `{planning_artifacts}/*epic*.md`, sharded_index : `{planning_artifacts}/*epic*/index.md`, sharded_single : `{planning_artifacts}/*epic*/epic-{{epic_num}}.md` | SELECTIVE_LOAD          |
+| previous_retrospective | Rétrospective du thème précédent (optionnel)   | `{implementation_artifacts}/**/epic-{{prev_epic_num}}-retro-*.md`                                                                                                      | SELECTIVE_LOAD          |
+| architecture           | Architecture système pour le contexte          | entier : `{planning_artifacts}/*architecture*.md`, fragmenté : `{planning_artifacts}/*architecture*/*.md`                                                              | FULL_LOAD               |
+| prd                    | Exigences produit pour le contexte             | entier : `{planning_artifacts}/*prd*.md`, fragmenté : `{planning_artifacts}/*prd*/*.md`                                                                                | FULL_LOAD               |
+| document_project       | Documentation de projet brownfield (optionnel) | fragmenté : `{planning_artifacts}/*.md`                                                                                                                                | INDEX_GUIDED            |
 
 ## Entrées requises
 
@@ -238,7 +239,7 @@ Amelia (Developer) : "Avant de commencer la discussion d'équipe, laissez-moi r�
 Charlie (Senior Dev) : "Bonne idée - ces notes dev contiennent toujours de l'or."
 </output>
 
-<action>Pour chaque cas d'usage du thème {{epic_number}}, lire le fichier de cas d'usage complet depuis {implementation_artifacts}/{{epic_number}}-{{story_num}}-*.md</action>
+<action>Pour chaque cas d'usage du thème {{epic_number}}, lire le fichier de cas d'usage complet depuis {implementation_artifacts}/{{epic_number}}-{{story_num}}-\*.md</action>
 
 <action>Extraire et analyser depuis chaque cas d'usage :</action>
 
@@ -433,7 +434,7 @@ Alice (Product Owner) : "Bonne réflexion - nous aide à connecter ce que nous a
 <action>Tenter de charger le prochain thème en utilisant la stratégie de chargement sélectif :</action>
 
 **Essayer fragmenté d'abord (plus spécifique) :**
-<action>Vérifier si le fichier existe : {planning_artifacts}/epic*/epic-{{next_epic_num}}.md</action>
+<action>Vérifier si le fichier existe : {planning_artifacts}/epic\*/epic-{{next_epic_num}}.md</action>
 
 <check if="fichier de thème fragmenté trouvé">
   <action>Charger {planning_artifacts}/*epic*/epic-{{next_epic_num}}.md</action>
@@ -442,7 +443,7 @@ Alice (Product Owner) : "Bonne réflexion - nous aide à connecter ce que nous a
 
 **Repli vers le document entier :**
 <check if="thème fragmenté non trouvé">
-<action>Vérifier si le fichier existe : {planning_artifacts}/epic*.md</action>
+<action>Vérifier si le fichier existe : {planning_artifacts}/epic\*.md</action>
 
   <check if="fichier de thème entier trouvé">
     <action>Charger l'ensemble du document des thèmes</action>

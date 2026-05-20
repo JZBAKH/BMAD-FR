@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * One-shot helper that scans the CLI source tree for English user-facing
  * strings. Produces tools/cli/i18n-audit.md with one row per occurrence.
@@ -66,10 +65,10 @@ function isNotUserFacing(str) {
   // Empty / single-character / pure whitespace
   if (str.trim().length < 3) return true;
   // Looks like a path / filename / extension
-  if (/^[\.\/\\]/.test(str.trim())) return true;
+  if (/^[./\\]/.test(str.trim())) return true;
   if (/\.(yaml|yml|json|md|csv|js|cjs|mjs|txt|log)$/i.test(str.trim())) return true;
   // Looks like a regex / glob
-  if (/^[\^\[]/.test(str.trim())) return true;
+  if (/^[\^\[]/.test(str.trim())) return true; // eslint-disable-line no-useless-escape
   // Pure identifier (no whitespace, all-lowercase or kebab-case)
   if (/^[a-z][a-z0-9_-]*$/.test(str.trim())) return true;
   // No alphabetic content at all
@@ -111,11 +110,11 @@ async function main() {
         } else if (m[2] !== undefined) {
           strContent = m[2];
           typeLabel = type(m);
-        } else if (m[1] !== undefined) {
+        } else if (m[1] === undefined) {
+          continue;
+        } else {
           strContent = m[1];
           typeLabel = type(m);
-        } else {
-          continue;
         }
 
         if (isNotUserFacing(strContent)) continue;
@@ -137,45 +136,47 @@ async function main() {
 
   // Render markdown
   const out = [];
-  out.push('# Inventaire des messages CLI à traduire');
-  out.push('');
-  out.push(`**Total : ${totalCount} chaîne(s) anglaise(s) candidates dans ${byFile.size} fichier(s).**`);
-  out.push('');
-  out.push(`Ce fichier est auto-généré par \`tools/extract-cli-strings.mjs\`. Re-générer avec :`);
-  out.push(`\`\`\`bash`);
-  out.push(`node tools/extract-cli-strings.mjs`);
-  out.push(`\`\`\``);
-  out.push('');
-  out.push('## Méthode de détection');
-  out.push('');
-  out.push('Patterns capturés :');
-  out.push('- `prompts.log.{info,warn,error,success,message,step}(...)`');
-  out.push('- `prompts.{intro,outro,note,box}(...)`');
-  out.push('- `prompts.{confirm,text,select,multiselect,password}({ message: ... })`');
-  out.push('- `spinner.{start,message,error,success,stop}(...)`');
-  out.push('- `console.{log,error,warn,info}(...)`');
-  out.push('- `throw new Error(...)`');
-  out.push('');
-  out.push('Filtres appliqués (chaînes EXCLUES de l\'audit) :');
-  out.push('- Chaîne ≤ 2 caractères');
-  out.push('- Chemins / extensions de fichier');
-  out.push('- Identifiants techniques (snake_case isolé, all-caps)');
-  out.push('- Chaînes sans contenu alphabétique');
-  out.push('- Mots isolés en minuscules');
-  out.push('');
-  out.push('## Inventaire par fichier');
-  out.push('');
+  out.push(
+    '# Inventaire des messages CLI à traduire',
+    '',
+    `**Total : ${totalCount} chaîne(s) anglaise(s) candidates dans ${byFile.size} fichier(s).**`,
+    '',
+    `Ce fichier est auto-généré par \`tools/extract-cli-strings.mjs\`. Re-générer avec :`,
+    `\`\`\`bash`,
+    `node tools/extract-cli-strings.mjs`,
+    `\`\`\``,
+    '',
+    '## Méthode de détection',
+    '',
+    'Patterns capturés :',
+    '- `prompts.log.{info,warn,error,success,message,step}(...)`',
+    '- `prompts.{intro,outro,note,box}(...)`',
+    '- `prompts.{confirm,text,select,multiselect,password}({ message: ... })`',
+    '- `spinner.{start,message,error,success,stop}(...)`',
+    '- `console.{log,error,warn,info}(...)`',
+    '- `throw new Error(...)`',
+    '',
+    "Filtres appliqués (chaînes EXCLUES de l'audit) :",
+    '- Chaîne ≤ 2 caractères',
+    '- Chemins / extensions de fichier',
+    '- Identifiants techniques (snake_case isolé, all-caps)',
+    '- Chaînes sans contenu alphabétique',
+    '- Mots isolés en minuscules',
+    '',
+    '## Inventaire par fichier',
+    '',
+  );
 
   // Sort by string count descending
   const sortedFiles = [...byFile.entries()].sort((a, b) => b[1].length - a[1].length);
 
   for (const [file, entries] of sortedFiles) {
-    out.push(`### ${file} — ${entries.length} chaîne(s)`);
-    out.push('');
-    out.push('| Ligne | Type | Anglais |');
-    out.push('|---|---|---|');
+    out.push(`### ${file} — ${entries.length} chaîne(s)`, '', '| Ligne | Type | Anglais |', '|---|---|---|');
     for (const { line, type, str } of entries) {
-      const escaped = str.replaceAll('|', '\\|').replaceAll('\n', '\\n').replaceAll('`', '\\`');
+      const escaped = str
+        .replaceAll('|', String.raw`\|`)
+        .replaceAll('\n', String.raw`\n`)
+        .replaceAll('`', '\\`');
       out.push(`| ${line} | \`${type}\` | ${escaped} |`);
     }
     out.push('');
@@ -185,7 +186,7 @@ async function main() {
   process.stdout.write(`\nWrote ${relative(REPO_ROOT, OUT)} — ${totalCount} string(s) across ${byFile.size} file(s)\n`);
 }
 
-main().catch((err) => {
-  console.error(err);
+main().catch((error) => {
+  console.error(error);
   process.exit(1);
 });

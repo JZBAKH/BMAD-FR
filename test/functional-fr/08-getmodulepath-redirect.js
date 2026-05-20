@@ -19,10 +19,7 @@ function run() {
   for (const moduleName of ['bmm', 'core', 'utility']) {
     runner.test(`getModulePath('${moduleName}') pointe vers src/${moduleName}-fr`, () => {
       const result = getModulePath(moduleName).replaceAll('\\', '/');
-      runner.assert(
-        result.endsWith(`/src/${moduleName}-fr`),
-        `attendu se terminer par "/src/${moduleName}-fr", obtenu "${result}"`,
-      );
+      runner.assert(result.endsWith(`/src/${moduleName}-fr`), `attendu se terminer par "/src/${moduleName}-fr", obtenu "${result}"`);
     });
     runner.test(`getModulePath('${moduleName}', 'module.yaml') reste cohérent`, () => {
       const result = getModulePath(moduleName, 'module.yaml').replaceAll('\\', '/');
@@ -35,10 +32,7 @@ function run() {
 
   runner.test('getSourcePath ne redirige PAS (= comportement neutre)', () => {
     const result = getSourcePath('bmm').replaceAll('\\', '/');
-    runner.assert(
-      result.endsWith('/src/bmm'),
-      `getSourcePath('bmm') doit pointer vers src/bmm (anglais) — sinon le fork est cassé`,
-    );
+    runner.assert(result.endsWith('/src/bmm'), `getSourcePath('bmm') doit pointer vers src/bmm (anglais) — sinon le fork est cassé`);
   });
 
   runner.test('Les chemins retournés existent réellement sur le disque', () => {

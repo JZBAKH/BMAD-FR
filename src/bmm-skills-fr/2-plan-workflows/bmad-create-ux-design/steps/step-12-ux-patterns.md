@@ -55,6 +55,7 @@ Déterminer quels modèles doivent être définis pour votre produit :
 "Établissons des modèles de cohérence sur la façon dont {{project_name}} se comporte dans les situations courantes.
 
 **Catégories de modèles à définir :**
+
 - Hiérarchie des boutons et actions.
 - Modèles de feedback (succès, erreur, avertissement, info).
 - Modèles de formulaires et validation.
@@ -74,6 +75,7 @@ Se concentrer sur les modèles les plus pertinents pour votre produit :
 Que devraient voir/faire les utilisateurs lorsqu'ils ont besoin de [action du modèle] ?
 
 **Considérations :**
+
 - Hiérarchie visuelle (actions primaires vs secondaires).
 - Mécanismes de feedback.
 - Récupération d'erreur.
@@ -81,6 +83,7 @@ Que devraient voir/faire les utilisateurs lorsqu'ils ont besoin de [action du mo
 - Considérations mobile vs bureau (desktop).
 
 **Exemples :**
+
 - [Exemple 1 pour ce type de modèle]
 - [Exemple 2 for ce type de modèle]
 
@@ -107,11 +110,13 @@ Documenter les décisions de design spécifiques :
 
 S'assurer que les modèles fonctionnent avec le système de design choisi :
 "**Intégration avec [Système de Design] :**
+
 - Comment ces modèles complètent-ils les composants de notre système de design ?
 - Quelles personnalisations sont nécessaires ?
 - Comment maintenons-nous la cohérence tout en répondant à des besoins uniques ?
 
 **Règles de modèles personnalisés :**
+
 - [Règle personnalisée 1]
 - [Règle personnalisée 2]
 - [Règle personnalisée 3]"
@@ -121,6 +126,7 @@ S'assurer que les modèles fonctionnent avec le système de design choisi :
 Générer une bibliothèque de modèles complète :
 
 **Structure de la bibliothèque de modèles :**
+
 - Directives d'utilisation claires pour chaque modèle.
 - Exemples visuels et spécifications.
 - Notes d'implémentation pour les développeurs.
@@ -139,18 +145,23 @@ Lors de l'enregistrement dans le document, ajoutez ces sections de niveau 2 (##)
 ## Modèles de Cohérence UX
 
 ### Hiérarchie des Boutons
+
 [Modèles de hiérarchie des boutons basés sur la conversation]
 
 ### Modèles de Feedback
+
 [Modèles de feedback basés sur la conversation]
 
 ### Modèles de Formulaires
+
 [Modèles de formulaires basés sur la conversation]
 
 ### Modèles de Navigation
+
 [Modèles de navigation basés sur la conversation]
 
 ### Modèles Additionnels
+
 [Modèles additionnels basés sur la conversation]
 ```
 

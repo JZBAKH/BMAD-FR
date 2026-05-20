@@ -5,6 +5,7 @@ Sous-étape partagée pour mettre à jour `sprint-status.yaml` pendant quick-dev
 ## Préconditions
 
 Sauter entièrement ce fichier (revenir à l'appelant) si l'UNE des conditions suivantes est vraie :
+
 - `{story_key}` n'est pas défini
 - `{sprint_status}` n'existe pas sur le disque
 

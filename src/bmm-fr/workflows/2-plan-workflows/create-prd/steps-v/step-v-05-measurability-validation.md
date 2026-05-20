@@ -65,6 +65,7 @@ Valider que toutes les Exigences Fonctionnelles (EF) et les Exigences Non Foncti
 "Effectuer la validation de la mesurabilité sur ce PRD :
 
 **Exigences Fonctionnelles (EF) :**
+
 1. Extraire toutes les EF de la section Exigences Fonctionnelles.
 2. Vérifier chaque EF pour :
    - Conformité au format '[Acteur] peut [capacité]'.
@@ -74,6 +75,7 @@ Valider que toutes les Exigences Fonctionnelles (EF) et les Exigences Non Foncti
 3. Documenter les violations avec les numéros de ligne.
 
 **Exigences Non Fonctionnelles (ENF) :**
+
 1. Extraire toutes les ENF de la section Exigences Non Fonctionnelles.
 2. Vérifier chaque ENF pour :
    - Métriques spécifiques avec méthodes de mesure.
@@ -92,19 +94,23 @@ Si l'outil Task est indisponible, effectuez l'analyse directement :
 Extrayez toutes les EF et vérifiez chacune pour :
 
 **Conformité au format :**
+
 - Suit-elle le modèle "[Acteur] peut [capacité]" ?
 - L'acteur est-il clairement défini ?
 - La capacité est-elle exploitable et testable ?
 
 **Absence d'adjectifs subjectifs :**
+
 - Scanner pour : facile, rapide, simple, intuitif, convivial, réactif, efficace (sans métriques).
 - Notez les numéros de ligne.
 
 **Absence de quantificateurs vagues :**
+
 - Scanner pour : plusieurs, certains, quelques, beaucoup, divers, nombre de.
 - Notez les numéros de ligne.
 
 **Absence de détails d'implémentation :**
+
 - Scanner pour : React, Vue, Angular, PostgreSQL, MongoDB, AWS, Docker, Kubernetes, Redux, etc.
 - À moins que ce ne soit pertinent pour la capacité (ex: "Les consommateurs d'API peuvent accéder...").
 - Notez les numéros de ligne.
@@ -114,10 +120,12 @@ Extrayez toutes les EF et vérifiez chacune pour :
 Extrayez toutes les ENF et vérifiez chacune pour :
 
 **Métriques spécifiques :**
+
 - Y a-t-il un critère mesurable ? (ex: "temps de réponse < 200ms", pas "réponse rapide").
 - Est-ce que cela peut être mesuré ou testé ?
 
 **Conformité au modèle :**
+
 - Critère défini ?
 - Métrique spécifiée ?
 - Méthode de mesure incluse ?
@@ -126,6 +134,7 @@ Extrayez toutes les ENF et vérifiez chacune pour :
 ### 3. Comptabiliser les violations
 
 **Violations des EF :**
+
 - Violations de format : nombre
 - Adjectifs subjectifs : nombre
 - Quantificateurs vagues : nombre
@@ -133,6 +142,7 @@ Extrayez toutes les ENF et vérifiez chacune pour :
 - Total des violations d'EF : somme
 
 **Violations des ENF :**
+
 - Métriques manquantes : nombre
 - Modèle incomplet : nombre
 - Contexte manquant : nombre

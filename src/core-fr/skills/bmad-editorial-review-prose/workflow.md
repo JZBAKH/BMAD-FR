@@ -7,6 +7,7 @@
 **LE CONTENU EST SACRÉ :** Ne contestez jamais les idées — clarifiez uniquement la manière dont elles sont exprimées.
 
 **Entrées (Inputs) :**
+
 - **content** (requis) — Unité cohérente de texte à réviser (markdown, texte brut, ou XML riche en texte)
 - **style_guide** (optionnel) — Guide de style spécifique au projet. Lorsqu'il est fourni, il annule et remplace tous les principes génériques de cette tâche (à l'exception de LE CONTENU EST SACRÉ). Le guide de style est l'autorité finale sur le ton, la structure et les choix linguistiques.
 - **reader_type** (optionnel, par défaut : `humans`) — `humans` pour une révision éditoriale standard, `llm` pour une focalisation sur la précision
@@ -60,16 +61,16 @@
 
 **Format de sortie :**
 
-| Texte Original (Original Text) | Texte Révisé (Revised Text) | Changements (Changes) |
-|---------------|--------------|---------|
-| Le passage original exact | La révision suggérée | Brève explication de ce qui a changé et pourquoi |
+| Texte Original (Original Text) | Texte Révisé (Revised Text) | Changements (Changes)                            |
+| ------------------------------ | --------------------------- | ------------------------------------------------ |
+| Le passage original exact      | La révision suggérée        | Brève explication de ce qui a changé et pourquoi |
 
 **Exemple :**
 
-| Texte Original (Original Text) | Texte Révisé (Revised Text) | Changements (Changes) |
-|---------------|--------------|---------|
-| Le système traitent les données et il gère les erreurs. | Le système traite les données et gère les erreurs. | Correction de l'accord sujet-verbe ("traitent" en "traite") ; suppression du "il" redondant |
-| Les utilisateurs peuvent choisisr des options (lignes 12, 45, 78) | Les utilisateurs peuvent choisir des options | Correction orthographique : "choisisr" en "choisir" (apparaît à 3 emplacements) |
+| Texte Original (Original Text)                                    | Texte Révisé (Revised Text)                        | Changements (Changes)                                                                       |
+| ----------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Le système traitent les données et il gère les erreurs.           | Le système traite les données et gère les erreurs. | Correction de l'accord sujet-verbe ("traitent" en "traite") ; suppression du "il" redondant |
+| Les utilisateurs peuvent choisisr des options (lignes 12, 45, 78) | Les utilisateurs peuvent choisir des options       | Correction orthographique : "choisisr" en "choisir" (apparaît à 3 emplacements)             |
 
 ## CONDITIONS D'ARRÊT (HALT CONDITIONS)
 

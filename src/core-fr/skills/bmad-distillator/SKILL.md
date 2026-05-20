@@ -25,12 +25,12 @@ Il s'agit d'une tâche de compression, non pas de résumé. Les résumés sont d
 
 ## Stades
 
-| # | Stade | Objectif |
-|---|-------|---------|
-| 1 | Analyser | Exécuter le script d'analyse, déterminer le routage et le découpage |
-| 2 | Compresser | Lancer le(s) sous-Agent(s) compresseur(s) pour produire le distillat |
-| 3 | Vérifier & Exporter | Contrôle d'exhaustivité, contrôle de format, enregistrement de la sortie |
-| 4 | Valider le Cycle Complet | (uniquement --validate) Reconstruire et comparer avec les originaux |
+| #   | Stade                    | Objectif                                                                 |
+| --- | ------------------------ | ------------------------------------------------------------------------ |
+| 1   | Analyser                 | Exécuter le script d'analyse, déterminer le routage et le découpage      |
+| 2   | Compresser               | Lancer le(s) sous-Agent(s) compresseur(s) pour produire le distillat     |
+| 3   | Vérifier & Exporter      | Contrôle d'exhaustivité, contrôle de format, enregistrement de la sortie |
+| 4   | Valider le Cycle Complet | (uniquement --validate) Reconstruire et comparer avec les originaux      |
 
 ### Stade 1 : Analyser
 
@@ -77,11 +77,11 @@ Après le retour du compresseur (ou compresseur fusionneur) :
    ---
    type: bmad-distillate
    sources:
-     - "{chemin relatif vers fichier source 1}"
-     - "{chemin relatif vers fichier source 2}"
+     - '{chemin relatif vers fichier source 1}'
+     - '{chemin relatif vers fichier source 2}'
    downstream_consumer: "{consommateur ou 'general'}"
-   created: "{date}"
-   token_estimate: {estimation indicative en tokens}
+   created: '{date}'
+   token_estimate: { estimation indicative en tokens }
    parts: 1
    ---
    ```
@@ -152,24 +152,28 @@ Ce stade prouve que le distillat est sans perte en reconstruisant les documents 
    ```markdown
    ---
    type: distillate-validation
-   distillate: "{chemin distillat}"
-   sources: ["{chemins sources}"]
-   created: "{date}"
+   distillate: '{chemin distillat}'
+   sources: ['{chemins sources}']
+   created: '{date}'
    ---
 
    ## Synthèse de Validation
+
    - Statut : PASS | PASS_WITH_WARNINGS | FAIL
    - Information préservée : {estimation en pourcentage}
    - Lacunes détectées : {count}
    - Hallucinations détectées : {count}
 
    ## Lacunes (information présente dans les originaux mais absente de la reconstruction)
+
    - {description de la lacune} — Source : {fichier original concerné}, Section : {where}
 
    ## Hallucinations (information dans la reconstruction non traçable aux originaux)
+
    - {description de l'hallucination} — semble combler une lacune dans : {section}
 
    ## Marqueurs de Lacunes Possibles (signalés par le reconstructeur)
+
    - {description du marqueur}
    ```
 

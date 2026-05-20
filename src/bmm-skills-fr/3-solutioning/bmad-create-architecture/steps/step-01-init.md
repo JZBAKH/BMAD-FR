@@ -55,14 +55,16 @@ Si aucun document n'existe ou s'il n'y a pas de `stepsCompleted` dans le frontma
 #### A. Découverte des Documents d'Entrée
 
 Découvrez et chargez les documents de contexte en utilisant la découverte intelligente. Les documents peuvent se trouver dans les emplacements suivants :
-- {planning_artifacts}/**
-- {output_folder}/**
-- {project_knowledge}/**
-- {project-root}/docs/**
 
-Notez également que lors de la recherche, les documents peuvent être un simple fichier Markdown ou un dossier avec un index et plusieurs fichiers. Par exemple, si vous cherchez `*foo*.md` et qu'il n'est pas trouvé, cherchez également un dossier nommé *foo*/index.md (ce qui indique un contenu fragmenté).
+- {planning_artifacts}/\*\*
+- {output_folder}/\*\*
+- {project_knowledge}/\*\*
+- {project-root}/docs/\*\*
+
+Notez également que lors de la recherche, les documents peuvent être un simple fichier Markdown ou un dossier avec un index et plusieurs fichiers. Par exemple, si vous cherchez `*foo*.md` et qu'il n'est pas trouvé, cherchez également un dossier nommé _foo_/index.md (ce qui indique un contenu fragmenté).
 
 Essayez de découvrir les éléments suivants :
+
 - Product Brief (`*brief*.md`)
 - Product Requirements Document (`*prd*.md`)
 - UX Design (`*ux-design*.md`) et autres

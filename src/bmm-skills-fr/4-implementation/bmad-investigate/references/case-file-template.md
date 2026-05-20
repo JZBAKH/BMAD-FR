@@ -8,12 +8,12 @@
 
 ## Case Info
 
-| Champ              | Valeur                                                                     |
-| ------------------ | -------------------------------------------------------------------------- |
-| Ticket             | {ticket-id ou "N/A"}                                                       |
-| Date d'ouverture   | {date}                                                                     |
-| Status             | Active                                                                     |
-| Système            | {OS, version, détails d'environnement pertinents}                          |
+| Champ              | Valeur                                                                        |
+| ------------------ | ----------------------------------------------------------------------------- |
+| Ticket             | {ticket-id ou "N/A"}                                                          |
+| Date d'ouverture   | {date}                                                                        |
+| Status             | Active                                                                        |
+| Système            | {OS, version, détails d'environnement pertinents}                             |
 | Sources d'évidence | {archive de diagnostic, logs, dump de crash, code, gestion de versions, etc.} |
 
 ## Problem Statement
@@ -28,15 +28,15 @@
 
 ## Investigation Backlog
 
-| # | Chemin à explorer | Priorité              | Status                                | Notes      |
-| - | ----------------- | --------------------- | ------------------------------------- | ---------- |
-| 1 | {description}     | {High / Medium / Low} | {Open / In Progress / Done / Blocked} | {context} |
+| #   | Chemin à explorer | Priorité              | Status                                | Notes     |
+| --- | ----------------- | --------------------- | ------------------------------------- | --------- |
+| 1   | {description}     | {High / Medium / Low} | {Open / In Progress / Done / Blocked} | {context} |
 
 ## Timeline of Events
 
-| Heure          | Événement              | Source                | Confiance             |
-| -------------- | ---------------------- | --------------------- | --------------------- |
-| {timestamp}    | {description d'événement} | {fichier de log, commit, …} | {Confirmed / Deduced} |
+| Heure       | Événement                 | Source                      | Confiance             |
+| ----------- | ------------------------- | --------------------------- | --------------------- |
+| {timestamp} | {description d'événement} | {fichier de log, commit, …} | {Confirmed / Deduced} |
 
 ## Confirmed Findings
 
@@ -74,17 +74,17 @@
 
 ## Missing Evidence
 
-| Manque             | Impact                                | Comment l'obtenir |
-| ------------------ | ------------------------------------- | ----------------- |
-| {ce qui manque}    | {ce que cela confirmerait ou éliminerait} | {comment l'obtenir} |
+| Manque          | Impact                                    | Comment l'obtenir   |
+| --------------- | ----------------------------------------- | ------------------- |
+| {ce qui manque} | {ce que cela confirmerait ou éliminerait} | {comment l'obtenir} |
 
 ## Source Code Trace
 
-| Élément          | Détail                                       |
-| ---------------- | -------------------------------------------- |
-| Origine d'erreur | {file:line, nom de fonction}                 |
-| Trigger          | {ce qui cause l'exécution de ce code}        |
-| Condition        | {quel état produit le comportement observé}  |
+| Élément          | Détail                                        |
+| ---------------- | --------------------------------------------- |
+| Origine d'erreur | {file:line, nom de fonction}                  |
+| Trigger          | {ce qui cause l'exécution de ce code}         |
+| Condition        | {quel état produit le comportement observé}   |
 | Fichiers liés    | {autres fichiers dans le même chemin de code} |
 
 ## Conclusion

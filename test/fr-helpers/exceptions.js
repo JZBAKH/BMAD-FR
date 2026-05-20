@@ -58,10 +58,10 @@ function matchesPath(filePath, pattern) {
   }
   if (pattern.includes('*')) {
     const escaped = pattern
-      .replace(/[.+^${}()|[\]\\]/g, '\\$&')
-      .replace(/\*\*/g, '__DSTAR__')
-      .replace(/\*/g, '[^/]*')
-      .replace(/__DSTAR__/g, '.*');
+      .replaceAll(/[.+^${}()|[\]\\]/g, String.raw`\$&`)
+      .replaceAll('**', '__DSTAR__')
+      .replaceAll('*', '[^/]*')
+      .replaceAll('__DSTAR__', '.*');
     return new RegExp(`^${escaped}$`).test(filePath);
   }
   return false;

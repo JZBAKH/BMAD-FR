@@ -10,6 +10,7 @@
 ## Synthèse exécutive
 
 Le fork **BMAD-FR** a été migré de la base pré-refactor d'upstream (mars 2026) vers la structure upstream actuelle (mai 2026). Les **262 commits** d'écart ont été couverts par :
+
 - Import de la nouvelle structure upstream EN
 - Migration des traductions FR existantes vers la nouvelle structure
 - Traduction des skills entièrement nouveaux upstream
@@ -53,12 +54,14 @@ Racine :
 ### Workflow `sync-upstream-en.yml`
 
 Tourne **tous les jours à 06h00 UTC**. Récupère depuis `upstream/main` les chemins listés en whitelist explicite :
+
 - `src/bmm-skills/`, `src/core-skills/`, `src/scripts/`
 - `tools/installer/`, `tools/javascript-conventions.md`, `tools/validate-skills.js`, etc.
 - `docs/`, `website/`, `test/`
 - `.husky/`, `.markdownlint-cli2.yaml`, `.npmrc`, `.nvmrc`, `.prettierignore`
 
 **Protection des traductions :**
+
 - Les chemins `-fr/` (bmm-skills-fr, core-skills-fr, installer-fr, etc.) **n'existent pas upstream** → `git checkout upstream/main -- <whitelist>` ne peut pas les toucher
 - `README.md` n'est pas dans la whitelist + protégé par `.gitattributes merge=ours`
 
@@ -72,18 +75,19 @@ Le workflow `upstream-sync-watch.yml` continue de tourner le 1er de chaque mois 
 
 ## 3. Couverture de traduction
 
-| Zone | Avant | Après | Status |
-|---|---|---|---|
-| `src/bmm-skills-fr/` | 230 fichiers EN | 230 fichiers traduits | ✅ |
-| `src/core-skills-fr/` | 35 fichiers EN | 35 fichiers traduits | ✅ |
-| `tools/installer-fr/` | 41 fichiers EN | ~280 strings traduites dans 22 fichiers user-facing | ✅ |
-| Documentation racine | partielle | 6 fichiers FR renommés `-fr.md` | ✅ |
-| Tests linguistiques | passaient avant | tests 12 (85 fichiers) + 13 (4 fichiers) passent | ✅ |
-| `getModulePath` | redirigeait `bmm`/`core` → `-fr` | redirige aussi `bmm-skills`/`core-skills` → `-fr` | ✅ |
+| Zone                  | Avant                            | Après                                               | Status |
+| --------------------- | -------------------------------- | --------------------------------------------------- | ------ |
+| `src/bmm-skills-fr/`  | 230 fichiers EN                  | 230 fichiers traduits                               | ✅     |
+| `src/core-skills-fr/` | 35 fichiers EN                   | 35 fichiers traduits                                | ✅     |
+| `tools/installer-fr/` | 41 fichiers EN                   | ~280 strings traduites dans 22 fichiers user-facing | ✅     |
+| Documentation racine  | partielle                        | 6 fichiers FR renommés `-fr.md`                     | ✅     |
+| Tests linguistiques   | passaient avant                  | tests 12 (85 fichiers) + 13 (4 fichiers) passent    | ✅     |
+| `getModulePath`       | redirigeait `bmm`/`core` → `-fr` | redirige aussi `bmm-skills`/`core-skills` → `-fr`   | ✅     |
 
 ### Méthodologie qualité (triple vérification)
 
 Pour chaque lot de traduction :
+
 1. **Traducteur** (sub-agent) : lit le fichier EN, applique GLOSSAIRE, traduit
 2. **Vérificateur indépendant** (sub-agent distinct) : audit critique sans connaître les choix du traducteur
 3. **Correction** : défauts critiques fixés immédiatement, mineurs documentés

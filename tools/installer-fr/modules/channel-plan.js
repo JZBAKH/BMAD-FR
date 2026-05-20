@@ -7,7 +7,7 @@
  * We build the plan from:
  *   1. CLI flags (--channel / --all-* / --next=CODE / --pin CODE=TAG)
  *   2. Interactive answers (the "all stable?" gate + per-module picker)
- *   3. Registry defaults (default_channel from registry-fallback.yaml / official.yaml)
+ *   3. Registry defaults (default_channel from bmad-modules.yaml)
  *   4. Hardcoded fallback 'stable'
  *
  * Precedence: --pin > --next=CODE > --channel (global) > registry default > 'stable'.
@@ -41,10 +41,10 @@ function parseChannelOptions(options = {}) {
   const distinct = new Set(aliases.map((a) => a.value).filter(Boolean));
   if (distinct.size > 1) {
     warnings.push(
-      `Conflicting channel flags: ${aliases
+      `Options de canal en conflit : ${aliases
         .filter((a) => a.value)
         .map((a) => a.flag + '=' + a.value)
-        .join(', ')}. Using first: ${aliases.find((a) => a.value).flag}.`,
+        .join(', ')}. Utilisation de la première : ${aliases.find((a) => a.value).flag}.`,
     );
   }
   const firstValid = aliases.find((a) => a.value);
@@ -63,11 +63,11 @@ function parseChannelOptions(options = {}) {
   for (const spec of options.pin || []) {
     const parsed = parsePinSpec(spec);
     if (!parsed) {
-      warnings.push(`Ignoring malformed --pin value '${spec}'. Expected CODE=TAG.`);
+      warnings.push(`Valeur --pin mal formée ignorée : '${spec}'. Format attendu : CODE=TAG.`);
       continue;
     }
     if (pins.has(parsed.code)) {
-      warnings.push(`--pin specified multiple times for '${parsed.code}'. Using last: ${parsed.tag}.`);
+      warnings.push(`--pin spécifié plusieurs fois pour '${parsed.code}'. Utilisation du dernier : ${parsed.tag}.`);
     }
     pins.set(parsed.code, parsed.tag);
   }
@@ -83,7 +83,7 @@ function normalizeChannel(raw, warnings, flagName) {
   if (typeof raw !== 'string') return null;
   const lower = raw.trim().toLowerCase();
   if (VALID_CHANNELS.has(lower)) return lower;
-  warnings.push(`Ignoring invalid ${flagName} value '${raw}'. Expected one of: stable, next.`);
+  warnings.push(`Valeur '${raw}' invalide pour ${flagName} ignorée. Valeurs acceptées : stable, next.`);
   return null;
 }
 
@@ -159,12 +159,12 @@ function orphanPinWarnings(channelOptions, selectedCodes) {
   const selected = new Set(selectedCodes || []);
   for (const code of channelOptions?.pins?.keys() || []) {
     if (!selected.has(code)) {
-      warnings.push(`--pin for '${code}' has no effect (module not selected).`);
+      warnings.push(`--pin pour '${code}' est sans effet (module non sélectionné).`);
     }
   }
   for (const code of channelOptions?.nextSet || []) {
     if (!selected.has(code)) {
-      warnings.push(`--next for '${code}' has no effect (module not selected).`);
+      warnings.push(`--next pour '${code}' est sans effet (module non sélectionné).`);
     }
   }
   return warnings;
@@ -179,15 +179,15 @@ function orphanPinWarnings(channelOptions, selectedCodes) {
 function bundledTargetWarnings(channelOptions, bundledCodes) {
   const warnings = [];
   const bundled = new Set(bundledCodes || []);
-  const hint = '(bundled module; use `npx bmad-method@next install` for a prerelease)';
+  const hint = '(module intégré ; utilisez `npx bmad-method@next install` pour une version préliminaire)';
   for (const code of channelOptions?.pins?.keys() || []) {
     if (bundled.has(code)) {
-      warnings.push(`--pin for '${code}' has no effect ${hint}.`);
+      warnings.push(`--pin pour '${code}' est sans effet ${hint}.`);
     }
   }
   for (const code of channelOptions?.nextSet || []) {
     if (bundled.has(code)) {
-      warnings.push(`--next for '${code}' has no effect ${hint}.`);
+      warnings.push(`--next pour '${code}' est sans effet ${hint}.`);
     }
   }
   return warnings;

@@ -1,5 +1,5 @@
 ---
-title: "Xem trước Checkpoint"
+title: 'Xem trước Checkpoint'
 description: Review có người trong vòng lặp với hỗ trợ của LLM, dẫn bạn đi qua thay đổi từ mục đích đến chi tiết
 sidebar:
   order: 3
@@ -37,7 +37,7 @@ Workflow xác định thay đổi đó là gì, từ PR, commit, branch, file sp
 
 ### 2. Dẫn giải thay đổi (Walkthrough)
 
-Thay đổi được tổ chức theo **mối quan tâm** như validation đầu vào hay API contract, thay vì theo file. Mỗi mối quan tâm có một giải thích ngắn về *vì sao* cách tiếp cận này được chọn, kèm theo các điểm dừng `path:line` có thể bấm để người review đi theo xuyên suốt code.
+Thay đổi được tổ chức theo **mối quan tâm** như validation đầu vào hay API contract, thay vì theo file. Mỗi mối quan tâm có một giải thích ngắn về _vì sao_ cách tiếp cận này được chọn, kèm theo các điểm dừng `path:line` có thể bấm để người review đi theo xuyên suốt code.
 
 Đây là bước dùng phán đoán về thiết kế. Người review đánh giá xem hướng tiếp cận có đúng với hệ thống hay không, chứ chưa phải xem code có chính xác tuyệt đối hay không. Các mối quan tâm được sắp từ trên xuống: ý định cấp cao trước, phần triển khai hỗ trợ sau. Người review sẽ không gặp tham chiếu tới thứ mà họ chưa thấy.
 

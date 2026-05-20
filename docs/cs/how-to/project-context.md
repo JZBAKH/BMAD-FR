@@ -1,5 +1,5 @@
 ---
-title: "Správa kontextu projektu"
+title: 'Správa kontextu projektu'
 description: Vytvoření a údržba project-context.md pro vedení AI agentů
 sidebar:
   order: 8
@@ -8,9 +8,10 @@ sidebar:
 Použijte soubor `project-context.md` k zajištění toho, aby AI agenti dodržovali technické preference a pravidla implementace vašeho projektu ve všech workflow. Aby byl vždy dostupný, můžete také přidat řádek `Important project context and conventions are located in [cesta k project context]/project-context.md` do souboru kontextu nebo pravidel vašeho nástroje (jako je `AGENTS.md`).
 
 :::note[Předpoklady]
+
 - BMad Method nainstalován
 - Znalost technologického stacku a konvencí vašeho projektu
-:::
+  :::
 
 ## Kdy to použít
 
@@ -60,14 +61,17 @@ sections_completed: ['technology_stack', 'critical_rules']
 ## Critical Implementation Rules
 
 **TypeScript:**
+
 - Strict mode enabled, no `any` types
 - Use `interface` for public APIs, `type` for unions
 
 **Code Organization:**
+
 - Components in `/src/components/` with co-located tests
 - API calls use `apiClient` singleton — never fetch directly
 
 **Testing:**
+
 - Unit tests focus on business logic
 - Integration tests use MSW for API mocking
 ```
@@ -115,11 +119,12 @@ Soubor `project-context.md`, který:
 ## Tipy
 
 :::tip[Osvědčené postupy]
+
 - **Zaměřte se na neočividné** — Dokumentujte vzory, které agenti mohou přehlédnout (např. „Použijte JSDoc na každé veřejné třídě“), ne univerzální postupy jako „používejte smysluplné názvy proměnných.“
 - **Udržujte to stručné** — Tento soubor načítá každý implementační workflow. Dlouhé soubory plýtvají kontextem. Vylučte obsah, který platí pouze pro úzký rozsah nebo specifické stories.
 - **Aktualizujte dle potřeby** — Upravte ručně, když se vzory změní, nebo přegenerujte po významných změnách architektury.
 - Funguje pro projekty Quick Flow i plné metody BMad.
-:::
+  :::
 
 ## Další kroky
 

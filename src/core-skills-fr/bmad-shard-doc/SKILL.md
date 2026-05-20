@@ -1,6 +1,6 @@
 ---
 name: bmad-shard-doc
-description: 'Découpe les grands documents markdown en fichiers plus petits et organisés selon les sections de niveau 2 (par défaut). À utiliser si l''utilisateur dit perform shard document'
+description: "Découpe les grands documents markdown en fichiers plus petits et organisés selon les sections de niveau 2 (par défaut). À utiliser si l'utilisateur dit perform shard document"
 ---
 
 # Découper un document (Shard Document)
@@ -67,6 +67,7 @@ Présenter à l'utilisateur les options pour le document original :
 > Que souhaitez-vous faire avec le document original `[source-document-name]` ?
 >
 > Options :
+>
 > - `[d]` Supprimer - Supprimer l'original (recommandé - les fragments peuvent toujours être recombinés)
 > - `[m]` Déplacer vers les archives - Déplacer l'original vers un emplacement de sauvegarde/archive
 > - `[k]` Conserver - Laisser l'original en place (NON recommandé - va à l'encontre de l'objectif du découpage)

@@ -1,6 +1,6 @@
 ---
 name: 'step-v-02-format-detection'
-description: 'Détection du format et analyse de la structure - Classifier le format du cahier des charges produit (PRD) et l''acheminer de manière appropriée'
+description: "Détection du format et analyse de la structure - Classifier le format du cahier des charges produit (PRD) et l'acheminer de manière appropriée"
 
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
 nextStepFile: './step-v-03-density-validation.md'
@@ -63,11 +63,13 @@ Détecter si le cahier des charges produit (PRD) suit le format BMAD et l'achemi
 Charger l'intégralité du fichier de cahier des charges produit (PRD) et extraire :
 
 **Tous les en-têtes de niveau 2 (##) :**
+
 - Parcourir l'intégralité du document de cahier des charges produit (PRD)
 - Extraire tous les en-têtes de section ##
 - Les lister dans l'ordre
 
 **Frontmatter du cahier des charges produit (PRD) :**
+
 - Extraire classification.domain s'il est présent
 - Extraire classification.projectType s'il est présent
 - Noter toute autre métadonnée pertinente
@@ -84,6 +86,7 @@ Vérifier si le cahier des charges produit (PRD) contient les sections fondament
 6. **Exigences non-fonctionnelles** (ou : ## Non-Functional Requirements, ## NFRs, ## Quality Attributes)
 
 **Compter les correspondances :**
+
 - Combien de ces 6 sections fondamentales sont présentes ?
 - Quelles sections spécifiques sont présentes ?
 - Lesquelles sont manquantes ?
@@ -93,15 +96,18 @@ Vérifier si le cahier des charges produit (PRD) contient les sections fondament
 Selon le nombre de sections fondamentales, classifier :
 
 **BMAD Standard :**
+
 - 5-6 sections fondamentales présentes
 - Suit étroitement la structure du cahier des charges produit (PRD) BMAD
 
 **Variante BMAD :**
+
 - 3-4 sections fondamentales présentes
 - Suit globalement les modèles BMAD mais peut présenter des différences structurelles
 - Manque certaines sections mais reconnaissable comme étant de style BMAD
 
 **Non-Standard :**
+
 - Moins de 3 sections fondamentales présentes
 - Ne suit pas la structure du cahier des charges produit (PRD) BMAD
 - Peut être un format entièrement personnalisé, hérité (legacy), ou provenir d'un autre framework
@@ -117,6 +123,7 @@ Ajouter au rapport de validation :
 [Lister tous les en-têtes ## de niveau 2 trouvés]
 
 **Sections fondamentales BMAD présentes :**
+
 - Résumé exécutif : [Présente/Manquante]
 - Critères de réussite : [Présente/Manquante]
 - Périmètre du produit : [Présente/Manquante]

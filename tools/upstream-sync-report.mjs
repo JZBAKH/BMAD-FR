@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { execSync } from 'node:child_process';
 import { readdir, stat, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -19,7 +18,7 @@ function listUpstreamFiles(prefix) {
     .filter(Boolean)
     .filter((p) => {
       const idx = p.lastIndexOf('.');
-      return idx >= 0 && TRACKED_EXT.has(p.slice(idx));
+      return idx !== -1 && TRACKED_EXT.has(p.slice(idx));
     });
 }
 
@@ -30,9 +29,7 @@ function listUpstreamModules() {
 
 async function listLocalFrModules() {
   const entries = await readdir(join(REPO_ROOT, 'src'), { withFileTypes: true });
-  return entries
-    .filter((e) => e.isDirectory() && e.name.endsWith('-fr'))
-    .map((e) => e.name.slice(0, -3));
+  return entries.filter((e) => e.isDirectory() && e.name.endsWith('-fr')).map((e) => e.name.slice(0, -3));
 }
 
 async function fileExists(path) {
@@ -47,8 +44,8 @@ async function fileExists(path) {
 async function fetchUpstream() {
   try {
     git('fetch upstream main --quiet');
-  } catch (err) {
-    console.error('Failed to fetch upstream :', err.message);
+  } catch (error) {
+    console.error('Failed to fetch upstream :', error.message);
     process.exit(2);
   }
 }
@@ -85,21 +82,19 @@ async function buildReport() {
 function renderIssueBody(report) {
   const lines = [];
   const date = report.generatedAt.slice(0, 10);
-  lines.push(`# Veille upstream du ${date}`);
-  lines.push('');
-  lines.push('_Issue générée automatiquement par `.github/workflows/upstream-sync-watch.yml`._');
-  lines.push('');
+  lines.push(`# Veille upstream du ${date}`, '', '_Issue générée automatiquement par `.github/workflows/upstream-sync-watch.yml`._', '');
 
   const totalNewFiles = report.moduleReports.reduce((acc, r) => acc + r.missing.length, 0);
-  lines.push('## Résumé');
-  lines.push('');
-  lines.push(`- **Nouveaux modules** dans upstream non encore importés : **${report.newModules.length}**`);
-  lines.push(`- **Nouveaux fichiers** dans des modules existants côté FR : **${totalNewFiles}**`);
-  lines.push('');
+  lines.push(
+    '## Résumé',
+    '',
+    `- **Nouveaux modules** dans upstream non encore importés : **${report.newModules.length}**`,
+    `- **Nouveaux fichiers** dans des modules existants côté FR : **${totalNewFiles}**`,
+    '',
+  );
 
   if (report.newModules.length > 0) {
-    lines.push('## Modules à importer');
-    lines.push('');
+    lines.push('## Modules à importer', '');
     for (const m of report.newModules) {
       lines.push(`- [ ] \`src/${m}/\` → créer \`src/${m}-fr/\` puis traduire (voir GLOSSAIRE.md)`);
     }
@@ -108,8 +103,7 @@ function renderIssueBody(report) {
 
   for (const r of report.moduleReports) {
     if (r.missing.length === 0) continue;
-    lines.push(`## Module \`${r.module}\` — ${r.missing.length} fichiers à traduire`);
-    lines.push('');
+    lines.push(`## Module \`${r.module}\` — ${r.missing.length} fichiers à traduire`, '');
     for (const { upstreamPath, frPath } of r.missing.slice(0, 100)) {
       lines.push(`- [ ] \`${frPath}\` (source : \`${upstreamPath}\`)`);
     }
@@ -120,19 +114,20 @@ function renderIssueBody(report) {
   }
 
   if (totalNewFiles === 0 && report.newModules.length === 0) {
-    lines.push('🎉 **Aucune nouveauté upstream à traiter.** Tout est à jour.');
-    lines.push('');
+    lines.push('🎉 **Aucune nouveauté upstream à traiter.** Tout est à jour.', '');
   }
 
-  lines.push('---');
-  lines.push('');
-  lines.push('### Méthode recommandée pour chaque lot');
-  lines.push('');
-  lines.push('1. Copier les fichiers source upstream dans un dossier sandbox externe au repo');
-  lines.push('2. Briefer Gemini avec [GLOSSAIRE.md](GLOSSAIRE.md) en system prompt + version anglaise');
-  lines.push('3. Récupérer la traduction et la placer dans le chemin `-fr` correspondant');
-  lines.push('4. Lancer `npm run audit:translation` localement pour vérifier');
-  lines.push('5. Commit avec message Conventional Commits, ex : `feat(<module>-fr): translate <skill or workflow>`');
+  lines.push(
+    '---',
+    '',
+    '### Méthode recommandée pour chaque lot',
+    '',
+    '1. Copier les fichiers source upstream dans un dossier sandbox externe au repo',
+    '2. Briefer Gemini avec [GLOSSAIRE.md](GLOSSAIRE.md) en system prompt + version anglaise',
+    '3. Récupérer la traduction et la placer dans le chemin `-fr` correspondant',
+    '4. Lancer `npm run audit:translation` localement pour vérifier',
+    '5. Commit avec message Conventional Commits, ex : `feat(<module>-fr): translate <skill or workflow>`',
+  );
 
   return lines.join('\n');
 }
@@ -156,7 +151,7 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error(err);
+main().catch((error) => {
+  console.error(error);
   process.exit(1);
 });

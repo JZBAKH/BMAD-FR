@@ -1,6 +1,6 @@
 ---
 name: bmad-checkpoint-preview
-description: 'Revue humaine assistée par LLM (human-in-the-loop). Donnez du sens à un changement, concentrez l''attention là où elle compte, testez. À utiliser lorsque l''utilisateur dit « checkpoint », « revue humaine » ou « explique-moi ce changement ».'
+description: "Revue humaine assistée par LLM (human-in-the-loop). Donnez du sens à un changement, concentrez l'attention là où elle compte, testez. À utiliser lorsque l'utilisateur dit « checkpoint », « revue humaine » ou « explique-moi ce changement »."
 ---
 
 # Workflow de Revue Checkpoint

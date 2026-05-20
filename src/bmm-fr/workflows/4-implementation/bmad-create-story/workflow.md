@@ -3,6 +3,7 @@
 **Objectif :** Créer un fichier de story complet qui donne à l'agent de dév tout ce dont il a besoin pour une implémentation impeccable.
 
 **Votre Rôle :** Moteur de contexte de story qui prévient les erreurs, omissions ou désastres des développeurs LLM.
+
 - Communiquez toutes les réponses en {communication_language} et générez tous les documents en {document_output_language}.
 - Votre but n'est PAS de copier les epics - c'est de créer un fichier de story complet et optimisé qui donne à l'agent DEV TOUT ce dont il a besoin pour une implémentation sans faille.
 - ERREURS LLM COURANTES À PRÉVENIR : réinventer la roue, mauvaises bibliothèques, mauvais emplacements de fichiers, régressions, ignorance de l'UX, implémentations vagues, mensonge sur l'achèvement, non-apprentissage du travail passé.
@@ -38,12 +39,12 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
 
 ### Fichiers d'Entrée
 
-| Entrée | Description | Modèle(s) de Chemin | Stratégie de Chargement |
-|-------|-------------|------------------|---------------|
-| prd | PRD (repli - le fichier d'epics devrait avoir la majeure partie du contenu) | entier: `{planning_artifacts}/*prd*.md`, partitionné: `{planning_artifacts}/*prd*/*.md` | SELECTIVE_LOAD |
-| architecture | Architecture (repli - le fichier d'epics devrait avoir les sections pertinentes) | entier: `{planning_artifacts}/*architecture*.md`, partitionné: `{planning_artifacts}/*architecture*/*.md` | SELECTIVE_LOAD |
-| ux | Design UX (repli - le fichier d'epics devrait avoir les sections pertinentes) | entier: `{planning_artifacts}/*ux*.md`, partitionné: `{planning_artifacts}/*ux*/*.md` | SELECTIVE_LOAD |
-| epics | Fichier epics+stories enrichi avec BDD et indices sources | entier: `{planning_artifacts}/*epic*.md`, partitionné: `{planning_artifacts}/*epic*/*.md` | SELECTIVE_LOAD |
+| Entrée       | Description                                                                      | Modèle(s) de Chemin                                                                                       | Stratégie de Chargement |
+| ------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------- |
+| prd          | PRD (repli - le fichier d'epics devrait avoir la majeure partie du contenu)      | entier: `{planning_artifacts}/*prd*.md`, partitionné: `{planning_artifacts}/*prd*/*.md`                   | SELECTIVE_LOAD          |
+| architecture | Architecture (repli - le fichier d'epics devrait avoir les sections pertinentes) | entier: `{planning_artifacts}/*architecture*.md`, partitionné: `{planning_artifacts}/*architecture*/*.md` | SELECTIVE_LOAD          |
+| ux           | Design UX (repli - le fichier d'epics devrait avoir les sections pertinentes)    | entier: `{planning_artifacts}/*ux*.md`, partitionné: `{planning_artifacts}/*ux*/*.md`                     | SELECTIVE_LOAD          |
+| epics        | Fichier epics+stories enrichi avec BDD et indices sources                        | entier: `{planning_artifacts}/*epic*.md`, partitionné: `{planning_artifacts}/*epic*/*.md`                 | SELECTIVE_LOAD          |
 
 ---
 
@@ -58,16 +59,13 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
     <action>ALLER À l'étape 2a</action>
   </check>
 
-  <action>Vérifier si le fichier {{sprint_status}} existe pour l'auto-découverte</action>
-  <check if="le fichier de statut de sprint n'existe PAS">
-    <output>🚫 Aucun fichier de statut de sprint trouvé et aucune story spécifiée</output>
-    <output>
-      **Options Requises :**
-      1. Exécuter `sprint-planning` pour initialiser le suivi du sprint (recommandé)
-      2. Fournir un numéro epic-story spécifique à créer (ex : "1-2-user-auth")
-      3. Fournir le chemin vers les documents de la story si le statut de sprint n'existe pas encore
-    </output>
-    <ask>Choisissez l'option [1], fournissez le numéro epic-story, le chemin vers les docs de story, ou [q] pour quitter :</ask>
+<action>Vérifier si le fichier {{sprint_status}} existe pour l'auto-découverte</action>
+<check if="le fichier de statut de sprint n'existe PAS">
+<output>🚫 Aucun fichier de statut de sprint trouvé et aucune story spécifiée</output>
+<output>
+**Options Requises :** 1. Exécuter `sprint-planning` pour initialiser le suivi du sprint (recommandé) 2. Fournir un numéro epic-story spécifique à créer (ex : "1-2-user-auth") 3. Fournir le chemin vers les documents de la story si le statut de sprint n'existe pas encore
+</output>
+<ask>Choisissez l'option [1], fournissez le numéro epic-story, le chemin vers les docs de story, ou [q] pour quitter :</ask>
 
     <check if="l'utilisateur choisit 'q'">
       <action>ARRÊT - Aucun travail requis</action>
@@ -88,6 +86,7 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
       <action>Utiliser le chemin fourni par l'utilisateur pour les documents de story</action>
       <action>ALLER À l'étape 2a</action>
     </check>
+
   </check>
 
   <!-- Auto-découverte à partir du statut de sprint uniquement si aucune entrée utilisateur -->
@@ -149,16 +148,14 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
     </check>
 
     <action>ALLER À l'étape 2a</action>
+
   </check>
   <action>Charger le fichier COMPLET : {{sprint_status}}</action>
   <action>Lire TOUTES les lignes du début à la fin - ne sauter aucun contenu</action>
   <action>Analyser complètement la section development_status</action>
 
-  <action>Trouver la PREMIÈRE story (en lisant dans l'ordre de haut en bas) où :
-    - La clé correspond au modèle : nombre-nombre-nom (ex : "1-2-user-auth")
-    - N'est PAS une clé d'epic (epic-X) ou une rétrospective (epic-X-retrospective)
-    - La valeur du statut est égale à "backlog"
-  </action>
+<action>Trouver la PREMIÈRE story (en lisant dans l'ordre de haut en bas) où : - La clé correspond au modèle : nombre-nombre-nom (ex : "1-2-user-auth") - N'est PAS une clé d'epic (epic-X) ou une rétrospective (epic-X-retrospective) - La valeur du statut est égale à "backlog"
+</action>
 
   <check if="aucune story de backlog trouvée">
     <output>Aucune story en backlog trouvée dans sprint-status.yaml
@@ -171,80 +168,77 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
       3. Vérifier si le sprint actuel est terminé et exécuter retrospective
     </output>
     <action>ARRÊT</action>
+
   </check>
 
-  <action>Extraire de la clé de story trouvée (ex : "1-2-user-authentication") :
-    - epic_num : premier nombre avant le tiret (ex : "1")
-    - story_num : deuxième nombre après le premier tiret (ex : "2")
-    - story_title : le reste après le deuxième tiret (ex : "user-authentication")
-  </action>
-  <action>Définir {{story_id}} = "{{epic_num}}.{{story_num}}"</action>
-  <action>Stocker story_key pour une utilisation ultérieure (ex : "1-2-user-authentication")</action>
+<action>Extraire de la clé de story trouvée (ex : "1-2-user-authentication") : - epic_num : premier nombre avant le tiret (ex : "1") - story_num : deuxième nombre après le premier tiret (ex : "2") - story_title : le reste après le deuxième tiret (ex : "user-authentication")
+</action>
+<action>Définir {{story_id}} = "{{epic_num}}.{{story_num}}"</action>
+<action>Stocker story_key pour une utilisation ultérieure (ex : "1-2-user-authentication")</action>
 
   <!-- Marquer l'epic comme en-cours s'il s'agit de la première story -->
-  <action>Vérifier s'il s'agit de la première story de l'epic {{epic_num}} en cherchant le modèle {{epic_num}}-1-*</action>
-  <check if="c'est la première story de l'epic {{epic_num}}">
-    <action>Charger {{sprint_status}} et vérifier le statut de epic-{{epic_num}}</action>
-    <action>Si le statut de l'epic est "backlog" → mettre à jour en "in-progress"</action>
-    <action>Si le statut de l'epic est "contexted" (statut hérité) → mettre à jour en "in-progress" (rétrocompatibilité)</action>
-    <action>Si le statut de l'epic est "in-progress" → aucun changement requis</action>
-    <check if="le statut de l'epic est 'done'">
-      <output>ERREUR : Impossible de créer une story dans un epic terminé</output>
-      <output>L'epic {{epic_num}} est marqué comme 'done'. Toutes les stories sont terminées.</output>
-      <output>Si vous devez ajouter plus de travail, soit :</output>
-      <output>1. Changez manuellement le statut de l'epic en 'in-progress' dans sprint-status.yaml</output>
-      <output>2. Créez un nouvel epic pour le travail additionnel</output>
-      <action>ARRÊT - Impossible de continuer</action>
-    </check>
-    <check if="le statut de l'epic n'est pas l'un des suivants : backlog, contexted, in-progress, done">
-      <output>ERREUR : Statut d'epic invalide '{{epic_status}}'</output>
-      <output>L'epic {{epic_num}} a un statut invalide. Attendu : backlog, in-progress, ou done</output>
-      <output>Veuillez corriger sprint-status.yaml manuellement ou exécuter sprint-planning pour régénérer</output>
-      <action>ARRÊT - Impossible de continuer</action>
-    </check>
-    <output>Statut de l'epic {{epic_num}} mis à jour en in-progress</output>
-  </check>
 
-  <action>ALLER À l'étape 2a</action>
+<action>Vérifier s'il s'agit de la première story de l'epic {{epic_num}} en cherchant le modèle {{epic_num}}-1-\*</action>
+<check if="c'est la première story de l'epic {{epic_num}}">
+<action>Charger {{sprint_status}} et vérifier le statut de epic-{{epic_num}}</action>
+<action>Si le statut de l'epic est "backlog" → mettre à jour en "in-progress"</action>
+<action>Si le statut de l'epic est "contexted" (statut hérité) → mettre à jour en "in-progress" (rétrocompatibilité)</action>
+<action>Si le statut de l'epic est "in-progress" → aucun changement requis</action>
+<check if="le statut de l'epic est 'done'">
+<output>ERREUR : Impossible de créer une story dans un epic terminé</output>
+<output>L'epic {{epic_num}} est marqué comme 'done'. Toutes les stories sont terminées.</output>
+<output>Si vous devez ajouter plus de travail, soit :</output>
+<output>1. Changez manuellement le statut de l'epic en 'in-progress' dans sprint-status.yaml</output>
+<output>2. Créez un nouvel epic pour le travail additionnel</output>
+<action>ARRÊT - Impossible de continuer</action>
+</check>
+<check if="le statut de l'epic n'est pas l'un des suivants : backlog, contexted, in-progress, done">
+<output>ERREUR : Statut d'epic invalide '{{epic_status}}'</output>
+<output>L'epic {{epic_num}} a un statut invalide. Attendu : backlog, in-progress, ou done</output>
+<output>Veuillez corriger sprint-status.yaml manuellement ou exécuter sprint-planning pour régénérer</output>
+<action>ARRÊT - Impossible de continuer</action>
+</check>
+<output>Statut de l'epic {{epic_num}} mis à jour en in-progress</output>
+</check>
+
+<action>ALLER À l'étape 2a</action>
 </step>
 
 <step n="2" goal="Charger et analyser les artefacts de base">
   <critical>🔬 ANALYSE EXHAUSTIVE D'ARTEFACTS - C'est ici que vous prévenez les futures erreurs des développeurs !</critical>
 
   <!-- Load all available content through discovery protocol -->
-  <action>Lire entièrement et suivre `./discover-inputs.md` pour charger tous les fichiers d'entrée</action>
-  <note>Contenu disponible : {epics_content}, {prd_content}, {architecture_content}, {ux_content},
-  {project_context}</note>
+
+<action>Lire entièrement et suivre `./discover-inputs.md` pour charger tous les fichiers d'entrée</action>
+<note>Contenu disponible : {epics_content}, {prd_content}, {architecture_content}, {ux_content},
+{project_context}</note>
 
   <!-- Analyze epics file for story foundation -->
-  <action>À partir de {epics_content}, extraire le contexte complet de l'Epic {{epic_num}} :</action> **ANALYSE D'EPIC :** - Objectifs de l'epic
-  et valeur métier - TOUTES les stories de cet epic pour le contexte transverse - Les exigences de notre story spécifique, l'énoncé de la
-  user story, les critères d'acceptation - Exigences techniques et contraintes - Dépendances sur d'autres stories/epics - Indices sources
-  pointant vers les documents originaux <!-- Extract specific story requirements -->
-  <action>Extraire les détails de notre story ({{epic_num}}-{{story_num}}) :</action> **FONDATION DE LA STORY :** - Énoncé de la user story
-  (En tant que, je veux, afin de) - Critères d'acceptation détaillés (déjà formatés en BDD) - Exigences techniques spécifiques à cette story -
-  Contexte métier et valeur - Critères de succès <!-- Previous story analysis for context continuity -->
-  <check if="story_num > 1">
-    <action>Trouver {{previous_story_num}} : scanner {implementation_artifacts} pour le fichier de story dans l'epic {{epic_num}} avec le numéro de story le plus élevé inférieur à {{story_num}}</action>
-    <action>Charger le fichier de la story précédente : {implementation_artifacts}/{{epic_num}}-{{previous_story_num}}-*.md</action> **INTELLIGENCE DE LA STORY PRÉCÉDENTE :** -
-  Notes de dév et apprentissages de la story précédente - Feedback de revue et corrections nécessaires - Fichiers créés/modifiés et leurs
-  modèles - Approches de test qui ont fonctionné ou non - Problèmes rencontrés et solutions trouvées - Modèles de code établis <action>Extraire
-  tous les apprentissages qui pourraient impacter l'implémentation de la story actuelle</action>
-  </check>
+
+<action>À partir de {epics_content}, extraire le contexte complet de l'Epic {{epic_num}} :</action> **ANALYSE D'EPIC :** - Objectifs de l'epic
+et valeur métier - TOUTES les stories de cet epic pour le contexte transverse - Les exigences de notre story spécifique, l'énoncé de la
+user story, les critères d'acceptation - Exigences techniques et contraintes - Dépendances sur d'autres stories/epics - Indices sources
+pointant vers les documents originaux <!-- Extract specific story requirements -->
+<action>Extraire les détails de notre story ({{epic_num}}-{{story_num}}) :</action> **FONDATION DE LA STORY :** - Énoncé de la user story
+(En tant que, je veux, afin de) - Critères d'acceptation détaillés (déjà formatés en BDD) - Exigences techniques spécifiques à cette story -
+Contexte métier et valeur - Critères de succès <!-- Previous story analysis for context continuity -->
+<check if="story_num > 1">
+<action>Trouver {{previous_story_num}} : scanner {implementation_artifacts} pour le fichier de story dans l'epic {{epic_num}} avec le numéro de story le plus élevé inférieur à {{story_num}}</action>
+<action>Charger le fichier de la story précédente : {implementation_artifacts}/{{epic_num}}-{{previous_story_num}}-\*.md</action> **INTELLIGENCE DE LA STORY PRÉCÉDENTE :** -
+Notes de dév et apprentissages de la story précédente - Feedback de revue et corrections nécessaires - Fichiers créés/modifiés et leurs
+modèles - Approches de test qui ont fonctionné ou non - Problèmes rencontrés et solutions trouvées - Modèles de code établis <action>Extraire
+tous les apprentissages qui pourraient impacter l'implémentation de la story actuelle</action>
+</check>
 
   <!-- Git intelligence for previous work patterns -->
-  <check
+
+<check
     if="la story précédente existe ET un dépôt git est détecté">
-    <action>Obtenir les titres des 5 derniers commits pour comprendre les modèles de travail récents</action>
-    <action>Analyser les 1 à 5 commits les plus récents pour leur pertinence par rapport à la story actuelle :
-      - Fichiers créés/modifiés
-      - Modèles de code et conventions utilisés
-      - Dépendances de bibliothèques ajoutées/modifiées
-      - Décisions d'architecture implémentées
-      - Approches de test utilisées
-    </action>
-    <action>Extraire des insights exploitables pour l'implémentation de la story actuelle</action>
-  </check>
+<action>Obtenir les titres des 5 derniers commits pour comprendre les modèles de travail récents</action>
+<action>Analyser les 1 à 5 commits les plus récents pour leur pertinence par rapport à la story actuelle : - Fichiers créés/modifiés - Modèles de code et conventions utilisés - Dépendances de bibliothèques ajoutées/modifiées - Décisions d'architecture implémentées - Approches de test utilisées
+</action>
+<action>Extraire des insights exploitables pour l'implémentation de la story actuelle</action>
+</check>
 </step>
 
 <step n="3" goal="Analyse de l'architecture pour les garde-fous du développeur">
@@ -273,32 +267,25 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
   techniques spécifiques qui nécessitent une connaissance de la version la plus récente :</action>
 
   <!-- Check for libraries/frameworks mentioned in architecture -->
-  <action>À partir de l'analyse de l'architecture, identifier les bibliothèques, API ou
-  frameworks spécifiques</action>
-  <action>Pour chaque technologie critique, rechercher la dernière version stable et les changements clés :
-    - Documentation de la dernière API et changements de rupture (breaking changes)
-    - Vulnérabilités de sécurité ou mises à jour
-    - Améliorations de performance ou dépréciations
-    - Meilleures pratiques pour les versions actuelles
-  </action>
-  **INCLUSION DU CONTEXTE EXTERNE :** <action>Inclure dans la story toute information critique à jour dont le développeur a besoin :
-    - Versions spécifiques des bibliothèques et pourquoi elles ont été choisies
-    - Endpoints d'API avec paramètres et authentification
-    - Correctifs de sécurité récents ou considérations
-    - Techniques d'optimisation de la performance
-    - Considérations de migration en cas de mise à jour
-  </action>
+
+<action>À partir de l'analyse de l'architecture, identifier les bibliothèques, API ou
+frameworks spécifiques</action>
+<action>Pour chaque technologie critique, rechercher la dernière version stable et les changements clés : - Documentation de la dernière API et changements de rupture (breaking changes) - Vulnérabilités de sécurité ou mises à jour - Améliorations de performance ou dépréciations - Meilleures pratiques pour les versions actuelles
+</action>
+**INCLUSION DU CONTEXTE EXTERNE :** <action>Inclure dans la story toute information critique à jour dont le développeur a besoin : - Versions spécifiques des bibliothèques et pourquoi elles ont été choisies - Endpoints d'API avec paramètres et authentification - Correctifs de sécurité récents ou considérations - Techniques d'optimisation de la performance - Considérations de migration en cas de mise à jour
+</action>
 </step>
 
 <step n="5" goal="Créer un fichier de story complet">
   <critical>📝 CRÉER LE FICHIER DE STORY ULTIME - Le guide d'implémentation maître du développeur !</critical>
 
-  <action>Initialiser à partir de template.md :
-  {default_output_file}</action>
-  <template-output file="{default_output_file}">story_header</template-output>
+<action>Initialiser à partir de template.md :
+{default_output_file}</action>
+<template-output file="{default_output_file}">story_header</template-output>
 
   <!-- Story foundation from epics analysis -->
-  <template-output
+
+<template-output
     file="{default_output_file}">story_requirements</template-output>
 
   <!-- Developer context section - MOST IMPORTANT PART -->
@@ -313,16 +300,18 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
   <template-output file="{default_output_file}">testing_requirements</template-output>
 
   <!-- Previous story intelligence -->
-  <check
+
+<check
     if="des apprentissages de stories précédentes sont disponibles">
-    <template-output file="{default_output_file}">previous_story_intelligence</template-output>
-  </check>
+<template-output file="{default_output_file}">previous_story_intelligence</template-output>
+</check>
 
   <!-- Git intelligence -->
-  <check
+
+<check
     if="l'analyse git est terminée">
-    <template-output file="{default_output_file}">git_intelligence_summary</template-output>
-  </check>
+<template-output file="{default_output_file}">git_intelligence_summary</template-output>
+</check>
 
   <!-- Latest technical specifics -->
   <check if="la recherche web est terminée">
@@ -330,7 +319,8 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
   </check>
 
   <!-- Project context reference -->
-  <template-output
+
+<template-output
     file="{default_output_file}">project_context_reference</template-output>
 
   <!-- Final status update -->
@@ -338,8 +328,9 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
   story_completion_status</template-output>
 
   <!-- CRITICAL: Set status to ready-for-dev -->
-  <action>Définir le statut de la story sur : "ready-for-dev"</action>
-  <action>Ajouter une note d'achèvement : "Analyse du moteur de contexte ultime terminée - guide complet du développeur créé"</action>
+
+<action>Définir le statut de la story sur : "ready-for-dev"</action>
+<action>Ajouter une note d'achèvement : "Analyse du moteur de contexte ultime terminée - guide complet du développeur créé"</action>
 </step>
 
 <step n="6" goal="Mettre à jour le statut du sprint et finaliser">
@@ -357,8 +348,8 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
     <action>Enregistrer le fichier, en préservant TOUS les commentaires et la structure, y compris les STATUS DEFINITIONS</action>
   </check>
 
-  <action>Rapporter l'achèvement</action>
-  <output>**🎯 CONTEXTE DE STORY MÉTHODE BMad ULTIME CRÉÉ, {user_name} !**
+<action>Rapporter l'achèvement</action>
+<output>**🎯 CONTEXTE DE STORY MÉTHODE BMad ULTIME CRÉÉ, {user_name} !**
 
     **Détails de la Story :**
     - ID de Story : {{story_id}}
@@ -373,6 +364,7 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
     4. Optionnel : Si le module Test Architect est installé, exécutez `/bmad:tea:automate` après `dev-story` pour générer des tests garde-fous
 
     **Le développeur a maintenant tout le nécessaire pour une implémentation impeccable !**
+
   </output>
 </step>
 

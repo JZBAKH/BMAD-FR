@@ -192,8 +192,8 @@ class ConfigDrivenIdeSetup {
       const conflict = await this.findAncestorConflict(projectDir);
       if (conflict) {
         await prompts.log.error(
-          `Skills BMAD existants trouvés dans une installation ancêtre : ${conflict}\n` +
-            `  ${this.name} hérite des Skills des répertoires parents, ce qui provoquerait des doublons.\n` +
+          `Installation BMAD existante détectée dans un répertoire ancêtre : ${conflict}\n` +
+            `  ${this.name} hérite des skills des répertoires parents, ce qui causerait des doublons.\n` +
             `  Veuillez d'abord supprimer les fichiers BMAD de ce répertoire :\n` +
             `    rm -rf "${conflict}"/bmad*`,
         );
@@ -206,7 +206,7 @@ class ConfigDrivenIdeSetup {
       }
     }
 
-    if (!options.silent) await prompts.log.info(`Configuration de ${this.name}...`);
+    if (!options.silent) await prompts.log.info(`Configuration de ${this.name} en cours...`);
 
     // Clean up any old BMAD installation first
     await this.cleanup(projectDir, options, bmadDir);
@@ -347,7 +347,7 @@ class ConfigDrivenIdeSetup {
 
       let description = (record.description || '').trim();
       if (!description) {
-        description = `Exécuter le Skill ${canonicalId}`;
+        description = `Exécuter le skill ${canonicalId}`;
         result.fallbackDescription++;
       }
 
@@ -476,18 +476,18 @@ class ConfigDrivenIdeSetup {
     if (options.silent) return;
     const count = results.skillDirectories || results.skills || 0;
     if (count > 0) {
-      await prompts.log.success(`${this.name} configuré : ${count} Skills → ${targetDir}`);
+      await prompts.log.success(`${this.name} configuré : ${count} skills → ${targetDir}`);
     }
     const cmd = results.commands;
     if (cmd && (cmd.created > 0 || cmd.updated > 0) && this.installerConfig?.commands_target_dir) {
       const total = cmd.created + cmd.updated;
-      const detail = cmd.updated > 0 ? `${cmd.created} nouveau(x), ${cmd.updated} actualisé(s)` : `${total}`;
-      await prompts.log.success(`Commandes ${this.name} : ${detail} → ${this.installerConfig.commands_target_dir}`);
+      const detail = cmd.updated > 0 ? `${cmd.created} nouveau(x), ${cmd.updated} mis à jour` : `${total}`;
+      await prompts.log.success(`${this.name} commandes : ${detail} → ${this.installerConfig.commands_target_dir}`);
       if (cmd.skippedCollision > 0) {
-        await prompts.log.message(`  (${cmd.skippedCollision} ignoré(s) — le nom entre en collision avec une commande slash réservée)`);
+        await prompts.log.message(`  (${cmd.skippedCollision} ignoré(s) — nom en conflit avec une commande slash réservée)`);
       }
       if (cmd.writeFailures > 0) {
-        await prompts.log.warn(`  (${cmd.writeFailures} écriture(s) de pointeur en échec — voir les avertissements ci-dessus)`);
+        await prompts.log.warn(`  (${cmd.writeFailures} écriture(s) de pointeur échouée(s) — voir les avertissements ci-dessus)`);
       }
     }
   }
@@ -501,7 +501,7 @@ class ConfigDrivenIdeSetup {
 
     // Build removal set: previously installed skills + removals.txt entries
     let removalSet;
-    if (options.previousSkillIds && options.previousSkillIds.size > 0) {
+    if (options.previousSkillIds) {
       // Install/update flow: use pre-captured skill IDs (before manifest was overwritten)
       removalSet = new Set(options.previousSkillIds);
       if (resolvedBmadDir) {
@@ -547,7 +547,7 @@ class ConfigDrivenIdeSetup {
       // previousSkillIds — full uninstall or per-IDE removal via
       // cleanupByList), don't spare anything; the IDE itself is going away,
       // so its pointers should go with it.
-      const isInstallFlow = options.previousSkillIds && options.previousSkillIds.size > 0;
+      const isInstallFlow = !!options.previousSkillIds;
       const activeSkillIds = isInstallFlow ? await this._readActiveSkillIds(resolvedBmadDir) : new Set();
       const extension = this.installerConfig.commands_extension || '.md';
       await this.cleanupCommandPointers(
@@ -842,7 +842,7 @@ class ConfigDrivenIdeSetup {
         const backupPath = `${filePath}.bak`;
         if (await fs.pathExists(backupPath)) {
           await fs.rename(backupPath, filePath);
-          if (!options.silent) await prompts.log.message('  copilot-instructions.md restauré depuis la sauvegarde');
+          if (!options.silent) await prompts.log.message('  Fichier copilot-instructions.md restauré depuis la sauvegarde');
         }
       } else {
         await fs.writeFile(filePath, cleaned, 'utf8');
@@ -850,9 +850,10 @@ class ConfigDrivenIdeSetup {
         if (await fs.pathExists(backupPath)) await fs.remove(backupPath);
       }
 
-      if (!options.silent) await prompts.log.message('  Marqueurs BMAD nettoyés de copilot-instructions.md');
+      if (!options.silent) await prompts.log.message('  Marqueurs BMAD supprimés de copilot-instructions.md');
     } catch {
-      if (!options.silent) await prompts.log.warn('  Avertissement : impossible de nettoyer les marqueurs BMAD de copilot-instructions.md');
+      if (!options.silent)
+        await prompts.log.warn('  Avertissement : impossible de supprimer les marqueurs BMAD de copilot-instructions.md');
     }
   }
 
@@ -872,7 +873,7 @@ class ConfigDrivenIdeSetup {
     try {
       config = yaml.parse(content) || {};
     } catch {
-      if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'analyser .kilocodemodes pour le nettoyage');
+      if (!options.silent) await prompts.log.warn("  Avertissement : impossible d'analyser .kilocodemodes pour le nettoyage");
       return;
     }
 
@@ -885,9 +886,9 @@ class ConfigDrivenIdeSetup {
     if (removedCount > 0) {
       try {
         await fs.writeFile(kiloModesPath, yaml.stringify(config, { lineWidth: 0 }));
-        if (!options.silent) await prompts.log.message(`  ${removedCount} modes BMAD supprimés de .kilocodemodes`);
+        if (!options.silent) await prompts.log.message(`  ${removedCount} mode(s) BMAD supprimé(s) de .kilocodemodes`);
       } catch {
-        if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'écrire .kilocodemodes lors du nettoyage');
+        if (!options.silent) await prompts.log.warn("  Avertissement : impossible d'écrire dans .kilocodemodes lors du nettoyage");
       }
     }
   }
@@ -909,7 +910,7 @@ class ConfigDrivenIdeSetup {
     try {
       config = yaml.parse(content) || {};
     } catch {
-      if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'analyser prompts.yml pour le nettoyage');
+      if (!options.silent) await prompts.log.warn("  Avertissement : impossible d'analyser prompts.yml pour le nettoyage");
       return;
     }
 
@@ -926,9 +927,9 @@ class ConfigDrivenIdeSetup {
         } else {
           await fs.writeFile(promptsPath, yaml.stringify(config, { lineWidth: 0 }));
         }
-        if (!options.silent) await prompts.log.message(`  ${removedCount} entrées BMAD supprimées de prompts.yml`);
+        if (!options.silent) await prompts.log.message(`  ${removedCount} entrée(s) BMAD supprimée(s) de prompts.yml`);
       } catch {
-        if (!options.silent) await prompts.log.warn('  Avertissement : impossible d\'écrire prompts.yml lors du nettoyage');
+        if (!options.silent) await prompts.log.warn("  Avertissement : impossible d'écrire dans prompts.yml lors du nettoyage");
       }
     }
   }

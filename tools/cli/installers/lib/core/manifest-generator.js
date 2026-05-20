@@ -94,7 +94,9 @@ class ManifestGenerator {
     this.allInstalledFiles = installedFiles;
 
     if (!Object.prototype.hasOwnProperty.call(options, 'ides')) {
-      throw new Error("ManifestGenerator nécessite que `options.ides` soit fourni – l'installateur doit fournir le tableau des IDE sélectionnés.");
+      throw new Error(
+        "ManifestGenerator nécessite que `options.ides` soit fourni – l'installateur doit fournir le tableau des IDE sélectionnés.",
+      );
     }
 
     const resolvedIdes = options.ides ?? [];

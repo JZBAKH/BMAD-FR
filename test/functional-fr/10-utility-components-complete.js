@@ -57,10 +57,7 @@ function run() {
     for (const fragment of EXPECTED_FRAGMENTS) {
       const frPath = `${COMPONENTS_DIR_FR}/${fragment}`;
       runner.test(`${fragment} existe dans utility-fr (legacy)`, () => {
-        runner.assert(
-          fs.existsSync(path.join(REPO_ROOT, frPath)),
-          `fragment manquant : ${frPath}`,
-        );
+        runner.assert(fs.existsSync(path.join(REPO_ROOT, frPath)), `fragment manquant : ${frPath}`);
       });
     }
     return;
@@ -71,10 +68,7 @@ function run() {
     const enPath = `${COMPONENTS_DIR_EN}/${fragment}`;
 
     runner.test(`${fragment} existe dans utility-fr`, () => {
-      runner.assert(
-        fs.existsSync(path.join(REPO_ROOT, frPath)),
-        `fragment manquant : ${frPath}`,
-      );
+      runner.assert(fs.existsSync(path.join(REPO_ROOT, frPath)), `fragment manquant : ${frPath}`);
     });
 
     runner.test(`${fragment} a le même nombre de lignes que l'original upstream`, () => {
@@ -84,10 +78,7 @@ function run() {
       runner.assert(fs.existsSync(fullFr), `traduit manquant : ${frPath}`);
       const enLines = countLines(fullEn);
       const frLines = countLines(fullFr);
-      runner.assert(
-        enLines === frLines,
-        `compteur de lignes différent : ${frLines} fr vs ${enLines} en`,
-      );
+      runner.assert(enLines === frLines, `compteur de lignes différent : ${frLines} fr vs ${enLines} en`);
     });
   }
 }

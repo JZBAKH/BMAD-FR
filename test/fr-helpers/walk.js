@@ -42,7 +42,7 @@ function walk(dir, opts = {}) {
       } else if (entry.isFile()) {
         if (extensions) {
           const dot = entry.name.lastIndexOf('.');
-          if (dot < 0) continue;
+          if (dot === -1) continue;
           const ext = entry.name.slice(dot);
           if (!extensions.has(ext)) continue;
         }

@@ -35,15 +35,16 @@ Tout au long du processus, tu as capturé du contexte au-delà de ce qui tient d
 
 ```yaml
 ---
-title: "PRFAQ Distillate: {project_name}"
+title: 'PRFAQ Distillate: {project_name}'
 type: llm-distillate
-source: "prfaq-{project_name}.md"
-created: "{timestamp}"
-purpose: "Token-efficient context for downstream PRD creation"
+source: 'prfaq-{project_name}.md'
+created: '{timestamp}'
+purpose: 'Token-efficient context for downstream PRD creation'
 ---
 ```
 
 **Contenu du distillat :** Puces denses regroupées par thème. Chaque puce se suffit à elle-même avec assez de contexte pour qu'un LLM aval puisse l'utiliser. Inclure :
+
 - Cadrages rejetés et pourquoi ils ont été abandonnés
 - Signaux d'exigences capturés pendant le coaching
 - Contexte technique, contraintes et préférences de plateforme
@@ -63,6 +64,7 @@ purpose: "Token-efficient context for downstream PRD creation"
 **Étape suivante recommandée :** Utilisez le PRFAQ et le detail pack comme entrée pour la création du PRD. Le PRFAQ remplace le brief produit dans votre pipeline de planification — dites à votre PM 'create a PRD' et indiquez-lui ces fichiers. »
 
 **Sortie en mode headless :**
+
 ```json
 {
   "status": "complete",

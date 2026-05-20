@@ -50,6 +50,7 @@ Uniquement pour les domaines complexes qui ont une correspondance dans `../data/
 ## VOTRE TÂCHE :
 
 Pour les domaines complexes, explorer ce qui rend ce domaine spécial :
+
 - **Exigences de conformité** - réglementations, normes, certifications
 - **Contraintes techniques** - sécurité, confidentialité, exigences d'intégration
 - **Modèles de domaine (Domain patterns)** - patterns courants, meilleures pratiques, anti-patterns
@@ -68,6 +69,7 @@ Pour les domaines complexes, explorer ce qui rend ce domaine spécial :
 
 Proposez de sauter (skip) :
 "La complexité du domaine selon notre découverte est faible. Nous n'aurons peut-être pas besoin d'exigences profondes spécifiques au domaine. Souhaitez-vous :
+
 - [C] Sauter cette étape et passer à l'Innovation
 - [D] Explorer le domaine malgré tout"
 
@@ -82,6 +84,7 @@ Poursuivez l'exploration du domaine.
 "Votre tâche : Rechercher les données dans ../data/domain-complexity.csv
 
 **Critères de recherche :**
+
 - Trouver la ligne où `domain` correspond à {{domainFromStep02}}
 
 **Format de retour :**
@@ -91,6 +94,7 @@ domain, complexity, typical_concerns, compliance_requirements
 **Ne retournez PAS le fichier CSV complet - seulement la ligne correspondante.**"
 
 **Dégradation Gracieuse (si l'outil de Tâche est indisponible) :**
+
 - Chargez le fichier CSV directement
 - Trouvez manuellement la ligne correspondante
 - Extrayez les champs requis
@@ -101,12 +105,14 @@ domain, complexity, typical_concerns, compliance_requirements
 **Commencez avec ce que vous savez :**
 
 Reconnaissez le domaine et explorez ce qui le rend complexe :
+
 - Quelles réglementations s'appliquent ? (HIPAA, PCI-DSS, RGPD, SOX, etc.)
 - Quelles normes sont importantes ? (ISO, NIST, normes spécifiques au domaine)
 - Quelles certifications sont nécessaires ? (sécurité, confidentialité, spécifiques au domaine)
 - Quelles intégrations sont requises ? (systèmes DME, processeurs de paiement, etc.)
 
 **Explorer les contraintes techniques :**
+
 - Exigences de sécurité (chiffrement, journaux d'audit, contrôle d'accès)
 - Exigences de confidentialité (traitement des données, consentement, conservation)
 - Exigences de performance (temps réel, traitement par lots, latence)
@@ -118,15 +124,19 @@ Reconnaissez le domaine et explorez ce qui le rend complexe :
 
 ```markdown
 ### Conformité & Réglementation
+
 - [Exigences spécifiques]
 
 ### Contraintes Techniques
+
 - [Besoins de sécurité, confidentialité, performance]
 
 ### Exigences d'Intégration
+
 - [Systèmes requis et flux de données]
 
 ### Atténuation des Risques
+
 - [Risques spécifiques au domaine et comment les traiter]
 ```
 
@@ -141,12 +151,14 @@ Reconnaissez le domaine et explorez ce qui le rend complexe :
 Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer - Sauvegarder et passer à l'Innovation (Étape 6 sur 13)"
 
 #### Logique de Gestion du Menu :
+
 - SI A : Invoquez la compétence `bmad-advanced-elicitation`, et lorsque vous avez terminé, réaffichez le menu
 - SI P : Invoquez la compétence `bmad-party-mode`, et lorsque vous avez terminé, réaffichez le menu
 - SI C : Sauvegardez le contenu dans `{outputFile}`, mettez à jour le frontmatter, puis lisez intégralement et suivez : `./step-06-innovation.md`
 - SI Autres commentaires ou requêtes : aidez l'utilisateur à répondre puis [Réafficher les Options du Menu](#n-presenter-les-options-du-menu)
 
 #### RÈGLES D'EXÉCUTION :
+
 - TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
 - NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 - Après l'exécution d'autres options du menu, retournez à ce menu

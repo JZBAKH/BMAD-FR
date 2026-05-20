@@ -1,6 +1,6 @@
 ---
 name: 'step-v-07-implementation-leakage-validation'
-description: 'Contrôle de Fuite d''Implémentation - S''assurer que les EF et ENF n''incluent pas de détails d''implémentation'
+description: "Contrôle de Fuite d'Implémentation - S'assurer que les EF et ENF n'incluent pas de détails d'implémentation"
 
 # Références de fichiers (UNIQUEMENT les variables utilisées dans cette étape)
 nextStepFile: './step-v-08-domain-compliance-validation.md'
@@ -65,6 +65,7 @@ S'assurer que les Exigences Fonctionnelles (EF) et les Exigences Non Fonctionnel
 "Effectuer la validation des fuites d'implémentation sur ce PRD :
 
 **Scanner pour :**
+
 1. Noms de technologies (React, Vue, Angular, PostgreSQL, MongoDB, AWS, GCP, Azure, Docker, Kubernetes, etc.).
 2. Noms de bibliothèques (Redux, axios, lodash, Express, Django, Rails, Spring, etc.).
 3. Structures de données (JSON, XML, CSV) sauf si pertinent pour la capacité.
@@ -72,6 +73,7 @@ S'assurer que les Exigences Fonctionnelles (EF) et les Exigences Non Fonctionnel
 5. Noms de protocoles (HTTP, REST, GraphQL, WebSockets) - vérifiez si c'est pertinent pour la capacité.
 
 **Pour chaque terme trouvé :**
+
 - Est-ce pertinent pour la capacité ? (ex: 'Les consommateurs d'API peuvent accéder...' - API est une capacité).
 - Ou est-ce un détail d'implémentation ? (ex: 'Composant React pour...' - implémentation).
 
@@ -107,6 +109,7 @@ Redux, Zustand, axios, fetch, lodash, jQuery, etc.
 JSON, XML, YAML, CSV (sauf si pertinent pour la capacité).
 
 **Pour chaque terme trouvé dans les EF/ENF :**
+
 - Déterminer s'il est pertinent pour la capacité ou s'il s'agit d'une fuite d'implémentation.
 - Exemple : "Les consommateurs d'API peuvent accéder aux données via des points de terminaison REST" - API/REST est une capacité.
 - Exemple : "Les composants React récupèrent les données en utilisant Redux" - fuite d'implémentation.
@@ -116,6 +119,7 @@ JSON, XML, YAML, CSV (sauf si pertinent pour la capacité).
 ### 3. Comptabiliser les fuites d'implémentation
 
 **Par catégorie :**
+
 - Fuite de framework frontend : nombre
 - Fuite de framework backend : nombre
 - Fuite de base de données : nombre

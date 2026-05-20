@@ -101,12 +101,14 @@ Présentez votre compréhension de la vision du produit pour examen, puis affich
 Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers le Résumé Exécutif (Étape 2c sur 13)"
 
 #### Logique de Gestion du Menu :
+
 - SI A : Invoquez la compétence `bmad-advanced-elicitation` avec la vision actuelle, traitez les informations enrichies qui en reviennent, demandez à l'utilisateur s'il accepte les améliorations ; si oui, mettez à jour votre compréhension puis réaffichez le menu, si non, conservez votre compréhension d'origine puis réaffichez le menu.
 - SI P : Invoquez la compétence `bmad-party-mode` avec la vision actuelle, traitez les informations collaboratives, demandez à l'utilisateur s'il accepte les changements ; si oui, mettez à jour votre compréhension puis réaffichez le menu, si non, conservez votre compréhension d'origine puis réaffichez le menu.
 - SI C : Mettez à jour le frontmatter de `{outputFile}` en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-02c-executive-summary.md`
 - SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
 #### RÈGLES D'EXÉCUTION :
+
 - TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
 - NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 - Après l'exécution d'autres options du menu, retournez à ce menu

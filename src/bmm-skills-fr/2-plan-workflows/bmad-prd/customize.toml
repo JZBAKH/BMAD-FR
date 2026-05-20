@@ -1,113 +1,147 @@
-# DO NOT EDIT -- overwritten on every update.
+# NE PAS MODIFIER — écrasé à chaque mise à jour.
 #
-# Workflow customization surface for bmad-prd.
+# Surface de personnalisation du workflow bmad-prd.
 #
-# Override files (not edited here):
-#   {project-root}/_bmad/custom/bmad-prd.toml         (team)
-#   {project-root}/_bmad/custom/bmad-prd.user.toml    (personal)
+# Fichiers de substitution (à ne pas modifier ici) :
+#   {project-root}/_bmad/custom/bmad-prd.toml         (équipe)
+#   {project-root}/_bmad/custom/bmad-prd.user.toml    (personnel)
 
 [workflow]
 
-# --- Configurable below. Overrides merge per BMad structural rules: ---
-#   scalars: override wins • arrays: append
+# --- Configurable ci-dessous. Les substitutions fusionnent selon les règles structurelles BMad : ---
+#   scalaires : la substitution l'emporte • tableaux : ajout en fin de liste
 
-# Steps to run before the standard activation (config load, greet).
-# Use for pre-flight loads, compliance checks, etc.
+# Étapes à exécuter avant l'activation standard (chargement de la config, message d'accueil).
+# Utiliser pour les chargements préalables, les vérifications de conformité, etc.
 activation_steps_prepend = []
 
-# Steps to run after greet but before the workflow begins.
-# Use for context-heavy setup that should happen once the user has been acknowledged.
+# Étapes à exécuter après le message d'accueil mais avant le démarrage du workflow.
+# Utiliser pour une configuration lourde en contexte devant s'effectuer une fois l'utilisateur pris en compte.
 activation_steps_append = []
 
-# Persistent facts the workflow keeps in mind for the whole run
-# (standards, compliance constraints, stylistic guardrails).
-# Each entry is either a literal sentence, a skill prefixed with `skill:`, or a `file:`-prefixed path/glob
-# whose contents are loaded as facts.
+# Faits persistants que le workflow garde à l'esprit pendant toute l'exécution
+# (standards, contraintes de conformité, garde-fous stylistiques).
+# Chaque entrée est soit une phrase littérale, soit un skill préfixé par `skill:`, soit un chemin/glob préfixé par `file:`
+# dont le contenu est chargé comme faits.
 #
-# Default loads project-context.md if bmad-generate-project-context has produced one — this gives
-# the facilitator persistent awareness of the project's tech, domain, and constraints without
-# re-asking. Common opt-ins (set in team/user override TOML):
-#   "skill:acme-co:terms-and-conditions"                                      # a skill that contains some relevant info
-#   "Investor PRDs must include a market sizing section."                    # generic agent instruction
+# Par défaut, charge project-context.md si bmad-generate-project-context en a produit un — cela donne
+# au facilitateur une connaissance persistante de la technologie, du domaine et des contraintes du projet sans
+# redemander. Exemples d'opt-ins courants (à définir dans le TOML de substitution équipe/utilisateur) :
+#   "skill:acme-co:terms-and-conditions"                                      # un skill contenant des informations pertinentes
+#   "Investor PRDs must include a market sizing section."                    # instruction générique à l'agent
 persistent_facts = [
   "file:{project-root}/**/project-context.md",
 ]
 
-# Executed when the workflow completes (after the user has been told the
-# PRD is ready). Accepts either a string scalar (single instruction)
-# or an array of instructions executed in order. Empty for none.
+# Exécuté lorsque le workflow se termine (après que l'utilisateur a été informé que le
+# cahier des charges (PRD) est prêt). Accepte soit un scalaire chaîne (instruction unique)
+# soit un tableau d'instructions exécutées dans l'ordre. Vide par défaut.
 on_complete = ""
 
-# Default PRD structure. Treated as a starting point — the LLM adapts it
-# to the product, project type, and domain. Override the path in team/user TOML
-# to enforce a different structure (e.g. regulated-industry, internal-tool, investor-input).
+# Structure par défaut du cahier des charges (PRD). Traitée comme point de départ — le LLM l'adapte
+# au produit, au type de projet et au domaine. Substituer le chemin dans le TOML équipe/utilisateur
+# pour imposer une structure différente (ex. : secteur réglementé, outil interne, investisseur).
 prd_template = "assets/prd-template.md"
 
-# Validation checklist used at the Validate intent and at Finalize step 3.
-# A subagent walks the checklist against prd.md and returns structured findings.
-# Override the path in team/user TOML to enforce an org-specific checklist
-# (regulated-industry compliance, investor-pitch standards, etc.).
-validation_checklist = "assets/prd-validation-checklist.md"
+# Grille d'évaluation de la qualité du cahier des charges (PRD) utilisée à l'intention Valider et à l'étape 3 de Finalisation.
+# Un sous-agent parcourt la grille par rapport à prd.md et rédige une revue substantielle
+# organisée par dimensions de qualité (maturité décisionnelle, substance, cohérence
+# stratégique, etc.). Substituer le chemin dans le TOML équipe/utilisateur pour imposer une
+# grille propre à l'organisation (conformité secteur réglementé, standards de présentation investisseur,
+# etc.). Le nom de fichier « checklist » est conservé pour la rétrocompatibilité avec les fichiers de
+# substitution ; le contenu est une grille d'évaluation, non une liste à cocher booléenne.
+validation_checklist_template = "assets/prd-validation-checklist.md"
 
-# HTML template used to render validation findings into a styled, scannable
-# report. The renderer (scripts/render-validation-html.py) substitutes
-# structured findings + summary stats into this template; the template is
-# fully overridable to match org branding. The default uses inline CSS, no
-# external dependencies, and native HTML <details> for collapse — no JS.
+# Squelette HTML que la passe de synthèse remplit directement lors de la consolidation des sorties
+# des réviseurs en un rapport de validation. Pas de moteur de substitution — le LLM parent
+# lit chaque {doc_workspace}/review-*.md, remplit les espaces réservés TEMPLATE_* du squelette
+# et écrit le résultat. Entièrement substituable pour correspondre à la charte graphique de l'organisation.
+# Utilise du CSS inline, aucune dépendance externe, et le HTML natif <details> pour
+# le repli — pas de JS.
 validation_report_template = "assets/validation-report-template.html"
 
-# Run folder location. The PRD, optional addendum, decision log, and optional
-# validation report all land inside `{output_dir}/{output_folder_name}/`.
-output_dir = "{planning_artifacts}/prds"
-output_folder_name = "prd-{project_name}-{date}"
+# Emplacement du dossier d'exécution. Le cahier des charges (PRD), l'addendum optionnel, le journal de décisions et le
+# rapport de validation optionnel sont tous placés dans `{prd_output_path}/{run_folder_pattern}/`.
+# La vérification de reprise scanne `{prd_output_path}` pour les exécutions antérieures inachevées.
+prd_output_path = "{planning_artifacts}/prds"
+run_folder_pattern = "prd-{project_name}-{date}"
 
-# Document standards applied to human-consumed docs at finalize. Each entry is
-# a `skill:`, `file:`, or plain-text directive; the parent LLM applies the
-# findings before the user sees the draft. Encodes standards, not options.
+# Standards documentaires appliqués aux documents destinés à l'utilisateur lors de la finalisation. Chaque entrée est
+# une directive `skill:`, `file:` ou en texte brut ; le LLM parent applique les
+# résultats avant que l'utilisateur ne voie le brouillon. Encode des standards, pas des options.
 #
-# Examples:
+# Exemples :
 #   "skill:bmad-editorial-review-prose"
 #   "file:{project-root}/_bmad/style-guides/company-voice.md"
 #   "Convert all dates to ISO 8601 format."
 #
-# Suggested order (broader passes first, narrower last):
-#   1. Structural (cuts, reorganization, section sizing)
-#   2. Content/voice/conventions (org standards, tone, terminology, compliance)
-#   3. Prose mechanics (grammar, clarity, typos)
+# Ordre suggéré (passes les plus larges en premier, plus étroites en dernier) :
+#   1. Structurel (suppressions, réorganisation, dimensionnement des sections)
+#   2. Contenu/voix/conventions (standards de l'organisation, ton, terminologie, conformité)
+#   3. Mécanique rédactionnelle (grammaire, clarté, fautes de frappe)
 #
-# Override the array in team/user TOML to add additional standards. Append-only:
-# base entries cannot be removed or replaced (resolver has no removal mechanism).
+# Substituer le tableau dans le TOML équipe/utilisateur pour ajouter des standards supplémentaires. Ajout en fin de liste uniquement :
+# les entrées de base ne peuvent être ni supprimées ni remplacées (le résolveur ne dispose pas de mécanisme de suppression).
 doc_standards = [
   "skill:bmad-editorial-review-structure",
   "skill:bmad-editorial-review-prose",
 ]
 
-# External-source registry. Natural-language directives describing knowledge
-# bases, MCP tools, or internal systems the LLM may consult during the workflow
-# when a relevant need surfaces. The LLM does NOT query these preemptively —
-# it consults them on demand (during Discovery, validation, drafting, etc.).
-# Each entry names the tool, the conditions for using it, and any fields the
-# tool needs. If a named MCP tool is unavailable at runtime, the LLM falls
-# back to standard behavior and notes the gap. Empty by default.
+# Registre de sources externes. Directives en langage naturel décrivant les bases de
+# connaissances, les outils MCP ou les systèmes internes que le LLM peut consulter pendant le workflow
+# lorsqu'un besoin pertinent se manifeste. Le LLM ne les interroge PAS de manière préventive —
+# il les consulte à la demande (lors de la Découverte, de la validation, de la rédaction, etc.).
+# Chaque entrée nomme l'outil, les conditions d'utilisation et les champs requis par
+# l'outil. Si un outil MCP nommé est indisponible à l'exécution, le LLM se
+# rabat sur le comportement standard et note le manque. Vide par défaut.
 #
-# Examples (set in team/user override TOML):
+# Note de cycle de vie : distinct de persistent_facts. Les persistent_facts sont chargés
+# une fois à l'activation et gardés à l'esprit pendant toute l'exécution ; les external_sources sont
+# un registre consulté à la demande et uniquement lorsque la conversation fait émerger un
+# besoin correspondant.
+#
+# Exemples (à définir dans le TOML de substitution équipe/utilisateur) :
 #   "When researching internal product context, consult corp:kb_search (database='product-docs') before web search."
 #   "For competitive landscape during Discovery, query corp:competitive_db with category={project_name}."
 #   "When validating domain-compliance claims, cross-check against corp:hipaa_reference for healthcare or corp:pci_reference for fintech."
 external_sources = []
 
-# External-handoff routing. Natural-language directives the LLM applies at
-# Finalize to route outputs beyond local files (Confluence, Notion, Google
-# Drive, ticket systems, etc.). Each entry names the MCP tool, the destination,
-# and the fields the tool needs. Handoffs run after the artifact is polished
-# and before the final user-facing message. URLs or IDs returned by the
-# destination are captured and surfaced to the user. If a named tool is
-# unavailable at runtime, the handoff is skipped and flagged in the JSON
-# status; local files always exist regardless. Fires automatically — users
-# can opt out in their prompt for a specific run. Empty by default.
+# Routage des transferts externes. Directives en langage naturel que le LLM applique lors de la
+# Finalisation pour acheminer les sorties au-delà des fichiers locaux (Confluence, Notion, Google
+# Drive, systèmes de tickets, etc.). Chaque entrée nomme l'outil MCP, la destination
+# et les champs requis. Les transferts s'exécutent après la mise en forme finale de l'artefact
+# et avant le message final à l'utilisateur. Les URL ou identifiants renvoyés par la
+# destination sont capturés et communiqués à l'utilisateur. Si un outil nommé est
+# indisponible à l'exécution, le transfert est ignoré et signalé dans le statut JSON ;
+# les fichiers locaux existent toujours quoi qu'il arrive. Se déclenche automatiquement — les utilisateurs
+# peuvent le désactiver dans leur prompt pour une exécution spécifique. Vide par défaut.
 #
-# Examples (set in team/user override TOML):
+# Note de cycle de vie : distinct de persistent_facts et external_sources.
+# Déclenché une fois à l'étape 6 de Finalisation, jamais pendant la Découverte ou la rédaction.
+#
+# Exemples (à définir dans le TOML de substitution équipe/utilisateur) :
 #   "After finalize, upload prd.md and addendum.md to Confluence via corp:confluence_upload (space_key='PROD', parent_page='PRDs', label='prd', author={user_name})."
 #   "Mirror the PRD to Notion via notion:create_page (database_id='abc123', title='PRD: '+{project_name})."
 #   "When the PRD references a parent initiative, link via corp:jira_link on the epic key in frontmatter."
 external_handoffs = []
+
+# --- Réviseurs de finalisation ---
+# Réviseurs instanciés à l'étape 3 de Finalisation (et à l'intention Valider) conjointement
+# au validateur de la grille structurelle. Le skill d'authoring assemble le menu de validation
+# (validateur + ces réviseurs + tout réviseur ad hoc jugé pertinent par rapport au contenu de l'artefact)
+# et laisse l'utilisateur choisir tout, un sous-ensemble ou ignorer. L'expérience utilisateur de la validation
+# est calibrée selon les enjeux : les projets hobby/solo peuvent exécuter les valeurs par défaut silencieusement ou ignorer ;
+# les enjeux plus élevés obtiennent le menu explicite.
+#
+# Les entrées suivent la convention de préfixe standard (identique à persistent_facts et
+# doc_standards) :
+#   "skill:NAME"   invoquer le skill de revue nommé comme sous-agent sur prd.md
+#   "file:PATH"    charger le fichier comme prompt de revue ; instancier un
+#                  sous-agent contradictoire appliquant ce prompt à prd.md
+#   texte brut     utiliser le texte directement comme prompt de revue du sous-agent
+#
+# Le TOML de substitution peut ajouter des réviseurs supplémentaires. Les tableaux s'ajoutent selon les règles BMad.
+#
+# Résolu à la demande par le skill d'authoring (non chargé à l'activation) : uniquement
+# lors de l'entrée dans l'intention Valider ou lors de l'assemblage de la validation à l'étape 3 de Finalisation.
+finalize_reviewers = []

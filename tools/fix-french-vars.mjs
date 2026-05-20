@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * One-shot helper that reverses the systematic francisation of system variables
  * in the BMAD-FR fork. Variable identifiers are part of the GLOSSAIRE.md
@@ -119,7 +118,7 @@ async function main() {
   process.stdout.write(`\nProcessed ${totalFiles} files. Modified ${modifiedFiles}. Total replacements : ${totalReplacements}\n`);
 }
 
-main().catch((err) => {
-  console.error(err);
+main().catch((error) => {
+  console.error(error);
   process.exit(1);
 });

@@ -31,22 +31,11 @@ const runner = require('../fr-helpers/runner');
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 
 // Fichiers obligatoirement en français (vitrine du fork)
-const REQUIRED_FR_FILES = [
-  'README.md',
-  'GLOSSAIRE-fr.md',
-  'AGENTS-fr.md',
-  'AUDIT-FINAL-fr.md',
-];
+const REQUIRED_FR_FILES = ['README.md', 'GLOSSAIRE-fr.md', 'AGENTS-fr.md', 'AUDIT-FINAL-fr.md'];
 
 // Fichiers documentés comme volontairement en anglais (info, audit
 // transparent — ces fichiers ne devraient pas faire échouer le test).
-const DOCUMENTED_EN_FILES = [
-  'SECURITY.md',
-  'TRADEMARK.md',
-  'CONTRIBUTING.md',
-  'CONTRIBUTORS.md',
-  'CHANGELOG.md',
-];
+const DOCUMENTED_EN_FILES = ['SECURITY.md', 'TRADEMARK.md', 'CONTRIBUTING.md', 'CONTRIBUTORS.md', 'CHANGELOG.md'];
 
 // Marqueurs anglais EXCLUSIFS (mots ou phrases qui n'existent pas tels
 // quels en français) — copie de la liste utilisée dans test 12.
@@ -83,13 +72,13 @@ function countMatches(text, regexes) {
 
 function stripMarkdownNoise(text) {
   return text
-    .replace(/```[\s\S]*?```/g, ' ')        // blocs de code
-    .replace(/`[^`]*`/g, ' ')               // inline code
-    .replace(/^---[\s\S]*?^---/m, ' ')      // frontmatter
-    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1') // [text](link) → text
-    .replace(/https?:\/\/\S+/g, ' ')        // URLs
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')   // images
-    .replace(/<[^>]+>/g, ' ');              // balises HTML/XML
+    .replaceAll(/```[\s\S]*?```/g, ' ') // blocs de code
+    .replaceAll(/`[^`]*`/g, ' ') // inline code
+    .replace(/^---[\s\S]*?^---/m, ' ') // frontmatter
+    .replaceAll(/\[([^\]]*)\]\([^)]*\)/g, '$1') // [text](link) → text
+    .replaceAll(/https?:\/\/\S+/g, ' ') // URLs
+    .replaceAll(/!\[[^\]]*\]\([^)]*\)/g, ' ') // images
+    .replaceAll(/<[^>]+>/g, ' '); // balises HTML/XML
 }
 
 function run() {
@@ -111,11 +100,15 @@ function run() {
       // (compte tenu des termes techniques qui restent anglais comme
       // "Skill", "Module", "Workflow", "Quick Flow", etc.)
       if (frCount === 0) {
-        throw new Error(`${rel} : aucun marqueur français détecté (frCount=0, enCount=${enCount}). Le fichier semble entièrement en anglais.`);
+        throw new Error(
+          `${rel} : aucun marqueur français détecté (frCount=0, enCount=${enCount}). Le fichier semble entièrement en anglais.`,
+        );
       }
       const ratio = enCount === 0 ? Infinity : frCount / enCount;
       if (ratio < 5) {
-        throw new Error(`${rel} : ratio FR/EN trop faible (${ratio.toFixed(2)} ; frCount=${frCount}, enCount=${enCount}). Le fichier contient trop d'anglais.`);
+        throw new Error(
+          `${rel} : ratio FR/EN trop faible (${ratio.toFixed(2)} ; frCount=${frCount}, enCount=${enCount}). Le fichier contient trop d'anglais.`,
+        );
       }
     });
   }
@@ -131,7 +124,9 @@ function run() {
     const enCount = countMatches(text, ENGLISH_MARKERS);
     const frCount = countMatches(text, FRENCH_MARKERS);
     if (enCount === 0 && frCount > 5) {
-      runner.warn(`${rel} est documenté comme volontairement en anglais, mais semble avoir été traduit (frCount=${frCount}, enCount=0). Vérifiez si la traduction est intentionnelle.`);
+      runner.warn(
+        `${rel} est documenté comme volontairement en anglais, mais semble avoir été traduit (frCount=${frCount}, enCount=0). Vérifiez si la traduction est intentionnelle.`,
+      );
     }
   }
 }

@@ -23,4 +23,3 @@ Les résultats du brainstorming peuvent alimenter :
 - PRD pour les exigences détaillées
 - Spécifications Techniques pour les plans d'architecture
 - Activités de Recherche pour les besoins de validation
-

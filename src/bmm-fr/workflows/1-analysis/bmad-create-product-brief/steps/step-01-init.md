@@ -78,14 +78,16 @@ Si aucun document n'existe ou s'il n'y a pas de `stepsCompleted` dans le frontma
 #### A. Découverte des Documents Sources
 
 Chargez les documents de contexte en utilisant la découverte intelligente. Les documents peuvent se trouver aux emplacements suivants :
-- {planning_artifacts}/**
-- {output_folder}/**
-- {product_knowledge}/**
-- {project-root}/docs/**
+
+- {planning_artifacts}/\*\*
+- {output_folder}/\*\*
+- {product_knowledge}/\*\*
+- {project-root}/docs/\*\*
 
 Aussi — lors de la recherche — les documents peuvent être un simple fichier markdown, ou un dossier avec un index et plusieurs fichiers. Par exemple, si vous cherchez `*foo*.md` et qu'il n'est pas trouvé, cherchez également un dossier nommé `*foo*/index.md` (qui indique un contenu fragmenté/sharded).
 
 Essayez de découvrir les éléments suivants :
+
 - Rapports de Brainstorming (`*brainstorming*.md`)
 - Documents de Recherche (`*research*.md`)
 - Documentation Projet (plusieurs documents peuvent généralement être trouvés dans le dossier `{product_knowledge}` ou `docs`).

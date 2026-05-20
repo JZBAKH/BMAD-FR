@@ -66,6 +66,7 @@ Pour chaque embranchement (catégorie) s'avérant légitime et validé, entamez 
 #### NFR de Performance (Si applicable) :
 
 Déterrez la véritable doctrine de performance :
+
 - Dans quel espace-temps ultra limité telle fonctionnalité exige son acte sous peine d'échec pour l'utilisateur ?
 - La foudre (Response time expectations) dispose-t-elle d'un temps réglementaire précis d'apparition (En dixièmes de seconde) ?
 - Quels plans obscurs engager en cas d'agonie serveur ou de réponses engorgées face à de la lenteur ?
@@ -74,6 +75,7 @@ Déterrez la véritable doctrine de performance :
 #### NFR de Sécurité (Si applicable) :
 
 Exhumez la stratégie martiale numérique de défense :
+
 - Sur quels flux vitaux, les données implorent notre absolu bouclier/coffre d'invincibilité encryptée ?
 - Gouvernance pure : qui commande (ou scrute les permissions) qui et où ?
 - Menaces inhérentes/Fatales à abattre et à museler impitoyablement au point zero sans sommations.
@@ -82,6 +84,7 @@ Exhumez la stratégie martiale numérique de défense :
 #### NFR de Souplesse de Montée en Charge/Scalability (Si applicable) :
 
 Découpez la nature temporelle des augmentations structurelles :
+
 - Volumes instantanés au départ pur ? Volume massif de masse sous 3 ans estimé absolu ?
 - Des dates butoirs avec une frénésie d'achats violente temporelle à dompter impérativement (Traffic Spikes) ?
 - En cas de fissure totale des murs de trafic alloués, quelle coupure de confort lâche prise pour maintenir le navire au lieu du sombre trépas final du système ?
@@ -90,6 +93,7 @@ Découpez la nature temporelle des augmentations structurelles :
 #### NFR d'Accessibilité (Si applicable) :
 
 Traquez les inhérences civiques pures :
+
 - Quelle infirmité physique majeure nos utilisateurs portent-ils de front, auxquels la ligne codée doit offrir compensation instantanée claire ?
 - Faut-il justifier notre conformité formelle devant la loi étatique vis-à-vis des normes lourdes Web de type WCAG ou Section 508 sous peine de blocages judiciaires / refus de lancements d'appels d'offres ?
 - Sur quels dogmes spécifiques nos usagers comptent-ils majoritairement lors de leurs venues ?
@@ -97,6 +101,7 @@ Traquez les inhérences civiques pures :
 #### NFR d'Intégration / Connectivité (Si applicable) :
 
 Explorez les chaînes matérielles :
+
 - Identifiez formellement quel dieu externe technologique/système tiers vient purement alimenter/être alimenté par la créature !
 - Des flux/formats froids archaïques absolus (SOAP, XML dédiés) à imposer obligatoirement ?
 - La solidité absolue des liens/câbles immatériels entre eux ? L'API tierce coupe-t-elle net ou survitons-nous formellement sans ces ponts s'ils cèdent ?
@@ -146,6 +151,7 @@ Au moment solennel de l'exécution, intégrez seulement les titres des catégori
 ### 6. Présenter les OPTIONS DU MENU
 
 Présentez le bloc brut final pour son acquiescement solennel en dernière ligne, et invoquez les options :
+
 - Exhibez toutes lignes (NFR) forgées selon le cadre strict ci-dessus !
 - Répétez haut et fort que tout superflu, sans justification logique contextuelle, a été purifié d'emblée à vos yeux.
 - Insistez bien que les NFR viennent borner "avec quelle justesse / puissance / perfection" le système tourne réellement, au nom de sa survie !
@@ -155,12 +161,14 @@ Présentez le bloc brut final pour son acquiescement solennel en dernière ligne
 Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers l'Étape de Polissage du Document (Étape 11 sur 12)"
 
 #### Logique de Gestion du Menu :
+
 - SI A : Invoquez la compétence `bmad-advanced-elicitation` avec la liste actuelle des NFR, traitez la pertinence améliorée des attributs inhérents qui en revient, demandez à l'utilisateur : "Accepter ces améliorations inhérentes aux mesures qualité NFR ? (o/n)", si oui mettez à jour le contenu avec l'amélioration puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
 - SI P : Invoquez la compétence `bmad-party-mode` avec la base qualifiée actuelle des NFR, traitez les validations collaboratives croisées et les ajouts formels sur de la pure technique souterraine, demandez à l'utilisateur : "Accepter ces changements aux exigences NFR ? (o/n)", si oui mettez à jour le contenu avec les ajouts technico-qualitatifs puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
 - SI C : Ajoutez (append) le contenu final à `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-11-polish.md`
 - SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
 #### RÈGLES D'EXÉCUTION :
+
 - TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
 - NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 - Après l'exécution d'autres options du menu, retournez à ce menu

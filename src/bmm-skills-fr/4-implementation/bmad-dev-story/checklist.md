@@ -3,17 +3,17 @@ title: 'Liste de Contrôle Enrichie du "Definition of Done" pour Dev Story'
 validation-target: 'Markdown de Story ({{story_path}})'
 validation-criticality: 'HIGHEST'
 required-inputs:
-  - 'Fichier markdown de story avec des Dev Notes enrichies contenant un contexte d''implémentation complet'
+  - "Fichier markdown de story avec des Dev Notes enrichies contenant un contexte d'implémentation complet"
   - 'Section Tâches/Sous-tâches complétée avec tous les éléments marqués [x]'
   - 'Section Liste des Fichiers mise à jour avec tous les fichiers modifiés'
-  - 'Registre de l''Agent de Dév mis à jour avec les notes d''implémentation'
+  - "Registre de l'Agent de Dév mis à jour avec les notes d'implémentation"
 optional-inputs:
   - 'Sortie des résultats de test'
   - 'Logs CI'
   - 'Rapports de linting'
 validation-rules:
-  - 'Seules les sections autorisées de la story ont été modifiées : cases à cocher Tâches/Sous-tâches, Registre de l''Agent de Dév, Liste des Fichiers, Journal des Changements, Statut'
-  - 'Toutes les exigences d''implémentation des Dev Notes de la story doivent être satisfaites'
+  - "Seules les sections autorisées de la story ont été modifiées : cases à cocher Tâches/Sous-tâches, Registre de l'Agent de Dév, Liste des Fichiers, Journal des Changements, Statut"
+  - "Toutes les exigences d'implémentation des Dev Notes de la story doivent être satisfaites"
   - 'La liste de contrôle du Definition of Done doit passer complètement'
   - 'Le contexte de story enrichi doit contenir un guide technique suffisant'
 ---

@@ -56,6 +56,7 @@ Rechercher des informations technologiques actuelles :
 Rechercher sur le web : "technologies émergentes innovations {{research_topic}}"
 
 **Focus technologique :**
+
 - Impacts de l'IA, de l'apprentissage automatique (ML) et de l'automatisation.
 - Tendances de transformation digitale.
 - Nouvelles technologies perturbant l'industrie.
@@ -67,6 +68,7 @@ Rechercher les tendances de transformation actuelles :
 Rechercher sur le web : "tendances transformation digitale {{research_topic}}"
 
 **Focus sur la transformation :**
+
 - Tendances et taux d'adoption du numérique.
 - Évolution des modèles d'affaires.
 - Innovations dans l'expérience client.
@@ -78,6 +80,7 @@ Rechercher des projections futures :
 Rechercher sur le web : "perspectives futures tendances {{research_topic}}"
 
 **Focus sur le futur :**
+
 - Feuilles de route et projections technologiques.
 - Prévisions d'évolution du marché.
 - Pipelines d'innovation et tendances R&D.
@@ -211,6 +214,7 @@ Le contenu est déjà écrit dans le document lorsqu'il est généré à l'étap
 ## FIN DU WORKFLOW DE RECHERCHE :
 
 Lorsque 'C' est sélectionné :
+
 - Toutes les étapes de recherche de domaine sont terminées.
 - Document de recherche complet généré.
 - Toutes les sections ajoutées avec citations des sources.
@@ -220,6 +224,7 @@ Lorsque 'C' est sélectionné :
 ## ÉTAPES SUIVANTES :
 
 Workflow de recherche terminé. L'utilisateur peut :
+
 - Utiliser la recherche de domaine pour informer d'autres workflows (PRD, architecture, etc.).
 - Mener des recherches supplémentaires sur des sujets spécifiques si nécessaire.
 - Avancer dans le développement du produit sur la base des insights de la recherche.

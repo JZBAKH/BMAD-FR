@@ -4,9 +4,9 @@ const path = require('node:path');
 const { execSync } = require('node:child_process');
 const yaml = require('yaml');
 const prompts = require('../prompts');
-const { RegistryClient } = require('./registry-client');
 const { resolveChannel, tagExists, parseGitHubRepo } = require('./channel-resolver');
 const { decideChannelForModule } = require('./channel-plan');
+const { getProjectRoot } = require('../project-root');
 
 const VALID_CHANNELS = new Set(['stable', 'next', 'pinned']);
 
@@ -23,7 +23,7 @@ function normalizeChannelName(raw) {
  */
 function quoteShell(ref) {
   if (typeof ref !== 'string' || !/^[\w.\-+/]+$/.test(ref)) {
-    throw new Error(`Nom de ref non sécurisé : ${JSON.stringify(ref)}`);
+    throw new Error(`Unsafe ref name: ${JSON.stringify(ref)}`);
   }
   return `"${ref}"`;
 }
@@ -46,15 +46,12 @@ async function writeChannelMarker(markerPath, data) {
   }
 }
 
-const MARKETPLACE_OWNER = 'bmad-code-org';
-const MARKETPLACE_REPO = 'bmad-plugins-marketplace';
-const MARKETPLACE_REF = 'main';
-const FALLBACK_CONFIG_PATH = path.join(__dirname, 'registry-fallback.yaml');
+const REGISTRY_CONFIG_PATH = path.join(getProjectRoot(), 'bmad-modules.yaml');
 
 /**
- * Manages official modules from the remote BMad marketplace registry.
- * Fetches registry/official.yaml from GitHub; falls back to the bundled
- * external-official-modules.yaml when the network is unavailable.
+ * Manages official modules from the bundled registry file. The remote
+ * marketplace fetch has been retired; this repo is the single source of truth
+ * for which official modules exist and how they are displayed.
  *
  * @class ExternalModuleManager
  */
@@ -65,9 +62,7 @@ class ExternalModuleManager {
   // ExternalModuleManager) sees resolutions made during install.
   static _resolutions = new Map();
 
-  constructor() {
-    this._client = new RegistryClient();
-  }
+  constructor() {}
 
   /**
    * Get the most recent channel resolution for a module (if any).
@@ -79,8 +74,7 @@ class ExternalModuleManager {
   }
 
   /**
-   * Load the official modules registry from GitHub, falling back to the
-   * bundled YAML file if the fetch fails.
+   * Load the official modules registry from the bundled YAML file.
    * @returns {Object} Parsed YAML content with modules array
    */
   async loadExternalModulesConfig() {
@@ -88,23 +82,10 @@ class ExternalModuleManager {
       return this.cachedModules;
     }
 
-    // Try remote registry first
     try {
-      const config = await this._client.fetchGitHubYaml(MARKETPLACE_OWNER, MARKETPLACE_REPO, 'registry/official.yaml', MARKETPLACE_REF);
-      if (config?.modules?.length) {
-        this.cachedModules = config;
-        return config;
-      }
-    } catch {
-      // Fall through to local fallback
-    }
-
-    // Fallback to bundled file
-    try {
-      const content = await fs.readFile(FALLBACK_CONFIG_PATH, 'utf8');
+      const content = await fs.readFile(REGISTRY_CONFIG_PATH, 'utf8');
       const config = yaml.parse(content);
       this.cachedModules = config;
-      await prompts.log.warn('Impossible d\'atteindre le registre BMad ; utilisation de la liste de modules embarquée.');
       return config;
     } catch (error) {
       await prompts.log.warn(`Échec du chargement de la configuration des modules : ${error.message}`);
@@ -130,6 +111,7 @@ class ExternalModuleManager {
       defaultSelected: mod.default_selected === true || mod.defaultSelected === true,
       type: mod.type || 'bmad-org',
       npmPackage: mod.npm_package || mod.npmPackage || null,
+      pluginName: mod.plugin_name || mod.pluginName || null,
       defaultChannel: normalizeChannelName(mod.default_channel || mod.defaultChannel) || 'stable',
       builtIn: mod.built_in === true,
       isExternal: mod.built_in !== true,
@@ -277,7 +259,7 @@ class ExternalModuleManager {
       if (cachedMarker?.channel && (await fs.pathExists(moduleCacheDir))) {
         if (!silent) {
           await prompts.log.warn(
-            `Impossible de vérifier les mises à jour pour ${moduleInfo.name} (${error.message}) ; utilisation de la version en cache ${cachedMarker.version || cachedMarker.channel}.`,
+            `Impossible de vérifier les mises à jour de ${moduleInfo.name} (${error.message}) ; utilisation du cache ${cachedMarker.version || cachedMarker.channel}.`,
           );
         }
         ExternalModuleManager._resolutions.set(moduleCode, {
@@ -296,17 +278,19 @@ class ExternalModuleManager {
       const isRateLimited = /rate limit/i.test(error.message);
       const hint = isRateLimited
         ? process.env.GITHUB_TOKEN
-          ? 'Votre GITHUB_TOKEN a peut-être expiré ou a été limité par son propre quota. Essayez un autre token ou attendez la réinitialisation.'
-          : 'Définissez une variable d\'environnement GITHUB_TOKEN (tout token d\'accès personnel avec lecture public-repo) pour augmenter la limite anonyme de 60 requêtes/heure.'
+          ? 'Votre GITHUB_TOKEN a peut-être expiré ou atteint sa propre limite de débit. Essayez un autre token ou attendez la réinitialisation.'
+          : "Définissez une variable d'environnement GITHUB_TOKEN (tout token d'accès personnel avec lecture public-repo) pour passer de 60 à plus de requêtes par heure en mode anonyme."
         : `Vérifiez votre connexion réseau, ou relancez avec \`--next=${moduleCode}\` / \`--pin ${moduleCode}=<tag>\` pour ignorer la recherche de tag.`;
       throw new Error(`Impossible de résoudre le tag stable pour '${moduleCode}' (${error.message}). ${hint}`);
     }
 
     if (resolved.resolvedFallback && !silent) {
       if (resolved.reason === 'no-stable-tags') {
-        await prompts.log.warn(`Aucune release stable trouvée pour ${moduleInfo.name} ; installation depuis main.`);
+        await prompts.log.warn(`Aucune version stable trouvée pour ${moduleInfo.name} ; installation depuis main.`);
       } else if (resolved.reason === 'not-a-github-url') {
-        await prompts.log.warn(`Impossible de déterminer les tags stables pour ${moduleInfo.name} (URL non-GitHub) ; installation depuis main.`);
+        await prompts.log.warn(
+          `Impossible de déterminer les tags stables pour ${moduleInfo.name} (URL non GitHub) ; installation depuis main.`,
+        );
       }
     }
 
@@ -320,7 +304,7 @@ class ExternalModuleManager {
             throw new Error(`Tag '${planEntry.pin}' introuvable dans ${parsed.owner}/${parsed.repo}.`);
           }
         } catch (error) {
-          if (error.message?.includes('not found')) throw error;
+          if (error.message?.includes('not found') || error.message?.includes('introuvable')) throw error;
           // Network hiccup on tag verification — let the clone attempt fail clearly.
         }
       }
@@ -343,7 +327,7 @@ class ExternalModuleManager {
     if (await fs.pathExists(moduleCacheDir)) {
       // Cache exists on the right channel. Refresh the ref.
       const fetchSpinner = await createSpinner();
-      fetchSpinner.start(`Téléchargement de ${moduleInfo.name}...`);
+      fetchSpinner.start(`Récupération de ${moduleInfo.name}...`);
       try {
         const currentSha = execSync('git rev-parse HEAD', { cwd: moduleCacheDir, stdio: 'pipe' }).toString().trim();
 
@@ -372,10 +356,10 @@ class ExternalModuleManager {
         }
 
         const newSha = execSync('git rev-parse HEAD', { cwd: moduleCacheDir, stdio: 'pipe' }).toString().trim();
-        fetchSpinner.stop(`${moduleInfo.name} téléchargé`);
+        fetchSpinner.stop(`${moduleInfo.name} récupéré`);
         if (currentSha !== newSha) needsDependencyInstall = true;
       } catch {
-        fetchSpinner.error(`Téléchargement échoué, retéléchargement de ${moduleInfo.name}`);
+        fetchSpinner.error(`Échec de la récupération, re-téléchargement de ${moduleInfo.name}`);
         await fs.remove(moduleCacheDir);
         wasNewClone = true;
       }
@@ -385,7 +369,7 @@ class ExternalModuleManager {
 
     if (wasNewClone) {
       const fetchSpinner = await createSpinner();
-      fetchSpinner.start(`Téléchargement de ${moduleInfo.name}...`);
+      fetchSpinner.start(`Récupération de ${moduleInfo.name}...`);
       try {
         if (resolved.channel === 'next') {
           execSync(`git clone --depth 1 "${moduleInfo.url}" "${moduleCacheDir}"`, {
@@ -398,10 +382,10 @@ class ExternalModuleManager {
             env: { ...process.env, GIT_TERMINAL_PROMPT: '0' },
           });
         }
-        fetchSpinner.stop(`${moduleInfo.name} téléchargé`);
+        fetchSpinner.stop(`${moduleInfo.name} récupéré`);
       } catch (error) {
-        fetchSpinner.error(`Échec du téléchargement de ${moduleInfo.name}`);
-        throw new Error(`Échec du clonage du module externe '${moduleCode}' à ${resolved.version} : ${error.message}`);
+        fetchSpinner.error(`Échec de la récupération de ${moduleInfo.name}`);
+        throw new Error(`Échec du clonage du module externe '${moduleCode}' à la version ${resolved.version} : ${error.message}`);
       }
     }
 
@@ -524,8 +508,22 @@ class ExternalModuleManager {
       return path.dirname(rootCandidate);
     }
 
-    // Nothing found: return configured path (preserves old behavior for error messaging)
-    return path.dirname(configuredPath);
+    // Nothing found: the cloned ref does not contain a recognizable module structure.
+    // This happens when a stable tag predates a module restructure (e.g. the repo
+    // moved files from payload/ to skills/ after the tag was cut). Returning a
+    // non-existent path silently causes a confusing ENOENT deep inside copyModuleWithFiltering;
+    // throw a descriptive error here instead so the user knows what happened and how to recover.
+    const resolution = ExternalModuleManager._resolutions.get(moduleCode);
+    const versionHint = resolution?.version ? `version ${resolution.version}` : 'la version clonée';
+    const channelHint =
+      resolution?.channel === 'stable'
+        ? ` Essayez de réinstaller avec \`--next=${moduleCode}\` pour utiliser la dernière branche main à la place.`
+        : '';
+    throw new Error(
+      `Le module '${moduleCode}' a été téléchargé mais sa définition de module est introuvable. ` +
+        `'${moduleDefinitionPath}' était attendu dans ${versionHint}, mais il est absent. ` +
+        `Le dépôt a peut-être été restructuré après le marquage de cette version.${channelHint}`,
+    );
   }
   cachedModules = null;
 }

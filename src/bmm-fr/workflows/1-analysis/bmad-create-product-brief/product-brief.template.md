@@ -1,8 +1,8 @@
 ---
 stepsCompleted: []
 inputDocuments: []
-date: {{system-date}}
-author: {{user_name}}
+date: { { system-date } }
+author: { { user_name } }
 ---
 
 # Brief Produit : {{project_name}}

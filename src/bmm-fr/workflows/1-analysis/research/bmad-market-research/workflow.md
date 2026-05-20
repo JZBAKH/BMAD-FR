@@ -11,6 +11,7 @@
 ## CONFIGURATION
 
 Charger la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résoudre :
+
 - `project_name`, `output_folder`, `planning_artifacts`, `user_name`
 - `{communication_language}`, `document_output_language`, `user_skill_level`
 - `date` en tant que valeur générée par le système
@@ -22,6 +23,7 @@ Charger la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résou
 **Quel sujet, problème ou domaine souhaitez-vous explorer ?**
 
 Par exemple :
+
 - 'Le marché des véhicules électriques en Europe'
 - 'Le marché des alternatives alimentaires végétales'
 - 'Les solutions de paiement mobile en Asie du Sud-Est'
@@ -30,6 +32,7 @@ Par exemple :
 ### Clarification du Sujet
 
 Sur la base du sujet de l'utilisateur, clarifiez brièvement :
+
 1. **Sujet Central** : "Qu'est-ce qui vous intéresse précisément concernant [sujet] ?"
 2. **Objectifs de Recherche** : "Qu'espérez-vous accomplir avec cette recherche ?"
 3. **Périmètre** : "Devrions-nous rester généralistes ou plonger dans des aspects spécifiques ?"

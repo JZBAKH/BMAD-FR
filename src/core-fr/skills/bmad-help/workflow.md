@@ -13,22 +13,29 @@
 ## RÈGLES D'AFFICHAGE (DISPLAY RULES)
 
 ### Workflows Basés sur des Commandes
+
 Lorsque le champ `command` a une valeur :
+
 - Affichez la commande comme un nom de compétence entre backticks (ex. `bmad-bmm-create-prd`)
 
 ### Workflows Renvoyant à des Compétences
+
 Lorsque `workflow-file` commence par `skill:` :
+
 - La valeur est une référence de compétence (ex. `skill:bmad-quick-dev-new-preview`), et NON un chemin de fichier
 - N'essayez PAS de le résoudre ou de le charger comme un chemin de fichier
 - Affichez-le en utilisant la valeur de la colonne `command` comme nom de compétence entre backticks (identique aux workflows basés sur des commandes)
 
 ### Workflows Basés sur des Agents
+
 Lorsque le champ `command` est vide :
+
 - L'utilisateur charge d'abord l'Agent en invoquant la compétence de l'Agent (ex. `bmad-pm`)
 - Puis l'invoque en référençant le champ `code` ou en décrivant le champ `name`
 - NE montrez PAS de commande (slash command) — affichez plutôt la valeur du code et l'instruction de chargement de l'Agent
 
 Exemple de présentation pour une commande vide :
+
 ```
 Expliquer le Concept (EC)
 Charger : la compétence Agent tech-writer, puis demander d'"EC sur [sujet]"
@@ -46,6 +53,7 @@ Détectez le module actif à partir du contexte de la conversation, des workflow
 ## ANALYSE DE L'ENTRÉE (INPUT ANALYSIS)
 
 Déterminez ce qui vient d'être achevé :
+
 - Achèvement explicite déclaré par l'utilisateur
 - Workflow achevé dans la conversation en cours
 - Artefacts trouvés correspondant aux motifs (patterns) `outputs`

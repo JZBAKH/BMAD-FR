@@ -23,7 +23,6 @@
 - 📖 Mettez à jour le frontmatter du fichier de sortie, en ajoutant le nom de cette étape à la fin de la liste `stepsCompleted`
 - 🚫 INTERDICTION de charger l'étape suivante tant que C n'a pas été sélectionné
 
-
 ## LIMITES DU CONTEXTE :
 
 - Le document actuel et le frontmatter des étapes précédentes sont disponibles
@@ -170,12 +169,14 @@ Présentez le bloc pur et brut des listes (FR) traitées en un seul trait entier
 Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers les Exigences Non-Fonctionnelles (Étape 10 sur 11)"
 
 #### Logique de Gestion du Menu :
+
 - SI A : Invoquez la compétence `bmad-advanced-elicitation` avec la liste FR générée actuelle, traitez la couverture de capacités améliorées qui en revient, demandez à l'utilisateur : "Accepter ces ajouts aux exigences ? (o/n)", si oui mettez à jour le contenu avec l'amélioration puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
 - SI P : Invoquez la compétence `bmad-party-mode` avec la liste FR actuelle, traitez les validations collaboratives et les ajouts sur les capacités, demandez à l'utilisateur : "Accepter ces changements aux exigences ? (o/n)", si oui mettez à jour le contenu avec les ajouts puis réaffichez le menu, si non conservez le contenu d'origine puis réaffichez le menu.
 - SI C : Ajoutez (append) le contenu final à `{outputFile}`, mettez à jour le frontmatter en ajoutant le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-10-nonfunctional.md`
 - SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
 #### RÈGLES D'EXÉCUTION :
+
 - TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
 - NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 - Après l'exécution d'autres options du menu, retournez à ce menu

@@ -26,8 +26,7 @@ function run() {
     return;
   }
 
-  const yamlFiles = walk(agentsDir, { extensions: ['.yaml'], base: REPO_ROOT })
-    .filter((p) => p.endsWith('.agent.yaml'));
+  const yamlFiles = walk(agentsDir, { extensions: ['.yaml'], base: REPO_ROOT }).filter((p) => p.endsWith('.agent.yaml'));
 
   if (yamlFiles.length === 0) {
     runner.warn('Aucun .agent.yaml trouvé dans src/bmm-fr/agents/ — schéma non testé');
@@ -72,8 +71,8 @@ function run() {
       let parsed;
       try {
         parsed = yaml.parse(content);
-      } catch (err) {
-        throw new Error(`YAML mal formé : ${err.message}`);
+      } catch (error) {
+        throw new Error(`YAML mal formé : ${error.message}`);
       }
 
       // The validator derives the expected module from "src/<mod>/agents/...".
@@ -87,9 +86,7 @@ function run() {
           .slice(0, 5)
           .map((i) => `  • ${i.path.join('.')} : ${i.message}`)
           .join('\n');
-        const more = result.error.issues.length > 5
-          ? `\n  • ... et ${result.error.issues.length - 5} autre(s)`
-          : '';
+        const more = result.error.issues.length > 5 ? `\n  • ... et ${result.error.issues.length - 5} autre(s)` : '';
         throw new Error(`Validation échouée :\n${issues}${more}`);
       }
     });

@@ -45,7 +45,6 @@ Architecture terminée. Invoquez le skill `bmad-help`.
 
 À la finalisation de la sortie de la tâche : proposez de répondre à toute question sur le Document d'architecture.
 
-
 ## INDICATEURS DE RÉUSSITE :
 
 ✅ Document d'architecture complet livré avec toutes les sections

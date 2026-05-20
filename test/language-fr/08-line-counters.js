@@ -57,10 +57,7 @@ function run() {
     const frBullets = countBullets(frText);
     if (enBullets > 0) {
       runner.test(`${frRel} : ${enBullets} puce(s) préservées`, () => {
-        runner.assert(
-          frBullets === enBullets,
-          `${frBullets} puces dans le FR vs ${enBullets} attendues`,
-        );
+        runner.assert(frBullets === enBullets, `${frBullets} puces dans le FR vs ${enBullets} attendues`);
       });
     }
 
@@ -68,10 +65,7 @@ function run() {
     const frNumbered = countNumbered(frText);
     if (enNumbered > 0) {
       runner.test(`${frRel} : ${enNumbered} item(s) numéroté(s) préservés`, () => {
-        runner.assert(
-          frNumbered === enNumbered,
-          `${frNumbered} items numérotés dans le FR vs ${enNumbered} attendus`,
-        );
+        runner.assert(frNumbered === enNumbered, `${frNumbered} items numérotés dans le FR vs ${enNumbered} attendus`);
       });
     }
 
@@ -79,10 +73,7 @@ function run() {
     const frSteps = countSteps(frText);
     if (enSteps > 0) {
       runner.test(`${frRel} : ${enSteps} balise(s) <step> préservées`, () => {
-        runner.assert(
-          frSteps === enSteps,
-          `${frSteps} <step> dans le FR vs ${enSteps} attendus`,
-        );
+        runner.assert(frSteps === enSteps, `${frSteps} <step> dans le FR vs ${enSteps} attendus`);
       });
     }
   }

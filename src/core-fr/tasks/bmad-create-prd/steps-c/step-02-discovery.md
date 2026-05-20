@@ -50,6 +50,7 @@ Découvrir et classifier le projet - comprendre de quel type de produit il s'agi
 ## VOTRE TÂCHE :
 
 Découvrir et classifier le projet par une conversation naturelle :
+
 - Quel type de produit est-ce ? (application web, API, mobile, etc.)
 - Dans quel domaine opère-t-il ? (santé, fintech, e-commerce, etc.)
 - Quel est le contexte du projet ? (nouveau produit/greenfield vs système existant/brownfield)
@@ -60,6 +61,7 @@ Découvrir et classifier le projet par une conversation naturelle :
 ### 1. Vérifier l'État du Document
 
 Lisez le frontmatter de `{outputFile}` pour obtenir le nombre de documents :
+
 - `briefCount` - Product briefs disponibles
 - `researchCount` - Documents de recherche disponibles
 - `brainstormingCount` - Docs de brainstorming disponibles
@@ -68,6 +70,7 @@ Lisez le frontmatter de `{outputFile}` pour obtenir le nombre de documents :
 **Annoncez votre compréhension :**
 
 "D'après l'étape 1, j'ai chargé :
+
 - Product briefs : {{briefCount}}
 - Recherche : {{researchCount}}
 - Brainstorming : {{brainstormingCount}}
@@ -83,6 +86,7 @@ Lisez le frontmatter de `{outputFile}` pour obtenir le nombre de documents :
 "Votre tâche : Rechercher les données dans ../data/project-types.csv
 
 **Critères de recherche :**
+
 - Trouver la ligne où `project_type` correspond à {{detectedProjectType}}
 
 **Format de retour :**
@@ -95,6 +99,7 @@ project_type, detection_signals
 "Votre tâche : Rechercher les données dans ../data/domain-complexity.csv
 
 **Critères de recherche :**
+
 - Trouver la ligne où `domain` correspond à {{detectedDomain}}
 
 **Format de retour :**
@@ -104,6 +109,7 @@ domain, complexity, typical_concerns, compliance_requirements
 **NE RETOURNEZ PAS l'ensemble du CSV - seulement la ligne correspondante.**"
 
 **Dégradation gracieuse (Graceful degradation - si l'outil de Tâche est indisponible) :**
+
 - Chargez les fichiers CSV directement
 - Trouvez manuellement les lignes correspondantes
 - Extrayez les champs requis
@@ -116,6 +122,7 @@ domain, complexity, typical_concerns, compliance_requirements
 Si l'utilisateur a un product brief ou des docs de projet, reconnaissez-les et partagez votre compréhension. Posez ensuite des questions de clarification pour approfondir votre compréhension.
 
 S'il s'agit d'un projet greenfield (nouveau) sans aucune documentation, commencez par une découverte ouverte :
+
 - Quel problème cela résout-il ?
 - A qui cela s'adresse-t-il ?
 - Qu'est-ce qui vous passionne dans la construction de ceci ?
@@ -123,6 +130,7 @@ S'il s'agit d'un projet greenfield (nouveau) sans aucune documentation, commence
 **Soyez à l'écoute des signaux de classification :**
 
 Pendant que l'utilisateur décrit son produit, établissez des correspondances avec :
+
 - **Les signaux de type de projet** (API, mobile, SaaS, etc.)
 - **Les signaux de domaine** (santé, fintech, éducation, etc.)
 - **Les indicateurs de complexité** (secteurs réglementés, technologie novatrice, etc.)
@@ -132,6 +140,7 @@ Pendant que l'utilisateur décrit son produit, établissez des correspondances a
 Une fois que vous avez une compréhension suffisante, partagez votre classification :
 
 "Voici ce que je comprends :
+
 - **Type de Projet :** {{detectedType}}
 - **Domaine :** {{detectedDomain}}
 - **Complexité :** {{complexityLevel}}
@@ -143,12 +152,13 @@ Laissez l'utilisateur confirmer ou affiner votre classification.
 ### 5. Sauvegarder la Classification dans le Frontmatter
 
 Lorsque l'utilisateur sélectionne 'C', mettez à jour le frontmatter avec la classification :
+
 ```yaml
 classification:
-  projectType: {{projectType}}
-  domain: {{domain}}
-  complexity: {{complexityLevel}}
-  projectContext: {{greenfield|brownfield}}
+  projectType: { { projectType } }
+  domain: { { domain } }
+  complexity: { { complexityLevel } }
+  projectContext: { { greenfield|brownfield } }
 ```
 
 ### N. Présenter les OPTIONS DU MENU
@@ -169,12 +179,14 @@ Présentez la classification du projet pour une revue, puis affichez le menu :
 Affichez : "**Sélectionnez :** [A] Élicitation Avancée (Advanced Elicitation) [P] Mode Party (Party Mode) [C] Continuer vers la Vision du Produit (Étape 2b sur 13)"
 
 #### Logique de Gestion du Menu :
+
 - SI A : Invoquez la compétence `bmad-advanced-elicitation` avec la classification actuelle, traitez les informations enrichies qui en reviennent, demandez à l'utilisateur s'il accepte les améliorations ; si oui, mettez à jour la classification puis réaffichez le menu, si non, conservez la classification d'origine puis réaffichez le menu.
 - SI P : Invoquez la compétence `bmad-party-mode` avec la classification actuelle, traitez les informations collaboratives, demandez à l'utilisateur s'il accepte les changements ; si oui, mettez à jour la classification puis réaffichez le menu, si non, conservez la classification d'origine puis réaffichez le menu.
 - SI C : Sauvegardez la classification dans le frontmatter de `{outputFile}`, ajoutez le nom de cette étape à la fin du tableau `stepsCompleted`, puis lisez intégralement et suivez : `./step-02b-vision.md`
 - SI Autre : aidez l'utilisateur à répondre, puis réaffichez le menu.
 
 #### RÈGLES D'EXÉCUTION :
+
 - TOUJOURS s'arrêter et attendre l'entrée de l'utilisateur après la présentation du menu
 - NE passer à l'étape suivante QUE lorsque l'utilisateur sélectionne 'C'
 - Après l'exécution d'autres options du menu, retournez à ce menu

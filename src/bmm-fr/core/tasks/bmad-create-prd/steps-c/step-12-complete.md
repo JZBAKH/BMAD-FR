@@ -42,6 +42,7 @@ Achever formellement le workflow PRD, rafraîchir les rapports d'états (status)
 ### 1. Annoncer la Clôture du Workflow (Announce Workflow Completion)
 
 Annoncez de façon triomphale au créateur que l'ouvrage PRD majeur est acté et lustré formellement :
+
 - Célébrez publiquement l'apogée/la fin solennelle de constitution de ce méga-document fondateur !
 - Égrenez à vitesse rapide le résumé titanesque des champs traités qui y figurent !
 - Louez son ultime traitement / polissage d'écriture (Cohérence / Fluidité ininterrompue) qui le rend imprenable.
@@ -63,6 +64,7 @@ Proposez fermement des pistes de vérifications/contreparties via d'autres workf
 **Workflows de Validation Disponibles :**
 
 **Option 1 : Vérifier la Préparation à l'Implémentation (Check Implementation Readiness) (`skill:bmad-check-implementation-readiness`)**
+
 - Certifie implacablement que le document couve formellement tout axe d'exigences absolues préalable aux vagues de codes développeurs !
 - Fait retentir l'indice pur de "Couvertures des épopées" en Epics informatiques entiers déduits !
 - Incarne formellement la vérification d'alignement avec les futures approches Design d'Écran UX de suite !
@@ -72,6 +74,7 @@ Proposez fermement des pistes de vérifications/contreparties via d'autres workf
 **Quand l'utiliser :** À exécuter sciemment AVANT le lancement pur de l'architecture technique / Découpe d'épopées ou récit logiciel.
 
 **Option 2 : Sauter pour le Moment (Skip for Now)**
+
 - Fuites en avant / Lancement direct sans plus attendre vers les mondes applicatifs avoisinants (Workflows Architecture, Maquettes UX, rédaction d'Épopées Epics)
 - La vérification restera toujours une arme brandissable plus tard si les feux bloquent aux usines devs !
 - Une partie de l'encadrement formel des équipes s'enferme à valider par leur seules propres lueurs manuelles directement avec les Architectes lors de grands examens.

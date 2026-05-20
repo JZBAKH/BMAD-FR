@@ -1,5 +1,5 @@
 ---
-title: "Quick Dev New Preview"
+title: 'Quick Dev New Preview'
 description: Reduce human-in-the-loop friction without giving up the checkpoints that protect output quality
 sidebar:
   order: 2

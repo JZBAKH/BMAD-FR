@@ -25,20 +25,10 @@ Renvoyez UNIQUEMENT l'objet JSON suivant. Pas de préambule, pas de commentaire.
 
 ```json
 {
-  "critical_gaps": [
-    {"issue": "ce qui manque", "impact": "pourquoi c'est important", "suggestion": "comment corriger"}
-  ],
-  "untested_assumptions": [
-    {"assumption": "ce qui est affirmé", "risk": "ce qui pourrait mal tourner"}
-  ],
-  "unacknowledged_risks": [
-    {"risk": "mode de défaillance potentiel", "severity": "high|medium|low"}
-  ],
-  "vague_areas": [
-    {"section": "où", "issue": "ce qui est vague", "suggestion": "comment affiner"}
-  ],
-  "suggested_improvements": [
-    "suggestion exploitable"
-  ]
+  "critical_gaps": [{ "issue": "ce qui manque", "impact": "pourquoi c'est important", "suggestion": "comment corriger" }],
+  "untested_assumptions": [{ "assumption": "ce qui est affirmé", "risk": "ce qui pourrait mal tourner" }],
+  "unacknowledged_risks": [{ "risk": "mode de défaillance potentiel", "severity": "high|medium|low" }],
+  "vague_areas": [{ "section": "où", "issue": "ce qui est vague", "suggestion": "comment affiner" }],
+  "suggested_improvements": ["suggestion exploitable"]
 }
 ```

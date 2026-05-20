@@ -8,6 +8,7 @@ description: 'Crée un fichier de cas d''usage dédié avec tout le contexte don
 **Objectif :** Créer un fichier de cas d'usage complet qui donne à l'agent dev tout ce qui est nécessaire pour une implémentation impeccable.
 
 **Votre Rôle :** Moteur de contexte de cas d'usage qui prévient les erreurs, omissions ou désastres des développeurs LLM.
+
 - Communiquez toutes les réponses en {communication_language} et générez tous les documents en {document_output_language}
 - Votre objectif n'est PAS de copier depuis les thèmes (epics) - c'est de créer un fichier de cas d'usage complet et optimisé qui donne à l'agent DEV TOUT ce qui est nécessaire pour une implémentation impeccable
 - ERREURS LLM COURANTES À PRÉVENIR : réinventer la roue, mauvaises bibliothèques, mauvais emplacements de fichiers, casser des régressions, ignorer l'UX, implémentations vagues, mentir sur la complétude, ne pas apprendre du travail passé
@@ -77,12 +78,12 @@ L'activation est terminée. Commencez le workflow ci-dessous.
 
 ## Fichiers d'entrée
 
-| Entrée | Description | Pattern(s) de chemin | Stratégie de chargement |
-|-------|-------------|------------------|---------------|
-| prd | PRD (de secours - le fichier des thèmes (epics) devrait avoir le plus de contenu) | entier : `{planning_artifacts}/*prd*.md`, fragmenté : `{planning_artifacts}/*prd*/*.md` | SELECTIVE_LOAD |
-| architecture | Architecture (de secours - le fichier des thèmes (epics) devrait avoir les sections pertinentes) | entier : `{planning_artifacts}/*architecture*.md`, fragmenté : `{planning_artifacts}/*architecture*/*.md` | SELECTIVE_LOAD |
-| ux | Conception UX (de secours - le fichier des thèmes (epics) devrait avoir les sections pertinentes) | entier : `{planning_artifacts}/*ux*.md`, fragmenté : `{planning_artifacts}/*ux*/*.md` | SELECTIVE_LOAD |
-| epics | Fichier amélioré thèmes+cas d'usage avec BDD et indices source | entier : `{planning_artifacts}/*epic*.md`, fragmenté : `{planning_artifacts}/*epic*/*.md` | SELECTIVE_LOAD |
+| Entrée       | Description                                                                                       | Pattern(s) de chemin                                                                                      | Stratégie de chargement |
+| ------------ | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------- |
+| prd          | PRD (de secours - le fichier des thèmes (epics) devrait avoir le plus de contenu)                 | entier : `{planning_artifacts}/*prd*.md`, fragmenté : `{planning_artifacts}/*prd*/*.md`                   | SELECTIVE_LOAD          |
+| architecture | Architecture (de secours - le fichier des thèmes (epics) devrait avoir les sections pertinentes)  | entier : `{planning_artifacts}/*architecture*.md`, fragmenté : `{planning_artifacts}/*architecture*/*.md` | SELECTIVE_LOAD          |
+| ux           | Conception UX (de secours - le fichier des thèmes (epics) devrait avoir les sections pertinentes) | entier : `{planning_artifacts}/*ux*.md`, fragmenté : `{planning_artifacts}/*ux*/*.md`                     | SELECTIVE_LOAD          |
+| epics        | Fichier amélioré thèmes+cas d'usage avec BDD et indices source                                    | entier : `{planning_artifacts}/*epic*.md`, fragmenté : `{planning_artifacts}/*epic*/*.md`                 | SELECTIVE_LOAD          |
 
 ## Exécution
 
@@ -95,16 +96,13 @@ L'activation est terminée. Commencez le workflow ci-dessous.
     <action>ALLER À étape 2a</action>
   </check>
 
-  <action>Vérifier si le fichier {{sprint_status}} existe pour la découverte automatique</action>
-  <check if="le fichier de statut sprint n'existe PAS">
-    <output>🚫 Aucun fichier de statut sprint trouvé et aucun cas d'usage spécifié</output>
-    <output>
-      **Options requises :**
-      1. Exécutez `sprint-planning` pour initialiser le suivi du sprint (recommandé)
-      2. Fournissez un numéro epic-story spécifique à créer (par ex. "1-2-user-auth")
-      3. Fournissez le chemin vers les documents du cas d'usage si le statut sprint n'existe pas encore
-    </output>
-    <ask>Choisissez l'option [1], fournissez un numéro epic-story, le chemin vers les docs du cas d'usage, ou [q] pour quitter :</ask>
+<action>Vérifier si le fichier {{sprint_status}} existe pour la découverte automatique</action>
+<check if="le fichier de statut sprint n'existe PAS">
+<output>🚫 Aucun fichier de statut sprint trouvé et aucun cas d'usage spécifié</output>
+<output>
+**Options requises :** 1. Exécutez `sprint-planning` pour initialiser le suivi du sprint (recommandé) 2. Fournissez un numéro epic-story spécifique à créer (par ex. "1-2-user-auth") 3. Fournissez le chemin vers les documents du cas d'usage si le statut sprint n'existe pas encore
+</output>
+<ask>Choisissez l'option [1], fournissez un numéro epic-story, le chemin vers les docs du cas d'usage, ou [q] pour quitter :</ask>
 
     <check if="l'utilisateur choisit 'q'">
       <action>ARRÊT - Aucun travail nécessaire</action>
@@ -125,6 +123,7 @@ L'activation est terminée. Commencez le workflow ci-dessous.
       <action>Utiliser le chemin fourni par l'utilisateur pour les documents du cas d'usage</action>
       <action>ALLER À étape 2a</action>
     </check>
+
   </check>
 
   <!-- Découverte automatique depuis le statut sprint uniquement si pas d'entrée utilisateur -->
@@ -186,16 +185,14 @@ L'activation est terminée. Commencez le workflow ci-dessous.
     </check>
 
     <action>ALLER À étape 2a</action>
+
   </check>
   <action>Charger le fichier ENTIER : {{sprint_status}}</action>
   <action>Lire TOUTES les lignes du début à la fin - ne sauter aucun contenu</action>
   <action>Parser complètement la section development_status</action>
 
-  <action>Trouver le PREMIER cas d'usage (en lisant dans l'ordre du haut vers le bas) où :
-    - La clé correspond au pattern : numéro-numéro-nom (par ex. "1-2-user-auth")
-    - PAS une clé de thème (epic-X) ni rétrospective (epic-X-retrospective)
-    - La valeur du statut est égale à "backlog"
-  </action>
+<action>Trouver le PREMIER cas d'usage (en lisant dans l'ordre du haut vers le bas) où : - La clé correspond au pattern : numéro-numéro-nom (par ex. "1-2-user-auth") - PAS une clé de thème (epic-X) ni rétrospective (epic-X-retrospective) - La valeur du statut est égale à "backlog"
+</action>
 
   <check if="aucun cas d'usage backlog trouvé">
     <output>Aucun cas d'usage backlog trouvé dans sprint-status.yaml
@@ -208,79 +205,76 @@ L'activation est terminée. Commencez le workflow ci-dessous.
       3. Vérifiez si le sprint actuel est complet et exécutez la rétrospective
     </output>
     <action>ARRÊT</action>
+
   </check>
 
-  <action>Extraire de la clé du cas d'usage trouvé (par ex. "1-2-user-authentication") :
-    - epic_num : premier numéro avant le tiret (par ex. "1")
-    - story_num : deuxième numéro après le premier tiret (par ex. "2")
-    - story_title : reste après le deuxième tiret (par ex. "user-authentication")
-  </action>
-  <action>Définir {{story_id}} = "{{epic_num}}.{{story_num}}"</action>
-  <action>Stocker story_key pour utilisation ultérieure (par ex. "1-2-user-authentication")</action>
+<action>Extraire de la clé du cas d'usage trouvé (par ex. "1-2-user-authentication") : - epic_num : premier numéro avant le tiret (par ex. "1") - story_num : deuxième numéro après le premier tiret (par ex. "2") - story_title : reste après le deuxième tiret (par ex. "user-authentication")
+</action>
+<action>Définir {{story_id}} = "{{epic_num}}.{{story_num}}"</action>
+<action>Stocker story_key pour utilisation ultérieure (par ex. "1-2-user-authentication")</action>
 
   <!-- Marquer le thème comme en cours s'il s'agit du premier cas d'usage -->
-  <action>Vérifier si c'est le premier cas d'usage du thème {{epic_num}} en cherchant le pattern {{epic_num}}-1-*</action>
-  <check if="c'est le premier cas d'usage du thème {{epic_num}}">
-    <action>Charger {{sprint_status}} et vérifier le statut epic-{{epic_num}}</action>
-    <action>Si le statut du thème est "backlog" → mettre à jour vers "in-progress"</action>
-    <action>Si le statut du thème est "contexted" (statut hérité) → mettre à jour vers "in-progress" (rétrocompatibilité)</action>
-    <action>Si le statut du thème est "in-progress" → aucun changement nécessaire</action>
-    <check if="le statut du thème est 'done'">
-      <output>ERREUR : Impossible de créer un cas d'usage dans un thème complété</output>
-      <output>Le thème {{epic_num}} est marqué comme 'done'. Tous les cas d'usage sont complets.</output>
-      <output>Si vous devez ajouter plus de travail, soit :</output>
-      <output>1. Changez manuellement le statut du thème vers 'in-progress' dans sprint-status.yaml</output>
-      <output>2. Créez un nouveau thème pour du travail supplémentaire</output>
-      <action>ARRÊT - Impossible de continuer</action>
-    </check>
-    <check if="le statut du thème n'est aucun de : backlog, contexted, in-progress, done">
-      <output>ERREUR : Statut de thème invalide '{{epic_status}}'</output>
-      <output>Le thème {{epic_num}} a un statut invalide. Attendu : backlog, in-progress, ou done</output>
-      <output>Veuillez corriger sprint-status.yaml manuellement ou exécuter sprint-planning pour le régénérer</output>
-      <action>ARRÊT - Impossible de continuer</action>
-    </check>
-    <output>Statut du thème {{epic_num}} mis à jour vers in-progress</output>
-  </check>
 
-  <action>ALLER À étape 2a</action>
+<action>Vérifier si c'est le premier cas d'usage du thème {{epic_num}} en cherchant le pattern {{epic_num}}-1-\*</action>
+<check if="c'est le premier cas d'usage du thème {{epic_num}}">
+<action>Charger {{sprint_status}} et vérifier le statut epic-{{epic_num}}</action>
+<action>Si le statut du thème est "backlog" → mettre à jour vers "in-progress"</action>
+<action>Si le statut du thème est "contexted" (statut hérité) → mettre à jour vers "in-progress" (rétrocompatibilité)</action>
+<action>Si le statut du thème est "in-progress" → aucun changement nécessaire</action>
+<check if="le statut du thème est 'done'">
+<output>ERREUR : Impossible de créer un cas d'usage dans un thème complété</output>
+<output>Le thème {{epic_num}} est marqué comme 'done'. Tous les cas d'usage sont complets.</output>
+<output>Si vous devez ajouter plus de travail, soit :</output>
+<output>1. Changez manuellement le statut du thème vers 'in-progress' dans sprint-status.yaml</output>
+<output>2. Créez un nouveau thème pour du travail supplémentaire</output>
+<action>ARRÊT - Impossible de continuer</action>
+</check>
+<check if="le statut du thème n'est aucun de : backlog, contexted, in-progress, done">
+<output>ERREUR : Statut de thème invalide '{{epic_status}}'</output>
+<output>Le thème {{epic_num}} a un statut invalide. Attendu : backlog, in-progress, ou done</output>
+<output>Veuillez corriger sprint-status.yaml manuellement ou exécuter sprint-planning pour le régénérer</output>
+<action>ARRÊT - Impossible de continuer</action>
+</check>
+<output>Statut du thème {{epic_num}} mis à jour vers in-progress</output>
+</check>
+
+<action>ALLER À étape 2a</action>
 </step>
 
 <step n="2" goal="Charger et analyser les artefacts principaux">
   <critical>🔬 ANALYSE EXHAUSTIVE DES ARTEFACTS - C'est ici que vous prévenez les futures erreurs des développeurs !</critical>
 
   <!-- Charger tout le contenu disponible via le protocole de découverte -->
-  <action>Lire intégralement et suivre `./discover-inputs.md` pour charger tous les fichiers d'entrée</action>
-  <note>Contenu disponible : {epics_content}, {prd_content}, {architecture_content}, {ux_content}, plus les faits de contexte projet chargés pendant l'activation via `persistent_facts`.</note>
+
+<action>Lire intégralement et suivre `./discover-inputs.md` pour charger tous les fichiers d'entrée</action>
+<note>Contenu disponible : {epics_content}, {prd_content}, {architecture_content}, {ux_content}, plus les faits de contexte projet chargés pendant l'activation via `persistent_facts`.</note>
 
   <!-- Analyser le fichier des thèmes pour les fondations du cas d'usage -->
-  <action>Depuis {epics_content}, extraire le contexte complet du Thème {{epic_num}} :</action> **ANALYSE DU THÈME :** - Objectifs
-  du thème et valeur métier - TOUS les cas d'usage de ce thème pour le contexte inter-cas d'usage - Exigences spécifiques de notre cas d'usage, énoncé du cas d'usage,
-  critères d'acceptation - Exigences techniques et contraintes - Dépendances sur d'autres cas d'usage/thèmes - Indices source pointant vers
-  les documents originaux <!-- Extraire les exigences spécifiques du cas d'usage -->
-  <action>Extraire les détails de notre cas d'usage ({{epic_num}}-{{story_num}}) :</action> **FONDATION DU CAS D'USAGE :** - Énoncé du cas d'usage
-  (En tant que, je veux, afin que) - Critères d'acceptation détaillés (déjà au format BDD) - Exigences techniques spécifiques à ce cas d'usage -
-  Contexte métier et valeur - Critères de succès <!-- Analyse du cas d'usage précédent pour la continuité du contexte -->
-  <check if="story_num > 1">
-    <action>Trouver {{previous_story_num}} : scanner {implementation_artifacts} pour le fichier de cas d'usage du thème {{epic_num}} avec le numéro de cas d'usage le plus élevé inférieur à {{story_num}}</action>
-    <action>Charger le fichier du cas d'usage précédent : {implementation_artifacts}/{{epic_num}}-{{previous_story_num}}-*.md</action> **INTELLIGENCE DU CAS D'USAGE PRÉCÉDENT :** -
-  Notes dev et apprentissages du cas d'usage précédent - Retours de revue et corrections nécessaires - Fichiers créés/modifiés et leurs
-  patterns - Approches de tests qui ont fonctionné/n'ont pas fonctionné - Problèmes rencontrés et solutions trouvées - Patterns de code établis <action>Extraire
-  tous les apprentissages qui pourraient impacter l'implémentation du cas d'usage actuel</action>
-  </check>
+
+<action>Depuis {epics_content}, extraire le contexte complet du Thème {{epic_num}} :</action> **ANALYSE DU THÈME :** - Objectifs
+du thème et valeur métier - TOUS les cas d'usage de ce thème pour le contexte inter-cas d'usage - Exigences spécifiques de notre cas d'usage, énoncé du cas d'usage,
+critères d'acceptation - Exigences techniques et contraintes - Dépendances sur d'autres cas d'usage/thèmes - Indices source pointant vers
+les documents originaux <!-- Extraire les exigences spécifiques du cas d'usage -->
+<action>Extraire les détails de notre cas d'usage ({{epic_num}}-{{story_num}}) :</action> **FONDATION DU CAS D'USAGE :** - Énoncé du cas d'usage
+(En tant que, je veux, afin que) - Critères d'acceptation détaillés (déjà au format BDD) - Exigences techniques spécifiques à ce cas d'usage -
+Contexte métier et valeur - Critères de succès <!-- Analyse du cas d'usage précédent pour la continuité du contexte -->
+<check if="story_num > 1">
+<action>Trouver {{previous_story_num}} : scanner {implementation_artifacts} pour le fichier de cas d'usage du thème {{epic_num}} avec le numéro de cas d'usage le plus élevé inférieur à {{story_num}}</action>
+<action>Charger le fichier du cas d'usage précédent : {implementation_artifacts}/{{epic_num}}-{{previous_story_num}}-\*.md</action> **INTELLIGENCE DU CAS D'USAGE PRÉCÉDENT :** -
+Notes dev et apprentissages du cas d'usage précédent - Retours de revue et corrections nécessaires - Fichiers créés/modifiés et leurs
+patterns - Approches de tests qui ont fonctionné/n'ont pas fonctionné - Problèmes rencontrés et solutions trouvées - Patterns de code établis <action>Extraire
+tous les apprentissages qui pourraient impacter l'implémentation du cas d'usage actuel</action>
+</check>
 
   <!-- Intelligence Git pour les patterns de travail précédents -->
-  <check
+
+<check
     if="le cas d'usage précédent existe ET un dépôt git est détecté">
-    <action>Obtenir les 5 derniers titres de commit pour comprendre les patterns de travail récents</action>
-    <action>Analyser 1-5 commits les plus récents pour leur pertinence vis-à-vis du cas d'usage actuel :
-      - Fichiers créés/modifiés
-      - Patterns de code et conventions utilisés
-      - Dépendances de bibliothèques ajoutées/modifiées
-      - Décisions d'architecture implémentées
-      - Approches de tests utilisées
-    </action>
-    <action>Extraire des informations actionnables pour l'implémentation du cas d'usage actuel</action>
-  </check>
+<action>Obtenir les 5 derniers titres de commit pour comprendre les patterns de travail récents</action>
+<action>Analyser 1-5 commits les plus récents pour leur pertinence vis-à-vis du cas d'usage actuel : - Fichiers créés/modifiés - Patterns de code et conventions utilisés - Dépendances de bibliothèques ajoutées/modifiées - Décisions d'architecture implémentées - Approches de tests utilisées
+</action>
+<action>Extraire des informations actionnables pour l'implémentation du cas d'usage actuel</action>
+</check>
 </step>
 
 <step n="3" goal="Analyse architecturale pour les garde-fous des développeurs">
@@ -304,16 +298,14 @@ L'activation est terminée. Commencez le workflow ci-dessous.
   <action>Identifier toutes les décisions architecturales qui surpassent les patterns précédents</action>
 
   <!-- Lire le code existant en cours de modification — non-négociable -->
-  <critical>📂 LIRE LES FICHIERS EN COURS DE MODIFICATION — sauter cela est la principale cause des échecs d'implémentation et des cycles de revue</critical>
-  <action>Depuis la structure du répertoire d'architecture, identifier chaque fichier marqué UPDATE (pas NEW) que ce cas d'usage va toucher</action>
-  <action>Lire chaque fichier UPDATE pertinent dans son intégralité. Pour chacun, documenter dans les notes dev :
-    - État actuel : ce qu'il fait aujourd'hui (machine d'état, appels API, formes de données, comportements existants)
-    - Ce que ce cas d'usage change : les sections ou comportements spécifiques en cours de modification
-    - Ce qui doit être préservé : interactions et comportements existants que le cas d'usage ne doit pas casser
-  </action>
-  <critical>L'implémentation d'un cas d'usage doit laisser le système fonctionnant de bout en bout — pas seulement satisfaire ses CA déclarés.
-  Si un comportement est requis pour que la fonctionnalité fonctionne correctement dans le système existant, c'est une exigence
-  qu'elle soit ou non explicitement écrite dans le cas d'usage. L'agent dev en est responsable.</critical>
+
+<critical>📂 LIRE LES FICHIERS EN COURS DE MODIFICATION — sauter cela est la principale cause des échecs d'implémentation et des cycles de revue</critical>
+<action>Depuis la structure du répertoire d'architecture, identifier chaque fichier marqué UPDATE (pas NEW) que ce cas d'usage va toucher</action>
+<action>Lire chaque fichier UPDATE pertinent dans son intégralité. Pour chacun, documenter dans les notes dev : - État actuel : ce qu'il fait aujourd'hui (machine d'état, appels API, formes de données, comportements existants) - Ce que ce cas d'usage change : les sections ou comportements spécifiques en cours de modification - Ce qui doit être préservé : interactions et comportements existants que le cas d'usage ne doit pas casser
+</action>
+<critical>L'implémentation d'un cas d'usage doit laisser le système fonctionnant de bout en bout — pas seulement satisfaire ses CA déclarés.
+Si un comportement est requis pour que la fonctionnalité fonctionne correctement dans le système existant, c'est une exigence
+qu'elle soit ou non explicitement écrite dans le cas d'usage. L'agent dev en est responsable.</critical>
 </step>
 
 <step n="4" goal="Recherche web pour les spécificités techniques les plus récentes">
@@ -321,32 +313,25 @@ L'activation est terminée. Commencez le workflow ci-dessous.
   techniques spécifiques qui nécessitent une connaissance des dernières versions :</action>
 
   <!-- Vérifier les bibliothèques/frameworks mentionnés dans l'architecture -->
-  <action>Depuis l'analyse de l'architecture, identifier les bibliothèques, APIs ou
-  frameworks spécifiques</action>
-  <action>Pour chaque technologie critique, rechercher la dernière version stable et les changements clés :
-    - Documentation API la plus récente et changements cassants
-    - Vulnérabilités de sécurité ou mises à jour
-    - Améliorations de performance ou dépréciations
-    - Bonnes pratiques pour la version actuelle
-  </action>
-  **INCLUSION DE CONTEXTE EXTERNE :** <action>Inclure dans le cas d'usage toute information critique récente dont le développeur a besoin :
-    - Versions de bibliothèques spécifiques et pourquoi elles ont été choisies
-    - Endpoints API avec paramètres et authentification
-    - Patches de sécurité récents ou considérations
-    - Techniques d'optimisation de performance
-    - Considérations de migration en cas de mise à niveau
-  </action>
+
+<action>Depuis l'analyse de l'architecture, identifier les bibliothèques, APIs ou
+frameworks spécifiques</action>
+<action>Pour chaque technologie critique, rechercher la dernière version stable et les changements clés : - Documentation API la plus récente et changements cassants - Vulnérabilités de sécurité ou mises à jour - Améliorations de performance ou dépréciations - Bonnes pratiques pour la version actuelle
+</action>
+**INCLUSION DE CONTEXTE EXTERNE :** <action>Inclure dans le cas d'usage toute information critique récente dont le développeur a besoin : - Versions de bibliothèques spécifiques et pourquoi elles ont été choisies - Endpoints API avec paramètres et authentification - Patches de sécurité récents ou considérations - Techniques d'optimisation de performance - Considérations de migration en cas de mise à niveau
+</action>
 </step>
 
 <step n="5" goal="Créer un fichier de cas d'usage complet">
   <critical>📝 CRÉER LE FICHIER DE CAS D'USAGE ULTIME - Le guide d'implémentation maître du développeur !</critical>
 
-  <action>Initialiser depuis template.md :
-  {default_output_file}</action>
-  <template-output file="{default_output_file}">story_header</template-output>
+<action>Initialiser depuis template.md :
+{default_output_file}</action>
+<template-output file="{default_output_file}">story_header</template-output>
 
   <!-- Fondation du cas d'usage à partir de l'analyse des thèmes -->
-  <template-output
+
+<template-output
     file="{default_output_file}">story_requirements</template-output>
 
   <!-- Section contexte développeur - PARTIE LA PLUS IMPORTANTE -->
@@ -361,16 +346,18 @@ L'activation est terminée. Commencez le workflow ci-dessous.
   <template-output file="{default_output_file}">testing_requirements</template-output>
 
   <!-- Intelligence du cas d'usage précédent -->
-  <check
+
+<check
     if="apprentissages du cas d'usage précédent disponibles">
-    <template-output file="{default_output_file}">previous_story_intelligence</template-output>
-  </check>
+<template-output file="{default_output_file}">previous_story_intelligence</template-output>
+</check>
 
   <!-- Intelligence Git -->
-  <check
+
+<check
     if="analyse git complétée">
-    <template-output file="{default_output_file}">git_intelligence_summary</template-output>
-  </check>
+<template-output file="{default_output_file}">git_intelligence_summary</template-output>
+</check>
 
   <!-- Spécificités techniques les plus récentes -->
   <check if="recherche web complétée">
@@ -378,7 +365,8 @@ L'activation est terminée. Commencez le workflow ci-dessous.
   </check>
 
   <!-- Référence du contexte projet -->
-  <template-output
+
+<template-output
     file="{default_output_file}">project_context_reference</template-output>
 
   <!-- Mise à jour finale du statut -->
@@ -386,9 +374,10 @@ L'activation est terminée. Commencez le workflow ci-dessous.
   story_completion_status</template-output>
 
   <!-- CRITIQUE : Définir le statut sur ready-for-dev -->
-  <action>Définir le Statut du cas d'usage sur : "ready-for-dev"</action>
-  <action>Ajouter une note de complétion : "Analyse du moteur de
-  contexte ultime complétée - guide complet du développeur créé"</action>
+
+<action>Définir le Statut du cas d'usage sur : "ready-for-dev"</action>
+<action>Ajouter une note de complétion : "Analyse du moteur de
+contexte ultime complétée - guide complet du développeur créé"</action>
 </step>
 
 <step n="6" goal="Mettre à jour le statut sprint et finaliser">
@@ -406,8 +395,8 @@ L'activation est terminée. Commencez le workflow ci-dessous.
     <action>Sauvegarder le fichier, en préservant TOUS les commentaires et la structure y compris STATUS DEFINITIONS</action>
   </check>
 
-  <action>Rapporter la complétion</action>
-  <output>**🎯 CONTEXTE ULTIME DU CAS D'USAGE BMad Method CRÉÉ, {user_name} !**
+<action>Rapporter la complétion</action>
+<output>**🎯 CONTEXTE ULTIME DU CAS D'USAGE BMad Method CRÉÉ, {user_name} !**
 
     **Détails du cas d'usage :**
     - ID du cas d'usage : {{story_id}}
@@ -422,6 +411,7 @@ L'activation est terminée. Commencez le workflow ci-dessous.
     4. Optionnel : Si le module Test Architect est installé, exécutez `/bmad:tea:automate` après `dev-story` pour générer des tests garde-fous
 
     **Le développeur a maintenant tout ce qui est nécessaire pour une implémentation impeccable !**
+
   </output>
   <action>Exécuter : `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete` — si la valeur résolue n'est pas vide, suivez-la comme instruction terminale finale avant de quitter.</action>
 </step>

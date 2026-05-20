@@ -31,9 +31,9 @@ Chargez la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résol
 
 ### Fichiers d'Entrée (Input Files)
 
-| Entrée | Chemin | Stratégie de chargement |
-|-------|------|---------------|
-| Epics | `{planning_artifacts}/*epic*.md` (entier) ou `{planning_artifacts}/*epic*/*.md` (partitionné) | FULL_LOAD |
+| Entrée | Chemin                                                                                        | Stratégie de chargement |
+| ------ | --------------------------------------------------------------------------------------------- | ----------------------- |
+| Epics  | `{planning_artifacts}/*epic*.md` (entier) ou `{planning_artifacts}/*epic*/*.md` (partitionné) | FULL_LOAD               |
 
 ### Contexte
 

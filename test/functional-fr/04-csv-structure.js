@@ -39,20 +39,34 @@ function parseCsv(text) {
         field += ch;
       }
     } else {
-      if (ch === '"') {
-        inQuotes = true;
-      } else if (ch === ',') {
-        row.push(field);
-        field = '';
-      } else if (ch === '\n') {
-        row.push(field);
-        rows.push(row);
-        row = [];
-        field = '';
-      } else if (ch === '\r') {
-        // ignore (CRLF handled by '\n')
-      } else {
-        field += ch;
+      switch (ch) {
+        case '"': {
+          inQuotes = true;
+
+          break;
+        }
+        case ',': {
+          row.push(field);
+          field = '';
+
+          break;
+        }
+        case '\n': {
+          row.push(field);
+          rows.push(row);
+          row = [];
+          field = '';
+
+          break;
+        }
+        case '\r': {
+          // ignore (CRLF handled by '\n')
+
+          break;
+        }
+        default: {
+          field += ch;
+        }
       }
     }
   }
@@ -91,13 +105,10 @@ function run() {
       runner.test(`${relPath} : structure de chaque ligne cohérente`, () => {
         const frRows = parseCsv(fs.readFileSync(path.join(REPO_ROOT, relPath), 'utf8'));
         const enRows = parseCsv(fs.readFileSync(path.join(REPO_ROOT, original), 'utf8'));
-        runner.assert(
-          frRows.length === enRows.length,
-          `${frRows.length} ligne(s) côté FR vs ${enRows.length} côté original`,
-        );
+        runner.assert(frRows.length === enRows.length, `${frRows.length} ligne(s) côté FR vs ${enRows.length} côté original`);
         const headerCount = enRows[0].length;
-        for (let i = 0; i < frRows.length; i++) {
-          const frLen = frRows[i].length;
+        for (const [i, frRow] of frRows.entries()) {
+          const frLen = frRow.length;
           const enLen = enRows[i].length;
           if (frLen === enLen) continue;
 
@@ -113,9 +124,7 @@ function run() {
             continue;
           }
 
-          throw new Error(
-            `ligne ${i + 1} : ${frLen} champs côté FR vs ${enLen} côté original (header attend ${headerCount})`,
-          );
+          throw new Error(`ligne ${i + 1} : ${frLen} champs côté FR vs ${enLen} côté original (header attend ${headerCount})`);
         }
       });
     } else {
@@ -123,7 +132,7 @@ function run() {
       runner.test(`${relPath} parse correctement`, () => {
         const content = fs.readFileSync(path.join(REPO_ROOT, relPath), 'utf8');
         const rows = parseCsv(content);
-        runner.assert(rows.length >= 1, 'CSV vide');
+        runner.assert(rows.length > 0, 'CSV vide');
 
         const headerCount = rows[0].length;
         runner.assert(headerCount > 0, 'en-tête CSV vide');

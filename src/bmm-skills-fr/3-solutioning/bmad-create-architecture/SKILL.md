@@ -1,6 +1,6 @@
 ---
 name: bmad-create-architecture
-description: 'Créer les décisions de design architectural pour la cohérence des agents IA. À utiliser lorsque l''utilisateur dit « créons l''architecture » ou « créer l''architecture technique » ou « créer un design de solution »'
+description: "Créer les décisions de design architectural pour la cohérence des agents IA. À utiliser lorsque l'utilisateur dit « créons l'architecture » ou « créer l'architecture technique » ou « créer un design de solution »"
 ---
 
 # Workflow Architecture
@@ -51,6 +51,7 @@ Traiter chaque entrée dans `{workflow.persistent_facts}` comme contexte fondame
 ### Step 4 : Charger la Configuration
 
 Charger la configuration depuis `{project-root}/_bmad/bmm/config.yaml` et résoudre :
+
 - Utiliser `{user_name}` pour la salutation
 - Utiliser `{communication_language}` pour toutes les communications
 - Utiliser `{document_output_language}` pour les documents de sortie

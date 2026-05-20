@@ -1,5 +1,5 @@
 ---
-title: "Existující projekty"
+title: 'Existující projekty'
 description: Jak používat BMad Method na existujících kódových bázích
 sidebar:
   order: 6
@@ -10,10 +10,11 @@ Používejte BMad Method efektivně při práci na existujících projektech a s
 Tento návod pokrývá základní workflow pro zapojení se do existujících projektů s BMad Method.
 
 :::note[Předpoklady]
+
 - BMad Method nainstalován (`npx bmad-method install`)
 - Existující kódová báze, na které chcete pracovat
 - Přístup k AI-powered IDE (Claude Code nebo Cursor)
-:::
+  :::
 
 ## Krok 1: Vyčistěte dokončené plánovací artefakty
 
@@ -36,6 +37,7 @@ bmad-generate-project-context
 ```
 
 Toto skenuje vaši kódovou bázi a identifikuje:
+
 - Technologický stack a verze
 - Vzory organizace kódu
 - Konvence pojmenování
@@ -79,10 +81,10 @@ BMad-Help se také **automaticky spouští na konci každého workflow** a posky
 
 Máte dvě hlavní možnosti v závislosti na rozsahu změn:
 
-| Rozsah                         | Doporučený přístup                                                                                                            |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| Rozsah                           | Doporučený přístup                                                                                                                                        |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Malé aktualizace či doplnění** | Spusťte `bmad-quick-dev` pro vyjasnění záměru, plánování, implementaci a revizi v jednom workflow. Plná čtyřfázová metoda BMad je pravděpodobně přehnaná. |
-| **Velké změny či doplnění**    | Začněte s metodou BMad a aplikujte tolik nebo tak málo důkladnosti, kolik potřebujete.                                        |
+| **Velké změny či doplnění**      | Začněte s metodou BMad a aplikujte tolik nebo tak málo důkladnosti, kolik potřebujete.                                                                    |
 
 ### Během tvorby PRD
 

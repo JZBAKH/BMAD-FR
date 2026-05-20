@@ -1,7 +1,6 @@
 ---
 # Références de fichiers
 outputFile: '{planning_artifacts}/product-brief-{{project_name}}-{{date}}.md'
-
 ---
 
 # Étape 3 : Découverte des Utilisateurs Cibles

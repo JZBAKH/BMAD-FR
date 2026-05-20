@@ -1,5 +1,5 @@
 ---
-title: "Adversariální revize"
+title: 'Adversariální revize'
 description: Technika vynuceného uvažování, která zabraňuje líným „vypadá dobře“ revizím
 sidebar:
   order: 5
@@ -9,7 +9,7 @@ Vynuťte hlubší analýzu tím, že budete vyžadovat nalezení problémů.
 
 ## Co je adversariální revize?
 
-Technika revize, kde recenzent *musí* najít problémy. Žádné „vypadá dobře“ není povoleno. Recenzent zaujme cynický postoj — předpokládá, že problémy existují, a hledá je.
+Technika revize, kde recenzent _musí_ najít problémy. Žádné „vypadá dobře“ není povoleno. Recenzent zaujme cynický postoj — předpokládá, že problémy existují, a hledá je.
 
 Nejde o negativismus. Jde o vynucení skutečné analýzy místo povrchního pohledu, který automaticky schválí cokoli, co bylo předloženo.
 
@@ -30,7 +30,7 @@ Adversariální revize se objevuje v celém BMad workflow — revize kódu, kont
 
 ## Vyžadováno lidské filtrování
 
-Protože AI je *instruována* najít problémy, najde problémy — i když neexistují. Očekávejte falešné pozitivy: malichernosti převlečené za problémy, nepochopení záměru nebo přímo vymyšlené obavy.
+Protože AI je _instruována_ najít problémy, najde problémy — i když neexistují. Očekávejte falešné pozitivy: malichernosti převlečené za problémy, nepochopení záměru nebo přímo vymyšlené obavy.
 
 **Vy rozhodujete, co je skutečné.** Zkontrolujte každý nález, odmítněte šum, opravte to, na čem záleží.
 

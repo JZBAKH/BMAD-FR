@@ -8,6 +8,7 @@ description: 'Exécute l''implémentation du cas d''usage en suivant un fichier 
 **Objectif :** Exécuter l'implémentation du cas d'usage en suivant un fichier de spécification de cas d'usage rempli de contexte.
 
 **Votre Rôle :** Développeur implémentant le cas d'usage.
+
 - Communiquez toutes les réponses en {communication_language} et le langage DOIT être adapté à {user_skill_level}
 - Générez tous les documents en {document_output_language}
 - Modifiez uniquement le fichier de cas d'usage dans ces zones : cases à cocher Tasks/Subtasks, Dev Agent Record (Debug Log, Completion Notes), File List, Change Log, et Status
@@ -204,6 +205,7 @@ L'activation est terminée. Commencez le workflow ci-dessous.
     </action>
     <action if="fichier de cas d'usage inaccessible">ARRÊT : "Impossible de développer le cas d'usage sans accès au fichier de cas d'usage"</action>
     <action if="exigences de la tâche ou sous-tâche incomplète sont ambiguës">DEMANDER à l'utilisateur de clarifier ou ARRÊT</action>
+
   </step>
 
   <step n="2" goal="Charger le contexte du projet et les informations du cas d'usage">
@@ -217,6 +219,7 @@ L'activation est terminée. Commencez le workflow ci-dessous.
     <output>✅ **Contexte chargé**
       Cas d'usage et contexte projet disponibles pour l'implémentation
     </output>
+
   </step>
 
   <step n="3" goal="Détecter la continuation de revue et extraire le contexte de revue">
@@ -257,6 +260,7 @@ L'activation est terminée. Commencez le workflow ci-dessous.
         Première tâche incomplète : {{first_task_description}}
       </output>
     </check>
+
   </step>
 
   <step n="4" goal="Marquer le cas d'usage in-progress" tag="sprint-status">
@@ -292,6 +296,7 @@ L'activation est terminée. Commencez le workflow ci-dessous.
       <output>ℹ️ Aucun fichier de statut sprint n'existe - la progression du cas d'usage sera suivie uniquement dans le fichier de cas d'usage</output>
       <action>Définir {{current_sprint_status}} = "no-sprint-tracking"</action>
     </check>
+
   </step>
 
   <step n="5" goal="Implémenter la tâche en suivant le cycle red-green-refactor">
@@ -323,6 +328,7 @@ L'activation est terminée. Commencez le workflow ci-dessous.
     <critical>NE JAMAIS passer à la tâche suivante avant que la tâche/sous-tâche actuelle soit complète ET les tests passent</critical>
     <critical>Exécutez en continu sans pause jusqu'à ce que toutes les tâches/sous-tâches soient complètes ou qu'une condition d'ARRÊT explicite survienne</critical>
     <critical>NE PAS proposer de pause pour révision avant que les portes de complétion de l'Étape 9 soient satisfaites</critical>
+
   </step>
 
   <step n="6" goal="Rédiger des tests complets">
@@ -391,6 +397,7 @@ L'activation est terminée. Commencez le workflow ci-dessous.
     <action if="aucune tâche restante">
       <goto step="9">Complétion</goto>
     </action>
+
   </step>
 
   <step n="9" goal="Complétion du cas d'usage et marquage pour révision" tag="sprint-status">
@@ -442,6 +449,7 @@ L'activation est terminée. Commencez le workflow ci-dessous.
     <action if="des échecs de régression existent">ARRÊT - Corriger les problèmes de régression avant de compléter</action>
     <action if="File List est incomplet">ARRÊT - Mettre à jour File List avec tous les fichiers modifiés</action>
     <action if="la validation definition-of-done échoue">ARRÊT - Traiter les échecs DoD avant de compléter</action>
+
   </step>
 
   <step n="10" goal="Communication de complétion et support utilisateur">
@@ -479,7 +487,8 @@ L'activation est terminée. Commencez le workflow ci-dessous.
       <action>Suggérer de vérifier {sprint_status} pour voir la progression du projet</action>
     </check>
     <action>Rester flexible - permettre à l'utilisateur de choisir son propre chemin ou de demander une autre assistance</action>
-  <action>Exécuter : `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete` — si la valeur résolue n'est pas vide, suivez-la comme instruction terminale finale avant de quitter.</action>
-  </step>
+
+<action>Exécuter : `python3 {project-root}/_bmad/scripts/resolve_customization.py --skill {skill-root} --key workflow.on_complete` — si la valeur résolue n'est pas vide, suivez-la comme instruction terminale finale avant de quitter.</action>
+</step>
 
 </workflow>
