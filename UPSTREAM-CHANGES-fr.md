@@ -5,59 +5,72 @@ _Rapport généré le 2026-05-20 par `.github/workflows/upstream-changes-report.
 ## 📊 Vue d'ensemble
 
 - **origin/main** : `1da6bf80`
-- **bmad-fr** : `baeddf24`
-- **Fraîcheur de la traduction** : 92.5% (245/265 fichiers à jour)
+- **bmad-fr** : `48af080e`
+- **Fraîcheur de la traduction** : 71.7% (190/265 fichiers à jour)
 
-| Catégorie                                            | Nombre |
-| ---------------------------------------------------- | ------ |
-| 🆕 Nouveaux fichiers upstream à importer/traduire    | **1**  |
-| 🔄 Traductions FR potentiellement obsolètes          | **19** |
-| 🗑️ Fichiers supprimés upstream (orphelins côté fork) | **6**  |
-| ❓ EN modifié mais sans équivalent FR identifiable   | 0      |
-
-## 🆕 Nouveaux fichiers upstream (à importer + traduire)
-
-Ces fichiers existent dans upstream mais pas dans le fork. À importer via le
-workflow `sync-upstream-en.yml` (auto quotidien) puis à traduire manuellement.
-
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/references/validate.md` → traduire dans `src/bmm-skills-fr/2-plan-workflows/bmad-prd/references/validate.md`
+| Catégorie | Nombre |
+|---|---|
+| 🆕 Nouveaux fichiers upstream à importer/traduire | **0** |
+| 🔄 Traductions FR potentiellement obsolètes | **75** |
+| 🗑️ Fichiers supprimés upstream (orphelins côté fork) | **0** |
+| ❓ EN modifié mais sans équivalent FR identifiable | 0 |
 
 ## 🔄 Traductions FR potentiellement obsolètes
 
 Ces fichiers EN ont été modifiés upstream. La version FR existe mais peut
 avoir besoin d'être mise à jour.
 
+- [ ] `src/bmm-skills/1-analysis/bmad-agent-analyst/SKILL.md` → `src/bmm-skills-fr/1-analysis/bmad-agent-analyst/SKILL.md`
+- [ ] `src/bmm-skills/1-analysis/bmad-agent-tech-writer/SKILL.md` → `src/bmm-skills-fr/1-analysis/bmad-agent-tech-writer/SKILL.md`
+- [ ] `src/bmm-skills/1-analysis/bmad-document-project/SKILL.md` → `src/bmm-skills-fr/1-analysis/bmad-document-project/SKILL.md`
+- [ ] `src/bmm-skills/1-analysis/bmad-document-project/instructions.md` → `src/bmm-skills-fr/1-analysis/bmad-document-project/instructions.md`
+- [ ] `src/bmm-skills/1-analysis/bmad-document-project/workflows/deep-dive-workflow.md` → `src/bmm-skills-fr/1-analysis/bmad-document-project/workflows/deep-dive-workflow.md`
+- [ ] `src/bmm-skills/1-analysis/bmad-prfaq/SKILL.md` → `src/bmm-skills-fr/1-analysis/bmad-prfaq/SKILL.md`
+- [ ] `src/bmm-skills/1-analysis/bmad-prfaq/agents/artifact-analyzer.md` → `src/bmm-skills-fr/1-analysis/bmad-prfaq/agents/artifact-analyzer.md`
+- [ ] `src/bmm-skills/1-analysis/bmad-prfaq/agents/web-researcher.md` → `src/bmm-skills-fr/1-analysis/bmad-prfaq/agents/web-researcher.md`
+- [ ] `src/bmm-skills/1-analysis/bmad-prfaq/assets/prfaq-template.md` → `src/bmm-skills-fr/1-analysis/bmad-prfaq/assets/prfaq-template.md`
+- [ ] `src/bmm-skills/1-analysis/bmad-prfaq/references/press-release.md` → `src/bmm-skills-fr/1-analysis/bmad-prfaq/references/press-release.md`
+- [ ] `src/bmm-skills/1-analysis/bmad-prfaq/references/verdict.md` → `src/bmm-skills-fr/1-analysis/bmad-prfaq/references/verdict.md`
 - [ ] `src/bmm-skills/1-analysis/bmad-product-brief/SKILL.md` → `src/bmm-skills-fr/1-analysis/bmad-product-brief/SKILL.md`
-- [ ] `src/bmm-skills/1-analysis/bmad-product-brief/customize.toml` → `src/bmm-skills-fr/1-analysis/bmad-product-brief/customize.toml`
+- [ ] `src/bmm-skills/1-analysis/research/bmad-domain-research/SKILL.md` → `src/bmm-skills-fr/1-analysis/research/bmad-domain-research/SKILL.md`
+- [ ] `src/bmm-skills/1-analysis/research/bmad-market-research/SKILL.md` → `src/bmm-skills-fr/1-analysis/research/bmad-market-research/SKILL.md`
+- [ ] `src/bmm-skills/1-analysis/research/bmad-technical-research/SKILL.md` → `src/bmm-skills-fr/1-analysis/research/bmad-technical-research/SKILL.md`
+- [ ] `src/bmm-skills/2-plan-workflows/bmad-agent-pm/SKILL.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-agent-pm/SKILL.md`
+- [ ] `src/bmm-skills/2-plan-workflows/bmad-agent-ux-designer/SKILL.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-agent-ux-designer/SKILL.md`
+- [ ] `src/bmm-skills/2-plan-workflows/bmad-create-prd/SKILL.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-create-prd/SKILL.md`
+- [ ] `src/bmm-skills/2-plan-workflows/bmad-create-ux-design/SKILL.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-create-ux-design/SKILL.md`
+- [ ] `src/bmm-skills/2-plan-workflows/bmad-create-ux-design/steps/step-01-init.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-create-ux-design/steps/step-01-init.md`
+- [ ] `src/bmm-skills/2-plan-workflows/bmad-create-ux-design/steps/step-14-complete.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-create-ux-design/steps/step-14-complete.md`
+- [ ] `src/bmm-skills/2-plan-workflows/bmad-edit-prd/SKILL.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-edit-prd/SKILL.md`
 - [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/SKILL.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-prd/SKILL.md`
 - [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/assets/headless-schemas.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-prd/assets/headless-schemas.md`
 - [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/assets/prd-template.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-prd/assets/prd-template.md`
 - [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/assets/prd-validation-checklist.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-prd/assets/prd-validation-checklist.md`
 - [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/assets/validation-report-template.html` → `src/bmm-skills-fr/2-plan-workflows/bmad-prd/assets/validation-report-template.html`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/customize.toml` → `src/bmm-skills-fr/2-plan-workflows/bmad-prd/customize.toml`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/references/headless.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-prd/references/headless.md`
-- [ ] `src/bmm-skills/module.yaml` → `src/bmm-skills-fr/module.yaml`
-- [ ] `src/core-skills/module.yaml` → `src/core-skills-fr/module.yaml`
-- [ ] `tools/installer/core/installer.js` → `tools/installer-fr/core/installer.js`
-- [ ] `tools/installer/core/manifest.js` → `tools/installer-fr/core/manifest.js`
-- [ ] `tools/installer/ide/_config-driven.js` → `tools/installer-fr/ide/_config-driven.js`
-- [ ] `tools/installer/modules/channel-plan.js` → `tools/installer-fr/modules/channel-plan.js`
-- [ ] `tools/installer/modules/external-manager.js` → `tools/installer-fr/modules/external-manager.js`
-- [ ] `tools/installer/modules/official-modules.js` → `tools/installer-fr/modules/official-modules.js`
-- [ ] `tools/installer/prompts.js` → `tools/installer-fr/prompts.js`
-- [ ] `tools/installer/ui.js` → `tools/installer-fr/ui.js`
-
-## 🗑️ Fichiers supprimés upstream
-
-Ces fichiers existent dans le fork mais ont été supprimés upstream. À évaluer :
-garder (si toujours pertinent) ou supprimer (si obsolète).
-
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/references/facilitation-guide.md`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/references/validation-render.md`
-- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/scripts/render-validation-html.py`
-- [ ] `tools/installer/modules/community-manager.js`
-- [ ] `tools/installer/modules/registry-client.js`
-- [ ] `tools/installer/modules/registry-fallback.yaml`
+- [ ] `src/bmm-skills/2-plan-workflows/bmad-prd/references/validate.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-prd/references/validate.md`
+- [ ] `src/bmm-skills/2-plan-workflows/bmad-validate-prd/SKILL.md` → `src/bmm-skills-fr/2-plan-workflows/bmad-validate-prd/SKILL.md`
+- [ ] `src/bmm-skills/3-solutioning/bmad-agent-architect/SKILL.md` → `src/bmm-skills-fr/3-solutioning/bmad-agent-architect/SKILL.md`
+- [ ] `src/bmm-skills/3-solutioning/bmad-check-implementation-readiness/SKILL.md` → `src/bmm-skills-fr/3-solutioning/bmad-check-implementation-readiness/SKILL.md`
+- [ ] `src/bmm-skills/3-solutioning/bmad-create-architecture/SKILL.md` → `src/bmm-skills-fr/3-solutioning/bmad-create-architecture/SKILL.md`
+- [ ] `src/bmm-skills/3-solutioning/bmad-create-architecture/steps/step-01-init.md` → `src/bmm-skills-fr/3-solutioning/bmad-create-architecture/steps/step-01-init.md`
+- [ ] `src/bmm-skills/3-solutioning/bmad-create-architecture/steps/step-01b-continue.md` → `src/bmm-skills-fr/3-solutioning/bmad-create-architecture/steps/step-01b-continue.md`
+- [ ] `src/bmm-skills/3-solutioning/bmad-create-architecture/steps/step-03-starter.md` → `src/bmm-skills-fr/3-solutioning/bmad-create-architecture/steps/step-03-starter.md`
+- [ ] `src/bmm-skills/3-solutioning/bmad-create-architecture/steps/step-08-complete.md` → `src/bmm-skills-fr/3-solutioning/bmad-create-architecture/steps/step-08-complete.md`
+- [ ] `src/bmm-skills/3-solutioning/bmad-create-epics-and-stories/SKILL.md` → `src/bmm-skills-fr/3-solutioning/bmad-create-epics-and-stories/SKILL.md`
+- [ ] `src/bmm-skills/3-solutioning/bmad-generate-project-context/SKILL.md` → `src/bmm-skills-fr/3-solutioning/bmad-generate-project-context/SKILL.md`
+- [ ] `src/bmm-skills/4-implementation/bmad-agent-dev/SKILL.md` → `src/bmm-skills-fr/4-implementation/bmad-agent-dev/SKILL.md`
+- [ ] `src/bmm-skills/4-implementation/bmad-checkpoint-preview/generate-trail.md` → `src/bmm-skills-fr/4-implementation/bmad-checkpoint-preview/generate-trail.md`
+- [ ] `src/bmm-skills/4-implementation/bmad-code-review/steps/step-01-gather-context.md` → `src/bmm-skills-fr/4-implementation/bmad-code-review/steps/step-01-gather-context.md`
+- [ ] `src/bmm-skills/4-implementation/bmad-code-review/steps/step-02-review.md` → `src/bmm-skills-fr/4-implementation/bmad-code-review/steps/step-02-review.md`
+- [ ] `src/bmm-skills/4-implementation/bmad-code-review/steps/step-03-triage.md` → `src/bmm-skills-fr/4-implementation/bmad-code-review/steps/step-03-triage.md`
+- [ ] `src/bmm-skills/4-implementation/bmad-code-review/steps/step-04-present.md` → `src/bmm-skills-fr/4-implementation/bmad-code-review/steps/step-04-present.md`
+- [ ] `src/bmm-skills/4-implementation/bmad-correct-course/SKILL.md` → `src/bmm-skills-fr/4-implementation/bmad-correct-course/SKILL.md`
+- [ ] `src/bmm-skills/4-implementation/bmad-create-story/SKILL.md` → `src/bmm-skills-fr/4-implementation/bmad-create-story/SKILL.md`
+- [ ] `src/bmm-skills/4-implementation/bmad-create-story/discover-inputs.md` → `src/bmm-skills-fr/4-implementation/bmad-create-story/discover-inputs.md`
+- [ ] `src/bmm-skills/4-implementation/bmad-dev-story/SKILL.md` → `src/bmm-skills-fr/4-implementation/bmad-dev-story/SKILL.md`
+- [ ] `src/bmm-skills/4-implementation/bmad-investigate/SKILL.md` → `src/bmm-skills-fr/4-implementation/bmad-investigate/SKILL.md`
+- [ ] `src/bmm-skills/4-implementation/bmad-investigate/references/case-file-template.md` → `src/bmm-skills-fr/4-implementation/bmad-investigate/references/case-file-template.md`
+- _… et 25 autres_
 
 ---
 
